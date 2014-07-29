@@ -1,58 +1,79 @@
 <?php
 
-$object='releases';
+include('github_common.php');
 
-// Max number of elments to display
-$max=1;
 
-// JSON api URL
-$json_url = 'https://api.github.com/repos/LMMS/lmms/' . $object;
+/*
+ * Maximum number of displayed items
+ */
+$max=4;
 
-// JSON cache file
-$cache_file = $_SERVER['DOCUMENT_ROOT_HASH'] . '/../tmp/.json_github_' . $object;
-
-// Use the cache version if it's less than 60 seconds old
-if (file_exists($cache_file) && (filemtime($cache_file) > (time() - 60))) {
-   $json = file_get_contents($cache_file);
-} else {
-   $json = file_get_contents_curl($json_url);
-   file_put_contents($cache_file, $json, LOCK_EX);
-}
-
-// decode json data
-$obj = json_decode($json);
-
+/*
+ * Creates an array of relational JSON objects from cached or online GitHub data
+ */
+$obj = get_github_data('releases', '');
 $count = 0;
-// loop through items and echo
+
+/*
+ * Loop through items and echo our data to the page
+ */
 foreach($obj as $item) {
-   echo '';
    foreach($item->assets as $asset) {
+      $text = $item->name . '&nbsp; (' . get_os_name($asset->name) . ')';
+
+      echo '<a data-dl-count="' . $asset->download_count . '" style="margin-bottom: 3px;" class="btn btn-sm btn-success" href="' . $asset->browser_download_url . '"><span class="glyphicon glyphicon-arrow-down"></span>&nbsp;' . $text . '</a><br>';
+
+/*
       echo '<a style="margin-bottom: 3px;" class="btn btn-sm btn-success" href="' . $asset->browser_download_url . '">' .
 	$asset->name . '&nbsp; <span class="badge">';
-      echo $asset->download_count . '</span></a><br>'; 
+      echo $asset->download_count . '</span></a><br>';
+*/
    }
-   echo '';
-   $count++;
-   if ($count == $max) { 
-      echo '<a style="float:right;" href="' . $item->html_url . '">release notes</a>';
+   echo '<a class="label label-info" style="margin-left: 57px;" target="new" href="download.php">other systems</a><br>';
+   echo '<a class="label label-info" style="margin-left: 57px;" target="new" href="' . $item->html_url . '"><span class="glyphicon glyphicon-ok"></span>&nbsp; release notes</a>';
+
+   if (++$count == $max) {
       break;
+   } else {
+      echo '<hr>';
+   }
+   if ($count == 1) {
+      echo '<h3><span class="label label-warning"><span class="glyphicon glyphicon-hand-down"></span>&nbsp; Prev. Versions</span></h3><br><br>';
    }
 
 }
 
-// file_get_contents() won't work.  Use curl instead.
-function file_get_contents_curl($url) {
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_USERAGENT, 'curl/7.x (linux)');
-    curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);       
-    $data = curl_exec($ch);
-    curl_close($ch);
-    return $data;
+
+/*
+ * Get "Windows", "Apple", etc based on Download URL
+ */
+function get_os_name($text) {
+   if (strpos($text, '.tar.') !== false) {
+      return 'Source Tarball';
+   } else if (strpos($text, '.deb') !== false) {
+      if (strpos($text, 'amd64') !== false) {
+         return 'Ubuntu 64-bit';
+      } else {
+         return 'Ubuntu 32-bit';
+      }
+   } else if (strpos($text, '.rpm') !== false) {
+      if (strpos($text, 'amd64') !== false) {
+         return 'Fedora 64-bit';
+      } else {
+         return 'Fedora 32-bit';
+      }
+   } else if (strpos($text, '.dmg') !== false) {
+      return 'Apple OS X';
+   } else if (strpos($text, '.exe') !== false) {
+      if (strpos($text, 'win64') !== false) {
+         return 'Windows 64-bit';
+      } else {
+         return 'Windows 32-bit';
+      }
+   } else {
+      return $text;;
+   }
 }
+
 
 ?>
-
