@@ -9,9 +9,9 @@
          <div class="panel-heading">
             <h3 class="panel-title">Downloads</h3>
          </div>
-         <div class="panel-body">
+         <div style="max-height: 140px;" class="panel-body">
 <!-- Loads download links automatically from dl.php -->
-<?php include('github/releases.php'); ?>
+<?php include('feed/releases.php'); ?>
          </div>
       </div>
    </div>
