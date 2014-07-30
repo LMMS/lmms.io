@@ -34,13 +34,13 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <?php
-                           menu_item("Home", "/index.php");
-                           menu_item("Download");
-                           menu_item("Screenshots");
-                           menu_item("Tracks");
-                           menu_item("Documentation");
-                           menu_item("Community");
-                           menu_item("Share", "/lsp/");
+                           @menu_item("Home", "/index.php");
+                           @menu_item("Download");
+                           @menu_item("Screenshots");
+                           @menu_item("Tracks");
+                           @menu_item("Documentation");
+                           @menu_item("Community");
+                           @menu_item("Share", "/lsp/");
                         ?>
                     </ul>
                 </div>
@@ -54,7 +54,7 @@
  * Returns the current page name, i.e. "Home", etc
  */
 function get_page_name() {
-   $uri = str_replace('/', '', $_SERVER[REQUEST_URI]);
+   $uri = str_replace('/', '', $_SERVER["REQUEST_URI"]);
    switch($uri) {
       case 'header.php':
       case '':
