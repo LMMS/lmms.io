@@ -44,7 +44,7 @@ if ($obj) {
 
 	}
 } else {
-		echo '<p class="label label-danger">Error getting feed</p>';
+	echo '<p class="label label-danger">Error getting feed</p>';
 }
 
 
