@@ -13,7 +13,7 @@ $json_url = 'https://api.github.com/repos/LMMS/lmms/'; //. $object . $params;
 /*
  * Local JSON cache file
  */
-$cache_file = $_SERVER['DOCUMENT_ROOT_HASH'] . '/../tmp/.json_github_'; // . $object;
+$cache_file = get_document_root() . '/../tmp/.json_github_'; // . $object;
 
 /*
  * Returns the JSON decoded object from the respective github URL
@@ -26,7 +26,7 @@ function get_github_data($object, $params) {
 
    $using_url = false;
    if (cache_expired($cache_file . $object)) {
-      $json = file_get_contents_curl($json_url . $object . $params);
+	  $json = file_get_contents_curl($json_url . $object . $params);
       $using_url = true;
    } else {
       $json = file_get_contents($cache_file . $object);
@@ -56,7 +56,7 @@ function get_github_data($object, $params) {
 function cache_expired($cache) {
    global $max_age;
    if (file_exists($cache)) {
-        if (file_exists($cache) && (filemtime($cache) > time() - ($max_age * 60 ))) {
+        if (filemtime($cache) > time() - ($max_age * 60 )) {
            return false;
         }
    }
@@ -71,8 +71,8 @@ function cache_expired($cache) {
  * authenticate with a dedicated service account.
  */
 function file_get_contents_curl($url) {
-    $client_id=base64_decode(file_get_contents('/home/lmms/GITHUB_CLIENT_ID'));
-    $client_secret=base64_decode(file_get_contents('/home/lmms/GITHUB_CLIENT_SECRET'));
+    $client_id=base64_decode(@file_get_contents('/home/lmms/GITHUB_CLIENT_ID'));
+    $client_secret=base64_decode(@file_get_contents('/home/lmms/GITHUB_CLIENT_SECRET'));
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_USERAGENT, 'curl/7.x (linux)');
     curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
@@ -82,9 +82,19 @@ function file_get_contents_curl($url) {
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
     $data = curl_exec($ch);
     curl_close($ch);
+
     return $data;
 }
 
+/*
+ * Checks for a special "DOCUMENT_ROOT_HASH" global first 
+ * and fall-back to the standard "DOCUMENT_ROOT" if unavailable
+ */
+function get_document_root() {
+   // Prefixed with '@' to prevent php warnings
+   $retval =@$_SERVER["DOCUMENT_ROOT_HASH"];
+   return ($retval ? $retval : $_SERVER["DOCUMENT_ROOT"]);
+}
 
 
 ?>
