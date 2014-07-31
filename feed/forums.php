@@ -5,6 +5,10 @@
 
 include('rss/rss_fetch.inc');
 
+if ( !defined('MAGPIE_OUTPUT_ENCODING') ) {
+	define('MAGPIE_OUTPUT_ENCODING', 'UTF-8');
+}
+
 $rss = fetch_rss('http://lmms.tuxfamily.org/forum/feed.php');
 
 foreach ($rss->items as $item) {
