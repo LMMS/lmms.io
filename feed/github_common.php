@@ -40,7 +40,7 @@ function get_github_data($object, $params) {
 	*/
 	if (count($obj) > 1) {
 		if ($using_url) {
-			file_put_contents($cache_file . $object, $json, LOCK_EX);
+			@file_put_contents($cache_file . $object, $json, LOCK_EX);
 		}
 		return $obj;
 	} else {
@@ -80,6 +80,13 @@ function file_get_contents_curl($url) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_URL, $url . '?client_id=' . $client_id . '&client_secret=' . $client_secret);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+	
+	// Skip SSL checks for localhost clients as Trusted CAs often aren't
+	// installed into CURL on developer's PCs
+	if (in_array($_SERVER["REMOTE_ADDR"], array ("127.0.0.1", "::1"))) {
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	}
+	
 	$data = curl_exec($ch);
 	curl_close($ch);
 
