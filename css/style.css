@@ -3,6 +3,13 @@ body {
 	padding-bottom: 30px;
 }
 
+
+blockquote {
+	font-size: 14px;
+	font-style: italic;
+}
+
+
 .theme-dropdown .dropdown-menu {
 	position: static;
 	display: block;
@@ -118,9 +125,3 @@ body {
 .bs-callout a.alert-link {
 	font-weight: bold;
 }
-
-.blockquote {
-	font-size: 14px;
-	font-style: italic;
-}
-
