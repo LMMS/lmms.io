@@ -32,7 +32,7 @@ Bundled with many ready-to-use instrument and effect plugins, presets and sample
 <a target="new" href="img/ss_instr.png"><img class="img-thumbnail" alt="350x169" src="img/th_ss_instr.png" style="float: bottom; width: 350px; height: 169px;"></a>
 </div>
 <ul>
-    <li>Compose music on Windows, Linux and Apple OS X</li>	
+    <li>Compose music on Windows, Linux and Apple OS&nbsp;X</li>	
     <li>Sequence, compose, mix and automate songs in one simple interface</li>
 	<li>Note playback via MIDI or typing keyboard</li>
 	<li>Consolidate instrument tracks using Beat+Bassline Editor</li>
