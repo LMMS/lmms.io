@@ -244,7 +244,7 @@ class MagpieRSS {
                 $link_el = 'link';
             }
             else {
-                $link_el = 'link_' . $attrs['rel'];
+                $link_el = 'link_' . @$attrs['rel'];
             }
             
             $this->append($link_el, $attrs['href']);
