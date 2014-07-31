@@ -170,7 +170,7 @@ class MagpieRSS {
             }
             elseif ( $el == 'feed' ) {
                 $this->feed_type = ATOM;
-                $this->feed_version = $attrs['version'];
+                $this->feed_version = @$attrs['version'];
                 $this->inchannel = true;
             }
             return;
