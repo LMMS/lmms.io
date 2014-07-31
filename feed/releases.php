@@ -30,7 +30,9 @@ if ($obj) {
 			echo $asset->download_count . '</span></a><br>';
 			*/
 		}
-		echo '<a class="label label-info" style="margin-left: 57px;" target="new" href="download.php">other systems</a><br>';
+		if ($count == 0) {
+			echo '<a class="label label-success" style="position: relative; top: -2px; margin-left: 55px;" target="new" href="download.php"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;other systems</a><br>';
+		}
 		echo '<a class="label label-info" style="margin-left: 57px;" target="new" href="' . $item->html_url . '"><span class="glyphicon glyphicon-ok"></span>&nbsp; release notes</a>';
 
 		if (++$count == $max) {
@@ -39,9 +41,8 @@ if ($obj) {
 			echo '<hr>';
 		}
 		if ($count == 1) {
-			echo '<h3><span class="label label-warning"><span class="glyphicon glyphicon-hand-down"></span>&nbsp; Prev. Versions</span></h3><br><br>';
+			echo '<h3><span class="label label-warning">Previous Versions</h3><hr>';
 		}
-
 	}
 } else {
 	echo '<p class="label label-danger">Error getting feed</p>';
