@@ -36,43 +36,43 @@ body {
 
 /* Base styles (regardless of theme) */
 .bs-callout {
-    margin: 10px 0;
-    padding: 15px 30px 15px 15px;
-    border-left: 5px solid #eee;
+	margin: 10px 0;
+	padding: 15px 30px 15px 15px;
+	border-left: 5px solid #eee;
 }
  
 .bs-callout h4 {
-    margin-top: 0;
+	margin-top: 0;
 }
  
 .bs-callout p:last-child {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
  
 .bs-callout code,
 .bs-callout .highlight {
-    background-color: #fff;
+	background-color: #fff;
 }
  
 /* Themes for different contexts */
 .bs-callout-danger {
-    background-color: #fcf2f2;
-    border-color: #dFb5b4;
+	background-color: #fcf2f2;
+	border-color: #dFb5b4;
 }
  
 .bs-callout-warning {
-    background-color: #fefbed;
-    border-color: #f1e7bc;
+	background-color: #fefbed;
+	border-color: #f1e7bc;
 }
  
 .bs-callout-info {
-    background-color: #f0f7fd;
-    border-color: #d0e3f0;
+	background-color: #f0f7fd;
+	border-color: #d0e3f0;
 }
 
 .bs-callout-success {
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
 }
  
 .bs-callout-danger h1,
@@ -82,7 +82,7 @@ body {
 .bs-callout-danger h5,
 .bs-callout-danger h6 ,
 .bs-callout-danger a.alert-link {
-    color: #B94A48;
+	color: #B94A48;
 }
  
 .bs-callout-warning h1,
@@ -92,7 +92,7 @@ body {
 .bs-callout-warning h5,
 .bs-callout-warning h6,
 .bs-callout-warning a.alert-link {
-    color: #C09853;
+	color: #C09853;
 }
  
 .bs-callout-info h1,
@@ -102,7 +102,7 @@ body {
 .bs-callout-info h5,
 .bs-callout-info h6,
 .bs-callout-info a.alert-link {
-    color: #3A87AD;
+	color: #3A87AD;
 }
 
 .bs-callout-success h1,
@@ -116,6 +116,11 @@ body {
 }
  
 .bs-callout a.alert-link {
-    font-weight: bold;
+	font-weight: bold;
+}
+
+.blockquote {
+	font-size: 14px;
+	font-style: italic;
 }
 
