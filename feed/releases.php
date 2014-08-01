@@ -4,48 +4,69 @@ include('github_common.php');
 
 
 /*
- * Maximum number of displayed items
+ * Default number of displayed items
  */
-$max=4;
+$max=1;
+
 
 /*
- * Creates an array of relational JSON objects from cached or online GitHub data
- */
-$obj = get_github_data('releases', '');
-$count = 0;
+ * Gets the past x number of releases in the specified format
+ * $format = "vert" returns vertical list of buttons (default)
+ * $format = "horiz" returns horizontal buttons
+ */ 
+function get_releases($max_releases, $format) {
 
-/*
- * Loop through items and echo our data to the page
- */
-if ($obj) {
-	foreach($obj as $item) {
-		foreach($item->assets as $asset) {
-			$text = $item->name . '&nbsp; (' . get_os_name($asset->name) . ')';
-
-			echo '<a data-dl-count="' . $asset->download_count . '" style="margin-bottom: 3px;" class="btn btn-sm btn-success" href="' . $asset->browser_download_url . '"><span class="glyphicon glyphicon-arrow-down"></span>&nbsp;' . $text . '</a><br>';
-
-			/*
-			echo '<a style="margin-bottom: 3px;" class="btn btn-sm btn-success" href="' . $asset->browser_download_url . '">' .
-				$asset->name . '&nbsp; <span class="badge">';
-			echo $asset->download_count . '</span></a><br>';
-			*/
-		}
-		if ($count == 0) {
-			echo '<a class="label label-success" style="position: relative; top: -2px; margin-left: 55px;" target="new" href="download.php"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;other systems</a><br>';
-		}
-		echo '<a class="label label-info" style="margin-left: 57px;" target="new" href="' . $item->html_url . '"><span class="glyphicon glyphicon-ok"></span>&nbsp; release notes</a>';
-
-		if (++$count == $max) {
-			break;
-		} else {
-			echo '<hr>';
-		}
-		if ($count == 1) {
-			echo '<h3><span class="label label-warning">Previous Versions</h3><hr>';
-		}
+	/*
+	 * Use the default value declared above if none is specified
+	 */
+	if (!$max_releases) {
+		global $max;
+		$max_releases = $max;
 	}
-} else {
-	echo '<p class="label label-danger">Error getting feed</p>';
+	
+	$delim = ($format == 'horiz' ? ' ' : '<br>');
+	
+	/*
+	 * Creates an array of relational JSON objects from cached or online GitHub data
+	 */
+	$obj = get_github_data('releases', '');
+	$count = 0;
+
+	/*
+	 * Loop through items and echo our data to the page
+	 */
+	if ($obj) {
+		global $max;
+		foreach($obj as $item) {
+			foreach($item->assets as $asset) {
+				$text = $item->name . '&nbsp; (' . get_os_name($asset->name) . ')';
+
+				echo '<a data-dl-count="' . $asset->download_count . '" style="margin-bottom: 3px;" class="btn btn-sm btn-success" href="' . $asset->browser_download_url . '"><span class="glyphicon glyphicon-arrow-down"></span>&nbsp;' . $text . '</a>' . $delim;
+
+				/*
+				echo '<a style="margin-bottom: 3px;" class="btn btn-sm btn-success" href="' . $asset->browser_download_url . '">' .
+					$asset->name . '&nbsp; <span class="badge">';
+				echo $asset->download_count . '</span></a><br>';
+				*/
+			}
+			
+			if ($format == "vert") {
+				if ($count == 0) {
+					echo '<a class="label label-success" style="position: relative; top: -2px; margin-left: 55px;" href="download.php"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;other systems</a>' . $delim;
+				}
+				echo '<a class="label label-info" style="margin-left: 57px;" target="_blank" href="' . $item->html_url . '"><span class="glyphicon glyphicon-ok"></span>&nbsp; release notes</a>';
+			}
+			
+			if (++$count == $max_releases) {
+				break;
+			} else {
+				echo '<hr>';
+			}
+		}
+	} else {
+		echo '<p class="label label-danger">Error getting feed</p>';
+	}
+	
 }
 
 
