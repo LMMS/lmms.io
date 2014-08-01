@@ -17,12 +17,12 @@
 	</div>
 <!-- </div> -->
 
-
+<img style="padding-right: 10px; width: 150px; height: 150px; float:left;" src="https://raw.githubusercontent.com/LMMS/lmms/stable-1.1/data/lmms.png">
 <h4>LMMS is a free cross-platform software which allows you to produce music with your computer.</h4>
 <p>Creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.<br>
 Playback instruments, samples and plugins with a typing or MIDI keyboard in a user-friendly and modern interface.<br>
 Bundled with many ready-to-use instrument and effect plugins, presets and samples.</p>
-<br><br>
+<br><br><hr>
 <div class="page-header">
 	<h1>Features</h1>
 </div>
