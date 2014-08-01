@@ -1,35 +1,37 @@
 <?php include('header.php'); ?>
+<?php include('feed/releases.php'); ?>
 <div class="page-header">
 	<h3>Welcome to the home of the LMMS community</h3>
 </div>
 
 <!-- <div class="row"> -->
-	<div style="float:right;" class="col-sm-3">
+	<div style="float:right;" class="visible-lg">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">Download Now</h3>
 			</div>
-			<div style="max-height: 140px;" class="panel-body">
+			<div style="overflow-y:visible;" class="panel-body">
 <!-- Loads download links automatically from dl.php -->
-<?php include('feed/releases.php'); ?>
+<?php @get_releases(); ?>
 			</div>
 		</div>
 	</div>
 <!-- </div> -->
 
-<img style="padding-right: 10px; width: 150px; height: 150px; float:left;" src="https://raw.githubusercontent.com/LMMS/lmms/stable-1.1/data/lmms.png">
+<a href="artwork.php"><img style="padding-right: 10px; float:left;" src="img/logo_md.png"></a>
 <h4>LMMS is a free cross-platform software which allows you to produce music with your computer.</h4>
 <p>Creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.<br>
 Playback instruments, samples and plugins with a typing or MIDI keyboard in a user-friendly and modern interface.<br>
 Bundled with many ready-to-use instrument and effect plugins, presets and samples.</p>
+<p style="text-align: right;"><a class="label label-success hidden-lg" href="download.php"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;Download Now</a></p>
 <br><br><hr>
 <div class="page-header">
 	<h1>Features</h1>
 </div>
 <div style="float:right;"> 
-<a target="new" href="img/ss_proj.png"><img class="img-thumbnail" alt="350x169" src="img/th_ss_proj.png" style="float: top; width: 350px; height: 169px;"></a><br><br>
-<a target="new" href="img/ss_song.png"><img class="img-thumbnail" alt="350x169" src="img/th_ss_song.png" style="float: middle; width: 350px; height: 169px;"></a><br><br>
-<a target="new" href="img/ss_instr.png"><img class="img-thumbnail" alt="350x169" src="img/th_ss_instr.png" style="float: bottom; width: 350px; height: 169px;"></a>
+<a target="_blank" href="img/ss_proj.png"><img class="img-thumbnail visible-lg" alt="350x169" src="img/th_ss_proj.png" style="float: top; width: 350px; height: 169px;"></a><br><br>
+<a target="_blank" href="img/ss_song.png"><img class="img-thumbnail visible-lg" alt="350x169" src="img/th_ss_song.png" style="float: middle; width: 350px; height: 169px;"></a><br><br>
+<a target="_blank" href="img/ss_instr.png"><img class="img-thumbnail visible-lg" alt="350x169" src="img/th_ss_instr.png" style="float: bottom; width: 350px; height: 169px;"></a>
 </div>
 <ul>
     <li>Compose music on Windows, Linux and Apple OS&nbsp;X</li>	
