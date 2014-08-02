@@ -4,7 +4,9 @@
 <a class="btn btn-success" target="_blank" href="/forum/"><span class="fa fa-comments"></span> Forums</a>
 <a class="btn btn-primary" target="_blank" href="http://facebook.com/makefreemusic"><span class="fa fa-facebook"></span> Facebook</a>
 <a class="btn btn-warning" target="_blank" href="http://soundcloud.com/groups/linux-multimedia-studio"><span class="fa fa-soundcloud"></span> SoundCloud</a>
-<a class="btn btn-danger" target="_blank" href="https://plus.google.com/u/0/113001340835122723950/posts"><span class="fa fa-google-plus"></span> Google+</a><br><br>
+<a class="btn btn-danger" target="_blank" href="https://plus.google.com/u/0/113001340835122723950/posts"><span class="fa fa-google-plus"></span> Google+</a>
+<a class="btn btn-default" style="color: red;" target="new" href="#"><span class="fa fa-youtube"></span><span style="color:black;"> YouTube</span></a>
+<a class="btn" style="color: #fff; background-color: #000;" target="new" href="http://github.com/LMMS/lmms"><span class="fa fa-github"></span> GitHub</a><br><br>
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">Recent Forum Discussions</h3>
