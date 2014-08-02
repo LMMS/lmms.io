@@ -28,14 +28,14 @@ Bundled with many ready-to-use instrument and effect plugins, presets and sample
 <div class="page-header">
 	<h1>Features</h1>
 </div>
-<div style="float:right;"> 
+<div style="float:right;">
 <a target="_blank" href="img/ss_proj.png"><img class="img-thumbnail visible-lg" alt="350x169" src="img/th_ss_proj.png" style="float: top; width: 350px; height: 169px;"></a><br><br>
 <a target="_blank" href="img/ss_song.png"><img class="img-thumbnail visible-lg" alt="350x169" src="img/th_ss_song.png" style="float: middle; width: 350px; height: 169px;"></a><br><br>
 <a target="_blank" href="img/ss_instr.png"><img class="img-thumbnail visible-lg" alt="350x169" src="img/th_ss_instr.png" style="float: bottom; width: 350px; height: 169px;"></a>
 </div>
 <ul>
-    <li>Compose music on Windows, Linux and Apple OS&nbsp;X</li>	
-    <li>Sequence, compose, mix and automate songs in one simple interface</li>
+	<li>Compose music on Windows, Linux and Apple OS&nbsp;X</li>
+	<li>Sequence, compose, mix and automate songs in one simple interface</li>
 	<li>Note playback via MIDI or typing keyboard</li>
 	<li>Consolidate instrument tracks using Beat+Bassline Editor</li>
 	<li>Fine tune patterns, notes, chords and melodies using Piano Roll Editor</li>
@@ -49,7 +49,7 @@ Bundled with many ready-to-use instrument and effect plugins, presets and sample
 		</ul>
 	<li>Over 15 built-in instruments including:</li>
 		<ul>
-		    <li>Built-in 32-bit VST instrument support</li>
+			<li>Built-in 32-bit VST instrument support</li>
 			<li>Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit Windows)</li>
 			<li>Roland ® TB-303 style monophonic bass synthesizer</li>
 			<li>Embedded ZynAddSubFx:  Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</li>

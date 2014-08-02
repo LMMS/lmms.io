@@ -23,7 +23,7 @@ foreach ($rss->items as $item) {
  * Helper function to replace first occurance
  */
 function str_replace_first($find, $replace, $subject) {
-    return implode($replace, explode($find, $subject, 2));
+	return implode($replace, explode($find, $subject, 2));
 }
 
 ?>
