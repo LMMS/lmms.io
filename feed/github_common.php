@@ -6,9 +6,14 @@
 $max_age = 1;
 
 /*
- * Remote JSON api URL
+ * Remote JSON api URL, this should always end in a forward slash
+ */ 
+$api_url = 'https://api.github.com/repos/'; // . $repo . $object . $params;
+
+/*
+ * The project name, i.e 'lmms'
  */
-$json_url = 'https://api.github.com/repos/LMMS/lmms/'; //. $object . $params;
+$project = 'lmms';
 
 /*
  * Local JSON cache file
@@ -20,16 +25,25 @@ $cache_file = get_document_root() . '/../tmp/.json_github_'; // . $object;
  * If the cached data is newer than $max_age or if the URL is temporarily
  * unavailable, it will attempt to return data from the last good cache.
  */
-function get_github_data($object, $params) {
-	global $json_url;
+function get_github_data($object, $params, $repo) {
+	global $project;
+	global $api_url;
 	global $cache_file;
-
+	
+	// Local 'tmp' cache file on the webserver, preferably out of public reach, i.e.
+	// htdocs/tmp/.json_github_lmms_releases
+	$tmp_cache = $cache_file . (@$repo ? $repo : $project) . '_' . $object;
+	
+	// If the repository isn't specified, assume it's the same as the project name and build accordingly
+	// i.e. "https://api.github.com/repos/lmms/lmms/releases?param=value"
+	$full_api = $api_url . (@$repo ? $repo : $project) . '/' . $project . '/' . $object . $params;
+	
 	$using_url = false;
-	if (cache_expired($cache_file . $object)) {
-		$json = file_get_contents_curl($json_url . $object . $params);
+	if (cache_expired($tmp_cache)) {
+		$json = file_get_contents_curl($full_api);
 		$using_url = true;
 	} else {
-		$json = file_get_contents($cache_file . $object);
+		$json = file_get_contents($tmp_cache);
 	}
 	$obj = json_decode($json);
 
@@ -38,13 +52,13 @@ function get_github_data($object, $params) {
 	* If there's valid JSON data, AND it came from the web cache it
 	* If not, fall back to the previous cache
 	*/
-	if (count($obj) > 1) {
+	if (count($obj) > 0 && $obj[0]->url) {
 		if ($using_url) {
-			@file_put_contents($cache_file . $object, $json, LOCK_EX);
+			@file_put_contents($tmp_cache, $json, LOCK_EX);
 		}
 		return $obj;
 	} else {
-		$json = file_get_contents($cache_file . $object);
+		$json = file_get_contents($tmp_cache);
 		return json_decode($json);
 	}
 }
