@@ -39,7 +39,7 @@
 							@menu_item('Download', '/download.php', true);
 							echo '<ul class="dropdown-menu" role="menu">';
 								@menu_item('<span class="fa fa-download"></span> Download LMMS', '/download.php');
-								@menu_item('<span class="fa fa-music"></span> Download Sample Packs', '/samples.php');
+								@menu_item('<span class="fa fa-music"></span> Download Sample Packs', '#', false, true);
 								@menu_item('<span class="fa fa-picture-o"></span> Download Artwork', '/artwork.php');
 							// Important! - Make sure to close the parent list item tag with "</li>"
 							echo '</li></ul>';
@@ -78,7 +78,7 @@ function get_page_name() {
  * Creates a simple tag <li><a href="menu_item.php">Menu Item</a></li>
  * Taking into consideration the "active" status/style
  */
-function menu_item($text, $url, $dropdown) {
+function menu_item($text, $url, $dropdown, $disabled) {
 	// Determine the "Active Tab
 	if ($text == get_page_name()) {
 		$active = ' class="active"';
@@ -91,9 +91,9 @@ function menu_item($text, $url, $dropdown) {
 	}
 	if ($dropdown) {
 		// Important - This leaves an open <li> tag.  Must be closed manually.
-		echo '<li' . $active . '><a href="' . $url . '" class="dropdown-toggle" data-toggle="dropdown">' . $text . ' <span class="caret"></span></a>';
+		echo '<li' . $active . '><a href="' . $url . '" class="dropdown-toggle' . ($disabled ? ' disabled' : '') . '" data-toggle="dropdown"><span class="caret"></span></a>';
 	} else {
-		echo '<li' . $active . '><a href="' . $url . '">' . $text . '</a></li>';
+		echo '<li' . $active . ($disabled ? ' class="disabled"' : '') . '><a href="' . $url . '">' . $text . '</a></li>';
 	}
 }
 
