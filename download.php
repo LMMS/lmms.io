@@ -19,7 +19,7 @@
 </div>
 </p>
 
-<div id="linux" style="display:none">
+<div id="linux-div" style="display:none">
 	<h2>Install LMMS on Linux</h2>
 	<p>LMMS is included in most major Linux distribution's package repositories. If your distribution is not listed here and you feel the need for it to be included, don't hesitate to contact us about it.</p>
 	<h3>Debian, Ubuntu, Linux Mint (deb)</h3>
@@ -42,23 +42,26 @@
 	<h2>Build LMMS from source</h2>
 	<p>If your Linux distribution does not provide a lmms package (or only an out-dated one), you can still build LMMS from source. Visit the <a href="https://github.com/LMMS/lmms/wiki/Compiling-lmms">LMMS development wiki on GitHub</a> for instructions on how to compile LMMS for Linux.</p>
 </div>
-<div id="windows" style="display:block">
+<div id="windows-div" style="display:block">
 	<h2>Install LMMS on Windows</h3>
 	<p>Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows</p>
 	<?php @get_releases(1, 'horiz', '.exe'); ?>
+	<hr><p>Beta Versions</p>
+	<?php @get_releases(1, 'horiz', '.exe', 'tresf'); ?>
 </div>
-<div id="mac" style="display:none">
+<div id="mac-div" style="display:none">
 	<h2>Install LMMS on Apple</h3>
 	<p>Click one of the buttons below to download LMMS for Apple</p>
 	<?php @get_releases(1, 'horiz', '.dmg', 'tresf'); ?>
 </div>
+<hr><small><span class="fa fa-exclamation-circle"></span> Denotes prerelease software, stability may suffer</small>
 
 <script>
 function show(os) {
-	$("#windows").hide();
-	$("#linux").hide();
-	$("#mac").hide();
-	$(os).show();
+	$("#windows-div").hide();
+	$("#linux-div").hide();
+	$("#mac-div").hide();
+	$(os+"-div").show();
 	$(os+"-button").parent().addClass("active") ;
 	location.hash = os;
 }
