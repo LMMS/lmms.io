@@ -11,12 +11,10 @@ $max=1;
 
 /*
  * Gets the past x number of releases in the specified format
- * $max_releases = 1, 2, 3, etc.
- * $format = "vert" returns vertical list of buttons (default), "horiz" returns horizontal buttons
- * $name_filter = ".exe", ".dmg", ".tar.gz", etc.
- * $repo = "lmms", "diizy", "Lukas-W", "tresf", etc.
+ * $format = "vert" returns vertical list of buttons (default)
+ * $format = "horiz" returns horizontal buttons
  */ 
-function get_releases($max_releases, $format, $name_filter, $repo) {
+function get_releases($max_releases, $format) {
 
 	/*
 	 * Use the default value declared above if none is specified
@@ -31,7 +29,7 @@ function get_releases($max_releases, $format, $name_filter, $repo) {
 	/*
 	 * Creates an array of relational JSON objects from cached or online GitHub data
 	 */
-	$obj = get_github_data('releases', '', $repo);
+	$obj = get_github_data('releases', '');
 	$count = 0;
 
 	/*
@@ -43,11 +41,8 @@ function get_releases($max_releases, $format, $name_filter, $repo) {
 			foreach($item->assets as $asset) {
 				$text = $item->name . '&nbsp; (' . get_os_name($asset->name) . ')';
 
-				// If no $name_filter is provided, echo.  If $name_filter is provided, filter based on name
-				if (!$name_filter || ($name_filter && (strpos($asset->name,$name_filter) !== false))) {
-					echo '<a data-dl-count="' . $asset->download_count . '" style="margin-bottom: 3px;" class="btn btn-sm btn-success" href="' . $asset->browser_download_url . '"><span class="glyphicon glyphicon-arrow-down"></span>&nbsp;' . $text . '</a>' . $delim;
-				}
-				
+				echo '<a data-dl-count="' . $asset->download_count . '" style="margin-bottom: 3px;" class="btn btn-sm btn-success" href="' . $asset->browser_download_url . '"><span class="glyphicon glyphicon-arrow-down"></span>&nbsp;' . $text . '</a>' . $delim;
+
 				/*
 				echo '<a style="margin-bottom: 3px;" class="btn btn-sm btn-success" href="' . $asset->browser_download_url . '">' .
 					$asset->name . '&nbsp; <span class="badge">';

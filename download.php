@@ -25,7 +25,6 @@
 	<h3>Debian, Ubuntu, Linux Mint (deb)</h3>
 	<p>For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.<br> If this doesn't work for you, run <code>sudo apt-get install lmms</code> in a terminal.</p>
 	<a class="btn btn-primary" target="new" href="apt://lmms"><span class="fa fa-download"></span> Install LMMS</a>
-	<p>If the traditional repositories lag behind on versions, try the <a href="http://kxstudio.sourceforge.net/Repositories#Ubuntu">KXStudio repository</a>.</p>
 
 	<h3>Mandriva, Mageia (rpm)</h3>
 	<p>Run <code>urpmi lmms</code> as root.</p>
@@ -45,12 +44,10 @@
 <div id="windows" style="display:block">
 	<h2>Install LMMS on Windows</h3>
 	<p>Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows</p>
-	<?php @get_releases(1, 'horiz', '.exe'); ?>
+	<?php @get_releases(1, "horiz"); ?>
 </div>
 <div id="mac" style="display:none">
-	<h2>Install LMMS on Apple</h3>
-	<p>Click one of the buttons below to download LMMS for Apple</p>
-	<?php @get_releases(1, 'horiz', '.dmg', 'tresf'); ?>
+	<i>Placeholder</i>
 </div>
 
 <script>
@@ -60,10 +57,8 @@ function show(os) {
 	$("#mac").hide();
 	$(os).show();
 	$(os+"-button").parent().addClass("active") ;
-	location.hash = os;
 }
-
-function autoSelect() {
+$(function() {
 	if (navigator.appVersion.indexOf("Mac")!=-1)
 		show("#mac");
 	else if (navigator.appVersion.indexOf("X11")!=-1)
@@ -71,22 +66,7 @@ function autoSelect() {
 	else if (navigator.appVersion.indexOf("Linux")!=-1)
 		show("#linux");
 	else show("#windows");
-}
-
-$(function() {
-	if (location.hash) {
-		try { 
-			show(location.hash);
-		} catch (err) {
-			autoSelect();
-		}
-	} else {
-		autoSelect();
-	}
 });
-
-
-
 </script>
 
 <?php include('footer.php'); ?>
