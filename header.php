@@ -37,7 +37,7 @@
 						<?php
 							@menu_item('Home', '/index.php');
 							@menu_item('Download', '/download.php', false, false, 'dropdown-split-left');
-							@menu_item('Download', '#', true, false, 'dropdown-split-right');
+							@menu_item('Download', '#', true, false, 'dropdown-split-right hidden-xs');
 							echo '<ul class="dropdown-menu pull-right">';
 								@menu_item('<span class="fa fa-download"></span> Download LMMS', '/download.php');
 								@menu_item('<span class="fa fa-music"></span> Download Sample Packs', '#', false, true);

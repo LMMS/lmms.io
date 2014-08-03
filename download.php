@@ -18,6 +18,9 @@
 	</label>
 </div>
 </p>
+<p class="visible-xs-block">
+<a href="#"><span class="fa fa-music"></span> Download Sample Packs</a> • <a href="/artwork.php"><span class="fa fa-picture-o"></span> Download Artwork</a>
+</p>
 
 <div id="linux-div" style="display:none">
 	<h2>Install LMMS on Linux</h2>
