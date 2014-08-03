@@ -36,13 +36,14 @@
 					<ul class="nav navbar-nav">
 						<?php
 							@menu_item('Home', '/index.php');
-							@menu_item('Download', '/download.php', true);
-							echo '<ul class="dropdown-menu" role="menu">';
+							@menu_item('Download', '/download.php', false, false, 'dropdown-split-left');
+							@menu_item('Download', '#', true, false, 'dropdown-split-right');
+							echo '<ul class="dropdown-menu pull-right">';
 								@menu_item('<span class="fa fa-download"></span> Download LMMS', '/download.php');
 								@menu_item('<span class="fa fa-music"></span> Download Sample Packs', '#', false, true);
 								@menu_item('<span class="fa fa-picture-o"></span> Download Artwork', '/artwork.php');
 							// Important! - Make sure to close the parent list item tag with "</li>"
-							echo '</li></ul>';
+							echo '</ul></li>';
 							@menu_item('Screenshots');
 							@menu_item('Tracks');
 							@menu_item('Documentation');
@@ -71,17 +72,17 @@ function get_page_name() {
 			return 'Home';
 		default:
 			return preg_replace('/\.[^.]*$/', '', ucfirst($uri));
-   }
+	}
 }
 
 /*
  * Creates a simple tag <li><a href="menu_item.php">Menu Item</a></li>
  * Taking into consideration the "active" status/style
  */
-function menu_item($text, $url, $dropdown, $disabled) {
+function menu_item($text, $url, $dropdown, $disabled, $class) {
 	// Determine the "Active Tab
 	if ($text == get_page_name()) {
-		$active = ' class="active"';
+		$active = 'active';
 	} else {
 		$active = '';
 	}
@@ -91,9 +92,9 @@ function menu_item($text, $url, $dropdown, $disabled) {
 	}
 	if ($dropdown) {
 		// Important - This leaves an open <li> tag.  Must be closed manually.
-		echo '<li' . $active . '><a href="' . $url . '" class="dropdown-toggle' . ($disabled ? ' disabled' : '') . '" data-toggle="dropdown"><span class="caret"></span></a>';
+		echo '<li class="' . $active . ' ' . $class . '"><a href="' . $url . '" class="dropdown-toggle' . ($disabled ? ' disabled' : '') . '" data-toggle="dropdown"><span class="caret"></span></a>';
 	} else {
-		echo '<li' . $active . ($disabled ? ' class="disabled"' : '') . '><a href="' . $url . '">' . $text . '</a></li>';
+		echo '<li class="' . $active . ' ' . $class . ($disabled ? ' disabled' : '') . '"><a href="' . $url . '">' . $text . '</a></li>';
 	}
 }
 
