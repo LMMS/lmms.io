@@ -24,6 +24,15 @@ li.dropdown-split-right > a {
 	padding-left: 7px;
 }
 
+#forums-div, 
+#facebook-div, 
+#soundcloud-div, 
+#google-div, 
+#youtube-div, 
+#github-div {
+	max-height: 500px;
+}
+
 .theme-showcase > p > .btn {
 	margin: 5px 0;
 }
@@ -43,7 +52,7 @@ li.dropdown-split-right > a {
 }
 
 .panel-body {
-	max-height: 300px;
+	/* max-height: 300px; */
 	overflow-y:scroll;
 }
 
