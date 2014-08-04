@@ -16,9 +16,14 @@ $api_url = 'https://api.github.com/repos/'; // . $repo . $object . $params;
 $project = 'lmms';
 
 /*
- * Local JSON cache file
+ * Local JSON cache directory
  */
-$cache_file = get_document_root() . '/../tmp/.json_github_'; // . $object;
+$cache_dir = get_document_root() . '/../tmp/';
+
+/*
+ * Local JSON cache file name prefix, stored in $cache_dir above
+ */
+$cache_file = '.json_github_'; // . $object;
 
 /*
  * Returns the JSON decoded object from the respective github URL
@@ -26,13 +31,16 @@ $cache_file = get_document_root() . '/../tmp/.json_github_'; // . $object;
  * unavailable, it will attempt to return data from the last good cache.
  */
 function get_github_data($object, $params, $repo) {
-	global $project;
-	global $api_url;
-	global $cache_file;
+	global $project, $api_url, $cache_dir, $cache_file;
+	
+	// Attempt to make the cache directory if it doesn't already exist
+	if (!file_exists($cache_dir)) {
+		mkdir($cache_dir);
+	}
 	
 	// Local 'tmp' cache file on the webserver, preferably out of public reach, i.e.
 	// htdocs/tmp/.json_github_lmms_releases
-	$tmp_cache = $cache_file . (@$repo ? $repo : $project) . '_' . $object;
+	$tmp_cache = $cache_dir . $cache_file . (@$repo ? $repo : $project) . '_' . $object;
 	
 	// If the repository isn't specified, assume it's the same as the project name and build accordingly
 	// i.e. "https://api.github.com/repos/lmms/lmms/releases?param=value"
