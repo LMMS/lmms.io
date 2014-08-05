@@ -71,7 +71,8 @@
 	</div>
 	
 	<div id="google+-div" class="panel-body" style="display:none;">
-<?php include('feed/google+.php'); ?>
+	<h3>Temporarily disabled, see https://github.com/Lukas-W/lmms.tuxfamily.org/issues/4</h3> 
+	<?php //include('feed/google+.php'); ?> 
 	</div>
 </div>
 
