@@ -57,6 +57,55 @@ li.dropdown-split-right > a {
 }
 
 /* Some missing bootstrap styles */
+.btn-dark {
+	background-color: #464f47;
+	border-color: #464f47;
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+	background-color: #3c443d;
+	background-image: -moz-linear-gradient(top,#464f47,#2e342f);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#464f47),to(#2e342f));
+	background-image: -webkit-linear-gradient(top,#464f47,#2e342f);
+	background-image: -o-linear-gradient(top,#464f47,#2e342f);
+	background-image: linear-gradient(to bottom,#464f47,#2e342f);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff464f47', endColorstr='#ff2e332e', GradientType=0);
+	border-color: #2e342f #2e342f #0a0b0a;
+	border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+}
+.btn-dark:hover,
+.btn-dark:focus {
+	color: #fff;
+	text-decoration: none;
+	background-position: 0 -15px;
+	-webkit-transition: background-position .1s linear;
+	-moz-transition: background-position .1s linear;
+	-o-transition: background-position .1s linear;
+	transition: background-position .1s linear;
+	background-color: #2e342f;
+}
+
+.btn-dark:active,
+.btn-dark.active,
+.btn-dark.active:hover {
+	color: #fff;
+	background-color: #3a413b;
+	border-color: #2e342f;
+}
+
+.btn-dark.disabled:hover,
+.btn-dark.disabled:focus,
+.btn-dark.disabled:active,
+.btn-dark.disabled.active,
+.btn-dark[disabled] .btn-dark:hover,
+.btn-dark[disabled] .btn-dark:focus,
+.btn-dark[disabled] .btn-dark:active,
+.btn-dark[disabled] .btn-dark.active {
+	color: #fff;
+	background-color: #464f47;
+	border-color: #464f47;
+}
+
 
 /* Base styles (regardless of theme) */
 .bs-callout {
@@ -79,6 +128,12 @@ li.dropdown-split-right > a {
 }
 
 /* Themes for different contexts */
+
+.bs-callout-dark {
+	background-color: #e8ebe9;
+	border-color: #c2c4c3;
+}
+
 .bs-callout-danger {
 	background-color: #fcf2f2;
 	border-color: #dFb5b4;
@@ -97,6 +152,16 @@ li.dropdown-split-right > a {
 .bs-callout-success {
 	background-color: #dff0d8;
 	border-color: #d6e9c6;
+}
+
+.bs-callout-dark h1,
+.bs-callout-dark h2,
+.bs-callout-dark h3,
+.bs-callout-dark h4,
+.bs-callout-dark h5,
+.bs-callout-dark h6,
+.bs-callout-dark a.alert-link {
+	color: #3c443d;
 }
 
 .bs-callout-danger h1,
