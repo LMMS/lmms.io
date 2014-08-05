@@ -1,13 +1,12 @@
 <?php
 
-include('github_common.php');
+include_once('json_common.php');
 
 
 /*
  * Default number of displayed items
  */
 $max=1;
-
 
 /*
  * Gets the past x number of releases in the specified format
@@ -31,7 +30,7 @@ function get_releases($max_releases, $format, $name_filter, $repo) {
 	/*
 	 * Creates an array of relational JSON objects from cached or online GitHub data
 	 */
-	$obj = get_github_data('releases', '', $repo);
+	$obj = get_json_data('github', 'releases', '', $repo);
 	$count = 0;
 
 	/*
