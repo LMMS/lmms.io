@@ -8,59 +8,70 @@
 			<label title="Visit page" class="btn btn-success" target="_blank" data-href="/forum/" onclick="show(this)">
 				<span class="fa fa-comments"></span> Forums
 			</label>
-			<label title="Preview content" class="btn btn-success dropdown-toggle" onclick="show('#forums')"><span class="fa fa-bars"></span>
+			<label id="forums-toggle" title="Preview content" class="btn btn-success dropdown-toggle" onclick="show('#forums')"><span class="fa fa-bars"></span>
 				<input type="radio" name="options">
 			</label>
 			
 			<label title="Visit page" class="btn btn-primary" onclick="show(this)" target="_blank" data-href="http://facebook.com/makefreemusic">
 				<span class="fa fa-facebook"></span> Facebook
 			</label>
-			<label title="Preview content" class="btn btn-primary dropdown-toggle" onclick="show('#facebook')"><span class="fa fa-bars"></span>
+			<label id="facebook-toggle" title="Preview content" class="btn btn-primary dropdown-toggle" onclick="show('#facebook')"><span class="fa fa-bars"></span>
 				<input type="radio" name="options">
 			</label>
 			
 			<label title="Visit page" class="btn btn-warning" onclick="show(this)" target="_blank" data-href="http://soundcloud.com/groups/linux-multimedia-studio">
 				<span class="fa fa-soundcloud"></span> SoundCloud
 			</label>
-			<label title="Preview content" class="btn btn-warning dropdown-toggle disabled" onclick="show('#soundcloud')"><span class="fa fa-bars"></span>
+			<label id="soundcloud-toggle" title="Preview content" class="btn btn-warning dropdown-toggle disabled" onclick="show('#soundcloud')"><span class="fa fa-bars"></span>
 				<input type="radio" name="options">
 			</label>
 			
 			<label title="Visit page" class="btn btn-danger" onclick="show(this)" target="_blank" data-href="https://plus.google.com/u/0/113001340835122723950/posts">
 				<span class="fa fa-google-plus"></span> Google+
 			</label>
-			<label title="Preview content" class="btn btn-danger dropdown-toggle disabled" onclick="show('#google+')"><span class="fa fa-bars"></span>
+			<label id="google+-toggle" title="Preview content" class="btn btn-danger dropdown-toggle" onclick="show('#google+')"><span class="fa fa-bars"></span>
 				<input type="radio" name="options">
 			</label>
 			
 			<label title="Visit page" class="btn btn-default disabled" onclick="show(this)" style="color: red;" target="new" data-href="#"><span class="fa fa-youtube"></span>
 				<span style="color:black;"> YouTube</span>
 			</label>
-			<label title="Preview content" class="btn btn-default dropdown-toggle disabled" onclick="show('#youtube')"><span class="fa fa-bars"></span>
+			<label id="youtube-toggle" title="Preview content" class="btn btn-default dropdown-toggle disabled" onclick="show('#youtube')"><span class="fa fa-bars"></span>
 				<input type="radio" name="options">
 			</label>
 			
-			<label title="Visit page" class="btn" onclick="show(this)" style="color: #fff; background-color: #000;" target="new" data-href="http://github.com/LMMS/lmms">
+			<label title="Visit page" class="btn btn-dark" onclick="show(this)" target="new" data-href="http://github.com/LMMS/lmms">
 				<span class="fa fa-github"></span> GitHub
 			</label>
-			<label title="Preview content" class="btn dropdown-toggle" onclick="show('#github')" style="color: #fff; background-color: #000;"><span class="fa fa-bars"></span>
+			<label id="github+-toggle" title="Preview content" class="btn btn-dark dropdown-toggle" onclick="show('#github')"><span class="fa fa-bars"></span>
 				<input type="radio" name="options">
 			</label>
 		</div>
 	</div>
 	<div id="alert-div" class="alert alert-warning" role="alert" style="display:none;">
 		<a class="close" onclick="$('#alert-div').hide()">×</a>
-		<p><img class="visible-lg logo-sm" style="float: left;" src="/img/logo_sm.png"><h4><span id="alert-title">&nbsp;</span></h4><span id="alert-text"></span></p>
+		<h4><img class="visible-lg logo-sm" style="float: left;" src="/img/logo_sm.png"><span id="alert-title">&nbsp;</span></h4>
+		<ul>
+		<li>Above are links to our various community pages.  Clicking on the feed icon &nbsp;<strong><span class="fa fa-bars"></span></strong>&nbsp; besides each button will preview its content.</li>
+		<li><span id="alert-text"></span></li>
+		</ul>
 	</div>
+	
     <div id="forums-div" class="panel-body" style="display:none;">
 <?php include('feed/forums.php'); ?>
 	</div>
+	
 	<div id="github-div" class="panel-body" style="display:none;">
 <!-- Loads download links automatically from dl.php -->
 <?php include('feed/issues.php'); ?>
 	</div>
+	
 	<div id="facebook-div" class="panel-body" style="display:none;">
 	<h3>Facebook Feed Placeholder</h3>
+	</div>
+	
+	<div id="google+-div" class="panel-body" style="display:none;">
+<?php include('feed/google+.php'); ?>
 	</div>
 </div>
 
@@ -72,13 +83,16 @@
 		}
 		$("div[id$='-div']").hide();
 		$('#alert-div').show();
+		
 		var title = obj.substring(1, obj.length); // remove hash
 		
 		$('#alert-title').text('LMMS ' + title.toUpperCase() + ' ');
 		$('#alert-text').text('Below is a sample of recent activity from our ' + title + ' page.  Please click on an item to be redirected to that page.');
 
-		$(obj + '-div').show();
-		// TODO: $(obj).addClass("active") ;
+		// jQuery doesn't like plus signs
+		$(obj.replace(/\+/g, "\\+") + '-div').show();
+
+		$(obj.replace(/\+/g, "\\+") + '-toggle').addClass("active");
 		location.hash = obj;
 	}
 	
