@@ -8,14 +8,14 @@
 <?php 
 
 /* Usage:
- * 	@create_artwork_item($artwork_name, 
+ * 	create_artwork_item($artwork_name, 
  *		$img_path, $raw_path, 
  *		$rendered_path, 
  *		$author_name, 
  *		$author_link, 
  *		$modified_by);
  */
-@create_artwork_item('LMMS Logo', 
+create_artwork_item('LMMS Logo', 
 	'img/logo_md.png', 
 	'http://raw.githubusercontent.com/LMMS/artwork/master/src/icon.svg', 
 	'img/logo_lg.png', 
@@ -23,7 +23,7 @@
 	'http://hdche.tumblr.com', 
 	'LMMS Development Team');
 
-@create_artwork_item('LMMS Project Icon', 
+create_artwork_item('LMMS Project Icon', 
 	'img/project_md.png', 
 	'http://raw.githubusercontent.com/LMMS/artwork/master/src/mmpz_file_icon.svg', 
 	'img/project_lg.png', 
@@ -39,7 +39,7 @@
 /*
  * Creates a small summary box about an artwork item
  */
-function create_artwork_item($artwork_name, $img_path, $raw_path, $rendered_path, $author_name, $author_link, $modified_by) {
+function create_artwork_item($artwork_name, $img_path, $raw_path, $rendered_path, $author_name = NULL $author_link = NULL, $modified_by = NULL) {
 	echo '<img style="padding-right: 10px; float:left;" src="' . $img_path . '">';
 	echo '<h3>' . $artwork_name . '</h3>';
 	

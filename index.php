@@ -12,7 +12,7 @@
 			</div>
 			<div style="overflow-y:visible;" class="panel-body">
 <!-- Loads download links automatically from feed/releases.php -->
-<?php @get_releases(); ?>
+<?php get_releases(); ?>
 			</div>
 		</div>
 	</div>

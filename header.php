@@ -35,20 +35,20 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<?php
-							@menu_item('Home', '/index.php');
-							@menu_item('Download', '/download.php', false, false, 'dropdown-split-left');
-							@menu_item('Download', '#', true, false, 'dropdown-split-right hidden-xs');
+							menu_item('Home', '/index.php');
+							menu_item('Download', '/download.php', false, false, 'dropdown-split-left');
+							menu_item('Download', '#', true, false, 'dropdown-split-right hidden-xs');
 							echo '<ul class="dropdown-menu pull-right">';
-								@menu_item('<span class="fa fa-download"></span> Download LMMS', '/download.php');
-								@menu_item('<span class="fa fa-music"></span> Download Sample Packs', '#', false, true);
-								@menu_item('<span class="fa fa-picture-o"></span> Download Artwork', '/artwork.php');
+								menu_item('<span class="fa fa-download"></span> Download LMMS', '/download.php');
+								menu_item('<span class="fa fa-music"></span> Download Sample Packs', '#', false, true);
+								menu_item('<span class="fa fa-picture-o"></span> Download Artwork', '/artwork.php');
 							// Important! - Make sure to close the parent list item tag with "</li>"
 							echo '</ul></li>';
-							@menu_item('Screenshots');
-							@menu_item('Tracks');
-							@menu_item('Documentation');
-							@menu_item('Community');
-							@menu_item('Share', '/lsp/');
+							menu_item('Screenshots');
+							menu_item('Tracks');
+							menu_item('Documentation');
+							menu_item('Community');
+							menu_item('Share', '/lsp/');
 						?>
 					</ul>
 				</div>
@@ -79,7 +79,7 @@ function get_page_name() {
  * Creates a simple tag <li><a href="menu_item.php">Menu Item</a></li>
  * Taking into consideration the "active" status/style
  */
-function menu_item($text, $url, $dropdown, $disabled, $class) {
+function menu_item($text, $url = NULL, $dropdown = NULL, $disabled = NULL, $class = NULL) {
 	// Determine the "Active Tab
 	if ($text == get_page_name()) {
 		$active = 'active';

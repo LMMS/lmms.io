@@ -97,7 +97,7 @@ $google_cache_file = '.json_google_'; // . $user_id;
  *		Example:	(github)	"tfino", "diizy", "Lukas-W"
  *					(google)	"113001340835122723950"
  */
-function get_json_data($service, $object, $params, $repo) {
+function get_json_data($service, $object, $params, $repo = NULL) {
 	$service_url = $GLOBALS[$service . '_api_url'];
 	$service_id = $GLOBALS[$service . '_id'];
 	$cache_file = $GLOBALS[$service . '_cache_file'];
@@ -118,11 +118,11 @@ function get_json_data($service, $object, $params, $repo) {
 	// i.e. "https://www.googleapis.com/plus/v1/people/113001340835122723950/activities/public?maxResults=25
 	switch ($service) {
 		case 'google' : 
-			$full_api = $service_url . (@$repo ? $repo : $service_id) . '/' . $object . '/public/' . $params;
+			$full_api = $service_url . ($repo ? $repo : $service_id) . '/' . $object . '/public/' . $params;
 			break;
 		case 'github' :
 		default:
-			$full_api = $service_url . (@$repo ? $repo : $service_id) . '/' . $service_id . '/' . $object . $params;
+			$full_api = $service_url . ($repo ? $repo : $service_id) . '/' . $service_id . '/' . $object . $params;
 	}
 	
 	$using_url = false;

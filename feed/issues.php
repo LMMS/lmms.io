@@ -10,7 +10,7 @@ $max=20;
 /*
  * Creates an array of relational JSON objects from cached or online GitHub data
  */
-$obj = @get_json_data('github', 'issues', '?state=open');
+$obj = get_json_data('github', 'issues', '?state=open');
 
 /*
  * Loop through items and echo

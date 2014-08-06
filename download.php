@@ -48,14 +48,14 @@
 <div id="windows-div" style="display:block">
 	<h2>Install LMMS on Windows</h3>
 	<p>Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows</p>
-	<?php @get_releases(1, 'horiz', '.exe'); ?>
+	<?php get_releases(1, 'horiz', '.exe'); ?>
 	<hr><p>Beta Versions</p>
-	<?php @get_releases(1, 'horiz', '.exe', 'tresf'); ?>
+	<?php get_releases(1, 'horiz', '.exe', 'tresf'); ?>
 </div>
 <div id="mac-div" style="display:none">
 	<h2>Install LMMS on Apple</h3>
 	<p>Click one of the buttons below to download LMMS for Apple</p>
-	<?php @get_releases(1, 'horiz', '.dmg', 'tresf'); ?>
+	<?php get_releases(1, 'horiz', '.dmg', 'tresf'); ?>
 </div>
 <hr><small><span class="fa fa-exclamation-circle"></span> Denotes prerelease software, stability may suffer</small>
 

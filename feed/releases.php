@@ -15,7 +15,7 @@ $max=1;
  * $name_filter = ".exe", ".dmg", ".tar.gz", etc.
  * $repo = "lmms", "diizy", "Lukas-W", "tresf", etc.
  */ 
-function get_releases($max_releases, $format, $name_filter, $repo) {
+function get_releases($max_releases = NULL, $format = NULL, $name_filter = NULL, $repo = NULL) {
 
 	/*
 	 * Use the default value declared above if none is specified
