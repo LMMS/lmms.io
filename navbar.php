@@ -44,7 +44,7 @@ function create_navbar() {
  * Returns the current page name, i.e. "Home", etc
  */
 function get_page_name() {
-	if (str_contains($uri, '/forum/')) {
+	if (str_endswith($uri, 'forum/')) {
 		return 'Community';
 	}
 	
@@ -87,6 +87,14 @@ function menu_item($text, $url = NULL, $dropdown = NULL, $disabled = NULL, $clas
 
 function str_contains($haystack, $needle) {
 	return strpos($haystack, $needle) !== FALSE;
+}
+
+function str_startswith($haystack, $needle) {
+    return $needle === "" || strpos($haystack, $needle) === 0;
+}
+
+function str_endswith($haystack, $needle) {
+    return $needle === "" || substr($haystack, -strlen($needle)) === $needle;
 }
 
 ?>
