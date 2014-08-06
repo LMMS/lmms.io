@@ -1,5 +1,5 @@
-<?php include('header.php'); ?>
-<?php include('feed/releases.php'); ?>
+<?php include_once('header.php'); ?>
+<?php include_once('feed/releases.php'); ?>
 <div class="page-header">
 	<h3>Welcome to the home of the LMMS community</h3>
 </div>
