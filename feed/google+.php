@@ -6,7 +6,7 @@ include_once('json_common.php');
  * Echo out the data
  */
 echo '<p>Here1</p>';
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 echo '<p>Here2</p>';
 $obj = get_json_data('google', 'activities', '?maxResults=25');
 echo '<p>Here3</p>;'
