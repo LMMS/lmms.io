@@ -5,7 +5,7 @@
 	<div class="panel-heading">
 		<div class="btn-group" data-toggle="buttons">
 			
-			<label title="Visit page" class="btn btn-success" target="_blank" data-href="/forum/" onclick="show(this)">
+			<label title="Visit page" class="btn btn-success" target="_self" data-href="/forum/" onclick="show(this)">
 				<span class="fa fa-comments"></span> Forums
 			</label>
 			<label id="forums-toggle" title="Preview content" class="btn btn-success dropdown-toggle" onclick="show('#forums')"><span class="fa fa-bars"></span>
@@ -80,7 +80,7 @@
 	function show(obj) {
 		if ($(obj).attr('data-href')) {
 			$(obj).button('toggle');
-			return window.open($(obj).attr('data-href'), '_blank');
+			return window.open($(obj).attr('data-href'), $(obj).attr('target'));
 		}
 		$("div[id$='-div']").hide();
 		$('#alert-div').show();
