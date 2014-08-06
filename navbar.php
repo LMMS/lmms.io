@@ -44,11 +44,12 @@ function create_navbar() {
  * Returns the current page name, i.e. "Home", etc
  */
 function get_page_name() {
-	$uri = str_replace('/', '', $_SERVER["REQUEST_URI"]);
-	
 	if (str_contains($uri, '/forum/')) {
 		return 'Community';
 	}
+	
+	$uri = str_replace('/', '', $_SERVER["REQUEST_URI"]);
+
 	
 	switch($uri) {
 		case 'header.php':
