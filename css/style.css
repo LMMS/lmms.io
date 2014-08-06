@@ -9,7 +9,7 @@ blockquote {
 	font-style: italic;
 }
 
-.topiclist thead {
+.table-bodered thead tr th {
   background-color: #1b1b1b;
   background-image: -moz-linear-gradient(top, #222222, #111111);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#111111));
