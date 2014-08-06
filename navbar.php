@@ -44,7 +44,7 @@ function create_navbar() {
  * Returns the current page name, i.e. "Home", etc
  */
 function get_page_name() {
-	if (str_endswith($uri, 'forum/')) {
+	if (str_endswith($_SERVER["REQUEST_URI"], 'forum/')) {
 		return 'Community';
 	}
 	
