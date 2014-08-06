@@ -63,6 +63,7 @@ $alt_secrets_dir = $cache_dir;
  */ 
 $github_api_url = 'https://api.github.com/repos/'; // . $repo . $object . $params;
 $google_api_url = 'https://www.googleapis.com/plus/v1/people/';
+$facebook_api_url = 'https://www.facebook.com/feeds/page.php'; // ?id=435131566543039&format=json
 
 /*
  * The JSON unique ID.  This may be a project name or a userid, depending
@@ -72,13 +73,15 @@ $google_api_url = 'https://www.googleapis.com/plus/v1/people/';
  */
 $github_id = 'lmms';
 $google_id = '113001340835122723950';
+$facebook_id = '435131566543039';
 
 /*
  * Local JSON cache file name prefix.  Eventually this file will be created and
  * stored in $cache_dir above. This should usually end in an underscore.
  */
-$github_cache_file = '.json_github_'; // . $repo . $object;
-$google_cache_file = '.json_google_'; // . $user_id;
+$github_cache_file = '.json_github_'; 		// . $repo . $object;
+$google_cache_file = '.json_google_'; 		// . $user_id;
+$facebook_cache_file = '.json_facebook_'; 	// . $user_id;
 
 /*
  * Returns the JSON decoded object from the respective JSON service/API.
@@ -97,7 +100,7 @@ $google_cache_file = '.json_google_'; // . $user_id;
  *		Example:	(github)	"tfino", "diizy", "Lukas-W"
  *					(google)	"113001340835122723950"
  */
-function get_json_data($service, $object, $params, $repo = NULL) {
+function get_json_data($service, $object = NULL, $params = '', $repo = NULL) {
 	$service_url = $GLOBALS[$service . '_api_url'];
 	$service_id = $GLOBALS[$service . '_id'];
 	$cache_file = $GLOBALS[$service . '_cache_file'];
@@ -111,12 +114,15 @@ function get_json_data($service, $object, $params, $repo = NULL) {
 	
 	// Local 'tmp' cache file on the webserver, preferably out of public reach, i.e.
 	// htdocs/tmp/.json_github_lmms_releases
-	$tmp_cache = $cache_dir . $cache_file . (@$repo ? $repo : $service_id) . '_' . $object;
+	$tmp_cache = $cache_dir . $cache_file . ($repo ? $repo : $service_id) . ($object ? '_' . $object : '');
 	
 	// If the repository isn't specified, assume it's the same as the project name and build accordingly
 	// i.e. "https://api.github.com/repos/lmms/lmms/releases?param=value"
 	// i.e. "https://www.googleapis.com/plus/v1/people/113001340835122723950/activities/public?maxResults=25
 	switch ($service) {
+		case 'facebook' :
+			$full_api = $service_url . '?id=' . ($repo ? $repo : $service_id) . '&format=json' . $params;
+			break;
 		case 'google' : 
 			$full_api = $service_url . ($repo ? $repo : $service_id) . '/' . $object . '/public/' . $params;
 			break;
@@ -160,6 +166,8 @@ function get_json_data($service, $object, $params, $repo = NULL) {
  */
 function has_children($obj, $service) {
 	switch ($service) {
+		case 'facebook' :
+			return (count($obj) > 0 && $obj->entries);
 		case 'google' :
 			return (count($obj) > 0 && $obj->items);
 		case 'github' :
@@ -167,6 +175,14 @@ function has_children($obj, $service) {
 			return (count($obj) > 0 && $obj[0]->url);
 	}
 	return false;
+}
+
+/*
+ * Exposes the user_id defined in global namespace above to 
+ * other php files
+ */
+function get_json_id($service) {
+	return $GLOBALS[$service . '_id'];
 }
 
 
