@@ -5,7 +5,7 @@ include_once('json_common.php');
 /*
  * Echo out the data
  */
-$obj = @get_json_data('google', 'activities', '?maxResults=25');
+$obj = get_json_data('google', 'activities', '?maxResults=25');
 
 foreach ($obj as $items) {
 	if (!is_array($items) || count($items) < 1 ) {
