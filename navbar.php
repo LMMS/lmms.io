@@ -18,19 +18,29 @@ function create_navbar() {
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<?php
-						menu_item('Home', '/index.php');
-						menu_item('Download', '/download.php', false, false, 'dropdown-split-left');
+						menu_item('Home');
+						menu_item('Download', NULL, false, false, 'dropdown-split-left');
 						menu_item('Download', '#', true, false, 'dropdown-split-right hidden-xs');
 						echo '<ul class="dropdown-menu pull-right">';
-							menu_item('<span class="fa fa-download"></span> Download LMMS', '/download.php');
-							menu_item('<span class="fa fa-music"></span> Download Sample Packs', '#', false, true);
-							menu_item('<span class="fa fa-picture-o"></span> Download Artwork', '/artwork.php');
+							menu_item('<span class="fa fa-download fa-middle"></span> Download LMMS', '/download.php');
+							//menu_item('<span class="fa fa-music fa-middle"></span> Download Sample Packs', '#', false, true);
+							menu_item('<span class="fa fa-picture-o fa-middle"></span> Download Artwork', '/artwork.php');
 						// Important! - Make sure to close the parent list item tag with "</li>"
 						echo '</ul></li>';
 						menu_item('Screenshots');
 						menu_item('Tracks');
 						menu_item('Documentation');
-						menu_item('Community');
+						menu_item('Community', NULL, false, false, 'dropdown-split-left');
+						menu_item('Community', '#', true, false, 'dropdown-split-right hidden-xs');
+						echo '<ul class="dropdown-menu pull-right">';
+							menu_item('<span class="fa fa-comments fa-middle"></span> Forums', '/forums/');
+							menu_item('<span class="fa fa-facebook fa-middle"></span> Facebook', 'https://www.facebook.com/makefreemusic');
+							menu_item('<span class="fa fa-soundcloud fa-middle"></span> SoundCloud', 'https://soundcloud.com/groups/linux-multimedia-studio');
+							menu_item('<span class="fa fa-google-plus fa-middle"></span> Google+', 'https://plus.google.com/u/0/113001340835122723950/posts');
+							//menu_item('<span class="fa fa-youtube fa-middle"></span> YouTube', '#');
+							menu_item('<span class="fa fa-github fa-middle"></span> GitHub', 'https://github.com/LMMS/lmms');
+						// Important! - Make sure to close the parent list item tag with "</li>"
+						echo '</ul></li>';
 						menu_item('Share', '/lsp/');
 					?>
 				</ul>
@@ -57,6 +67,11 @@ function get_page_name() {
 		case 'index.php':
 		case 'home.php':
 			return 'Home';
+		case 'artwork.php':
+		case 'samples.php':
+		case 'samplepacks.php':
+		case 'download.php':
+					return 'Download';
 		default:
 			return preg_replace('/\.[^.]*$/', '', ucfirst($uri));
 	}
@@ -75,7 +90,7 @@ function menu_item($text, $url = NULL, $dropdown = NULL, $disabled = NULL, $clas
 	}
 
 	if (is_null($url)) {
-		$url = '/' . strtolower($text) . '.php';
+		$url = '/' . strtolower($text == "Home" ? "Index" : $text) . '.php';
 	}
 	if ($dropdown) {
 		// Important - This leaves an open <li> tag.  Must be closed manually.
