@@ -45,6 +45,11 @@ function create_navbar() {
  */
 function get_page_name() {
 	$uri = str_replace('/', '', $_SERVER["REQUEST_URI"]);
+	
+	if (str_contains($uri, '/forum/')) {
+		return 'Community';
+	}
+	
 	switch($uri) {
 		case 'header.php':
 		case '':
@@ -77,6 +82,10 @@ function menu_item($text, $url = NULL, $dropdown = NULL, $disabled = NULL, $clas
 	} else {
 		echo '<li class="' . $active . ' ' . $class . ($disabled ? ' disabled' : '') . '"><a href="' . $url . '">' . $text . '</a></li>';
 	}
+}
+
+function str_contains($haystack, $needle) {
+	return strpos($haystack, $needle) !== FALSE;
 }
 
 ?>
