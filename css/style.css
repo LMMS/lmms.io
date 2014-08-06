@@ -33,6 +33,10 @@ li.dropdown-split-right > a {
 	max-height: 500px;
 }
 
+.nav li {
+	font-size: 14px;
+}
+
 .theme-showcase > p > .btn {
 	margin: 5px 0;
 }
