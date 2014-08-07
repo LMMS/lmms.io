@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include(__DIR__ . '/header.php'); ?>
 
 <div class="page-header"><h1>LMMS Community</h1></div>
 <div id="toolbar" class="panel panel-default">

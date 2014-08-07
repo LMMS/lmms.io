@@ -1,4 +1,4 @@
-<?php include_once('navbar.php'); ?>
+<?php include_once(__DIR__ . '/navbar.php'); ?>
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>

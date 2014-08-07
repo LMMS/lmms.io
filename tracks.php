@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include(__DIR__ . '/header.php'); ?>
 
 <div class="page-header"> <h1>Tracks made with LMMS</h1> </div>
 

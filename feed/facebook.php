@@ -1,7 +1,7 @@
 <?php
-include_once('common.php');
-include_once('json_common.php');
-include_once('simple_html_dom.php');
+include_once(__DIR__ . '../common.php');
+include_once(__DIR__ . '/json_common.php');
+include_once(__DIR__ . '/simple_html_dom.php');
 
 /*
  * Echo out the data

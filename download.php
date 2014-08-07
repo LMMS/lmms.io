@@ -1,5 +1,5 @@
-<?php include('header.php'); ?>
-<?php include('feed/releases.php'); ?>
+<?php include(__DIR__ . '/header.php'); ?>
+<?php include(__DIR__ . '/feed/releases.php'); ?>
 
 <div class="text-center">
 <h1>Download LMMS</h1>

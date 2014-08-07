@@ -1,6 +1,6 @@
 <?php
 
-include('rss/rss_fetch.inc');
+include(__DIR__ . '/rss/rss_fetch.inc');
 
 if ( !defined('MAGPIE_OUTPUT_ENCODING') ) {
 	define('MAGPIE_OUTPUT_ENCODING', 'UTF-8');

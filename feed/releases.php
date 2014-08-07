@@ -1,6 +1,6 @@
 <?php
 
-include_once('json_common.php');
+include_once(__DIR__ . '/json_common.php');
 
 
 /*
