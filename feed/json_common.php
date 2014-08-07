@@ -64,6 +64,7 @@ $alt_secrets_dir = $cache_dir;
 $github_api_url = 'https://api.github.com/repos/'; // . $repo . $object . $params;
 $google_api_url = 'https://www.googleapis.com/plus/v1/people/';
 $facebook_api_url = 'https://www.facebook.com/feeds/page.php'; // ?id=435131566543039&format=json
+$soundcloud_api_url = 'https://api.soundcloud.com/groups/'; // . $repo . '.json'
 
 /*
  * The JSON unique ID.  This may be a project name or a userid, depending
@@ -74,14 +75,16 @@ $facebook_api_url = 'https://www.facebook.com/feeds/page.php'; // ?id=4351315665
 $github_id = 'lmms';
 $google_id = '113001340835122723950';
 $facebook_id = '435131566543039';
+$soundcloud_id = '8574';
 
 /*
  * Local JSON cache file name prefix.  Eventually this file will be created and
  * stored in $cache_dir above. This should usually end in an underscore.
  */
-$github_cache_file = '.json_github_'; 		// . $repo . $object;
-$google_cache_file = '.json_google_'; 		// . $user_id;
-$facebook_cache_file = '.json_facebook_'; 	// . $user_id;
+$github_cache_file = '.json_github_'; 			// . $repo . $object;
+$google_cache_file = '.json_google_'; 			// . $user_id;
+$facebook_cache_file = '.json_facebook_'; 		// . $user_id;
+$soundcloud_cache_file = '.json_soundcloud_';	// . $object
 
 /*
  * Returns the JSON decoded object from the respective JSON service/API.
@@ -89,16 +92,18 @@ $facebook_cache_file = '.json_facebook_'; 	// . $user_id;
  * unavailable, it will attempt to return data from the last good cache.
  * Parameters:
  *	$service:  	Used to switch API providers.
- *		Example:  	"google", "github"
+ *		Example:  	"google", "github", "facebook", "soundcloud"
  *	$object: 	Used to switch between specific service components. 
  *      Example: 	(github) 	"releases", "issues"
  *					(google)	"activities"
+ *                  (soundcloud)"tracks", "members", 
  *	$params:	Normally used to filter the results
  *		Example:	(github)	"?state=open"
- *					(google) 	"?maxResults=25"
+ *					(google) 	"?maxResults=25
  *	$repo:		Overrides the default repository for information
  *		Example:	(github)	"tfino", "diizy", "Lukas-W"
  *					(google)	"113001340835122723950"
+ *                  (soundcloud) "5532", "8574" (search the embed player code)
  */
 function get_json_data($service, $object = NULL, $params = '', $repo = NULL) {
 	$service_url = $GLOBALS[$service . '_api_url'];
@@ -120,6 +125,9 @@ function get_json_data($service, $object = NULL, $params = '', $repo = NULL) {
 	// i.e. "https://api.github.com/repos/lmms/lmms/releases?param=value"
 	// i.e. "https://www.googleapis.com/plus/v1/people/113001340835122723950/activities/public?maxResults=25
 	switch ($service) {
+		case 'soundcloud' :
+			$full_api = $service_url . ($repo ? $repo : $service_id) . '/' . ($object ? $object : 'tracks' ) . '.json' . $params;
+			break;
 		case 'facebook' :
 			$full_api = $service_url . '?id=' . ($repo ? $repo : $service_id) . '&format=json' . $params;
 			break;
@@ -166,6 +174,8 @@ function get_json_data($service, $object = NULL, $params = '', $repo = NULL) {
  */
 function has_children($obj, $service) {
 	switch ($service) {
+		case 'soundcloud' :
+			return (count($obj) > 0 && $obj[0]->user_id);
 		case 'facebook' :
 			return (count($obj) > 0 && $obj->entries);
 		case 'google' :
@@ -213,6 +223,7 @@ function file_get_contents_curl($url, $service) {
 	curl_setopt($ch, CURLOPT_HEADER, 0);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_URL, $url . get_secrets($service, $url));
+
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
 	
 	// Skip SSL checks for localhost clients as Trusted CAs often aren't
@@ -238,9 +249,12 @@ function get_secrets($service, $url) {
 	$delim = (strpos($url, '?') !== FALSE) ? '&' : '?';
 
 	switch ($service) {
+		case 'soundcloud' :
+			$key=get_base64_secret('SOUNDCLOUD_CLIENT_ID');
+			return $key ? $delim . 'client_id=' . $key : '';
 		case 'google' :
 			$key=get_base64_secret('GOOGLE_KEY');
-			return $key ? $delim .'key=' . $key : '';
+			return $key ? $delim . 'key=' . $key : '';
 			break;
 		case 'github' :
 		default:
