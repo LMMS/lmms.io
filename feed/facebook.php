@@ -1,5 +1,5 @@
 <?php
-include_once(__DIR__ . '../common.php');
+include_once(__DIR__ . '/../utils.php');
 include_once(__DIR__ . '/json_common.php');
 include_once(__DIR__ . '/simple_html_dom.php');
 
