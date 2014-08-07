@@ -19,7 +19,7 @@ foreach ($obj->entries as $item) {
 		}
 		
 		echo '<div class="bs-callout bs-callout-info"><a target="_blank" href="' . $item->alternate . '"><h5><strong>';
-		echo '<span class="fa fa-facebook"></span> ' . $title . '</strong></h5></a>';
+		echo '<span class="fa fa-facebook-square"></span> ' . $title . '</strong></h5></a>';
 		$message = $item->content;
 		$message = str_replace('href="/LMMSchallenge/', 'href="http://www.facebook.com/LMMSchallenge/', $message);
 
