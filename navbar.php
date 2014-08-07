@@ -1,4 +1,5 @@
 <?php
+include_once('common.php');
 function create_navbar() {
 ?>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -132,18 +133,6 @@ function dropdown_menu_item($text, $alttext, $url, $items) {
 		echo "<li><a href=$item[1]>$item[0]</a></li>";
 	}
 	echo "</ul></li>";
-}
-
-function str_contains($haystack, $needle) {
-	return strpos($haystack, $needle) !== FALSE;
-}
-
-function str_startswith($haystack, $needle) {
-    return $needle === "" || strpos($haystack, $needle) === 0;
-}
-
-function str_endswith($haystack, $needle) {
-    return $needle === "" || substr($haystack, -strlen($needle)) === $needle;
 }
 
 ?>
