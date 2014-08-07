@@ -110,8 +110,8 @@ function dropdown_menu_item($text, $alttext, $url, $items) {
 	}
 
 	// Dropdown for big screens
-	echo "<li class='dropdown-split-left hidden-xs'> <a href='$url'>$text</a> </li>";
-	echo "<li class='dropdown-split-right hidden-xs'> <a href='#' class='dropdown-toggle' data-toggle='dropdown'> <span class='caret'></span></a>";
+	echo "<li class='dropdown-split-left hidden-xs $active'> <a href='$url'>$text</a> </li>";
+	echo "<li class='dropdown-split-right hidden-xs $active'> <a href='#' class='dropdown-toggle' data-toggle='dropdown'> <span class='caret'></span></a>";
 	echo "<ul class='dropdown-menu pull-right'>";
 
 	echo "<li><a href='$url'>" . ($alttext ? $alttext : $text) . "</a></li>";
@@ -124,7 +124,7 @@ function dropdown_menu_item($text, $alttext, $url, $items) {
 
 	// Dropdown for small screens
 
-	echo "<li class='dropdown visible-xs'> <a href='#' class='dropdown-toggle' data-toggle='dropdown'>$text <span class='caret'></span></a>";
+	echo "<li class='dropdown visible-xs $active'> <a href='#' class='dropdown-toggle' data-toggle='dropdown'>$text <span class='caret'></span></a>";
 	echo "<ul class='dropdown-menu' role='menu'>";
 
 	echo "<li><a href='$url'>" . ($alttext ? $alttext : $text) . "</a></li>";
