@@ -22,7 +22,7 @@
 			<label title="Visit page" class="btn btn-warning" onclick="show(this)" target="_blank" data-href="http://soundcloud.com/groups/linux-multimedia-studio">
 				<span class="fa fa-soundcloud"></span> SoundCloud
 			</label>
-			<label id="soundcloud-toggle" title="Preview content" class="btn btn-warning dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-bars"></span>
+			<label id="soundcloud-toggle" title="Preview content" class="btn btn-warning dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-bars disabled"></span>
 				<input type="radio" name="options">
 			</label>
 			
@@ -69,11 +69,12 @@
 	
 		
 	<div id="soundcloud-div" class="panel-body" style="display:none;">
-<?php include('feed/soundcloud.php'); ?>
+	<h3>Temporarily disabled, see <a href="https://github.com/Lukas-W/lmms.tuxfamily.org/issues/6">issue #6</a></h3>
+<?php //include('feed/soundcloud.php'); ?>
 	</div>
 	
 	<div id="google+-div" class="panel-body" style="display:none;">
-	<h3>Temporarily disabled, see https://github.com/Lukas-W/lmms.tuxfamily.org/issues/4</h3> 
+	<h3>Temporarily disabled, see <a href="https://github.com/Lukas-W/lmms.tuxfamily.org/issues/6">issue #4</a></h3>
 	<?php //include('feed/google+.php'); ?> 
 	</div>
 		
