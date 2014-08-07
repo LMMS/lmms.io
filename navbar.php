@@ -1,4 +1,4 @@
-<?php 
+<?php
 function create_navbar() {
 ?>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -19,28 +19,22 @@ function create_navbar() {
 				<ul class="nav navbar-nav">
 					<?php
 						menu_item('Home');
-						menu_item('Download', NULL, false, false, 'dropdown-split-left');
-						menu_item('Download', '#', true, false, 'dropdown-split-right hidden-xs');
-						echo '<ul class="dropdown-menu pull-right">';
-							menu_item('<span class="fa fa-download fa-middle"></span> Download LMMS', '/download.php');
-							//menu_item('<span class="fa fa-music fa-middle"></span> Download Sample Packs', '#', false, true);
-							menu_item('<span class="fa fa-picture-o fa-middle"></span> Download Artwork', '/artwork.php');
-						// Important! - Make sure to close the parent list item tag with "</li>"
-						echo '</ul></li>';
+						@dropdown_menu_item('Download', '<span class="fa fa-download fa-fw"></span>Download LMMS', '/download.php', array(
+							//array('<span class="fa fa-download fa-fw"></span> Download LMMS', '/download.php'),
+							array('<span class="fa fa-music fa-fw"></span> Download Sample Packs', '#'),
+							array('<span class="fa fa-picture-o fa-fw"></span> Download Artwork', '/artwork.php')
+						));
 						menu_item('Screenshots');
 						menu_item('Tracks');
 						menu_item('Documentation');
-						menu_item('Community', NULL, false, false, 'dropdown-split-left');
-						menu_item('Community', '#', true, false, 'dropdown-split-right hidden-xs');
-						echo '<ul class="dropdown-menu pull-right">';
-							menu_item('<span class="fa fa-comments fa-middle"></span> Forums', '/forums/');
-							menu_item('<span class="fa fa-facebook fa-middle"></span> Facebook', 'https://www.facebook.com/makefreemusic');
-							menu_item('<span class="fa fa-soundcloud fa-middle"></span> SoundCloud', 'https://soundcloud.com/groups/linux-multimedia-studio');
-							menu_item('<span class="fa fa-google-plus fa-middle"></span> Google+', 'https://plus.google.com/u/0/113001340835122723950/posts');
-							//menu_item('<span class="fa fa-youtube fa-middle"></span> YouTube', '#');
-							menu_item('<span class="fa fa-github fa-middle"></span> GitHub', 'https://github.com/LMMS/lmms');
-						// Important! - Make sure to close the parent list item tag with "</li>"
-						echo '</ul></li>';
+						@dropdown_menu_item('Community', '<span class="fa fa-users fa-fw"></span> Community', '/community.php', array(
+							array('<span class="fa fa-comments fa-fw"></span> Forums', '/forums/'),
+							array('<span class="fa fa-facebook fa-fw"></span> Facebook', 'https://www.facebook.com/makefreemusic'),
+							array('<span class="fa fa-soundcloud fa-fw"></span> SoundCloud', 'https://soundcloud.com/groups/linux-multimedia-studio'),
+							array('<span class="fa fa-google-plus fa-fw"></span> Google+', 'https://plus.google.com/u/0/113001340835122723950/posts'),
+							//array('<span class="fa fa-youtube fa-fw"></span> YouTube', '#'),
+							array('<span class="fa fa-github fa-fw"></span> GitHub', 'https://github.com/LMMS/lmms')
+						));
 						menu_item('Share', '/lsp/');
 					?>
 				</ul>
@@ -57,10 +51,10 @@ function get_page_name() {
 	if (str_startswith($_SERVER["REQUEST_URI"], '/forum/')) {
 		return 'Community';
 	}
-	
+
 	$uri = str_replace('/', '', $_SERVER["REQUEST_URI"]);
 
-	
+
 	switch($uri) {
 		case 'header.php':
 		case '':
@@ -98,6 +92,46 @@ function menu_item($text, $url = NULL, $dropdown = NULL, $disabled = NULL, $clas
 	} else {
 		echo '<li class="' . $active . ' ' . $class . ($disabled ? ' disabled' : '') . '"><a href="' . $url . '">' . $text . '</a></li>';
 	}
+}
+
+/*
+ * Creates a split dropdown item for big screens and a normal dropdown for small
+ * screens. As a split dropdown is not possible for small screens and as it's
+ * more handy this way, the main link is repeated inside the dropdown.
+ * This is what $alttext is for.
+ * Example: dropdown_menu_item('Download', 'Download LMMS', '/download.php', …)
+ */
+function dropdown_menu_item($text, $alttext, $url, $items) {
+	// Determine the "Active Tab
+	if ($text == get_page_name()) {
+		$active = 'active';
+	} else {
+		$active = '';
+	}
+
+	// Dropdown for big screens
+	echo "<li class='dropdown-split-left hidden-xs'> <a href='$url'>$text</a> </li>";
+	echo "<li class='dropdown-split-right hidden-xs'> <a href='#' class='dropdown-toggle' data-toggle='dropdown'> <span class='caret'></span></a>";
+	echo "<ul class='dropdown-menu pull-right'>";
+
+	echo "<li><a href='$url'>" . ($alttext ? $alttext : $text) . "</a></li>";
+	echo "<li class='divider'></li>";
+	foreach ($items as $item) {
+		echo "<li><a href='$item[1]'>$item[0]</a></li>";
+	}
+
+	echo "</ul> </li>";
+
+	// Dropdown for small screens
+
+	echo "<li class='dropdown visible-xs'> <a href='#' class='dropdown-toggle' data-toggle='dropdown'>$text <span class='caret'></span></a>";
+	echo "<ul class='dropdown-menu' role='menu'>";
+
+	echo "<li><a href='$url'>" . ($alttext ? $alttext : $text) . "</a></li>";
+	foreach ($items as $item) {
+		echo "<li><a href=$item[1]>$item[0]</a></li>";
+	}
+	echo "</ul></li>";
 }
 
 function str_contains($haystack, $needle) {

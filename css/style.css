@@ -9,11 +9,6 @@ blockquote {
 	font-style: italic;
 }
 
-.fa-middle {
-	text-align: center;
-	width: 20px;
-}
-
 .theme-dropdown .dropdown-menu {
 	position: static;
 	display: block;
@@ -28,11 +23,11 @@ li.dropdown-split-right > a {
 	padding-left: 7px;
 }
 
-#forums-div, 
-#facebook-div, 
-#soundcloud-div, 
-#google-div, 
-#youtube-div, 
+#forums-div,
+#facebook-div,
+#soundcloud-div,
+#google-div,
+#youtube-div,
 #github-div {
 	max-height: 500px;
 }

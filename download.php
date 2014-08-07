@@ -1,7 +1,8 @@
 <?php include('header.php'); ?>
 <?php include('feed/releases.php'); ?>
 
-<div class="page-header"> <h1>Download LMMS</h1> </div>
+<div class="text-center">
+<h1>Download LMMS</h1>
 
 <p>Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:</p>
 
@@ -21,6 +22,8 @@
 <p class="visible-xs-block">
 <a href="#"><span class="fa fa-music"></span> Download Sample Packs</a> • <a href="/artwork.php"><span class="fa fa-picture-o"></span> Download Artwork</a>
 </p>
+
+</div><hr>
 
 <div id="linux-div" style="display:none">
 	<h2>Install LMMS on Linux</h2>
@@ -48,8 +51,8 @@
 <div id="windows-div" style="display:block">
 	<h2>Install LMMS on Windows</h3>
 	<p>Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows</p>
-	<?php get_releases(1, 'horiz', '.exe'); ?>
-	<hr><p>Beta Versions</p>
+	<p><?php get_releases(1, 'horiz', '.exe'); ?></p>
+	<p>Beta Versions</p>
 	<?php get_releases(1, 'horiz', '.exe', 'tresf'); ?>
 </div>
 <div id="mac-div" style="display:none">
@@ -81,7 +84,7 @@ function autoSelect() {
 
 $(function() {
 	if (location.hash) {
-		try { 
+		try {
 			show(location.hash);
 		} catch (err) {
 			autoSelect();
