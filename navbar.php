@@ -55,14 +55,12 @@ function get_page_name() {
 	$uri = trim($_SERVER["REQUEST_URI"], "/");
 
 	switch($uri) {
-		case 'header':
 		case '':
-		case 'index':
-		case 'home':
+		case 'header.php':
+		case 'index.php':
 			return 'Home';
-		case 'artwork':
+		case 'download/artwork':
 		case 'download/samples':
-		case 'samplepacks':
 		case 'download':
 					return 'Download';
 		case 'lsp':
