@@ -175,7 +175,7 @@ function get_json_data($service, $object = NULL, $params = '', $repo = NULL) {
 function has_children($obj, $service) {
 	switch ($service) {
 		case 'soundcloud' :
-			return (count($obj) > 0); // && $obj[0]->user_id);
+			return (count($obj) > 0 && $obj[0]->user_id);
 		case 'facebook' :
 			return (count($obj) > 0 && $obj->entries);
 		case 'google' :
@@ -223,16 +223,13 @@ function file_get_contents_curl($url, $service) {
 	curl_setopt($ch, CURLOPT_HEADER, 0);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_URL, $url . get_secrets($service, $url));
-	
-	echo '<p>' . $url . get_secrets($service, $url) . '</p>';
-
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
 	
 	// Skip SSL checks for localhost clients as Trusted CAs often aren't
 	// installed into CURL on developer's PCs
-	//if (in_array($_SERVER["REMOTE_ADDR"], array ("127.0.0.1", "::1"))) {
+	if (in_array($_SERVER["REMOTE_ADDR"], array ("127.0.0.1", "::1"))) {
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-	//}
+	}
 	
 	$data = curl_exec($ch);
 	curl_close($ch);
@@ -277,12 +274,8 @@ function get_secrets($service, $url) {
 function get_base64_secret($file) {
 	global $secrets_dir, $alt_secrets_dir;
 	$base64 = @file_get_contents($secrets_dir . $file);
-	echo '<p>base64:' . $base64 . '</p>';
-	echo '<p>secrets file:' . $secrets_dir . $file . '</p>';
 	if (!$base64) {
 		$base64 = @file_get_contents($alt_secrets_dir . $file);
-		echo '<p>base64:' . $base64 . '</p>';
-		echo '<p>alt_secrets file:' . $alt_secrets_dir . $file . '</p>';
 	}
 	return base64_decode($base64);
 }
