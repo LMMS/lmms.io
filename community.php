@@ -22,18 +22,18 @@
 			<label title="Visit page" class="btn btn-warning" onclick="show(this)" target="_blank" data-href="http://soundcloud.com/groups/linux-multimedia-studio">
 				<span class="fa fa-soundcloud"></span> SoundCloud
 			</label>
-			<label id="soundcloud-toggle" title="Preview content" class="btn btn-warning dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-bars disabled"></span>
+			<label id="soundcloud-toggle" title="Preview content" class="btn btn-warning dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-bars"></span>
 				<input type="radio" name="options">
 			</label>
 			
 			<label title="Visit page" class="btn btn-danger" onclick="show(this)" target="_blank" data-href="https://plus.google.com/u/0/113001340835122723950/posts">
 				<span class="fa fa-google-plus"></span> Google+
 			</label>
-			<!--
+			
 			<label id="google+-toggle" title="Preview content" class="btn btn-danger dropdown-toggle" onclick="show('#google+')"><span class="fa fa-bars"></span>
 				<input type="radio" name="options">
 			</label>
-			-->
+			
 			<!--
 			<label title="Visit page" class="btn btn-default disabled" onclick="show(this)" style="color: red;" target="new" data-href="#"><span class="fa fa-youtube"></span>
 				<span style="color:black;"> YouTube</span>
@@ -74,8 +74,8 @@
 	</div>
 	
 	<div id="google+-div" class="panel-body" style="display:none;">
-	<h3>Temporarily disabled, see <a href="https://github.com/Lukas-W/lmms.tuxfamily.org/issues/6">issue #4</a></h3>
-	<?php //include('feed/google+.php'); ?> 
+<!--	<h3>Temporarily disabled, see <a href="https://github.com/Lukas-W/lmms.tuxfamily.org/issues/6">issue #4</a></h3>
+-->	<?php include('feed/google+.php'); ?> 
 	</div>
 		
 	<div id="github-div" class="panel-body" style="display:none;">
