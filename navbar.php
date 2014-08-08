@@ -1,5 +1,5 @@
 <?php
-include_once(__DIR__ . '/utils.php');
+include_once('utils.php');
 function create_navbar() {
 ?>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -12,7 +12,7 @@ function create_navbar() {
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/index.php"><img class="visible-lg logo-sm" style="float: left;" src="/img/logo_sm.png" />LMMS</a>
+				<a class="navbar-brand" href="/"><img class="visible-lg logo-sm" style="float: left;" src="/img/logo_sm.png" />LMMS</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,15 +20,14 @@ function create_navbar() {
 				<ul class="nav navbar-nav">
 					<?php
 						menu_item('Home');
-						@dropdown_menu_item('Download', '<span class="fa fa-download fa-fw"></span>Download LMMS', '/download.php', array(
-							//array('<span class="fa fa-download fa-fw"></span> Download LMMS', '/download.php'),
-							array('<span class="fa fa-music fa-fw"></span> Download Sample Packs', '#'),
-							array('<span class="fa fa-picture-o fa-fw"></span> Download Artwork', '/artwork.php')
+						@dropdown_menu_item('Download', '<span class="fa fa-download fa-fw"></span>Download LMMS', '/download/', array(
+							array('<span class="fa fa-music fa-fw"></span> Download Sample Packs', '/download/samples/'),
+							array('<span class="fa fa-picture-o fa-fw"></span> Download Artwork', '/download/artwork/')
 						));
 						menu_item('Screenshots');
 						menu_item('Tracks');
 						menu_item('Documentation');
-						@dropdown_menu_item('Community', '<span class="fa fa-users fa-fw"></span> Community', '/community.php', array(
+						@dropdown_menu_item('Community', '<span class="fa fa-users fa-fw"></span> Community', '/community/', array(
 							array('<span class="fa fa-comments fa-fw"></span> Forums', '/forum/'),
 							array('<span class="fa fa-facebook fa-fw"></span> Facebook', 'https://www.facebook.com/makefreemusic'),
 							array('<span class="fa fa-soundcloud fa-fw"></span> SoundCloud', 'https://soundcloud.com/groups/linux-multimedia-studio'),
@@ -53,20 +52,19 @@ function get_page_name() {
 		return 'Community';
 	}
 
-	$uri = str_replace('/', '', $_SERVER["REQUEST_URI"]);
-
+	$uri = trim($_SERVER["REQUEST_URI"], "/");
 
 	switch($uri) {
-		case 'header.php':
 		case '':
+		case 'header.php':
 		case 'index.php':
-		case 'home.php':
 			return 'Home';
-		case 'artwork.php':
-		case 'samples.php':
-		case 'samplepacks.php':
-		case 'download.php':
+		case 'download/artwork':
+		case 'download/samples':
+		case 'download':
 					return 'Download';
+		case 'lsp':
+			return 'Share';
 		default:
 			return preg_replace('/\.[^.]*$/', '', ucfirst($uri));
 	}
@@ -85,7 +83,8 @@ function menu_item($text, $url = NULL, $dropdown = NULL, $disabled = NULL, $clas
 	}
 
 	if (is_null($url)) {
-		$url = '/' . strtolower($text == "Home" ? "Index" : $text) . '.php';
+		if ($text == "Home") $url = '/';
+		else $url = '/' . strtolower($text) . '/';
 	}
 	if ($dropdown) {
 		// Important - This leaves an open <li> tag.  Must be closed manually.

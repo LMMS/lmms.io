@@ -1,5 +1,5 @@
-<?php include(__DIR__ . '/header.php'); ?>
-<?php include(__DIR__ . '/feed/releases.php'); ?>
+<?php include('../header.php'); ?>
+<?php include('../feed/releases.php'); ?>
 
 <div class="text-center">
 	<h1>Download LMMS</h1>
@@ -144,4 +144,4 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 </script>
 
-<?php include('footer.php'); ?>
+<?php include('../footer.php'); ?>
