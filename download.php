@@ -2,26 +2,26 @@
 <?php include('feed/releases.php'); ?>
 
 <div class="text-center">
-<h1>Download LMMS</h1>
+	<h1>Download LMMS</h1>
 
-<p>Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:</p>
+	<p>Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:</p>
 
-<p>
-<div class="btn-group" data-toggle="buttons">
-	<label class="btn btn-default" onclick="show('#linux')">
-		<input type="radio" name="options" id="linux-button"><span class="fa fa-linux"></span> Linux
-	</label>
-	<label class="btn btn-default" onclick="show('#windows')">
-		<input type="radio" name="options" id="windows-button"><span class="fa fa-windows"></span> Windows
-	</label>
-	<label class="btn btn-default" onclick="show('#mac')">
-		<input type="radio" name="options" id="mac-button"><span class="fa fa-apple"></span> OS X
-	</label>
-</div>
-</p>
-<p class="visible-xs-block">
-<a href="#"><span class="fa fa-music"></span> Download Sample Packs</a> • <a href="/artwork.php"><span class="fa fa-picture-o"></span> Download Artwork</a>
-</p>
+	<p>
+		<div class="btn-group" data-toggle="buttons">
+			<label class="btn btn-default" onclick="show('#linux')">
+				<input type="radio" name="options" id="linux-button"><span class="fa fa-linux"></span> Linux
+			</label>
+			<label class="btn btn-default" onclick="show('#windows')">
+				<input type="radio" name="options" id="windows-button"><span class="fa fa-windows"></span> Windows
+			</label>
+			<label class="btn btn-default" onclick="show('#mac')">
+				<input type="radio" name="options" id="mac-button"><span class="fa fa-apple"></span> OS X
+			</label>
+		</div>
+	</p>
+	<p class="visible-xs-block">
+		<a href="#"><span class="fa fa-music"></span> Download Sample Packs</a> • <a href="/artwork.php"><span class="fa fa-picture-o"></span> Download Artwork</a>
+	</p>
 
 </div><hr>
 
