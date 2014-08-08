@@ -275,8 +275,10 @@ function get_secrets($service, $url) {
 function get_base64_secret($file) {
 	global $secrets_dir, $alt_secrets_dir;
 	$base64 = @file_get_contents($secrets_dir . $file);
+	echo '<p>secrets file:' . $secrets_dir . $file . '</p>';
 	if (!$base64) {
 		$base64 = @file_get_contents($alt_secrets_dir . $file);
+		echo '<p>alt_secrets file:' . $alt_secrets_dir . $file . '</p>';
 	}
 	return base64_decode($base64);
 }
