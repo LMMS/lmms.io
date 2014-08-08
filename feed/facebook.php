@@ -1,7 +1,7 @@
 <?php
-include_once(__DIR__ . '/../utils.php');
-include_once(__DIR__ . '/json_common.php');
-include_once(__DIR__ . '/simple_html_dom.php');
+include_once('../utils.php');
+include_once('json_common.php');
+include_once('simple_html_dom.php');
 
 /*
  * Echo out the data
@@ -15,19 +15,19 @@ if (count($obj) <= 0 || !$obj->entries) {
 
 foreach ($obj->entries as $item) {
 		$title = $item->title;
-		
+
 		// Cross-linked posts seem to have an empty title.  This changes it to a generic title.
 		if (!$title || trim($title) == '') {
 			$title = 'LMMS Announcement';
 		}
-		
+
 		echo '<div class="bs-callout bs-callout-info"><a target="_blank" href="' . $item->alternate . '"><h5><strong>';
 		echo '<span class="fa fa-facebook-square"></span> ' . $title . '</strong></h5></a>';
 		$message = cleanse_urls($item->content, $item->alternate);
 
 		echo $message;
 		// Format and concat a pretty timestamp
-		echo '<p><small>Posted by: <a href="' . 'http://facebook.com/' . get_json_id('facebook') . '">' . $item->author->name . '</a> at ' . 
+		echo '<p><small>Posted by: <a href="' . 'http://facebook.com/' . get_json_id('facebook') . '">' . $item->author->name . '</a> at ' .
 			date("D, d M Y h:ia ", strtotime($item->published)) . '(GMT ' . sprintf('%+d', date('O')*1/100) . ')</small></p>';
 		echo '</div><br>';
 }
@@ -61,7 +61,7 @@ function cleanse_urls($str, $article_url) {
 		if (str_startswith($element->href, '/')) {
 			$element->href = 'https://www.facebook.com' . $element->href;
 		}
-		
+
 	}
 	return $html->save();
 }

@@ -1,5 +1,5 @@
 <?php
-include_once(__DIR__ . '/utils.php');
+include_once('utils.php');
 function create_navbar() {
 ?>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">

@@ -1,6 +1,6 @@
 <?php
 
-include_once(__DIR__ . '/json_common.php');
+include_once('json_common.php');
 
 /*
  * Maximum number of displayed items
@@ -30,7 +30,7 @@ foreach($obj as $item) {
 	}
 	echo $message;
 	// Format and concat a pretty timestamp
-	echo '<small>Posted by: <a href="' . $item->user->html_url . '">' . $item->user->login . '</a> at ' . 
+	echo '<small>Posted by: <a href="' . $item->user->html_url . '">' . $item->user->login . '</a> at ' .
 		date("D, d M Y h:ia ", strtotime($item->created_at)) . '(GMT ' . sprintf('%+d', date('O')*1/100) . ')</small>';
 	echo '</div><br>';
 	if ($count++ == $max) {

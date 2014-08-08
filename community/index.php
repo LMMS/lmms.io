@@ -60,27 +60,27 @@
 	</div>
 
     <div id="forums-div" class="panel-body" style="display:none;">
-<?php include('feed/forums.php'); ?>
+<?php include('../feed/forums.php'); ?>
 	</div>
 
 	<div id="facebook-div" class="panel-body" style="display:none;">
-	<?php include('feed/facebook.php'); ?>
+	<?php include('../feed/facebook.php'); ?>
 	</div>
 
 
 	<div id="soundcloud-div" class="panel-body" style="display:none;">
 <!--	<h3>Temporarily disabled, see <a href="https://github.com/Lukas-W/lmms.tuxfamily.org/issues/6">issue #6</a></h3>
---><?php include('feed/soundcloud.php'); ?>
+--><?php include('../feed/soundcloud.php'); ?>
 	</div>
 
 	<div id="google+-div" class="panel-body" style="display:none;">
 <!--	<h3>Temporarily disabled, see <a href="https://github.com/Lukas-W/lmms.tuxfamily.org/issues/6">issue #4</a></h3>
--->	<?php include('feed/google+.php'); ?>
+-->	<?php include('../feed/google+.php'); ?>
 	</div>
 
 	<div id="github-div" class="panel-body" style="display:none;">
 <!-- Loads download links automatically from dl.php -->
-<?php include('feed/issues.php'); ?>
+<?php include('../feed/issues.php'); ?>
 	</div>
 </div>
 
