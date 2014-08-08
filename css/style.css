@@ -29,6 +29,16 @@ li.dropdown-split-right > a {
 	display: inline;
 }
 
+.fb-thumb {
+	position: relative;
+	/*top: -8px;*/
+	float: left;
+	margin: 5px;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+}
+
 .sc-thumb {
 	position: relative;
 	top: -8px;

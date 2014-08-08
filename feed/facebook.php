@@ -43,7 +43,7 @@ function cleanse_urls($str, $article_url) {
 	foreach($html->find('a') as $element) {
 		// Fix cross posts, especially those from LMMSChallenge facebook
 		if (!$element->find('img') && is_image($element)) {
-			$element->innertext = '<img src="' . $element->href . '"/>';
+			$element->innertext = '<img class="img-thumbnail fb-thumb" src="' . $element->href . '"/>';
 			$element->href = $article_url;
 		}
 		// Fix unnecessary facebook redirects
@@ -63,6 +63,11 @@ function cleanse_urls($str, $article_url) {
 		}
 
 	}
+	
+	foreach ($html->find('img') as $img) {
+		$img->class = ($img->class ? $img->class . ' ' : '') . 'img-thumbnail fb-thumb';
+	}
+	
 	return $html->save();
 }
 
