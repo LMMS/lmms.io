@@ -23,6 +23,21 @@ li.dropdown-split-right > a {
 	padding-left: 7px;
 }
 
+.ellipsis {
+	font-size: 1em;
+	font-weight: 900;
+	display: inline;
+}
+
+.sc-thumb {
+	position: relative;
+	top: -8px;
+	float: left;
+	margin: 5px;
+	width: 80px;
+	height: 80px;
+}
+
 #forums-div,
 #facebook-div,
 #soundcloud-div,
@@ -115,6 +130,7 @@ li.dropdown-split-right > a {
 	margin: 10px 0;
 	padding: 15px 30px 15px 15px;
 	border-left: 5px solid #eee;
+	overflow: auto;
 }
 
 .bs-callout h4 {

@@ -27,11 +27,7 @@ foreach ($obj as $items) {
 
 		echo '<div class="bs-callout bs-callout-danger"><a target="_blank" href="' . $item->url . '"><h5><strong>';
 		echo '<span class="fa fa-google-plus"></span> ' . $item->title . '</strong></h5></a>';
-		$message = $item->object->content;
-		if (strlen($message) > 500) {
-			$message = substr($message, 0, 250) . '...<h4><a target="_blank" href="' . $item->url . '">...</a></h4>';
-		}
-		echo $message;
+		echo trim_feed($item->object->content, $item->url);
 		// Format and concat a pretty timestamp
 		echo '<p><small>Posted by: <a href="' . $item->actor->url . '">' . $item->actor->displayName . '</a> at ' .
 			date("D, d M Y h:ia ", strtotime($item->published)) . '(GMT ' . sprintf('%+d', date('O')*1/100) . ')</small></p>';

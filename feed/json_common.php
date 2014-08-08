@@ -290,4 +290,15 @@ function get_document_root() {
 	return ($retval ? $retval : $_SERVER["DOCUMENT_ROOT"]);
 }
 
+/*
+ * Trims message to the specified character length, or 500 if none is provided.
+ */
+function trim_feed($message, $hyperlink, $max_length = 500) {
+	if (strlen($message) > $max_length) {
+			return explode('\n', wordwrap($message, $max_length, '\n', true))[0] . ' <a class="ellipsis" target="_blank" href="' . $hyperlink . '">...</a>';
+			//return substr($message, 0, $max_length) . ' <a class="ellipsis" target="_blank" href="' . $hyperlink . '">...</a>';
+	}
+	return $message;
+}
+
 ?>

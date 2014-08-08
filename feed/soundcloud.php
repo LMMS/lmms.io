@@ -20,11 +20,11 @@ foreach ($obj as $item) {
 		$title = 'LMMS Announcement';
 	}
 
-	echo '<div class="bs-callout bs-callout-warning" style="overflow: auto;" ><a target="_blank" href="' . $item->permalink_url . '"><h5><strong>';
+	echo '<div class="bs-callout bs-callout-warning"><a target="_blank" href="' . $item->permalink_url . '"><h5><strong>';
 	echo '<span class="fa fa-soundcloud"></span> ' . $item->title . '</strong></h5>';
-	echo '<img class="img-thumbnail" style="float:left; margin: 5px; width: 60px; height: 60px;" src="' . ($item->artwork_url ? $item->artwork_url : $item->user->avatar_url) . '"/>';
+	echo '<img class="img-thumbnail sc-thumb" src="' . ($item->artwork_url ? $item->artwork_url : $item->user->avatar_url) . '"/>';
 	echo '</a>';
-	echo '<p>' . $item->description . '</p>';
+	echo '<p>' . trim_feed($item->description, $item->permalink_url) . '</p>';
 	// Format and concat a pretty timestamp
 	echo '<p><small>Created by: <a href="' . $item->user->permalink_url . '">' . $item->user->username . '</a> at ' .
 		date("D, d M Y h:ia ", strtotime($item->created_at)) . '(GMT ' . sprintf('%+d', date('O')*1/100) . ')</small></p>';
