@@ -29,7 +29,7 @@ function create_navbar() {
 						menu_item('Tracks');
 						menu_item('Documentation');
 						@dropdown_menu_item('Community', '<span class="fa fa-users fa-fw"></span> Community', '/community.php', array(
-							array('<span class="fa fa-comments fa-fw"></span> Forums', '/forums/'),
+							array('<span class="fa fa-comments fa-fw"></span> Forums', '/forum/'),
 							array('<span class="fa fa-facebook fa-fw"></span> Facebook', 'https://www.facebook.com/makefreemusic'),
 							array('<span class="fa fa-soundcloud fa-fw"></span> SoundCloud', 'https://soundcloud.com/groups/linux-multimedia-studio'),
 							array('<span class="fa fa-google-plus fa-fw"></span> Google+', 'https://plus.google.com/u/0/113001340835122723950/posts'),
