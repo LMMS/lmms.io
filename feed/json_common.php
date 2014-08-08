@@ -251,6 +251,8 @@ function get_secrets($service, $url) {
 	$delim = (strpos($url, '?') !== FALSE) ? '&' : '?';
 
 	switch ($service) {
+		case 'facebook' :
+			return '';
 		case 'soundcloud' :
 			$key=get_base64_secret('SOUNDCLOUD_CLIENT_ID');
 			return $key ? $delim . 'client_id=' . $key : '';
@@ -279,6 +281,7 @@ function get_base64_secret($file) {
 	echo '<p>secrets file:' . $secrets_dir . $file . '</p>';
 	if (!$base64) {
 		$base64 = @file_get_contents($alt_secrets_dir . $file);
+		echo '<p>base64:' . $base64 . '</p>';
 		echo '<p>alt_secrets file:' . $alt_secrets_dir . $file . '</p>';
 	}
 	return base64_decode($base64);
