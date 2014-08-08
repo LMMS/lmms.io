@@ -3,7 +3,6 @@
 <div class="page-header">
 	<h3>Welcome to the home of the LMMS community</h3>
 </div>
-
 <!-- <div class="row"> -->
 	<div style="float:right;" class="visible-lg">
 		<div class="panel panel-default">
@@ -23,7 +22,7 @@
 <p>Creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.<br>
 Playback instruments, samples and plugins with a typing or MIDI keyboard in a user-friendly and modern interface.<br>
 Bundled with many ready-to-use instrument and effect plugins, presets and samples.</p>
-<p style="text-align: right;"><a class="label label-success hidden-lg" href="download.php"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;Download Now</a></p>
+<p style="text-align: right;"><a class="label label-success hidden-lg" href="download/"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;Download Now</a></p>
 <br><br><hr>
 <div class="page-header">
 	<h1>Features</h1>
