@@ -223,6 +223,8 @@ function file_get_contents_curl($url, $service) {
 	curl_setopt($ch, CURLOPT_HEADER, 0);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_URL, $url . get_secrets($service, $url));
+	
+	echo '<p>' . $url . get_secrets($service, $url) . '</p>';
 
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
 	
