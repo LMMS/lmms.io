@@ -118,7 +118,8 @@ function dropdown_menu_item($text, $alttext, $url, $items) {
 	echo "<li><a href='$url'>" . ($alttext ? $alttext : $text) . "</a></li>";
 	echo "<li class='divider'></li>";
 	foreach ($items as $item) {
-		echo "<li><a href='$item[1]'>$item[0]</a></li>";
+		$target = (str_startswith($item[1], 'http://') || str_startswith($item[1], 'https://')) ? '_blank' : '_self';
+		echo "<li><a href='$item[1]' target='$target'>$item[0]</a></li>";
 	}
 
 	echo "</ul> </li>";
