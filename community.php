@@ -69,8 +69,8 @@
 	
 		
 	<div id="soundcloud-div" class="panel-body" style="display:none;">
-	<h3>Temporarily disabled, see <a href="https://github.com/Lukas-W/lmms.tuxfamily.org/issues/6">issue #6</a></h3>
-<?php //include('feed/soundcloud.php'); ?>
+<!--	<h3>Temporarily disabled, see <a href="https://github.com/Lukas-W/lmms.tuxfamily.org/issues/6">issue #6</a></h3>
+--><?php include('feed/soundcloud.php'); ?>
 	</div>
 	
 	<div id="google+-div" class="panel-body" style="display:none;">
