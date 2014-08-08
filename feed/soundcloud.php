@@ -22,7 +22,7 @@ foreach ($obj as $item) {
 
 	echo '<div class="bs-callout bs-callout-warning" style="overflow: auto;" ><a target="_blank" href="' . $item->permalink_url . '"><h5><strong>';
 	echo '<span class="fa fa-soundcloud"></span> ' . $item->title . '</strong></h5>';
-	echo '<img class="img-thumbnail" style="float:left; margin: 5px; width: 60px; height: 60px;" src="' . $item->artwork_url . '"/>';
+	echo '<img class="img-thumbnail" style="float:left; margin: 5px; width: 60px; height: 60px;" src="' . ($item->artwork_url ? $item->artwork_url : $item->user->avatar_url) . '"/>';
 	echo '</a>';
 	echo '<p>' . $item->description . '</p>';
 	// Format and concat a pretty timestamp
