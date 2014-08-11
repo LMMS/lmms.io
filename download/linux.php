@@ -3,28 +3,28 @@
 
 	<p>LMMS is included in most major Linux distribution's package repositories. If your distribution is not listed here and you feel the need for it to be included, don't hesitate to contact us about it.</p>
 
-
-	<a href="#linux-debian" role="tab" data-toggle="tab" id="linux-debian-button">
-		<span class="fl fl-16 fl-debian"></span>&nbsp;Debian
-		<span class="fl fl-16 fl-ubuntu"></span>&nbsp;Ubuntu
-		<span class="fl fl-16 fl-linuxmint-inverse"></span>&nbsp;Linux Mint
-	</a>|
-	<a href="#linux-suse" role="tab" data-toggle="tab" id="linux-suse-button">
-		<span class="fl fl-16 fl-opensuse"></span>&nbsp;OpenSUSE
-	</a>|
-	<a href="#linux-mageia" role="tab" data-toggle="tab" id="linux-mageia-button">
-		<span class="fl fl-16 fl-mageia"></span>&nbsp;Mageia
-		<span class="fl fl-16 fl-mandriva"></span>&nbsp;Mandriva
-	</a>|
-	<a href="#linux-fedora" role="tab" data-toggle="tab" id="linux-fedora-button">
-		<span class="fl fl-16 fl-fedora"></span>&nbsp;Fedora
-		<span class="fl fl-16 fl-centos"></span>&nbsp;CentOS
-		<span class="fl fl-16 fl-redhat"></span>&nbsp;Red Hat
-	</a>|
-	<a href="#linux-arch" role="tab" data-toggle="tab" id="linux-arch-button">
-		<span class="fl fl-16 fl-archlinux"></span>&nbsp;Arch Linux
-	</a>
-
+	<div class="hor-link-list">
+		<a href="#linux-debian" role="tab" data-toggle="tab" id="linux-debian-button" class="active">
+			<span class="fl fl-16 fl-debian"></span>&nbsp;Debian
+			<span class="fl fl-16 fl-ubuntu"></span>&nbsp;Ubuntu
+			<span class="fl fl-16 fl-linuxmint-inverse"></span>&nbsp;Linux Mint
+		</a>
+		<a href="#linux-suse" role="tab" data-toggle="tab" id="linux-suse-button">
+			<span class="fl fl-16 fl-opensuse"></span>&nbsp;OpenSUSE
+		</a>
+		<a href="#linux-mageia" role="tab" data-toggle="tab" id="linux-mageia-button">
+			<span class="fl fl-16 fl-mageia"></span>&nbsp;Mageia
+			<span class="fl fl-16 fl-mandriva"></span>&nbsp;Mandriva
+		</a>
+		<a href="#linux-fedora" role="tab" data-toggle="tab" id="linux-fedora-button">
+			<span class="fl fl-16 fl-fedora"></span>&nbsp;Fedora
+			<span class="fl fl-16 fl-centos"></span>&nbsp;CentOS
+			<span class="fl fl-16 fl-redhat"></span>&nbsp;Red Hat
+		</a>
+		<a href="#linux-arch" role="tab" data-toggle="tab" id="linux-arch-button">
+			<span class="fl fl-16 fl-archlinux"></span>&nbsp;Arch Linux
+		</a>
+	</div>
 </div>
 
 <div class="tab-content">

@@ -236,3 +236,26 @@ li.dropdown-split-right > a {
 .bs-callout a.alert-link {
 	font-weight: bold;
 }
+
+.hor-link-list > a {
+	display: inline;
+	padding: 5px 10px;
+}
+
+.hor-link-list > .active {
+	color: inherit;
+	cursor: default;
+}
+
+.hor-link-list > .active:hover {
+	text-decoration: none;
+}
+
+.hor-link-list > .active:hover {
+	color: inherit;
+	cursor: default;
+}
+
+.hor-link-list > a + a{
+	border-left: 1px solid #eee;
+}

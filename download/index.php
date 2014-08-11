@@ -82,7 +82,9 @@ $(function() {
 });
 
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-	location.hash = e.target.hash
+	location.hash = e.target.hash;
+	$(e.target).parent().children().removeClass("active");
+	e.target.classList.add("active");
 })
 
 </script>
