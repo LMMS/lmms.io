@@ -92,7 +92,11 @@
 		}
 		$("div[id$='-div']").hide();
 		$('#alert-div').show();
-
+		
+		if (obj.indexOf('#') != 0) {
+			obj = '#' + obj;
+		}
+		
 		var title = obj.substring(1, obj.length); // remove hash
 
 		$('#alert-title').text('LMMS ' + title.toUpperCase() + ' ');
@@ -104,22 +108,39 @@
 		$(obj.replace(/\+/g, "\\+") + '-toggle').addClass("active");
 		location.hash = obj;
 	}
-
-	$(function() {
-	if (location.hash) {
-		try {
-			show(location.hash);
-		} catch (err) {
-			autoSelect();
-		}
-	} else {
-		autoSelect();
-	}
-
+	
+	
 	function autoSelect() {
 		show('#forums');
 	}
-});
+	
+	/*
+	 * Makes the navbar behave properly when already loaded (a hashtag work-around)
+	 * by replacing the menu href with javascript events since hash tags are normally
+	 * page anchors and don't refresh the page content.
+	 */
+	function menuFix() {
+		$('li a').each(function (i, a) {
+			if (a.href.indexOf('/community/') && a.href.indexOf('#') 
+				&& a.innerText.trim() != "Community" && a.innerText.trim() != "Forums") {
+				a.href = "javascript:show('" + a.innerText.trim().toLowerCase() + "')";
+			}
+		});
+	}
+
+
+	$(function() {
+		if (location.hash) {
+			try {
+				show(location.hash);
+			} catch (err) {
+				autoSelect();
+			}
+		} else {
+			autoSelect();
+		}
+		menuFix();
+	});
 </script>
 
 <!--
