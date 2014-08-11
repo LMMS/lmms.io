@@ -29,11 +29,11 @@ function create_navbar() {
 						menu_item('Documentation');
 						@dropdown_menu_item('Community', '<span class="fa fa-users fa-fw"></span> Community', '/community/', array(
 							array('<span class="fa fa-comments fa-fw"></span> Forums', '/forum/'),
-							array('<span class="fa fa-facebook fa-fw"></span> Facebook', 'https://www.facebook.com/makefreemusic'),
-							array('<span class="fa fa-soundcloud fa-fw"></span> SoundCloud', 'https://soundcloud.com/groups/linux-multimedia-studio'),
-							array('<span class="fa fa-google-plus fa-fw"></span> Google+', 'https://plus.google.com/u/0/113001340835122723950/posts'),
-							//array('<span class="fa fa-youtube fa-fw"></span> YouTube', '#'),
-							array('<span class="fa fa-github fa-fw"></span> GitHub', 'https://github.com/LMMS/lmms')
+							array('<span class="fa fa-facebook fa-fw"></span> Facebook', '/community/#facebook'),
+							array('<span class="fa fa-soundcloud fa-fw"></span> SoundCloud', '/community/#soundcloud'),
+							array('<span class="fa fa-google-plus fa-fw"></span> Google+', '/community/#google+'),
+							//array('<span class="fa fa-youtube fa-fw"></span> YouTube', '/community/#youtube'),
+							array('<span class="fa fa-github fa-fw"></span> GitHub', '/community/#github')
 						));
 						menu_item('Share', '/lsp/');
 					?>
