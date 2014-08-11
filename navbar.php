@@ -25,7 +25,7 @@ function create_navbar() {
 							array('<span class="fa fa-picture-o fa-fw"></span> Download Artwork', '/download/artwork/')
 						));
 						menu_item('Screenshots');
-						menu_item('Tracks');
+						menu_item('Showcase');
 						menu_item('Documentation');
 						@dropdown_menu_item('Community', '<span class="fa fa-users fa-fw"></span> Community', '/community/', array(
 							array('<span class="fa fa-comments fa-fw"></span> Forums', '/forum/'),
