@@ -18,7 +18,7 @@
 create_artwork_item('LMMS Logo',
 	'../../img/logo_md.png',
 	'http://raw.githubusercontent.com/LMMS/artwork/master/src/icon.svg',
-	'img/logo_lg.png',
+	'../../img/logo_lg.png',
 	'Martin Vacho',
 	'http://hdche.tumblr.com',
 	'LMMS Development Team');
@@ -26,7 +26,7 @@ create_artwork_item('LMMS Logo',
 create_artwork_item('LMMS Project Icon',
 	'../../img/project_md.png',
 	'http://raw.githubusercontent.com/LMMS/artwork/master/src/mmpz_file_icon.svg',
-	'img/project_lg.png',
+	'../../img/project_lg.png',
 	'Ubuntu',
 	'https://wiki.ubuntu.com/Artwork/Incoming/Karmic/Humanity_Icons',
 	'LMMS Development Team');
