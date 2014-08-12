@@ -13,6 +13,7 @@ blockquote {
 	background-color: #fff;
 	border: 1px solid;
 	border-color: #ddd;
+	padding-bottom: 20px;
 }
 
 .theme-dropdown .dropdown-menu {
