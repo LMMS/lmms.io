@@ -50,8 +50,8 @@
 			</label>
 		</div>
 	</div>
-	<div id="alert-div" class="alert alert-warning visible-md visible-lg" role="alert" style="display:none;">
-		<a class="close" onclick="$('#alert-div').hide()">×</a>
+	<div id="alert" class="alert alert-warning hidden-sm hidden-xs" role="alert">
+		<a class="close" onclick="$(this).parent().hide()">×</a>
 		<h4><img class="logo-sm" style="float: left;" src="/img/logo_sm.png"><span id="alert-title">&nbsp;</span></h4>
 		<ul>
 		<li>Above are links to our various community pages.  Clicking on the feed icon &nbsp;<strong><span class="fa fa-bars"></span></strong>&nbsp; besides each button will preview its content.</li>
@@ -91,7 +91,6 @@
 			return window.open($(obj).attr('data-href'), $(obj).attr('target'));
 		}
 		$("div[id$='-div']").hide();
-		$('#alert-div').show();
 		
 		if (obj.indexOf('#') != 0) {
 			obj = '#' + obj;
