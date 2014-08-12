@@ -2,32 +2,32 @@
 
 <div class="page-header"><h1>LMMS Community</h1></div>
 <div id="toolbar" class="panel panel-default">
-	<div class="panel-heading">
+	<div class="panel-heading text-center">
 		<div class="btn-group" data-toggle="buttons">
 
 			<label title="Visit page" class="btn btn-success" target="_self" data-href="/forum/" onclick="show(this)">
-				<span class="fa fa-comments"></span> Forums
+				<span class="fa fa-comments"></span> <span class="visible-lg-inline">Forums</span>
 			</label>
 			<label id="forums-toggle" title="Preview content" class="btn btn-success dropdown-toggle" onclick="show('#forums')"><span class="fa fa-bars"></span>
 				<input type="radio" name="options">
 			</label>
 
 			<label title="Visit page" class="btn btn-primary" onclick="show(this)" target="_blank" data-href="http://facebook.com/makefreemusic">
-				<span class="fa fa-facebook"></span> Facebook
+				<span class="fa fa-facebook"></span> <span class="visible-lg-inline">Facebook</span>
 			</label>
 			<label id="facebook-toggle" title="Preview content" class="btn btn-primary dropdown-toggle" onclick="show('#facebook')"><span class="fa fa-bars"></span>
 				<input type="radio" name="options">
 			</label>
 
 			<label title="Visit page" class="btn btn-warning" onclick="show(this)" target="_blank" data-href="http://soundcloud.com/groups/linux-multimedia-studio">
-				<span class="fa fa-soundcloud"></span> SoundCloud
+				<span class="fa fa-soundcloud"></span> <span class="visible-lg-inline">SoundCloud</span>
 			</label>
 			<label id="soundcloud-toggle" title="Preview content" class="btn btn-warning dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-bars"></span>
 				<input type="radio" name="options">
 			</label>
 
 			<label title="Visit page" class="btn btn-danger" onclick="show(this)" target="_blank" data-href="https://plus.google.com/u/0/113001340835122723950/posts">
-				<span class="fa fa-google-plus"></span> Google+
+				<span class="fa fa-google-plus"></span> <span class="visible-lg-inline">Google+</span>
 			</label>
 
 			<label id="google+-toggle" title="Preview content" class="btn btn-danger dropdown-toggle" onclick="show('#google+')"><span class="fa fa-bars"></span>
@@ -43,16 +43,16 @@
 			</label>
 			-->
 			<label title="Visit page" class="btn btn-dark" onclick="show(this)" target="new" data-href="http://github.com/LMMS/lmms">
-				<span class="fa fa-github"></span> GitHub
+				<span class="fa fa-github"></span> <span class="visible-lg-inline">GitHub</span>
 			</label>
 			<label id="github+-toggle" title="Preview content" class="btn btn-dark dropdown-toggle" onclick="show('#github')"><span class="fa fa-bars"></span>
 				<input type="radio" name="options">
 			</label>
 		</div>
 	</div>
-	<div id="alert-div" class="alert alert-warning" role="alert" style="display:none;">
+	<div id="alert-div" class="alert alert-warning visible-md visible-lg" role="alert" style="display:none;">
 		<a class="close" onclick="$('#alert-div').hide()">×</a>
-		<h4><img class="visible-lg logo-sm" style="float: left;" src="/img/logo_sm.png"><span id="alert-title">&nbsp;</span></h4>
+		<h4><img class="logo-sm" style="float: left;" src="/img/logo_sm.png"><span id="alert-title">&nbsp;</span></h4>
 		<ul>
 		<li>Above are links to our various community pages.  Clicking on the feed icon &nbsp;<strong><span class="fa fa-bars"></span></strong>&nbsp; besides each button will preview its content.</li>
 		<li><span id="alert-text"></span></li>
