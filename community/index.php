@@ -121,7 +121,7 @@
 	 */
 	function menuFix() {
 		$('li a').each(function (i, a) {
-			if (a.href.indexOf('/community/') && a.href.indexOf('#') 
+			if (a.href.indexOf('/community/') != -1 && a.href.indexOf('#') != -1
 				&& a.innerText.trim() != "Community" && a.innerText.trim() != "Forums") {
 				a.href = "javascript:show('" + a.innerText.trim().toLowerCase() + "')";
 			}
