@@ -12,7 +12,7 @@ function create_navbar() {
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/"><img class="visible-lg logo-sm" style="float: left;" src="/img/logo_sm.png" />LMMS</a>
+				<a class="navbar-brand" href="/"><img class="logo-sm" style="float: left;" src="/img/logo_sm.png" />LMMS</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -75,6 +75,8 @@ function get_page_name() {
  * Taking into consideration the "active" status/style
  */
 function menu_item($text, $url = NULL, $dropdown = NULL, $disabled = NULL, $class = NULL) {
+	$class .= mini_me($text, $url, $dropdown, $disabled, $class);
+	
 	// Determine the "Active Tab
 	if ($text == get_page_name()) {
 		$active = 'active';
@@ -91,6 +93,22 @@ function menu_item($text, $url = NULL, $dropdown = NULL, $disabled = NULL, $clas
 		echo '<li class="' . $active . ' ' . $class . '"><a href="' . $url . '" class="dropdown-toggle' . ($disabled ? ' disabled' : '') . '" data-toggle="dropdown"><span class="caret"></span></a>';
 	} else {
 		echo '<li class="' . $active . ' ' . $class . ($disabled ? ' disabled' : '') . '"><a href="' . $url . '">' . $text . '</a></li>';
+	}
+}
+
+/*
+ * Creates a second menu item with abbreviated text visible at medium sized screens
+ * to help prevent overflow in the navbar
+ */
+function mini_me($text, $url, $dropdown, $disabled, $class) {
+	switch ($text) {
+		case "Screenshots":
+			menu_item("Screens", $url, $dropdown, $disabled, $class . ' hidden-lg');
+			return ' visible-lg';
+		case "Documentation":
+			menu_item("Docs", $url, $dropdown, $disabled, $class . ' hidden-lg');
+			return ' visible-lg';
+		default: return '';
 	}
 }
 
