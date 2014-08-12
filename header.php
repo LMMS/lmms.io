@@ -19,4 +19,4 @@
 
 	<body role="document">
 		<?php create_navbar(); ?>
-		<div class="container theme-showcase" role="main">
+		<div class="container theme-showcase main-div" role="main">

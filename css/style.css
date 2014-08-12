@@ -1,12 +1,18 @@
 body {
-	padding-top: 70px;
+	padding-top: 50px;
 	padding-bottom: 30px;
+	background-color: #f8f8f8;
 }
-
 
 blockquote {
 	font-size: 14px;
 	font-style: italic;
+}
+
+.main-div {
+	background-color: #fff;
+	border: 1px solid;
+	border-color: #ddd;
 }
 
 .theme-dropdown .dropdown-menu {
