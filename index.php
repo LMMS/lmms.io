@@ -17,7 +17,7 @@
 	</div>
 <!-- </div> -->
 
-<a href="artwork.php"><img style="padding-right: 10px; float:left;" src="img/logo_md.png"></a>
+<a href="/download/artwork/"><img style="padding-right: 10px; float:left;" src="img/logo_md.png"></a>
 <h4>LMMS is a free cross-platform software which allows you to produce music with your computer.</h4>
 <p>Creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.<br>
 Playback instruments, samples and plugins with a typing or MIDI keyboard in a user-friendly and modern interface.<br>
