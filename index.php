@@ -1,31 +1,64 @@
 <?php include_once('header.php'); ?>
 <?php include_once('feed/releases.php'); ?>
-<div class="page-header">
-	<h3>Welcome to the home of the LMMS community</h3>
-</div>
-<!-- <div class="row"> -->
+
+<!-- <div class="row">
 	<div style="float:right;" class="visible-lg">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">Download Now</h3>
 			</div>
 			<div style="overflow-y:visible;" class="panel-body">
-<!-- Loads download links automatically from feed/releases.php -->
-<?php get_releases(); ?>
+<!-- Loads download links automatically from feed/releases.php
+<?php //get_releases(); ?>
 			</div>
 		</div>
 	</div>
 <!-- </div> -->
+<div class="jumbotron jumbo">
+<div class="container">
+<div id="reflect-black" class="image-block visible-lg" style="float:right;">
+        <a target="_blank" href="img/ss_proj.png"><img src="img/th_ss_proj.png" alt="" /></a>
+        <div class="reflection">
+            <img src="img/th_ss_proj.png" alt="" />
+            <div class="overlay"></div>
+        </div>
+ </div>
 
-<a href="/download/artwork/"><img style="padding-right: 10px; float:left;" src="img/logo_md.png"></a>
-<h4>LMMS is a free cross-platform software which allows you to produce music with your computer.</h4>
-<p>Creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.<br>
-Playback instruments, samples and plugins with a typing or MIDI keyboard in a user-friendly and modern interface.<br>
-Bundled with many ready-to-use instrument and effect plugins, presets and samples.</p>
+<!-- <a class="visible-lg" style="float: right;" target="_blank" href="img/ss_proj.png"><img src="img/jumbotron_image.png"></a> -->
+<h1 class="jumbo">Let's make music :)</h1>
+<p class="jumbo">with a free, cross-platform tool for your computer.</p><br>
+<a class="btn btn-primary btn-lg" href="https://www.youtube.com/watch?v=uWPfIIaAHQg" target="_blank" role="button">See how »</a>&nbsp;
+<a class="btn btn-primary btn-lg" href="/download/" role="button">Download now »</a>&nbsp;
+<a class="btn btn-primary btn-lg" href="/community/" role="button">Get involved »</a>
+</div>
+</div>
+<br><br><br><br>
+<div style="text-align: center;" class="page-header">
+	<hr><h1>Making beats has never been easier</h1>
+</div>
+<div style="text-align: center;" class="row">
+	<div class="col-lg-4">
+		<span class="fa-column fa fa-bar-chart-o"></span>
+		<h4>Produce music with your computer</h4>
+		<p>by creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.</p>
+	</div>
+	<div class="col-lg-4">
+		<span class="fa-column fa fa-keyboard-o"></span>
+		<h4>Playback instruments, samples and plugins</h4>
+		<p>with a typing or MIDI keyboard in a user-friendly and modern interface.</p>
+	</div>
+	<div class="col-lg-4">
+		<span class="fa-column fa fa-puzzle-piece"></span>
+		<h4>Bundled with ready-to-use stuff</h4>
+		<p>from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.</p>
+	</div>
+</div>
+<!-- <a href="/download/artwork/"><img style="padding-right: 10px; float:left;" src="img/logo_md.png"></a> -->
+
 <p style="text-align: right;"><a class="label label-success hidden-lg" href="download/"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;Download Now</a></p>
-<br><br><hr>
-<div class="page-header">
-	<h1>Features</h1>
+<br><br><br><br>
+<div style="text-align: center;" class="page-header">
+	<hr><h1>Features, features, features</h1>
 </div>
 <div style="float:right;">
 <a target="_blank" href="img/ss_proj.png"><img class="img-thumbnail visible-lg" alt="350x169" src="img/th_ss_proj.png" style="float: top; width: 350px; height: 169px;"></a><br><br>
