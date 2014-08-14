@@ -109,7 +109,7 @@
 </div>
 	<div class="col-lg-4">
 		<center><span class="fa-lg fa fa-check-square-o"></span>
-		<h2>Functionality</h2></center>
+		<h2>Core Functionality</h2></center>
 		<ul>
 		<li>Compose music on Windows, Linux and Apple OS&nbsp;X</li>
 		<li>Sequence, compose, mix and automate songs in one simple interface</li>
