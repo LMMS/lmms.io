@@ -39,14 +39,14 @@
 <br><br><br><br>
 
 <div style="text-align: center;" class="page-header">
-	<hr><h1>Made by musicians. Made for musicians.</h1>
+	<hr><h1>Made by musicians, for musicians.</h1>
 </div>
 
 <div style="text-align: center;" class="row">
 	<div>
-		<a href="/download/#windows" class="btn btn-default"><span class="fa-lg fa fa-windows"></span></a>&nbsp;
-		<a href="/download/#linux" class="btn btn-default"><span class="fa-lg fa fa-linux"></span></a>&nbsp;
-		<a href="/download/#mac" class="btn btn-default"><span class="fa-lg fa fa-apple"></span></a>&nbsp;
+		<a href="/download/#windows" class="btn btn-default"><span class="fa-5x fa fa-windows fa-fw"></span></a>&nbsp;
+		<a href="/download/#linux" class="btn btn-default"><span class="fa-5x fa fa-linux fa-fw"></span></a>&nbsp;
+		<a href="/download/#mac" class="btn btn-default"><span class="fa-5x fa fa-apple fa-fw"></span></a>&nbsp;
 		<h4>Take a pick</h4>
 		<p>for Windows, Linux or Apple OS X</p>
 	</div>
@@ -60,10 +60,10 @@
 
 <div style="text-align: center;" class="row">
 	<div>
-		<a href="/community/forum/" class="btn btn-default"><span class="fa-lg fa fa-comments"></span></a>&nbsp;
-		<a href="http://facebook.com/makefreemusic" target="_blank" class="btn btn-default"><span class="fa-lg fa fa-facebook"></span></a>&nbsp;
-		<a href="https://plus.google.com/u/0/113001340835122723950/posts" target="_blank" class="btn btn-default"><span class="fa-lg fa fa-google-plus"></span></a>&nbsp;
-		<a href="http://github.com/lmms/lmms" target="_blank" class="btn btn-default"><span class="fa-lg fa fa-github"></span></a>
+		<a href="/community/forum/" class="btn btn-default"><span class="fa-5x fa fa-comments fa-fw"></span></a>&nbsp;
+		<a href="http://facebook.com/makefreemusic" target="_blank" class="btn btn-default"><span class="fa-5x fa fa-facebook fa-fw"></span></a>&nbsp;
+		<a href="https://plus.google.com/u/0/113001340835122723950/posts" target="_blank" class="btn btn-default"><span class="fa-5x fa fa-google-plus fa-fw"></span></a>&nbsp;
+		<a href="http://github.com/lmms/lmms" target="_blank" class="btn btn-default"><span class="fa-5x fa fa-github fa-fw"></span></a>
 		<h4>Ask your questions here</h4>
 		<p>and answer a few questions while you're waiting.</p>
 	</div>
@@ -76,10 +76,10 @@
 
 <div style="text-align: center;" class="row">
 	<div>
-		<a href="https://soundcloud.com/groups/linux-multimedia-studio" target="_blank" class="btn btn-default"><span class="fa-lg fa fa-soundcloud"></span></a>&nbsp;
-		<a href="/lsp/" class="btn btn-default"><span class="fa-lg fa fa-volume-down">	LSP</span></a>&nbsp;
+		<a href="https://soundcloud.com/groups/linux-multimedia-studio" target="_blank" class="btn btn-default"><span class="fa-5x fa fa-soundcloud fa-fw"></span></a>&nbsp;
+		<a href="/lsp/" class="btn btn-default"><span class="fa-5x fa fa-volume-down">	LSP</span></a>&nbsp;
 		<h4>Don't be modest,</h4>
-		<p>show us your stuff.</p>
+		<p>show us your creations.</p>
 	</div>
 </div>
 <br><br>
