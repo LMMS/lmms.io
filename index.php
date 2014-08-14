@@ -68,8 +68,9 @@
 		<p>and answer a few questions while you're waiting.</p>
 	</div>
 </div>
-
-<br><br>
+<br>
+<p class="visible-lg" style="text-align:center;">View all community pages <a href="/community/">here</a>.</p>
+<br>
 <div style="text-align: center;" class="page-header">
 	<hr><h1>Sharing means caring.</h1>
 </div>
