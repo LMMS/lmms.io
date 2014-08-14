@@ -1,63 +1,59 @@
 <?php include('../header.php'); ?>
 
-<div class="page-header"><h1>LMMS Community</h1></div>
-<div id="toolbar" class="panel panel-default">
-	<div class="panel-heading text-center">
-		<div class="btn-group" data-toggle="buttons">
+<h1 style="text-align: center;">LMMS Community</h1>
+<hr id="hr">
+<div id="alert" class="alert alert-warning hidden-sm hidden-xs" style="text-align: center;" role="alert">
+	<a class="close" onclick="$(this).parent().hide(); $('#hr').hide();">×</a>
+	<!-- <h4><img class="logo-sm" src="/img/logo_sm.png"><span id="alert-title">&nbsp;</span></h4> -->
+	
+	<p>Click a button to be redirected to that page.  Clicking on the down arrow &nbsp;<strong><span class="fa fa-arrow-down"></span></strong>&nbsp; below each button will preview its content.</p>
+	<!-- <p><span id="alert-text"></span></p> -->
+	</ul>
+</div>
 
-			<label title="Visit page" class="btn btn-success" target="_self" data-href="/forum/" onclick="show(this)">
-				<span class="fa fa-comments"></span> <span class="visible-lg-inline">Forums</span>
-			</label>
-			<label id="forums-toggle" title="Preview content" class="btn btn-success dropdown-toggle" onclick="show('#forums')"><span class="fa fa-bars"></span>
-				<input type="radio" name="options">
-			</label>
+<div class="row" style="overflow: auto;">
+<table id="community-table" class="table table-striped">
+	<tr>
+		<td><label id="forums-button" title="Visit page" class="btn btn-default" target="_self" data-href="/forum/" onclick="show(this)">
+			<span class="fa-5x fa fa-comments"></span> <span class="visible-lg-inline"><br>Forums</span>
+		</label></td>
+		
+		<td><label id="facebook-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="http://facebook.com/makefreemusic">
+			<span class="fa-5x fa fa-facebook"></span> <span class="visible-lg-inline"><br>Facebook</span>
+		</label></td>
+		
+		<td><label id="soundcloud-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="http://soundcloud.com/groups/linux-multimedia-studio">
+			<span class="fa-5x fa fa-soundcloud"></span> <span class="visible-lg-inline"><br>SoundCloud</span>
+		</label></td>
+		
+		<td><label id="google+-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="https://plus.google.com/u/0/113001340835122723950/posts">
+			<span class="fa-5x fa fa-google-plus"></span> <span class="visible-lg-inline"><br>Google+</span>
+		</label></td>
+		<!--
+		<td><label id="youtube-button" title="Visit page" class="btn btn-default disabled" onclick="show(this)" style="color: red;" target="new" data-href="#"><span class="fa fa-youtube"></span>
+			<span style="color:black;"> YouTube</span>
+		</label></td>
+		-->
+		<td><label id="github-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="new" data-href="http://github.com/LMMS/lmms">
+			<span class="fa-5x fa fa-github"></span> <span class="visible-lg-inline"><br>GitHub</span>
+		</label></td>
+	</tr>
+	<tr>	
+		<td><label id="forums-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#forums')"><span class="fa fa-arrow-down"></span></label></td>
 
-			<label title="Visit page" class="btn btn-primary" onclick="show(this)" target="_blank" data-href="http://facebook.com/makefreemusic">
-				<span class="fa fa-facebook"></span> <span class="visible-lg-inline">Facebook</span>
-			</label>
-			<label id="facebook-toggle" title="Preview content" class="btn btn-primary dropdown-toggle" onclick="show('#facebook')"><span class="fa fa-bars"></span>
-				<input type="radio" name="options">
-			</label>
+		<td><label id="facebook-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#facebook')"><span class="fa fa-arrow-down"></span></label></td>
+			
+		<td><label id="soundcloud-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-arrow-down"></span></label></td>
 
-			<label title="Visit page" class="btn btn-warning" onclick="show(this)" target="_blank" data-href="http://soundcloud.com/groups/linux-multimedia-studio">
-				<span class="fa fa-soundcloud"></span> <span class="visible-lg-inline">SoundCloud</span>
-			</label>
-			<label id="soundcloud-toggle" title="Preview content" class="btn btn-warning dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-bars"></span>
-				<input type="radio" name="options">
-			</label>
+		<td><label id="google+-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#google+')"><span class="fa fa-arrow-down"></span></label></td>
 
-			<label title="Visit page" class="btn btn-danger" onclick="show(this)" target="_blank" data-href="https://plus.google.com/u/0/113001340835122723950/posts">
-				<span class="fa fa-google-plus"></span> <span class="visible-lg-inline">Google+</span>
-			</label>
-
-			<label id="google+-toggle" title="Preview content" class="btn btn-danger dropdown-toggle" onclick="show('#google+')"><span class="fa fa-bars"></span>
-				<input type="radio" name="options">
-			</label>
-
-			<!--
-			<label title="Visit page" class="btn btn-default disabled" onclick="show(this)" style="color: red;" target="new" data-href="#"><span class="fa fa-youtube"></span>
-				<span style="color:black;"> YouTube</span>
-			</label>
-			<label id="youtube-toggle" title="Preview content" class="btn btn-default dropdown-toggle disabled" onclick="show('#youtube')"><span class="fa fa-bars"></span>
-				<input type="radio" name="options">
-			</label>
-			-->
-			<label title="Visit page" class="btn btn-dark" onclick="show(this)" target="new" data-href="http://github.com/LMMS/lmms">
-				<span class="fa fa-github"></span> <span class="visible-lg-inline">GitHub</span>
-			</label>
-			<label id="github+-toggle" title="Preview content" class="btn btn-dark dropdown-toggle" onclick="show('#github')"><span class="fa fa-bars"></span>
-				<input type="radio" name="options">
-			</label>
-		</div>
-	</div>
-	<div id="alert" class="alert alert-warning hidden-sm hidden-xs" role="alert">
-		<a class="close" onclick="$(this).parent().hide()">×</a>
-		<h4><img class="logo-sm" style="float: left;" src="/img/logo_sm.png"><span id="alert-title">&nbsp;</span></h4>
-		<ul>
-		<li>Above are links to our various community pages.  Clicking on the feed icon &nbsp;<strong><span class="fa fa-bars"></span></strong>&nbsp; besides each button will preview its content.</li>
-		<li><span id="alert-text"></span></li>
-		</ul>
-	</div>
+		<td><label id="github-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#github')"><span class="fa fa-arrow-down"></span></label></td>
+		<!-- 
+		<td><label id="youtube-toggle" title="Preview content" class="btn btn-default dropdown-toggle disabled" onclick="show('#youtube')"><span class="fa fa-arrow-down"></span></label></td>
+		-->
+	</tr>
+</table>
+</div>
 
     <div id="forums-div" class="panel-body" style="display:none;">
 <?php include('../feed/forums.php'); ?>
@@ -91,6 +87,8 @@
 			return window.open($(obj).attr('data-href'), $(obj).attr('target'));
 		}
 		$("div[id$='-div']").hide();
+		$("label[id$='-toggle']").removeClass("active");
+		
 		
 		if (obj.indexOf('#') != 0) {
 			obj = '#' + obj;
@@ -98,8 +96,8 @@
 		
 		var title = obj.substring(1, obj.length); // remove hash
 
-		$('#alert-title').text('LMMS ' + title.toUpperCase() + ' ');
-		$('#alert-text').text('Below is a sample of recent activity from our ' + title + ' page.  Please click on an item to be redirected to that page.');
+		//$('#alert-title').text('LMMS ' + title.toUpperCase() + ' ');
+		//$('#alert-text').text('Below is a sample of recent activity from our ' + title + ' page.  Please click on an item to be redirected to that page.');
 
 		// jQuery doesn't like plus signs
 		$(obj.replace(/\+/g, "\\+") + '-div').show();
@@ -111,6 +109,28 @@
 	
 	function autoSelect() {
 		show('#forums');
+	}
+	
+	function createHoverEffect(id, className) {
+		$('#' + id.replace(/\+/g, "\\+") + '-button').hover(
+		// Enter
+		function() {
+			$(this).addClass(className);
+		},
+		// Leave
+		function() {
+			$(this).removeClass(className);
+		});
+		
+		$('#' + id.replace(/\+/g, "\\+") + '-toggle').hover(
+		// Enter
+		function() {
+			$(this).addClass(className);
+		},
+		// Leave
+		function() {
+			$(this).removeClass(className);
+		});
 	}
 	
 	/*
@@ -139,6 +159,12 @@
 			autoSelect();
 		}
 		menuFix();
+		
+		createHoverEffect('forums', 'btn-success');
+		createHoverEffect('facebook', 'btn-primary');
+		createHoverEffect('soundcloud', 'btn-warning');
+		createHoverEffect('github', 'btn-dark');
+		createHoverEffect('google+', 'btn-danger');
 	});
 </script>
 

@@ -83,13 +83,38 @@ li.dropdown-split-right > a {
 	height: 80px;
 }
 
+.page-header {
+	text-align: center;
+}
+
+#community-table {
+	text-align:center;
+	margin: 0 auto;
+}
+
 #forums-div,
 #facebook-div,
 #soundcloud-div,
 #google-div,
 #youtube-div,
 #github-div {
-	max-height: 500px;
+	max-height: 9999px;
+	overflow: auto;
+}
+
+#forums-toggle,
+#facebook-toggle,
+#soundcloud-toggle,
+#google\2b-toggle,
+#youtube-toggle,
+#github-toggle,
+#forums-button,
+#facebook-button,
+#soundcloud-button,
+#google\2b-button,
+#youtube-button,
+#github-button {
+	width: 100%;
 }
 
 .nav li {
