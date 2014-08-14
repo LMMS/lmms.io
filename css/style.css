@@ -29,8 +29,12 @@ p.jumbo {
 	margin-left: 4px;
 }
 
-.fa-column {
+.fa-xl {
 	font-size: 8em;
+}
+
+.fa-lg {
+	font-size: 6em;
 }
 
 .main-div {
@@ -301,10 +305,13 @@ li.dropdown-split-right > a {
 	float:left;
 }
 
-#reflect-black .reflection,
+#reflect-black .reflection {
+	position: relative;
+	margin-bottom: -33%;
+}
 #reflect-white .reflection {
 	position:relative;
-	margin-bottom: -33%;
+	margin-bottom: -22%;
 }
 
 #reflect-black  img { 	
@@ -320,7 +327,7 @@ li.dropdown-split-right > a {
 }
 
 #reflect-white  img:hover{ 	
-	border: 1px solid rgba(0,0,0,.5);
+	border: 1px solid rgba(0,0,0,.75);
 }
 
 
@@ -332,8 +339,16 @@ li.dropdown-split-right > a {
 	     -o-transform: scaleY(-1);
 		    transform: scaleY(-1);
 			   filter: flipv;
-	opacity:0.40;
+}
+
+#reflect-black .reflection img {
+	opacity:0.30;
 	filter: alpha(opacity='40'); 
+}
+
+#reflect-white .reflection img {
+	opacity:0.15;
+	filter: alpha(opacity='15'); 
 }
 
 #reflect-black .overlay {position:absolute; top:0px; left:0px; width:100%; height:100%; 
