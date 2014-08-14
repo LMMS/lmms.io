@@ -14,7 +14,7 @@
 </div>
 <br><br><br><br>
 <div style="text-align: center;" class="page-header">
-	<hr><h1>Making beats has never been easier</h1>
+	<hr><h1>Making beats has never been easier.</h1>
 </div>
 <div style="text-align: center;" class="row">
 	<div class="col-lg-4">
@@ -54,8 +54,8 @@
 
 <br><br>
 <div style="text-align: center;" class="page-header">
-	<hr><h1>Houston, we have a problem</h1>
-	<h4>but don't worry, we've got you covered.</h4>
+	<hr><h1>Houston, we've had a problem.</h1>
+	<h4>Ok, standby we've got you covered.</h4>
 </div>
 
 <div style="text-align: center;" class="row">
