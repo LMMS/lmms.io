@@ -3,7 +3,7 @@
 <h1 style="text-align: center;">LMMS Community</h1>
 <hr id="hr">
 <div id="alert" class="alert alert-warning hidden-sm hidden-xs" style="text-align: center;" role="alert">
-	<a class="close" onclick="$(this).parent().hide(); $('#hr').hide();">×</a>
+	<a class="close" onclick="hideAlert()">×</a>
 	<!-- <h4><img class="logo-sm" src="/img/logo_sm.png"><span id="alert-title">&nbsp;</span></h4> -->
 	
 	<p>Click a button to be redirected to that page.  Clicking on the down arrow &nbsp;<strong><span class="fa fa-arrow-down"></span></strong>&nbsp; below each button will preview its content.</p>
@@ -92,20 +92,51 @@
 		$("div[id$='-div']").hide();
 		$("label[id$='-toggle']").removeClass("active");
 		
+		createHoverEffect('#forums', 'btn-success');
+		createHoverEffect('#facebook', 'btn-primary');
+		createHoverEffect('#soundcloud', 'btn-warning');
+		createHoverEffect('#github', 'btn-dark');
+		createHoverEffect('#google+', 'btn-danger');
 		
 		if (obj.indexOf('#') != 0) {
 			obj = '#' + obj;
 		}
+		
+		// jQuery doesn't like plus signs
+		var btn = $(obj.replace(/\+/g, "\\+") + '-button');
+		var div = $(obj.replace(/\+/g, "\\+") + '-div')
+		var tog = $(obj.replace(/\+/g, "\\+") + '-toggle');
+		
+		
+		switch (obj) {
+			case '#forums':
+				reverseHoverEffect(obj, "btn-success");
+				break;
+			case '#facebook': 
+				reverseHoverEffect(obj, "btn-primary");
+				break;
+			case '#soundcloud': 
+				reverseHoverEffect(obj, "btn-warning");
+				break;
+			case '#google+':
+				reverseHoverEffect(obj, "btn-danger");
+				break;
+			case '#github':
+				reverseHoverEffect(obj, "btn-dark");
+				break;
+		}
+		
+		/*$(obj.replace(/\+/g, "\\+") + '-button').unbind('mouseenter mouseleave');*/
 		
 		var title = obj.substring(1, obj.length); // remove hash
 
 		//$('#alert-title').text('LMMS ' + title.toUpperCase() + ' ');
 		//$('#alert-text').text('Below is a sample of recent activity from our ' + title + ' page.  Please click on an item to be redirected to that page.');
 
-		// jQuery doesn't like plus signs
-		$(obj.replace(/\+/g, "\\+") + '-div').show();
+		
+		div.show();
 
-		$(obj.replace(/\+/g, "\\+") + '-toggle').addClass("active");
+		tog.addClass("active");
 		location.hash = obj;
 	}
 	
@@ -115,7 +146,9 @@
 	}
 	
 	function createHoverEffect(id, className) {
-		$('#' + id.replace(/\+/g, "\\+") + '-button').hover(
+		$(id.replace(/\+/g, "\\+") + '-button').removeClass(className);
+		$(id.replace(/\+/g, "\\+") + '-toggle').removeClass(className);
+		$(id.replace(/\+/g, "\\+") + '-button').hover(
 		// Enter
 		function() {
 			$(this).addClass(className);
@@ -125,7 +158,7 @@
 			$(this).removeClass(className);
 		});
 		
-		$('#' + id.replace(/\+/g, "\\+") + '-toggle').hover(
+		$(id.replace(/\+/g, "\\+") + '-toggle').hover(
 		// Enter
 		function() {
 			$(this).addClass(className);
@@ -133,6 +166,31 @@
 		// Leave
 		function() {
 			$(this).removeClass(className);
+		});
+	}
+	
+	function reverseHoverEffect(id, className) {
+		$(id.replace(/\+/g, "\\+") + '-button').addClass(className);
+		$(id.replace(/\+/g, "\\+") + '-toggle').addClass(className);
+		
+		$(id.replace(/\+/g, "\\+") + '-button').hover(
+		// Enter
+		function() {
+			$(this).removeClass(className);
+		},
+		// Leave
+		function() {
+			$(this).addClass(className);
+		});
+		
+		$(id.replace(/\+/g, "\\+") + '-toggle').hover(
+		// Enter
+		function() {
+			$(this).removeClass(className);
+		},
+		// Leave
+		function() {
+			$(this).addClass(className);
 		});
 	}
 	
@@ -149,9 +207,19 @@
 			}
 		});
 	}
+	
+	function hideAlert() {
+		$('#alert').hide();
+		$('#hr').hide();
+	}
 
 
 	$(function() {
+		createHoverEffect('#forums', 'btn-success');
+		createHoverEffect('#facebook', 'btn-primary');
+		createHoverEffect('#soundcloud', 'btn-warning');
+		createHoverEffect('#github', 'btn-dark');
+		createHoverEffect('#google+', 'btn-danger');
 		if (location.hash) {
 			try {
 				show(location.hash);
@@ -162,12 +230,6 @@
 			autoSelect();
 		}
 		menuFix();
-		
-		createHoverEffect('forums', 'btn-success');
-		createHoverEffect('facebook', 'btn-primary');
-		createHoverEffect('soundcloud', 'btn-warning');
-		createHoverEffect('github', 'btn-dark');
-		createHoverEffect('google+', 'btn-danger');
 	});
 </script>
 
