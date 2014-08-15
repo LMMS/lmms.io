@@ -35,8 +35,58 @@ p.jumbo {
 	margin-left: 55px;
 }
 
+.dl-button  > .fa-arrow-circle-down {
+	margin: 0;
+	padding: 0;
+	display: block;
+	width: 0;
+	height: 0;
+	/*overflow: */
+	/*display: none;*/
+	font-size: 3em;
+	position: relative;
+	top: -0.55em;
+	left: -1.1em;
+}
+
+.dl-button  > small > .fa-exclamation-circle {
+	position: absolute;
+	font-size: 1.5em;
+	padding: 0;
+	width: 0;
+	height: 0;
+	margin: 0;
+	right: 3px;
+	bottom: 3px;
+}
+
+#button-title {
+	display: inline-block;
+	position: relative;
+	/*left: -10px;*/
+	font-size: 1.5em;
+}
+
+.dl-button small {
+	position: relative;
+	font-size: 0.65em;
+	top: -1.8em;
+}
+
+.dl-button big {
+	font-size: 0.75em;
+	position: relative;
+	top: -12px;
+}
+
 .dl-button {
-	margin-bottom: 3px;
+	height: 4.8em;
+	text-align: left;
+	padding-top: 0.5em;
+	padding-bottom: 0;
+	padding-left: 4em;
+	padding-right: 1em;
+	margin: 4px;
 }
 
 .dl-horiz-label {

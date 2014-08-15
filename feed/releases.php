@@ -41,18 +41,24 @@ function get_releases($max_releases = NULL, $format = NULL, $name_filter = NULL,
 		foreach($obj as $item) {
 			$found = false;
 			foreach($item->assets as $asset) {
-				$text = $item->name . '&nbsp; (' . get_os_name($asset->name) . ')';
+				$text = $item->name . '&nbsp;(' . get_os_name($asset->name) . ')';
 
-				$button_style = 'btn-primary';
+				$button_style = 'btn-default';
+				$icon_style = 'text-primary';
 				// Change to warning button for prerelease
 				if ($item->prerelease) {
-					$button_style = 'btn-danger';
-					$text = $text . '&nbsp;<span class="fa fa-exclamation-circle"></span>';
+					$button_style = 'btn-default';
+					$icon_style = 'text-warning';
+					$text = $text . '&nbsp;<span class="fa fa-exclamation-circle text-warning"></span>';
 				}
 
 				// If no $name_filter is provided, echo.  If $name_filter is provided, filter based on name
 				if (!$name_filter || ($name_filter && (strpos($asset->name,$name_filter) !== false))) {
-					echo '<a data-dl-count="' . $asset->download_count . '" class="btn btn-sm dl-button ' . $button_style . '" href="' . $asset->browser_download_url . '"><span class="glyphicon glyphicon-arrow-down"></span>&nbsp;' . $text . '</a>' . $delim;
+					echo '<a data-dl-count="' . $asset->download_count . '" class="btn btn-lg dl-button ' . 
+						$button_style . '" href="' . $asset->browser_download_url . 
+						'"><span id="button-title">LMMS</span><br>' . 
+						'<span class="fa fa-arrow-circle-down ' . $icon_style . '"></span><big>Free Download</big><br>' .
+						'<small>' . $text . '</small></a>' . $delim;
 					$found = true;
 				}
 
@@ -70,6 +76,13 @@ function get_releases($max_releases = NULL, $format = NULL, $name_filter = NULL,
 					echo '<a class="label label-success dl-vert-label" href="download.php"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;other systems</a>' . $delim;
 				}
 				echo '<a class="label label-info dl-horiz-label" target="_blank" href="' . $item->html_url . '"><span class="glyphicon glyphicon-ok"></span>&nbsp; release notes</a>';
+			} else {
+				//echo '<a data-toggle="collapse" data-parent="#accordion" href="#collapse_' . $repo . $count . '" class="collapsed">Collapsible Group Item #1</a>';
+				//echo '<div id="release-notes" ><a class="label label-info" target="_blank" href="' . $item->html_url . '"><span class="glyphicon glyphicon-ok"></span>&nbsp; release notes</a></div>';
+				echo '<div id="release-notes">';
+				echo '<a data-toggle="collapse" data-parent="#accordion" href="#collapse_' . $repo . $count . '" class="collapsed">release notes</a>';
+				echo '<div id="collapse_' . $repo . $count . '" class="collapse"><div style="display:inline-block"><pre>' . $item->body . '</pre></div></div>';
+				echo '</div>';
 			}
 
 			if ($count >= $max_releases) {
@@ -86,31 +99,32 @@ function get_releases($max_releases = NULL, $format = NULL, $name_filter = NULL,
 
 
 /*
+ * Get "32-bit", "64-bit", etc based on Download URL
+ */
+function get_arch($text) {
+	$arch64 = array('amd64', 'win64', 'x86-64', 'x64', '64-bit', '.dmg');
+	foreach ($arch64 as $x) {
+		if (strpos(strtolower($text), $x) !== false) {
+			return '64-bit';
+		}
+	}
+	return '32-bit';
+}
+
+/*
  * Get "Windows", "Apple", etc based on Download URL
  */
 function get_os_name($text) {
 	if (strpos($text, '.tar.') !== false) {
 		return 'Source Tarball';
 	} else if (strpos($text, '.deb') !== false) {
-		if (strpos($text, 'amd64') !== false) {
-			return 'Ubuntu 64-bit';
-		} else {
-			return 'Ubuntu 32-bit';
-		}
+			return 'Ubuntu ' . get_arch($text);
 	} else if (strpos($text, '.rpm') !== false) {
-		if (strpos($text, 'amd64') !== false) {
-			return 'Fedora 64-bit';
-		} else {
-			return 'Fedora 32-bit';
-		}
+			return 'Fedora ' . get_arch($text);
 	} else if (strpos($text, '.dmg') !== false) {
 		return 'Apple OS X';
 	} else if (strpos($text, '.exe') !== false) {
-		if (strpos($text, 'win64') !== false) {
-			return 'Windows 64-bit';
-		} else {
-			return 'Windows 32-bit';
-		}
+			return 'Windows ' . get_arch($text);
 	} else {
 		return $text;;
 	}

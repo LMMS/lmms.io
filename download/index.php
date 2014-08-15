@@ -6,41 +6,42 @@
 
 	<p>Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:</p>
 
-	<p>
+	<div class="row">
 		<div class="btn-group" data-toggle="buttons">
 			<label class="btn btn-default" onclick="showOS('#linux')">
-				<input type="radio" name="options" id="linux-button"><span class="fa fa-linux"></span> Linux
+				<input type="radio" name="options" id="linux-button"><span class="fa fa-linux fa-5x"></span><br>Linux
 			</label>
 			<label class="btn btn-default" onclick="showOS('#windows')">
-				<input type="radio" name="options" id="windows-button"><span class="fa fa-windows"></span> Windows
+				<input type="radio" name="options" id="windows-button"><span class="fa fa-windows fa-5x"></span><br>Windows
 			</label>
 			<label class="btn btn-default" onclick="showOS('#mac')">
-				<input type="radio" name="options" id="mac-button"><span class="fa fa-apple"></span> OS X
+				<input type="radio" name="options" id="mac-button"><span class="fa fa-apple fa-5x"></span><br>OS X
 			</label>
 		</div>
-	</p>
+	</div>
+	<!-- No longer needed because of fixed navbar
 	<p class="visible-xs-block">
 		<a href="#"><span class="fa fa-music"></span> Download Sample Packs</a> • <a href="/artwork.php"><span class="fa fa-picture-o"></span> Download Artwork</a>
-	</p>
+	</p> -->
 
 </div><hr>
 
-<div id="linux-div" class="show">
+<div id="linux-div" class="center hidden">
 	<?php include('linux.php'); ?>
 </div>
-<div id="windows-div" class="show">
+<div id="windows-div" class="center hidden">
 	<h2>Install LMMS on Windows</h2>
 	<p>Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows</p>
 	<p><?php get_releases(1, 'horiz', '.exe'); ?></p>
-	<p>Beta Versions</p>
+	<hr><h3>Beta Versions</h3>
 	<?php get_releases(1, 'horiz', '.exe', 'tresf'); ?>
 </div>
-<div id="mac-div" class="show">
+<div id="mac-div" class="center hidden">
 	<h2>Install LMMS on Apple</h2>
 	<p>Click one of the buttons below to download LMMS for Apple</p>
 	<?php get_releases(1, 'horiz', '.dmg', 'tresf'); ?>
 </div>
-<div id="prerelease"><hr><small><span class="fa fa-exclamation-circle text-danger"></span> Denotes pre-release software, stability may suffer.</small></div>
+<div id="prerelease"><hr><small><span class="fa fa-exclamation-circle"></span> Denotes pre-release software, stability may suffer.</small></div>
 
 <script>
 function showOS(os) {
@@ -71,6 +72,7 @@ function hide(obj) {
 function show(obj) {
 	$(obj).show();
 	$(obj).removeClass('hidden');
+	$(obj).removeClass('hide');
 }
 
 function autoSelect() {
