@@ -103,10 +103,10 @@ function menu_item($text, $url = NULL, $dropdown = NULL, $disabled = NULL, $clas
 function mini_me($text, $url, $dropdown, $disabled, $class) {
 	switch ($text) {
 		case "Screenshots":
-			menu_item("Screens", $url, $dropdown, $disabled, $class . ' hidden-lg');
+			menu_item("Screens", "/screenshots/", $dropdown, $disabled, $class . ' hidden-lg');
 			return ' visible-lg';
 		case "Documentation":
-			menu_item("Docs", $url, $dropdown, $disabled, $class . ' hidden-lg');
+			menu_item("Docs", "/documentation/", $dropdown, $disabled, $class . ' hidden-lg');
 			return ' visible-lg';
 		default: return '';
 	}

@@ -2,7 +2,7 @@
 <div class="page-header">
 	<h1>Screenshots</h1>
 </div>
-<div style="text-align: center; overflow: hidden;" class="row visible-lg">
+<div style="text-align: center; overflow: hidden;" class="row">
     <div class="col-lg-4">
 		<h4>Song editor</h4>
 		<?php make_reflection('/img/ss_song_editor.png', NULL, "white"); ?>
