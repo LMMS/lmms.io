@@ -66,6 +66,8 @@ li.dropdown-split-right > a {
 
 .fb-thumb {
 	position: relative;
+	left: -6px;
+	top: -2px;
 	/*top: -8px;*/
 	float: left;
 	margin: 5px;

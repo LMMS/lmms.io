@@ -13,6 +13,7 @@ if (count($obj) <= 0 || !$obj->entries) {
 		exit;
 }
 
+echo '<table class="table table-striped"><th><h2 style="text-align:center;">LMMS Facebook</h2></th>';
 foreach ($obj->entries as $item) {
 		$title = $item->title;
 
@@ -21,16 +22,17 @@ foreach ($obj->entries as $item) {
 			$title = 'LMMS Announcement';
 		}
 
-		echo '<div class="bs-callout bs-callout-info"><a target="_blank" href="' . $item->alternate . '"><h5><strong>';
-		echo '<span class="fa fa-facebook-square"></span> ' . $title . '</strong></h5></a>';
+		echo '<tr><td><a target="_blank" href="' . $item->alternate . '"><h3><strong>';
+		echo '<span class="fa fa-facebook-square"></span> ' . $title . '</strong></h3></a>';
 		$message = cleanse_urls($item->content, $item->alternate);
 
 		echo $message;
 		// Format and concat a pretty timestamp
 		echo '<p><small>Posted by: <a href="' . 'http://facebook.com/' . get_json_id('facebook') . '">' . $item->author->name . '</a> at ' .
 			date("D, d M Y h:ia ", strtotime($item->published)) . '(GMT ' . sprintf('%+d', date('O')*1/100) . ')</small></p>';
-		echo '</div><br>';
+		echo '</td></tr>';
 }
+echo '</table>';
 
 /*
  * Fixes facebook JSON feed nuances such as:
