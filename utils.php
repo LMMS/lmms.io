@@ -30,7 +30,7 @@ function make_reflection($image_path, $thumbnail_path = NULL, $blackorwhite = 'b
 	}
 	echo '<div id="reflect-' . $blackorwhite . '" class="image-block ' . $class . '">';
 	echo '<a target="_blank" href="' . $image_path . '"><img src="' . $thumbnail_path . '" alt="" /></a>';
-	echo '<div class="reflection">';
+	echo '<div class="reflection visible-lg">';
 	echo '	<img src="' . $thumbnail_path . '" alt="" />';
 	echo '	<div class="overlay"></div>';
 	echo '</div>';
