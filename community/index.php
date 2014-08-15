@@ -1,10 +1,10 @@
 <?php include('../header.php'); ?>
 
 <h1 class="center">LMMS Community</h1>
-<h2 class="top">test top</h2>
 <hr id="hr" class="show hidden-sm hidden-xs">
 <div id="alert" class="alert show center alert-warning hidden-sm hidden-xs" role="alert">
 	<a class="close" onclick="hideAlert()">×</a>
+	<a class="close pull-left" onclick="hideAlert()">×</a>
 	<p>Click a button to be redirected to that page.  Clicking on the down arrow &nbsp;<strong><span class="fa fa-arrow-down"></span></strong>&nbsp; below each button will preview its content.</p>
 	</ul>
 </div>
@@ -12,7 +12,7 @@
 <div class="row overflow-auto">
 <table id="community-table" class="table table-striped">
 	<tr>
-		<td><label id="forums-button" title="Visit page" class="btn btn-default" target="_self" data-href="/forum/" onclick="show(this)">
+		<td><label id="forums-button" class="btn btn-default" target="_self" data-href="/forum/" onclick="show(this)">
 			<span class="fa-5x fa fa-comments"></span> <span class="visible-lg-inline"><br>Forums</span>
 		</label></td>
 		
@@ -37,17 +37,17 @@
 		</label></td>
 	</tr>
 	<tr>	
-		<td><label id="forums-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#forums')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="Forums" id="forums-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#forums')"><span class="fa fa-arrow-down"></span></label></td>
 
-		<td><label id="facebook-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#facebook')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="Facebook" id="facebook-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#facebook')"><span class="fa fa-arrow-down"></span></label></td>
 			
-		<td><label id="soundcloud-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="Soundcloud" id="soundcloud-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-arrow-down"></span></label></td>
 
-		<td><label id="google+-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#google+')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="Google+" id="google+-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#google+')"><span class="fa fa-arrow-down"></span></label></td>
 
-		<td><label id="github-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#github')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="GitHub" id="github-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#github')"><span class="fa fa-arrow-down"></span></label></td>
 		<!-- 
-		<td><label id="youtube-toggle" title="Preview content" class="btn btn-default dropdown-toggle disabled" onclick="show('#youtube')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="YouTube" id="youtube-toggle" title="Preview content" class="btn btn-default dropdown-toggle disabled" onclick="show('#youtube')"><span class="fa fa-arrow-down"></span></label></td>
 		-->
 	</tr>
 </table>
@@ -145,6 +145,30 @@
 		show('#forums');
 	}
 	
+	/*
+	 * Adds hover-style tooltips to the buttons
+	 */
+	function addTooltips() {
+		$("label[id$='-button']").each(function() {
+			var name = $(this).text().trim().toLowerCase();
+			$(this).attr('data-toggle', 'tooltip')
+				.attr('data-placement', 'top')
+				.attr('title', 'Visit ' + name + ' page');
+			$(this).tooltip();
+				});
+		
+		$("label[id$='-toggle']").each(function() {
+			var name = $(this).data('name').toLowerCase();
+			$(this).attr('data-toggle', 'tooltip')
+				.attr('data-placement', 'bottom')
+				.attr('title', 'Preview ' + name + ' feed');
+			$(this).tooltip();
+				});
+	}
+	
+	/*
+	 * Illuminates button to its respective color on hover (Facebook = blue, etc)
+	 */
 	function createHoverEffect(id, className) {
 		$(id.replace(/\+/g, "\\+") + '-button').removeClass(className);
 		$(id.replace(/\+/g, "\\+") + '-toggle').removeClass(className);
@@ -169,6 +193,9 @@
 		});
 	}
 	
+	/*
+	 * Inverse-illuminates a button (takes color away on hover) to accommodate active buttons
+	 */
 	function reverseHoverEffect(id, className) {
 		$(id.replace(/\+/g, "\\+") + '-button').addClass(className);
 		$(id.replace(/\+/g, "\\+") + '-toggle').addClass(className);
@@ -232,6 +259,7 @@
 			autoSelect();
 		}
 		menuFix();
+		addTooltips();
 	});
 </script>
 
