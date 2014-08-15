@@ -4,29 +4,29 @@
  * A JSON utility class for parsing and caching JSON data.
  *
  * Author:
- *		Tres Finocchiaro 2014-08-05 
+ *		Tres Finocchiaro 2014-08-05
  *		c/o LMMS Development Team
  *		http://lmms.io
- * License: 
+ * License:
  * 		GPL 2+
  * Works with:
  * 		- GitHub API JSON formatted data
  *		- Google API JSON formatted data
  * NOT yet working:
  *		- Facebook API JSON formatted data
- * 
- * Note:  
+ *
+ * Note:
  *		Google REQUIRES API approval **AND** white-listed IP address.
  *		This can be done by logging into the following site as lmms.service:
  *		https://console.developers.google.com/project/apps~lmms-api/apiui/credential
  *		and clicking "Edit Allowed IPs".  There should be a GOOGLE_KEY file
- *		located in $secrets_dir.  Alternately, you may place them in 
+ *		located in $secrets_dir.  Alternately, you may place them in
  *		$alt_secrets_dir beside the cache files (if developing locally ONLY).
  *
  *		GitHub PREFERS using a secret for accessing their services but it
  *		is not mandated (rate limitations are more lenient when using a
  *		secret.  There should be GITHUB_CLIENT_ID **AND** GITHUB_CLIENT_SECRET
- * 		files located in $secrets_dir.  Alternately, you may place them in 
+ * 		files located in $secrets_dir.  Alternately, you may place them in
  *		$alt_secrets_dir beside the cache files (if developing locally ONLY).
  * Usage:
  *		include_once('json_common.php');
@@ -54,13 +54,13 @@ $cache_dir = get_document_root() . '/../tmp/';
  * The directory on the server which stores the json secrets.
  * This should always end in a forward slash.
  */
-$secrets_dir = '/home/lmms/';
+$secrets_dir = '/home/deploy/lmms.io/';
 $alt_secrets_dir = $cache_dir;
 
 /*
  * Remote JSON api URL, this should always end in a forward slash
  * we will append more to this URL later.
- */ 
+ */
 $github_api_url = 'https://api.github.com/repos/'; // . $repo . $object . $params;
 $google_api_url = 'https://www.googleapis.com/plus/v1/people/';
 $facebook_api_url = 'https://www.facebook.com/feeds/page.php'; // ?id=435131566543039&format=json
@@ -68,7 +68,7 @@ $soundcloud_api_url = 'https://api.soundcloud.com/groups/'; // . $repo . '.json'
 
 /*
  * The JSON unique ID.  This may be a project name or a userid, depending
- * on the service.  i.e. 
+ * on the service.  i.e.
  *	$github_id = "lmms";
  *  $google_id = "113001340835122723950";
  */
@@ -93,10 +93,10 @@ $soundcloud_cache_file = '.json_soundcloud_';	// . $object
  * Parameters:
  *	$service:  	Used to switch API providers.
  *		Example:  	"google", "github", "facebook", "soundcloud"
- *	$object: 	Used to switch between specific service components. 
+ *	$object: 	Used to switch between specific service components.
  *      Example: 	(github) 	"releases", "issues"
  *					(google)	"activities"
- *                  (soundcloud)"tracks", "members", 
+ *                  (soundcloud)"tracks", "members",
  *	$params:	Normally used to filter the results
  *		Example:	(github)	"?state=open"
  *					(google) 	"?maxResults=25
@@ -109,18 +109,18 @@ function get_json_data($service, $object = NULL, $params = '', $repo = NULL) {
 	$service_url = $GLOBALS[$service . '_api_url'];
 	$service_id = $GLOBALS[$service . '_id'];
 	$cache_file = $GLOBALS[$service . '_cache_file'];
-	
+
 	global $cache_dir;
-	
+
 	// Attempt to make the cache directory if it doesn't already exist
 	if (!file_exists($cache_dir)) {
 		mkdir($cache_dir);
 	}
-	
+
 	// Local 'tmp' cache file on the webserver, preferably out of public reach, i.e.
 	// htdocs/tmp/.json_github_lmms_releases
 	$tmp_cache = $cache_dir . $cache_file . ($repo ? $repo : $service_id) . ($object ? '_' . $object : '');
-	
+
 	// If the repository isn't specified, assume it's the same as the project name and build accordingly
 	// i.e. "https://api.github.com/repos/lmms/lmms/releases?param=value"
 	// i.e. "https://www.googleapis.com/plus/v1/people/113001340835122723950/activities/public?maxResults=25
@@ -131,16 +131,16 @@ function get_json_data($service, $object = NULL, $params = '', $repo = NULL) {
 		case 'facebook' :
 			$full_api = $service_url . '?id=' . ($repo ? $repo : $service_id) . '&format=json' . $params;
 			break;
-		case 'google' : 
+		case 'google' :
 			$full_api = $service_url . ($repo ? $repo : $service_id) . '/' . $object . '/public/' . $params;
 			break;
 		case 'github' :
 		default:
 			$full_api = $service_url . ($repo ? $repo : $service_id) . '/' . $service_id . '/' . $object . $params;
 	}
-	
+
 	$using_url = false;
-	
+
 	if (cache_expired($tmp_cache)) {
 		$json = file_get_contents_curl($full_api, $service);
 		$using_url = true;
@@ -188,7 +188,7 @@ function has_children($obj, $service) {
 }
 
 /*
- * Exposes the user_id defined in global namespace above to 
+ * Exposes the user_id defined in global namespace above to
  * other php files
  */
 function get_json_id($service) {
@@ -224,13 +224,13 @@ function file_get_contents_curl($url, $service) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_URL, $url . get_secrets($service, $url));
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-	
+
 	// Skip SSL checks for localhost clients as Trusted CAs often aren't
 	// installed into CURL on developer's PCs
 	if (in_array($_SERVER["REMOTE_ADDR"], array ("127.0.0.1", "::1"))) {
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	}
-	
+
 	$data = curl_exec($ch);
 	curl_close($ch);
 
@@ -261,14 +261,14 @@ function get_secrets($service, $url) {
 		default:
 			$client_id=get_base64_secret('GITHUB_CLIENT_ID');
 			$client_secret=get_base64_secret('GITHUB_CLIENT_SECRET');
-			return ($client_id ? $delim . 'client_id=' . $client_id : '') . 
+			return ($client_id ? $delim . 'client_id=' . $client_id : '') .
 				($client_secret ? '&client_secret=' . $client_secret : '');
 	}
 }
 
 /*
  * Attempts to read the encoded secret from the file system.
- * The secret must be the only content in the file and must be 
+ * The secret must be the only content in the file and must be
  * encoded in base64 format
  */
 function get_base64_secret($file) {
