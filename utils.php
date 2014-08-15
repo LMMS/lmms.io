@@ -21,4 +21,20 @@ function str_endswith($haystack, $needle, $ignorecase = FALSE) {
     return $needle === "" || substr($haystack, -strlen($needle)) === $needle;
 }
 
+function make_reflection($image_path, $thumbnail_path = NULL, $blackorwhite = 'black', $class = '') {
+	// If no thumbnail is supplied, try 'th_' . $image_path
+	if (!$thumbnail_path) {
+		$pieces = explode('/', $image_path);
+		$pieces[count($pieces) -1] = 'th_' . $pieces[count($pieces) -1];
+		$thumbnail_path = implode('/', $pieces);
+	}
+	echo '<div id="reflect-' . $blackorwhite . '" class="image-block ' . $class . '">';
+	echo '<a target="_blank" href="' . $image_path . '"><img src="' . $thumbnail_path . '" alt="" /></a>';
+	echo '<div class="reflection">';
+	echo '	<img src="' . $thumbnail_path . '" alt="" />';
+	echo '	<div class="overlay"></div>';
+	echo '</div>';
+	echo '</div>';
+}
+
 ?>
