@@ -40,7 +40,7 @@ create_artwork_item('LMMS Project Icon',
  * Creates a small summary box about an artwork item
  */
 function create_artwork_item($artwork_name, $img_path, $raw_path, $rendered_path, $author_name = NULL, $author_link = NULL, $modified_by = NULL) {
-	echo '<img style="padding-right: 10px; float:left;" src="' . $img_path . '">';
+	echo '<img class="art-thumb" src="' . $img_path . '">';
 	echo '<h3>' . $artwork_name . '</h3>';
 
 	if ($author_name) {

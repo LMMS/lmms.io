@@ -12,7 +12,7 @@ function create_navbar() {
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/"><img class="logo-sm" style="float: left;" src="/img/logo_sm.png" />LMMS</a>
+				<a class="navbar-brand" href="/"><img class="logo-sm pull-left" src="/img/logo_sm.png" />LMMS</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->

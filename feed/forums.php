@@ -14,7 +14,7 @@ foreach ($rss->items as $item) {
 	$atom = str_replace('<br />', ' ', $atom);
 	$atom = str_replace('<hr />', '', $atom);
 	$atom = str_replace('\n', '', $atom);
-	$atom = str_replace('<p>Statistics:', '<p style="font-size:75%;">', $atom);
+	$atom = str_replace('<p>Statistics:', '<p class="forum-stats">', $atom);
 	echo '<div class="bs-callout bs-callout-success"><a target="_blank" href="' . $item['id'] . '"><h5><strong><span class="fa fa-comments"></span> ' . $item['title'] . '</strong></h5></a>';
 	echo  $atom .  '</div><br>';
 }

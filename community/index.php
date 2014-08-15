@@ -1,17 +1,15 @@
 <?php include('../header.php'); ?>
 
-<h1 style="text-align: center;">LMMS Community</h1>
-<hr id="hr">
-<div id="alert" class="alert alert-warning hidden-sm hidden-xs" style="text-align: center;" role="alert">
+<h1 class="center">LMMS Community</h1>
+<h2 class="top">test top</h2>
+<hr id="hr" class="show hidden-sm hidden-xs">
+<div id="alert" class="alert show center alert-warning hidden-sm hidden-xs" role="alert">
 	<a class="close" onclick="hideAlert()">×</a>
-	<!-- <h4><img class="logo-sm" src="/img/logo_sm.png"><span id="alert-title">&nbsp;</span></h4> -->
-	
 	<p>Click a button to be redirected to that page.  Clicking on the down arrow &nbsp;<strong><span class="fa fa-arrow-down"></span></strong>&nbsp; below each button will preview its content.</p>
-	<!-- <p><span id="alert-text"></span></p> -->
 	</ul>
 </div>
 
-<div class="row" style="overflow: auto;">
+<div class="row overflow-auto">
 <table id="community-table" class="table table-striped">
 	<tr>
 		<td><label id="forums-button" title="Visit page" class="btn btn-default" target="_self" data-href="/forum/" onclick="show(this)">
@@ -55,28 +53,28 @@
 </table>
 </div>
 
-	<div id="wait-div" class="panel-body">
-		<h1 style="text-align: center;"><span class="fa fa-clock-o"></span> Please wait, loading feeds...</h1>
+	<div id="wait-div" class="panel-body show">
+		<h1 class="center"><span class="fa fa-clock-o"></span> Please wait, loading feeds...</h1>
 	</div>
 
-    <div id="forums-div" class="panel-body" style="display:none;">
+    <div id="forums-div" class="panel-body hidden">
 		<?php include('../feed/forums.php'); ?>
 	</div>
 
-	<div id="facebook-div" class="panel-body" style="display:none;">
+	<div id="facebook-div" class="panel-body hidden">
 	<?php include('../feed/facebook.php'); ?>
 	</div>
 
 
-	<div id="soundcloud-div" class="panel-body" style="display:none;">
+	<div id="soundcloud-div" class="panel-body hidden">
 		<?php include('../feed/soundcloud.php'); ?>
 	</div>
 
-	<div id="google+-div" class="panel-body" style="display:none;">
+	<div id="google+-div" class="panel-body hidden">
 		<?php include('../feed/google+.php'); ?>
 	</div>
 
-	<div id="github-div" class="panel-body" style="display:none;">
+	<div id="github-div" class="panel-body hidden">
 		<?php include('../feed/issues.php'); ?>
 	</div>
 
@@ -90,7 +88,8 @@
 			return window.open($(obj).attr('data-href'), $(obj).attr('target'));
 		}
 		$("div[id$='-div']").hide();
-		$("label[id$='-toggle']").removeClass("active");
+		$("div[id$='-div']").removeClass('show');
+		$("label[id$='-toggle']").removeClass('active');
 		
 		createHoverEffect('#forums', 'btn-success');
 		createHoverEffect('#facebook', 'btn-primary');
@@ -132,8 +131,9 @@
 
 		//$('#alert-title').text('LMMS ' + title.toUpperCase() + ' ');
 		//$('#alert-text').text('Below is a sample of recent activity from our ' + title + ' page.  Please click on an item to be redirected to that page.');
-
 		
+		// Play nicely with boostrap
+		div.removeClass('hidden');
 		div.show();
 
 		tog.addClass("active");
@@ -211,6 +211,8 @@
 	function hideAlert() {
 		$('#alert').hide();
 		$('#hr').hide();
+		$('#alert').removeClass('show');
+		$('#hr').removeClass('show');
 	}
 
 
@@ -264,4 +266,4 @@
 
 
 
-<? include('../footer.php'); ?>
+<?php include('../footer.php'); ?>

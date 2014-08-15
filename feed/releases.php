@@ -43,16 +43,16 @@ function get_releases($max_releases = NULL, $format = NULL, $name_filter = NULL,
 			foreach($item->assets as $asset) {
 				$text = $item->name . '&nbsp; (' . get_os_name($asset->name) . ')';
 
-				$button_style = 'btn-success';
+				$button_style = 'btn-primary';
 				// Change to warning button for prerelease
 				if ($item->prerelease) {
-					$button_style = 'btn-warning';
+					$button_style = 'btn-danger';
 					$text = $text . '&nbsp;<span class="fa fa-exclamation-circle"></span>';
 				}
 
 				// If no $name_filter is provided, echo.  If $name_filter is provided, filter based on name
 				if (!$name_filter || ($name_filter && (strpos($asset->name,$name_filter) !== false))) {
-					echo '<a data-dl-count="' . $asset->download_count . '" style="margin-bottom: 3px;" class="btn btn-sm ' . $button_style . '" href="' . $asset->browser_download_url . '"><span class="glyphicon glyphicon-arrow-down"></span>&nbsp;' . $text . '</a>' . $delim;
+					echo '<a data-dl-count="' . $asset->download_count . '" class="btn btn-sm dl-button ' . $button_style . '" href="' . $asset->browser_download_url . '"><span class="glyphicon glyphicon-arrow-down"></span>&nbsp;' . $text . '</a>' . $delim;
 					$found = true;
 				}
 
@@ -67,9 +67,9 @@ function get_releases($max_releases = NULL, $format = NULL, $name_filter = NULL,
 
 			if ($format == "vert") {
 				if ($count == 1) {
-					echo '<a class="label label-success" style="position: relative; top: -2px; margin-left: 55px;" href="download.php"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;other systems</a>' . $delim;
+					echo '<a class="label label-success dl-vert-label" href="download.php"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;other systems</a>' . $delim;
 				}
-				echo '<a class="label label-info" style="margin-left: 57px;" target="_blank" href="' . $item->html_url . '"><span class="glyphicon glyphicon-ok"></span>&nbsp; release notes</a>';
+				echo '<a class="label label-info dl-horiz-label" target="_blank" href="' . $item->html_url . '"><span class="glyphicon glyphicon-ok"></span>&nbsp; release notes</a>';
 			}
 
 			if ($count >= $max_releases) {
