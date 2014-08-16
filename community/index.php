@@ -15,15 +15,15 @@
 		<td><label id="forums-button" class="btn btn-default" target="_self" data-href="/forum/" onclick="show(this)">
 			<span class="fa-5x fa fa-comments"></span> <span class="visible-lg-inline"><br>Forums</span>
 		</label></td>
-		
+
 		<td><label id="facebook-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="http://facebook.com/makefreemusic">
 			<span class="fa-5x fa fa-facebook"></span> <span class="visible-lg-inline"><br>Facebook</span>
 		</label></td>
-		
+
 		<td><label id="soundcloud-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="http://soundcloud.com/groups/linux-multimedia-studio">
 			<span class="fa-5x fa fa-soundcloud"></span> <span class="visible-lg-inline"><br>SoundCloud</span>
 		</label></td>
-		
+
 		<td><label id="google+-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="https://plus.google.com/u/0/113001340835122723950/posts">
 			<span class="fa-5x fa fa-google-plus"></span> <span class="visible-lg-inline"><br>Google+</span>
 		</label></td>
@@ -36,17 +36,17 @@
 			<span class="fa-5x fa fa-github"></span> <span class="visible-lg-inline"><br>GitHub</span>
 		</label></td>
 	</tr>
-	<tr>	
+	<tr>
 		<td><label data-name="Forums" id="forums-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#forums')"><span class="fa fa-arrow-down"></span></label></td>
 
 		<td><label data-name="Facebook" id="facebook-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#facebook')"><span class="fa fa-arrow-down"></span></label></td>
-			
+
 		<td><label data-name="Soundcloud" id="soundcloud-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-arrow-down"></span></label></td>
 
 		<td><label data-name="Google+" id="google+-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#google+')"><span class="fa fa-arrow-down"></span></label></td>
 
 		<td><label data-name="GitHub" id="github-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#github')"><span class="fa fa-arrow-down"></span></label></td>
-		<!-- 
+		<!--
 		<td><label data-name="YouTube" id="youtube-toggle" title="Preview content" class="btn btn-default dropdown-toggle disabled" onclick="show('#youtube')"><span class="fa fa-arrow-down"></span></label></td>
 		-->
 	</tr>
@@ -57,7 +57,7 @@
 		<h1 class="center"><span class="fa fa-clock-o"></span> Please wait, loading feeds...</h1>
 	</div>
 
-    <div id="forums-div" class="panel-body hidden">
+	<div id="forums-div" class="panel-body hidden">
 		<?php include('../feed/forums.php'); ?>
 	</div>
 
@@ -78,7 +78,7 @@
 		<?php include('../feed/issues.php'); ?>
 	</div>
 
-	
+
 </div>
 
 <script>
@@ -90,31 +90,31 @@
 		$("div[id$='-div']").hide();
 		$("div[id$='-div']").removeClass('show');
 		$("label[id$='-toggle']").removeClass('active');
-		
+
 		createHoverEffect('#forums', 'btn-success');
 		createHoverEffect('#facebook', 'btn-primary');
 		createHoverEffect('#soundcloud', 'btn-warning');
 		createHoverEffect('#github', 'btn-dark');
 		createHoverEffect('#google+', 'btn-danger');
-		
+
 		if (obj.indexOf('#') != 0) {
 			obj = '#' + obj;
 		}
-		
+
 		// jQuery doesn't like plus signs
 		var btn = $(obj.replace(/\+/g, "\\+") + '-button');
 		var div = $(obj.replace(/\+/g, "\\+") + '-div')
 		var tog = $(obj.replace(/\+/g, "\\+") + '-toggle');
-		
-		
+
+
 		switch (obj) {
 			case '#forums':
 				reverseHoverEffect(obj, "btn-success");
 				break;
-			case '#facebook': 
+			case '#facebook':
 				reverseHoverEffect(obj, "btn-primary");
 				break;
-			case '#soundcloud': 
+			case '#soundcloud':
 				reverseHoverEffect(obj, "btn-warning");
 				break;
 			case '#google+':
@@ -124,14 +124,14 @@
 				reverseHoverEffect(obj, "btn-dark");
 				break;
 		}
-		
+
 		/*$(obj.replace(/\+/g, "\\+") + '-button').unbind('mouseenter mouseleave');*/
-		
+
 		var title = obj.substring(1, obj.length); // remove hash
 
 		//$('#alert-title').text('LMMS ' + title.toUpperCase() + ' ');
 		//$('#alert-text').text('Below is a sample of recent activity from our ' + title + ' page.  Please click on an item to be redirected to that page.');
-		
+
 		// Play nicely with boostrap
 		div.removeClass('hidden');
 		div.show();
@@ -139,12 +139,12 @@
 		tog.addClass("active");
 		location.hash = obj;
 	}
-	
-	
+
+
 	function autoSelect() {
 		show('#forums');
 	}
-	
+
 	/*
 	 * Adds hover-style tooltips to the buttons
 	 */
@@ -156,7 +156,7 @@
 				.attr('title', 'Visit ' + name + ' page');
 			$(this).tooltip();
 				});
-		
+
 		$("label[id$='-toggle']").each(function() {
 			var name = $(this).data('name').toLowerCase();
 			$(this).attr('data-toggle', 'tooltip')
@@ -165,7 +165,7 @@
 			$(this).tooltip();
 				});
 	}
-	
+
 	/*
 	 * Illuminates button to its respective color on hover (Facebook = blue, etc)
 	 */
@@ -181,7 +181,7 @@
 		function() {
 			$(this).removeClass(className);
 		});
-		
+
 		$(id.replace(/\+/g, "\\+") + '-toggle').hover(
 		// Enter
 		function() {
@@ -192,14 +192,14 @@
 			$(this).removeClass(className);
 		});
 	}
-	
+
 	/*
 	 * Inverse-illuminates a button (takes color away on hover) to accommodate active buttons
 	 */
 	function reverseHoverEffect(id, className) {
 		$(id.replace(/\+/g, "\\+") + '-button').addClass(className);
 		$(id.replace(/\+/g, "\\+") + '-toggle').addClass(className);
-		
+
 		$(id.replace(/\+/g, "\\+") + '-button').hover(
 		// Enter
 		function() {
@@ -209,7 +209,7 @@
 		function() {
 			$(this).addClass(className);
 		});
-		
+
 		$(id.replace(/\+/g, "\\+") + '-toggle').hover(
 		// Enter
 		function() {
@@ -220,7 +220,7 @@
 			$(this).addClass(className);
 		});
 	}
-	
+
 	/*
 	 * Makes the navbar behave properly when already loaded (a hashtag work-around)
 	 * by replacing the menu href with javascript events since hash tags are normally
@@ -234,7 +234,7 @@
 			}
 		});
 	}
-	
+
 	function hideAlert() {
 		$('#alert').hide();
 		$('#hr').hide();

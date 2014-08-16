@@ -14,11 +14,11 @@
 		<link href="//lukas-w.github.com/font-linux/assets/font-linux.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 		<link href="/css/style.css" rel="stylesheet">
-        <link href="/css/lightbox.css" rel="stylesheet">
+		<link href="/css/lightbox.css" rel="stylesheet">
 
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="http://lokeshdhakar.com/projects/lightbox2/js/lightbox.min.js"></script>
+		<script type="text/javascript" src="http://lokeshdhakar.com/projects/lightbox2/js/lightbox.min.js"></script>
 	</head>
 
 	<body role="document">

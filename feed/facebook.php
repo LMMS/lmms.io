@@ -65,11 +65,11 @@ function cleanse_urls($str, $article_url) {
 		}
 
 	}
-	
+
 	foreach ($html->find('img') as $img) {
 		$img->class = ($img->class ? $img->class . ' ' : '') . 'img-thumbnail fb-thumb';
 	}
-	
+
 	return $html->save();
 }
 
