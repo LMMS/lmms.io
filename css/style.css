@@ -29,11 +29,95 @@ p.jumbo {
 	margin-left: 4px;
 }
 
-.fa-xl {
+.dl-vert-label {
+	position: relative;
+	top: -2px;
+	margin-left: 55px;
+}
+
+.dl-button  > .fa-arrow-circle-down {
+	margin: 0;
+	padding: 0;
+	display: block;
+	width: 0;
+	height: 0;
+	/*overflow: */
+	/*display: none;*/
+	font-size: 3em;
+	position: relative;
+	top: -0.55em;
+	left: -1.1em;
+}
+
+.dl-button  > small > .fa-exclamation-circle {
+	position: absolute;
+	font-size: 1.5em;
+	padding: 0;
+	width: 0;
+	height: 0;
+	margin: 0;
+	right: 3px;
+	bottom: 3px;
+}
+
+#button-title {
+	display: inline-block;
+	position: relative;
+	/*left: -10px;*/
+	font-size: 1.5em;
+}
+
+.dl-button small {
+	position: relative;
+	font-size: 0.65em;
+	top: -1.8em;
+}
+
+.dl-button big {
+	font-size: 0.75em;
+	position: relative;
+	top: -12px;
+}
+
+.dl-button {
+	height: 4.8em;
+	text-align: left;
+	padding-top: 0.5em;
+	padding-bottom: 0;
+	padding-left: 4em;
+	padding-right: 1em;
+	margin: 4px;
+}
+
+.dl-horiz-label {
+	margin-left: 57px;
+}
+
+.center {
+	text-align: center;
+}
+
+.top {
+	float: top;
+}
+
+.overflow-auto {
+	overflow: auto;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.fa-8x {
 	font-size: 8em;
 }
 
-.fa-lg {
+.fa-7x {
+	font-size: 7em;
+}
+
+.fa-6x {
 	font-size: 6em;
 }
 
@@ -64,6 +148,21 @@ li.dropdown-split-right > a {
 	display: inline;
 }
 
+.bandcamp-iframe {
+	border: 0; 
+	width: 800px;
+	height: 472px;
+}
+
+.art-thumb {
+	float: left;
+	margin-right: 10px;
+}
+
+p.forum-stats  {
+	font-size: 0.75em;
+}
+
 .fb-thumb {
 	position: relative;
 	left: -6px;
@@ -88,6 +187,11 @@ li.dropdown-split-right > a {
 .page-header {
 	text-align: center;
 }
+
+.row {
+	text-align: center;
+}
+
 
 #community-table {
 	text-align:center;

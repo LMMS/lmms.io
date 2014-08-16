@@ -13,7 +13,7 @@ if (count($obj) <= 0 || !$obj->entries) {
 		exit;
 }
 
-echo '<table class="table table-striped"><th><h2 style="text-align:center;">LMMS Facebook</h2></th>';
+echo '<table class="table table-striped"><th><h2 class="center">LMMS Facebook</h2></th>';
 foreach ($obj->entries as $item) {
 		$title = $item->title;
 

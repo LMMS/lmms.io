@@ -1,5 +1,8 @@
-<?php include_once('header.php'); ?>
-<?php include_once('feed/releases.php'); ?>
+<?php 
+include_once('header.php');
+include_once('feed/releases.php');
+include_once('utils.php');
+?>
 <div class="jumbotron jumbo">
 <div class="container">
 
@@ -13,36 +16,33 @@
 </div>
 </div>
 <br><br><br><br>
-<div style="text-align: center;" class="page-header">
+<div class="page-header">
 	<hr><h1>Making beats has never been easier.</h1>
 </div>
-<div style="text-align: center;" class="row">
+<div class="row">
 	<div class="col-lg-4">
-		<span class="fa-xl fa fa-bar-chart-o"></span>
+		<span class="fa-8x fa fa-bar-chart-o"></span>
 		<h4>Produce music with your computer</h4>
 		<p>by creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.</p>
 	</div>
 	<div class="col-lg-4">
-		<span class="fa-xl fa fa-keyboard-o"></span>
+		<span class="fa-8x fa fa-keyboard-o"></span>
 		<h4>Playback instruments, samples and plugins</h4>
 		<p>with a typing or MIDI keyboard in a user-friendly and modern interface.</p>
 	</div>
 	<div class="col-lg-4">
-		<span class="fa-xl fa fa-puzzle-piece"></span>
+		<span class="fa-8x fa fa-puzzle-piece"></span>
 		<h4>Bundled with ready-to-use stuff</h4>
 		<p>from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.</p>
 	</div>
 </div>
-<!-- <a href="/download/artwork/"><img style="padding-right: 10px; float:left;" src="img/logo_md.png"></a> -->
-
-<p style="text-align: right;"><a class="label label-success hidden-lg" href="download/"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;Download Now</a></p>
 <br><br><br><br>
 
-<div style="text-align: center;" class="page-header">
+<div class="page-header">
 	<hr><h1>Made by musicians, for musicians.</h1>
 </div>
 
-<div style="text-align: center;" class="row">
+<div class="row">
 	<div>
 		<a href="/download/#windows" class="btn btn-default"><span class="fa-5x fa fa-windows fa-fw"></span></a>&nbsp;
 		<a href="/download/#linux" class="btn btn-default"><span class="fa-5x fa fa-linux fa-fw"></span></a>&nbsp;
@@ -53,12 +53,12 @@
 </div>
 
 <br><br>
-<div style="text-align: center;" class="page-header">
+<div class="page-header">
 	<hr><h1>Houston, we've had a problem.</h1>
 	<h4>Ok, standby we've got you covered.</h4>
 </div>
 
-<div style="text-align: center;" class="row">
+<div class="row">
 	<div>
 		<a href="/community/forum/" class="btn btn-default"><span class="fa-5x fa fa-comments fa-fw"></span></a>&nbsp;
 		<a href="http://facebook.com/makefreemusic" target="_blank" class="btn btn-default"><span class="fa-5x fa fa-facebook fa-fw"></span></a>&nbsp;
@@ -69,13 +69,13 @@
 	</div>
 </div>
 <br>
-<p class="visible-lg" style="text-align:center;">View all community pages <a href="/community/">here</a>.</p>
+<p class="center visible-lg">View all community pages <a href="/community/">here</a>.</p>
 <br>
-<div style="text-align: center;" class="page-header">
+<div class="page-header">
 	<hr><h1>Sharing means caring.</h1>
 </div>
 
-<div style="text-align: center;" class="row">
+<div class="row">
 	<div>
 		<a href="https://soundcloud.com/groups/linux-multimedia-studio" target="_blank" class="btn btn-default"><span class="fa-5x fa fa-soundcloud fa-fw"></span></a>&nbsp;
 		<a href="/lsp/" class="btn btn-default"><span class="fa-5x fa fa-volume-down">	LSP</span></a>&nbsp;
@@ -84,8 +84,8 @@
 	</div>
 </div>
 <br><br>
-<div style="text-align: center; overflow: hidden;" class="row visible-lg">
-<div style="text-align: center;" class="page-header">
+<div class="row overflow-hidden visible-lg">
+<div class="page-header">
 	<hr><h1>Take a peek</h1>
 </div>
 	<div class="col-lg-4">
@@ -101,16 +101,15 @@
 		<?php make_reflection('img/ss_instr.png', NULL, "white"); ?>
 	</div>
 </div>
-	<p class="visible-lg" style="text-align:center;">More screenshots can be found <a href="/screenshots/">here</a>.</p>
+	<p class="center visible-lg">More screenshots can be found <a href="/screenshots/">here</a>.</p>
 <br><br>
 
 <div>
-<div style="text-align: center;" class="page-header">
+<div class="page-header">
 	<hr><h1>Featuring</h1>
 </div>
 	<div class="col-lg-4">
-		<center><span class="fa-lg fa fa-check-square-o"></span>
-		<h2>Core Functionality</h2></center>
+		<h2 class="center"><span class="fa-3x fa fa-check-square-o"></span><br>Core Functionality</h2>
 		<ul>
 		<li>Compose music on Windows, Linux and Apple OS&nbsp;X</li>
 		<li>Sequence, compose, mix and automate songs in one simple interface</li>
@@ -122,8 +121,7 @@
 		</ul>
 	</div>
 	<div class="col-lg-4">
-		<center><span class="fa-lg fa fa-bar-chart-o"></span>
-		<h2>Effects Mixing</h2></center>
+		<h2 class="center"><span class="fa-3x fa fa fa-bar-chart-o"></span><br>Effects Mixing</h2>
 		<ul>
 		<li>Drop-in LADSPA plug-in support</li>
 		<li>Drop-in VST ® effect plug-in support on (Linux and Windows)</li>
@@ -133,8 +131,7 @@
 		</ul>
 	</div>
 	<div class="col-lg-4">
-		<center><span class="fa-lg fa fa-music"></span>
-		<h2>Musical Instruments</h2></center>
+		<h2 class="center"><span class="fa-3x fa fa fa-music"></span><br>Musical Instruments</h2>
 		<ul>
 		<li>Built-in 32-bit VST instrument support</li>
 		<li>Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit Windows)</li>
@@ -151,24 +148,4 @@
 </div>
 
 <br>
-
 <?php include('footer.php'); ?>
-<?php 
-
-function make_reflection($image_path, $thumbnail_path = NULL, $blackorwhite = 'black', $class = '') {
-	// If no thumbnail is supplied, try 'th_' . $image_path
-	if (!$thumbnail_path) {
-		$pieces = explode('/', $image_path);
-		$pieces[count($pieces) -1] = 'th_' . $pieces[count($pieces) -1];
-		$thumbnail_path = implode('/', $pieces);
-	}
-	echo '<div id="reflect-' . $blackorwhite . '" class="image-block ' . $class . '">';
-	echo '<a target="_blank" href="' . $image_path . '"><img src="' . $thumbnail_path . '" alt="" /></a>';
-	echo '<div class="reflection">';
-	echo '	<img src="' . $thumbnail_path . '" alt="" />';
-	echo '	<div class="overlay"></div>';
-	echo '</div>';
-	echo '</div>';
-}
-
-?>

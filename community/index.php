@@ -1,20 +1,18 @@
 <?php include('../header.php'); ?>
 
-<h1 style="text-align: center;">LMMS Community</h1>
-<hr id="hr">
-<div id="alert" class="alert alert-warning hidden-sm hidden-xs" style="text-align: center;" role="alert">
+<h1 class="center">LMMS Community</h1>
+<hr id="hr" class="show hidden-sm hidden-xs">
+<div id="alert" class="alert show center alert-warning hidden-sm hidden-xs" role="alert">
 	<a class="close" onclick="hideAlert()">×</a>
-	<!-- <h4><img class="logo-sm" src="/img/logo_sm.png"><span id="alert-title">&nbsp;</span></h4> -->
-	
+	<a class="close pull-left" onclick="hideAlert()">×</a>
 	<p>Click a button to be redirected to that page.  Clicking on the down arrow &nbsp;<strong><span class="fa fa-arrow-down"></span></strong>&nbsp; below each button will preview its content.</p>
-	<!-- <p><span id="alert-text"></span></p> -->
 	</ul>
 </div>
 
-<div class="row" style="overflow: auto;">
+<div class="row overflow-auto">
 <table id="community-table" class="table table-striped">
 	<tr>
-		<td><label id="forums-button" title="Visit page" class="btn btn-default" target="_self" data-href="/forum/" onclick="show(this)">
+		<td><label id="forums-button" class="btn btn-default" target="_self" data-href="/forum/" onclick="show(this)">
 			<span class="fa-5x fa fa-comments"></span> <span class="visible-lg-inline"><br>Forums</span>
 		</label></td>
 		
@@ -39,44 +37,44 @@
 		</label></td>
 	</tr>
 	<tr>	
-		<td><label id="forums-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#forums')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="Forums" id="forums-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#forums')"><span class="fa fa-arrow-down"></span></label></td>
 
-		<td><label id="facebook-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#facebook')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="Facebook" id="facebook-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#facebook')"><span class="fa fa-arrow-down"></span></label></td>
 			
-		<td><label id="soundcloud-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="Soundcloud" id="soundcloud-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-arrow-down"></span></label></td>
 
-		<td><label id="google+-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#google+')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="Google+" id="google+-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#google+')"><span class="fa fa-arrow-down"></span></label></td>
 
-		<td><label id="github-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#github')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="GitHub" id="github-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#github')"><span class="fa fa-arrow-down"></span></label></td>
 		<!-- 
-		<td><label id="youtube-toggle" title="Preview content" class="btn btn-default dropdown-toggle disabled" onclick="show('#youtube')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="YouTube" id="youtube-toggle" title="Preview content" class="btn btn-default dropdown-toggle disabled" onclick="show('#youtube')"><span class="fa fa-arrow-down"></span></label></td>
 		-->
 	</tr>
 </table>
 </div>
 
-	<div id="wait-div" class="panel-body">
-		<h1 style="text-align: center;"><span class="fa fa-clock-o"></span> Please wait, loading feeds...</h1>
+	<div id="wait-div" class="panel-body show">
+		<h1 class="center"><span class="fa fa-clock-o"></span> Please wait, loading feeds...</h1>
 	</div>
 
-    <div id="forums-div" class="panel-body" style="display:none;">
+    <div id="forums-div" class="panel-body hidden">
 		<?php include('../feed/forums.php'); ?>
 	</div>
 
-	<div id="facebook-div" class="panel-body" style="display:none;">
+	<div id="facebook-div" class="panel-body hidden">
 	<?php include('../feed/facebook.php'); ?>
 	</div>
 
 
-	<div id="soundcloud-div" class="panel-body" style="display:none;">
+	<div id="soundcloud-div" class="panel-body hidden">
 		<?php include('../feed/soundcloud.php'); ?>
 	</div>
 
-	<div id="google+-div" class="panel-body" style="display:none;">
+	<div id="google+-div" class="panel-body hidden">
 		<?php include('../feed/google+.php'); ?>
 	</div>
 
-	<div id="github-div" class="panel-body" style="display:none;">
+	<div id="github-div" class="panel-body hidden">
 		<?php include('../feed/issues.php'); ?>
 	</div>
 
@@ -90,7 +88,8 @@
 			return window.open($(obj).attr('data-href'), $(obj).attr('target'));
 		}
 		$("div[id$='-div']").hide();
-		$("label[id$='-toggle']").removeClass("active");
+		$("div[id$='-div']").removeClass('show');
+		$("label[id$='-toggle']").removeClass('active');
 		
 		createHoverEffect('#forums', 'btn-success');
 		createHoverEffect('#facebook', 'btn-primary');
@@ -132,8 +131,9 @@
 
 		//$('#alert-title').text('LMMS ' + title.toUpperCase() + ' ');
 		//$('#alert-text').text('Below is a sample of recent activity from our ' + title + ' page.  Please click on an item to be redirected to that page.');
-
 		
+		// Play nicely with boostrap
+		div.removeClass('hidden');
 		div.show();
 
 		tog.addClass("active");
@@ -145,6 +145,30 @@
 		show('#forums');
 	}
 	
+	/*
+	 * Adds hover-style tooltips to the buttons
+	 */
+	function addTooltips() {
+		$("label[id$='-button']").each(function() {
+			var name = $(this).text().trim().toLowerCase();
+			$(this).attr('data-toggle', 'tooltip')
+				.attr('data-placement', 'top')
+				.attr('title', 'Visit ' + name + ' page');
+			$(this).tooltip();
+				});
+		
+		$("label[id$='-toggle']").each(function() {
+			var name = $(this).data('name').toLowerCase();
+			$(this).attr('data-toggle', 'tooltip')
+				.attr('data-placement', 'bottom')
+				.attr('title', 'Preview ' + name + ' feed');
+			$(this).tooltip();
+				});
+	}
+	
+	/*
+	 * Illuminates button to its respective color on hover (Facebook = blue, etc)
+	 */
 	function createHoverEffect(id, className) {
 		$(id.replace(/\+/g, "\\+") + '-button').removeClass(className);
 		$(id.replace(/\+/g, "\\+") + '-toggle').removeClass(className);
@@ -169,6 +193,9 @@
 		});
 	}
 	
+	/*
+	 * Inverse-illuminates a button (takes color away on hover) to accommodate active buttons
+	 */
 	function reverseHoverEffect(id, className) {
 		$(id.replace(/\+/g, "\\+") + '-button').addClass(className);
 		$(id.replace(/\+/g, "\\+") + '-toggle').addClass(className);
@@ -211,6 +238,8 @@
 	function hideAlert() {
 		$('#alert').hide();
 		$('#hr').hide();
+		$('#alert').removeClass('show');
+		$('#hr').removeClass('show');
 	}
 
 
@@ -230,6 +259,7 @@
 			autoSelect();
 		}
 		menuFix();
+		addTooltips();
 	});
 </script>
 
