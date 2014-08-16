@@ -4,8 +4,30 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1ad4f33130588987cb4fbda217d5074d",
+    "hash": "2c9575aac308ba5ad9a2363bbbf2602a",
     "packages": [
+        {
+            "name": "kellan/magpierss",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/satishsuggala/magpierss.git",
+                "reference": "669025871611100b269dce5dedc17ade0005c5cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/satishsuggala/magpierss/zipball/669025871611100b269dce5dedc17ade0005c5cc",
+                "reference": "669025871611100b269dce5dedc17ade0005c5cc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "A simple RSS integration tool",
+            "time": "2014-06-26 08:59:34"
+        },
         {
             "name": "mgargano/simplehtmldom",
             "version": "1.5",
@@ -57,7 +79,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "kellan/magpierss": 20
+    },
     "prefer-stable": false,
     "platform": [],
     "platform-dev": []
