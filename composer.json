@@ -1,0 +1,5 @@
+{
+	"require": {
+		"mgargano/simplehtmldom": "1.5"
+	}
+}

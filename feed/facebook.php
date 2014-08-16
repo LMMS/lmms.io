@@ -1,7 +1,7 @@
 <?php
 include_once('../utils.php');
 include_once('json_common.php');
-include_once('simple_html_dom.php');
+require_once('../vendor/autoload.php');
 
 /*
  * Echo out the data
@@ -41,7 +41,7 @@ echo '</table>';
  *  - Render cross-posted thumbnails (i.e. <a src="https://fbcdn-profile-a.akamaihd.net...>)
  */
 function cleanse_urls($str, $article_url) {
-	$html = str_get_html($str);
+	$html = SimpleHtmlDom\str_get_html($str);
 	foreach($html->find('a') as $element) {
 		// Fix cross posts, especially those from LMMSChallenge facebook
 		if (!$element->find('img') && is_image($element)) {
