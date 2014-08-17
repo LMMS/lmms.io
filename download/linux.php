@@ -30,33 +30,39 @@
 <div class="tab-content">
 	<div id="linux-debian" class="tab-pane active">
 		<h3>Ubuntu, Linux Mint (deb)</h3>
-		<p>For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.<br> If this doesn't work for you, run <code>sudo apt-get install lmms</code> in a terminal.</p>
-		<a class="btn btn-primary" target="new" href="apt://lmms"><span class="fa fa-download"></span> Install LMMS</a>
+		<p>For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.<br></p>
+		<p><a class="btn btn-primary" target="new" href="apt://lmms"><span class="fa fa-download"></span> Install LMMS</a></p>
+		<p>If this doesn't work for you, run this command in a terminal.</p>
+		<pre>$ sudo apt-get install lmms</pre>
 		<p>If the traditional repositories lag behind on versions, try the <a href="http://kxstudio.sourceforge.net/Repositories#Ubuntu">KXStudio repository</a>.</p>
 	</div>
 
 	<div id="linux-mageia" class="tab-pane">
 		<h3> Mandriva, Mageia (rpm)</h3>
-		<p>Run <code>urpmi lmms</code> as root.</p>
+		<p>Run the following command as root in a terminal:</p>
+		<pre>$ urpmi lmms</pre>
 	</div>
 
 	<div id="linux-fedora" class="tab-pane">
 		<h3>Fedora, CentOS (rpm)</h3>
-		<p>Run <code>yum install lmms</code> as root.</p>
+		<p>Run the following command as root in a terminal:</p>
+		<pre>$ yum install lmms</pre>
 	</div>
 
 	<div id="linux-arch" class="tab-pane">
 		<h3>Arch Linux</h3>
-		<p>Run <code>sudo pacman -S lmms</code> in a terminal.</p>
+		<p>Run the following command in a terminal:
+		<pre>$ sudo pacman -S lmms</pre></p>
 	</div>
 
 	<div id="linux-suse" class="tab-pane">
 		<h3>openSUSE</h3>
-		<p>Run <code>zypper install lmms</code> as root.</p>
+		<p>Run the following command in a terminal:
+		<pre>$ sudo zypper install lmms</pre></p>
 	</div>
 </div>
-<hr>
+
 <div id="linux-source">
-	<h2>Build LMMS from source</h2>
+	<h3>Build LMMS from source</h3>
 	<p>If your Linux distribution does not provide a lmms package (or only an out-dated one), you can still build LMMS from source. Visit the <a href="https://github.com/LMMS/lmms/wiki/Compiling-lmms">LMMS development wiki on GitHub</a> for instructions on how to compile LMMS for Linux.</p>
 </div>

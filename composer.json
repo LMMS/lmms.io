@@ -1,0 +1,6 @@
+{
+	"require": {
+		"mgargano/simplehtmldom": "1.5",
+		"kellan/magpierss": "dev-master"
+	}
+}
