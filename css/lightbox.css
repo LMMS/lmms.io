@@ -10,8 +10,8 @@ body:after {
   left: 0;
   z-index: 9999;
   background-color: black;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  opacity: 0.3;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4;
   display: none;
 }
 
@@ -107,7 +107,7 @@ body:after {
 }
 
 .lb-nav a.lb-prev {
-  width: 34%;
+  width: 40%;
   left: 0;
   float: left;
   background: url(../img/prev.png) left 48% no-repeat;
@@ -125,7 +125,7 @@ body:after {
 }
 
 .lb-nav a.lb-next {
-  width: 64%;
+  width: 60%;
   right: 0;
   float: right;
   background: url(../img/next.png) right 48% no-repeat;
@@ -183,11 +183,15 @@ body:after {
   display: block;
   clear: left;
   padding-bottom: 1em;
+  font-family: sans-serif;
   font-size: 12px;
-  color: #000;
+  font-weight: bold;
+  color: #ebebeb;
+  opacity: 1;
 }
 
-.lb-data .lb-close {
+.lb-close {
+  margin-bottom: 7px;
   display: block;
   float: right;
   width: 30px;
@@ -195,15 +199,15 @@ body:after {
   background: url(../img/close.png) top right no-repeat;
   text-align: right;
   outline: none;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-  opacity: 0.7;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.3;
   -webkit-transition: opacity 0.2s;
   -moz-transition: opacity 0.2s;
   -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
 
-.lb-data .lb-close:hover {
+.lb-close:hover {
   cursor: pointer;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
