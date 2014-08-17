@@ -189,6 +189,17 @@ body:after {
   color: #ebebeb;
   opacity: 1;
 }
+/* Make Lightbox look better on mobile */
+@media (max-width: 767px) {
+.lb-close {
+  float: none !important;
+  margin: 0 auto;
+}
+.lb-next, .lb-prev {
+  background-size: 30px Auto !important;
+}
+
+}
 
 .lb-close {
   margin-bottom: 7px;
