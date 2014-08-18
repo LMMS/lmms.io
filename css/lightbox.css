@@ -1,6 +1,6 @@
 /* Preload images */
 body:after {
-  content: url(../img/close.png) url(../img/loading.gif) url(../img/prev.png) url(../img/next.png);
+  content: url(../img/loading.gif) url(../img/prev.png) url(../img/next.png);
   display: none;
 }
 
@@ -167,16 +167,34 @@ body:after {
 }
 
 .lb-data .lb-details {
-  width: 85%;
+  width: 100%;
   float: left;
   text-align: left;
   line-height: 1.1em;
 }
 
-.lb-data .lb-caption {
-  font-size: 13px;
-  font-weight: bold;
+.lb-caption {
+  display: inline-block;
+  font-size: 30px;
+  font-weight: normal;
   line-height: 1em;
+  text-align: right;
+}
+
+.lb-caption a:link, .lb-caption a:visited {
+  color: #fff;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.3;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.lb-caption a:hover {
+  color: #fff;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
 }
 
 .lb-data .lb-number {
@@ -191,10 +209,11 @@ body:after {
 }
 /* Make Lightbox look better on mobile */
 @media (max-width: 767px) {
-.lb-close {
+.lb-closeContainer {
   float: none !important;
   margin: 0 auto;
 }
+
 .lb-next, .lb-prev {
   background-size: 30px Auto !important;
 }
@@ -202,8 +221,7 @@ body:after {
 }
 
 .lb-close {
-  margin-bottom: 7px;
-  display: block;
+  display: inline-block;
   float: right;
   width: 30px;
   height: 30px;
@@ -222,4 +240,11 @@ body:after {
   cursor: pointer;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
+}
+
+.lb-closeContainer {
+ width: 60px;
+ height: 30px;
+ float: right;
+	margin-bottom: 7px;
 }
