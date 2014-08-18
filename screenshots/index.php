@@ -23,7 +23,7 @@ include_once('../utils.php');
 		<?php make_reflection('/img/ss_piano_roll.png', NULL, "white"); ?>
 	</div>
 	<div class="col-lg-4">
-		<h4>Built-in instruments</h4>
+		<h4>Native instruments</h4>
 		<?php make_reflection('/img/ss_plugins.png', NULL, "white"); ?>
 	</div>
 	<div class="col-lg-4">
