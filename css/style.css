@@ -89,6 +89,14 @@ p.jumbo {
 	margin: 4px;
 }
 
+/* Prevent cutting off of images on narrow devices*/
+@media (max-width:767px) {
+img {
+	max-width: 100%;
+	height: auto;
+}
+}
+
 .dl-horiz-label {
 	margin-left: 57px;
 }
