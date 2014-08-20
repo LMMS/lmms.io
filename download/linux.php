@@ -4,30 +4,30 @@
 	<p>LMMS is included in most major Linux distribution's package repositories.<br>
 	Please <a href="/community/">contact us</a> if your distribution is not listed here.</p>
 
-	<ul id="linux-tabs" class="nav nav-tabs nav-pills" role="tablist">
+	<ul id="linux-tabs" class="nav nav-tabs" role="tablist">
 		<li><a href="#linux-debian" role="tab" data-toggle="tab" id="linux-debian-button" class="active">
-			<span class="fl fl-16 fl-debian"></span>&nbsp;Debian
-			<span class="fl fl-16 fl-ubuntu"></span>&nbsp;Ubuntu
-			<span class="fl fl-16 fl-linuxmint-inverse"></span>&nbsp;Linux Mint
+			<span class="fl fl-16 fl-debian fl-tab"></span>&nbsp;Debian
+			<span class="fl fl-16 fl-ubuntu fl-tab"></span>&nbsp;Ubuntu
+			<span class="fl fl-16 fl-linuxmint-inverse fl-tab"></span>&nbsp;Linux Mint
 		</a></li>
 		
 		<li><a href="#linux-suse" role="tab" data-toggle="tab" id="linux-suse-button">
-			<span class="fl fl-16 fl-opensuse"></span>&nbsp;OpenSUSE
+			<span class="fl fl-16 fl-opensuse fl-tab"></span>&nbsp;OpenSUSE
 		</a></li>
 		
 		<li><a href="#linux-mageia" role="tab" data-toggle="tab" id="linux-mageia-button">
-			<span class="fl fl-16 fl-mageia"></span>&nbsp;Mageia
-			<span class="fl fl-16 fl-mandriva"></span>&nbsp;Mandriva
+			<span class="fl fl-16 fl-mageia fl-tab"></span>&nbsp;Mageia
+			<span class="fl fl-16 fl-mandriva fl-tab"></span>&nbsp;Mandriva
 		</a></li>
 		
 		<li><a href="#linux-fedora" role="tab" data-toggle="tab" id="linux-fedora-button">
-			<span class="fl fl-16 fl-fedora"></span>&nbsp;Fedora
-			<span class="fl fl-16 fl-centos"></span>&nbsp;CentOS
-			<span class="fl fl-16 fl-redhat"></span>&nbsp;Red Hat
+			<span class="fl fl-16 fl-fedora fl-tab"></span>&nbsp;Fedora
+			<span class="fl fl-16 fl-centos fl-tab"></span>&nbsp;CentOS
+			<span class="fl fl-16 fl-redhat fl-tab"></span>&nbsp;Red Hat
 		</a></li>
 		
 		<li><a href="#linux-arch" role="tab" data-toggle="tab" id="linux-arch-button">
-			<span class="fl fl-16 fl-archlinux"></span>&nbsp;Arch Linux
+			<span class="fl fl-16 fl-archlinux fl-tab"></span>&nbsp;Arch Linux
 		</a></li>
 	</ul>
 </div>

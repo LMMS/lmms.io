@@ -50,6 +50,13 @@ p.jumbo {
 	opacity: .65;
 }
 
+.fl-tab {
+	position: relative;
+	left: .1em;
+	top: .05em;
+	margin-left: .3em;
+}
+
 .dl-button  > small > .fa-exclamation-circle {
 	position: absolute;
 	font-size: 1.5em;
