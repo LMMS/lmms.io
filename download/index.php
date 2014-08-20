@@ -55,6 +55,7 @@ function showOS(os) {
 			$("#linux-debian-button").tab("show");
 		}
 		os = "#linux";
+		$('#prerelease').hide();
 	} else {
 		$('#prerelease').show();
 	}
