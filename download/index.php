@@ -37,7 +37,7 @@
 	<?php get_releases('prerelease', '.exe'); ?>
 </div>
 <div id="mac-div" class="center hidden">
-	<h2>Install LMMS on Apple</h2>
+	<h2>Install LMMS on Apple OS X</h2>
 	<p>Click one of the buttons below to download LMMS for Apple</p>
 	<?php get_releases('stable', '.dmg'); ?>
 	<h3>Beta Versions</h3>
@@ -49,21 +49,36 @@
 function showOS(os) {
 	location.hash = os;
 	if (os.indexOf("linux") != -1) {
-		if (os != "#linux") {
-			$(os+"-button").tab("show");
-		}
 		os = "#linux";
 		$('#prerelease').hide();
+		showLinux();
 	} else {
 		$('#prerelease').show();
 	}
 
+	$(os+"-button").tab("show");
+	
 	hide('#windows-div');
 	hide('#linux-div');
 	hide('#mac-div');
 	show(os+'-div');
 	
 	$(os+"-button").parent().addClass("active") ;
+}
+
+// Add Linux-specific tab functionality
+function showLinux() {
+	// Make the current hash visible
+	if (location.hash != '#linux') {
+		$('#linux-tabs a[href="' + location.hash + '"]').tab('show');
+	} else {
+		$('#linux-tabs a[href="#linux-debian"]').tab('show');
+	}
+	
+	$('#linux-tabs a').click(function (e) {
+		e.preventDefault();
+		$(this).tab('show');
+	})
 }
 
 function hide(obj) {

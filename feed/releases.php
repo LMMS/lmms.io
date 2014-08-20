@@ -81,19 +81,13 @@ function make_button($asset, $button_style, $text, $icon_style, $name_filter) {
 	// If no $name_filter is provided, echo.  If $name_filter is provided, filter based on name
 	if (!$name_filter || ($name_filter && (strpos($asset->name,$name_filter) !== false))) {
 		$title = $asset->name . " (" . number_format($asset->download_count) . ")";
-		echo '<a data-dl-count="' . $asset->download_count . '" class="btn btn-lg dl-button ' . 
+		echo '<a data-dl-count="' . $asset->download_count . '" class="btn btn-lg btn-dl ' . 
 			$button_style . '" href="' . $asset->browser_download_url . '" title="' . $title . '"><span id="button-title">LMMS</span><br>' . 
 			'<span class="fa fa-download ' . $icon_style . '"></span><big>Free Download</big><br>' .
 			'<small>' . $text . '</small></a> ';
 		return 1;
 	}
 	return 0;
-
-	/*
-	echo '<a style="margin-bottom: 3px;" class="btn btn-sm btn-success" href="' . $asset->browser_download_url . '">' .
-		$asset->name . '&nbsp; <span class="badge">';
-	echo $asset->download_count . '</span></a><br>';
-	*/
 }
 
 

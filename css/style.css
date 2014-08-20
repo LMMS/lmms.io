@@ -74,19 +74,31 @@ p.jumbo {
 	text-align: left;
 }
 
-.dl-button small {
+.btn-dl small {
 	position: relative;
 	font-size: 0.65em;
 	top: -1.8em;
 }
 
-.dl-button big {
+.btn-dl-md small {
+	position: relative;
+	font-size: 0.65em;
+	top: -2.2em;
+}
+
+.btn-dl big {
 	font-size: 0.75em;
 	position: relative;
 	top: -12px;
 }
 
-.dl-button {
+.btn-dl-md big {
+	font-size: 0.75em;
+	position: relative;
+	top: -11px;
+}
+
+.btn-dl {
 	height: 4.8em;
 	text-align: left;
 	padding-top: 0.5em;
@@ -106,6 +118,12 @@ img {
 
 .dl-horiz-label {
 	margin-left: 57px;
+}
+
+.code-block {
+	display: inline-block;
+	text-align: left;
+	margin: 0 auto;
 }
 
 .center {
