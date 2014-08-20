@@ -57,7 +57,7 @@ p.jumbo {
 	margin-left: .3em;
 }
 
-.dl-button  > small > .fa-exclamation-circle {
+.btn-dl  > small > .fa-exclamation-circle {
 	position: absolute;
 	font-size: 1.5em;
 	padding: 0;
@@ -66,6 +66,7 @@ p.jumbo {
 	margin: 0;
 	right: 3px;
 	bottom: 3px;
+	opacity: .65;
 }
 
 #button-title {
