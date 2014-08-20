@@ -19,11 +19,6 @@
 			</label>
 		</div>
 	</div>
-	<!-- No longer needed because of fixed navbar
-	<p class="visible-xs-block">
-		<a href="#"><span class="fa fa-music"></span> Download Sample Packs</a> • <a href="/artwork.php"><span class="fa fa-picture-o"></span> Download Artwork</a>
-	</p> -->
-
 </div><hr>
 
 <div id="linux-div" class="center hidden">
