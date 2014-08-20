@@ -47,7 +47,7 @@ include_once('utils.php');
 		<a href="/download/#windows" class="btn btn-default"><span class="fa-5x fa fa-windows fa-fw"></span></a>&nbsp;
 		<a href="/download/#mac" class="btn btn-default"><span class="fa-5x fa fa-apple fa-fw"></span></a>&nbsp;
 		<h4>Take a pick</h4>
-		<p>for Windows, Linux or Apple OS X</p>
+		<p>for Linux, Windows or Apple OS X</p>
 	</div>
 </div>
 
