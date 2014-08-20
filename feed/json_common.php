@@ -41,7 +41,11 @@
 /*
  * Maximum age, in minutes before refreshing the cache
  */
-$max_age = 15;
+$max_age = filter_input(INPUT_GET, 'max_age');
+if (!isset($max_age)) {
+	$max_age = 120;
+}
+
 
 
 /*
