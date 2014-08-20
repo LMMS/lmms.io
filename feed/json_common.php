@@ -52,7 +52,8 @@ if (!isset($max_age)) {
  * Local JSON cache directory on webserver
  * This should always end in a forward slash
  */
-$cache_dir = $_SERVER["DOCUMENT_ROOT"] . '/../tmp/';
+$cli_root = '/home/deploy/lmms.io';
+$cache_dir = get_document_root() . '/../tmp/';
 
 /*
  * The directory on the server which stores the json secrets.
@@ -267,6 +268,19 @@ function get_secrets($service, $url) {
 			$client_secret=get_base64_secret('GITHUB_CLIENT_SECRET');
 			return ($client_id ? $delim . 'client_id=' . $client_id : '') .
 				($client_secret ? '&client_secret=' . $client_secret : '');
+	}
+}
+
+/*
+ * For command-line execution, allows substitution of DOCUMENT_ROOT for a
+ * hard-coded local file system value
+ */
+function get_document_root() {
+	global $cli_root;
+	if (php_sapi_name() == "cli") {
+		return $cli_root;
+	} else {
+		return $_SERVER["DOCUMENT_ROOT"];
 	}
 }
 
