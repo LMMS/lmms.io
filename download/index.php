@@ -49,9 +49,12 @@
 function showOS(os) {
 	location.hash = os;
 	if (os.indexOf("linux") != -1) {
+		if (os != "#linux") {
+			$(os+"-button").tab("show");
+		} else {
+			$("#linux-debian-button").tab("show");
+		}
 		os = "#linux";
-		$('#prerelease').hide();
-		showLinux();
 	} else {
 		$('#prerelease').show();
 	}
