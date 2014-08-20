@@ -35,7 +35,7 @@ p.jumbo {
 	margin-left: 55px;
 }
 
-.dl-button  > .fa-arrow-circle-down {
+.download-icon {
 	margin: 0;
 	padding: 0;
 	display: block;
@@ -45,8 +45,9 @@ p.jumbo {
 	/*display: none;*/
 	font-size: 3em;
 	position: relative;
-	top: -0.55em;
+	top: -0.50em;
 	left: -1.1em;
+	opacity: .65;
 }
 
 .dl-button  > small > .fa-exclamation-circle {
@@ -65,6 +66,12 @@ p.jumbo {
 	position: relative;
 	/*left: -10px;*/
 	font-size: 1.5em;
+}
+
+.release-notes {
+	position: relative;
+	display: inline-block;
+	text-align: left;
 }
 
 .dl-button small {

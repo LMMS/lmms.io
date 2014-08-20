@@ -32,14 +32,16 @@
 <div id="windows-div" class="center hidden">
 	<h2>Install LMMS on Windows</h2>
 	<p>Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows</p>
-	<p><?php get_releases(1, 'horiz', '.exe'); ?></p>
-	<hr><h3>Beta Versions</h3>
-	<?php get_releases(1, 'horiz', '.exe', 'tresf'); ?>
+	<?php get_releases('stable', '.exe'); ?>
+	<h3>Beta Versions</h3>
+	<?php get_releases('prerelease', '.exe'); ?>
 </div>
 <div id="mac-div" class="center hidden">
 	<h2>Install LMMS on Apple</h2>
 	<p>Click one of the buttons below to download LMMS for Apple</p>
-	<?php get_releases(1, 'horiz', '.dmg', 'tresf'); ?>
+	<?php get_releases('stable', '.dmg'); ?>
+	<h3>Beta Versions</h3>
+	<?php get_releases('prerelease', '.dmg'); ?>
 </div>
 <div id="prerelease"><hr><small><span class="fa fa-exclamation-circle"></span> Denotes pre-release software, stability may suffer.</small></div>
 
