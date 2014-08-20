@@ -6,9 +6,9 @@
 
 	<ul id="linux-tabs" class="nav nav-tabs" role="tablist">
 		<li><a href="#linux-debian" role="tab" data-toggle="tab" id="linux-debian-button" class="active">
-			<span class="fl fl-16 fl-debian fl-tab"></span>&nbsp;Debian
+			<span class="visible-lg-inline"><span class="fl fl-16 fl-debian fl-tab"></span>&nbsp;Debian&nbsp;/</span>
 			<span class="fl fl-16 fl-ubuntu fl-tab"></span>&nbsp;Ubuntu
-			<span class="fl fl-16 fl-linuxmint-inverse fl-tab"></span>&nbsp;Linux Mint
+			<span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-linuxmint-inverse fl-tab"></span>&nbsp;Linux Mint</span>
 		</a></li>
 		
 		<li><a href="#linux-suse" role="tab" data-toggle="tab" id="linux-suse-button">
@@ -17,13 +17,13 @@
 		
 		<li><a href="#linux-mageia" role="tab" data-toggle="tab" id="linux-mageia-button">
 			<span class="fl fl-16 fl-mageia fl-tab"></span>&nbsp;Mageia
-			<span class="fl fl-16 fl-mandriva fl-tab"></span>&nbsp;Mandriva
+			<span class="visible-lg-inline"><span class="fl fl-16 fl-mandriva fl-tab"></span>&nbsp;Mandriva</span>
 		</a></li>
 		
 		<li><a href="#linux-fedora" role="tab" data-toggle="tab" id="linux-fedora-button">
 			<span class="fl fl-16 fl-fedora fl-tab"></span>&nbsp;Fedora
-			<span class="fl fl-16 fl-centos fl-tab"></span>&nbsp;CentOS
-			<span class="fl fl-16 fl-redhat fl-tab"></span>&nbsp;Red Hat
+			<span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-centos fl-tab"></span>&nbsp;CentOS</span>
+			<span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-redhat fl-tab"></span>&nbsp;Red Hat</span>
 		</a></li>
 		
 		<li><a href="#linux-arch" role="tab" data-toggle="tab" id="linux-arch-button">
