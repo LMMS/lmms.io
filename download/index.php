@@ -43,7 +43,7 @@
 	<h3>Beta Versions</h3>
 	<?php get_releases('prerelease', '.dmg'); ?>
 </div>
-<div id="prerelease"><hr><small><span class="fa fa-exclamation-circle"></span> Denotes pre-release software, stability may suffer.</small></div>
+<div id="prerelease"><small><span class="fa fa-exclamation-circle"></span> Denotes pre-release software, stability may suffer.</small></div>
 
 <script>
 function showOS(os) {
