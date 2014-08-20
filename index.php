@@ -1,6 +1,5 @@
 <?php
 include_once('header.php');
-include_once('feed/releases.php');
 include_once('utils.php');
 ?>
 <div class="jumbotron jumbo">
