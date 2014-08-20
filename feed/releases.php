@@ -61,9 +61,10 @@ function get_releases($release = NULL, $name_filter = NULL, $repo = NULL, $max_r
 			if ($found) {
 				$count++;
 				$div_id = str_replace(array('.'), '_', $asset->id . $name_filter . '_' . $count);
+				$created = "(" . date("Y/m/d", strtotime($asset->created_at)) . ") \r\n\r\n";
 				echo '<div id="release-notes">';
 				echo '<a data-toggle="collapse" data-parent="#accordion" href="#collapse_' . $div_id . '" class="collapsed">release notes</a>';
-				echo '<div id="collapse_' .  $div_id . '" class="collapse"><div class="release-notes"><pre>' . $item->body . '</pre></div></div>';
+				echo '<div id="collapse_' .  $div_id . '" class="collapse"><div class="release-notes"><pre>' . $created . $item->body . '</pre></div></div>';
 				echo '</div><hr>';
 			}
 			
