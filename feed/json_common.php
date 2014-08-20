@@ -48,7 +48,7 @@ $max_age = 15;
  * Local JSON cache directory on webserver
  * This should always end in a forward slash
  */
-$cache_dir = get_document_root() . '/../tmp/';
+$cache_dir = $_SERVER["DOCUMENT_ROOT"] . '/../tmp/';
 
 /*
  * The directory on the server which stores the json secrets.
@@ -278,16 +278,6 @@ function get_base64_secret($file) {
 		$base64 = @file_get_contents($alt_secrets_dir . $file);
 	}
 	return base64_decode($base64);
-}
-
-/*
- * Checks for a special "DOCUMENT_ROOT_HASH" global first
- * and fall-back to the standard "DOCUMENT_ROOT" if unavailable
- */
-function get_document_root() {
-	// Prefixed with '@' to prevent php warnings
-	$retval =@$_SERVER["DOCUMENT_ROOT_HASH"];
-	return ($retval ? $retval : $_SERVER["DOCUMENT_ROOT"]);
 }
 
 /*
