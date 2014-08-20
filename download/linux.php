@@ -17,7 +17,7 @@
 		
 		<li><a href="#linux-mageia" role="tab" data-toggle="tab" id="linux-mageia-button">
 			<span class="fl fl-16 fl-mageia fl-tab"></span>&nbsp;Mageia
-			<span class="visible-lg-inline"><span class="fl fl-16 fl-mandriva fl-tab"></span>&nbsp;Mandriva</span>
+			<span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-mandriva fl-tab"></span>&nbsp;Mandriva</span>
 		</a></li>
 		
 		<li><a href="#linux-fedora" role="tab" data-toggle="tab" id="linux-fedora-button">
