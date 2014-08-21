@@ -385,6 +385,8 @@ function is_image($a_tag) {
  * 
  */
 function scale_image($url, $width) {
+	return $url;
+/* FIXME BROKEN ON NETWORKREDUX
 	ini_set('user_agent', 'gd/2.x (linux)');
 	
 	$image = NULL;
@@ -436,6 +438,7 @@ function scale_image($url, $width) {
 	$i = ob_get_clean();
 	
 	return 'data:image/png;base64,' . base64_encode($i). '"';
+	*/
 }
 
 
