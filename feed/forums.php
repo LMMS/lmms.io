@@ -1,7 +1,7 @@
 <?php
 include_once('../utils.php');
 include_once('json_common.php');
-include('../vendor/kellan/magpierss/rss_fetch.inc');
+include_once('../vendor/kellan/magpierss/rss_fetch.inc');
 require_once('../vendor/autoload.php');
 
 if ( !defined('MAGPIE_OUTPUT_ENCODING') ) {
@@ -46,7 +46,7 @@ function cleanse_html($atom, $href) {
 		}
 		
 		$class = 'img img-thumbnail forum-thumb';
-		$element->outertext = '<a href="' . $href . '"><img class="' . $class . '" src="' . @scale_image($element->src, 200) . '"></a>';
+		$element->outertext = '<a href="' . $href . '"><img class="' . $class . '" src="' . scale_image($element->src, 200) . '"></a>';
 	}
 	
 	foreach($html->find('p') as $element) {
