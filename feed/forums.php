@@ -46,7 +46,7 @@ function cleanse_html($atom, $href) {
 		}
 		
 		$class = 'img img-thumbnail forum-thumb';
-		$element->outertext = '<a href="' . $href . '"><img class="' . $class . '" src="' . scale_image($element->src, 200) . '"></a>';
+		$element->outertext = '<a href="' . $href . '"><img class="' . $class . '" src="' . @scale_image($element->src, 200) . '"></a>';
 	}
 	
 	foreach($html->find('p') as $element) {
