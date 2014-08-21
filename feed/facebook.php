@@ -72,7 +72,7 @@ function cleanse_urls($str, $article_url) {
 function is_image($a_tag) {
 	$image_exts = explode(',', 'png,jpg,jpeg,gif,bmp,tif,tiff,svg');
 	foreach($image_exts as $ext) {
-		if (str_endswith($a_tag->href, '.' . trim($ext), true)) {
+		if (str_endswith($a_tag->href, '.' . trim($ext), true) || str_contains($a_tag->innertext, '.' . trim($ext) . '?', false)) {
 			return true;
 		}
 	}
