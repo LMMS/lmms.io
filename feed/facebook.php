@@ -66,19 +66,6 @@ function cleanse_urls($str, $article_url) {
 	return $html->save();
 }
 
-/*
- * Checks an href URL for most well-known image formats
- */
-function is_image($a_tag) {
-	$image_exts = explode(',', 'png,jpg,jpeg,gif,bmp,tif,tiff,svg');
-	foreach($image_exts as $ext) {
-		if (str_endswith($a_tag->href, '.' . trim($ext), true) || str_contains($a_tag->innertext, '.' . trim($ext) . '?', false)) {
-			return true;
-		}
-	}
-	return false;
-}
-
 ?>
 <script>
 // Facebook JavaScript stub to prevent lingering onmouseover and onclick page errors

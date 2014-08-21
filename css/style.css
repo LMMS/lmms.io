@@ -35,14 +35,20 @@ p.jumbo {
 	margin-left: 55px;
 }
 
+.page-header {
+	text-align: center;
+}
+
+.row {
+	text-align: center;
+}
+
 .download-icon {
 	margin: 0;
 	padding: 0;
 	display: block;
 	width: 0;
 	height: 0;
-	/*overflow: */
-	/*display: none;*/
 	font-size: 3em;
 	position: relative;
 	top: -0.50em;
@@ -69,10 +75,61 @@ p.jumbo {
 	opacity: .65;
 }
 
+.feed-small {
+	display: table-cell;
+	float: right;
+	text-align: right;
+	margin-right: 5px;
+	opacity: .60;
+}
+
+.google\2b-row,
+.soundcloud-row,
+.github-row,
+.facebook-row,
+.forums-row {
+	text-align: left;
+	position: relative;
+	margin: 0;
+}
+
+.soundcloud-row {
+	margin-top: -2px;
+}
+
+.soundcloud-thumb {
+	float: left;
+	display: inline-block;
+	position: relative;
+	margin-top: -6px;
+	margin-left: 2px;
+	margin-right: 10px;
+	width: 100px;
+	height: 100px;
+}
+
+
+.fb-thumb {
+	position: relative;
+	left: -6px;
+	top: -2px;
+	margin: 5px;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+}
+
+
+
+.forum-thumb {
+	display: block;
+	position: relative;
+	margin: 20px;
+}
+
 #button-title {
 	display: inline-block;
 	position: relative;
-	/*left: -10px;*/
 	font-size: 1.5em;
 }
 
@@ -204,36 +261,6 @@ p.forum-stats  {
 	font-size: 0.75em;
 }
 
-.fb-thumb {
-	position: relative;
-	left: -6px;
-	top: -2px;
-	/*top: -8px;*/
-	float: left;
-	margin: 5px;
-	width: auto;
-	max-width: 100%;
-	height: auto;
-}
-
-.soundcloud-thumb {
-	position: relative;
-	top: -8px;
-	float: left;
-	margin: 5px;
-	width: 80px;
-	height: 80px;
-}
-
-.page-header {
-	text-align: center;
-}
-
-.row {
-	text-align: center;
-}
-
-
 #community-table {
 	text-align:center;
 	margin: 0 auto;
@@ -287,7 +314,6 @@ p.forum-stats  {
 }
 
 .panel-body {
-	/* max-height: 300px; */
 	overflow-y:scroll;
 }
 
