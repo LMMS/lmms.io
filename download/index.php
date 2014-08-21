@@ -32,7 +32,7 @@
 	<?php get_releases('prerelease', '.exe'); ?>
 </div>
 <div id="mac-div" class="center hidden">
-	<h2>Install LMMS on Apple OS X</h2>
+	<h2>Install LMMS on Apple OS&nbsp;X</h2>
 	<p>Click one of the buttons below to download LMMS for Apple</p>
 	<?php get_releases('stable', '.dmg'); ?>
 	<h3>Beta Versions</h3>
