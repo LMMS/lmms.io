@@ -20,22 +20,24 @@ $count = 0;
 /*
  * Echo our data to the page
  */
+echo '<table class="table table-striped"><th><h2 class="center">LMMS GitHub</h2></th>';
 foreach($obj as $item) {
-	echo '<div class="bs-callout bs-callout-dark"><a target="_blank" href="' .
-		$item->html_url . '"><h5><strong><span class="fa fa-github"></span> GitHub #' . $item->number . ' &bull; ';
-	echo $item->title . '</strong></h5></a>';
-	$message = $item->body;
-	if (strlen($message) > 500) {
-		$message = substr($message, 0, 250) . '...<h4><a target="_blank" href="' . $item->html_url . '">...</a></h4>';
-	}
-	echo $message;
-	// Format and concat a pretty timestamp
-	echo '<small>Posted by: <a href="' . $item->user->html_url . '">' . $item->user->login . '</a> at ' .
-		date("D, d M Y h:ia ", strtotime($item->created_at)) . '(GMT ' . sprintf('%+d', date('O')*1/100) . ')</small>';
-	echo '</div><br>';
+	$title = 'GitHub #' . $item->number . ' &bull; ' . $item->title;
+	create_row(
+		'github', 					// $service	i.e. "facebook"
+		$title, 					// $title 	i.e. "LMMS Released!"
+		$item->html_url, 			// $href	i.e. "http://facebook.com/post1234"
+		trim_feed($item->body, $item->html_url),	// $message   i.e "We are pleased to announce..." 
+		$item->user->login, 		// $author	i.e. "John Smith"
+		$item->user->html_url, 		// $author_href	i.e. "http://facebook.com/user1234"
+		$item->created_at			// $date	i.e. "2014-01-01 00:00:00"
+	);
+
+
 	if ($count++ == $max) {
 		break;
 	}
 }
+echo '</table>';
 
 ?>

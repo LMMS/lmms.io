@@ -295,4 +295,75 @@ function trim_feed($message, $hyperlink, $max_length = 500) {
 	return $message;
 }
 
+/*
+ * Creates an html row, i.e: '<tr><td></td></tr>' wrapped around feed content
+ */
+function create_row($service, $title, $href, $message, $author = NULL, $author_href = NULL, $date = NULL, $thumbnail = NULL) {
+	// Replace blank titles with some default presets
+	if (!isset($title) || trim($title) == '') {
+		$title = get_alternate_title($service);
+	}
+	
+	echo '<tr><td><a target="_blank" href="' . $href . '"><h3><strong>';
+	if (isset($thumbnail)) {
+		echo '<img class="img-thumbnail ' . $service . '-thumb" src="' . $thumbnail . '"/>';
+	}
+	echo get_icon($service) . ' ' . $title . '</strong></h3></a>';
+
+	echo $message;
+	// Format and concat a pretty timestamp
+	
+	if (isset($author)) {
+		echo '<p><small class="feed">Posted by: <a href="' . $author_href . '">' . $author . '</a> at ' .
+			date("D, d M Y h:ia ", strtotime($date)) . '(GMT ' . sprintf('%+d', date('O')*1/100) . ')</small></p>';
+	}
+	echo '</td></tr>';
+}
+
+/*
+ * Returns a font-awesome icon string associated with the specified service
+ * $service = 'facebook';
+ */
+function get_icon($service, $invert = false, $extra_class = '') {
+	$class = '';
+	switch ($service) {
+		case 'forums':
+			$class .= 'fa-comments';
+			break;
+		case 'facebook':
+			$class .= ($invert ? 'fa-facebook' : 'fa-facebook-square');
+			break;
+		case 'soundcloud':
+			$class .= 'fa-soundcloud';
+			break;
+		case 'google+':
+			$class .= 'fa-google-plus';
+			break;
+		case 'github':
+			$class .= 'fa-github';
+			break;
+		case 'youtube':
+			$class .= 'fa-youtube';
+			break;
+		default:
+			$class .= 'fa-book';
+	}
+	return '<span class="' . trim('fa ' . $class . ' ' .  $extra_class) . '"></span>';
+}
+
+function get_alternate_title($service) {
+	switch ($service) {
+		case 'soundcloud':
+			return 'Community Track';
+		case 'forums':
+			return 'Forum Topic';
+		case 'github':
+			return 'LMMS Issue';
+		case 'google+':
+		case 'facebook':
+		default:
+			return 'LMMS Announcement';
+	}
+}
+
 ?>

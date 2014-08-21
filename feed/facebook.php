@@ -15,22 +15,15 @@ if (count($obj) <= 0 || !$obj->entries) {
 
 echo '<table class="table table-striped"><th><h2 class="center">LMMS Facebook</h2></th>';
 foreach ($obj->entries as $item) {
-		$title = $item->title;
-
-		// Cross-linked posts seem to have an empty title.  This changes it to a generic title.
-		if (!$title || trim($title) == '') {
-			$title = 'LMMS Announcement';
-		}
-
-		echo '<tr><td><a target="_blank" href="' . $item->alternate . '"><h3><strong>';
-		echo '<span class="fa fa-facebook-square"></span> ' . $title . '</strong></h3></a>';
-		$message = cleanse_urls($item->content, $item->alternate);
-
-		echo $message;
-		// Format and concat a pretty timestamp
-		echo '<p><small>Posted by: <a href="' . 'http://facebook.com/' . get_json_id('facebook') . '">' . $item->author->name . '</a> at ' .
-			date("D, d M Y h:ia ", strtotime($item->published)) . '(GMT ' . sprintf('%+d', date('O')*1/100) . ')</small></p>';
-		echo '</td></tr>';
+	create_row(
+		'facebook', 							// $service	i.e. "facebook"
+		$item->title, 							// $title 	i.e. "LMMS Released!"
+		$item->alternate, 						// $href	i.e. "http://facebook.com/post1234"
+		cleanse_urls($item->content, $item->alternate),		// $message   i.e "We are pleased to announce..." 
+		$item->author->name, 					// $author	i.e. "John Smith"
+		'http://facebook.com/' . get_json_id('facebook'), 	// $author_href	i.e. "http://facebook.com/user1234"
+		$item->published						// $date	i.e. "2014-01-01 00:00:00"
+	);
 }
 echo '</table>';
 

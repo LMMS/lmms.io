@@ -1,5 +1,6 @@
 <?php
-
+include_once('../utils.php');
+include_once('json_common.php');
 include('../vendor/kellan/magpierss/rss_fetch.inc');
 
 if ( !defined('MAGPIE_OUTPUT_ENCODING') ) {
@@ -8,6 +9,7 @@ if ( !defined('MAGPIE_OUTPUT_ENCODING') ) {
 
 $rss = fetch_rss('http://lmms.tuxfamily.org/forum/feed.php');
 
+echo '<table class="table table-striped"><th><h2 class="center">LMMS Forums</h2></th>';
 foreach ($rss->items as $item) {
 	// Prepare the html a bit
 	$atom = $item['atom_content'];
@@ -15,15 +17,17 @@ foreach ($rss->items as $item) {
 	$atom = str_replace('<hr />', '', $atom);
 	$atom = str_replace('\n', '', $atom);
 	$atom = str_replace('<p>Statistics:', '<p class="forum-stats">', $atom);
-	echo '<div class="bs-callout bs-callout-success"><a target="_blank" href="' . $item['id'] . '"><h5><strong><span class="fa fa-comments"></span> ' . $item['title'] . '</strong></h5></a>';
-	echo  $atom .  '</div><br>';
-}
 
-/*
- * Helper function to replace first occurance
- */
-function str_replace_first($find, $replace, $subject) {
-	return implode($replace, explode($find, $subject, 2));
+	create_row(
+		'forums', 				// $service	i.e. "facebook"
+		 $item['title'], 		// $title 	i.e. "LMMS Released!"
+		$item['id'], 			// $href	i.e. "http://facebook.com/post1234"
+		$atom					// $message   i.e "We are pleased to announce..." 
+		//$author, 				// $author	i.e. "John Smith"
+		//$author_href, 		// $author_href	i.e. "http://facebook.com/user1234"
+		//$date					// $date	i.e. "2014-01-01 00:00:00"
+	);
 }
+echo '</table>';
 
 ?>

@@ -37,4 +37,12 @@ function make_reflection($image_path, $thumbnail_path = NULL, $blackorwhite = 'b
 	echo '</div>';
 }
 
+
+/*
+ * Helper function to replace first occurance
+ */
+function str_replace_first($find, $replace, $subject) {
+	return implode($replace, explode($find, $subject, 2));
+}
+
 ?>
