@@ -87,7 +87,8 @@ p.jumbo {
 .soundcloud-row,
 .github-row,
 .facebook-row,
-.forums-row {
+.forums-row,
+.youtube-row {
 	text-align: left;
 	position: relative;
 	margin: 0;
@@ -119,6 +120,14 @@ p.jumbo {
 	height: auto;
 }
 
+.youtube-thumb {
+	float: left;
+	display: inline-block;
+	position: relative;
+	margin-top: -6px;
+	margin-left: 2px;
+	margin-right: 10px;
+}
 
 
 .forum-thumb {

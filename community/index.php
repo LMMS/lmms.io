@@ -27,11 +27,11 @@
 		<td><label id="google+-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="https://plus.google.com/u/0/113001340835122723950/posts">
 			<span class="fa-5x fa fa-google-plus"></span> <span class="visible-lg-inline"><br>Google+</span>
 		</label></td>
-		<!--
-		<td><label id="youtube-button" title="Visit page" class="btn btn-default disabled" onclick="show(this)" style="color: red;" target="new" data-href="#"><span class="fa fa-youtube"></span>
-			<span style="color:black;"> YouTube</span>
+
+		<td><label id="youtube-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="http://youtube.com/lmmsofficial"><span class="fa-5x fa fa-youtube"></span>
+			<span class="visible-lg-inline"><br>YouTube</span>
 		</label></td>
-		-->
+
 		<td><label id="github-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="new" data-href="http://github.com/LMMS/lmms">
 			<span class="fa-5x fa fa-github"></span> <span class="visible-lg-inline"><br>GitHub</span>
 		</label></td>
@@ -45,10 +45,9 @@
 
 		<td><label data-name="Google+" id="google+-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#google+')"><span class="fa fa-arrow-down"></span></label></td>
 
+		<td><label data-name="YouTube" id="youtube-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#youtube')"><span class="fa fa-arrow-down"></span></label></td>
+		
 		<td><label data-name="GitHub" id="github-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#github')"><span class="fa fa-arrow-down"></span></label></td>
-		<!--
-		<td><label data-name="YouTube" id="youtube-toggle" title="Preview content" class="btn btn-default dropdown-toggle disabled" onclick="show('#youtube')"><span class="fa fa-arrow-down"></span></label></td>
-		-->
 	</tr>
 </table>
 </div>
@@ -77,7 +76,10 @@
 	<div id="github-div" class="panel-body hidden">
 		<?php include('../feed/issues.php'); ?>
 	</div>
-
+	
+	<div id="youtube-div" class="panel-body hidden">
+		<?php include('../feed/youtube.php'); ?>
+	</div>
 
 </div>
 
@@ -94,8 +96,9 @@
 		createHoverEffect('#forums', 'btn-success');
 		createHoverEffect('#facebook', 'btn-primary');
 		createHoverEffect('#soundcloud', 'btn-warning');
-		createHoverEffect('#github', 'btn-dark');
 		createHoverEffect('#google+', 'btn-danger');
+		createHoverEffect('#youtube', 'btn-danger');
+		createHoverEffect('#github', 'btn-dark');
 
 		if (obj.indexOf('#') != 0) {
 			obj = '#' + obj;
@@ -117,6 +120,7 @@
 			case '#soundcloud':
 				reverseHoverEffect(obj, "btn-warning");
 				break;
+			case '#youtube':
 			case '#google+':
 				reverseHoverEffect(obj, "btn-danger");
 				break;
@@ -247,8 +251,9 @@
 		createHoverEffect('#forums', 'btn-success');
 		createHoverEffect('#facebook', 'btn-primary');
 		createHoverEffect('#soundcloud', 'btn-warning');
-		createHoverEffect('#github', 'btn-dark');
 		createHoverEffect('#google+', 'btn-danger');
+		createHoverEffect('#youtube', 'btn-danger');
+		createHoverEffect('#github', 'btn-dark');
 		if (location.hash) {
 			try {
 				show(location.hash);

@@ -69,6 +69,7 @@ $github_api_url = 'https://api.github.com/repos/'; // . $repo . $object . $param
 $google_api_url = 'https://www.googleapis.com/plus/v1/people/';
 $facebook_api_url = 'https://www.facebook.com/feeds/page.php'; // ?id=435131566543039&format=json
 $soundcloud_api_url = 'https://api.soundcloud.com/groups/'; // . $repo . '.json'
+$youtube_api_url = 'https://www.googleapis.com/youtube/v3/'; // ?part=snippet&maxResults=25&channelId=UCPnLp1llm71LkwsXP23cXzQ&key={YOUR_API_KEY}
 
 /*
  * The JSON unique ID.  This may be a project name or a userid, depending
@@ -80,6 +81,7 @@ $github_id = 'lmms';
 $google_id = '113001340835122723950';
 $facebook_id = '435131566543039';
 $soundcloud_id = '8574';
+$youtube_id = 'UCPnLp1llm71LkwsXP23cXzQ';
 
 /*
  * Local JSON cache file name prefix.  Eventually this file will be created and
@@ -89,6 +91,7 @@ $github_cache_file = '.json_github_'; 			// . $repo . $object;
 $google_cache_file = '.json_google_'; 			// . $user_id;
 $facebook_cache_file = '.json_facebook_'; 		// . $user_id;
 $soundcloud_cache_file = '.json_soundcloud_';	// . $object
+$youtube_cache_file = '.json_youtube_';	// . $object
 
 /*
  * Returns the JSON decoded object from the respective JSON service/API.
@@ -129,6 +132,9 @@ function get_json_data($service, $object = NULL, $params = '', $repo = NULL) {
 	// i.e. "https://api.github.com/repos/lmms/lmms/releases?param=value"
 	// i.e. "https://www.googleapis.com/plus/v1/people/113001340835122723950/activities/public?maxResults=25
 	switch ($service) {
+		case 'youtube' :
+			$full_api = $service_url . ($object ? $object : 'playlists' ) . '?channelId=' . ($repo ? $repo : $service_id) . $params;
+			break;
 		case 'soundcloud' :
 			$full_api = $service_url . ($repo ? $repo : $service_id) . '/' . ($object ? $object : 'tracks' ) . '.json' . $params;
 			break;
@@ -182,6 +188,7 @@ function has_children($obj, $service) {
 			return (count($obj) > 0 && $obj[0]->user_id);
 		case 'facebook' :
 			return (count($obj) > 0 && $obj->entries);
+		case 'youtube':
 		case 'google' :
 			return (count($obj) > 0 && $obj->items);
 		case 'github' :
@@ -257,6 +264,7 @@ function get_secrets($service, $url) {
 		case 'soundcloud' :
 			$key=get_base64_secret('SOUNDCLOUD_CLIENT_ID');
 			return $key ? $delim . 'client_id=' . $key : '';
+		case 'youtube':
 		case 'google' :
 			$key=get_base64_secret('GOOGLE_KEY');
 			return $key ? $delim . 'key=' . $key : '';
