@@ -32,7 +32,7 @@ function create_navbar() {
 							array('<span class="fa fa-facebook fa-fw"></span> Facebook', '/community/#facebook'),
 							array('<span class="fa fa-soundcloud fa-fw"></span> SoundCloud', '/community/#soundcloud'),
 							array('<span class="fa fa-google-plus fa-fw"></span> Google+', '/community/#google+'),
-							//array('<span class="fa fa-youtube fa-fw"></span> YouTube', '/community/#youtube'),
+							array('<span class="fa fa-youtube fa-fw"></span> YouTube', '/community/#youtube'),
 							array('<span class="fa fa-github fa-fw"></span> GitHub', '/community/#github')
 						));
 						menu_item('Share', '/lsp/');
