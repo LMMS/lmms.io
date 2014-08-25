@@ -81,7 +81,7 @@ $github_id = 'lmms';
 $google_id = '113001340835122723950';
 $facebook_id = '435131566543039';
 $soundcloud_id = '8574';
-$youtube_id = 'UCPnLp1llm71LkwsXP23cXzQ';
+$youtube_id = 'UCzGxut7RTCfln1ym1Q-sXkQ';
 
 /*
  * Local JSON cache file name prefix.  Eventually this file will be created and
