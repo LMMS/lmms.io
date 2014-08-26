@@ -306,16 +306,23 @@ function trim_feed($message, $hyperlink, $max_length = 500) {
 /*
  * Creates an html row, i.e: '<tr><td></td></tr>' wrapped around feed content
  */
-function create_row($service, $title, $href, $message, $author = NULL, $author_href = NULL, $date = NULL, $thumbnail = NULL) {
+function create_row($service, $title, $href, $message, $author = NULL, $author_href = NULL, $date = NULL, $thumbnail = NULL, $id = NULL) {
 	// Replace blank titles with some default presets
 	if (!isset($title) || trim($title) == '') {
 		$title = get_alternate_title($service);
 	}
 	
-	echo '<tr><td><div class="row ' . $service . '-row"><a target="_blank" href="' . $href . '"><h4><strong>';
+	$id = (isset($id) ? 'id="' . $id  . '" ' : '');
+	
+	echo '<tr><td><div ' . $id . 'class="row ' . $service . '-row"><a target="_blank" href="' . $href . '"><h4><strong>';
 	if (isset($thumbnail)) {
 		echo '<img class="img-thumbnail ' . $service . '-thumb" src="' . $thumbnail . '"/>';
 	}
+	
+	if ($service == 'youtube') {
+		echo '<div class="' . $service . '-thumb-overlay"><span class="fa-3x fa fa-play"></span></div>';
+	}
+	
 	echo get_icon($service) . ' ' . $title . '</strong></h4></a>';
 
 	echo $message;

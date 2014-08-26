@@ -19,25 +19,30 @@ foreach ($obj as $items) {
 
 	foreach($items as $item) {
 		$item = $item->snippet;
-		$url = parse_youtube_url($item->thumbnails->default->url);
+		$id = parse_youtube_id($item->thumbnails->default->url);
+		$url = $id ? 'http://www.youtube.com/watch?v=' . $id : '';
+		
 		create_row(
 			'youtube', 					// $service	i.e. "facebook"
 			$item->title, 		// $title 	i.e. "LMMS Released!"
-			$url, 						// $href	i.e. "http://facebook.com/post1234"
+			"javascript:embedVideo('#div-" . $id . "','" . $id . "')", 						// $href	i.e. "http://facebook.com/post1234"
 			trim_feed($item->description, $url),	// $message   i.e "We are pleased to announce..." 
 			$item->channelTitle, 		// $author	i.e. "John Smith"
 			'https://www.youtube.com/playlist?list=' . $playlist_id, 			// $author_href	i.e. "http://facebook.com/user1234"
 			$item->publishedAt,			// $date	i.e. "2014-01-01 00:00:00"
-			$item->thumbnails->default->url
+			$item->thumbnails->default->url,
+			'div-' . $id
 		);
 	}
 }
 echo '</table>';
 
-function parse_youtube_url($thumbnail) {
+// The feed doesn't give us a clean URL to the video
+// So we parse it from the thumbnail image URL
+function parse_youtube_id($thumbnail) {
 	$arr = explode('/', $thumbnail);
 	$i = count($arr) - 2;
-	return ($i > 0 ? 'http://www.youtube.com/watch?v=' . $arr[$i] : '');
+	return ($i > 0 ? $arr[$i] : '');
 }
 
 ?>

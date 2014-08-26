@@ -83,6 +83,21 @@ p.jumbo {
 	opacity: .60;
 }
 
+.youtube-thumb-overlay {
+    position: relative;
+	top: 1em;
+	left: -5em;
+	display: inline-block;
+	width: 0; height 0;
+    z-index: 10;
+	color: #fff;
+	opacity: .40;
+}
+
+.youtube-thumb-overlay:hover {
+	opacity: .60;
+}
+
 .google\2b-row,
 .soundcloud-row,
 .github-row,
@@ -121,6 +136,7 @@ p.jumbo {
 }
 
 .youtube-thumb {
+	background-color: #000;
 	float: left;
 	display: inline-block;
 	position: relative;

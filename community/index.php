@@ -245,6 +245,55 @@
 		$('#alert').removeClass('show');
 		$('#hr').removeClass('show');
 	}
+	
+	// Adds a YouTube iframe to the DOM
+	function embedVideo(parent, id, width, height) {
+		// Don't add the iframe twice
+		if ($(parent).has('iframe').length) {
+			return;
+		}
+		
+		// Default to 640x390 if not specified
+		switch (arguments.length) {
+			case 4: break;
+			default:
+				width = 320; height = 180;
+		}
+		
+		// A hack to pause all playing videos by reloading
+		// the the "src" attribute with autoplay param removed
+		$('tr').find('iframe').each(function(){
+			var tmp = $(this).attr('src');
+			$(this).attr('src', '');
+			$(this).attr('src', tmp.replace(/\?autoplay=1/g, ''));
+		});
+		
+		var iframe = $('<iframe></iframe>');
+		iframe.addClass('youtube-thumb');
+		iframe.addClass('img-thumbnail');
+		iframe.attr('id', 'iframe_' + id);
+		iframe.attr('frameborder', 0);
+		iframe.attr('allowfullscreen', true);
+		$(parent).find('h4').each(function(){
+			// Add the YoutTube iframe
+			$(this).append(iframe);
+			// Hide the thumbnail
+			$(this).find('img').each(function(){
+				iframe.width($(this).width());
+				iframe.height($(this).height());
+				$(this).hide();
+			});
+			// Hide the play button
+			$(this).find('div').each(function(){
+				$(this).hide();
+			});
+			
+			// Add the YoutTube iframe
+			$(this).append(iframe);
+			iframe.animate({'width':width, 'height':height});
+			iframe.attr('src', '//www.youtube.com/embed/' + id + '?autoplay=1');
+		});
+	}
 
 
 	$(function() {
