@@ -253,7 +253,7 @@
 			return;
 		}
 		
-		// Default to 640x390 if not specified
+		// Default to 320x180 if not specified
 		switch (arguments.length) {
 			case 4: break;
 			default:
