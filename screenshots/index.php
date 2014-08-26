@@ -40,6 +40,11 @@ function humanize_title($filename) {
 
 	$found = false;
 	foreach($title_split as &$item) {
+		// Skip 01, 02, etc
+		if (is_numeric($item)) {
+			$item = '';
+			continue;
+		}
 		// Substitute array reference with the text above
 		if (str_contains($item, '.png', false)) {
 			$item = str_replace('.png', '', $item);
