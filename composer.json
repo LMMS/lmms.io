@@ -2,5 +2,8 @@
 	"require": {
 		"mgargano/simplehtmldom": "1.5",
 		"kellan/magpierss": "dev-master"
+	},
+	"config": {
+		"vendor-dir": "./public/vendor"
 	}
 }
