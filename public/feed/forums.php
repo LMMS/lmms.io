@@ -8,7 +8,7 @@ if ( !defined('MAGPIE_OUTPUT_ENCODING') ) {
 	define('MAGPIE_OUTPUT_ENCODING', 'UTF-8');
 }
 
-$rss = fetch_rss('http://lmms.tuxfamily.org/forum/feed.php');
+$rss = fetch_rss('http://lmms.io/forum/feed.php');
 
 echo '<table class="table table-striped"><th><h2 class="center">LMMS Forums</h2></th>';
 foreach ($rss->items as $item) {
