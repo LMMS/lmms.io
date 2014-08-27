@@ -20,6 +20,10 @@ div.jumbo {
 	color: #fff;
 }
 
+div.p-pagination a:link {
+	color: #fff;
+}
+
 h1.jumbo {
 	margin-top: 14px;
 }
