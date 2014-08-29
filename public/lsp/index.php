@@ -63,7 +63,7 @@ elseif( get("content") == 'add' )
 elseif( get("content") == 'update' )
 {
 	connectdb();
-	if( get_user_id( $_SESSION["remote_user"] ) == get_object_by_id( "files", $_GET['file'], "user_id" ) )
+	if( get_user_id( session() ) == get_object_by_id( "files", $_GET['file'], "user_id" ) )
 	{
 		require ("./lsp_updatecontent.php");
 	}
@@ -71,14 +71,14 @@ elseif( get("content") == 'update' )
 elseif( get("content") == 'delete' )
 {
 	connectdb();
-	if( get_user_id( $_SESSION["remote_user"] ) == get_object_by_id( "files", $_GET['file'], "user_id" ) )
+	if( get_user_id( session() ) == get_object_by_id( "files", $_GET['file'], "user_id" ) )
 	{
 		require ("./lsp_delcontent.php");
 	}
 }
 elseif( get("action") == "show" )
 {
-	show_file( $_GET["file"], $_SESSION["remote_user"] );
+	show_file( get("file"), session() );
 }
 elseif( get("account") == 'settings' )
 {
@@ -166,6 +166,14 @@ function get($var) {
 	}
 	return '';
 }
+
+function session($var = 'REMOTE_USER') {
+	if (isset($_SESSION[$var])) {
+		return $_SESSION[$var];
+	}
+	return '';
+}
+
 ?>
 <?php
 include("../footer.php");
