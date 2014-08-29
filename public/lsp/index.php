@@ -9,6 +9,9 @@ session_start ();
 
 include ("inc/mysql.inc.php");
 include ("inc/xhtml.inc.php");
+include_once("../header.php");
+include_once("lsp_sidebar.php");
+
 
 // some hacks...
 if( isset( $_POST["file"] ) )
@@ -33,20 +36,9 @@ elseif( get("action") == 'getresource' )
 	return;
 }
 
-
-
-include_once("../header.php");
-include_once("sidebar.php");
-//openDocument( "LMMS Sharing Platform" );
-
 if( $_SERVER["QUERY_STRING"] == "" && count($_POST)==0 )
 {
-?>
-<h2>LMMS Sharing Platform</h2>
 
-<p>Welcome to the <emph>LMMS Sharing Platform</emph> (LSP) which is a central place for LMMS users to exchange their works made with and for LMMS. This for example includes whole projects (songs) made with it or some new presets and samples. Simply browse the categories and you will surely find stuff which is interesting for you.</p>
-
-<?php
 }
 if( isset( $_GET["rate"] ) && isset( $_SESSION["remote_user"] ) && $_GET["file"] != "" )
 {

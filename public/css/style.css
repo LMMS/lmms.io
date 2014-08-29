@@ -62,6 +62,24 @@ p.jumbo {
 
 div.lsp-table {
 	display: inline-block;
+	width: 75%;
+	margin: auto;
+}
+
+div.lsp-sidebar {
+	margin-right: .50em;
+	margin-top: 1.6em;
+}
+
+button.lsp-search {
+	position: relative;
+	top: .15em;
+	left: -.3em;
+}
+
+input.lsp-search {
+	margin: .3em;
+	width: 10em;
 }
 
 .fl-tab {
@@ -344,10 +362,6 @@ p.forum-stats  {
 
 .btn {
 	margin-bottom: 5px;
-}
-
-.panel-body {
-	overflow-y:scroll;
 }
 
 /* Some missing bootstrap styles */

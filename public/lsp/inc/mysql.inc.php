@@ -86,7 +86,7 @@ function get_latest()
 	 	"ORDER BY files.update_date DESC LIMIT ". $PAGE_SIZE;
  	$result = mysql_query ($req);
 
- 	echo "<h2>Latest entries</h2>".mysql_error()."\n";
+ 	echo "<h2>Latest Uploads</h2>".mysql_error()."\n";
 	echo "<div class=\"lsp-table\"><table class=\"table table-striped\">\n";
 	while ($object = mysql_fetch_object ($result))
 	{
@@ -394,6 +394,7 @@ function get_results( $cat, $subcat, $sort = '', $search = '' )
 	global $PAGE_SIZE;
 	global $LSP_URL;
 	$page = @$_GET["page"];
+	$where = '';
 	connectdb();
 
 	if(strlen( $cat ) > 0 )
@@ -546,7 +547,7 @@ function insert_category ($fext,$cat)
 function show_basic_file_info( $f, $browsing_mode = FALSE, $show_author = TRUE )
 {
 	global $LSP_URL;
-	echo "<tr class=\"file\"><td style=\"width:60%\"><div style=\"overflow: hidden\" >\n";
+	echo "<tr class=\"file\"><td><div style=\"overflow: hidden\" >\n";
 	if( $browsing_mode )
 	{
 		echo '<div><a href="'.htmlentities ($LSP_URL.'?action=show&file='.$f->id).'" style="font-weight:bold; font-size:1.15em" title="'.$f->filename.'">'.$f->filename.'</a></div>';
@@ -554,7 +555,7 @@ function show_basic_file_info( $f, $browsing_mode = FALSE, $show_author = TRUE )
 	}
 	if( $show_author )
 	{
-		echo 'by <a href="'.$LSP_URL.'?action=browse&amp;user='.$f->login.'">'.$f->realname." (".$f->login.")</a><br />\n";
+		echo '<small>by <a href="'.$LSP_URL.'?action=browse&amp;user='.$f->login.'">'.$f->realname." (".$f->login.")</a></small>";
 	}
 
 	if( $browsing_mode == FALSE )
@@ -563,11 +564,12 @@ function show_basic_file_info( $f, $browsing_mode = FALSE, $show_author = TRUE )
 		echo "<b>Size:</b> ".$hr_size."<br />\n";
 		echo "<b>License:</b> ".$f->license."<br />\n";
 	}
-	echo "</div></td><td style=\"width:20px;\"></td><td>\n";
+	echo "</div></td><td><small>";
 	if( $browsing_mode )
 	{
 		echo "<b>Date:</b> ".$f->update_date."<br />\n";
-		echo "<b>Popularity:</b> ".$f->downloads." downloads, ".get_comment_count($f->id)." comments<br />\n";
+		echo "<b>Popularity: </b><span class=\"badge\"><span class=\"fa fa-download\"></span>&nbsp;".$f->downloads."</span> ";
+		echo "<span class=\"badge\"><span class=\"fa fa-comments\"></span>&nbsp;".get_comment_count($f->id)."</span><br>";
 	}
 	else
 	{
@@ -586,7 +588,8 @@ function show_basic_file_info( $f, $browsing_mode = FALSE, $show_author = TRUE )
 		echo '<span class="fa fa-star-o lsp-star-o"></span>';
 	}
 	echo ' ('.round(20*$rating).'%, '.get_file_rating_count( $f->id ).' votes)';
-	echo'</td></tr>';
+	echo "<br><b>Downloads:</b> ".$f->downloads."<br />\n";
+	echo'</small></td></tr>';
 }
 
 
@@ -614,22 +617,25 @@ function show_file( $fid, $user )
 
 	$img = '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;';
 	echo '<h2>'.$f->category.$img.$f->subcategory.$img.$f->filename.'</h2>'."\n";
-	echo '<div id="filedetails">';
+	echo '<div class="lsp-table">';
 
 	echo "<table style=\"border:none;\">\n";
 	show_basic_file_info( $f, FALSE );
 	echo'</table>';
 
-	echo "<b>Downloads:</b> ".$f->downloads."<br />\n";
+	//echo "<b>Downloads:</b> ".$f->downloads."<br />\n";
+	
+	$url = htmlentities( 'lsp_dl.php?file='.$f->id.'&name='.$f->filename );
+	echo '<a href="'.$url.'" id="downloadbtn" class="lsp-dl-btn btn btn-primary"><span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
+	
 	if($f->description != '')
 	{
 		echo "<p/><b>Description:</b><br />\n";
 		echo str_replace("\n","<br />\n",$f->description)."<br />\n";
 	}
-	echo "<br /><table border=\"0\"><tr><td>\n";
-	$url = htmlentities( 'lsp_dl.php?file='.$fid.'&name='.$f->filename );
-	echo '<a href="'.$url.'" id="downloadbtn"><span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
-	echo '</td><td style="width:50px"></td><td>';
+	
+	echo "<div class=\"lsp-table\"><table class=\"table table-striped\" border=\"0\">";
+	echo '<tr><td>';
     
 	if( isset( $_SESSION["remote_user"] ) )
 	{
@@ -637,17 +643,18 @@ function show_file( $fid, $user )
 	}
 	else
 	{
-		echo "<b>You need to login in order to write comments, rate or edit this content (if you're the author of it).</b>\n";
+		echo "<div class=\"alert alert-warning\"><b>You need to login in order to write comments, rate or edit this content (if you're the author of it).</b></div>\n";
 	}
 	if ($f->login == $user || myis_admin( get_user_id( $user ) ) )
 	{
 		echo '<a href="'.htmlentities ($LSP_URL.'?content=update&file='.$fid).'"><span class="fa fa-edit lsp-edit"></span>&nbsp;Edit</a><br />';
 		echo '<a href="'.htmlentities ($LSP_URL.'?content=delete&file='.$fid).'"><span class="fa fa-remove lsp-remove"></span>&nbsp;Delete</a> ';
 	}
+	
 	if (isset ($_SESSION["remote_user"]))
 	{
 		$urating = get_user_rating( $fid, $_SESSION["remote_user"] );
-		echo'</td><td style="width:30px;"></td><td><b>Rating:</b></td><td style="padding-left:8px;line-height:14px;">';
+		echo'</td><td><b>Rating:</b></td><td style="padding-left:8px;line-height:14px;">';
 		for( $i = 1; $i < 6; ++$i )
 		{
 			echo '<a href="'.htmlentities($LSP_URL.'?'.file_show_query_string().'&rate='.$i ).'" class="ratelink" ';
@@ -663,7 +670,7 @@ function show_file( $fid, $user )
 			echo '</a><br />';
 		}
 	}
-	echo'</td></tr></table>';
+	echo'</td></tr></table></div>';
 	echo "<br />\n";
 
 	get_comments( $fid );

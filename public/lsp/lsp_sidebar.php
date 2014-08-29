@@ -1,20 +1,24 @@
-<div class="pull-left">
-	<h3>Content</h3>
-	<?php get_categories(); ?>
-	<br/>
+<div class="lsp-sidebar pull-left">
+	<div class="panel panel-primary">
+	<div class="panel-heading">
+	<!-- <h3 class="panel-title">Content</h3> -->
 	<form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
 		<?php
 			echo '<input type="hidden" name="category" value="'.@$_GET["category"].'" />'."\n";
 			echo '<input type="hidden" name="subcategory" value="'.@$_GET["subcategory"].'" />'."\n";
 		?>
 		<div class="form-inline">
-		<input type="text" name="search" class="form-control textin" maxlength="64" placeholder="Search"/>
-		<button type="submit" name="ok" class="btn btn-default textin"><span class="fa fa-search"></span></button>
+		<input type="text" id="search" name="search" class="lsp-search form-control textin" maxlength="64" placeholder="Search Content"/>
+		<button type="submit" id="ok" name="ok" class="lsp-search btn btn-default textin"><span class="fa fa-search"></span></button>
 		</div>
-	</form><br>
-	<div class="panel panel-default">
+	</form>
+	</div>
+	<?php get_categories(); ?>
+	</div>
+
+	<div class="panel panel-primary">
 		<div class="panel-heading"><h3 class="panel-title">My account</h3></div>
-		<div id="accountmenu" class="panel-body">
+		<div id="accountmenu" class="panel-body overflow-hidden">
 			<?php
 			if( @$_GET["action"] == 'logout' )
 			{
@@ -61,8 +65,8 @@
 				echo '<input type="hidden" name="category" value="'.@$_GET["category"].'" />'."\n";
 				echo '<input type="hidden" name="subcategory" value="'.@$_GET["subcategory"].'" />'."\n";
 				echo '<input type="hidden" name="oldaction" value="'.@$_GET["action"].'" />'."\n";
-				echo '</p></form><br /><span class="fa  fa-chevron-circle-right"></span>&nbsp;';
-				echo '<a href="?action=register">Not registered yet?</a>';
+				echo '</p></form><br />';
+				echo '<a href="?action=register"><span class="fa  fa-chevron-circle-right"></span>&nbsp;Not registered yet?</a>';
 			}
 
 			if( isset( $_SESSION["remote_user"] ) )
