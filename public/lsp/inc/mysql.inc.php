@@ -547,7 +547,7 @@ function show_basic_file_info( $f, $browsing_mode = FALSE, $show_author = TRUE )
 	if( $browsing_mode )
 	{
 		echo '<div><a href="'.htmlentities ($LSP_URL.'?action=show&file='.$f->id).'" style="font-weight:bold; font-size:1.15em" title="'.$f->filename.'">'.$f->filename.'</a></div>';
-		echo '<a href="'.htmlentities ($LSP_URL.'?action=browse&category='.$f->category).'">'.$f->category.'</a><img src="separator-small.png" alt="" style="vertical-align:bottom; padding-left:4px; padding-right:4px; padding-bottom:3px;" /><a href="'.htmlentities ($LSP_URL.'?action=browse&category='.$f->category.'&subcategory='.$f->subcategory).'">'.$f->subcategory.'</a><br />';
+		echo '<a href="'.htmlentities ($LSP_URL.'?action=browse&category='.$f->category).'">'.$f->category.'</a>&nbsp;<span class="fa fa-caret-right lsp-caret-right-small"></span>&nbsp;<a href="'.htmlentities ($LSP_URL.'?action=browse&category='.$f->category.'&subcategory='.$f->subcategory).'">'.$f->subcategory.'</a><br />';
 	}
 	if( $show_author )
 	{
@@ -576,11 +576,11 @@ function show_basic_file_info( $f, $browsing_mode = FALSE, $show_author = TRUE )
 	$rating = get_file_rating( $f->id );
 	for( $i = 1; $i <= $rating ; ++$i )
 	{
-		echo '<img src="star.png" alt="" class="star" />';
+		echo '<span class="fa fa-star lsp-star"></span>';
 	}
 	for( $i = $rating+1; floor( $i )<=5 ; ++$i )
 	{
-		echo '<img src="star-gray.png" alt="" class="star" />';
+		echo '<span class="fa fa-star-o lsp-star-o"></span>';
 	}
 	echo ' ('.round(20*$rating).'%, '.get_file_rating_count( $f->id ).' votes)';
 	echo'</td></tr><tr><td><br /></td></tr>';
@@ -609,7 +609,7 @@ function show_file( $fid, $user )
 	}
 	$f = mysql_fetch_object( $res );
 
-	$img = '<img src="separator.png" alt="" style="vertical-align:bottom; padding-left:5px; padding-right:5px; padding-bottom:2px;" />';
+	$img = '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;';
 	echo '<h2>'.$f->category.$img.$f->subcategory.$img.$f->filename.'</h2>'."\n";
 	echo '<div id="filedetails">';
 
@@ -625,12 +625,12 @@ function show_file( $fid, $user )
 	}
 	echo "<br /><table border=\"0\"><tr><td>\n";
 	$url = htmlentities( 'lsp_dl.php?file='.$fid.'&name='.$f->filename );
-	echo '<a href="'.$url.'" id="downloadbtn"><img src="download.png" alt="" style="border:0px; vertical-align:middle; padding-right:5px;" />Download</a>';
+	echo '<a href="'.$url.'" id="downloadbtn"><span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
 	echo '</td><td style="width:50px"></td><td>';
     
 	if( isset( $_SESSION["remote_user"] ) )
 	{
-		echo '<a href="'.htmlentities( $LSP_URL.'?comment=add&file='.$fid ).'"><img src="comment.png" alt="" style="border:0px; vertical-align:middle; padding-right:5px;" />Add comment</a><br />';
+		echo '<a href="'.htmlentities( $LSP_URL.'?comment=add&file='.$fid ).'"><span class="fa fa-comment lsp-comment"></span>&nbsp;Add comment</a><br />';
 	}
 	else
 	{
@@ -638,8 +638,8 @@ function show_file( $fid, $user )
 	}
 	if ($f->login == $user || myis_admin( get_user_id( $user ) ) )
 	{
-		echo '<a href="'.htmlentities ($LSP_URL.'?content=update&file='.$fid).'"><img src="edit.png" alt="" style="border:0px; vertical-align:middle; padding-right:5px;" />Edit</a><br />';
-		echo '<a href="'.htmlentities ($LSP_URL.'?content=delete&file='.$fid).'"><img src="delete.png" alt="" style="border:0px; vertical-align:middle; padding-right:5px;" />Delete</a> ';
+		echo '<a href="'.htmlentities ($LSP_URL.'?content=update&file='.$fid).'"><span class="fa fa-edit lsp-edit"></span>&nbsp;Edit</a><br />';
+		echo '<a href="'.htmlentities ($LSP_URL.'?content=delete&file='.$fid).'"><span class="fa fa-remove lsp-remove"></span>&nbsp;Delete</a> ';
 	}
 	if (isset ($_SESSION["remote_user"]))
 	{
@@ -655,7 +655,7 @@ function show_file( $fid, $user )
 			echo '>';
 			for( $j = 1; $j <= $i ; ++$j )
 			{
-				echo '<img src="star.png" alt="" class="star" />';
+				echo '<span class="fa fa-star lsp-star">';
 			}
 			echo '</a><br />';
 		}
