@@ -35,7 +35,8 @@ elseif( get("action") == 'getresource' )
 
 
 
-include("../header.php");
+include_once("../header.php");
+include_once("sidebar.php");
 //openDocument( "LMMS Sharing Platform" );
 
 if( $_SERVER["QUERY_STRING"] == "" && count($_POST)==0 )
@@ -132,7 +133,7 @@ else //if( !isset( $_GET["action"] ) || $_GET["action"] == "browse" )
 		echo '<h2>'.get("category");
 		if( get("subcategory") != "" )
 		{
-			echo '<img src="separator.png" alt="" style="vertical-align:bottom; padding-left:5px; padding-right:5px; padding-bottom:2px;" />'.$_GET["subcategory"];
+			echo '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;'.$_GET["subcategory"];
 		}
 		echo '</h2>Sort by';
 		$sortings = array( 'date' => 'date', 'downloads' => 'downloads/age', 'rating' => 'rating' );

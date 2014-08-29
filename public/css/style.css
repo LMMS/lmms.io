@@ -60,6 +60,10 @@ p.jumbo {
 	opacity: .65;
 }
 
+div.lsp-table {
+	display: inline-block;
+}
+
 .fl-tab {
 	position: relative;
 	left: .1em;

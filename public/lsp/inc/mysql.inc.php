@@ -87,12 +87,12 @@ function get_latest()
  	$result = mysql_query ($req);
 
  	echo "<h2>Latest entries</h2>".mysql_error()."\n";
-	echo "<table style=\"border:none;\">\n";
+	echo "<div class=\"lsp-table\"><table class=\"table table-striped\">\n";
 	while ($object = mysql_fetch_object ($result))
 	{
 		show_basic_file_info( $object, TRUE );
 	}
-	echo'</table>';
+	echo'</table></div>';
 	mysql_free_result ($result);
 }
 
@@ -226,11 +226,11 @@ function get_categories()
 		'GROUP BY categories.name '.
 		'ORDER BY categories.name ');
 echo mysql_error();
-
+	echo '<ul class="navbar lsp-categories">';
 	while( $object = mysql_fetch_object( $result ) )
 	{
-		echo "<a class='category' href='".htmlentities ($LSP_URL."?action=browse&category=".$object->name)."'>".
-			$object->name." <span class='count'>(".$object->cnt.")</span></a>";
+		echo "<li class='lsp-category'><a class='category' href='".htmlentities ($LSP_URL."?action=browse&category=".$object->name)."'>".
+			$object->name." <span class='count'>(".$object->cnt.")</span></a></li>";
 		if( isset( $_GET["category"] ) && $_GET["category"] == $object->name )
 		{
 			$cat = $_GET["category"];
@@ -244,21 +244,23 @@ echo mysql_error();
 				"ORDER BY subcategories.name ");
 			echo "<div class='selected'>";
 	echo mysql_error();
+			echo '<ul class="lsp-subcategory">';
 			while( $object2 = mysql_fetch_object( $res2 ) )
 			{
-				echo "<a class='subcategory";
-                                if( $object2->name == $_GET["subcategory"] )
+				echo "<li class='lsp-subcategory'><a class='subcategory";
+                                if( $object2->name == @$_GET["subcategory"] )
                                 {
                                         echo " selected";
                                 }
 				echo "' href=\"".htmlentities ($LSP_URL."?action=browse&category=$cat&subcategory=".$object2->name)."\"> ";
-				echo $object2->name." <span class='count'>(".$object2->cnt.")</span></a>";
+				echo $object2->name." <span class='count'>(".$object2->cnt.")</span></a></li>";
 			}
 			mysql_free_result( $res2 );
-			echo "</div>";
+			echo "</ul></div>";
 		}
 	}
 	mysql_free_result( $result );
+	echo '</ul>';
 }
 
 
@@ -390,7 +392,8 @@ function get_file_subcategory( $fid )
 function get_results( $cat, $subcat, $sort = '', $search = '' )
 {
 	global $PAGE_SIZE;
-	$page = $_GET["page"];
+	global $LSP_URL;
+	$page = @$_GET["page"];
 	connectdb();
 
 	if(strlen( $cat ) > 0 )
@@ -447,12 +450,12 @@ function get_results( $cat, $subcat, $sort = '', $search = '' )
 		$req .= sprintf("LIMIT %d,%d", $page*$PAGE_SIZE, $PAGE_SIZE);
 		$result = mysql_query ($req);
 
-		echo "<br /><table style=\"border:none; width:100%;\">\n";
+		echo "<br /><div class=\"lsp-table\"><table class=\"table table-striped\">\n";
 		while( $object = mysql_fetch_object ($result) )
 		{
 			show_basic_file_info( $object, TRUE );
 		}
-		echo'</table>';
+		echo'</table></div>';
 
 		$pages = $count / $PAGE_SIZE;
 		if ($pages>1) {
@@ -583,7 +586,7 @@ function show_basic_file_info( $f, $browsing_mode = FALSE, $show_author = TRUE )
 		echo '<span class="fa fa-star-o lsp-star-o"></span>';
 	}
 	echo ' ('.round(20*$rating).'%, '.get_file_rating_count( $f->id ).' votes)';
-	echo'</td></tr><tr><td><br /></td></tr>';
+	echo'</td></tr>';
 }
 
 
