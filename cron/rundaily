@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+run-parts $(dirname $0)/daily

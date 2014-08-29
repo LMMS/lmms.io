@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Runs all cron scripts
+run-parts $(dirname $0)/../cron/

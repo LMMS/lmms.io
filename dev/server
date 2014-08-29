@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Starts the builtin PHP server locally for testing.
+# The server then listens at http://localhost:8000/
+php -S localhost:8000 -t $(dirname $0)/../public
