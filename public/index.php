@@ -59,7 +59,7 @@ include_once('utils.php');
 
 <div class="row">
 	<div>
-		<a href="/community/forum/" class="btn btn-default"><span class="fa-5x fa fa-comments fa-fw"></span></a>&nbsp;
+		<a href="/forum/" class="btn btn-default"><span class="fa-5x fa fa-comments fa-fw"></span></a>&nbsp;
 		<a href="http://facebook.com/makefreemusic" target="_blank" class="btn btn-default"><span class="fa-5x fa fa-facebook fa-fw"></span></a>&nbsp;
 		<a href="https://plus.google.com/u/0/113001340835122723950/posts" target="_blank" class="btn btn-default"><span class="fa-5x fa fa-google-plus fa-fw"></span></a>&nbsp;
 		<a href="http://github.com/lmms/lmms" target="_blank" class="btn btn-default"><span class="fa-5x fa fa-github fa-fw"></span></a>
