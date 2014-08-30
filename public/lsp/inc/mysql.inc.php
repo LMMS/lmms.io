@@ -87,7 +87,7 @@ function get_latest()
 	 	"ORDER BY files.update_date DESC LIMIT ". $PAGE_SIZE;
  	$result = mysql_query ($req);
 
- 	echo "<h2>Latest Uploads</h2>".mysql_error()."\n";
+ 	echo "<h3>Latest Uploads</h3>".mysql_error()."\n";
 	echo '<div class="lsp-table"><table class="table table-striped">';
 	while ($object = mysql_fetch_object ($result))
 	{
@@ -505,7 +505,7 @@ function show_user_content( $user )
 
 		if( $result != FALSE && mysql_num_rows( $result ) > 0 )
 		{
-			echo '<h2>All content submitted by <i>'.get_user_realname( $user ).' '.$user.'</i></h2>';
+			echo '<h3>All content submitted by <i>'.get_user_realname( $user ).' '.$user.'</i></h3>';
 			echo '<div class="lsp-table"><table class="table table-striped">';
 			while( $object = mysql_fetch_object( $result ) )
 			{
@@ -520,12 +520,12 @@ function show_user_content( $user )
 			{
 				$user = "</i>You<i>";
 			}
-			echo '<h2><i>'.$user.'</i> did not submit any content yet!</h2>';
+			echo '<h3><i>'.$user.'</i> did not submit any content yet!</h3>';
 		}
 	}
 	else
 	{
-		echo '<h2 style="color:#f60">User "'.$user.'" not found!</h2>';
+		echo '<h3 class="txt-danger">User "'.$user.'" not found!</h3>';
 	}
 }
 
@@ -615,13 +615,13 @@ function show_file( $fid, $user )
 
 	if( mysql_num_rows( $res ) < 1 )
 	{
-		echo '<h2 style="color:#f60;">File not found</h2>';
+		echo '<h3 style="color:#f60;">File not found</h3>';
 		return;
 	}
 	$f = mysql_fetch_object( $res );
 
 	$img = '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;';
-	echo '<h2>'.$f->category.$img.$f->subcategory.$img.$f->filename.'</h2>'."\n";
+	echo '<h3>'.$f->category.$img.$f->subcategory.$img.$f->filename.'</h3>'."\n";
 	echo '<div class="lsp-table">';
 	echo '<table class="table table-striped">';
 	show_basic_file_info( $f, FALSE );
