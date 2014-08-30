@@ -1,4 +1,7 @@
-<?php global $LSP_URL; ?>
+<?php 
+require_once('lsp_utils.php');
+global $LSP_URL;
+?>
 <div class="lsp-sidebar pull-left">
 	<div class="panel panel-primary">
 	<div class="panel-heading">

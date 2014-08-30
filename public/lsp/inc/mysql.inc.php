@@ -7,6 +7,7 @@ $DB_DATABASE = "somedatabase";
 $PAGE_SIZE = 10;
 
 require_once('config.inc.php');
+require_once('lsp_utils.php');
 
 function connectdb()
 {
@@ -346,7 +347,7 @@ function get_comments( $fid )
  	while( $object = mysql_fetch_object( $result ) )
  	{
 		$name = '<i>'.$object->login.'</i>';
-		if( $_SESSION["remote_user"] == $object->login )
+		if( session("remote_user") == $object->login )
 		{
 			$name = "You";
 		}
@@ -622,20 +623,24 @@ function show_file( $fid, $user )
 	$img = '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;';
 	echo '<h2>'.$f->category.$img.$f->subcategory.$img.$f->filename.'</h2>'."\n";
 	echo '<div class="lsp-table">';
-
-	echo "<table style=\"border:none;\">\n";
+	echo '<table class="table table-striped">';
 	show_basic_file_info( $f, FALSE );
+	
+	// Bump the download button under details block
+	echo '<tr><td><small><pre class="lsp-filename">' . $f->filename . '</pre></small></td><td class="lsp-file-info">';
+	$url = htmlentities( 'lsp_dl.php?file='.$f->id.'&name='.$f->filename );
+	echo '<a href="'.$url.'" id="downloadbtn" class="lsp-dl-btn btn btn-primary"><span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
+	echo '</td></tr>';
+	
 	echo'</table>';
 
 	//echo "<b>Downloads:</b> ".$f->downloads."<br />\n";
 	
-	$url = htmlentities( 'lsp_dl.php?file='.$f->id.'&name='.$f->filename );
-	echo '<a href="'.$url.'" id="downloadbtn" class="lsp-dl-btn btn btn-primary"><span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
 	
 	if($f->description != '')
 	{
-		echo "<p/><b>Description:</b><br />\n";
-		echo str_replace("\n","<br />\n",$f->description)."<br />\n";
+		echo "<strong>Description:</strong><br>";
+		echo '<p>' . str_replace("\n","<br />\n", $f->description) . '</p>';
 	}
 	
 	echo '<div class="lsp-table"><table class="table table-striped">';
@@ -647,7 +652,7 @@ function show_file( $fid, $user )
 	}
 	else
 	{
-		echo "<div class=\"alert alert-warning\"><b>You need to login in order to write comments, rate or edit this content (if you're the author of it).</b></div>\n";
+		echo '<div class="center alert alert-warning"><b>Login to comment, rate or edit.</b></div>';
 	}
 	if ($f->login == $user || myis_admin( get_user_id( $user ) ) )
 	{

@@ -64,6 +64,12 @@ span.lsp-badge {
 	opacity: .70;
 }
 
+pre.lsp-filename {
+	float: right;
+	text-align: right;
+	margin: auto;
+}
+
 div.lsp-table {
 	display: inline-block;
 	width: 75%;
