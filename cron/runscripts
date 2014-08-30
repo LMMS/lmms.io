@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Runs all scripts in the given folder
+# Usage: ./runscripts [minutely|hourly|daily|...]
+run-parts $(dirname $0)/$1

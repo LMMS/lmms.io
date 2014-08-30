@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
 # Runs all cron scripts
-run-parts $(dirname $0)/../cron/
+CRONDIR=$(dirname $0)/../cron
+
+$CRONDIR/runscripts minutely
+$CRONDIR/runscripts 15minutely
+$CRONDIR/runscripts hourly
+$CRONDIR/runscripts daily
