@@ -87,7 +87,7 @@ function get_latest()
  	$result = mysql_query ($req);
 
  	echo "<h2>Latest Uploads</h2>".mysql_error()."\n";
-	echo "<div class=\"lsp-table\"><table class=\"table table-striped\">\n";
+	echo '<div class="lsp-table"><table class="table table-striped">';
 	while ($object = mysql_fetch_object ($result))
 	{
 		show_basic_file_info( $object, TRUE );
@@ -227,9 +227,10 @@ function get_categories()
 		'ORDER BY categories.name ');
 echo mysql_error();
 	echo '<ul class="navbar lsp-categories">';
+	$sort = isset($_GET['sort']) ? $_GET['sort'] : 'date';
 	while( $object = mysql_fetch_object( $result ) )
 	{
-		echo "<li class='lsp-category'><a class='category' href='".htmlentities ($LSP_URL."?action=browse&category=".$object->name)."'>".
+		echo "<li class='lsp-category'><a class='category' href='".htmlentities ($LSP_URL."?action=browse&category=".$object->name)."&sort=".$sort."'>".
 			$object->name." <span class='count'>(".$object->cnt.")</span></a></li>";
 		if( isset( $_GET["category"] ) && $_GET["category"] == $object->name )
 		{
@@ -252,7 +253,7 @@ echo mysql_error();
                                 {
                                         echo " selected";
                                 }
-				echo "' href=\"".htmlentities ($LSP_URL."?action=browse&category=$cat&subcategory=".$object2->name)."\"> ";
+				echo "' href=\"".htmlentities ($LSP_URL."?action=browse&category=$cat&subcategory=".$object2->name."&sort=".$sort)."\"> ";
 				echo $object2->name." <span class='count'>(".$object2->cnt.")</span></a></li>";
 			}
 			mysql_free_result( $res2 );
@@ -451,7 +452,7 @@ function get_results( $cat, $subcat, $sort = '', $search = '' )
 		$req .= sprintf("LIMIT %d,%d", $page*$PAGE_SIZE, $PAGE_SIZE);
 		$result = mysql_query ($req);
 
-		echo "<br /><div class=\"lsp-table\"><table class=\"table table-striped\">\n";
+		echo '<br /><div class="lsp-table"><table class="table table-striped">';
 		while( $object = mysql_fetch_object ($result) )
 		{
 			show_basic_file_info( $object, TRUE );
@@ -504,13 +505,12 @@ function show_user_content( $user )
 		if( $result != FALSE && mysql_num_rows( $result ) > 0 )
 		{
 			echo '<h2>All content submitted by <i>'.get_user_realname( $user ).' '.$user.'</i></h2>';
-			echo "<br /><table style=\"border:none;\">\n";
+			echo '<div class="lsp-table"><table class="table table-striped">';
 			while( $object = mysql_fetch_object( $result ) )
 			{
 				show_basic_file_info( $object, TRUE, FALSE );
 			}
-			echo'</table>';
-			echo "<br />\n";
+			echo'</table></div>';
 			mysql_free_result ($result);
 		}
 		else
@@ -547,15 +547,16 @@ function insert_category ($fext,$cat)
 function show_basic_file_info( $f, $browsing_mode = FALSE, $show_author = TRUE )
 {
 	global $LSP_URL;
+	$sort = isset($_GET['sort']) ? $_GET['sort'] : 'date';
 	echo "<tr class=\"file\"><td><div style=\"overflow: hidden\" >\n";
 	if( $browsing_mode )
 	{
 		echo '<div><a href="'.htmlentities ($LSP_URL.'?action=show&file='.$f->id).'" style="font-weight:bold; font-size:1.15em" title="'.$f->filename.'">'.$f->filename.'</a></div>';
-		echo '<a href="'.htmlentities ($LSP_URL.'?action=browse&category='.$f->category).'">'.$f->category.'</a>&nbsp;<span class="fa fa-caret-right lsp-caret-right-small"></span>&nbsp;<a href="'.htmlentities ($LSP_URL.'?action=browse&category='.$f->category.'&subcategory='.$f->subcategory).'">'.$f->subcategory.'</a><br />';
+		echo '<a href="'.htmlentities ($LSP_URL.'?action=browse&category='.$f->category).'">'.$f->category.'</a>&nbsp;<span class="fa fa-caret-right lsp-caret-right-small"></span>&nbsp;<a href="'.htmlentities ($LSP_URL.'?action=browse&category='.$f->category.'&subcategory='.$f->subcategory).'&sort='.$sort.'">'.$f->subcategory.'</a><br />';
 	}
 	if( $show_author )
 	{
-		echo '<small>by <a href="'.$LSP_URL.'?action=browse&amp;user='.$f->login.'">'.$f->realname." (".$f->login.")</a></small>";
+		echo '<small>by <a href="'.$LSP_URL.'?action=browse&amp;user='.$f->login.'">'.$f->realname." (".$f->login.")</a></small><br>";
 	}
 
 	if( $browsing_mode == FALSE )
@@ -564,18 +565,20 @@ function show_basic_file_info( $f, $browsing_mode = FALSE, $show_author = TRUE )
 		echo "<b>Size:</b> ".$hr_size."<br />\n";
 		echo "<b>License:</b> ".$f->license."<br />\n";
 	}
-	echo "</div></td><td><small>";
+	echo "</div></td><td class=\"lsp-file-info\"><small>";
 	if( $browsing_mode )
 	{
 		echo "<b>Date:</b> ".$f->update_date."<br />\n";
-		echo "<b>Popularity: </b><span class=\"badge\"><span class=\"fa fa-download\"></span>&nbsp;".$f->downloads."</span> ";
-		echo "<span class=\"badge\"><span class=\"fa fa-comments\"></span>&nbsp;".get_comment_count($f->id)."</span><br>";
 	}
 	else
 	{
 		echo '<div class="nobr"><b>Submitted:</b> '.$f->insert_date.'</div>';
 		echo "<b>Updated:</b> ".$f->update_date."<br />\n";
 	}
+	// TODO FIXME why is this zero when searching by user?
+	$downloads = isset($f->downloads) ? $f->downloads : 0;
+	echo "<b>Popularity: </b><span class=\"lsp-badge badge\"><span class=\"fa fa-download\"></span>&nbsp;".$downloads."</span> ";
+	echo "<span class=\"lsp-badge badge\"><span class=\"fa fa-comments\"></span>&nbsp;".get_comment_count($f->id)."</span><br>";
 	echo "<b>Rating:</b> ";
 
 	$rating = get_file_rating( $f->id );
@@ -587,8 +590,9 @@ function show_basic_file_info( $f, $browsing_mode = FALSE, $show_author = TRUE )
 	{
 		echo '<span class="fa fa-star-o lsp-star-o"></span>';
 	}
-	echo ' ('.round(20*$rating).'%, '.get_file_rating_count( $f->id ).' votes)';
-	echo "<br><b>Downloads:</b> ".$f->downloads."<br />\n";
+	//echo ' ('.round(20*$rating).'%,';
+	echo '&nbsp;<span class="lsp-badge badge"><span class="fa fa-check-square-o"></span>&nbsp;'.get_file_rating_count( $f->id ).'</span>';
+	//echo "<br><b>Downloads:</b> ".$f->downloads."<br />\n";
 	echo'</small></td></tr>';
 }
 
@@ -634,7 +638,7 @@ function show_file( $fid, $user )
 		echo str_replace("\n","<br />\n",$f->description)."<br />\n";
 	}
 	
-	echo "<div class=\"lsp-table\"><table class=\"table table-striped\" border=\"0\">";
+	echo '<div class="lsp-table"><table class="table table-striped">';
 	echo '<tr><td>';
     
 	if( isset( $_SESSION["remote_user"] ) )

@@ -7,165 +7,144 @@ ini_set('arg_separator.output','&amp;');
 
 session_start ();
 
-include ("inc/mysql.inc.php");
-include ("inc/xhtml.inc.php");
+include_once("inc/mysql.inc.php");
+include_once("inc/xhtml.inc.php");
 include_once("../header.php");
 include_once("lsp_sidebar.php");
 
-
-// some hacks...
-if( isset( $_POST["file"] ) )
-{
+// Allow HTTP posts logic to behave similar
+if (!POST_EMPTY('file')) {
 	$_GET["file"] = $_POST["file"];
 }
-if( get("file") != "" &&
-	( !isset( $_GET["category"] ) || !isset( $_GET["subcategory"] ) ) )
-{
-	$_GET["category"] = get_file_category( $_GET["file"] );
-	$_GET["subcategory"] = get_file_subcategory( $_GET["file"] );
+
+if (!GET_EMPTY('file') && (GET_EMPTY('category') || GET_EMPTY('subcategory'))) {
+	$_GET["category"] = get_file_category(GET('file'));
+	$_GET["subcategory"] = get_file_subcategory(GET('file'));
 }
 
-if( get("action") == 'getresourcesindex' )
-{
-	require ("lsp_resources_index.php");
-	return;
-}
-elseif( get("action") == 'getresource' )
-{
-	require ("lsp_resource.php");
-	return;
+if (!GET_EMPTY('rate') && !session_is_blank('remote_user') && !GET_EMPTY('file')) {
+	update_rating(GET('file'), GET('rate'), SESSION('remote_user'));
 }
 
-if( $_SERVER["QUERY_STRING"] == "" && count($_POST)==0 )
-{
-
-}
-if( isset( $_GET["rate"] ) && isset( $_SESSION["remote_user"] ) && $_GET["file"] != "" )
-{
-	update_rating( $_GET["file"], $_GET["rate"], $_SESSION["remote_user"] );
-}
-
-if( get("comment") == 'add' )
-{
+// Process content request
+if( GET("comment") == 'add' ) {
 	require ("./lsp_addcomment.php");
-}
-elseif( get("content") == 'add' )
-{
+} elseif (GET("content") == 'add' ) {
 	require ("./lsp_addcontent.php");
-}
-elseif( get("content") == 'update' )
-{
+} elseif (GET("content") == 'update') {
 	connectdb();
-	if( get_user_id( session() ) == get_object_by_id( "files", $_GET['file'], "user_id" ) )
-	{
+	if (get_user_id(SESSION()) == get_object_by_id("files", GET('file'), 'user_id')) {
 		require ("./lsp_updatecontent.php");
 	}
-}
-elseif( get("content") == 'delete' )
-{
+} elseif (GET("content") == 'delete') {
 	connectdb();
-	if( get_user_id( session() ) == get_object_by_id( "files", $_GET['file'], "user_id" ) )
-	{
+	if(get_user_id(SESSION()) == get_object_by_id("files", $_GET['file'], "user_id")) {
 		require ("./lsp_delcontent.php");
 	}
-}
-elseif( get("action") == "show" )
-{
-	show_file( get("file"), session() );
-}
-elseif( get("account") == 'settings' )
-{
+} elseif (GET("action") == "show") {
+	show_file( GET("file"), SESSION() );
+} elseif (GET("account") == 'settings') {
 	include("./lsp_accountsettings.php");
-}
-elseif( get("action") == 'register' )
-{
+} elseif( GET("action") == 'register' ) {
 	require ("./lsp_adduser.php");
-}
-elseif( isset($_POST['search']) || isset($_GET['q']))
-{
-	$q = get('q');
-	if( !isset( $q ) )
-	{
-		$q = $_POST['search'];
-	}
+} elseif( !POST_EMPTY('search')  || !GET_EMPTY('q')) {
+	$q = GET_EMPTY('q') ? POST('search') : GET('q');
+	
 	echo "<h2>Search results for '".$q."':</h2>";
 	echo 'Sort by';
 	$sortings = array( 'date' => 'date', 'downloads' => 'downloads', 'rating' => 'rating' );
-	if( !isset( $_GET['sort'] ) )
-	{
+	if (GET_EMPTY('sort')) {
 		$_GET['sort'] = 'date';
 	}
-	foreach( $sortings as $s => $v )
-	{
+	
+	foreach ($sortings as $s => $v) {
 		echo '&nbsp;&nbsp;';
-		if( get('sort') == $s )
-		{
+		if( GET('sort') == $s ) {
 			echo '<b>'.$s.'</b>';
-		}
-		else
-		{
-			echo '<a href="'.$LSP_URL.'index.php?q='.$q.'&amp;'.rebuild_query_string( 'sort', $s ).'">'.$s.'</a>';
+		} else {
+			echo '<a href="'.$LSP_URL.'?q='.$q.'&amp;'.rebuild_query_string( 'sort', $s ).'">'.$s.'</a>';
 		}
 	}
 	echo '<hr />';
-	get_results( $_POST['category'], $_POST['subcategory'], $_GET['sort'], mysql_real_escape_string($q));
+	get_results( @$_POST['category'], @$_POST['subcategory'], @$_GET['sort'], mysql_real_escape_string($q));
 }
-else //if( !isset( $_GET["action"] ) || $_GET["action"] == "browse" )
-{
-	if( get("user") != "" )
-	{
-		show_user_content( $_GET["user"] );
-	}
-	elseif( get("category") == "" )
-	{
+else {
+	if(!GET_EMPTY('user')) {
+		show_user_content( $_GET['user'] );
+	} elseif( GET('category') == "" ) {
 		get_latest();
-	}
-	else
-	{
-		echo '<h2>'.get("category");
-		if( get("subcategory") != "" )
-		{
-			echo '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;'.$_GET["subcategory"];
+	} else {
+		echo '<h2>' . GET('category');
+		if (!GET_EMPTY('subcategory')) {
+			echo '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;' . GET('subcategory');
 		}
-		echo '</h2>Sort by';
-		$sortings = array( 'date' => 'date', 'downloads' => 'downloads/age', 'rating' => 'rating' );
-		if( !isset( $_GET['sort'] ) )
-		{
+		echo '</h2>';
+		$sortings = array(
+			'date' => '<span class="fa fa-calendar"></span>&nbsp;DATE',
+			'downloads' => '<span class="fa fa-download"></span>&nbsp;DOWNLOADS',
+			'rating' => '<span class="fa fa-star"></span>&nbsp;RATING' );
+		if (GET_EMPTY('sort')) {
 			$_GET['sort'] = 'date';
 		}
-		foreach( $sortings as $s => $v )
-		{
-			echo '&nbsp;&nbsp;';
-			if( get('sort') == $s )
-			{
-				echo '<b>'.$v.'</b>';
-			}
-			else
-			{
-				echo '<a href="'.$LSP_URL.'index.php?'.rebuild_query_string( 'sort', $s ).'">'.$v.'</a>';
-			}
+		
+		
+		// List all sort options
+		echo '<ul class="nav nav-pills lsp-sort">';
+		foreach ($sortings as $s => $v) {
+			echo '<li class="' . (GET('sort') == $s ? 'active' : '') . '">';
+			echo '<a href="' . $LSP_URL . '?' . rebuild_query_string('sort', $s) . '">' . $v . '</a></li>';
+		/*
+			echo '&nbsp;&nbsp;&nbsp;';
+			echo (GET('sort') == $s ? 
+				'<span class="lsp-badge btn btn-primary"><b>' . $v . '</b></span>' : 
+				'<a href="' . $LSP_URL . '?' . rebuild_query_string('sort', $s) . '">' . $v . '</a>');*/
 		}
-		echo '<hr />';
-		get_results( get('category'), get('subcategory'), get('sort') );
+		echo '</ul>';
+		
+		get_results(GET('category'), GET('subcategory'), GET('sort'));
 	}
 }
 
 /*
- * Checks to see if a GET variable is set, or returns blank
+ * Prevent PHP warnings by first checking to see if a variable is set, or returns null
  */
-function get($var) {
-	if (isset($_GET[$var])) {
+function GET($var) {
+	if (!GET_EMPTY($var)) {
 		return $_GET[$var];
 	}
-	return '';
+	return null;
 }
 
-function session($var = 'REMOTE_USER') {
-	if (isset($_SESSION[$var])) {
+function SESSION($var = 'REMOTE_USER') {
+	if (!SESSION_EMPTY($var)) {
 		return $_SESSION[$var];
 	}
-	return '';
+	return null;
 }
+
+function POST($var) {
+	if (!POST_EMPTY($var)) {
+		return $_POST[$var];
+	}
+	return null;
+}
+
+/*
+ * Check for non-blank values
+ */
+function GET_EMPTY($var) {
+	return isset($_GET[$var]) ? trim($_GET[$var]) == '' : true;
+}
+
+function POST_EMPTY($var) {
+	return isset($_POST[$var]) ? trim($_POST[$var]) == '' : true;
+}
+
+function SESSION_EMPTY($var) {
+	return isset($_SESSION[$var]) ? trim($_SESSION[$var]) == '' : true;
+}
+
+
 
 ?>
 <?php

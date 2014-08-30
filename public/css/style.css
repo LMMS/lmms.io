@@ -60,15 +60,27 @@ p.jumbo {
 	opacity: .65;
 }
 
+span.lsp-badge {
+	opacity: .70;
+}
+
 div.lsp-table {
 	display: inline-block;
 	width: 75%;
 	margin: auto;
 }
 
+ul.lsp-sort {
+	display: inline-block;
+}
+
 div.lsp-sidebar {
 	margin-right: .50em;
 	margin-top: 1.6em;
+}
+
+td.lsp-file-info {
+	padding-left: 2em;
 }
 
 button.lsp-search {

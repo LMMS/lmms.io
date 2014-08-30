@@ -1,8 +1,9 @@
+<?php global $LSP_URL; ?>
 <div class="lsp-sidebar pull-left">
 	<div class="panel panel-primary">
 	<div class="panel-heading">
-	<!-- <h3 class="panel-title">Content</h3> -->
-	<form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+	
+	<form action="<?php echo $LSP_URL; ?>" method="post">
 		<?php
 			echo '<input type="hidden" name="category" value="'.@$_GET["category"].'" />'."\n";
 			echo '<input type="hidden" name="subcategory" value="'.@$_GET["subcategory"].'" />'."\n";
