@@ -63,7 +63,7 @@ if( GET("comment") == 'add' ) {
 		if( GET('sort') == $s ) {
 			echo '<b>'.$s.'</b>';
 		} else {
-			echo '<a href="'.$LSP_URL.'?q='.$q.'&amp;'.rebuild_query_string( 'sort', $s ).'">'.$s.'</a>';
+			echo '<a href="'.$LSP_URL.'?q='.$q.'&amp;'.rebuild_url_query( 'sort', $s ).'">'.$s.'</a>';
 		}
 	}
 	echo '<hr />';
@@ -93,12 +93,12 @@ else {
 		echo '<ul class="nav nav-pills lsp-sort">';
 		foreach ($sortings as $s => $v) {
 			echo '<li class="' . (GET('sort') == $s ? 'active' : '') . '">';
-			echo '<a href="' . $LSP_URL . '?' . rebuild_query_string('sort', $s) . '">' . $v . '</a></li>';
+			echo '<a href="' . $LSP_URL . '?' . rebuild_url_query('sort', $s) . '">' . $v . '</a></li>';
 		/*
 			echo '&nbsp;&nbsp;&nbsp;';
 			echo (GET('sort') == $s ? 
 				'<span class="lsp-badge btn btn-primary"><b>' . $v . '</b></span>' : 
-				'<a href="' . $LSP_URL . '?' . rebuild_query_string('sort', $s) . '">' . $v . '</a>');*/
+				'<a href="' . $LSP_URL . '?' . rebuild_url_query('sort', $s) . '">' . $v . '</a>');*/
 		}
 		echo '</ul>';
 		

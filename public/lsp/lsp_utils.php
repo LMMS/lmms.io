@@ -35,8 +35,25 @@ function POST_EMPTY($var) {
 	return isset($_POST[$var]) ? trim($_POST[$var]) == '' : true;
 }
 
-function SESSION_EMPTY($var) {
+function SESSION_EMPTY($var = 'REMOTE_USER') {
 	return isset($_SESSION[$var]) ? trim($_SESSION[$var]) == '' : true;
+}
+
+/*
+ * Cleanse out a prefixed name from an html element, used for the star rating
+ * i.e:
+ *   [input]
+ *		'Rate <a href="#">click here to rate</a>'
+ *   [output]
+ *      'Rate'
+ */
+function remove_after_lt($text) {
+	$text = str_replace('&nbsp;', '', $text);
+	return trim(explode("<",$text)[0]);
+}
+
+function newline_to_br($text) {
+	return str_replace("\n", "<br>", $text);
 }
 
 ?>

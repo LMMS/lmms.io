@@ -6,7 +6,7 @@ $DB_USER = 'someuser';
 $DB_PASS = 'P@SSWORD';
 $DB_DATABASE = 'somedatabase';
 $DB_CHARSET = 'utf8';
-$PAGE_SIZE = 10;
+$PAGE_SIZE = 25;
 
 /*
  * When set to true will attempt to echo database statements and values to screen
@@ -95,11 +95,12 @@ function get_object_by_id($table, $id, $field, $id_field = 'id', $func = null) {
 	if (is_valid_table($table) && is_valid_function($func))  {
 		// If specified, wrap field with a white-listed function call
 		if (isset($func)) {
+			$func = strtoupper($func);
 			$field = "$func($field)";
 		}
 		$dbh = &get_db();
-		$stmt = $dbh->prepare("SELECT $field FROM $table where $id_field=:id");
-		debug("SELECT $field FROM $table where $id_field=:id");
+		$stmt = $dbh->prepare("SELECT $field FROM $table WHERE $id_field=:id");
+		debug("SELECT $field FROM $table WHERE $id_field='$id'");
 		$stmt->bindParam(':id', $id);
 		$object = null;
 		if ($stmt->execute()) {
@@ -115,7 +116,43 @@ function get_object_by_id($table, $id, $field, $id_field = 'id', $func = null) {
 	}
 }
 
-function connectDB() 
+/*
+ * Returns a single id of a database object after searching for said object by name
+ */
+function get_id_by_object($table, $field, $object) {
+	// Sanitize column and table values
+	$table = sanitize($table);
+	$field = sanitize($field);
+	$object = "%{$object}%";
+	
+	// Validate the table name from a white-list
+	if (is_valid_table($table))  {
+		$dbh = &get_db();
+		$stmt = $dbh->prepare("SELECT id FROM $table WHERE $field LIKE :object");
+		debug("SELECT id FROM $table WHERE $field LIKE '$object'");
+		$stmt->bindParam(':object', $object);
+		$id = null;
+		if ($stmt->execute()) {
+			while ($id = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				$id = $id['id'];
+				break;
+			}
+		}
+		$stmt = null;
+		$dbh = null;
+		debug("> id=\"$id\"");
+		return $id;
+	}
+}
+
+
+
+/********************************************************************
+                        OLD FUNCTIONS
+********************************************************************/
+ 
+
+function connectdb() 
 {
 	global $DB_HOST, $DB_USER, $DB_PASS, $DB_DATABASE;
 		// FIXME: TODO:  Change to use mysqli instead, these are deprecated
@@ -125,7 +162,7 @@ function connectDB()
 
 function get_object_by_id_old( $table, $id, $field, $id_field = "id" )
 {
-	connectDB();
+	connectdb();
 	
 	$q = sprintf( "SELECT %s AS obj FROM `%s` WHERE `%s`='%s'",
 				/*mysql_real_escape_string(*/ $field/* )*/,
@@ -140,32 +177,6 @@ function get_object_by_id_old( $table, $id, $field, $id_field = "id" )
 		return $object->obj;
 	}
 	return( FALSE );
-}
-
-function get_id_by_object($table, $field, $object) {
-	// Sanitize column and table values
-	$table = sanitize($table);
-	$field = sanitize($field);
-	$object = "%{$object}%";
-	
-	// Validate the table name from a white-list
-	if (is_valid_table($table))  {
-		$dbh = &get_db();
-		$stmt = $dbh->prepare("SELECT id FROM $table where $field like :object");
-		debug("SELECT id FROM $table where $field like :object");
-		$stmt->bindParam(':object', $object);
-		$object = null;
-		if ($stmt->execute()) {
-			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-				$object = $object[$field];
-				debug($object);
-				break;
-			}
-		}
-		$stmt = null;
-		$dbh = null;
-		return $object;
-	}
 }
 
 
@@ -187,7 +198,7 @@ function get_id_by_object_old( $table, $field, $obj )
 }
 
 
-function rebuild_query_string( $key, $value )
+function rebuild_url_query( $key, $value )
 {
 	$old = $_GET[$key];
 	$_GET[$key] = $value;
@@ -359,6 +370,10 @@ function get_categories()
 		'LEFT JOIN files ON files.category = categories.id '.
 		'GROUP BY categories.name '.
 		'ORDER BY categories.name ');
+	debug('SELECT categories.name AS name, COUNT(files.id) AS cnt FROM categories '.
+		'LEFT JOIN files ON files.category = categories.id '.
+		'GROUP BY categories.name '.
+		'ORDER BY categories.name ');
 echo mysql_error();
 	echo '<ul class="navbar lsp-categories">';
 	$sort = isset($_GET['sort']) ? $_GET['sort'] : 'date';
@@ -373,6 +388,11 @@ echo mysql_error();
 //			$res2 = mysql_query( "SELECT name FROM subcategories WHERE category='".$catid."'" );
 			$res2 = mysql_query( 
 				"SELECT subcategories.name AS name, COUNT(files.id) AS cnt FROM subcategories ".
+				"LEFT JOIN files ON files.subcategory = subcategories.id AND files.category='$catid' ".
+				"WHERE subcategories.category='$catid' ". 
+				"GROUP BY subcategories.name ".
+				"ORDER BY subcategories.name ");
+			debug("SELECT subcategories.name AS name, COUNT(files.id) AS cnt FROM subcategories ".
 				"LEFT JOIN files ON files.subcategory = subcategories.id AND files.category='$catid' ".
 				"WHERE subcategories.category='$catid' ". 
 				"GROUP BY subcategories.name ".
@@ -470,34 +490,23 @@ function get_comment_count( $fid )
 
 
 
-function get_comments( $fid )
-{
+function get_comments($fid, $f) {
 	global $LSP_URL;
-	connectdb ();
+	connectdb();
 	$q = sprintf( "SELECT users.realname,users.login,date,text FROM comments INNER JOIN users ON users.id=comments.user_id WHERE file_id='%s' ORDER BY date", $fid );
 	$result = mysql_query( $q );
 	$out = '';
- 	while( $object = mysql_fetch_object( $result ) )
- 	{
-		$name = '<i>'.$object->login.'</i>';
-		if( session("remote_user") == $object->login )
-		{
-			$name = "You";
-		}
-		else if( strlen( $object->realname ) > 0 )
-		{
-			$name = '<a href="'.$LSP_URL.'?action=browse&amp;user='.$object->login.'">'.$object->realname.' ('.$object->login.')</a>';
-		}
-  		$out .= '<hr /><p>'.$name.' wrote on '.$object->date.'</p><p>'.htmlspecialchars($object->text, ENT_COMPAT, 'UTF-8')."</p>\n";
+ 	while ($object = mysql_fetch_object($result)) {
+		$strong = $object->login == $f->login;
+		$name = '<a href="' . $LSP_URL . '?action=browse&amp;user=' . $object->login . '">' . $object->login . '</a>';
+  		$out .= '<tr><td colspan="2">';
+		// Bold the comment if it's from the author
+		$out .= ($strong ? '<strong>' : '');
+		$out .= '<blockquote>'.htmlspecialchars($object->text, ENT_COMPAT, 'UTF-8')."";
+		$out .= ($strong ? '</strong>' : '');
+		$out .= '<small class="lsp-small">Posted by: ' . $name . ' on ' . $object->date . '</small></blockquote></tr></td>';
  	}
-	if( strlen( $out ) )
-	{
-		echo "<b>Comments:</b>".$out."<br />\n";
-	}
-	else
-	{
-		echo "<b>No comments yet</b><br />\n";
-	}
+	echo (strlen($out) ? $out : '<tr><td colspan="2"><p class="text-muted">No comments yet</p></td></tr>');
 	mysql_free_result( $result );
 }
 
@@ -558,8 +567,7 @@ function get_results( $cat, $subcat, $sort = '', $search = '' )
 		"INNER JOIN users ON users.id=files.user_id ".
 		$where), 0, 0);
 
-	if( $count > 0 )
-	{
+	if( $count > 0 ) {
 		$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
 		$req .= "files.downloads*files.downloads/(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day,";
 		$req .= "files.downloads AS downloads,";
@@ -587,34 +595,23 @@ function get_results( $cat, $subcat, $sort = '', $search = '' )
 		$result = mysql_query ($req);
 
 		echo '<br /><div class="lsp-table"><table class="table table-striped">';
-		while( $object = mysql_fetch_object ($result) )
-		{
+		while($object = mysql_fetch_object ($result)) {
 			show_basic_file_info( $object, TRUE );
 		}
 		echo'</table></div>';
 
+		echo '<div class="lsp-pagination center"><ul class="pagination pagination-sm">';
 		$pages = $count / $PAGE_SIZE;
-		if ($pages>1) {
-			echo "<b>";
-			for($j=0; $j < $count / $PAGE_SIZE; ++$j )
-			{
-				if($j==$page)
-				{
-					echo $j+1;
-				}
-				else
-				{
-					echo "<a href=\"".$LSP_URL."?action=browse&amp;category=$cat&amp;subcategory=$subcat&amp;page=$j&amp;sort=$sort\">".($j+1)."</a>";
-				}
-				echo "&nbsp;&nbsp;\n";
+		if ($pages > 1) {
+			for($j=0; $j < $count / $PAGE_SIZE; ++$j ) {
+				$class = $j==$page ? 'active' : '';
+				echo '<li class="' . $class . '"><a href=' . $LSP_URL . "?action=browse&amp;category=$cat&amp;subcategory=$subcat&amp;page=$j&amp;sort=$sort>" . ($j+1) . '</a></li>';
 			}
-			echo "</b>";
 		}
-		echo "<br />\n";
+		echo '</ul></div>';
 		mysql_free_result( $result );
 	}
-	else
-	{
+	else {
 		echo '<br /><h3>No files were submitted in this category yet.</h3>';
 	}
 }
@@ -735,6 +732,7 @@ function show_basic_file_info( $f, $browsing_mode = FALSE, $show_author = TRUE )
 
 function show_file( $fid, $user )
 {
+	global $LSP_URL;
 	connectdb();
 	$req = "SELECT licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
 	$req .= "insert_date,update_date,description,downloads,files.id FROM files ";
@@ -765,38 +763,34 @@ function show_file( $fid, $user )
 	echo '<a href="'.$url.'" id="downloadbtn" class="lsp-dl-btn btn btn-primary"><span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
 	echo '</td></tr>';
 	
-	echo'</table>';
+	echo "<tr><td colspan=\"2\"><strong>Description:</strong><p>";
+	echo ($f->description != '' ? newline_to_br($f->description) : 'No description available.');
+	echo '</p></td></tr>';
+	
+	echo '<tr><td colspan="2">';
+	echo '<nav class="navbar navbar-default"><ul class="nav navbar-nav">';
+	$can_edit = ($f->login == $user || myis_admin(get_user_id($user)));
+	$can_rate = isset($_SESSION["remote_user"]);
+	
+	create_toolbar_item('Comment', "$LSP_URL?comment=add&file=$fid", 'fa-comment', $can_rate);
+	create_toolbar_item('Edit', "$LSP_URL?content=update&file=$fid", 'fa-pencil', $can_edit);
+	create_toolbar_item('Delete', "$LSP_URL?content=delete&file=$fid", 'fa-trash', $can_edit);
+	$star_url = $LSP_URL . '?' . file_show_query_string().'&rate=';
+	create_toolbar_item(get_stars($fid, $star_url, 'fa-star-o lsp-star', $can_rate), '', null, false);
+	
+	echo '</ul></nav>';
+	echo '<strong>Comments:</strong>';
+	echo '</td></tr>';
+	get_comments($fid, $f);
+	echo'</table></div>';
+	
+	mysql_free_result ($res);	
 
-	//echo "<b>Downloads:</b> ".$f->downloads."<br />\n";
 	
-	
-	if($f->description != '')
-	{
-		echo "<strong>Description:</strong><br>";
-		echo '<p>' . str_replace("\n","<br />\n", $f->description) . '</p>';
-	}
-	
-	echo '<div class="lsp-table"><table class="table table-striped">';
-	echo '<tr><td>';
-    
-	if( isset( $_SESSION["remote_user"] ) )
-	{
-		echo '<a href="'.htmlentities( $LSP_URL.'?comment=add&file='.$fid ).'"><span class="fa fa-comment lsp-comment"></span>&nbsp;Add comment</a><br />';
-	}
-	else
-	{
-		echo '<div class="center alert alert-warning"><b>Login to comment, rate or edit.</b></div>';
-	}
-	if ($f->login == $user || myis_admin( get_user_id( $user ) ) )
-	{
-		echo '<a href="'.htmlentities ($LSP_URL.'?content=update&file='.$fid).'"><span class="fa fa-edit lsp-edit"></span>&nbsp;Edit</a><br />';
-		echo '<a href="'.htmlentities ($LSP_URL.'?content=delete&file='.$fid).'"><span class="fa fa-remove lsp-remove"></span>&nbsp;Delete</a> ';
-	}
-	
-	if (isset ($_SESSION["remote_user"]))
-	{
+	/*
+	if (isset($_SESSION["remote_user"])) {
 		$urating = get_user_rating( $fid, $_SESSION["remote_user"] );
-		echo'</td><td><b>Rating:</b></td><td style="padding-left:8px;line-height:14px;">';
+		echo'<b>Rating:</b>';
 		for( $i = 1; $i < 6; ++$i )
 		{
 			echo '<a href="'.htmlentities($LSP_URL.'?'.file_show_query_string().'&rate='.$i ).'" class="ratelink" ';
@@ -812,21 +806,38 @@ function show_file( $fid, $user )
 			echo '</a><br />';
 		}
 	}
-	echo'</td></tr></table></div>';
+	echo'</ul></nav></td></tr></table></div>';
 	echo "<br />\n";
+	*/
 
-	get_comments( $fid );
 
-	echo '</div>'."\n";
+}
 
-	mysql_free_result ($res);	
+function create_toolbar_item($text, $href = '#', $font_awesome = '', $enabled = true) {
+	$href = $enabled ? htmlentities($href) : '#';
+	$tooltip = $enabled ? '' : 'Login to ' . strtolower(sanitize(remove_after_lt($text)));
+	$font_awesome = $font_awesome == '' ? '' : 'fa ' . $font_awesome;
+	echo '<li class="' . ($enabled ? '' : 'disabled') . '"><a class="pull-left" href="' . $href . '" title="' . $tooltip . '"><span class="' . $font_awesome . '"></span>&nbsp;' . $text . '</a></li>';
+}
 
+function get_stars($fid = -1, $href = '#', $font_awesome = '', $enabled = true) {
+	$ret_val = 'Rate:' . ($enabled ? '' : '&nbsp; &nbsp;');
+	$urating =  SESSION_EMPTY() ? get_user_rating($fid, SESSION()) : -1;
+	$font_awesome = ($font_awesome = '' ? '' : 'fa ' . $font_awesome);
+	$title = $enabled ? '' : 'Login to rate';
+	$href = $enabled ? htmlentities($href) : '#';
+	for( $i = 1; $i < 6; ++$i ) {
+		$ret_val .= ($enabled ? '<a href="' . ($href == '#' ? '#' : $href . $i) . '" class="clearfix pull-left lsp-ratelink" ' : '<span class="lsp-ratelink" ');
+		$ret_val .=  'title="' . $title . '">';	
+		$ret_val .= '<span class="' . ($urating == $i ? 'text-primary ' : '') . $font_awesome . '"></span>';
+		$ret_val .= ($enabled ? '</a>' : '</span>');
+	}
+	return $ret_val;
 }
 
 
 
-function get_user_rating( $fid, $user )
-{
+function get_user_rating( $fid, $user ) {
 	$uid = get_user_id($user);
 	if( $uid >= 0 )
 	{
