@@ -1,25 +1,132 @@
 <?php
 
-$DB_HOST = "localhost";
-$DB_USER = "someuser";
-$DB_PASS = "P@SSWORD";
-$DB_DATABASE = "somedatabase";
+$DB_TYPE = 'mysql';
+$DB_HOST = 'localhost';
+$DB_USER = 'someuser';
+$DB_PASS = 'P@SSWORD';
+$DB_DATABASE = 'somedatabase';
+$DB_CHARSET = 'utf8';
 $PAGE_SIZE = 10;
+
+/*
+ * When set to true will attempt to echo database statements and values to screen
+ */
+$DB_DEBUG = false;
+
+/*
+ * Tables allowed to perform actions against
+ */ 
+$WHITELISTED_TABLES = array('categories', 'comments', 'files', 'filetypes', 'licenses', 'ratings', 'subcategories', 'users');
+
+/*
+ * MySQL functions allowed to be called around non-specific columns
+ * All function names should be lower-case
+ */
+$WHITELISTED_FUNCS = array('count', 'avg');
 
 require_once('config.inc.php');
 require_once('lsp_utils.php');
 
-function connectdb()
-{
-	global $DB_HOST, $DB_USER, $DB_PASS, $DB_DATABASE;
-	// FIXME: TODO:  Change to use mysqli instead, these are deprecated
-	@mysql_connect( $DB_HOST, $DB_USER, $DB_PASS );
-	mysql_select_db( $DB_DATABASE );
+/*
+ * Returns a reference to the database object
+ */
+function &get_db() {
+	global $DB_HOST, $DB_USER, $DB_PASS, $DB_DATABASE, $DB_CHARSET, $DB_TYPE;
+	$dbh = new PDO($DB_TYPE . ':host=' . $DB_HOST . ';dbname=' . $DB_DATABASE . ';charset=' . $DB_CHARSET, $DB_USER, $DB_PASS);
+	return $dbh;
 }
 
-function get_object_by_id( $table, $id, $field, $id_field = "id" )
+function debug($object) {
+	global $DB_DEBUG;
+	if ($DB_DEBUG) {
+		echo '<pre>';
+		print_r($object);
+		echo '</pre>';
+	}
+}
+
+/*
+ * Checks a provided table name against a white-list of known good tables names
+ */
+function is_valid_table($table) {
+	global $WHITELISTED_TABLES;
+	if (array_search($table, $WHITELISTED_TABLES) === false) {
+		die('Database table "' . $table . '" is invalid in this context.');
+    }
+	return true;
+}
+
+/*
+ * Checks a provided table name against a white-list of known good tables names
+ * Blank (null) function names are perfectly valid.
+ */
+function is_valid_function($func) {
+	if (!isset($func)) {
+		return true;
+	}
+    global $WHITELISTED_FUNCS;
+	if (array_search(strtolower($func), $WHITELISTED_FUNCS) === false) {
+		die('Function "' . $func . '" is invalid in this context.');
+    }
+	return true;
+}
+
+/*
+ * For queries that cannot be prepared
+ */
+function quote($string) {
+	return PDO::quote($string);
+}
+
+/*
+ * Basic column/field-name sanitization by removing non alpha-numeric characters from the input string
+ */
+function sanitize($string) {
+	return preg_replace('/[^A-Za-z0-9_]+/', '', $string);
+}
+
+function get_object_by_id($table, $id, $field, $id_field = 'id', $func = null) {
+	// Sanitize column and table values
+	$table = sanitize($table);
+	$field = sanitize($field);
+	$id_field = sanitize($id_field);
+	
+	// Validate the table name from a white-list
+	if (is_valid_table($table) && is_valid_function($func))  {
+		// If specified, wrap field with a white-listed function call
+		if (isset($func)) {
+			$field = "$func($field)";
+		}
+		$dbh = &get_db();
+		$stmt = $dbh->prepare("SELECT $field FROM $table where $id_field=:id");
+		debug("SELECT $field FROM $table where $id_field=:id");
+		$stmt->bindParam(':id', $id);
+		$object = null;
+		if ($stmt->execute()) {
+			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				$object = $object[$field];
+				debug($object);
+				break;
+			}
+		}
+		$stmt = null;
+		$dbh = null;
+		return $object;
+	}
+}
+
+function connectDB() 
 {
-	connectdb();
+	global $DB_HOST, $DB_USER, $DB_PASS, $DB_DATABASE;
+		// FIXME: TODO:  Change to use mysqli instead, these are deprecated
+		@mysql_connect( $DB_HOST, $DB_USER, $DB_PASS );
+		mysql_select_db( $DB_DATABASE );
+}
+
+function get_object_by_id_old( $table, $id, $field, $id_field = "id" )
+{
+	connectDB();
+	
 	$q = sprintf( "SELECT %s AS obj FROM `%s` WHERE `%s`='%s'",
 				/*mysql_real_escape_string(*/ $field/* )*/,
 				mysql_real_escape_string( $table ),
@@ -35,8 +142,34 @@ function get_object_by_id( $table, $id, $field, $id_field = "id" )
 	return( FALSE );
 }
 
+function get_id_by_object($table, $field, $object) {
+	// Sanitize column and table values
+	$table = sanitize($table);
+	$field = sanitize($field);
+	$object = "%{$object}%";
+	
+	// Validate the table name from a white-list
+	if (is_valid_table($table))  {
+		$dbh = &get_db();
+		$stmt = $dbh->prepare("SELECT id FROM $table where $field like :object");
+		debug("SELECT id FROM $table where $field like :object");
+		$stmt->bindParam(':object', $object);
+		$object = null;
+		if ($stmt->execute()) {
+			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				$object = $object[$field];
+				debug($object);
+				break;
+			}
+		}
+		$stmt = null;
+		$dbh = null;
+		return $object;
+	}
+}
 
-function get_id_by_object( $table, $field, $obj )
+
+function get_id_by_object_old( $table, $field, $obj )
 {
 	connectdb();
 	$q = sprintf( "SELECT id FROM `%s` WHERE `%s` LIKE '%s'",
@@ -332,7 +465,7 @@ function get_licenses( $default = "" )
 
 function get_comment_count( $fid )
 {
-	return( get_object_by_id( "comments", $fid, "COUNT(*)", "file_id" ) );
+	return( get_object_by_id( "comments", $fid, "1", "file_id", "count" ) );
 }
 
 
@@ -749,13 +882,13 @@ function update_rating( $fid, $stars, $user )
 
 function get_file_rating_count( $fid )
 {
-	return( get_object_by_id( "ratings", $fid, "COUNT(*)", "file_id" ) );
+	return( get_object_by_id( "ratings", $fid, "1", "file_id", "count" ) );
 }
 
 
 function get_file_rating( $fid )
 {
-	return( get_object_by_id( "ratings", $fid, "AVG(stars)", "file_id" ) );
+	return( get_object_by_id( "ratings", $fid, "stars", "file_id", "avg" ) );
 }
 
 
