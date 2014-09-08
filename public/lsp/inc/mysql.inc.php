@@ -238,7 +238,7 @@ function get_latest() {
 			echo '<h3>Latest Uploads</h3>';
 			echo '<div class="lsp-table"><table class="table table-striped">';
 			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-				show_basic_file_info_old($object, TRUE);
+				show_basic_file_info($object, true);
 				debug($object);
 			}
 			echo '</table></div>';
@@ -278,7 +278,7 @@ function password_match($pass, $user) {
 	global $MAX_LOGIN_ATTEMPTS;
 	$dbh = &get_db();
 	$stmt = $dbh->prepare('SELECT login FROM users WHERE LOWER(password) = LOWER(SHA1(:pass)) AND LOWER(login) = LOWER(:user) AND loginFailureCount < :max_login_attempts');
-	debug("SELECT login FROM users WHERE LOWER(password) = lower(SHA1($pass)) AND LOWER(login) = LOWER($user) AND loginFailureCount < $MAX_LOGIN_ATTEMPTS");
+	debug("SELECT login FROM users WHERE LOWER(password) = LOWER(SHA1($pass)) AND LOWER(login) = LOWER($user) AND loginFailureCount < $MAX_LOGIN_ATTEMPTS");
 		$stmt->bindParam(':pass', $pass);
 		$stmt->bindParam(':user', $user);
 		$stmt->bindParam(':max_login_attempts', $MAX_LOGIN_ATTEMPTS);
@@ -350,7 +350,7 @@ function password_match_old ($pass,$user) {
  * Formats today's date
  */
 function mydate() {
- 	return date("Y-m-d",time());
+ 	return date("Y-m-d", time());
 }
 
 /*
@@ -361,7 +361,7 @@ function myis_admin($uid) {
 }
  
 
-function myadd_user($login, $realname, $pass, $is_admin) {
+function myadd_user_old($login, $realname, $pass, $is_admin) {
  	connectdb ();
 	$q = sprintf( "INSERT INTO users(login,realname,password,is_admin) VALUES ('%s','%s',SHA1('%s'),'%s')",
 				mysql_real_escape_string( $login ),
@@ -372,24 +372,55 @@ function myadd_user($login, $realname, $pass, $is_admin) {
  	
 }
 
-function mychange_user ($login,$realname,$pass)
-{
+function myadd_user($login, $realname, $pass, $is_admin) {
+	$dbh = &get_db();
+	$stmt = $dbh->prepare('INSERT INTO users(login, realname, password, is_admin) VALUES(:login, :realname, SHA1(:password), :is_admin)');
+	debug("INSERT INTO users(login, realname, password, is_admin) VALUES($login, $realname, SHA1($pass), $is_admin)");
+	$stmt->bindParam(':login', $login);
+	$stmt->bindParam(':realname', $realname);
+	$stmt->bindParam(':password', $pass);
+	$stmt->bindParam(':is_admin', $is_admin);
+	$stmt->execute();
+	$stmt = null;
+	$dbh = null;
+}
+
+
+function mychange_user_old($login,$realname,$pass) {
  	connectdb ();
-	if($pass!='')
-	{
+	if($pass!='') {
 		$q = sprintf( "UPDATE users SET `realname`='%s', `password`=SHA1('%s') WHERE `login` LIKE '%s'",
 					mysql_real_escape_string( $realname ),
 					mysql_real_escape_string( $pass ),
 					mysql_real_escape_string( $login ) );
-	}
-	else
-	{
+	} else {
 		$q = sprintf( "UPDATE users SET `realname`='%s' WHERE `login` LIKE '%s'",
 					mysql_real_escape_string( $realname ),
 					mysql_real_escape_string( $login ) );
 	}
  	mysql_query( $q );
- 	
+ }
+ 
+ /*
+  * Update the realname and/or password of the specified user
+  */
+ function mychange_user($login, $realname, $pass = '') {
+	$dbh = &get_db();
+	if ($pass != '') {
+		$stmt = $dbh->prepare('UPDATE users SET realname=:realname, password=SHA1(:password) WHERE LOWER(login)=LOWER(:login)');
+		debug("UPDATE users SET realname=$realname, password=SHA1($password) WHERE LOWER(login)=LOWER($login)");
+		$stmt->bindParam(':realname', $realname);
+		$stmt->bindParam(':password', $password);
+		$stmt->bindParam(':login', $login);
+	} else {
+		$stmt = $dbh->prepare('UPDATE users SET realname=:realname WHERE LOWER(login)=LOWER(:login)');
+		debug("UPDATE users SET realname=$realname WHERE LOWER(login)=LOWER($login)");
+		$stmt->bindParam(':realname', $realname);
+		$stmt->bindParam(':login', $login);
+	}
+	$stmt->execute();
+	$stmt = null;
+	$dbh = null;
  }
 
 
@@ -592,8 +623,7 @@ function get_comments($fid, $f) {
 
 
 
-function get_file_category( $fid )
-{
+function get_file_category($fid) {
  	connectdb();
  	$q = sprintf( "SELECT categories.name FROM files INNER JOIN categories ON categories.id=files.category WHERE files.id='%s'", mysql_real_escape_string( $fid ) );
  	$result = mysql_query( $q );
@@ -602,8 +632,7 @@ function get_file_category( $fid )
  	return $object->name;
 }
 
-function get_file_subcategory( $fid )
-{
+function get_file_subcategory($fid) {
  	connectdb();
  	$q = sprintf( "SELECT subcategories.name FROM files INNER JOIN subcategories ON subcategories.id=files.subcategory WHERE files.id='%s'", mysql_real_escape_string( $fid ) );
  	$result = mysql_query( $q );

@@ -1,49 +1,59 @@
+<br><div class="lsp-table">
 <?php
-function add_user( $login , $pass, $pass2, $realname, $is_admin )
-{
-	if( $pass != $pass2 )
-	{ 
-		echo "password mismatch !<br />\n";
-		return FALSE;
+
+/*
+ * Adds the specified user to the database
+ */
+function add_user($login , $pass, $pass2, $realname, $is_admin) {
+	$message = '';
+	$class = 'warning';
+	$return_val = false;
+	if ($pass != $pass2) { 
+		$message = "Password mismatch.";
+		$class = 'warning';
+	} else if($login == '' || get_user_id($login) > 0) {
+		$message = "The user <strong>$login</strong> already exists.";
+		$class = 'danger';
+	} else {
+		myadd_user($login, $realname, $pass, $is_admin);
+		$message = "<strong>$login</strong> has been successfully created";
+		$class = 'success';
+		$return_val = true;
 	}
-	else if( $login == '' || get_user_id( $login ) > 0 )
-	{
-		echo "<b>The user already exists!</b><br />\n";
-		return FALSE;
-	}
-	else
-	{
-		myadd_user( $login,$realname,$pass,$is_admin );
-		echo "<br /><span style=\"font-weight:bold; color:#0a0;\">Your account has been created</span>";
-		return TRUE;
-	}
+	echo '<div class="alert alert-' . $class . '" role="alert">';
+    echo "$message";
+    echo '</div>';	
+	return $return_val;
 }
 
+// FIXME TODO: This could be a security problem
+$isadmin = (POST_EMPTY("isadmin")) ? true : false;
 
-
-
-if( isset( $_POST["isadmin"] ) ) $isadmin = 1; else $isadmin = 0;
-
-if( ( $_POST["adduser"] != "Create" ) ||
-	( !add_user( $_POST["login"], $_POST["password"], $_POST["password2"], $_POST["realname"] ,$isadmin ) ) )
-{
-	echo "<h1>Create account</h1>\n";
-	$form = new form( $LSP_URL."?action=register" );
-
-	echo "<table style=\"border:none;\" cellspacing=\"5\">";
-	echo "<tr><td><b>Real name:</b></td><td><input type=\"text\" name=\"realname\" class=\"textin\" /></td></tr>\n";
-	echo "<tr><td><b>Login:</b></td><td><input type=\"text\" name=\"login\" /></td></tr>\n";
-	echo "<tr><td><b>Password:</b></td><td><input type=\"password\" name=\"password\" /></td></tr>\n";
-	echo "<tr><td><b>Confirm password:</b></td><td><input type=\"password\" name=\"password2\" /></td></tr>\n";
+/*
+ * Create the HTML form used for registration
+ */
+if ((POST("adduser") != "Create") || (!add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), $isadmin))) {
+	echo '<div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Create account</h3></div>';
+	echo '<div class="panel-body">';
+	$form = new form($LSP_URL . "?action=register");
+	echo '<div class="form-group">';
+	echo '<label for="realname">Real name</label>';
+	echo '<input type="text" name="realname" class="form-control textin" maxlength="50" placeholder="real name" />';
+	echo '<label for="login">Username</label>';
+	echo '<input type="text" name="login" class="form-control textin" maxlength="10" placeholder="username" />';
+	echo '<label for="password">Password</label>';
+	echo '<input type="password" name="password" class="form-control textin" maxlength="15" placeholder="password" />';
+	echo '<label for="password2">Confirm password</label>';
+	echo '<input type="password" name="password2" class="form-control textin" maxlength="15" placeholder="confirm password" />';
+	echo '</div>';
 	//print_r ($_SERVER);
-	if( myis_admin( get_user_id( $_SESSION["remote_user"] ) ) )
-	{
-		echo "<tr><td><b>Is administrator:</b></td><td><input type=\"checkbox\" name=\"isadmin\" /></td></tr>\n";
+	if (myis_admin(get_user_id(SESSION()))) {
+		echo '<div class="checkbox"><label><input type="checkbox" name="isadmin" />Is administrator</label></div>';
 	}
-	echo "</table><p /><input type=\"submit\" name=\"adduser\" value=\"Create\" /><p />\n";
+	echo '<input type="submit" class="btn btn-primary" name="adduser" value="Create" />';
 	$form->close();
+	echo '</div></div>';
 }
-
-
 ?>
+</div>
 
