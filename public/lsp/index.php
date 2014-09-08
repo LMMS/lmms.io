@@ -51,7 +51,7 @@ if( GET("comment") == 'add' ) {
 } elseif( !POST_EMPTY('search')  || !GET_EMPTY('q')) {
 	$q = GET_EMPTY('q') ? POST('search') : GET('q');
 	
-	echo "<h2>Search results for '".$q."':</h2>";
+	echo "<h3>Search results for '".$q."':</h3>";
 	echo 'Sort by';
 	$sortings = array( 'date' => 'date', 'downloads' => 'downloads', 'rating' => 'rating' );
 	if (GET_EMPTY('sort')) {
@@ -75,11 +75,11 @@ else {
 	} elseif( GET('category') == "" ) {
 		get_latest();
 	} else {
-		echo '<h2>' . GET('category');
+		echo '<h3>' . GET('category');
 		if (!GET_EMPTY('subcategory')) {
 			echo '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;' . GET('subcategory');
 		}
-		echo '</h2>';
+		echo '</h3>';
 		$sortings = array(
 			'date' => '<span class="fa fa-calendar"></span>&nbsp;DATE',
 			'downloads' => '<span class="fa fa-download"></span>&nbsp;DOWNLOADS',
@@ -108,6 +108,7 @@ else {
 
 
 ?>
+</div>
 <?php
 include("../footer.php");
 ?>

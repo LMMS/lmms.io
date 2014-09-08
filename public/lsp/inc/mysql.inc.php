@@ -236,7 +236,7 @@ function get_latest() {
 		$object = null;
 		if ($stmt->execute()) {
 			echo '<h3>Latest Uploads</h3>';
-			echo '<div class="lsp-table"><table class="table table-striped">';
+			echo '<div class="col-sm-9"><table class="table table-striped">';
 			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				show_basic_file_info($object, true);
 				debug($object);

@@ -2,17 +2,18 @@
 require_once('lsp_utils.php');
 global $LSP_URL;
 ?>
-<div class="lsp-sidebar pull-left">
-	<div class="panel panel-primary">
+<div class="row lsp-row">
+<div class="col-md-3">
+	<div class="panel panel-default">
 	<div class="panel-heading">
 	
-	<form action="<?php echo $LSP_URL; ?>" method="post">
+	<form action="<?php echo $LSP_URL; ?>" method="post" role="search">
 		<?php
 			echo '<input type="hidden" name="category" value="'.@$_GET["category"].'" />'."\n";
 			echo '<input type="hidden" name="subcategory" value="'.@$_GET["subcategory"].'" />'."\n";
 		?>
-		<div class="form-inline">
-		<input type="text" id="search" name="search" class="lsp-search form-control textin" maxlength="64" placeholder="Search Content"/>
+		<div class="lsp-search form-inline">
+		<input type="text" id="search" name="search" class="lsp-search form-control textin" maxlength="64" placeholder="Search Content" />
 		<button type="submit" id="ok" name="ok" class="lsp-search btn btn-default textin"><span class="fa fa-search"></span></button>
 		</div>
 	</form>
@@ -20,7 +21,7 @@ global $LSP_URL;
 	<?php get_categories(); ?>
 	</div>
 
-	<div class="panel panel-primary">
+	<div class="panel panel-default">
 		<div class="panel-heading"><h3 class="panel-title">My account</h3></div>
 		<div id="accountmenu" class="panel-body overflow-hidden">
 			<?php

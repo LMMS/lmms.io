@@ -56,6 +56,11 @@ p.jumbo {
 	text-align: center;
 }
 
+.lsp-row {
+	margin-top: 10px;
+	text-align: left;
+}
+
 .download-icon {
 	margin: 0;
 	padding: 0;
@@ -98,15 +103,20 @@ td.lsp-file-info {
 	padding-left: 2em;
 }
 
+div.lsp-search {
+	white-space: nowrap;
+}
+
 button.lsp-search {
-	position: relative;
+	margin: 0;
+	/*position: relative;
 	top: .15em;
-	left: -.3em;
+	left: -.3em;*/
 }
 
 input.lsp-search {
-	margin: .3em;
-	width: 10em;
+	margin: 0;
+	/*width: 10em;*/
 }
 
 .fl-tab {
