@@ -7,6 +7,7 @@ $DB_PASS = 'P@SSWORD';
 $DB_DATABASE = 'somedatabase';
 $DB_CHARSET = 'utf8';
 $PAGE_SIZE = 25;
+$MAX_LOGIN_ATTEMPTS = 6;
 
 /*
  * When set to true will attempt to echo database statements and values to screen
@@ -197,28 +198,57 @@ function get_id_by_object_old( $table, $field, $obj )
 	return( -1 );
 }
 
-
-function rebuild_url_query( $key, $value )
-{
-	$old = $_GET[$key];
+/*
+ * Rebuilds the current URL into a new URL to be used in a link
+ * replacing the specified key with a new key.
+ */
+function rebuild_url_query($key, $value) {
+	if (GET_EMPTY($key)) {
+		return '';
+	}
+	$old = GET($key);
 	$_GET[$key] = $value;
-	$qs = array();
-	foreach($_GET as $k => $v)
-	{
-		array_push( $qs, $k."=".$v );
+	$new_query = array();
+	foreach($_GET as $k => $v) {
+		array_push($new_query, $k . "=" . $v);
 	}
 	$_GET[$key] = $old;
-	return( implode( "&amp;", $qs ) );
+	return implode("&amp;", $new_query);
 }
 
-function file_show_query_string()
-{
-	return( 'action=show&file='.$_GET["file"] );
+function file_show_query_string() {
+	return 'action=show&file=' . GET("file");
 }
 
 
-function get_latest()
-{
+function get_latest() {
+	global $PAGE_SIZE;
+	$dbh = &get_db();
+	$stmt = $dbh->prepare('
+		SELECT files.id, licenses.name AS license,size,realname,filename,users.login,
+		categories.name AS category,subcategories.name AS subcategory,
+		insert_date,update_date,description,files.downloads AS downloads FROM files 
+		INNER JOIN categories ON categories.id=files.category 
+		INNER JOIN subcategories ON subcategories.id=files.subcategory 
+		INNER JOIN users ON users.id=files.user_id 
+		INNER JOIN licenses ON licenses.id=files.license_id 
+	 	ORDER BY files.update_date DESC LIMIT ' . sanitize($PAGE_SIZE));
+		$object = null;
+		if ($stmt->execute()) {
+			echo '<h3>Latest Uploads</h3>';
+			echo '<div class="lsp-table"><table class="table table-striped">';
+			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				show_basic_file_info_old($object, TRUE);
+				debug($object);
+			}
+			echo '</table></div>';
+		}
+		$stmt = null;
+		$dbh = null;
+		return $object;
+}
+
+function get_latest_old() {
 	global $PAGE_SIZE;
  	connectdb();
 	$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,".
@@ -233,18 +263,65 @@ function get_latest()
 
  	echo "<h3>Latest Uploads</h3>".mysql_error()."\n";
 	echo '<div class="lsp-table"><table class="table table-striped">';
-	while ($object = mysql_fetch_object ($result))
-	{
-		show_basic_file_info( $object, TRUE );
+	while ($object = mysql_fetch_object ($result)) {
+		show_basic_file_info_old( $object, TRUE );
 	}
 	echo'</table></div>';
 	mysql_free_result ($result);
 }
 
+/*
+ * Attempts to match a password against a given account
+ * so as long as the login attempts are less than $MAX_LOGIN_ATTEMPTS
+ */
+function password_match($pass, $user) {
+	global $MAX_LOGIN_ATTEMPTS;
+	$dbh = &get_db();
+	$stmt = $dbh->prepare('SELECT login FROM users WHERE LOWER(password) = LOWER(SHA1(:pass)) AND LOWER(login) = LOWER(:user) AND loginFailureCount < :max_login_attempts');
+	debug("SELECT login FROM users WHERE LOWER(password) = lower(SHA1($pass)) AND LOWER(login) = LOWER($user) AND loginFailureCount < $MAX_LOGIN_ATTEMPTS");
+		$stmt->bindParam(':pass', $pass);
+		$stmt->bindParam(':user', $user);
+		$stmt->bindParam(':max_login_attempts', $MAX_LOGIN_ATTEMPTS);
+		$return_val = false;
+		if ($stmt->execute()) {
+			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				if ($object['login']) {
+					// Reset to "0" failed logins
+					set_failure_count($user);
+					$return_val = true;
+				} else {
+					// Increment failed logins
+					set_failure_count($user, true);
+				}
+				break;
+			}
+		}
+		$stmt = null;
+		$dbh = null;
+		return return_val;
+}
+
+/*
+ * Increments or resets the login-failure count for the specified user
+ */
+function set_failure_count($user, $incriment=false) {
+	$dbh = &get_db();
+	if ($incriment) {
+		$stmt = $dbh->prepare('UPDATE users SET loginFailureCount = loginFailureCount + 1 WHERE LOWER(login) = LOWER(:user)');
+		debug("UPDATE users SET loginFailureCount = loginFailureCount + 1 WHERE LOWER(login) = LOWER($user)");
+	} else {
+		$stmt = $dbh->prepare('UPDATE users SET loginFailureCount=0 WHERE LOWER(login) = LOWER(:user)');
+		debug("UPDATE users SET loginFailureCount=0 WHERE login = $user");
+	}
+	
+	$stmt->bindParam(':user', $user);
+	$stmt->execute();
+	$stmt = null;
+	$dbh = null;
+}
 
 
-function password_match ($pass,$user)
- {
+function password_match_old ($pass,$user) {
  	connectdb ();
 	$q = sprintf( "SELECT login FROM users WHERE password LIKE SHA1('%s') AND login LIKE '%s' AND loginFailureCount<6",
 				mysql_real_escape_string( $pass ),
@@ -269,19 +346,22 @@ function password_match ($pass,$user)
  }
 
 
-function mydate()
-{
- 	return date ("Y-m-d",time ());
+/*
+ * Formats today's date
+ */
+function mydate() {
+ 	return date("Y-m-d",time());
 }
 
-function myis_admin ($uid)
-{
-	return( get_object_by_id( "users", $uid, "is_admin" ) );
+/*
+ * Returns whether or not the specified user-id is an administrator
+ */
+function myis_admin($uid) {
+	return get_object_by_id("users", $uid, "is_admin");
 }
  
 
-function myadd_user ($login,$realname,$pass,$is_admin)
-{
+function myadd_user($login, $realname, $pass, $is_admin) {
  	connectdb ();
 	$q = sprintf( "INSERT INTO users(login,realname,password,is_admin) VALUES ('%s','%s',SHA1('%s'),'%s')",
 				mysql_real_escape_string( $login ),
@@ -596,7 +676,7 @@ function get_results( $cat, $subcat, $sort = '', $search = '' )
 
 		echo '<br /><div class="lsp-table"><table class="table table-striped">';
 		while($object = mysql_fetch_object ($result)) {
-			show_basic_file_info( $object, TRUE );
+			show_basic_file_info_old( $object, TRUE );
 		}
 		echo'</table></div>';
 
@@ -639,7 +719,7 @@ function show_user_content( $user )
 			echo '<div class="lsp-table"><table class="table table-striped">';
 			while( $object = mysql_fetch_object( $result ) )
 			{
-				show_basic_file_info( $object, TRUE, FALSE );
+				show_basic_file_info_old( $object, TRUE, FALSE );
 			}
 			echo'</table></div>';
 			mysql_free_result ($result);
@@ -675,58 +755,72 @@ function insert_category ($fext,$cat)
   }
 
 
-function show_basic_file_info( $f, $browsing_mode = FALSE, $show_author = TRUE )
-{
+function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) {
 	global $LSP_URL;
-	$sort = isset($_GET['sort']) ? $_GET['sort'] : 'date';
-	echo "<tr class=\"file\"><td><div style=\"overflow: hidden\" >\n";
-	if( $browsing_mode )
-	{
-		echo '<div><a href="'.htmlentities ($LSP_URL.'?action=show&file='.$f->id).'" style="font-weight:bold; font-size:1.15em" title="'.$f->filename.'">'.$f->filename.'</a></div>';
-		echo '<a href="'.htmlentities ($LSP_URL.'?action=browse&category='.$f->category).'">'.$f->category.'</a>&nbsp;<span class="fa fa-caret-right lsp-caret-right-small"></span>&nbsp;<a href="'.htmlentities ($LSP_URL.'?action=browse&category='.$f->category.'&subcategory='.$f->subcategory).'&sort='.$sort.'">'.$f->subcategory.'</a><br />';
+	$sort = GET_EMPTY('sort') ? 'date' : GET('sort');
+	echo '<tr class="file"><td><div class="overflow-hidden">';
+	
+	if ($browsing_mode) {
+		echo '<div><a href="' . htmlentities($LSP_URL . '?action=show&file=' . $rs['id']) . '" style="font-weight:bold; font-size:1.15em" title="' . $rs['filename'] . '">' . $rs['filename'] . '</a></div>';
+		echo '<a href="' . htmlentities($LSP_URL . '?action=browse&category=' . $rs['category']) . '">' . $rs['category'] . '</a>&nbsp;<span class="fa fa-caret-right lsp-caret-right-small"></span>&nbsp;<a href="' . htmlentities($LSP_URL . '?action=browse&category=' . $rs['category'] . '&subcategory=' . $rs['subcategory']) . '&sort=' . $sort . '">' . $rs['subcategory'] . '</a><br>';
 	}
-	if( $show_author )
-	{
-		echo '<small>by <a href="'.$LSP_URL.'?action=browse&amp;user='.$f->login.'">'.$f->realname." (".$f->login.")</a></small><br>";
+	
+	if ($show_author) {
+		echo '<small>by <a href="' . $LSP_URL . '?action=browse&amp;user=' . $rs['login'] . '">' . $rs['realname'] . " (" . $rs['login'] . ")</a></small><br>";
 	}
 
-	if( $browsing_mode == FALSE )
-	{
-		$hr_size = round( $f->size / 1024 )." KB";
-		echo "<b>Size:</b> ".$hr_size."<br />\n";
-		echo "<b>License:</b> ".$f->license."<br />\n";
+	if(!$browsing_mode) {
+		$hr_size = round($rs['size']/1024) . " KB";
+		echo "<b>Size:</b>&nbsp;$hr_size<br>";
+		echo "<b>License:</b>&nbsp;$rs[license]<br>";
 	}
 	echo "</div></td><td class=\"lsp-file-info\"><small>";
-	if( $browsing_mode )
-	{
-		echo "<b>Date:</b> ".$f->update_date."<br />\n";
-	}
-	else
-	{
-		echo '<div class="nobr"><b>Submitted:</b> '.$f->insert_date.'</div>';
-		echo "<b>Updated:</b> ".$f->update_date."<br />\n";
+	if($browsing_mode) {
+		echo "<b>Date:</b>&nbsp;$rs[update_date]<br>";
+	} else {
+		echo "<div><b>Submitted:</b>&nbsp;$rs[insert_date]</div>";
+		echo "<b>Updated:</b>&nbsp;$rs[update_date]<br>";
 	}
 	// TODO FIXME why is this zero when searching by user?
-	$downloads = isset($f->downloads) ? $f->downloads : 0;
-	echo "<b>Popularity: </b><span class=\"lsp-badge badge\"><span class=\"fa fa-download\"></span>&nbsp;".$downloads."</span> ";
-	echo "<span class=\"lsp-badge badge\"><span class=\"fa fa-comments\"></span>&nbsp;".get_comment_count($f->id)."</span><br>";
+	$downloads = isset($rs['downloads']) ? $rs['downloads'] : 0;
+	echo "<b>Popularity: </b><span class=\"lsp-badge badge\"><span class=\"fa fa-download\"></span>&nbsp;" . $downloads . "</span> ";
+	echo "<span class=\"lsp-badge badge\"><span class=\"fa fa-comments\"></span>&nbsp;" . get_comment_count($rs['id']) . "</span><br>";
 	echo "<b>Rating:</b> ";
 
-	$rating = get_file_rating( $f->id );
-	for( $i = 1; $i <= $rating ; ++$i )
-	{
+	$rating = get_file_rating($rs['id']);
+	for ($i = 1; $i <= $rating ; ++$i) {
 		echo '<span class="fa fa-star lsp-star"></span>';
 	}
-	for( $i = $rating+1; floor( $i )<=5 ; ++$i )
-	{
+	for ($i = $rating+1; floor( $i )<=5 ; ++$i) {
 		echo '<span class="fa fa-star-o lsp-star-o"></span>';
 	}
-	//echo ' ('.round(20*$rating).'%,';
-	echo '&nbsp;<span class="lsp-badge badge"><span class="fa fa-check-square-o"></span>&nbsp;'.get_file_rating_count( $f->id ).'</span>';
-	//echo "<br><b>Downloads:</b> ".$f->downloads."<br />\n";
-	echo'</small></td></tr>';
+	//echo ' ('.round(20*$rating).'%,'; // Percentage is quite redundant
+	echo '&nbsp;<span class="lsp-badge badge"><span class="fa fa-check-square-o"></span>&nbsp;'.get_file_rating_count($rs['id']).'</span>';
+	//echo "<br><b>Downloads:</b> ".$rs->downloads."<br />\n";
+	echo '</small></td></tr>';
 }
 
+/*
+ * Temporary function to wrap old mysql object into a new associative array
+ * This should go away when the mysql_connect calls have all been removed
+ */
+function show_basic_file_info_old($rs, $browsing_mode = false, $show_author = true) {
+	$wrapper = array();
+	$wrapper['id'] = $rs->id;
+	//$wrapper['name'] = $rs->name;
+	$wrapper['size'] = $rs->size;
+	$wrapper['login'] = $rs->login;
+	$wrapper['filename'] = $rs->filename;
+	$wrapper['realname'] = $rs->realname;
+	$wrapper['license'] = $rs->license;
+	$wrapper['insert_date'] = $rs->insert_date;
+	$wrapper['category'] = $rs->category;
+	$wrapper['subcategory'] = $rs->subcategory;
+	$wrapper['insert_date'] = $rs->insert_date;
+	$wrapper['update_date'] = $rs->update_date;
+	$wrapper['downloads'] = isset($rs->downloads) ? $rs->downloads : 0;
+	return show_basic_file_info($wrapper, $browsing_mode, $show_author);
+}
 
 
 
@@ -755,7 +849,7 @@ function show_file( $fid, $user )
 	echo '<h3>'.$f->category.$img.$f->subcategory.$img.$f->filename.'</h3>'."\n";
 	echo '<div class="lsp-table">';
 	echo '<table class="table table-striped">';
-	show_basic_file_info( $f, FALSE );
+	show_basic_file_info_old( $f, FALSE );
 	
 	// Bump the download button under details block
 	echo '<tr><td><small><pre class="lsp-filename">' . $f->filename . '</pre></small></td><td class="lsp-file-info">';
