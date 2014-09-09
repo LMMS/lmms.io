@@ -103,20 +103,15 @@ td.lsp-file-info {
 	padding-left: 2em;
 }
 
-div.lsp-search {
-	white-space: nowrap;
-}
-
-button.lsp-search {
-	margin: 0;
-	/*position: relative;
-	top: .15em;
-	left: -.3em;*/
-}
-
-input.lsp-search {
-	margin: 0;
-	/*width: 10em;*/
+div.lsp-search-button {
+	position: relative;
+	float: right;
+	margin-right: 2.7em;
+	margin-top: -2.4em;
+	right: 0;
+	width: 0;
+	height: 0;
+	overflow: none;
 }
 
 .fl-tab {

@@ -15,7 +15,15 @@ include_once("lsp_sidebar.php");
 
 // Allow HTTP posts logic to behave similar
 if (!POST_EMPTY('file')) {
-	$_GET["file"] = $_POST["file"];
+	$_GET["file"] = POST('file');
+}
+
+if (!POST_EMPTY('category')) {
+	$_GET['category'] = POST('category');
+}
+
+if (!POST_EMPTY('subcategory')) {
+	$_GET['subcategory'] = POST('subcategory');
 }
 
 if (!GET_EMPTY('file') && (GET_EMPTY('category') || GET_EMPTY('subcategory'))) {
@@ -50,14 +58,62 @@ if( GET("comment") == 'add' ) {
 	require ("./lsp_adduser.php");
 } elseif( !POST_EMPTY('search')  || !GET_EMPTY('q')) {
 	$q = GET_EMPTY('q') ? POST('search') : GET('q');
-	
-	echo "<h3>Search results for '".$q."':</h3>";
+	create_title(array(GET('category'), GET('subcategory'), "\"$q\""));
+	/*
+	$prefix = '';
+	if (!GET_EMPTY('category')) {
+		$prefix .= GET('category');
+		if (!GET_EMPTY('subcategory')) {
+			$prefix .= '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;' . GET('subcategory');
+		}
+		$prefix .= '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;';
+	}
+	echo "<h3>${prefix}\"".$q."\"</h3>";*/
+	list_sort_options('q=' . $q . '&');
+	get_results( GET('category'), GET('subcategory'), GET('sort'), mysql_real_escape_string($q));
+}
+else {
+	if(!GET_EMPTY('user')) {
+		show_user_content( $_GET['user'] );
+	} elseif( GET('category') == "" ) {
+		get_latest();
+	} else {
+		create_title(array(GET('category'), GET('subcategory')));
+		list_sort_options();
+		get_results(GET('category'), GET('subcategory'), GET('sort'));
+	}
+}
+
+function list_sort_options($query_prefix = '') {
+	global $LSP_URL;
+	$sortings = array(
+		'date' => '<span class="fa fa-calendar"></span>&nbsp;DATE',
+		'downloads' => '<span class="fa fa-download"></span>&nbsp;DOWNLOADS',
+		'rating' => '<span class="fa fa-star"></span>&nbsp;RATING' );
+	if (GET_EMPTY('sort')) {
+		$_GET['sort'] = 'date';
+	}
+
+
+	// List all sort options
+	echo '<ul class="nav nav-pills lsp-sort">';
+	foreach ($sortings as $s => $v) {
+		echo '<li class="' . (GET('sort') == $s ? 'active' : '') . '">';
+		echo '<a href="' . $LSP_URL . '?' . $query_prefix . rebuild_url_query('sort', $s) . '">' . $v . '</a></li>';
+	/*
+		echo '&nbsp;&nbsp;&nbsp;';
+		echo (GET('sort') == $s ? 
+			'<span class="lsp-badge btn btn-primary"><b>' . $v . '</b></span>' : 
+			'<a href="' . $LSP_URL . '?' . rebuild_url_query('sort', $s) . '">' . $v . '</a>');
+			
+				/*
 	echo 'Sort by';
 	$sortings = array( 'date' => 'date', 'downloads' => 'downloads', 'rating' => 'rating' );
 	if (GET_EMPTY('sort')) {
 		$_GET['sort'] = 'date';
 	}
 	
+	// old ?q= code
 	foreach ($sortings as $s => $v) {
 		echo '&nbsp;&nbsp;';
 		if( GET('sort') == $s ) {
@@ -67,45 +123,10 @@ if( GET("comment") == 'add' ) {
 		}
 	}
 	echo '<hr />';
-	get_results( @$_POST['category'], @$_POST['subcategory'], @$_GET['sort'], mysql_real_escape_string($q));
-}
-else {
-	if(!GET_EMPTY('user')) {
-		show_user_content( $_GET['user'] );
-	} elseif( GET('category') == "" ) {
-		get_latest();
-	} else {
-		echo '<h3>' . GET('category');
-		if (!GET_EMPTY('subcategory')) {
-			echo '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;' . GET('subcategory');
-		}
-		echo '</h3>';
-		$sortings = array(
-			'date' => '<span class="fa fa-calendar"></span>&nbsp;DATE',
-			'downloads' => '<span class="fa fa-download"></span>&nbsp;DOWNLOADS',
-			'rating' => '<span class="fa fa-star"></span>&nbsp;RATING' );
-		if (GET_EMPTY('sort')) {
-			$_GET['sort'] = 'date';
-		}
-		
-		
-		// List all sort options
-		echo '<ul class="nav nav-pills lsp-sort">';
-		foreach ($sortings as $s => $v) {
-			echo '<li class="' . (GET('sort') == $s ? 'active' : '') . '">';
-			echo '<a href="' . $LSP_URL . '?' . rebuild_url_query('sort', $s) . '">' . $v . '</a></li>';
-		/*
-			echo '&nbsp;&nbsp;&nbsp;';
-			echo (GET('sort') == $s ? 
-				'<span class="lsp-badge btn btn-primary"><b>' . $v . '</b></span>' : 
-				'<a href="' . $LSP_URL . '?' . rebuild_url_query('sort', $s) . '">' . $v . '</a>');*/
-		}
-		echo '</ul>';
-		
-		get_results(GET('category'), GET('subcategory'), GET('sort'));
+	*/
 	}
+	echo '</ul>';
 }
-
 
 ?>
 </div>

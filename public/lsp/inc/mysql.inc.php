@@ -235,7 +235,7 @@ function get_latest() {
 	 	ORDER BY files.update_date DESC LIMIT ' . sanitize($PAGE_SIZE));
 		$object = null;
 		if ($stmt->execute()) {
-			echo '<h3>Latest Uploads</h3>';
+			echo create_title('Latest Uploads');
 			echo '<div class="col-sm-9"><table class="table table-striped">';
 			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				show_basic_file_info($object, true);
@@ -721,7 +721,7 @@ function get_results( $cat, $subcat, $sort = '', $search = '' )
 		mysql_free_result( $result );
 	}
 	else {
-		echo '<br /><h3>No files were submitted in this category yet.</h3>';
+		echo '<h3 class="text-muted">No results.</h3>';
 	}
 }
 
@@ -744,7 +744,7 @@ function show_user_content( $user )
 
 		if( $result != FALSE && mysql_num_rows( $result ) > 0 )
 		{
-			echo '<h3>All content submitted by <i>'.get_user_realname( $user ).' '.$user.'</i></h3>';
+			create_title("($user)");
 			echo '<div class="lsp-table"><table class="table table-striped">';
 			while( $object = mysql_fetch_object( $result ) )
 			{
@@ -881,7 +881,7 @@ function show_file( $fid, $user )
 	show_basic_file_info_old( $f, FALSE );
 	
 	// Bump the download button under details block
-	echo '<tr><td><small><pre class="lsp-filename">' . $f->filename . '</pre></small></td><td class="lsp-file-info">';
+	echo '<tr><td><strong>Name:</strong>&nbsp;' . $f->filename . '</td><td class="lsp-file-info">';
 	$url = htmlentities( 'lsp_dl.php?file='.$f->id.'&name='.$f->filename );
 	echo '<a href="'.$url.'" id="downloadbtn" class="lsp-dl-btn btn btn-primary"><span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
 	echo '</td></tr>';
@@ -1109,6 +1109,55 @@ function add_visitor_comment( $file, $comment, $user)
 					mysql_real_escape_string( $comment ) );
 	 	mysql_query( $req );
 	}
+}
+
+/*
+ * Creates a bread-crumb style title for the table content
+ * i.e All Content > Projects > Tutorials
+ */
+function create_title($array) {
+	global $LSP_URL;
+	if (!is_array($array)) {
+		$array = array($array);
+	} else {
+		$one_element = one_element($array);
+		if ($one_element) {
+			$array = array($one_element);
+		}
+	}
+	
+	$title = "<a href=\"$LSP_URL\">All Content</a>";
+	foreach ($array as $element) {
+		if (isset($element) && trim($element) != '') {
+			$title .= '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;';
+			$title .= trim($element);
+		}
+	}
+	echo '<h3 class="lsp-title">' . $title . '</h3>';
+}
+
+/*
+ * Returns the single element of an array
+ * where only one element is not empty (null, or trimmed to blank)
+ * or false if this does not apply
+ */
+function one_element($array) {
+	if (is_array($array)) {
+		$count = 0;
+		foreach ($array as $element) {
+			if (isset($element) && trim($element) != '') {
+				$count++;
+			}
+		}
+		if ($count == 1) {
+			foreach ($array as $element) {
+				if (isset($element) && trim($element) != '') {
+					return $element;
+				}
+			}
+		}
+	}
+	return false;
 }
 
 ?>

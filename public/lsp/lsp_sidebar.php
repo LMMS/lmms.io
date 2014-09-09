@@ -12,18 +12,24 @@ global $LSP_URL;
 			echo '<input type="hidden" name="category" value="'.@$_GET["category"].'" />'."\n";
 			echo '<input type="hidden" name="subcategory" value="'.@$_GET["subcategory"].'" />'."\n";
 		?>
-		<div class="lsp-search form-inline">
+		<!-- <div class="lsp-search form-inline"> -->
 		<input type="text" id="search" name="search" class="lsp-search form-control textin" maxlength="64" placeholder="Search Content" />
-		<button type="submit" id="ok" name="ok" class="lsp-search btn btn-default textin"><span class="fa fa-search"></span></button>
+		<div class="lsp-search-button">
+			<button type="submit" id="ok" name="ok" class="lsp-search btn btn-default textin"><span class="fa fa-search"></span></button>
 		</div>
+		<!-- </div> -->
 	</form>
 	</div>
 	<?php get_categories(); ?>
 	</div>
 
-	<div class="panel panel-default">
-		<div class="panel-heading"><h3 class="panel-title">My account</h3></div>
-		<div id="accountmenu" class="panel-body overflow-hidden">
+	<div id="login-panel" class="panel panel-default">
+		<div class="panel-heading"><h3 class="panel-title">
+			<a data-toggle="collapse" data-parent="#login-panel" href="#login-collapse">
+			<span class="fa fa-user"></span>&nbsp;My Account</a>
+		</h3></div>
+		<div id="login-collapse" class="panel-collapse collapse in">
+		<div id="login" class="panel-body overflow-hidden">
 			<?php
 			if( @$_GET["action"] == 'logout' )
 			{
@@ -86,5 +92,18 @@ global $LSP_URL;
 			}
 			?>
 		</div>
+		</div>
 	</div>
 </div>
+<script>
+$(window).bind('resize load',function(){
+	if( $(this).width() < 962 ) {
+		$('.collapse').removeClass('in');
+		$('.collapse').addClass('out');
+	}
+	else {
+		$('.collapse').removeClass('out');
+		$('.collapse').addClass('in');
+	}   
+});
+</script>
