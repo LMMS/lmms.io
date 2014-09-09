@@ -17,13 +17,13 @@ $DB_DEBUG = false;
 /*
  * Tables allowed to perform actions against
  */ 
-$WHITELISTED_TABLES = array('categories', 'comments', 'files', 'filetypes', 'licenses', 'ratings', 'subcategories', 'users');
+define('DBO_TABLES', 'categories,comments,files,filetypes,licenses,ratings,subcategories,users');
 
 /*
  * MySQL functions allowed to be called around non-specific columns
  * All function names should be lower-case
  */
-$WHITELISTED_FUNCS = array('count', 'avg');
+define('DBO_FUNCS', 'count,avg');
 
 require_once('config.inc.php');
 require_once('lsp_utils.php');
@@ -50,8 +50,8 @@ function debug($object) {
  * Checks a provided table name against a white-list of known good tables names
  */
 function is_valid_table($table) {
-	global $WHITELISTED_TABLES;
-	if (array_search($table, $WHITELISTED_TABLES) === false) {
+	$valid_tables = explode(',', DBO_TABLES);
+	if (array_search($table, $valid_tables) === false) {
 		die('Database table "' . $table . '" is invalid in this context.');
     }
 	return true;
@@ -65,8 +65,8 @@ function is_valid_function($func) {
 	if (!isset($func)) {
 		return true;
 	}
-    global $WHITELISTED_FUNCS;
-	if (array_search(strtolower($func), $WHITELISTED_FUNCS) === false) {
+    $valid_func = explode(',', DBO_FUNCS);
+	if (array_search(strtolower($func), $valid_func) === false) {
 		die('Function "' . $func . '" is invalid in this context.');
     }
 	return true;
@@ -726,11 +726,9 @@ function get_results( $cat, $subcat, $sort = '', $search = '' )
 }
 
 
-function show_user_content( $user )
-{
+function show_user_content( $user ) {
 	$uid = get_user_id( $user );
-	if( $uid >= 0 )
-	{
+	if( $uid >= 0 ) {
 		connectdb ();
 		$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
 		$req .= "insert_date,update_date,description FROM files ";
@@ -742,9 +740,9 @@ function show_user_content( $user )
 		$req .= "ORDER BY files.insert_date DESC";
 		$result = mysql_query ($req);
 
-		if( $result != FALSE && mysql_num_rows( $result ) > 0 )
-		{
-			create_title("($user)");
+		create_title("($user)");
+		
+		if( $result != FALSE && mysql_num_rows( $result ) > 0 ) {	
 			echo '<div class="lsp-table"><table class="table table-striped">';
 			while( $object = mysql_fetch_object( $result ) )
 			{
@@ -753,17 +751,10 @@ function show_user_content( $user )
 			echo'</table></div>';
 			mysql_free_result ($result);
 		}
-		else
-		{
-			if( isset( $_SESSION["remote_user"] ) && $user == $_SESSION["remote_user"] )
-			{
-				$user = "</i>You<i>";
-			}
-			echo '<h3><i>'.$user.'</i> did not submit any content yet!</h3>';
+		else {
+			echo '<h3 class="text-muted">No results.</h3>';
 		}
-	}
-	else
-	{
+	} else {
 		echo '<h3 class="txt-danger">User "'.$user.'" not found!</h3>';
 	}
 }
@@ -1129,7 +1120,7 @@ function create_title($array) {
 	$title = "<a href=\"$LSP_URL\">All Content</a>";
 	foreach ($array as $element) {
 		if (isset($element) && trim($element) != '') {
-			$title .= '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;';
+			$title .= '&nbsp;&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;&nbsp;';
 			$title .= trim($element);
 		}
 	}
