@@ -10,7 +10,7 @@ function GET($var) {
 	return null;
 }
 
-function SESSION($var = 'REMOTE_USER') {
+function SESSION($var = 'remote_user') {
 	if (!SESSION_EMPTY($var)) {
 		return $_SESSION[$var];
 	}
@@ -25,17 +25,23 @@ function POST($var) {
 }
 
 /*
- * Check for non-blank values
+ * Check for non-blank $_GET[...] values
  */
 function GET_EMPTY($var) {
 	return isset($_GET[$var]) ? trim($_GET[$var]) == '' : true;
 }
 
+/*
+ * Check for non-blank $_PST[...] values
+ */
 function POST_EMPTY($var) {
 	return isset($_POST[$var]) ? trim($_POST[$var]) == '' : true;
 }
 
-function SESSION_EMPTY($var = 'REMOTE_USER') {
+/*
+ * Check for non-blank $_SESSION[...] values
+ */
+function SESSION_EMPTY($var = 'remote_user') {
 	return isset($_SESSION[$var]) ? trim($_SESSION[$var]) == '' : true;
 }
 
@@ -54,6 +60,47 @@ function remove_after_lt($text) {
 
 function newline_to_br($text) {
 	return str_replace("\n", "<br>", $text);
+}
+
+/*
+ * Set's the $_GET[...] variable to the $_POST[...] variable of the same name
+ * allowing code to rely on $_GET values exclusively for certain variables
+ * falling back to the default variable $default if the $_POST[...] is empty
+ */
+function set_get_post($param, $default = null) {
+	if (!POST_EMPTY($param)) {
+		$_GET[$param] = POST($param);
+	} else {
+		if (isset($default)) {
+			$_GET[$param] = $default;
+		}
+	}
+}
+
+
+/*
+ * Creates a sort-by tool-bar at the top of the file listing
+ * i.e. DATE, DOWNLOADS, RATING
+ */
+function list_sort_options($query_prefix = '') {
+	global $LSP_URL;
+	$sortings = array(
+		'date' => '<span class="fa fa-calendar"></span>&nbsp;DATE',
+		'downloads' => '<span class="fa fa-download"></span>&nbsp;DOWNLOADS',
+		'rating' => '<span class="fa fa-star"></span>&nbsp;RATING' );
+	
+	// Get the active sort, or use 'date' if none is defined
+	if (GET_EMPTY('sort')) {
+		$_GET['sort'] = 'date';
+	}
+
+	// List all sort options
+	echo '<ul class="nav nav-pills lsp-sort">';
+	foreach ($sortings as $s => $v) {
+		echo '<li class="' . (GET('sort') == $s ? 'active' : '') . '">';
+		echo '<a href="' . $LSP_URL . '?' . $query_prefix . rebuild_url_query('sort', $s) . '">' . $v . '</a></li>';
+	}
+	echo '</ul>';
 }
 
 ?>

@@ -1,6 +1,7 @@
 <br><div class="lsp-table">
 <?php
 
+global $LSP_URL;
 /*
  * Adds the specified user to the database
  */
@@ -11,7 +12,10 @@ function add_user($login , $pass, $pass2, $realname, $is_admin) {
 	if ($pass != $pass2) { 
 		$message = "Password mismatch.";
 		$class = 'warning';
-	} else if($login == '' || get_user_id($login) > 0) {
+	} else if($realname == '' || $pass == '' || $pass2 == '' || $login == '') {
+		$message = "Please fill out all fields.";
+		$class = 'warning';
+	} else if(get_user_id($login) > 0) {
 		$message = "The user <strong>$login</strong> already exists.";
 		$class = 'danger';
 	} else {

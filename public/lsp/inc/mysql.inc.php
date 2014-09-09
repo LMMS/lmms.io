@@ -12,12 +12,18 @@ $MAX_LOGIN_ATTEMPTS = 6;
 /*
  * When set to true will attempt to echo database statements and values to screen
  */
-$DB_DEBUG = false;
+define('DBO_DEBUG', false);
 
 /*
  * Tables allowed to perform actions against
  */ 
 define('DBO_TABLES', 'categories,comments,files,filetypes,licenses,ratings,subcategories,users');
+
+/*
+ * Valid root functions to be looped over and processed by index.php. This order is important
+ * as a user could potentially key in many functions, but we only want to process one.
+ */
+define('POST_FUNCS', 'comment,content,action,search,q');
 
 /*
  * MySQL functions allowed to be called around non-specific columns
@@ -37,9 +43,11 @@ function &get_db() {
 	return $dbh;
 }
 
+/*
+ * When DBO_DEBUG is set to true, additional query data will be echoed to screen
+ */
 function debug($object) {
-	global $DB_DEBUG;
-	if ($DB_DEBUG) {
+	if (DBO_DEBUG) {
 		echo '<pre>';
 		print_r($object);
 		echo '</pre>';
@@ -146,58 +154,6 @@ function get_id_by_object($table, $field, $object) {
 	}
 }
 
-
-
-/********************************************************************
-                        OLD FUNCTIONS
-********************************************************************/
- 
-
-function connectdb() 
-{
-	global $DB_HOST, $DB_USER, $DB_PASS, $DB_DATABASE;
-		// FIXME: TODO:  Change to use mysqli instead, these are deprecated
-		@mysql_connect( $DB_HOST, $DB_USER, $DB_PASS );
-		mysql_select_db( $DB_DATABASE );
-}
-
-function get_object_by_id_old( $table, $id, $field, $id_field = "id" )
-{
-	connectdb();
-	
-	$q = sprintf( "SELECT %s AS obj FROM `%s` WHERE `%s`='%s'",
-				/*mysql_real_escape_string(*/ $field/* )*/,
-				mysql_real_escape_string( $table ),
-				mysql_real_escape_string( $id_field ),
-				mysql_real_escape_string( $id ) );
-	$result = mysql_query( $q );
-	if( mysql_num_rows( $result ) > 0 )
-	{
-		$object = mysql_fetch_object( $result );
-		mysql_free_result ($result);
-		return $object->obj;
-	}
-	return( FALSE );
-}
-
-
-function get_id_by_object_old( $table, $field, $obj )
-{
-	connectdb();
-	$q = sprintf( "SELECT id FROM `%s` WHERE `%s` LIKE '%s'",
-				mysql_real_escape_string( $table ),
-				mysql_real_escape_string( $field ),
-				mysql_real_escape_string( $obj ) );
-	$result = mysql_query( $q );
-	if( mysql_num_rows( $result ) > 0 )
-	{
-		$object = mysql_fetch_object( $result );
-		mysql_free_result ($result);
-		return $object->id;
-	}
-	return( -1 );
-}
-
 /*
  * Rebuilds the current URL into a new URL to be used in a link
  * replacing the specified key with a new key.
@@ -246,28 +202,6 @@ function get_latest() {
 		$stmt = null;
 		$dbh = null;
 		return $object;
-}
-
-function get_latest_old() {
-	global $PAGE_SIZE;
- 	connectdb();
-	$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,".
-		"categories.name AS category,subcategories.name AS subcategory,".
-		"insert_date,update_date,description,files.downloads AS downloads FROM files ".
-		"INNER JOIN categories ON categories.id=files.category ".
-		"INNER JOIN subcategories ON subcategories.id=files.subcategory ".
-		"INNER JOIN users ON users.id=files.user_id ".
-		"INNER JOIN licenses ON licenses.id=files.license_id ".
-	 	"ORDER BY files.update_date DESC LIMIT ". $PAGE_SIZE;
- 	$result = mysql_query ($req);
-
- 	echo "<h3>Latest Uploads</h3>".mysql_error()."\n";
-	echo '<div class="lsp-table"><table class="table table-striped">';
-	while ($object = mysql_fetch_object ($result)) {
-		show_basic_file_info_old( $object, TRUE );
-	}
-	echo'</table></div>';
-	mysql_free_result ($result);
 }
 
 /*
@@ -320,32 +254,6 @@ function set_failure_count($user, $incriment=false) {
 	$dbh = null;
 }
 
-
-function password_match_old ($pass,$user) {
- 	connectdb ();
-	$q = sprintf( "SELECT login FROM users WHERE password LIKE SHA1('%s') AND login LIKE '%s' AND loginFailureCount<6",
-				mysql_real_escape_string( $pass ),
-				mysql_real_escape_string( $user ) );
-	$result = mysql_query( $q );
- 	$object = mysql_fetch_object ($result);
- 	mysql_free_result ($result);
- 	if($object->login)
-	{
-		$q = sprintf( "UPDATE users SET loginFailureCount=0 WHERE login LIKE '%s'",
-				mysql_real_escape_string( $user ) );
-		$result = mysql_query( $q );
-		return true;
-	}
-	else
-	{
-		$q = sprintf( "UPDATE users SET loginFailureCount=loginFailureCount+1 WHERE login LIKE '%s'",
-				mysql_real_escape_string( $user ) );
-		$result = mysql_query( $q );
-	}
-	return false;
- }
-
-
 /*
  * Formats today's date
  */
@@ -358,18 +266,6 @@ function mydate() {
  */
 function myis_admin($uid) {
 	return get_object_by_id("users", $uid, "is_admin");
-}
- 
-
-function myadd_user_old($login, $realname, $pass, $is_admin) {
- 	connectdb ();
-	$q = sprintf( "INSERT INTO users(login,realname,password,is_admin) VALUES ('%s','%s',SHA1('%s'),'%s')",
-				mysql_real_escape_string( $login ),
-				mysql_real_escape_string( $realname ),
-				mysql_real_escape_string( $pass ),
-				mysql_real_escape_string( $is_admin ) );
- 	mysql_query( $q );
- 	
 }
 
 function myadd_user($login, $realname, $pass, $is_admin) {
@@ -385,22 +281,6 @@ function myadd_user($login, $realname, $pass, $is_admin) {
 	$dbh = null;
 }
 
-
-function mychange_user_old($login,$realname,$pass) {
- 	connectdb ();
-	if($pass!='') {
-		$q = sprintf( "UPDATE users SET `realname`='%s', `password`=SHA1('%s') WHERE `login` LIKE '%s'",
-					mysql_real_escape_string( $realname ),
-					mysql_real_escape_string( $pass ),
-					mysql_real_escape_string( $login ) );
-	} else {
-		$q = sprintf( "UPDATE users SET `realname`='%s' WHERE `login` LIKE '%s'",
-					mysql_real_escape_string( $realname ),
-					mysql_real_escape_string( $login ) );
-	}
- 	mysql_query( $q );
- }
- 
  /*
   * Update the realname and/or password of the specified user
   */
@@ -423,53 +303,20 @@ function mychange_user_old($login,$realname,$pass) {
 	$dbh = null;
  }
 
+/*
+ * Convenience Functions
+ */
+function get_user_id($login) { return get_id_by_object( "users", "login", $login ); }
+function get_user_realname( $login ) { return get_object_by_id( "users", get_user_id($login), 'realname' ); }
+function get_file_name($file_id){ return(get_object_by_id("files", $file_id, "filename")); }
+function get_file_owner($file_id) {	return(get_object_by_id("files", $file_id, "user_id")); }
+function get_file_description($file_id) { return(get_object_by_id("files", $file_id, "description")); }
+function get_file_license($file_id) { return( get_object_by_id("files", $file_id, "license_id")); }
+function get_comment_count( $file_id ) { return( get_object_by_id( "comments", $file_id, "1", "file_id", "count" ) ); }
+function get_category_id($cat) { return(get_id_by_object("categories", "name", $cat)); }
+function get_subcategory_id($cat) { return(get_id_by_object("subcategories", "name", $cat)); }
 
 
-function get_user_id( $login )
-{
-	return get_id_by_object( "users", "login", $login );
-}
- 
- 
-function get_user_realname( $login )
-{
-	return get_object_by_id( "users", get_user_id( $login ), 'realname' );
-}
- 
- 
-
-
-function get_file_name( $fid )
-{
-	return( get_object_by_id( "files", $fid, "filename" ) );
-}
- 
-function get_file_owner( $fid )
-{
-	return( get_object_by_id( "files", $fid, "user_id" ) );
-}
-
-function get_file_description( $fid )
-{
-	return( get_object_by_id( "files", $fid, "description" ) );
-}
- 
-function get_file_license( $fid )
-{
-	return( get_object_by_id( "files", $fid, "license_id" ) );
-}
- 
-
-
-function get_category_id( $cat )
-{
-	return( get_id_by_object( "categories", "name", $cat ) );
-}
- 
-function get_subcategory_id( $cat )
-{
-	return( get_id_by_object( "subcategories", "name", $cat ) );
-}
 
  
 function get_categories()
@@ -593,11 +440,6 @@ function get_licenses( $default = "" )
 
 
 
-
-function get_comment_count( $fid )
-{
-	return( get_object_by_id( "comments", $fid, "1", "file_id", "count" ) );
-}
 
 
 
@@ -977,6 +819,17 @@ function get_user_rating( $fid, $user ) {
 
 function update_rating( $fid, $stars, $user )
 {
+	// check stars and user here
+	if ( !isset($stars) || trim($stars) == '' ) {
+		echo 'invalid rating';
+		return;
+	}
+	
+	if ( !isset($user) || trim($user) == '') {
+		echo 'invalid user';
+		return;
+	}
+	
 	if( $stars < 1 || $stars > 5 )
 	{
 		echo "invalid";
@@ -1101,6 +954,143 @@ function add_visitor_comment( $file, $comment, $user)
 	 	mysql_query( $req );
 	}
 }
+
+/********************************************************************
+                        OLD FUNCTIONS
+				THESE WILL EVENTUALLY BE REMOVED
+********************************************************************/
+ 
+
+function connectdb() 
+{
+	global $DB_HOST, $DB_USER, $DB_PASS, $DB_DATABASE;
+		// FIXME: TODO:  Change to use mysqli instead, these are deprecated
+		@mysql_connect( $DB_HOST, $DB_USER, $DB_PASS );
+		mysql_select_db( $DB_DATABASE );
+}
+
+function get_object_by_id_old( $table, $id, $field, $id_field = "id" )
+{
+	connectdb();
+	
+	$q = sprintf( "SELECT %s AS obj FROM `%s` WHERE `%s`='%s'",
+				/*mysql_real_escape_string(*/ $field/* )*/,
+				mysql_real_escape_string( $table ),
+				mysql_real_escape_string( $id_field ),
+				mysql_real_escape_string( $id ) );
+	$result = mysql_query( $q );
+	if( mysql_num_rows( $result ) > 0 )
+	{
+		$object = mysql_fetch_object( $result );
+		mysql_free_result ($result);
+		return $object->obj;
+	}
+	return( FALSE );
+}
+
+
+function get_id_by_object_old( $table, $field, $obj )
+{
+	connectdb();
+	$q = sprintf( "SELECT id FROM `%s` WHERE `%s` LIKE '%s'",
+				mysql_real_escape_string( $table ),
+				mysql_real_escape_string( $field ),
+				mysql_real_escape_string( $obj ) );
+	$result = mysql_query( $q );
+	if( mysql_num_rows( $result ) > 0 )
+	{
+		$object = mysql_fetch_object( $result );
+		mysql_free_result ($result);
+		return $object->id;
+	}
+	return( -1 );
+}
+
+
+ 
+
+function get_latest_old() {
+	global $PAGE_SIZE;
+ 	connectdb();
+	$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,".
+		"categories.name AS category,subcategories.name AS subcategory,".
+		"insert_date,update_date,description,files.downloads AS downloads FROM files ".
+		"INNER JOIN categories ON categories.id=files.category ".
+		"INNER JOIN subcategories ON subcategories.id=files.subcategory ".
+		"INNER JOIN users ON users.id=files.user_id ".
+		"INNER JOIN licenses ON licenses.id=files.license_id ".
+	 	"ORDER BY files.update_date DESC LIMIT ". $PAGE_SIZE;
+ 	$result = mysql_query ($req);
+
+ 	echo "<h3>Latest Uploads</h3>".mysql_error()."\n";
+	echo '<div class="lsp-table"><table class="table table-striped">';
+	while ($object = mysql_fetch_object ($result)) {
+		show_basic_file_info_old( $object, TRUE );
+	}
+	echo'</table></div>';
+	mysql_free_result ($result);
+}
+
+function password_match_old ($pass,$user) {
+ 	connectdb ();
+	$q = sprintf( "SELECT login FROM users WHERE password LIKE SHA1('%s') AND login LIKE '%s' AND loginFailureCount<6",
+				mysql_real_escape_string( $pass ),
+				mysql_real_escape_string( $user ) );
+	$result = mysql_query( $q );
+ 	$object = mysql_fetch_object ($result);
+ 	mysql_free_result ($result);
+ 	if($object->login)
+	{
+		$q = sprintf( "UPDATE users SET loginFailureCount=0 WHERE login LIKE '%s'",
+				mysql_real_escape_string( $user ) );
+		$result = mysql_query( $q );
+		return true;
+	}
+	else
+	{
+		$q = sprintf( "UPDATE users SET loginFailureCount=loginFailureCount+1 WHERE login LIKE '%s'",
+				mysql_real_escape_string( $user ) );
+		$result = mysql_query( $q );
+	}
+	return false;
+ }
+
+
+
+function myadd_user_old($login, $realname, $pass, $is_admin) {
+ 	connectdb ();
+	$q = sprintf( "INSERT INTO users(login,realname,password,is_admin) VALUES ('%s','%s',SHA1('%s'),'%s')",
+				mysql_real_escape_string( $login ),
+				mysql_real_escape_string( $realname ),
+				mysql_real_escape_string( $pass ),
+				mysql_real_escape_string( $is_admin ) );
+ 	mysql_query( $q );
+ 	
+}
+
+function mychange_user_old($login,$realname,$pass) {
+ 	connectdb ();
+	if($pass!='') {
+		$q = sprintf( "UPDATE users SET `realname`='%s', `password`=SHA1('%s') WHERE `login` LIKE '%s'",
+					mysql_real_escape_string( $realname ),
+					mysql_real_escape_string( $pass ),
+					mysql_real_escape_string( $login ) );
+	} else {
+		$q = sprintf( "UPDATE users SET `realname`='%s' WHERE `login` LIKE '%s'",
+					mysql_real_escape_string( $realname ),
+					mysql_real_escape_string( $login ) );
+	}
+ 	mysql_query( $q );
+ }
+ 
+
+
+
+/********************************************************************
+                        UTILITY FUNCTIONS
+		THESE SHOULD BE MOVED TO A SEPARATE SHARED FILE
+********************************************************************/
+ 
 
 /*
  * Creates a bread-crumb style title for the table content

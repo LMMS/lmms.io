@@ -6,131 +6,86 @@ ini_set('session.save_path','../../tmp');
 ini_set('arg_separator.output','&amp;');
 
 session_start ();
-
 include_once("inc/mysql.inc.php");
 include_once("inc/xhtml.inc.php");
 include_once("../header.php");
 require_once('lsp_utils.php');
 include_once("lsp_sidebar.php");
 
-// Allow HTTP posts logic to behave similar
-if (!POST_EMPTY('file')) {
-	$_GET["file"] = POST('file');
-}
+// Set $_GET[...] variables to their $_POST equivalents
+set_get_post('file');
+set_get_post('category');
+set_get_post('subcategory');
+process_params();
 
-if (!POST_EMPTY('category')) {
-	$_GET['category'] = POST('category');
-}
-
-if (!POST_EMPTY('subcategory')) {
-	$_GET['subcategory'] = POST('subcategory');
-}
-
-if (!GET_EMPTY('file') && (GET_EMPTY('category') || GET_EMPTY('subcategory'))) {
-	$_GET["category"] = get_file_category(GET('file'));
-	$_GET["subcategory"] = get_file_subcategory(GET('file'));
-}
-
-if (!GET_EMPTY('rate') && !session_is_blank('remote_user') && !GET_EMPTY('file')) {
-	update_rating(GET('file'), GET('rate'), SESSION('remote_user'));
-}
-
-// Process content request
-if( GET("comment") == 'add' ) {
-	require ("./lsp_addcomment.php");
-} elseif (GET("content") == 'add' ) {
-	require ("./lsp_addcontent.php");
-} elseif (GET("content") == 'update') {
-	connectdb();
-	if (get_user_id(SESSION()) == get_object_by_id("files", GET('file'), 'user_id')) {
-		require ("./lsp_updatecontent.php");
-	}
-} elseif (GET("content") == 'delete') {
-	connectdb();
-	if(get_user_id(SESSION()) == get_object_by_id("files", $_GET['file'], "user_id")) {
-		require ("./lsp_delcontent.php");
-	}
-} elseif (GET("action") == "show") {
-	show_file( GET("file"), SESSION() );
-} elseif (GET("account") == 'settings') {
-	include("./lsp_accountsettings.php");
-} elseif( GET("action") == 'register' ) {
-	require ("./lsp_adduser.php");
-} elseif( !POST_EMPTY('search')  || !GET_EMPTY('q')) {
-	$q = GET_EMPTY('q') ? POST('search') : GET('q');
-	create_title(array(GET('category'), GET('subcategory'), "\"$q\""));
-	/*
-	$prefix = '';
-	if (!GET_EMPTY('category')) {
-		$prefix .= GET('category');
-		if (!GET_EMPTY('subcategory')) {
-			$prefix .= '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;' . GET('subcategory');
+/*
+ * Process the URL parameters in a natural order
+ * Note:  Most of these perform a function and return, but some, such as
+ * file and rate perform a function and continue to remain consistent with
+ * old functionality.  TODO:  Determine if the continue's are needed.
+ */
+function process_params() {
+	$post_funcs = explode(',', POST_FUNCS);
+	foreach ($post_funcs as $func) {
+		if (!GET_EMPTY($func)) {
+		
+			// Process parametrized functions
+			switch($func) {
+				case 'file':
+					if (GET_EMPTY('category')) {
+						echo '<p>Test</p>';
+						$_GET['category'] = get_file_category(GET('file'));
+					}
+					if (GET_EMPTY('subcategory')) {
+						$_GET['subcategory'] = get_file_subcategory(GET('file'));
+					}
+					break; // break for file/rate, return for all others
+				case 'rate':
+					update_rating(GET('file'), GET('rate'), SESSION());
+					break;  // break for file/rate, return for all others
+				case 'search': //move down
+				case 'q':
+					$q = GET_EMPTY('q') ? POST('search') : GET('q');
+					create_title(array(GET('category'), GET('subcategory'), "\"$q\""));
+					list_sort_options('q=' . $q . '&');
+					get_results( GET('category'), GET('subcategory'), GET('sort'), mysql_real_escape_string($q));
+					return;
+					// default: // do nothing
+			}
+		
+			// Process built-in functions
+			switch ($func . ":" . GET($func)) {
+				case 'comment:add' : require ("./lsp_addcomment.php"); return;
+				case 'content:add' : require ("./lsp_addcontent.php"); return;
+				case 'content:update' : require ("./lsp_updatecontent.php"); return;
+				case 'content:delete' : require ("./lsp_delcontent.php"); return;
+				case 'account:settings' : include("./lsp_accountsettings.php"); return;
+				case 'action:show' : show_file(GET("file"), SESSION()); return;
+				case 'action:register' : require ("./lsp_adduser.php"); return;
+				case 'action:browse' :
+					// Browsing by category seems is currently only supported "browse" option
+					if (!GET_EMPTY('category')) {
+						create_title(array(GET('category'), GET('subcategory')));
+						list_sort_options();
+						get_results(GET('category'), GET('subcategory'), GET('sort'));	
+						return;
+					} else if(!GET_EMPTY('user')) {
+						show_user_content(GET('user'));
+						return;
+					} else {
+						get_latest();
+						return;
+					}
+				// default: // do nothing
+			}
 		}
-		$prefix .= '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;';
-	}
-	echo "<h3>${prefix}\"".$q."\"</h3>";*/
-	list_sort_options('q=' . $q . '&');
-	get_results( GET('category'), GET('subcategory'), GET('sort'), mysql_real_escape_string($q));
-}
-else {
-	if(!GET_EMPTY('user')) {
-		show_user_content( $_GET['user'] );
-	} elseif( GET('category') == "" ) {
-		get_latest();
-	} else {
-		create_title(array(GET('category'), GET('subcategory')));
-		list_sort_options();
-		get_results(GET('category'), GET('subcategory'), GET('sort'));
-	}
-}
-
-function list_sort_options($query_prefix = '') {
-	global $LSP_URL;
-	$sortings = array(
-		'date' => '<span class="fa fa-calendar"></span>&nbsp;DATE',
-		'downloads' => '<span class="fa fa-download"></span>&nbsp;DOWNLOADS',
-		'rating' => '<span class="fa fa-star"></span>&nbsp;RATING' );
-	if (GET_EMPTY('sort')) {
-		$_GET['sort'] = 'date';
-	}
-
-
-	// List all sort options
-	echo '<ul class="nav nav-pills lsp-sort">';
-	foreach ($sortings as $s => $v) {
-		echo '<li class="' . (GET('sort') == $s ? 'active' : '') . '">';
-		echo '<a href="' . $LSP_URL . '?' . $query_prefix . rebuild_url_query('sort', $s) . '">' . $v . '</a></li>';
-	/*
-		echo '&nbsp;&nbsp;&nbsp;';
-		echo (GET('sort') == $s ? 
-			'<span class="lsp-badge btn btn-primary"><b>' . $v . '</b></span>' : 
-			'<a href="' . $LSP_URL . '?' . rebuild_url_query('sort', $s) . '">' . $v . '</a>');
-			
-				/*
-	echo 'Sort by';
-	$sortings = array( 'date' => 'date', 'downloads' => 'downloads', 'rating' => 'rating' );
-	if (GET_EMPTY('sort')) {
-		$_GET['sort'] = 'date';
 	}
 	
-	// old ?q= code
-	foreach ($sortings as $s => $v) {
-		echo '&nbsp;&nbsp;';
-		if( GET('sort') == $s ) {
-			echo '<b>'.$s.'</b>';
-		} else {
-			echo '<a href="'.$LSP_URL.'?q='.$q.'&amp;'.rebuild_url_query( 'sort', $s ).'">'.$s.'</a>';
-		}
-	}
-	echo '<hr />';
-	*/
-	}
-	echo '</ul>';
+	// All else fails, show the "Latest Uploads" page
+	get_latest();
 }
 
-?>
-</div>
-<?php
+echo '</div>';
 include("../footer.php");
 ?>
 

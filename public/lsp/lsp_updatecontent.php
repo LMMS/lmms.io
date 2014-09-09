@@ -1,7 +1,8 @@
 <?php
-
-if( isset( $_SESSION["remote_user"] ) )
-{
+// This line was yanked from index.php
+if (get_user_id(SESSION()) == get_object_by_id("files", GET('file'), 'user_id')) {
+//if( isset( $_SESSION["remote_user"] ) )
+//{
 
 	if( !$_POST["updateok"] )
 	{
