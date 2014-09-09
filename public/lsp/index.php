@@ -72,11 +72,8 @@ function process_params() {
 					} else if(!GET_EMPTY('user')) {
 						show_user_content(GET('user'));
 						return;
-					} else {
-						get_latest();
-						return;
 					}
-				// default: // do nothing
+					// default: // do nothing
 			}
 		}
 	}
