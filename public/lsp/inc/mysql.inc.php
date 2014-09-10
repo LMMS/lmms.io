@@ -191,8 +191,10 @@ function get_latest() {
 	 	ORDER BY files.update_date DESC LIMIT ' . sanitize($PAGE_SIZE));
 		$object = null;
 		if ($stmt->execute()) {
+			
+			echo '<div class="col-md-9">';
 			echo create_title('Latest Uploads');
-			echo '<div class="col-sm-9"><table class="table table-striped">';
+			echo '<table class="table table-striped">';
 			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				show_basic_file_info($object, true);
 				debug($object);
@@ -486,6 +488,9 @@ function get_file_subcategory($fid) {
 
 function get_results( $cat, $subcat, $sort = '', $search = '' )
 {
+	
+	$q = $search;
+	$search = mysql_real_escape_string($search);
 	global $PAGE_SIZE;
 	global $LSP_URL;
 	$page = @$_GET["page"];
@@ -545,7 +550,10 @@ function get_results( $cat, $subcat, $sort = '', $search = '' )
 		$req .= sprintf("LIMIT %d,%d", $page*$PAGE_SIZE, $PAGE_SIZE);
 		$result = mysql_query ($req);
 
-		echo '<br /><div class="lsp-table"><table class="table table-striped">';
+		echo '<div class="col-md-9">';
+		create_title(array(GET('category'), GET('subcategory'), "\"$q\""));
+		list_sort_options('q=' . $q . '&');
+		echo '<table class="table table-striped">';
 		while($object = mysql_fetch_object ($result)) {
 			show_basic_file_info_old( $object, TRUE );
 		}
@@ -585,7 +593,7 @@ function show_user_content( $user ) {
 		create_title("($user)");
 		
 		if( $result != FALSE && mysql_num_rows( $result ) > 0 ) {	
-			echo '<div class="lsp-table"><table class="table table-striped">';
+			echo '<div class="col-md-9"><table class="table table-striped">';
 			while( $object = mysql_fetch_object( $result ) )
 			{
 				show_basic_file_info_old( $object, TRUE, FALSE );
@@ -688,6 +696,14 @@ function show_basic_file_info_old($rs, $browsing_mode = false, $show_author = tr
 
 function show_file( $fid, $user )
 {
+/* TODO: NOT SURE IF THIS LOGIC IS NEEDED?
+	if (GET_EMPTY('category')) {
+		$_GET['category'] = get_file_category(GET('file'));
+	}
+	if (GET_EMPTY('subcategory')) {
+		$_GET['subcategory'] = get_file_subcategory(GET('file'));
+	}
+*/
 	global $LSP_URL;
 	connectdb();
 	$req = "SELECT licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
@@ -707,9 +723,8 @@ function show_file( $fid, $user )
 	}
 	$f = mysql_fetch_object( $res );
 
-	$img = '&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;';
-	echo '<h3>'.$f->category.$img.$f->subcategory.$img.$f->filename.'</h3>'."\n";
-	echo '<div class="lsp-table">';
+	echo '<div class="col-md-9">';
+	create_title(array($f->category, $f->subcategory, $f->filename));
 	echo '<table class="table table-striped">';
 	show_basic_file_info_old( $f, FALSE );
 	
@@ -1023,7 +1038,7 @@ function get_latest_old() {
  	$result = mysql_query ($req);
 
  	echo "<h3>Latest Uploads</h3>".mysql_error()."\n";
-	echo '<div class="lsp-table"><table class="table table-striped">';
+	echo '<div class="col-md-9"><table class="table table-striped">';
 	while ($object = mysql_fetch_object ($result)) {
 		show_basic_file_info_old( $object, TRUE );
 	}
@@ -1109,7 +1124,7 @@ function create_title($array) {
 	
 	$title = "<a href=\"$LSP_URL\">All Content</a>";
 	foreach ($array as $element) {
-		if (isset($element) && trim($element) != '') {
+		if (isset($element) && trim($element) != '' && trim($element) != '""') {
 			$title .= '&nbsp;&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;&nbsp;';
 			$title .= trim($element);
 		}
@@ -1126,13 +1141,13 @@ function one_element($array) {
 	if (is_array($array)) {
 		$count = 0;
 		foreach ($array as $element) {
-			if (isset($element) && trim($element) != '') {
+			if (isset($element) && trim($element) != '' && trim($element) != '""') {
 				$count++;
 			}
 		}
 		if ($count == 1) {
 			foreach ($array as $element) {
-				if (isset($element) && trim($element) != '') {
+				if (isset($element) && trim($element) != '' && trim($element) != '""') {
 					return $element;
 				}
 			}

@@ -2,6 +2,8 @@
 require_once('lsp_utils.php');
 global $LSP_URL;
 ?>
+
+<div class="page-header"><h1>LMMS Sharing Platform</h1></div>
 <div class="row lsp-row">
 <div class="col-md-3">
 	<div class="panel panel-default">

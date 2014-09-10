@@ -32,24 +32,13 @@ function process_params() {
 		
 			// Process parametrized functions
 			switch($func) {
-				case 'file':
-					if (GET_EMPTY('category')) {
-						echo '<p>Test</p>';
-						$_GET['category'] = get_file_category(GET('file'));
-					}
-					if (GET_EMPTY('subcategory')) {
-						$_GET['subcategory'] = get_file_subcategory(GET('file'));
-					}
-					break; // break for file/rate, return for all others
 				case 'rate':
 					update_rating(GET('file'), GET('rate'), SESSION());
 					break;  // break for file/rate, return for all others
 				case 'search': //move down
 				case 'q':
 					$q = GET_EMPTY('q') ? GET('search') : GET('q');
-					create_title(array(GET('category'), GET('subcategory'), "\"$q\""));
-					list_sort_options('q=' . $q . '&');
-					get_results( GET('category'), GET('subcategory'), GET('sort'), mysql_real_escape_string($q));
+					get_results(GET('category'), GET('subcategory'), GET('sort'), $q);
 					return;
 					// default: // do nothing
 			}
@@ -66,8 +55,6 @@ function process_params() {
 				case 'action:browse' :
 					// Browsing by category seems is currently only supported "browse" option
 					if (!GET_EMPTY('category')) {
-						create_title(array(GET('category'), GET('subcategory')));
-						list_sort_options();
 						get_results(GET('category'), GET('subcategory'), GET('sort'));	
 						return;
 					} else if(!GET_EMPTY('user')) {
