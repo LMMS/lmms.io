@@ -14,6 +14,7 @@ include_once("lsp_sidebar.php");
 
 // Set $_GET[...] variables to their $_POST equivalents
 set_get_post('file');
+set_get_post('search');
 set_get_post('category');
 set_get_post('subcategory');
 process_params();
@@ -45,7 +46,7 @@ function process_params() {
 					break;  // break for file/rate, return for all others
 				case 'search': //move down
 				case 'q':
-					$q = GET_EMPTY('q') ? POST('search') : GET('q');
+					$q = GET_EMPTY('q') ? GET('search') : GET('q');
 					create_title(array(GET('category'), GET('subcategory'), "\"$q\""));
 					list_sort_options('q=' . $q . '&');
 					get_results( GET('category'), GET('subcategory'), GET('sort'), mysql_real_escape_string($q));
