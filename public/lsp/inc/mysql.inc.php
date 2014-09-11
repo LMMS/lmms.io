@@ -10,12 +10,12 @@ $PAGE_SIZE = 25;
 $MAX_LOGIN_ATTEMPTS = 6;
 
 /*
- * When set to true will attempt to echo database statements and values to screen
+ * DANGER! When set to true will attempt to echo database statements and values to screen
  */
 define('DBO_DEBUG', false);
 
 /*
- * Tables allowed to perform actions against
+ * Tables allowed to perform dynamic SQL queries/updates against
  */ 
 define('DBO_TABLES', 'categories,comments,files,filetypes,licenses,ratings,subcategories,users');
 
@@ -154,29 +154,6 @@ function get_id_by_object($table, $field, $object) {
 	}
 }
 
-/*
- * Rebuilds the current URL into a new URL to be used in a link
- * replacing the specified key with a new key.
- */
-function rebuild_url_query($key, $value) {
-	if (GET_EMPTY($key)) {
-		return '';
-	}
-	$old = GET($key);
-	$_GET[$key] = $value;
-	$new_query = array();
-	foreach($_GET as $k => $v) {
-		array_push($new_query, $k . "=" . $v);
-	}
-	$_GET[$key] = $old;
-	return implode("&amp;", $new_query);
-}
-
-function file_show_query_string() {
-	return 'action=show&file=' . GET("file");
-}
-
-
 function get_latest() {
 	global $PAGE_SIZE;
 	$dbh = &get_db();
@@ -215,26 +192,26 @@ function password_match($pass, $user) {
 	$dbh = &get_db();
 	$stmt = $dbh->prepare('SELECT login FROM users WHERE LOWER(password) = LOWER(SHA1(:pass)) AND LOWER(login) = LOWER(:user) AND loginFailureCount < :max_login_attempts');
 	debug("SELECT login FROM users WHERE LOWER(password) = LOWER(SHA1($pass)) AND LOWER(login) = LOWER($user) AND loginFailureCount < $MAX_LOGIN_ATTEMPTS");
-		$stmt->bindParam(':pass', $pass);
-		$stmt->bindParam(':user', $user);
-		$stmt->bindParam(':max_login_attempts', $MAX_LOGIN_ATTEMPTS);
-		$return_val = false;
-		if ($stmt->execute()) {
-			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-				if ($object['login']) {
-					// Reset to "0" failed logins
-					set_failure_count($user);
-					$return_val = true;
-				} else {
-					// Increment failed logins
-					set_failure_count($user, true);
-				}
-				break;
+	$stmt->bindParam(':pass', $pass);
+	$stmt->bindParam(':user', $user);
+	$stmt->bindParam(':max_login_attempts', $MAX_LOGIN_ATTEMPTS);
+	$return_val = false;
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			if ($object['login']) {
+				// Reset to "0" failed logins
+				set_failure_count($user);
+				$return_val = true;
+			} else {
+				// Increment failed logins
+				set_failure_count($user, true);
 			}
+			break;
 		}
-		$stmt = null;
-		$dbh = null;
-		return return_val;
+	}
+	$stmt = null;
+	$dbh = null;
+	return return_val;
 }
 
 /*
@@ -257,20 +234,13 @@ function set_failure_count($user, $incriment=false) {
 }
 
 /*
- * Formats today's date
- */
-function mydate() {
- 	return date("Y-m-d", time());
-}
-
-/*
  * Returns whether or not the specified user-id is an administrator
  */
-function myis_admin($uid) {
+function is_admin($uid) {
 	return get_object_by_id("users", $uid, "is_admin");
 }
 
-function myadd_user($login, $realname, $pass, $is_admin) {
+function add_user($login, $realname, $pass, $is_admin) {
 	$dbh = &get_db();
 	$stmt = $dbh->prepare('INSERT INTO users(login, realname, password, is_admin) VALUES(:login, :realname, SHA1(:password), :is_admin)');
 	debug("INSERT INTO users(login, realname, password, is_admin) VALUES($login, $realname, SHA1($pass), $is_admin)");
@@ -286,7 +256,7 @@ function myadd_user($login, $realname, $pass, $is_admin) {
  /*
   * Update the realname and/or password of the specified user
   */
- function mychange_user($login, $realname, $pass = '') {
+ function change_user($login, $realname, $pass = '') {
 	$dbh = &get_db();
 	if ($pass != '') {
 		$stmt = $dbh->prepare('UPDATE users SET realname=:realname, password=SHA1(:password) WHERE LOWER(login)=LOWER(:login)');
@@ -317,71 +287,106 @@ function get_file_license($file_id) { return( get_object_by_id("files", $file_id
 function get_comment_count( $file_id ) { return( get_object_by_id( "comments", $file_id, "1", "file_id", "count" ) ); }
 function get_category_id($cat) { return(get_id_by_object("categories", "name", $cat)); }
 function get_subcategory_id($cat) { return(get_id_by_object("subcategories", "name", $cat)); }
+function get_license_id($license) {	return( get_id_by_object("licenses", "name", $license)); }
+function get_license_name($lid) { return( get_object_by_id("licenses", $lid, "name")); }
 
-
-
- 
-function get_categories()
-{
+/*
+ * Get list of top level categories
+ */
+function get_categories() {
 	global $LSP_URL;
-	connectdb();
-	$result = mysql_query(
-		'SELECT categories.name AS name, COUNT(files.id) AS cnt FROM categories '.
-		'LEFT JOIN files ON files.category = categories.id '.
-		'GROUP BY categories.name '.
-		'ORDER BY categories.name ');
-	debug('SELECT categories.name AS name, COUNT(files.id) AS cnt FROM categories '.
-		'LEFT JOIN files ON files.category = categories.id '.
-		'GROUP BY categories.name '.
-		'ORDER BY categories.name ');
-echo mysql_error();
-	echo '<ul class="navbar lsp-categories">';
-	$sort = isset($_GET['sort']) ? $_GET['sort'] : 'date';
-	while( $object = mysql_fetch_object( $result ) )
-	{
-		echo "<li class='lsp-category'><a class='category' href='".htmlentities ($LSP_URL."?action=browse&category=".$object->name)."&sort=".$sort."'>".
-			$object->name." <span class='count'>(".$object->cnt.")</span></a></li>";
-		if( isset( $_GET["category"] ) && $_GET["category"] == $object->name )
-		{
-			$cat = $_GET["category"];
-			$catid = get_category_id( $object->name );
-//			$res2 = mysql_query( "SELECT name FROM subcategories WHERE category='".$catid."'" );
-			$res2 = mysql_query( 
-				"SELECT subcategories.name AS name, COUNT(files.id) AS cnt FROM subcategories ".
-				"LEFT JOIN files ON files.subcategory = subcategories.id AND files.category='$catid' ".
-				"WHERE subcategories.category='$catid' ". 
-				"GROUP BY subcategories.name ".
-				"ORDER BY subcategories.name ");
-			debug("SELECT subcategories.name AS name, COUNT(files.id) AS cnt FROM subcategories ".
-				"LEFT JOIN files ON files.subcategory = subcategories.id AND files.category='$catid' ".
-				"WHERE subcategories.category='$catid' ". 
-				"GROUP BY subcategories.name ".
-				"ORDER BY subcategories.name ");
-			echo "<div class='selected'>";
-	echo mysql_error();
-			echo '<ul class="lsp-subcategory">';
-			while( $object2 = mysql_fetch_object( $res2 ) )
-			{
-				echo "<li class='lsp-subcategory'><a class='subcategory";
-                                if( $object2->name == @$_GET["subcategory"] )
-                                {
-                                        echo " selected";
-                                }
-				echo "' href=\"".htmlentities ($LSP_URL."?action=browse&category=$cat&subcategory=".$object2->name."&sort=".$sort)."\"> ";
-				echo $object2->name." <span class='count'>(".$object2->cnt.")</span></a></li>";
-			}
-			mysql_free_result( $res2 );
-			echo "</ul></div>";
+	$dbh = &get_db();
+	
+	$stmt = $dbh->prepare(
+		'SELECT categories.name AS name, COUNT(files.id) AS file_count, categories.id AS id ' .
+		'FROM categories LEFT JOIN files ON files.category = categories.id ' .
+		'GROUP BY categories.name ' .
+		'ORDER BY categories.name '
+	);
+	
+	echo '<ul class="lsp-categories">';
+	$sort = GET('sort', 'date');
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			echo '<li class="lsp-category"><a href="' . 
+				htmlentities($LSP_URL . "?action=browse&category=" . $object['name'] . "&sort=$sort" ) . '">' .
+				$object['name'] . '&nbsp;<span class="count">(' . $object['file_count'] . ")</span></a>";
+					
+				if (!GET_EMPTY('category') && GET('category') == $object['name']) {
+					get_subcategories($object['name'], $object['id']);
+				}
+	
+				echo '</li>';
 		}
 	}
-	mysql_free_result( $result );
-	echo '</ul>';
+	echo "</ul>";
+	$stmt = null;
+	$dbh = null;
 }
 
+/*
+ * Get list of subcategories matching provided category ID
+ */
+function get_subcategories($category, $id) {
+	global $LSP_URL;
+	$dbh = &get_db();
+	
+	// TODO: FIXME:  Some database values are broken i.e. Presets\Basses vs. Samples\Basses
+	// This needs to be fixed in the mysql database prior to the COUNT() working properly
+	$stmt = $dbh->prepare(
+		'SELECT subcategories.name AS name, COUNT(files.id) AS file_count ' .
+		'FROM subcategories ' .
+		'LEFT JOIN files ON files.subcategory = subcategories.id AND files.category=:id ' .
+		'WHERE subcategories.category=:id GROUP BY subcategories.name ORDER BY subcategories.name'
+	);
+	$stmt->bindParam(':id', $id);
+	
+	echo '<ul class="lsp-subcategory">';
+	$sort = GET('sort', 'date');
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			echo '<li class="lsp-subcategory"><a href="' . 
+				htmlentities($LSP_URL . "?action=browse&category=" . $category . 
+				"&subcategory=" . $object['name'] . "&sort=$sort" ) . '">' .
+				$object['name'] . '&nbsp;<span class="count">(' . $object['file_count'] . ")</span></a></li>";
+		}
+	}
+	echo "</ul>";
+	$stmt = null;
+	$dbh = null;
+}
 
+/*
+ * Returns <option> tags for each category-subcategory pair found in the database
+ * containing references to the supplied file extension.
+ * Usage:
+ * 		get_categories_for_ext('.mmpz', 'Projects-Ambient');
+ *
+ */
+function get_categories_for_ext($extension, $default = '') {
+	$dbh = &get_db();
+	$stmt = $dbh->prepare(
+		"SELECT CONCAT(categories.name, '-', subcategories.name) AS fullname FROM filetypes " .
+		'INNER JOIN categories ON categories.id=filetypes.category ' .
+		'INNER JOIN subcategories ON subcategories.category=categories.id ' . 
+		'WHERE LOWER(extension) = LOWER(:extension) ' .
+		'ORDER BY categories.name, subcategories.name'
+	);
+	
+	$stmt->bindParam(':extension', $extension);
+	$html = '';
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$fullname = $object['fullname'];
+			$selected = strtolower($fullname) == strtolower($default) ? 'selected' : '';
+			$html .= "<option $selected>$fullname</option>";
+		}
+	}
+	return $html;
+}
+ 
 
-
-function get_categories_for_ext( $ext, $default = "" )
+function get_categories_for_ext_old( $ext, $default = "" )
 {
 	$cats = '';
 	connectdb();
@@ -405,18 +410,6 @@ function get_categories_for_ext( $ext, $default = "" )
 		return( $cats );
 	}
 	return( FALSE );
-}
-
-
-
-function get_license_id( $license )
-{
-	return( get_id_by_object( "licenses", "name", $license ) );
-}
-
-function get_license_name( $lid )
-{
-	return( get_object_by_id( "licenses", $lid, "name" ) );
 }
 
 
@@ -490,7 +483,7 @@ function get_results( $cat, $subcat, $sort = '', $search = '' )
 {
 	
 	$q = $search;
-	$search = mysql_real_escape_string($search);
+	$search = @mysql_real_escape_string($search);
 	global $PAGE_SIZE;
 	global $LSP_URL;
 	$page = @$_GET["page"];
@@ -740,7 +733,7 @@ function show_file( $fid, $user )
 	
 	echo '<tr><td colspan="2">';
 	echo '<nav class="navbar navbar-default"><ul class="nav navbar-nav">';
-	$can_edit = ($f->login == $user || myis_admin(get_user_id($user)));
+	$can_edit = ($f->login == $user || is_admin(get_user_id($user)));
 	$can_rate = isset($_SESSION["remote_user"]);
 	
 	create_toolbar_item('Comment', "$LSP_URL?comment=add&file=$fid", 'fa-comment', $can_rate);
@@ -1098,6 +1091,73 @@ function mychange_user_old($login,$realname,$pass) {
  	mysql_query( $q );
  }
  
+ 
+/*
+ * Formats today's date
+ */
+function mydate_old() {
+ 	return date("Y-m-d", time());
+}
+
+function get_categories_old()
+{
+	global $LSP_URL;
+	connectdb();
+	$result = mysql_query(
+		'SELECT categories.name AS name, COUNT(files.id) AS cnt, categories.id AS id FROM categories '.
+		'LEFT JOIN files ON files.category = categories.id '.
+		'GROUP BY categories.name '.
+		'ORDER BY categories.name ');
+	debug('SELECT categories.name AS name, COUNT(files.id) AS cnt, categories.id AS id FROM categories '.
+		'LEFT JOIN files ON files.category = categories.id '.
+		'GROUP BY categories.name '.
+		'ORDER BY categories.name ');
+echo mysql_error();
+	echo '<ul class="navbar lsp-categories">';
+	$sort = isset($_GET['sort']) ? $_GET['sort'] : 'date';
+	while( $object = mysql_fetch_object( $result ) )
+	{
+		echo "<li class='lsp-category'><a class='category' href='".htmlentities ($LSP_URL."?action=browse&category=".$object->name)."&sort=".$sort."'>".
+			$object->name." <span class='count'>(".$object->cnt.")</span></a></li>";
+		if( isset( $_GET["category"] ) && $_GET["category"] == $object->name )
+		{
+			$cat = $_GET["category"];
+			// This is terribly inefficient!
+			//$catid = get_category_id( $object->name );
+			$catid = $object->id;
+//			$res2 = mysql_query( "SELECT name FROM subcategories WHERE category='".$catid."'" );
+			$res2 = mysql_query( 
+				"SELECT subcategories.name AS name, COUNT(files.id) AS cnt FROM subcategories ".
+				"LEFT JOIN files ON files.subcategory = subcategories.id AND files.category='$catid' ".
+				"WHERE subcategories.category='$catid' ". 
+				"GROUP BY subcategories.name ".
+				"ORDER BY subcategories.name ");
+			debug("SELECT subcategories.name AS name, COUNT(files.id) AS cnt FROM subcategories ".
+				"LEFT JOIN files ON files.subcategory = subcategories.id AND files.category='$catid' ".
+				"WHERE subcategories.category='$catid' ". 
+				"GROUP BY subcategories.name ".
+				"ORDER BY subcategories.name ");
+			echo "<div class='selected'>";
+	echo mysql_error();
+			echo '<ul class="lsp-subcategory">';
+			while( $object2 = mysql_fetch_object( $res2 ) )
+			{
+				echo "<li class='lsp-subcategory'><a class='subcategory";
+                                if( $object2->name == @$_GET["subcategory"] )
+                                {
+                                        echo " selected";
+                                }
+				echo "' href=\"".htmlentities ($LSP_URL."?action=browse&category=$cat&subcategory=".$object2->name."&sort=".$sort)."\"> ";
+				echo $object2->name." <span class='count'>(".$object2->cnt.")</span></a></li>";
+			}
+			mysql_free_result( $res2 );
+			echo "</ul></div>";
+		}
+	}
+	mysql_free_result( $result );
+	echo '</ul>';
+}
+
 
 
 

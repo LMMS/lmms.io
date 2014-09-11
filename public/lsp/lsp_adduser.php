@@ -5,7 +5,7 @@ global $LSP_URL;
 /*
  * Adds the specified user to the database
  */
-function add_user($login , $pass, $pass2, $realname, $is_admin) {
+function try_add_user($login , $pass, $pass2, $realname, $is_admin) {
 	$message = '';
 	$class = 'warning';
 	$return_val = false;
@@ -19,7 +19,7 @@ function add_user($login , $pass, $pass2, $realname, $is_admin) {
 		$message = "The user <strong>$login</strong> already exists.";
 		$class = 'danger';
 	} else {
-		myadd_user($login, $realname, $pass, $is_admin);
+		add_user($login, $realname, $pass, $is_admin);
 		$message = "<strong>$login</strong> has been successfully created";
 		$class = 'success';
 		$return_val = true;
@@ -36,7 +36,7 @@ $isadmin = (POST_EMPTY("isadmin")) ? true : false;
 /*
  * Create the HTML form used for registration
  */
-if ((POST("adduser") != "Create") || (!add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), $isadmin))) {
+if ((POST("adduser") != "Create") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), $isadmin))) {
 	echo '<div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Create account</h3></div>';
 	echo '<div class="panel-body">';
 	$form = new form($LSP_URL . "?action=register");
@@ -51,7 +51,7 @@ if ((POST("adduser") != "Create") || (!add_user(POST("login"), POST("password"),
 	echo '<input type="password" name="password2" class="form-control textin" maxlength="15" placeholder="confirm password" />';
 	echo '</div>';
 	//print_r ($_SERVER);
-	if (myis_admin(get_user_id(SESSION()))) {
+	if (is_admin(get_user_id(SESSION()))) {
 		echo '<div class="checkbox"><label><input type="checkbox" name="isadmin" />Is administrator</label></div>';
 	}
 	echo '<input type="submit" class="btn btn-primary" name="adduser" value="Create" />';

@@ -3,7 +3,7 @@
 //if(get_user_id(SESSION()) == get_object_by_id("files", $_GET['file'], "user_id"))
 if( isset( $_SESSION["remote_user"] ) &&
 		( get_user_id( $_SESSION["remote_user"] ) == get_file_owner( $_GET["file"] ) ||
-			myis_admin( get_user_id( $_SESSION["remote_user"] ) ) ) )
+			is_admin( get_user_id( $_SESSION["remote_user"] ) ) ) )
 {
 	if( $_GET["confirmation"] == "true" )
 	{

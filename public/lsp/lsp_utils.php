@@ -3,25 +3,25 @@
 /*
  * Prevent PHP warnings by first checking to see if a variable is set, or returns null
  */
-function GET($var) {
+function GET($var, $default_val = null) {
 	if (!GET_EMPTY($var)) {
 		return $_GET[$var];
 	}
-	return null;
+	return $default_val;
 }
 
-function SESSION($var = 'remote_user') {
+function SESSION($var = 'remote_user', $default_val = null) {
 	if (!SESSION_EMPTY($var)) {
 		return $_SESSION[$var];
 	}
-	return null;
+	return $default_val;
 }
 
-function POST($var) {
+function POST($var, $default_val = null) {
 	if (!POST_EMPTY($var)) {
 		return $_POST[$var];
 	}
-	return null;
+	return $default_val;
 }
 
 /*
@@ -101,6 +101,28 @@ function list_sort_options($query_prefix = '') {
 		echo '<a href="' . $LSP_URL . '?' . $query_prefix . rebuild_url_query('sort', $s) . '">' . $v . '</a></li>';
 	}
 	echo '</ul>';
+}
+
+/*
+ * Rebuilds the current URL into a new URL to be used in a link
+ * replacing the specified key with a new key.
+ */
+function rebuild_url_query($key, $value) {
+	if (GET_EMPTY($key)) {
+		return '';
+	}
+	$old = GET($key);
+	$_GET[$key] = $value;
+	$new_query = array();
+	foreach($_GET as $k => $v) {
+		array_push($new_query, $k . "=" . $v);
+	}
+	$_GET[$key] = $old;
+	return implode("&amp;", $new_query);
+}
+
+function file_show_query_string() {
+	return 'action=show&file=' . GET("file");
 }
 
 ?>

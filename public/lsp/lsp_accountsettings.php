@@ -1,6 +1,6 @@
 <?php
 
-function applySettings( $pass, $pass2, $realname )
+function apply_settings( $pass, $pass2, $realname )
 {
 	if( $pass != $pass2 )
 	{ 
@@ -9,7 +9,7 @@ function applySettings( $pass, $pass2, $realname )
 	}
 	else
 	{
-		mychange_user( $_SESSION["remote_user"], $realname,$pass );
+		change_user( $_SESSION["remote_user"], $realname,$pass );
 		echo "<br /><span style=\"font-weight:bold; color:#0a0;\">Your account settings have been updated</span>";
 		return TRUE;
 	}
@@ -19,7 +19,7 @@ function applySettings( $pass, $pass2, $realname )
 
 
 if( ( $_POST["settings"] != "apply" ) ||
-	( !applySettings( $_POST["password"], $_POST["password2"], $_POST["realname"] ) ) )
+	( !apply_settings( $_POST["password"], $_POST["password2"], $_POST["realname"] ) ) )
 {
 	echo "<h2>Change account</h2>\n";
 	$form = new form( $LSP_URL."?account=settings" );
