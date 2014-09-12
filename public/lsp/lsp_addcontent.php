@@ -59,7 +59,7 @@ if( isset( $_SESSION["remote_user"] ) )
 					echo "</select></td></tr>\n";
 				 
 					echo '<tr><td>License:</td><td><select name="license" />'."\n";
-					get_licenses();
+					echo get_licenses();
 					echo "</select></td></tr></table>\n";
 				 
 					echo '<br />Description: <br /><textarea cols="50" rows="20" name="description">'."\n";

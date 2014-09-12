@@ -17,7 +17,7 @@ if (get_user_id(SESSION()) == get_object_by_id("files", GET('file'), 'user_id'))
 		echo $cats;
 		echo "</select></td></tr>\n";
 		echo '<tr><td>License:</td><td><select name="license" />'."\n";
-		get_licenses( get_license_name( get_file_license( $_GET["file"] ) ) );
+		echo get_licenses( get_license_name( get_file_license( $_GET["file"] ) ) );
 		echo "</select></td></tr></table>\n";
 			 
 		echo '<br />Description: <br /><textarea cols="50" rows="20" name="description">'."\n";

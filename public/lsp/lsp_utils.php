@@ -82,12 +82,15 @@ function set_get_post($param, $default = null) {
  * Creates a sort-by tool-bar at the top of the file listing
  * i.e. DATE, DOWNLOADS, RATING
  */
-function list_sort_options($query_prefix = '') {
+function list_sort_options($query_prefix = '', $additional_html = '') {
 	global $LSP_URL;
 	$sortings = array(
 		'date' => '<span class="fa fa-calendar"></span>&nbsp;DATE',
 		'downloads' => '<span class="fa fa-download"></span>&nbsp;DOWNLOADS',
-		'rating' => '<span class="fa fa-star"></span>&nbsp;RATING' );
+		'rating' => '<span class="fa fa-star"></span>&nbsp;RATING' //,
+		// TODO:  Add comment sorting support
+		//'comments' => '<span class="fa fa-comment"></span>&nbsp;COMMENTS'
+	);
 	
 	// Get the active sort, or use 'date' if none is defined
 	if (GET_EMPTY('sort')) {
@@ -100,6 +103,11 @@ function list_sort_options($query_prefix = '') {
 		echo '<li class="' . (GET('sort') == $s ? 'active' : '') . '">';
 		echo '<a href="' . $LSP_URL . '?' . $query_prefix . rebuild_url_query('sort', $s) . '">' . $v . '</a></li>';
 	}
+	
+	if ($additional_html != '') {
+		echo '<li style="margin-left: 2em; margin-top:-1em;">' . $additional_html . '</li>';
+	}
+	
 	echo '</ul>';
 }
 
@@ -124,5 +132,108 @@ function rebuild_url_query($key, $value) {
 function file_show_query_string() {
 	return 'action=show&file=' . GET("file");
 }
+
+/*
+ * For show-file page, creates a <li> for Comment/Edit/Delete/Rate tool-bar
+ * with tool-tip text "Login to Comment", etc.
+ */
+function create_toolbar_item($text, $href = '#', $font_awesome = '', $enabled = true) {
+	$href = $enabled ? htmlentities($href) : '#';
+	$tooltip = $enabled ? '' : 'Login to ' . strtolower(sanitize(remove_after_lt($text)));
+	$font_awesome = $font_awesome == '' ? '' : 'fa ' . $font_awesome;
+	echo '<li class="' . ($enabled ? '' : 'disabled') . '"><a class="pull-left" href="' . $href . '" title="' . $tooltip . '"><span class="' . $font_awesome . '"></span>&nbsp;' . $text . '</a></li>';
+}
+
+/*
+ * For show-file page, creates 5 stars which may be click-able to set file rating
+ */
+function get_stars($fid = -1, $href = '#', $font_awesome = '', $enabled = true) {
+	$ret_val = 'Rate:' . ($enabled ? '' : '&nbsp; &nbsp;');
+	$urating =  SESSION_EMPTY() ? get_user_rating($fid, SESSION()) : -1;
+	$font_awesome = ($font_awesome = '' ? '' : 'fa ' . $font_awesome);
+	$title = $enabled ? '' : 'Login to rate';
+	$href = $enabled ? htmlentities($href) : '#';
+	for( $i = 1; $i < 6; ++$i ) {
+		$ret_val .= ($enabled ? '<a href="' . ($href == '#' ? '#' : $href . $i) . '" class="clearfix pull-left lsp-ratelink" ' : '<span class="lsp-ratelink" ');
+		$ret_val .=  'title="' . $title . '">';	
+		$ret_val .= '<span class="' . ($urating == $i ? 'text-primary ' : '') . $font_awesome . '"></span>';
+		$ret_val .= ($enabled ? '</a>' : '</span>');
+	}
+	return $ret_val;
+}
+
+/*
+ * Creates a bread-crumb style title for the table content
+ * i.e All Content > Projects > Tutorials
+ */
+function create_title($array) {
+	global $LSP_URL;
+	if (!is_array($array)) {
+		$array = array($array);
+	} else {
+		$one_element = one_element($array);
+		if ($one_element) {
+			$array = array($one_element);
+		}
+	}
+	
+	$title = "<a href=\"$LSP_URL\">All Content</a>";
+	foreach ($array as $element) {
+		if (isset($element) && trim($element) != '' && trim($element) != '""') {
+			$title .= '&nbsp;&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;&nbsp;';
+			$title .= trim($element);
+		}
+	}
+	echo '<h3 class="lsp-title">' . $title . '</h3>';
+}
+
+/*
+ * Returns the single element of an array
+ * where only one element is not empty (null, or trimmed to blank)
+ * or false if this does not apply
+ */
+function one_element($array) {
+	if (is_array($array)) {
+		$count = 0;
+		foreach ($array as $element) {
+			if (isset($element) && trim($element) != '' && trim($element) != '""') {
+				$count++;
+			}
+		}
+		if ($count == 1) {
+			foreach ($array as $element) {
+				if (isset($element) && trim($element) != '' && trim($element) != '""') {
+					return $element;
+				}
+			}
+		}
+	}
+	return false;
+}
+
+
+/*
+ * Return a very basic "pagination" area for paging between search results
+ * TODO:  Add <, 1, 2, ... 44, 45, 46, > support rather than listing all 46 pages.
+ */
+function get_pagination($count) {
+	global $PAGE_SIZE, $LSP_URL;
+	$category = GET('category');
+	$subcategory = GET('subcategory');
+	$sort = GET('sort');
+	$pagination = '';
+	$pagination .= '<div class="lsp-pagination center"><ul class="pagination pagination-sm">';
+	$pages = $count / $PAGE_SIZE;
+	$page = GET('page', 0);
+	if ($pages > 1) {
+		for($j=0; $j < $count / $PAGE_SIZE; ++$j ) {
+			$class = $j==$page ? 'active' : '';
+			$pagination .= '<li class="' . $class . '"><a href=' . $LSP_URL . "?action=browse&amp;category=$category&amp;subcategory=$subcategory&amp;page=$j&amp;sort=$sort>" . ($j+1) . '</a></li>';
+		}
+	}
+	$pagination .= '</ul></div>';
+	return $pagination;
+}
+
 
 ?>

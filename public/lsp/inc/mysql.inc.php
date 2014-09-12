@@ -154,6 +154,10 @@ function get_id_by_object($table, $field, $object) {
 	}
 }
 
+/*
+ * Gets the latest uploads and displays them in a table.
+ * This is the default contents of the index.php page.
+ */
 function get_latest() {
 	global $PAGE_SIZE;
 	$dbh = &get_db();
@@ -240,7 +244,11 @@ function is_admin($uid) {
 	return get_object_by_id("users", $uid, "is_admin");
 }
 
-function add_user($login, $realname, $pass, $is_admin) {
+/*
+ * Adds a user to the database with LSP add/edit access identified by 
+ * $login, $realname, $password, $is_admin
+ */
+function add_user($login, $realname, $pass, $is_admin = false) {
 	$dbh = &get_db();
 	$stmt = $dbh->prepare('INSERT INTO users(login, realname, password, is_admin) VALUES(:login, :realname, SHA1(:password), :is_admin)');
 	debug("INSERT INTO users(login, realname, password, is_admin) VALUES($login, $realname, SHA1($pass), $is_admin)");
@@ -274,21 +282,6 @@ function add_user($login, $realname, $pass, $is_admin) {
 	$stmt = null;
 	$dbh = null;
  }
-
-/*
- * Convenience Functions
- */
-function get_user_id($login) { return get_id_by_object( "users", "login", $login ); }
-function get_user_realname( $login ) { return get_object_by_id( "users", get_user_id($login), 'realname' ); }
-function get_file_name($file_id){ return(get_object_by_id("files", $file_id, "filename")); }
-function get_file_owner($file_id) {	return(get_object_by_id("files", $file_id, "user_id")); }
-function get_file_description($file_id) { return(get_object_by_id("files", $file_id, "description")); }
-function get_file_license($file_id) { return( get_object_by_id("files", $file_id, "license_id")); }
-function get_comment_count( $file_id ) { return( get_object_by_id( "comments", $file_id, "1", "file_id", "count" ) ); }
-function get_category_id($cat) { return(get_id_by_object("categories", "name", $cat)); }
-function get_subcategory_id($cat) { return(get_id_by_object("subcategories", "name", $cat)); }
-function get_license_id($license) {	return( get_id_by_object("licenses", "name", $license)); }
-function get_license_name($lid) { return( get_object_by_id("licenses", $lid, "name")); }
 
 /*
  * Get list of top level categories
@@ -360,7 +353,9 @@ function get_subcategories($category, $id) {
  * Returns <option> tags for each category-subcategory pair found in the database
  * containing references to the supplied file extension.
  * Usage:
- * 		get_categories_for_ext('.mmpz', 'Projects-Ambient');
+ * 		echo get_categories_for_ext('.mmpz', 'Projects-Ambient');
+ *		// or
+ *		echo get_categories_for_ext('.mmpz');
  *
  */
 function get_categories_for_ext($extension, $default = '') {
@@ -382,106 +377,105 @@ function get_categories_for_ext($extension, $default = '') {
 			$html .= "<option $selected>$fullname</option>";
 		}
 	}
+	$stmt = null;
+	$dbh = null;
 	return $html;
 }
- 
 
-function get_categories_for_ext_old( $ext, $default = "" )
-{
-	$cats = '';
-	connectdb();
-	$result = mysql_query( 'SELECT categories.name AS catname, subcategories.name AS subcatname FROM filetypes INNER JOIN categories ON categories.id=filetypes.category INNER JOIN subcategories ON subcategories.category=categories.id WHERE extension LIKE \''.mysql_real_escape_string( $ext ).'\' ORDER BY categories.name, subcategories.name' );
-	if( mysql_num_rows( $result ) > 0 )
-	{ 
-		while( $object = mysql_fetch_object( $result ) )
-		{
-			$fullname = $object->catname.'-'.$object->subcatname;
-			if( $fullname == $default )
-			{
-				$def = ' selected';
-			}
-			else
-			{
-				$def = '';
-			}
-			$cats .= '<option'.$def.'>'.$fullname.'</option>'."\n";
+/*
+ * Returns <option> tags for each license found in the database
+ * Usage:
+ * 		echo get_licenses('BSD');
+ *		// or
+ *		echo get_licenses();
+ */
+function get_licenses($default = '') {
+	$dbh = &get_db();
+	$stmt = $dbh->prepare('SELECT name FROM licenses');
+	$html = '';
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$name = $object['name'];
+			$selected = strtolower($name) == strtolower($default) ? 'selected' : '';
+			$html .= "<option $selected>$name</option>";
 		}
-		mysql_free_result( $result );
-		return( $cats );
 	}
-	return( FALSE );
+	$stmt = null;
+	$dbh = null;
+	return $html;
 }
 
-
-function get_licenses( $default = "" )
-{
-	connectdb();
-	$result = mysql_query( 'SELECT name FROM licenses' );
-
-	while( $object = mysql_fetch_object( $result ) )
-	{
-		if( $object->name == $default )
-		{
-			$def = ' selected';
-		}
-		else
-		{
-			$def = '';
-		}
-		echo '<option'.$def.'>'.$object->name.'</option>'."\n";
-	}
-	mysql_free_result( $result );
-}
-
-
-
-
-
-
-function get_comments($fid, $f) {
+/*
+ * Returns a list of <blockquote> items containing all comments for a particular file
+ * with all comments made by the owner of said file in an alternate style
+ */
+function get_comments($file_id) {
 	global $LSP_URL;
-	connectdb();
-	$q = sprintf( "SELECT users.realname,users.login,date,text FROM comments INNER JOIN users ON users.id=comments.user_id WHERE file_id='%s' ORDER BY date", $fid );
-	$result = mysql_query( $q );
-	$out = '';
- 	while ($object = mysql_fetch_object($result)) {
-		$strong = $object->login == $f->login;
-		$name = '<a href="' . $LSP_URL . '?action=browse&amp;user=' . $object->login . '">' . $object->login . '</a>';
-  		$out .= '<tr><td colspan="2">';
-		// Bold the comment if it's from the author
-		$out .= ($strong ? '<strong>' : '');
-		$out .= '<blockquote>'.htmlspecialchars($object->text, ENT_COMPAT, 'UTF-8')."";
-		$out .= ($strong ? '</strong>' : '');
-		$out .= '<small class="lsp-small">Posted by: ' . $name . ' on ' . $object->date . '</small></blockquote></tr></td>';
- 	}
-	echo (strlen($out) ? $out : '<tr><td colspan="2"><p class="text-muted">No comments yet</p></td></tr>');
-	mysql_free_result( $result );
-}
-
-
-
-function get_file_category($fid) {
- 	connectdb();
- 	$q = sprintf( "SELECT categories.name FROM files INNER JOIN categories ON categories.id=files.category WHERE files.id='%s'", mysql_real_escape_string( $fid ) );
- 	$result = mysql_query( $q );
- 	$object = mysql_fetch_object( $result );
- 	mysql_free_result( $result );
- 	return $object->name;
-}
-
-function get_file_subcategory($fid) {
- 	connectdb();
- 	$q = sprintf( "SELECT subcategories.name FROM files INNER JOIN subcategories ON subcategories.id=files.subcategory WHERE files.id='%s'", mysql_real_escape_string( $fid ) );
- 	$result = mysql_query( $q );
- 	$object = mysql_fetch_object( $result );
- 	mysql_free_result( $result );
- 	return $object->name;
-}
-
-
-function get_results( $cat, $subcat, $sort = '', $search = '' )
-{
+	$dbh = &get_db();
+	$stmt = $dbh->prepare(
+		'SELECT users.realname, users.login, comments.user_id as commentuser, ' . 
+		'files.user_id as fileuser, date,text FROM comments ' . 
+		'INNER JOIN users ON users.id=comments.user_id ' . 
+		'INNER JOIN files ON files.id=comments.file_id ' . 
+		'WHERE file_id=:file_id ORDER BY date'
+	);
+	$stmt->bindParam(':file_id', $file_id);
+	$html = '';
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$comment = htmlspecialchars($object['text'], ENT_COMPAT, 'UTF-8');
+			// Bold comments made by the original author
+			$comment = ($object['commentuser'] == $object['fileuser']) ? "<strong>$comment</strong>" : $comment;
+			$html .= '<tr><td colspan="2">';
+			$html .= "<blockquote>$comment" .
+				'<small class="lsp-small">Posted by: ' . '<a href="' . $LSP_URL . '?action=browse&amp;user=' . 
+				$object['login'] . '">' . $object['login'] . '</a>' . ' on ' . $object['date'] . '</small></blockquote></tr></td>';
+		}
+	}
 	
+	echo strlen($html) ? $html : '<tr><td colspan="2"><p class="text-muted">No comments yet</p></td></tr>';
+	
+	$stmt = null;
+	$dbh = null;
+}
+
+/*
+ * Returns the category name (i.e. "Presets") for the given file id
+ */
+function get_file_category($file_id) {
+	global $LSP_URL;
+	$dbh = &get_db();
+	$stmt = $dbh->prepare('SELECT categories.name FROM files INNER JOIN categories ON categories.id=files.category WHERE files.id=:file_id');
+	$stmt->bindParam(':file_id', $file_id);
+	$return_val = null;
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$return_val = $object['name'];
+			break;
+		}
+	}
+	return $return_val;
+}
+
+/*
+ * Returns the subcategory name (i.e. "Basses") for the given file id
+ */
+function get_file_subcategory($file_id) {
+	global $LSP_URL;
+	$dbh = &get_db();
+	$stmt = $dbh->prepare('SELECT subcategories.name FROM files INNER JOIN subcategories ON subcategories.id=files.subcategory WHERE files.id=:file_id');
+	$stmt->bindParam(':file_id', $file_id);
+	$return_val = null;
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$return_val = $object['name'];
+			break;
+		}
+	}
+	return $return_val;
+}
+
+function get_results( $cat, $subcat, $sort = '', $search = '' ) {	
 	$q = $search;
 	$search = @mysql_real_escape_string($search);
 	global $PAGE_SIZE;
@@ -515,12 +509,11 @@ function get_results( $cat, $subcat, $sort = '', $search = '' )
 		"INNER JOIN subcategories ON subcategories.id=files.subcategory ".
 		"INNER JOIN users ON users.id=files.user_id ".
 		$where), 0, 0);
-
 	if( $count > 0 ) {
 		$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
 		$req .= "files.downloads*files.downloads/(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day,";
 		$req .= "files.downloads AS downloads,";
-		$req .= "insert_date,update_date,description,AVG(ratings.stars) as rating FROM files ";
+		$req .= "insert_date,update_date,description, AVG(ratings.stars) as rating FROM files ";
 		$req .= "INNER JOIN categories ON categories.id=files.category ";
 		$req .= "INNER JOIN subcategories ON subcategories.id=files.subcategory ";
 		$req .= "INNER JOIN users ON users.id=files.user_id ";
@@ -534,7 +527,11 @@ function get_results( $cat, $subcat, $sort = '', $search = '' )
 		}
 		else if( $sort == 'rating' )
 		{
-			$req .= "ORDER BY rating DESC,COUNT(ratings.file_id) DESC ";
+			$req .= "ORDER BY rating DESC, COUNT(ratings.file_id) DESC ";
+		}
+		else if ( $sort == 'comments' )
+		{
+			//FIXME TODO: Add support for sorting by comment popularity
 		}
 		else
 		{
@@ -552,22 +549,13 @@ function get_results( $cat, $subcat, $sort = '', $search = '' )
 		}
 		echo'</table></div>';
 
-		echo '<div class="lsp-pagination center"><ul class="pagination pagination-sm">';
-		$pages = $count / $PAGE_SIZE;
-		if ($pages > 1) {
-			for($j=0; $j < $count / $PAGE_SIZE; ++$j ) {
-				$class = $j==$page ? 'active' : '';
-				echo '<li class="' . $class . '"><a href=' . $LSP_URL . "?action=browse&amp;category=$cat&amp;subcategory=$subcat&amp;page=$j&amp;sort=$sort>" . ($j+1) . '</a></li>';
-			}
-		}
-		echo '</ul></div>';
+		echo get_pagination($count);
 		mysql_free_result( $result );
 	}
 	else {
 		echo '<h3 class="text-muted">No results.</h3>';
 	}
 }
-
 
 function show_user_content( $user ) {
 	$uid = get_user_id( $user );
@@ -618,9 +606,12 @@ function insert_category ($fext,$cat)
   }
 
 
+/*
+ * File information displayed in a table row, used on most pages which show file information
+ */
 function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) {
 	global $LSP_URL;
-	$sort = GET_EMPTY('sort') ? 'date' : GET('sort');
+	$sort = GET('sort', 'date');
 	echo '<tr class="file"><td><div class="overflow-hidden">';
 	
 	if ($browsing_mode) {
@@ -644,22 +635,29 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 		echo "<div><b>Submitted:</b>&nbsp;$rs[insert_date]</div>";
 		echo "<b>Updated:</b>&nbsp;$rs[update_date]<br>";
 	}
-	// TODO FIXME why is this zero when searching by user?
-	$downloads = isset($rs['downloads']) ? $rs['downloads'] : 0;
+	
+	/*
+	 * Fill any missing fields.
+	 * TODO:  If the queries were prepared properly, we wouldn't have to do this!
+	 */
+	$rs['comments'] = isset($rs['comments']) ? $rs['comments'] : get_file_comment_count($rs['id']);
+	$rs['rating_count'] = isset($rs['rating_count']) ? $rs['rating_count'] : get_file_rating_count($rs['id']);
+	$rs['rating'] = isset($rs['rating']) ? $rs['rating'] : get_file_rating($rs['id']);
+	$rs['downloads'] = isset($rs['downloads']) ? $rs['downloads'] : get_file_downloads($rs['id']);
+	
+	$downloads = $rs['downloads'];
 	echo "<b>Popularity: </b><span class=\"lsp-badge badge\"><span class=\"fa fa-download\"></span>&nbsp;" . $downloads . "</span> ";
-	echo "<span class=\"lsp-badge badge\"><span class=\"fa fa-comments\"></span>&nbsp;" . get_comment_count($rs['id']) . "</span><br>";
+	echo "<span class=\"lsp-badge badge\"><span class=\"fa fa-comments\"></span>&nbsp;" . $rs['comments'] . "</span><br>";
 	echo "<b>Rating:</b> ";
-
-	$rating = get_file_rating($rs['id']);
+	
+	$rating = isset($rs['rating']) ? $rs['rating'] : get_file_rating($rs['id']);
 	for ($i = 1; $i <= $rating ; ++$i) {
 		echo '<span class="fa fa-star lsp-star"></span>';
 	}
 	for ($i = $rating+1; floor( $i )<=5 ; ++$i) {
 		echo '<span class="fa fa-star-o lsp-star-o"></span>';
 	}
-	//echo ' ('.round(20*$rating).'%,'; // Percentage is quite redundant
-	echo '&nbsp;<span class="lsp-badge badge"><span class="fa fa-check-square-o"></span>&nbsp;'.get_file_rating_count($rs['id']).'</span>';
-	//echo "<br><b>Downloads:</b> ".$rs->downloads."<br />\n";
+	echo '&nbsp;<span class="lsp-badge badge"><span class="fa fa-check-square-o"></span>&nbsp;'. $rs['rating_count'].'</span>';
 	echo '</small></td></tr>';
 }
 
@@ -676,12 +674,15 @@ function show_basic_file_info_old($rs, $browsing_mode = false, $show_author = tr
 	$wrapper['filename'] = $rs->filename;
 	$wrapper['realname'] = $rs->realname;
 	$wrapper['license'] = $rs->license;
+	$wrapper['comments'] = isset($rs->comments) ? $rs->comments : null;
+	$wrapper['rating'] = isset($rs->rating) ? $rs->rating : null;
 	$wrapper['insert_date'] = $rs->insert_date;
 	$wrapper['category'] = $rs->category;
 	$wrapper['subcategory'] = $rs->subcategory;
 	$wrapper['insert_date'] = $rs->insert_date;
 	$wrapper['update_date'] = $rs->update_date;
-	$wrapper['downloads'] = isset($rs->downloads) ? $rs->downloads : 0;
+	$wrapper['rating_count'] = isset($rs->rating_count) ? $rs->rating_count : null;
+	$wrapper['downloads'] = isset($rs->downloads) ? $rs->downloads : null;
 	return show_basic_file_info($wrapper, $browsing_mode, $show_author);
 }
 
@@ -717,7 +718,7 @@ function show_file( $fid, $user )
 	$f = mysql_fetch_object( $res );
 
 	echo '<div class="col-md-9">';
-	create_title(array($f->category, $f->subcategory, $f->filename));
+	create_title(array($f->category, $f->subcategory, "($f->filename)"));
 	echo '<table class="table table-striped">';
 	show_basic_file_info_old( $f, FALSE );
 	
@@ -745,7 +746,8 @@ function show_file( $fid, $user )
 	echo '</ul></nav>';
 	echo '<strong>Comments:</strong>';
 	echo '</td></tr>';
-	get_comments($fid, $f);
+	get_comments($fid);
+	//get_comments_old($fid, $f);
 	echo'</table></div>';
 	
 	mysql_free_result ($res);	
@@ -776,29 +778,6 @@ function show_file( $fid, $user )
 
 
 }
-
-function create_toolbar_item($text, $href = '#', $font_awesome = '', $enabled = true) {
-	$href = $enabled ? htmlentities($href) : '#';
-	$tooltip = $enabled ? '' : 'Login to ' . strtolower(sanitize(remove_after_lt($text)));
-	$font_awesome = $font_awesome == '' ? '' : 'fa ' . $font_awesome;
-	echo '<li class="' . ($enabled ? '' : 'disabled') . '"><a class="pull-left" href="' . $href . '" title="' . $tooltip . '"><span class="' . $font_awesome . '"></span>&nbsp;' . $text . '</a></li>';
-}
-
-function get_stars($fid = -1, $href = '#', $font_awesome = '', $enabled = true) {
-	$ret_val = 'Rate:' . ($enabled ? '' : '&nbsp; &nbsp;');
-	$urating =  SESSION_EMPTY() ? get_user_rating($fid, SESSION()) : -1;
-	$font_awesome = ($font_awesome = '' ? '' : 'fa ' . $font_awesome);
-	$title = $enabled ? '' : 'Login to rate';
-	$href = $enabled ? htmlentities($href) : '#';
-	for( $i = 1; $i < 6; ++$i ) {
-		$ret_val .= ($enabled ? '<a href="' . ($href == '#' ? '#' : $href . $i) . '" class="clearfix pull-left lsp-ratelink" ' : '<span class="lsp-ratelink" ');
-		$ret_val .=  'title="' . $title . '">';	
-		$ret_val .= '<span class="' . ($urating == $i ? 'text-primary ' : '') . $font_awesome . '"></span>';
-		$ret_val .= ($enabled ? '</a>' : '</span>');
-	}
-	return $ret_val;
-}
-
 
 
 function get_user_rating( $fid, $user ) {
@@ -863,18 +842,6 @@ function update_rating( $fid, $stars, $user )
 	 	connectdb();
 	 	mysql_query ($req);
 	}
-}
-
-
-function get_file_rating_count( $fid )
-{
-	return( get_object_by_id( "ratings", $fid, "1", "file_id", "count" ) );
-}
-
-
-function get_file_rating( $fid )
-{
-	return( get_object_by_id( "ratings", $fid, "stars", "file_id", "avg" ) );
 }
 
 
@@ -963,11 +930,34 @@ function add_visitor_comment( $file, $comment, $user)
 	}
 }
 
+
+/*
+ * Convenience Functions
+ */
+function get_user_id($login) { return get_id_by_object("users", "login", $login); }
+function get_user_realname($login) { return get_object_by_id("users", get_user_id($login), 'realname'); }
+function get_file_name($file_id){ return get_object_by_id("files", $file_id, "filename"); }
+function get_file_owner($file_id) {	return get_object_by_id("files", $file_id, "user_id"); }
+function get_file_description($file_id) { return get_object_by_id("files", $file_id, "description"); }
+function get_file_license($file_id) { return( get_object_by_id("files", $file_id, "license_id")); }
+function get_file_comment_count($file_id) { return get_object_by_id("comments", $file_id, "1", "file_id", "count"); }
+function get_file_rating_count($file_id) { return get_object_by_id("ratings", $file_id, "1", "file_id", "count"); }
+function get_file_rating($file_id) { return get_object_by_id("ratings", $file_id, "stars", "file_id", "avg"); }
+function get_file_downloads($file_id) { return( get_object_by_id("files", $file_id, "downloads")); }
+function get_category_id($cat) { return get_id_by_object("categories", "name", $cat); }
+function get_subcategory_id($cat) { return get_id_by_object("subcategories", "name", $cat); }
+function get_license_id($license) {	return  get_id_by_object("licenses", "name", $license); }
+function get_license_name($lid) { return get_object_by_id("licenses", $lid, "name"); }
+
+
+
+
 /********************************************************************
                         OLD FUNCTIONS
 				THESE WILL EVENTUALLY BE REMOVED
 ********************************************************************/
  
+
 
 function connectdb() 
 {
@@ -976,6 +966,79 @@ function connectdb()
 		@mysql_connect( $DB_HOST, $DB_USER, $DB_PASS );
 		mysql_select_db( $DB_DATABASE );
 }
+
+
+
+function get_comments_old($fid, $f) {
+	global $LSP_URL;
+	connectdb();
+	$q = sprintf( "SELECT users.realname,users.login,date,text FROM comments INNER JOIN users ON users.id=comments.user_id WHERE file_id='%s' ORDER BY date", $fid );
+	$result = mysql_query( $q );
+	$out = '';
+ 	while ($object = mysql_fetch_object($result)) {
+		$strong = $object->login == $f->login;
+		$name = '<a href="' . $LSP_URL . '?action=browse&amp;user=' . $object->login . '">' . $object->login . '</a>';
+  		$out .= '<tr><td colspan="2">';
+		// Bold the comment if it's from the author
+		$out .= ($strong ? '<strong>' : '');
+		$out .= '<blockquote>'.htmlspecialchars($object->text, ENT_COMPAT, 'UTF-8')."";
+		$out .= ($strong ? '</strong>' : '');
+		$out .= '<small class="lsp-small">Posted by: ' . $name . ' on ' . $object->date . '</small></blockquote></tr></td>';
+ 	}
+	echo (strlen($out) ? $out : '<tr><td colspan="2"><p class="text-muted">No comments yet</p></td></tr>');
+	mysql_free_result( $result );
+}
+
+
+
+
+function get_licenses_old( $default = "" )
+{
+	connectdb();
+	$result = mysql_query( 'SELECT name FROM licenses' );
+
+	while( $object = mysql_fetch_object( $result ) )
+	{
+		if( $object->name == $default )
+		{
+			$def = ' selected';
+		}
+		else
+		{
+			$def = '';
+		}
+		echo '<option'.$def.'>'.$object->name.'</option>'."\n";
+	}
+	mysql_free_result( $result );
+}
+ 
+
+function get_categories_for_ext_old( $ext, $default = "" )
+{
+	$cats = '';
+	connectdb();
+	$result = mysql_query( 'SELECT categories.name AS catname, subcategories.name AS subcatname FROM filetypes INNER JOIN categories ON categories.id=filetypes.category INNER JOIN subcategories ON subcategories.category=categories.id WHERE extension LIKE \''.mysql_real_escape_string( $ext ).'\' ORDER BY categories.name, subcategories.name' );
+	if( mysql_num_rows( $result ) > 0 )
+	{ 
+		while( $object = mysql_fetch_object( $result ) )
+		{
+			$fullname = $object->catname.'-'.$object->subcatname;
+			if( $fullname == $default )
+			{
+				$def = ' selected';
+			}
+			else
+			{
+				$def = '';
+			}
+			$cats .= '<option'.$def.'>'.$fullname.'</option>'."\n";
+		}
+		mysql_free_result( $result );
+		return( $cats );
+	}
+	return( FALSE );
+}
+
 
 function get_object_by_id_old( $table, $id, $field, $id_field = "id" )
 {
@@ -1158,62 +1221,25 @@ echo mysql_error();
 	echo '</ul>';
 }
 
-
-
-
-/********************************************************************
-                        UTILITY FUNCTIONS
-		THESE SHOULD BE MOVED TO A SEPARATE SHARED FILE
-********************************************************************/
  
-
-/*
- * Creates a bread-crumb style title for the table content
- * i.e All Content > Projects > Tutorials
- */
-function create_title($array) {
-	global $LSP_URL;
-	if (!is_array($array)) {
-		$array = array($array);
-	} else {
-		$one_element = one_element($array);
-		if ($one_element) {
-			$array = array($one_element);
-		}
-	}
-	
-	$title = "<a href=\"$LSP_URL\">All Content</a>";
-	foreach ($array as $element) {
-		if (isset($element) && trim($element) != '' && trim($element) != '""') {
-			$title .= '&nbsp;&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;&nbsp;';
-			$title .= trim($element);
-		}
-	}
-	echo '<h3 class="lsp-title">' . $title . '</h3>';
+ 
+function get_file_category_old($fid) {
+ 	connectdb();
+ 	$q = sprintf( "SELECT categories.name FROM files INNER JOIN categories ON categories.id=files.category WHERE files.id='%s'", mysql_real_escape_string( $fid ) );
+ 	$result = mysql_query( $q );
+ 	$object = mysql_fetch_object( $result );
+ 	mysql_free_result( $result );
+ 	return $object->name;
 }
 
-/*
- * Returns the single element of an array
- * where only one element is not empty (null, or trimmed to blank)
- * or false if this does not apply
- */
-function one_element($array) {
-	if (is_array($array)) {
-		$count = 0;
-		foreach ($array as $element) {
-			if (isset($element) && trim($element) != '' && trim($element) != '""') {
-				$count++;
-			}
-		}
-		if ($count == 1) {
-			foreach ($array as $element) {
-				if (isset($element) && trim($element) != '' && trim($element) != '""') {
-					return $element;
-				}
-			}
-		}
-	}
-	return false;
+function get_file_subcategory_old($fid) {
+ 	connectdb();
+ 	$q = sprintf( "SELECT subcategories.name FROM files INNER JOIN subcategories ON subcategories.id=files.subcategory WHERE files.id='%s'", mysql_real_escape_string( $fid ) );
+ 	$result = mysql_query( $q );
+ 	$object = mysql_fetch_object( $result );
+ 	mysql_free_result( $result );
+ 	return $object->name;
 }
+
 
 ?>
