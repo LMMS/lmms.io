@@ -37,8 +37,7 @@ function process_params() {
 					break;  // break for file/rate, return for all others
 				case 'search': //move down
 				case 'q':
-					$q = GET_EMPTY('q') ? GET('search') : GET('q');
-					get_results(GET('category'), GET('subcategory'), GET('sort'), $q);
+					get_results(GET('category'), GET('subcategory'), GET('sort'), GET('q', GET('search', '')));
 					return;
 					// default: // do nothing
 			}
@@ -58,7 +57,7 @@ function process_params() {
 						get_results(GET('category'), GET('subcategory'), GET('sort'));	
 						return;
 					} else if(!GET_EMPTY('user')) {
-						show_user_content(GET('user'));
+						get_results(GET('category'), GET('subcategory'), GET('sort'), GET('user'));
 						return;
 					}
 					// default: // do nothing

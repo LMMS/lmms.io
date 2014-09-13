@@ -82,7 +82,7 @@ function set_get_post($param, $default = null) {
  * Creates a sort-by tool-bar at the top of the file listing
  * i.e. DATE, DOWNLOADS, RATING
  */
-function list_sort_options($query_prefix = '', $additional_html = '') {
+function list_sort_options($additional_html = '') {
 	global $LSP_URL;
 	$sortings = array(
 		'date' => '<span class="fa fa-calendar"></span>&nbsp;DATE',
@@ -101,7 +101,7 @@ function list_sort_options($query_prefix = '', $additional_html = '') {
 	echo '<ul class="nav nav-pills lsp-sort">';
 	foreach ($sortings as $s => $v) {
 		echo '<li class="' . (GET('sort') == $s ? 'active' : '') . '">';
-		echo '<a href="' . $LSP_URL . '?' . $query_prefix . rebuild_url_query('sort', $s) . '">' . $v . '</a></li>';
+		echo '<a href="' . $LSP_URL . '?' . rebuild_url_query('sort', $s) . '">' . $v . '</a></li>';
 	}
 	
 	if ($additional_html != '') {
@@ -123,7 +123,9 @@ function rebuild_url_query($key, $value) {
 	$_GET[$key] = $value;
 	$new_query = array();
 	foreach($_GET as $k => $v) {
-		array_push($new_query, $k . "=" . $v);
+		if (!array_key_exists($k, $new_query)) {
+			array_push($new_query, $k . "=" . $v);
+		}
 	}
 	$_GET[$key] = $old;
 	return implode("&amp;", $new_query);
@@ -218,9 +220,10 @@ function one_element($array) {
  */
 function get_pagination($count) {
 	global $PAGE_SIZE, $LSP_URL;
-	$category = GET('category');
-	$subcategory = GET('subcategory');
-	$sort = GET('sort');
+	$user=!GET_EMPTY('user') ? '&amp;user=' . GET('user') : '';
+	$category=!GET_EMPTY('category') ? '&amp;category=' . GET('category') : '';
+	$subcategory=!GET_EMPTY('subcategory') ? '&amp;subcategory=' . GET('subcategory') : '';
+	$sort=!GET_EMPTY('sort') ? '&amp;sort=' . GET('sort') : '';
 	$pagination = '';
 	$pagination .= '<div class="lsp-pagination center"><ul class="pagination pagination-sm">';
 	$pages = $count / $PAGE_SIZE;
@@ -228,7 +231,7 @@ function get_pagination($count) {
 	if ($pages > 1) {
 		for($j=0; $j < $count / $PAGE_SIZE; ++$j ) {
 			$class = $j==$page ? 'active' : '';
-			$pagination .= '<li class="' . $class . '"><a href=' . $LSP_URL . "?action=browse&amp;category=$category&amp;subcategory=$subcategory&amp;page=$j&amp;sort=$sort>" . ($j+1) . '</a></li>';
+			$pagination .= '<li class="' . $class . '"><a href=' . $LSP_URL . "?action=browse$user$category$subcategory&amp;page=$j$sort>" . ($j+1) . '</a></li>';
 		}
 	}
 	$pagination .= '</ul></div>';

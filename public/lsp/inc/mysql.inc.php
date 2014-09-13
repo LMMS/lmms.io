@@ -475,92 +475,119 @@ function get_file_subcategory($file_id) {
 	return $return_val;
 }
 
-function get_results( $cat, $subcat, $sort = '', $search = '' ) {	
-	$q = $search;
-	$search = @mysql_real_escape_string($search);
-	global $PAGE_SIZE;
-	global $LSP_URL;
-	$page = @$_GET["page"];
-	$where = '';
-	connectdb();
+/*
+ * Forecasts the total size of the database result set returned
+ * by get_results for proper pagination
+ */
+function get_results_count($category, $subcategory = '', $search = '', $user_name = '') {
+	$dbh = &get_db();
+	$return_val = 0;
+	$stmt = $dbh->prepare(
+		'SELECT COUNT(files.id) as file_count FROM files ' .
+		'INNER JOIN categories ON categories.id=files.category ' .
+		'INNER JOIN subcategories ON subcategories.id=files.subcategory ' .
+		'INNER JOIN users ON users.id=files.user_id WHERE ' .
+		(strlen($user_name) ? ' files.user_id=:user_id' : 'true') . ' AND ' .
+		(strlen($category) ? ' categories.name=:category' : 'true') . ' AND ' .
+		(strlen($subcategory) ? ' subcategories.name=:subcategory' : 'true') . ' AND ' .
+		(strlen($search) ? ' (files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search)' : 'true')
+	);
 
-	if(strlen( $cat ) > 0 )
-	{	
-		# Where clause for count and query
-		$where= sprintf( "WHERE categories.name='%s' ", mysql_real_escape_string( $cat ) );
-		if( strlen( $subcat ) > 0 )
-		{
-			$where .= sprintf( "AND subcategories.name='%s' ", mysql_real_escape_string( $subcat ) );
+	if (strlen($user_name)) { $user_id = get_user_id($user_name); $stmt->bindParam(':user_id', $user_name); }
+	if (strlen($category)) { $stmt->bindParam(':category', $category); }
+	if (strlen($subcategory)) { $stmt->bindParam(':subcategory', $subcategory); }
+	if (strlen($search)) { $search = "%{$search}%"; $stmt->bindParam(':search',$search); }
+		
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$return_val = $object['file_count'];
+			break;
 		}
 	}
-	if( strlen($search) > 0 )
-	{
-		if( strlen($where) == 0 )
-		{
-			$where = "WHERE files.filename = files.filename ";
-		}
-		$where .= "AND ( files.filename LIKE '%$search%' OR users.login LIKE '%$search%' OR users.realname LIKE '%$search%') ";
-	}
-
-	# Get count
-	$count = mysql_result(mysql_query(
-		"SELECT COUNT(files.id) FROM files ".
-		"INNER JOIN categories ON categories.id=files.category ".
-		"INNER JOIN subcategories ON subcategories.id=files.subcategory ".
-		"INNER JOIN users ON users.id=files.user_id ".
-		$where), 0, 0);
-	if( $count > 0 ) {
-		$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
-		$req .= "files.downloads*files.downloads/(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day,";
-		$req .= "files.downloads AS downloads,";
-		$req .= "insert_date,update_date,description, AVG(ratings.stars) as rating FROM files ";
-		$req .= "INNER JOIN categories ON categories.id=files.category ";
-		$req .= "INNER JOIN subcategories ON subcategories.id=files.subcategory ";
-		$req .= "INNER JOIN users ON users.id=files.user_id ";
-		$req .= "INNER JOIN licenses ON licenses.id=files.license_id ";
-		$req .= "LEFT JOIN ratings ON ratings.file_id=files.id ";
-		$req .= $where;
-		$req .= "GROUP BY files.id ";
-		if( $sort == 'downloads' )
-		{
-			$req .= "ORDER BY downloads_per_day DESC ";
-		}
-		else if( $sort == 'rating' )
-		{
-			$req .= "ORDER BY rating DESC, COUNT(ratings.file_id) DESC ";
-		}
-		else if ( $sort == 'comments' )
-		{
-			//FIXME TODO: Add support for sorting by comment popularity
-		}
-		else
-		{
-			$req .= "ORDER BY files.insert_date DESC ";
-		}
-		$req .= sprintf("LIMIT %d,%d", $page*$PAGE_SIZE, $PAGE_SIZE);
-		$result = mysql_query ($req);
-
-		echo '<div class="col-md-9">';
-		create_title(array(GET('category'), GET('subcategory'), "\"$q\""));
-		list_sort_options('q=' . $q . '&');
-		echo '<table class="table table-striped">';
-		while($object = mysql_fetch_object ($result)) {
-			show_basic_file_info_old( $object, TRUE );
-		}
-		echo'</table></div>';
-
-		echo get_pagination($count);
-		mysql_free_result( $result );
-	}
-	else {
-		echo '<h3 class="text-muted">No results.</h3>';
-	}
+	
+	$stmt = null;
+	$dbh = null;
+	return $return_val;
 }
 
+/*
+ * Displays a table of search results, usually based on category, subcategory or search
+ * filters
+ */
+function get_results($category, $subcategory, $sort = '', $search = '', $user_name = '') {
+	global $PAGE_SIZE;
+	global $LSP_URL;
+	$count = get_results_count($category, $subcategory, $search, $user_name);
+	
+	echo '<div class="col-md-9">';
+	create_title(array(GET('category'), GET('subcategory'), "\"$search\""));
+	list_sort_options();
+	
+	if ($count > 0) {
+			
+		$order_by = 'files.insert_date';
+		switch ($sort) {
+			case 'downloads' : $order_by = 'downloads_per_day'; break;
+			case 'rating' : $order_by = 'rating DESC, COUNT(ratings.file_id)'; break;
+			case 'comments' : break; //FIXME: TODO: Add support for sorting by comments
+		}
+		
+		$start = intval(GET('page', 0) * $PAGE_SIZE);
+		
+		$dbh = &get_db();
+		$stmt = $dbh->prepare(
+			'SELECT files.id, licenses.name AS license, size,realname, filename, ' .
+				'users.login, categories.name AS category, subcategories.name AS subcategory, ' .
+				'files.downloads*files.downloads/(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day, ' .
+				'files.downloads AS downloads, insert_date, update_date, description, AVG(ratings.stars) as rating FROM files ' .
+			'INNER JOIN categories ON categories.id=files.category ' .
+			'INNER JOIN subcategories ON subcategories.id=files.subcategory ' .
+			'INNER JOIN users ON users.id=files.user_id ' .
+			'INNER JOIN licenses ON licenses.id=files.license_id ' .
+			'LEFT JOIN ratings ON ratings.file_id=files.id ' .
+			'WHERE ' .
+			(strlen($user_name) ? ' files.user_id=:user_id' : 'true') . ' AND ' .
+			(strlen($category) ? ' categories.name=:category' : 'true') . ' AND ' .
+			(strlen($subcategory) ? ' subcategories.name=:subcategory' : 'true') . ' AND ' .
+			(strlen($search) ? ' (files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search)' : 'true') . ' ' .
+			'GROUP BY files.id ' . 
+			'ORDER BY ' . $order_by . ' DESC ' .
+			"LIMIT $start, $PAGE_SIZE"
+		);
+		
+		if (strlen($user_name)) { $user_id = get_user_id($user_name); $stmt->bindParam(':user_id', $user_name); }
+		if (strlen($category)) { $stmt->bindParam(':category', $category); }
+		if (strlen($subcategory)) { $stmt->bindParam(':subcategory', $subcategory); }
+		if (strlen($search)) { $search = "%{$search}%"; $stmt->bindParam(':search', $search); }
+		
+		if ($stmt->execute()) {
+			echo '<table class="table table-striped">';			
+			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				show_basic_file_info($object, true);
+			}
+		}
+	} else {
+		echo '<h3 class="text-muted">No results.</h3>';
+	}
+	
+	echo'</table></div>';
+	echo get_pagination($count);
+	$stmt = null;
+	$dbh = null;
+}
+/*
 function show_user_content( $user ) {
 	$uid = get_user_id( $user );
 	if( $uid >= 0 ) {
 		connectdb ();
+		
+		$order_by = 'files.insert_date';
+		switch (GET('sort')) {
+			case 'downloads' : $order_by = 'downloads_per_day'; break;
+			case 'rating' : $order_by = 'rating DESC, COUNT(ratings.file_id)'; break;
+			case 'comments' : break; //FIXME: TODO: Add support for sorting by comments
+		}
+		
 		$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
 		$req .= "insert_date,update_date,description FROM files ";
 		$req .= "INNER JOIN categories ON categories.id=files.category ";
@@ -568,11 +595,11 @@ function show_user_content( $user ) {
 		$req .= "INNER JOIN users ON users.id=files.user_id ";
 		$req .= "INNER JOIN licenses ON licenses.id=files.license_id ";
 		$req .= "WHERE files.user_id='".mysql_real_escape_string( $uid )."' ";
-		$req .= "ORDER BY files.insert_date DESC";
+		$req .= "ORDER BY $order_by DESC";
 		$result = mysql_query ($req);
 
 		create_title("($user)");
-		
+		list_sort_options();
 		if( $result != FALSE && mysql_num_rows( $result ) > 0 ) {	
 			echo '<div class="col-md-9"><table class="table table-striped">';
 			while( $object = mysql_fetch_object( $result ) )
@@ -588,7 +615,7 @@ function show_user_content( $user ) {
 	} else {
 		echo '<h3 class="txt-danger">User "'.$user.'" not found!</h3>';
 	}
-}
+}*/
 
 
 function insert_category ($fext,$cat)
@@ -660,33 +687,6 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	echo '&nbsp;<span class="lsp-badge badge"><span class="fa fa-check-square-o"></span>&nbsp;'. $rs['rating_count'].'</span>';
 	echo '</small></td></tr>';
 }
-
-/*
- * Temporary function to wrap old mysql object into a new associative array
- * This should go away when the mysql_connect calls have all been removed
- */
-function show_basic_file_info_old($rs, $browsing_mode = false, $show_author = true) {
-	$wrapper = array();
-	$wrapper['id'] = $rs->id;
-	//$wrapper['name'] = $rs->name;
-	$wrapper['size'] = $rs->size;
-	$wrapper['login'] = $rs->login;
-	$wrapper['filename'] = $rs->filename;
-	$wrapper['realname'] = $rs->realname;
-	$wrapper['license'] = $rs->license;
-	$wrapper['comments'] = isset($rs->comments) ? $rs->comments : null;
-	$wrapper['rating'] = isset($rs->rating) ? $rs->rating : null;
-	$wrapper['insert_date'] = $rs->insert_date;
-	$wrapper['category'] = $rs->category;
-	$wrapper['subcategory'] = $rs->subcategory;
-	$wrapper['insert_date'] = $rs->insert_date;
-	$wrapper['update_date'] = $rs->update_date;
-	$wrapper['rating_count'] = isset($rs->rating_count) ? $rs->rating_count : null;
-	$wrapper['downloads'] = isset($rs->downloads) ? $rs->downloads : null;
-	return show_basic_file_info($wrapper, $browsing_mode, $show_author);
-}
-
-
 
 function show_file( $fid, $user )
 {
@@ -1155,6 +1155,92 @@ function mychange_user_old($login,$realname,$pass) {
  }
  
  
+
+function get_results_old( $cat, $subcat, $sort = '', $search = '' ) {	
+	$q = $search;
+	$search = @mysql_real_escape_string($search);
+	global $PAGE_SIZE;
+	global $LSP_URL;
+	$page = @$_GET["page"];
+	$where = '';
+	connectdb();
+/*
+	if(strlen( $cat ) > 0 )
+	{	
+		# Where clause for count and query
+		$where= sprintf( "WHERE categories.name='%s' ", mysql_real_escape_string( $cat ) );
+		if( strlen( $subcat ) > 0 )
+		{
+			$where .= sprintf( "AND subcategories.name='%s' ", mysql_real_escape_string( $subcat ) );
+		}
+	}
+	if( strlen($search) > 0 )
+	{
+		if( strlen($where) == 0 )
+		{
+			$where = "WHERE files.filename = files.filename ";
+		}
+		$where .= "AND ( files.filename LIKE '%$search%' OR users.login LIKE '%$search%' OR users.realname LIKE '%$search%') ";
+	}
+
+	# Get count
+	$count = mysql_result(mysql_query(
+		"SELECT COUNT(files.id) FROM files ".
+		"INNER JOIN categories ON categories.id=files.category ".
+		"INNER JOIN subcategories ON subcategories.id=files.subcategory ".
+		"INNER JOIN users ON users.id=files.user_id ".
+		$where), 0, 0);
+		*/
+		
+		$count = get_results_count($cat, $subcat);
+	if( $count > 0 ) {
+		$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
+		$req .= "files.downloads*files.downloads/(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day,";
+		$req .= "files.downloads AS downloads,";
+		$req .= "insert_date,update_date,description, AVG(ratings.stars) as rating FROM files ";
+		$req .= "INNER JOIN categories ON categories.id=files.category ";
+		$req .= "INNER JOIN subcategories ON subcategories.id=files.subcategory ";
+		$req .= "INNER JOIN users ON users.id=files.user_id ";
+		$req .= "INNER JOIN licenses ON licenses.id=files.license_id ";
+		$req .= "LEFT JOIN ratings ON ratings.file_id=files.id ";
+		$req .= $where;
+		$req .= "GROUP BY files.id ";
+		if( $sort == 'downloads' )
+		{
+			$req .= "ORDER BY downloads_per_day DESC ";
+		}
+		else if( $sort == 'rating' )
+		{
+			$req .= "ORDER BY rating DESC, COUNT(ratings.file_id) DESC ";
+		}
+		else if ( $sort == 'comments' )
+		{
+			//FIXME TODO: Add support for sorting by comment popularity
+		}
+		else
+		{
+			$req .= "ORDER BY files.insert_date DESC ";
+		}
+		$req .= sprintf("LIMIT %d,%d", $page*$PAGE_SIZE, $PAGE_SIZE);
+		$result = mysql_query ($req);
+
+		echo '<div class="col-md-9">';
+		create_title(array(GET('category'), GET('subcategory'), "\"$q\""));
+		list_sort_options();
+		echo '<table class="table table-striped">';
+		while($object = mysql_fetch_object ($result)) {
+			show_basic_file_info_old( $object, TRUE );
+		}
+		echo'</table></div>';
+
+		echo get_pagination($count);
+		mysql_free_result( $result );
+	}
+	else {
+		echo '<h3 class="text-muted">No results.</h3>';
+	}
+}
+ 
 /*
  * Formats today's date
  */
@@ -1220,6 +1306,33 @@ echo mysql_error();
 	mysql_free_result( $result );
 	echo '</ul>';
 }
+
+
+/*
+ * Temporary function to wrap old mysql object into a new associative array
+ * This should go away when the mysql_connect calls have all been removed
+ */
+function show_basic_file_info_old($rs, $browsing_mode = false, $show_author = true) {
+	$wrapper = array();
+	$wrapper['id'] = $rs->id;
+	//$wrapper['name'] = $rs->name;
+	$wrapper['size'] = $rs->size;
+	$wrapper['login'] = $rs->login;
+	$wrapper['filename'] = $rs->filename;
+	$wrapper['realname'] = $rs->realname;
+	$wrapper['license'] = $rs->license;
+	$wrapper['comments'] = isset($rs->comments) ? $rs->comments : null;
+	$wrapper['rating'] = isset($rs->rating) ? $rs->rating : null;
+	$wrapper['insert_date'] = $rs->insert_date;
+	$wrapper['category'] = $rs->category;
+	$wrapper['subcategory'] = $rs->subcategory;
+	$wrapper['insert_date'] = $rs->insert_date;
+	$wrapper['update_date'] = $rs->update_date;
+	$wrapper['rating_count'] = isset($rs->rating_count) ? $rs->rating_count : null;
+	$wrapper['downloads'] = isset($rs->downloads) ? $rs->downloads : null;
+	return show_basic_file_info($wrapper, $browsing_mode, $show_author);
+}
+
 
  
  
