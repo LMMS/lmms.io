@@ -5,7 +5,7 @@ $DB_HOST = 'localhost';
 $DB_USER = 'someuser';
 $DB_PASS = 'P@SSWORD';
 $DB_DATABASE = 'somedatabase';
-$DB_CHARSET = 'utf8';
+$DB_CHARSET = 'latin1'; // TODO:  Make this utf8
 $PAGE_SIZE = 25;
 $MAX_LOGIN_ATTEMPTS = 6;
 
@@ -479,7 +479,7 @@ function get_file_subcategory($file_id) {
  * Forecasts the total size of the database result set returned
  * by get_results for proper pagination
  */
-function get_results_count($category, $subcategory = '', $search = '', $user_name = '') {
+function get_results_count($category, $subcategory = '', $search = '', $user_id = '') {
 	$dbh = &get_db();
 	$return_val = 0;
 	$stmt = $dbh->prepare(
@@ -487,13 +487,13 @@ function get_results_count($category, $subcategory = '', $search = '', $user_nam
 		'INNER JOIN categories ON categories.id=files.category ' .
 		'INNER JOIN subcategories ON subcategories.id=files.subcategory ' .
 		'INNER JOIN users ON users.id=files.user_id WHERE ' .
-		(strlen($user_name) ? ' files.user_id=:user_id' : 'true') . ' AND ' .
-		(strlen($category) ? ' categories.name=:category' : 'true') . ' AND ' .
-		(strlen($subcategory) ? ' subcategories.name=:subcategory' : 'true') . ' AND ' .
+		(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
+		(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
+		(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
 		(strlen($search) ? ' (files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search)' : 'true')
 	);
 
-	if (strlen($user_name)) { $user_id = get_user_id($user_name); $stmt->bindParam(':user_id', $user_name); }
+	if (strlen($user_id)) { $stmt->bindParam(':user_id', $user_id); }
 	if (strlen($category)) { $stmt->bindParam(':category', $category); }
 	if (strlen($subcategory)) { $stmt->bindParam(':subcategory', $subcategory); }
 	if (strlen($search)) { $search = "%{$search}%"; $stmt->bindParam(':search',$search); }
@@ -517,10 +517,12 @@ function get_results_count($category, $subcategory = '', $search = '', $user_nam
 function get_results($category, $subcategory, $sort = '', $search = '', $user_name = '') {
 	global $PAGE_SIZE;
 	global $LSP_URL;
-	$count = get_results_count($category, $subcategory, $search, $user_name);
+	$user_id = '';
+	if (strlen($user_name)) { $user_id = get_user_id($user_name); } 
+	$count = get_results_count($category, $subcategory, $search, $user_id);
 	
 	echo '<div class="col-md-9">';
-	create_title(array(GET('category'), GET('subcategory'), "\"$search\""));
+	create_title(array(GET('category'), GET('subcategory'), "\"$search\"", "($user_name)"));
 	list_sort_options();
 	
 	if ($count > 0) {
@@ -546,16 +548,16 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 			'INNER JOIN licenses ON licenses.id=files.license_id ' .
 			'LEFT JOIN ratings ON ratings.file_id=files.id ' .
 			'WHERE ' .
-			(strlen($user_name) ? ' files.user_id=:user_id' : 'true') . ' AND ' .
-			(strlen($category) ? ' categories.name=:category' : 'true') . ' AND ' .
-			(strlen($subcategory) ? ' subcategories.name=:subcategory' : 'true') . ' AND ' .
-			(strlen($search) ? ' (files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search)' : 'true') . ' ' .
+			(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
+			(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
+			(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
+			(strlen($search) ? '(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search)' : 'true') . ' ' .
 			'GROUP BY files.id ' . 
 			'ORDER BY ' . $order_by . ' DESC ' .
 			"LIMIT $start, $PAGE_SIZE"
 		);
 		
-		if (strlen($user_name)) { $user_id = get_user_id($user_name); $stmt->bindParam(':user_id', $user_name); }
+		if (strlen($user_name)) { $stmt->bindParam(':user_id', $user_id); }
 		if (strlen($category)) { $stmt->bindParam(':category', $category); }
 		if (strlen($subcategory)) { $stmt->bindParam(':subcategory', $subcategory); }
 		if (strlen($search)) { $search = "%{$search}%"; $stmt->bindParam(':search', $search); }
@@ -575,50 +577,63 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 	$stmt = null;
 	$dbh = null;
 }
+
 /*
-function show_user_content( $user ) {
-	$uid = get_user_id( $user );
-	if( $uid >= 0 ) {
-		connectdb ();
-		
-		$order_by = 'files.insert_date';
-		switch (GET('sort')) {
-			case 'downloads' : $order_by = 'downloads_per_day'; break;
-			case 'rating' : $order_by = 'rating DESC, COUNT(ratings.file_id)'; break;
-			case 'comments' : break; //FIXME: TODO: Add support for sorting by comments
-		}
-		
-		$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
-		$req .= "insert_date,update_date,description FROM files ";
-		$req .= "INNER JOIN categories ON categories.id=files.category ";
-		$req .= "INNER JOIN subcategories ON subcategories.id=files.subcategory ";
-		$req .= "INNER JOIN users ON users.id=files.user_id ";
-		$req .= "INNER JOIN licenses ON licenses.id=files.license_id ";
-		$req .= "WHERE files.user_id='".mysql_real_escape_string( $uid )."' ";
-		$req .= "ORDER BY $order_by DESC";
-		$result = mysql_query ($req);
-
-		create_title("($user)");
-		list_sort_options();
-		if( $result != FALSE && mysql_num_rows( $result ) > 0 ) {	
-			echo '<div class="col-md-9"><table class="table table-striped">';
-			while( $object = mysql_fetch_object( $result ) )
-			{
-				show_basic_file_info_old( $object, TRUE, FALSE );
+ * Inserts a category with the given file extension, if it doesn't
+ * already exist
+ * IN PROGRESS - SORRY!
+function insert_category($extension, $category) {
+	$category_id = get_id_by_object('categories', 'id' $category);
+	$extension_id = get_id_by_object('filetypes', 'id', $extension);
+	$extension_category_id = get_id_by_object('filetypes', 'category', $extension);
+	
+	if (isset($category_id)) {
+		if (isset($extension_id)) {
+			if ($extension_category_id == $category_id) {
+				return 0; // Already exists
+			} else {
+				
 			}
-			echo'</table></div>';
-			mysql_free_result ($result);
+		} else {
+			
 		}
-		else {
-			echo '<h3 class="text-muted">No results.</h3>';
-		}
-	} else {
-		echo '<h3 class="txt-danger">User "'.$user.'" not found!</h3>';
 	}
-}*/
+	
+	$dbh = &get_db();
+	$return_val = 0;
+	$stmt = $dbh->prepare(
+		'SELECT COUNT(name) as category_count FROM categories ' .
+		'WHERE LOWER(name) = LOWER(:category)'
+	);
+	
+	$stmt->bindParam(':category', $category);
+	if ($stmt->execute()) {
+		while($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
+	}
+	
+	
+	$stmt->bindParam(':extension', $extension);
+	if ($stmt->execute()) {
+		while($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			if ($object['extension_count'] == 0) {
+				$stmt = null;
+				$stmt = $dbh->prepare('INSERT INTO categories (name,filetypes_extension) VALUES (:category,:extension)');
+				$stmt->bindParam(':category', $category);
+				$stmt->bindParam(':extension', $extension);
+				if ($stmt->execute()) {
+					$return_val = 1;
+					break;
+				}
+			}
+		}
+	}
+	$stmt = null;
+	$dbh = null;
+	return $return_val;
+}
 
-function insert_category ($fext,$cat)
+function insert_category_old ($fext,$cat)
  {
   connectdb ();
   $req = "SELECT count(name) FROM categories WHERE name LIKE '".$cat."' AND filetypes_extension LIKE '".$fext."'";
@@ -631,7 +646,7 @@ function insert_category ($fext,$cat)
   return mysql_query ($req);
    } else return 0;
   }
-
+*/
 
 /*
  * File information displayed in a table row, used on most pages which show file information
@@ -1240,6 +1255,49 @@ function get_results_old( $cat, $subcat, $sort = '', $search = '' ) {
 		echo '<h3 class="text-muted">No results.</h3>';
 	}
 }
+
+/*
+function show_user_content( $user ) {
+	$uid = get_user_id( $user );
+	if( $uid >= 0 ) {
+		connectdb ();
+		
+		$order_by = 'files.insert_date';
+		switch (GET('sort')) {
+			case 'downloads' : $order_by = 'downloads_per_day'; break;
+			case 'rating' : $order_by = 'rating DESC, COUNT(ratings.file_id)'; break;
+			case 'comments' : break; //FIXME: TODO: Add support for sorting by comments
+		}
+		
+		$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
+		$req .= "insert_date,update_date,description FROM files ";
+		$req .= "INNER JOIN categories ON categories.id=files.category ";
+		$req .= "INNER JOIN subcategories ON subcategories.id=files.subcategory ";
+		$req .= "INNER JOIN users ON users.id=files.user_id ";
+		$req .= "INNER JOIN licenses ON licenses.id=files.license_id ";
+		$req .= "WHERE files.user_id='".mysql_real_escape_string( $uid )."' ";
+		$req .= "ORDER BY $order_by DESC";
+		$result = mysql_query ($req);
+
+		create_title("($user)");
+		list_sort_options();
+		if( $result != FALSE && mysql_num_rows( $result ) > 0 ) {	
+			echo '<div class="col-md-9"><table class="table table-striped">';
+			while( $object = mysql_fetch_object( $result ) )
+			{
+				show_basic_file_info_old( $object, TRUE, FALSE );
+			}
+			echo'</table></div>';
+			mysql_free_result ($result);
+		}
+		else {
+			echo '<h3 class="text-muted">No results.</h3>';
+		}
+	} else {
+		echo '<h3 class="txt-danger">User "'.$user.'" not found!</h3>';
+	}
+}*/
+
  
 /*
  * Formats today's date

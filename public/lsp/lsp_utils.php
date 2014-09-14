@@ -181,7 +181,7 @@ function create_title($array) {
 	
 	$title = "<a href=\"$LSP_URL\">All Content</a>";
 	foreach ($array as $element) {
-		if (isset($element) && trim($element) != '' && trim($element) != '""') {
+		if (isset($element) && trim($element) != '' && trim($element) != '""' && trim($element) != "()") {
 			$title .= '&nbsp;&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;&nbsp;';
 			$title .= trim($element);
 		}
@@ -223,6 +223,8 @@ function get_pagination($count) {
 	$user=!GET_EMPTY('user') ? '&amp;user=' . GET('user') : '';
 	$category=!GET_EMPTY('category') ? '&amp;category=' . GET('category') : '';
 	$subcategory=!GET_EMPTY('subcategory') ? '&amp;subcategory=' . GET('subcategory') : '';
+	$browse = strlen("$user$category$subcategory") ? "?action=browse$user$category$subcategory" : '';
+	$search = !GET_EMPTY('search') ? '?search=' . GET('search') : '';
 	$sort=!GET_EMPTY('sort') ? '&amp;sort=' . GET('sort') : '';
 	$pagination = '';
 	$pagination .= '<div class="lsp-pagination center"><ul class="pagination pagination-sm">';
@@ -230,8 +232,8 @@ function get_pagination($count) {
 	$page = GET('page', 0);
 	if ($pages > 1) {
 		for($j=0; $j < $count / $PAGE_SIZE; ++$j ) {
-			$class = $j==$page ? 'active' : '';
-			$pagination .= '<li class="' . $class . '"><a href=' . $LSP_URL . "?action=browse$user$category$subcategory&amp;page=$j$sort>" . ($j+1) . '</a></li>';
+			$class = $j==$page ? 'active' : '';	
+			$pagination .= '<li class="' . $class . '"><a href=' . $LSP_URL . "$search$browse&amp;page=$j$sort>" . ($j+1) . '</a></li>';
 		}
 	}
 	$pagination .= '</ul></div>';

@@ -57,7 +57,7 @@ function process_params() {
 						get_results(GET('category'), GET('subcategory'), GET('sort'));	
 						return;
 					} else if(!GET_EMPTY('user')) {
-						get_results(GET('category'), GET('subcategory'), GET('sort'), GET('user'));
+						get_results(GET('category'), GET('subcategory'), GET('sort'), '', GET('user'));
 						return;
 					}
 					// default: // do nothing
