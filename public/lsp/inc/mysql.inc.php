@@ -128,30 +128,30 @@ function get_object_by_id($table, $id, $field, $id_field = 'id', $func = null) {
 /*
  * Returns a single id of a database object after searching for said object by name
  */
-function get_id_by_object($table, $field, $object) {
+function get_id_by_object($table, $field, $value) {
+	$id = -1;
 	// Sanitize column and table values
 	$table = sanitize($table);
 	$field = sanitize($field);
-	$object = "%{$object}%";
 	
 	// Validate the table name from a white-list
 	if (is_valid_table($table))  {
 		$dbh = &get_db();
-		$stmt = $dbh->prepare("SELECT id FROM $table WHERE $field LIKE :object");
-		debug("SELECT id FROM $table WHERE $field LIKE '$object'");
-		$stmt->bindParam(':object', $object);
-		$id = null;
+		$stmt = $dbh->prepare("SELECT id FROM $table WHERE LOWER($field) = LOWER(:value)");
+		debug("SELECT id FROM $table WHERE LOWER($field) = LOWER('$value')");
+		$stmt->bindParam(':value', $value);
 		if ($stmt->execute()) {
-			while ($id = $stmt->fetch(PDO::FETCH_ASSOC)) {
-				$id = $id['id'];
+			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				$id = $object['id'];
 				break;
 			}
 		}
 		$stmt = null;
 		$dbh = null;
 		debug("> id=\"$id\"");
-		return $id;
 	}
+	
+	return $id;
 }
 
 /*
@@ -579,74 +579,80 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 }
 
 /*
- * Inserts a category with the given file extension, if it doesn't
- * already exist
- * IN PROGRESS - SORRY!
-function insert_category($extension, $category) {
-	$category_id = get_id_by_object('categories', 'id' $category);
-	$extension_id = get_id_by_object('filetypes', 'id', $extension);
-	$extension_category_id = get_id_by_object('filetypes', 'category', $extension);
+ * Inserts the supplied extension and category pair into the
+ * filteypes table.  Creates the appropriate entry in the category
+ * table if it doesn't already exist.
+ */
+function insert_filetype($extension, $category) {
+	$extension_id = -1;
+	$category_id = insert_category($category);
 	
-	if (isset($category_id)) {
-		if (isset($extension_id)) {
-			if ($extension_category_id == $category_id) {
-				return 0; // Already exists
-			} else {
-				
-			}
-		} else {
-			
+	$dbh = &get_db();
+	$stmt = $dbh->prepare(
+		'SELECT id FROM filetypes ' .
+		'WHERE category = :category_id and LOWER(extension) = LOWER(:extension)'
+	);
+	$stmt->bindParam(':category_id', $category_id);
+	$stmt->bindParam(':extension', $extension);
+	
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$extension_id = $object['id'];
+			$stmt = null;
+			break;
 		}
 	}
 	
-	$dbh = &get_db();
-	$return_val = 0;
-	$stmt = $dbh->prepare(
-		'SELECT COUNT(name) as category_count FROM categories ' .
-		'WHERE LOWER(name) = LOWER(:category)'
-	);
-	
-	$stmt->bindParam(':category', $category);
-	if ($stmt->execute()) {
-		while($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-
-	}
-	
-	
-	$stmt->bindParam(':extension', $extension);
-	if ($stmt->execute()) {
-		while($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			if ($object['extension_count'] == 0) {
-				$stmt = null;
-				$stmt = $dbh->prepare('INSERT INTO categories (name,filetypes_extension) VALUES (:category,:extension)');
-				$stmt->bindParam(':category', $category);
-				$stmt->bindParam(':extension', $extension);
-				if ($stmt->execute()) {
-					$return_val = 1;
+	// Extension/category pair doesn't exist yet, insert our row
+	if ($extension_id < 0) {
+		$stmt = $dbh->prepare(
+			'INSERT INTO filetypes (extension, category) VALUES(LOWER(:extension), :category_id)'
+		);
+		$stmt->bindParam(':extension', $extension);
+		$stmt->bindParam(':category_id', $category_id);
+		
+		// Inserted successfully, find our filetype id
+		if ($stmt->execute()) {
+			$stmt = null;
+			$stmt = $dbh->prepare(
+				'SELECT id FROM filetypes ' .
+				'WHERE category = :category_id and LOWER(extension) = LOWER(:extension)'
+			);
+			$stmt->bindParam(':category_id', $category_id);
+			$stmt->bindParam(':extension', $extension);
+			if ($stmt->execute()) {
+				while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+					$extension_id = $object['id'];
+					$stmt = null;
 					break;
 				}
 			}
 		}
 	}
-	$stmt = null;
+	
 	$dbh = null;
-	return $return_val;
+	return $extension_id;
 }
 
-function insert_category_old ($fext,$cat)
- {
-  connectdb ();
-  $req = "SELECT count(name) FROM categories WHERE name LIKE '".$cat."' AND filetypes_extension LIKE '".$fext."'";
-  $result = mysql_query ($req);
-  $row = mysql_fetch_row ($result);
-  if (!$row[0])
-   {
-  mysql_free_result ($result);
-  $req = "INSERT INTO categories (name,filetypes_extension) VALUES ('".$cat."','".$fext."')";
-  return mysql_query ($req);
-   } else return 0;
-  }
-*/
+/*
+ * Inserts a category with the given name and returns the index
+ * Note:  Duplicate category names are not allowed.  Silently returns
+ * existing index if it already exists.
+ */
+function insert_category($category) {
+	$category_id = get_id_by_object('categories', 'name', $category);
+	if ($category_id < 0) {
+		$dbh = &get_db();
+		$stmt = $dbh->prepare('INSERT INTO categories (name) VALUES(:category)');
+		$stmt->bindParam(':category', $category);
+		if ($stmt->execute()) {
+			$stmt = null;
+			$category_id = get_id_by_object('categories', 'name', $category);
+		}
+		$dbh = null;
+	}
+	return $category_id;
+}
 
 /*
  * File information displayed in a table row, used on most pages which show file information
@@ -949,20 +955,20 @@ function add_visitor_comment( $file, $comment, $user)
 /*
  * Convenience Functions
  */
-function get_user_id($login) { return get_id_by_object("users", "login", $login); }
-function get_user_realname($login) { return get_object_by_id("users", get_user_id($login), 'realname'); }
-function get_file_name($file_id){ return get_object_by_id("files", $file_id, "filename"); }
-function get_file_owner($file_id) {	return get_object_by_id("files", $file_id, "user_id"); }
-function get_file_description($file_id) { return get_object_by_id("files", $file_id, "description"); }
-function get_file_license($file_id) { return( get_object_by_id("files", $file_id, "license_id")); }
-function get_file_comment_count($file_id) { return get_object_by_id("comments", $file_id, "1", "file_id", "count"); }
-function get_file_rating_count($file_id) { return get_object_by_id("ratings", $file_id, "1", "file_id", "count"); }
-function get_file_rating($file_id) { return get_object_by_id("ratings", $file_id, "stars", "file_id", "avg"); }
-function get_file_downloads($file_id) { return( get_object_by_id("files", $file_id, "downloads")); }
-function get_category_id($cat) { return get_id_by_object("categories", "name", $cat); }
-function get_subcategory_id($cat) { return get_id_by_object("subcategories", "name", $cat); }
-function get_license_id($license) {	return  get_id_by_object("licenses", "name", $license); }
-function get_license_name($lid) { return get_object_by_id("licenses", $lid, "name"); }
+function get_user_id($login) { return get_id_by_object('users', 'login', $login); }
+function get_user_realname($login) { return get_object_by_id('users', get_user_id($login), 'realname'); }
+function get_file_name($file_id){ return get_object_by_id('files', $file_id, 'filename'); }
+function get_file_owner($file_id) {	return get_object_by_id('files', $file_id, 'user_id'); }
+function get_file_description($file_id) { return get_object_by_id('files', $file_id, 'description'); }
+function get_file_license($file_id) { return( get_object_by_id('files', $file_id, 'license_id')); }
+function get_file_comment_count($file_id) { return get_object_by_id('comments', $file_id, '1', 'file_id', 'count'); }
+function get_file_rating_count($file_id) { return get_object_by_id('ratings', $file_id, '1', 'file_id', 'count'); }
+function get_file_rating($file_id) { return get_object_by_id('ratings', $file_id, 'stars', 'file_id', 'avg'); }
+function get_file_downloads($file_id) { return( get_object_by_id('files', $file_id, 'downloads')); }
+function get_category_id($category) { return get_id_by_object('categories', 'name', $category); }
+function get_subcategory_id($category) { return get_id_by_object('subcategories', 'name', $category); }
+function get_license_id($license) {	return  get_id_by_object('licenses', 'name', $license); }
+function get_license_name($license_name) { return get_object_by_id('licenses', $license_name, 'name'); }
 
 
 
@@ -1255,6 +1261,23 @@ function get_results_old( $cat, $subcat, $sort = '', $search = '' ) {
 		echo '<h3 class="text-muted">No results.</h3>';
 	}
 }
+
+
+/* I DONT THINK THIS SEVER WORKED, BUR REWROTE IT ANYWAY -TRES
+function insert_category_old ($fext,$cat)
+ {
+  connectdb ();
+  $req = "SELECT count(name) FROM categories WHERE name LIKE '".$cat."' AND filetypes_extension LIKE '".$fext."'";
+  $result = mysql_query ($req);
+  $row = mysql_fetch_row ($result);
+  if (!$row[0])
+   {
+  mysql_free_result ($result);
+  $req = "INSERT INTO categories (name,filetypes_extension) VALUES ('".$cat."','".$fext."')";
+  return mysql_query ($req);
+   } else return 0;
+  }
+*/
 
 /*
 function show_user_content( $user ) {
