@@ -1,5 +1,6 @@
 <?php 
 require_once('lsp_utils.php');
+require_once('inc/mysql.inc.php');
 global $LSP_URL;
 ?>
 
@@ -8,18 +9,13 @@ global $LSP_URL;
 <div class="col-md-3">
 	<div class="panel panel-default">
 	<div class="panel-heading">
-	
 	<form action="<?php echo $LSP_URL; ?>" method="post" role="search">
-		<?php
-			echo '<input type="hidden" name="category" value="'.@$_GET["category"].'" />'."\n";
-			echo '<input type="hidden" name="subcategory" value="'.@$_GET["subcategory"].'" />'."\n";
-		?>
-		<!-- <div class="lsp-search form-inline"> -->
+		<input type="hidden" name="category" value="<?php echo GET('category'); ?>" />
+		<input type="hidden" name="subcategory" value="<?php echo GET('subcategory'); ?>" />
 		<input type="text" id="search" name="search" class="lsp-search form-control textin" maxlength="64" placeholder="Search Content" />
 		<div class="lsp-search-button">
 			<button type="submit" id="ok" name="ok" class="lsp-search btn btn-default textin"><span class="fa fa-search"></span></button>
 		</div>
-		<!-- </div> -->
 	</form>
 	</div>
 	<?php get_categories(); ?>
@@ -28,41 +24,36 @@ global $LSP_URL;
 	<div id="login-panel" class="panel panel-default">
 		<div class="panel-heading"><h3 class="panel-title">
 			<a data-toggle="collapse" data-parent="#login-panel" href="#login-collapse">
-			<span class="fa fa-user"></span>&nbsp;My Account</a>
+			<span class="fa fa-user"></span>&nbsp;My Account<?php echo SESSION_EMPTY() ? '' : ' (' . SESSION() . ')'; ?></a>
 		</h3></div>
 		<div id="login-collapse" class="panel-collapse collapse in">
 		<div id="login" class="panel-body overflow-hidden">
 			<?php
-			if( @$_GET["action"] == 'logout' )
-			{
+			if (GET('action') == 'logout') {
 				unset ($_SESSION["remote_user"]);
 				session_destroy();
-				$_GET["action"] = $_GET["oldaction"];
-				if( $_GET["action"] != "browse" &&
-					 $_GET["action"] != "show" &&
-						$_GET["file"] != "" )
-				{
+				$_GET["action"] = GET('oldaction');
+				if (GET('action') != "browse" && GET('action') != "show" &&	GET('action') != "" ) {
 					$_GET["action"] = "show";
 				}
 			}
 
-			if(!isset($_SESSION["remote_user"]) && @$_GET["action"] == 'login' && $_POST["ok"] == "Login")
-			{
-				if (password_match ($_POST["password"],$_POST["login"]))
-				{
-					$_SESSION["remote_user"] = $_POST["login"];
-					$_GET["action"] = $_POST["oldaction"];
-					$_GET["category"] = $_POST["category"];
-					$_GET["subcategory"] = $_POST["subcategory"];
-				}
-				else /*if ($_POST["ok"] == 'Login')*/
-				{
-					echo '<span style="font-weight:bold; color:#f00;">Authentication failure.</span><br />';
+			if (SESSION_EMPTY() && GET('action') == 'login') {
+				if (password_match(POST('password'), POST('login'))) {
+					$_SESSION["remote_user"] = POST('login');
+					$_GET["action"] = POST('oldaction');
+					set_get_post('category');
+					set_get_post('subcategory');
+				} else /*if ($_POST["ok"] == 'Login')*/	{
+					echo '<span class="text-danger"><strong>Authentication failure.</strong></span><br />';
 				}
 			}
-			if( !isset( $_SESSION["remote_user"] ) )
-			{
-				echo '<form action="'.$_SERVER['PHP_SELF'].'?action=login" method="post" role="form">';
+			
+			/*
+			 * Hide or show the Login Dialog/My Account Panel
+			 */
+			if (SESSION_EMPTY()) {
+				echo '<form action="' . $LSP_URL . '?action=login" method="post" role="form">';
 				echo '<div class="form-group">';
 				echo '<label for="login">Username</label>';
 				echo '<input type="text" id="login" name="login" class="form-control textin" maxlength="10" placeholder="username" />';
@@ -74,22 +65,21 @@ global $LSP_URL;
 				echo '<button type="submit" name="ok" class="btn btn-default textin" />Login</button>';
 				echo '</form>';
 
-				echo '<input type="hidden" name="file" value="'.@$_GET["file"].'" />'."\n";
-				echo '<input type="hidden" name="category" value="'.@$_GET["category"].'" />'."\n";
-				echo '<input type="hidden" name="subcategory" value="'.@$_GET["subcategory"].'" />'."\n";
-				echo '<input type="hidden" name="oldaction" value="'.@$_GET["action"].'" />'."\n";
+				echo '<input type="hidden" name="file" value="' . GET('file') . '" />'."\n";
+				echo '<input type="hidden" name="category" value="' . GET('category') . '" />'."\n";
+				echo '<input type="hidden" name="subcategory" value="' . GET('subcategory') . '" />'."\n";
+				echo '<input type="hidden" name="oldaction" value="' . GET('action') . '" />'."\n";
 				echo '</p></form><br />';
 				echo '<a href="?action=register"><span class="fa  fa-chevron-circle-right"></span>&nbsp;Not registered yet?</a>';
-			}
-
-			if( isset( $_SESSION["remote_user"] ) )
-			{
-				echo 'Hello '.$_SESSION["remote_user"].'!<br />';
-				echo '<div><ul>';
-				echo '<li><a href="?content=add">Add file</a> '."\n";
-				echo '<li><a href="?action=browse&user='.$_SESSION["remote_user"].'">My content</a> '."\n";
-				echo '<li><a href="?account=settings">Account settings</a> '."\n";
-				echo '<li><a href="?action=logout&oldaction='.$_GET["action"].'&file='.$_GET["file"].'&f='.$_GET["category"].'&subcategory='.$_GET["subcategory"].'">Logout</a> '."\n";
+			} else {
+				//echo 'Hello ' . SESSION() . '!<br />';
+				echo '<div><ul style="list-style: none; margin-left: -2.5em;">';
+				echo '<li><a href="?content=add"><span class="fa fa-upload"></span>&nbsp;&nbsp;Add file</a></li>';
+				echo '<li><a href="?action=browse&user=' . SESSION() . '"><span class="fa fa-user"></span>&nbsp;&nbsp;My files</a></li>';
+				echo '<li><a href="?account=settings"><span class="fa fa-gear"></span>&nbsp;&nbsp;Settings</a></li>';
+				echo '<li><a href="?action=logout&oldaction=' . GET('action') . '&file=' . 
+					GET('file') .'&f=' . GET('category') . '&subcategory=' . GET('subcategory') . 
+					'"><span class="fa fa-power-off"></span>&nbsp;&nbsp;Logout</a></li>';
 				echo '</ul></div>';
 			}
 			?>

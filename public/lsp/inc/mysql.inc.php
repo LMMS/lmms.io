@@ -23,7 +23,7 @@ define('DBO_TABLES', 'categories,comments,files,filetypes,licenses,ratings,subca
  * Valid root functions to be looped over and processed by index.php. This order is important
  * as a user could potentially key in many functions, but we only want to process one.
  */
-define('POST_FUNCS', 'comment,content,action,search,q');
+define('POST_FUNCS', 'comment,content,action,search,q,account');
 
 /*
  * MySQL functions allowed to be called around non-specific columns
@@ -215,7 +215,7 @@ function password_match($pass, $user) {
 	}
 	$stmt = null;
 	$dbh = null;
-	return return_val;
+	return $return_val;
 }
 
 /*

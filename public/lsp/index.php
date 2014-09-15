@@ -48,7 +48,7 @@ function process_params() {
 				case 'content:add' : require ("./lsp_addcontent.php"); return;
 				case 'content:update' : require ("./lsp_updatecontent.php"); return;
 				case 'content:delete' : require ("./lsp_delcontent.php"); return;
-				case 'account:settings' : include("./lsp_accountsettings.php"); return;
+				case 'account:settings' : require("./lsp_accountsettings.php"); return;
 				case 'action:show' : show_file(GET("file"), SESSION()); return;
 				case 'action:register' : require ("./lsp_adduser.php"); return;
 				case 'action:browse' :
