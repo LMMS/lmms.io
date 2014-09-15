@@ -215,6 +215,32 @@ function one_element($array) {
 
 
 /*
+ * Displays a formatted error message in a small dialogue to the right of the sidebar
+ */
+function display_message($message, $severity = 'danger', $title = 'Error', $title_array = null) {
+	echo '<div class="col-md-9"><table class="table table-striped">';
+	create_title(isset($title_array) ? $title_array : $title);
+	echo '<div class="alert alert-' . $severity . ' center"><strong>' . $title . ':</strong> ' . $message . '</div>';
+	echo '</table></div>';
+}
+
+function display_error($message, $title_array = null) {
+	return display_message($message, 'danger', 'Error', $title_array);
+}
+
+function display_warning($message, $title_array = null) {
+	return display_message($message, 'warning', 'Warning', $title_array);
+}
+
+function display_info($message, $title_array = null) {
+	return display_message($message, 'info', 'Information', $title_array);
+}
+
+function display_success($message, $title_array = null) {
+	return display_message($message, 'success', 'Information', $title_array);
+}
+
+/*
  * Return a very basic "pagination" area for paging between search results
  * TODO:  Add <, 1, 2, ... 44, 45, 46, > support rather than listing all 46 pages.
  */

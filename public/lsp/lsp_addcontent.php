@@ -117,6 +117,7 @@ if( isset( $_SESSION["remote_user"] ) )
 					//$req .= "ORDER BY files.insert_date DESC LIMIT 1";
 					//$result = mysql_query ($req);
 					//$object = mysql_fetch_object ($result);
+					// FIXME, this won't work, will have to get the $file_id manually
 					show_file( $fileid, $_SESSION["remote_user"] );
 				}
                                 else

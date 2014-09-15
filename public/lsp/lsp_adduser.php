@@ -24,9 +24,9 @@ function try_add_user($login , $pass, $pass2, $realname, $is_admin) {
 		$class = 'success';
 		$return_val = true;
 	}
-	echo '<div class="alert alert-' . $class . '" role="alert">';
+	echo '<div class="col-md-9 center"><div class="alert alert-' . $class . '" role="alert">';
     echo "$message";
-    echo '</div>';	
+    echo '</div></div>';	
 	return $return_val;
 }
 
@@ -37,7 +37,7 @@ $isadmin = (POST_EMPTY("isadmin")) ? true : false;
  * Create the HTML form used for registration
  */
 if ((POST("adduser") != "Create") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), $isadmin))) {
-	echo '<div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Create account</h3></div>';
+	echo '<div class="col-md-9"><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Create account</h3></div>';
 	echo '<div class="panel-body">';
 	$form = new form($LSP_URL . "?action=register");
 	echo '<div class="form-group">';
@@ -56,7 +56,7 @@ if ((POST("adduser") != "Create") || (!try_add_user(POST("login"), POST("passwor
 	}
 	echo '<input type="submit" class="btn btn-primary" name="adduser" value="Create" />';
 	$form->close();
-	echo '</div></div>';
+	echo '</div></div></div>';
 }
 ?>
 </div>

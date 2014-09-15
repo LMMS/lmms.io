@@ -521,11 +521,11 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 	if (strlen($user_name)) { $user_id = get_user_id($user_name); } 
 	$count = get_results_count($category, $subcategory, $search, $user_id);
 	
-	echo '<div class="col-md-9">';
-	create_title(array(GET('category'), GET('subcategory'), "\"$search\"", "($user_name)"));
-	list_sort_options();
 	
 	if ($count > 0) {
+		echo '<div class="col-md-9">';
+		create_title(array(GET('category'), GET('subcategory'), "\"$search\"", "($user_name)"));
+		list_sort_options();
 			
 		$order_by = 'files.insert_date';
 		switch ($sort) {
@@ -568,12 +568,12 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 				show_basic_file_info($object, true);
 			}
 		}
+		echo'</table></div>';
+		echo get_pagination($count);
 	} else {
-		echo '<h3 class="text-muted">No results.</h3>';
+		display_info('No results found', array(GET('category'), GET('subcategory'), "\"$search\"", "($user_name)"));
 	}
 	
-	echo'</table></div>';
-	echo get_pagination($count);
 	$stmt = null;
 	$dbh = null;
 }
@@ -726,6 +726,11 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	echo '</small></td></tr>';
 }
 
+/*
+ * The page which displays the file details, i.e. ?action=show&file=1234
+ * This page much include a download button, links to edit, comment, delete, rate
+ * as well as all information that's already displayed in the original search results.
+ */
 function show_file($file_id, $user) {
 	$dbh = &get_db();
 	$stmt = $dbh->prepare(
@@ -781,7 +786,7 @@ function show_file($file_id, $user) {
 		}
 	}
 	if (!$found) {
-		echo '<h3 style="color:#f60;">File not found</h3>';
+		display_error('Invalid file: "' . sanitize($file_id) . '"');
 	}
 	$stmt = null;
 	$dbh = null;
@@ -818,114 +823,150 @@ function get_user_rating($file_id, $user) {
 	return $return_val;
 }
 
-function update_rating( $fid, $stars, $user )
-{
-	// check stars and user here
-	if ( !isset($stars) || trim($stars) == '' ) {
-		echo 'invalid rating';
-		return;
+/*
+ * Updates the $star rating value in the databsae for the specified $file_id 
+ * and the specified $user ($user should always be currently logged-in user)
+ * and returns the new rating value which has been applied to the database.
+ */
+function update_rating($file_id, $stars, $user) {
+	// Incorrect $stars value supplied
+	if (!isset($stars) || trim($stars) == '' || $stars < 1 || $stars > 5) {
+		echo '<h3 class="text-danger">Invalid rating: ' . 
+			(isset($stars) ? sanitize($stars) : '(empty)') . '</h3>';
+			return;
 	}
 	
-	if ( !isset($user) || trim($user) == '') {
-		echo 'invalid user';
-		return;
+	// Incorrect $file_id supplied
+	if (!is_int($file_id) || !isset($file_id) || $file_id < 0) {
+		echo '<h3 class="text-danger">Invalid file_id: ' . 
+			(is_int($file_id) ? '"' . intval($file_id) . '"' : 
+			(isset($file_id) ?  '"' . sanitize($file_id) . '"' : '(empty)'))  . '</h3>';
+			return;
 	}
 	
-	if( $stars < 1 || $stars > 5 )
-	{
-		echo "invalid";
-		return;
+	// Incorrect user name supplied
+	$user_id = get_user_id($user);
+	if ($user_id < 0) {
+		echo '<h3 class="text-danger">Invalid user: ' . 
+			(isset($user) ? '"' . sanitize($user) . '"' : '(empty)')  . '</h3>';
+			return;
 	}
-	$uid = get_user_id($user);
-	if( $uid >= 0 )
-	{
-		if( get_user_rating( $fid, $user ) > 0 )
-		{
-	 		$req = sprintf( "UPDATE ratings SET `stars`='%s' WHERE `file_id`='%s' AND `user_id`='%s'",
-						mysql_real_escape_string( $stars ),
-						mysql_real_escape_string( $fid ),
-						mysql_real_escape_string( $uid ) );
+	
+	$dbh = &get_db();
+	if ($user_id >= 0) {
+		$stmt = null;
+		if (get_user_rating($file_id, $user) > 0) {
+			$stmt = $dbh->prepare('UPDATE ratings SET stars=:stars WHERE file_id=:file_id AND user_id=:user_id');
+		} else {
+			$stmt = $dbh->prepare('INSERT INTO ratings(file_id, user_id, stars) VALUES(:file_id, :user_id, :stars)');
 		}
-		else
-		{
-	 		$req = sprintf( "INSERT INTO ratings(file_id,user_id,stars) VALUES('%s', '%s', '%s' )",
-						mysql_real_escape_string( $fid ),
-						mysql_real_escape_string( $uid ),
-						mysql_real_escape_string( $stars ) );
-		}
-	 	connectdb();
-	 	mysql_query ($req);
+		$stmt->bindParam(':file_id', $file_id);
+		$stmt->bindParam(':stars', $stars);
+		$stmt->bindParam(':user_id', $user_id);
+		$stmt->execute();
+		$stmt = null;
 	}
+	$dbh = null;
+	return get_user_rating($file_id, $user);
 }
 
-
-function insert_file( $filename, $uid, $catid, $subcatid, $licenseid, $description, $size, $sum, &$id )
-{
-	connectdb();
-	$req = "INSERT INTO files (filename,user_id,insert_date,update_date,".
-		"category,subcategory,license_id,description,size,hash) ";
-	$req .= "VALUES ('".mysql_real_escape_string( $filename )."','".
-		mysql_real_escape_string( $uid )."',".
-		"(SELECT NOW() ),".
-		"(SELECT NOW() ),'".
-		mysql_real_escape_string( $catid )."','".
-		mysql_real_escape_string($subcatid)."',".
-		mysql_real_escape_string($licenseid).",'".
-		mysql_real_escape_string(htmlspecialchars($description))."',".
-		mysql_real_escape_string( $size ).",'".
-		"$sum')";
-	$ret = mysql_query( $req );
-	$id = mysql_insert_id();
-	return( $ret );
-}
-
-
-
-
-function update_file($fid, $catid, $subcatid, $licenseid, $description )
-{
-
-	connectdb ();
-	if( get_user_id( $_SESSION["remote_user"] ) != get_object_by_id( "files", $fid, "user_id" ) )
-	{
-		return;
+/*
+ * Inserts an row into the files table
+ */
+function insert_file($filename, $user_id, $category_id, $subcategory_id, $license_id, $description, $file_size, $hash) {
+	$dbh = &get_db();
+	$return_val = false;
+	$stmt = $dbh->prepare(
+		'INSERT INTO files (' . 
+			'filename, user_id, insert_date, update_date, category, ' . 
+			'subcategory, license_id, description, size, hash' . 
+		') VALUES (' .
+			':filename, :user_id, NOW(), NOW(), :category_id, ' .
+			':subcategory_id, :license_id, :description, :size, :hash' .
+		')'
+	);
+	$html_description = htmlspecialchars($description);
+	$stmt->bindParam(':filename', $filename);
+	$stmt->bindParam(':user_id', $user_id);
+	$stmt->bindParam(':category_id', $category_id);
+	$stmt->bindParam(':subcategory_id', $subcategory_id);
+	$stmt->bindParam(':license_id', $license_id);
+	$stmt->bindParam(':description', $html_description);
+	$stmt->bindParam(':size', $size);
+	$stmt->bindParam(':hash', $hash);
+	if ($stmt->execute()) {
+		$return_val = true;
 	}
-
-	$req = "UPDATE files SET `category`='".mysql_real_escape_string($catid)."',`subcategory`='".mysql_real_escape_string($subcatid)."',`license_id`='".mysql_real_escape_string($licenseid)."',`description`='".mysql_real_escape_string(htmlspecialchars($description))."',`update_date`=(SELECT NOW()) ";
-	$req .= sprintf( "WHERE `id`='%s'", mysql_real_escape_string( $fid ) );
-	return mysql_query( $req );
+	$stmt = null;
+	$dbh = null;
+	return $return_val;
 }
 
-function increment_file_downloads ($fid)
-{
-	connectdb ();
-	$req = sprintf( "UPDATE files SET downloads=downloads+1 WHERE `id`='%s'",
-						mysql_real_escape_string( $fid ));
-	mysql_query( $req );
-
-	//$req = sprintf( "SELECT UNCOMPRESS(data) AS data FROM files WHERE `id`='%s'", mysql_real_escape_string($fid));
-	//$result = mysql_query ($req);
-	//$object = mysql_fetch_object ($result);
-	//mysql_free_result ($result);
-
-	return "";
-}
-
-
-
-function delete_file( $fid )
-{
-	connectdb();
-	$fid = mysql_real_escape_string( $fid );
-	if( mysql_query( sprintf( "DELETE FROM files WHERE `id`='%s'", $fid ) ) )
-	{
-		mysql_query( sprintf( "DELETE FROM comments WHERE `file_id`='%s'", $fid ) );
-		mysql_query( sprintf( "DELETE FROM ratings WHERE `file_id`='%s'", $fid ) );
-		return( TRUE );
+/*
+ * Updates a row into the files table
+ */
+function update_file($file_id, $category_id, $subcategory_id, $license_id, $description) {
+	$dbh = &get_db();
+	$return_val = false;
+	$stmt = $dbh->prepare(
+		'UPDATE files SET ' .
+			'update_date=NOW(), category=:category_id, ' . 
+			'subcategory=:subcategory_id, license_id=:license_id, ' . 
+			'description=:description ' . 
+		'WHERE id=:file_id'
+	);
+	$html_description = htmlspecialchars($description);
+	$stmt->bindParam(':category_id', $category_id);
+	$stmt->bindParam(':subcategory_id', $subcategory_id);
+	$stmt->bindParam(':license_id', $license_id);
+	$stmt->bindParam(':description', $html_description);
+	if ($stmt->execute()) {
+		$return_val = true;
 	}
-	return( FALSE );
+	$stmt = null;
+	$dbh = null;
+	return $return_val;
 }
 
+/*
+ * Increments the file download count by +1 in the files table
+ */
+function increment_file_downloads($file_id) {
+	$dbh = &get_db();
+	$return_val = false;
+	$stmt = $dbh->prepare('UPDATE files SET downloads=downloads+1 WHERE id=:file_id');
+	$stmt->bindParam(':file_id', $file_id);
+	if ($stmt->execute()) {
+		$return_val = true;
+	}
+	$stmt = null;
+	$dbh = null;
+	return $return_val;
+}
+
+/*
+ * Deletes a file by purging it from all relevant tables (files, comments, ratings)
+ */
+function delete_file($file_id) {
+	$dbh = &get_db();
+	$return_val = false;
+	$stmt1 = $dbh->prepare('DELETE FROM files WHERE id=:file_id');
+	$stmt2 = $dbh->prepare('DELETE FROM comments WHERE id=:file_id');
+	$stmt3 = $dbh->prepare('DELETE FROM ratings WHERE id=:file_id');
+	$stmt1->bindParam(':file_id', $file_id);
+	$stmt2->bindParam(':file_id', $file_id);
+	$stmt3->bindParam(':file_id', $file_id);
+	if ($stmt1->execute()) {
+		$stmt2->execute();
+		$stmt3->execute();
+		$return_val = true;
+	}
+	$stmt1 = null;
+	$stmt2 = null;
+	$stmt3 = null;
+	$dbh = null;
+	return $return_val;
+}
 
 
 function add_visitor_comment( $file, $comment, $user)
@@ -962,587 +1003,5 @@ function get_category_id($category) { return get_id_by_object('categories', 'nam
 function get_subcategory_id($category) { return get_id_by_object('subcategories', 'name', $category); }
 function get_license_id($license) {	return  get_id_by_object('licenses', 'name', $license); }
 function get_license_name($license_name) { return get_object_by_id('licenses', $license_name, 'name'); }
-
-
-
-
-/********************************************************************
-                        OLD FUNCTIONS
-				THESE WILL EVENTUALLY BE REMOVED
-********************************************************************/
- 
-
-
-function connectdb() 
-{
-	global $DB_HOST, $DB_USER, $DB_PASS, $DB_DATABASE;
-		// FIXME: TODO:  Change to use mysqli instead, these are deprecated
-		@mysql_connect( $DB_HOST, $DB_USER, $DB_PASS );
-		mysql_select_db( $DB_DATABASE );
-}
-
-
-function get_user_rating_old( $fid, $user ) {
-	$uid = get_user_id($user);
-	if( $uid >= 0 )
-	{
-		connectdb ();
-		$q = sprintf( "SELECT COUNT(stars) AS cnt FROM ratings WHERE `file_id`='%s' AND `user_id`='%s'", mysql_real_escape_string( $fid ), mysql_real_escape_string( $uid ) );
-		$result = mysql_query( $q );
-		$object = mysql_fetch_object ($result);
-		mysql_free_result ($result);
-		if( $object->cnt < 1 )
-		{
-			return( 0 );
-		}
-
-		
-		$q = sprintf( "SELECT stars FROM ratings WHERE `file_id`='%s' AND `user_id`='%s'", mysql_real_escape_string( $fid ), mysql_real_escape_string( $uid) );
-		$result = mysql_query( $q );
-
-		$object = mysql_fetch_object ($result);
-		mysql_free_result ($result);
-		return $object->stars;
-	}
-}
-
-
-function get_comments_old($fid, $f) {
-	global $LSP_URL;
-	connectdb();
-	$q = sprintf( "SELECT users.realname,users.login,date,text FROM comments INNER JOIN users ON users.id=comments.user_id WHERE file_id='%s' ORDER BY date", $fid );
-	$result = mysql_query( $q );
-	$out = '';
- 	while ($object = mysql_fetch_object($result)) {
-		$strong = $object->login == $f->login;
-		$name = '<a href="' . $LSP_URL . '?action=browse&amp;user=' . $object->login . '">' . $object->login . '</a>';
-  		$out .= '<tr><td colspan="2">';
-		// Bold the comment if it's from the author
-		$out .= ($strong ? '<strong>' : '');
-		$out .= '<blockquote>'.htmlspecialchars($object->text, ENT_COMPAT, 'UTF-8')."";
-		$out .= ($strong ? '</strong>' : '');
-		$out .= '<small class="lsp-small">Posted by: ' . $name . ' on ' . $object->date . '</small></blockquote></tr></td>';
- 	}
-	echo (strlen($out) ? $out : '<tr><td colspan="2"><p class="text-muted">No comments yet</p></td></tr>');
-	mysql_free_result( $result );
-}
-
-
-
-function show_file_old( $fid, $user )
-{
-/* TODO: NOT SURE IF THIS LOGIC IS NEEDED?
-	if (GET_EMPTY('category')) {
-		$_GET['category'] = get_file_category(GET('file'));
-	}
-	if (GET_EMPTY('subcategory')) {
-		$_GET['subcategory'] = get_file_subcategory(GET('file'));
-	}
-*/
-	global $LSP_URL;
-	connectdb();
-	$req = "SELECT licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
-	$req .= "insert_date,update_date,description,downloads,files.id FROM files ";
-	$req .= "INNER JOIN categories ON categories.id=files.category ";
-	$req .= "INNER JOIN subcategories ON subcategories.id=files.subcategory ";
-	$req .= "INNER JOIN users ON users.id=files.user_id ";
-	$req .= "INNER JOIN licenses ON licenses.id=files.license_id ";
-	$req .= sprintf( "WHERE files.id=%s", mysql_real_escape_string( $fid ) );
-
-	$res = mysql_query( $req );
-
-	if( mysql_num_rows( $res ) < 1 )
-	{
-		echo '<h3 style="color:#f60;">File not found</h3>';
-		return;
-	}
-	$f = mysql_fetch_object( $res );
-
-	echo '<div class="col-md-9">';
-	create_title(array($f->category, $f->subcategory, "($f->filename)"));
-	echo '<table class="table table-striped">';
-	show_basic_file_info_old( $f, FALSE );
-	
-	// Bump the download button under details block
-	echo '<tr><td><strong>Name:</strong>&nbsp;' . $f->filename . '</td><td class="lsp-file-info">';
-	$url = htmlentities( 'lsp_dl.php?file='.$f->id.'&name='.$f->filename );
-	echo '<a href="'.$url.'" id="downloadbtn" class="lsp-dl-btn btn btn-primary"><span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
-	echo '</td></tr>';
-	
-	echo "<tr><td colspan=\"2\"><strong>Description:</strong><p>";
-	echo ($f->description != '' ? newline_to_br($f->description) : 'No description available.');
-	echo '</p></td></tr>';
-	
-	echo '<tr><td colspan="2">';
-	echo '<nav class="navbar navbar-default"><ul class="nav navbar-nav">';
-	$can_edit = ($f->login == $user || is_admin(get_user_id($user)));
-	$can_rate = isset($_SESSION["remote_user"]);
-	
-	create_toolbar_item('Comment', "$LSP_URL?comment=add&file=$fid", 'fa-comment', $can_rate);
-	create_toolbar_item('Edit', "$LSP_URL?content=update&file=$fid", 'fa-pencil', $can_edit);
-	create_toolbar_item('Delete', "$LSP_URL?content=delete&file=$fid", 'fa-trash', $can_edit);
-	$star_url = $LSP_URL . '?' . file_show_query_string().'&rate=';
-	create_toolbar_item(get_stars($fid, $star_url, 'fa-star-o lsp-star', $can_rate), '', null, false);
-	
-	echo '</ul></nav>';
-	echo '<strong>Comments:</strong>';
-	echo '</td></tr>';
-	get_comments($fid);
-	//get_comments_old($fid, $f);
-	echo'</table></div>';
-	
-	mysql_free_result ($res);	
-
-	
-	/*
-	if (isset($_SESSION["remote_user"])) {
-		$urating = get_user_rating( $fid, $_SESSION["remote_user"] );
-		echo'<b>Rating:</b>';
-		for( $i = 1; $i < 6; ++$i )
-		{
-			echo '<a href="'.htmlentities($LSP_URL.'?'.file_show_query_string().'&rate='.$i ).'" class="ratelink" ';
-			if( $urating == $i )
-			{
-				echo 'style="border:1px solid #88f;"';
-			}
-			echo '>';
-			for( $j = 1; $j <= $i ; ++$j )
-			{
-				echo '<span class="fa fa-star lsp-star">';
-			}
-			echo '</a><br />';
-		}
-	}
-	echo'</ul></nav></td></tr></table></div>';
-	echo "<br />\n";
-	*/
-
-
-}
-
-
-
-function get_licenses_old( $default = "" )
-{
-	connectdb();
-	$result = mysql_query( 'SELECT name FROM licenses' );
-
-	while( $object = mysql_fetch_object( $result ) )
-	{
-		if( $object->name == $default )
-		{
-			$def = ' selected';
-		}
-		else
-		{
-			$def = '';
-		}
-		echo '<option'.$def.'>'.$object->name.'</option>'."\n";
-	}
-	mysql_free_result( $result );
-}
- 
-
-function get_categories_for_ext_old( $ext, $default = "" )
-{
-	$cats = '';
-	connectdb();
-	$result = mysql_query( 'SELECT categories.name AS catname, subcategories.name AS subcatname FROM filetypes INNER JOIN categories ON categories.id=filetypes.category INNER JOIN subcategories ON subcategories.category=categories.id WHERE extension LIKE \''.mysql_real_escape_string( $ext ).'\' ORDER BY categories.name, subcategories.name' );
-	if( mysql_num_rows( $result ) > 0 )
-	{ 
-		while( $object = mysql_fetch_object( $result ) )
-		{
-			$fullname = $object->catname.'-'.$object->subcatname;
-			if( $fullname == $default )
-			{
-				$def = ' selected';
-			}
-			else
-			{
-				$def = '';
-			}
-			$cats .= '<option'.$def.'>'.$fullname.'</option>'."\n";
-		}
-		mysql_free_result( $result );
-		return( $cats );
-	}
-	return( FALSE );
-}
-
-
-function get_object_by_id_old( $table, $id, $field, $id_field = "id" )
-{
-	connectdb();
-	
-	$q = sprintf( "SELECT %s AS obj FROM `%s` WHERE `%s`='%s'",
-				/*mysql_real_escape_string(*/ $field/* )*/,
-				mysql_real_escape_string( $table ),
-				mysql_real_escape_string( $id_field ),
-				mysql_real_escape_string( $id ) );
-	$result = mysql_query( $q );
-	if( mysql_num_rows( $result ) > 0 )
-	{
-		$object = mysql_fetch_object( $result );
-		mysql_free_result ($result);
-		return $object->obj;
-	}
-	return( FALSE );
-}
-
-
-function get_id_by_object_old( $table, $field, $obj )
-{
-	connectdb();
-	$q = sprintf( "SELECT id FROM `%s` WHERE `%s` LIKE '%s'",
-				mysql_real_escape_string( $table ),
-				mysql_real_escape_string( $field ),
-				mysql_real_escape_string( $obj ) );
-	$result = mysql_query( $q );
-	if( mysql_num_rows( $result ) > 0 )
-	{
-		$object = mysql_fetch_object( $result );
-		mysql_free_result ($result);
-		return $object->id;
-	}
-	return( -1 );
-}
-
-
- 
-
-function get_latest_old() {
-	global $PAGE_SIZE;
- 	connectdb();
-	$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,".
-		"categories.name AS category,subcategories.name AS subcategory,".
-		"insert_date,update_date,description,files.downloads AS downloads FROM files ".
-		"INNER JOIN categories ON categories.id=files.category ".
-		"INNER JOIN subcategories ON subcategories.id=files.subcategory ".
-		"INNER JOIN users ON users.id=files.user_id ".
-		"INNER JOIN licenses ON licenses.id=files.license_id ".
-	 	"ORDER BY files.update_date DESC LIMIT ". $PAGE_SIZE;
- 	$result = mysql_query ($req);
-
- 	echo "<h3>Latest Uploads</h3>".mysql_error()."\n";
-	echo '<div class="col-md-9"><table class="table table-striped">';
-	while ($object = mysql_fetch_object ($result)) {
-		show_basic_file_info_old( $object, TRUE );
-	}
-	echo'</table></div>';
-	mysql_free_result ($result);
-}
-
-function password_match_old ($pass,$user) {
- 	connectdb ();
-	$q = sprintf( "SELECT login FROM users WHERE password LIKE SHA1('%s') AND login LIKE '%s' AND loginFailureCount<6",
-				mysql_real_escape_string( $pass ),
-				mysql_real_escape_string( $user ) );
-	$result = mysql_query( $q );
- 	$object = mysql_fetch_object ($result);
- 	mysql_free_result ($result);
- 	if($object->login)
-	{
-		$q = sprintf( "UPDATE users SET loginFailureCount=0 WHERE login LIKE '%s'",
-				mysql_real_escape_string( $user ) );
-		$result = mysql_query( $q );
-		return true;
-	}
-	else
-	{
-		$q = sprintf( "UPDATE users SET loginFailureCount=loginFailureCount+1 WHERE login LIKE '%s'",
-				mysql_real_escape_string( $user ) );
-		$result = mysql_query( $q );
-	}
-	return false;
- }
-
-
-
-function myadd_user_old($login, $realname, $pass, $is_admin) {
- 	connectdb ();
-	$q = sprintf( "INSERT INTO users(login,realname,password,is_admin) VALUES ('%s','%s',SHA1('%s'),'%s')",
-				mysql_real_escape_string( $login ),
-				mysql_real_escape_string( $realname ),
-				mysql_real_escape_string( $pass ),
-				mysql_real_escape_string( $is_admin ) );
- 	mysql_query( $q );
- 	
-}
-
-function mychange_user_old($login,$realname,$pass) {
- 	connectdb ();
-	if($pass!='') {
-		$q = sprintf( "UPDATE users SET `realname`='%s', `password`=SHA1('%s') WHERE `login` LIKE '%s'",
-					mysql_real_escape_string( $realname ),
-					mysql_real_escape_string( $pass ),
-					mysql_real_escape_string( $login ) );
-	} else {
-		$q = sprintf( "UPDATE users SET `realname`='%s' WHERE `login` LIKE '%s'",
-					mysql_real_escape_string( $realname ),
-					mysql_real_escape_string( $login ) );
-	}
- 	mysql_query( $q );
- }
- 
- 
-
-function get_results_old( $cat, $subcat, $sort = '', $search = '' ) {	
-	$q = $search;
-	$search = @mysql_real_escape_string($search);
-	global $PAGE_SIZE;
-	global $LSP_URL;
-	$page = @$_GET["page"];
-	$where = '';
-	connectdb();
-/*
-	if(strlen( $cat ) > 0 )
-	{	
-		# Where clause for count and query
-		$where= sprintf( "WHERE categories.name='%s' ", mysql_real_escape_string( $cat ) );
-		if( strlen( $subcat ) > 0 )
-		{
-			$where .= sprintf( "AND subcategories.name='%s' ", mysql_real_escape_string( $subcat ) );
-		}
-	}
-	if( strlen($search) > 0 )
-	{
-		if( strlen($where) == 0 )
-		{
-			$where = "WHERE files.filename = files.filename ";
-		}
-		$where .= "AND ( files.filename LIKE '%$search%' OR users.login LIKE '%$search%' OR users.realname LIKE '%$search%') ";
-	}
-
-	# Get count
-	$count = mysql_result(mysql_query(
-		"SELECT COUNT(files.id) FROM files ".
-		"INNER JOIN categories ON categories.id=files.category ".
-		"INNER JOIN subcategories ON subcategories.id=files.subcategory ".
-		"INNER JOIN users ON users.id=files.user_id ".
-		$where), 0, 0);
-		*/
-		
-		$count = get_results_count($cat, $subcat);
-	if( $count > 0 ) {
-		$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
-		$req .= "files.downloads*files.downloads/(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day,";
-		$req .= "files.downloads AS downloads,";
-		$req .= "insert_date,update_date,description, AVG(ratings.stars) as rating FROM files ";
-		$req .= "INNER JOIN categories ON categories.id=files.category ";
-		$req .= "INNER JOIN subcategories ON subcategories.id=files.subcategory ";
-		$req .= "INNER JOIN users ON users.id=files.user_id ";
-		$req .= "INNER JOIN licenses ON licenses.id=files.license_id ";
-		$req .= "LEFT JOIN ratings ON ratings.file_id=files.id ";
-		$req .= $where;
-		$req .= "GROUP BY files.id ";
-		if( $sort == 'downloads' )
-		{
-			$req .= "ORDER BY downloads_per_day DESC ";
-		}
-		else if( $sort == 'rating' )
-		{
-			$req .= "ORDER BY rating DESC, COUNT(ratings.file_id) DESC ";
-		}
-		else if ( $sort == 'comments' )
-		{
-			//FIXME TODO: Add support for sorting by comment popularity
-		}
-		else
-		{
-			$req .= "ORDER BY files.insert_date DESC ";
-		}
-		$req .= sprintf("LIMIT %d,%d", $page*$PAGE_SIZE, $PAGE_SIZE);
-		$result = mysql_query ($req);
-
-		echo '<div class="col-md-9">';
-		create_title(array(GET('category'), GET('subcategory'), "\"$q\""));
-		list_sort_options();
-		echo '<table class="table table-striped">';
-		while($object = mysql_fetch_object ($result)) {
-			show_basic_file_info_old( $object, TRUE );
-		}
-		echo'</table></div>';
-
-		echo get_pagination($count);
-		mysql_free_result( $result );
-	}
-	else {
-		echo '<h3 class="text-muted">No results.</h3>';
-	}
-}
-
-
-/* I DONT THINK THIS SEVER WORKED, BUR REWROTE IT ANYWAY -TRES
-function insert_category_old ($fext,$cat)
- {
-  connectdb ();
-  $req = "SELECT count(name) FROM categories WHERE name LIKE '".$cat."' AND filetypes_extension LIKE '".$fext."'";
-  $result = mysql_query ($req);
-  $row = mysql_fetch_row ($result);
-  if (!$row[0])
-   {
-  mysql_free_result ($result);
-  $req = "INSERT INTO categories (name,filetypes_extension) VALUES ('".$cat."','".$fext."')";
-  return mysql_query ($req);
-   } else return 0;
-  }
-*/
-
-/*
-function show_user_content( $user ) {
-	$uid = get_user_id( $user );
-	if( $uid >= 0 ) {
-		connectdb ();
-		
-		$order_by = 'files.insert_date';
-		switch (GET('sort')) {
-			case 'downloads' : $order_by = 'downloads_per_day'; break;
-			case 'rating' : $order_by = 'rating DESC, COUNT(ratings.file_id)'; break;
-			case 'comments' : break; //FIXME: TODO: Add support for sorting by comments
-		}
-		
-		$req = "SELECT files.id, licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
-		$req .= "insert_date,update_date,description FROM files ";
-		$req .= "INNER JOIN categories ON categories.id=files.category ";
-		$req .= "INNER JOIN subcategories ON subcategories.id=files.subcategory ";
-		$req .= "INNER JOIN users ON users.id=files.user_id ";
-		$req .= "INNER JOIN licenses ON licenses.id=files.license_id ";
-		$req .= "WHERE files.user_id='".mysql_real_escape_string( $uid )."' ";
-		$req .= "ORDER BY $order_by DESC";
-		$result = mysql_query ($req);
-
-		create_title("($user)");
-		list_sort_options();
-		if( $result != FALSE && mysql_num_rows( $result ) > 0 ) {	
-			echo '<div class="col-md-9"><table class="table table-striped">';
-			while( $object = mysql_fetch_object( $result ) )
-			{
-				show_basic_file_info_old( $object, TRUE, FALSE );
-			}
-			echo'</table></div>';
-			mysql_free_result ($result);
-		}
-		else {
-			echo '<h3 class="text-muted">No results.</h3>';
-		}
-	} else {
-		echo '<h3 class="txt-danger">User "'.$user.'" not found!</h3>';
-	}
-}*/
-
- 
-/*
- * Formats today's date
- */
-function mydate_old() {
- 	return date("Y-m-d", time());
-}
-
-function get_categories_old()
-{
-	global $LSP_URL;
-	connectdb();
-	$result = mysql_query(
-		'SELECT categories.name AS name, COUNT(files.id) AS cnt, categories.id AS id FROM categories '.
-		'LEFT JOIN files ON files.category = categories.id '.
-		'GROUP BY categories.name '.
-		'ORDER BY categories.name ');
-	debug('SELECT categories.name AS name, COUNT(files.id) AS cnt, categories.id AS id FROM categories '.
-		'LEFT JOIN files ON files.category = categories.id '.
-		'GROUP BY categories.name '.
-		'ORDER BY categories.name ');
-echo mysql_error();
-	echo '<ul class="navbar lsp-categories">';
-	$sort = isset($_GET['sort']) ? $_GET['sort'] : 'date';
-	while( $object = mysql_fetch_object( $result ) )
-	{
-		echo "<li class='lsp-category'><a class='category' href='".htmlentities ($LSP_URL."?action=browse&category=".$object->name)."&sort=".$sort."'>".
-			$object->name." <span class='count'>(".$object->cnt.")</span></a></li>";
-		if( isset( $_GET["category"] ) && $_GET["category"] == $object->name )
-		{
-			$cat = $_GET["category"];
-			// This is terribly inefficient!
-			//$catid = get_category_id( $object->name );
-			$catid = $object->id;
-//			$res2 = mysql_query( "SELECT name FROM subcategories WHERE category='".$catid."'" );
-			$res2 = mysql_query( 
-				"SELECT subcategories.name AS name, COUNT(files.id) AS cnt FROM subcategories ".
-				"LEFT JOIN files ON files.subcategory = subcategories.id AND files.category='$catid' ".
-				"WHERE subcategories.category='$catid' ". 
-				"GROUP BY subcategories.name ".
-				"ORDER BY subcategories.name ");
-			debug("SELECT subcategories.name AS name, COUNT(files.id) AS cnt FROM subcategories ".
-				"LEFT JOIN files ON files.subcategory = subcategories.id AND files.category='$catid' ".
-				"WHERE subcategories.category='$catid' ". 
-				"GROUP BY subcategories.name ".
-				"ORDER BY subcategories.name ");
-			echo "<div class='selected'>";
-	echo mysql_error();
-			echo '<ul class="lsp-subcategory">';
-			while( $object2 = mysql_fetch_object( $res2 ) )
-			{
-				echo "<li class='lsp-subcategory'><a class='subcategory";
-                                if( $object2->name == @$_GET["subcategory"] )
-                                {
-                                        echo " selected";
-                                }
-				echo "' href=\"".htmlentities ($LSP_URL."?action=browse&category=$cat&subcategory=".$object2->name."&sort=".$sort)."\"> ";
-				echo $object2->name." <span class='count'>(".$object2->cnt.")</span></a></li>";
-			}
-			mysql_free_result( $res2 );
-			echo "</ul></div>";
-		}
-	}
-	mysql_free_result( $result );
-	echo '</ul>';
-}
-
-
-/*
- * Temporary function to wrap old mysql object into a new associative array
- * This should go away when the mysql_connect calls have all been removed
- */
-function show_basic_file_info_old($rs, $browsing_mode = false, $show_author = true) {
-	$wrapper = array();
-	$wrapper['id'] = $rs->id;
-	//$wrapper['name'] = $rs->name;
-	$wrapper['size'] = $rs->size;
-	$wrapper['login'] = $rs->login;
-	$wrapper['filename'] = $rs->filename;
-	$wrapper['realname'] = $rs->realname;
-	$wrapper['license'] = $rs->license;
-	$wrapper['comments'] = isset($rs->comments) ? $rs->comments : null;
-	$wrapper['rating'] = isset($rs->rating) ? $rs->rating : null;
-	$wrapper['insert_date'] = $rs->insert_date;
-	$wrapper['category'] = $rs->category;
-	$wrapper['subcategory'] = $rs->subcategory;
-	$wrapper['insert_date'] = $rs->insert_date;
-	$wrapper['update_date'] = $rs->update_date;
-	$wrapper['rating_count'] = isset($rs->rating_count) ? $rs->rating_count : null;
-	$wrapper['downloads'] = isset($rs->downloads) ? $rs->downloads : null;
-	return show_basic_file_info($wrapper, $browsing_mode, $show_author);
-}
-
-
- 
- 
-function get_file_category_old($fid) {
- 	connectdb();
- 	$q = sprintf( "SELECT categories.name FROM files INNER JOIN categories ON categories.id=files.category WHERE files.id='%s'", mysql_real_escape_string( $fid ) );
- 	$result = mysql_query( $q );
- 	$object = mysql_fetch_object( $result );
- 	mysql_free_result( $result );
- 	return $object->name;
-}
-
-function get_file_subcategory_old($fid) {
- 	connectdb();
- 	$q = sprintf( "SELECT subcategories.name FROM files INNER JOIN subcategories ON subcategories.id=files.subcategory WHERE files.id='%s'", mysql_real_escape_string( $fid ) );
- 	$result = mysql_query( $q );
- 	$object = mysql_fetch_object( $result );
- 	mysql_free_result( $result );
- 	return $object->name;
-}
-
 
 ?>
