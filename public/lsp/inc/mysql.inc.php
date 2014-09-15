@@ -579,59 +579,69 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 }
 
 /*
- * Inserts the supplied extension and category pair into the
- * filteypes table.  Creates the appropriate entry in the category
- * table if it doesn't already exist.
+ * Returns the index of the filetype specified by 
+ * extension and category
+ * i.e. get_file_type('.mmpz', 'Projects');
  */
-function insert_filetype($extension, $category) {
-	$extension_id = -1;
-	$category_id = insert_category($category);
+function get_filetype_id($extension, $category) {
+	$filetype_id = -1;
+	$category_id = get_category_id($category);
 	
 	$dbh = &get_db();
 	$stmt = $dbh->prepare(
 		'SELECT id FROM filetypes ' .
 		'WHERE category = :category_id and LOWER(extension) = LOWER(:extension)'
 	);
+	$fixed_extension = fix_extension($extension);
 	$stmt->bindParam(':category_id', $category_id);
-	$stmt->bindParam(':extension', $extension);
+	$stmt->bindParam(':extension', $fixed_extension);
 	
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$extension_id = $object['id'];
-			$stmt = null;
+			$filetype_id = $object['id'];
 			break;
 		}
 	}
-	
+	$stmt = null;
+	$dbh = null;
+	return $filetype_id;
+}
+
+/*
+ * Make sure the supplied string starts with a '.'
+ */
+function fix_extension($extension) {
+	return strpos($extension, '.') === 0 ? $extension : ".$extension";
+}
+
+/*
+ * Inserts the supplied extension and category pair into the
+ * filteypes table.  Creates the appropriate entry in the category
+ * table if it doesn't already exist.
+ */
+function insert_filetype($extension, $category) {
+	$category_id = insert_category($category);
+	$filetype_id = get_filetype_id($extension, $category);
 	// Extension/category pair doesn't exist yet, insert our row
-	if ($extension_id < 0) {
+	if ($filetype_id < 0) {
+		$dbh = &get_db();
 		$stmt = $dbh->prepare(
 			'INSERT INTO filetypes (extension, category) VALUES(LOWER(:extension), :category_id)'
 		);
-		$stmt->bindParam(':extension', $extension);
+
+		$fixed_extension = fix_extension($extension);
+		$stmt->bindParam(':extension', $fixed_extension);
 		$stmt->bindParam(':category_id', $category_id);
 		
 		// Inserted successfully, find our filetype id
 		if ($stmt->execute()) {
-			$stmt = null;
-			$stmt = $dbh->prepare(
-				'SELECT id FROM filetypes ' .
-				'WHERE category = :category_id and LOWER(extension) = LOWER(:extension)'
-			);
-			$stmt->bindParam(':category_id', $category_id);
-			$stmt->bindParam(':extension', $extension);
-			if ($stmt->execute()) {
-				while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-					$extension_id = $object['id'];
-					$stmt = null;
-					break;
-				}
-			}
+			$filetype_id = get_filetype_id($fixed_extension, $category);
 		}
+		$stmt = null;
+		$dbh = null;
 	}
 	
-	$dbh = null;
-	return $extension_id;
+	return $filetype_id;
 }
 
 /*
@@ -663,12 +673,19 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	echo '<tr class="file"><td><div class="overflow-hidden">';
 	
 	if ($browsing_mode) {
-		echo '<div><a href="' . htmlentities($LSP_URL . '?action=show&file=' . $rs['id']) . '" style="font-weight:bold; font-size:1.15em" title="' . $rs['filename'] . '">' . $rs['filename'] . '</a></div>';
-		echo '<a href="' . htmlentities($LSP_URL . '?action=browse&category=' . $rs['category']) . '">' . $rs['category'] . '</a>&nbsp;<span class="fa fa-caret-right lsp-caret-right-small"></span>&nbsp;<a href="' . htmlentities($LSP_URL . '?action=browse&category=' . $rs['category'] . '&subcategory=' . $rs['subcategory']) . '&sort=' . $sort . '">' . $rs['subcategory'] . '</a><br>';
+		echo '<div><a href="' . htmlentities($LSP_URL . '?action=show&file=' . 
+			$rs['id']) . '" style="font-weight:bold; font-size:1.15em" title="' . 
+			$rs['filename'] . '">' . $rs['filename'] . '</a></div>';
+		echo '<a href="' . htmlentities($LSP_URL . '?action=browse&category=' . 
+			$rs['category']) . '">' . $rs['category'] . 
+			'</a>&nbsp;<span class="fa fa-caret-right lsp-caret-right-small"></span>&nbsp;<a href="' . 
+			htmlentities($LSP_URL . '?action=browse&category=' . $rs['category'] . '&subcategory=' . 
+			$rs['subcategory']) . '&sort=' . $sort . '">' . $rs['subcategory'] . '</a><br>';
 	}
 	
 	if ($show_author) {
-		echo '<small>by <a href="' . $LSP_URL . '?action=browse&amp;user=' . $rs['login'] . '">' . $rs['realname'] . " (" . $rs['login'] . ")</a></small><br>";
+		echo '<small>by <a href="' . $LSP_URL . '?action=browse&amp;user=' . 
+			$rs['login'] . '">' . $rs['realname'] . " (" . $rs['login'] . ")</a></small><br>";
 	}
 
 	if(!$browsing_mode) {
@@ -709,120 +726,96 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	echo '</small></td></tr>';
 }
 
-function show_file( $fid, $user )
-{
-/* TODO: NOT SURE IF THIS LOGIC IS NEEDED?
-	if (GET_EMPTY('category')) {
-		$_GET['category'] = get_file_category(GET('file'));
-	}
-	if (GET_EMPTY('subcategory')) {
-		$_GET['subcategory'] = get_file_subcategory(GET('file'));
-	}
-*/
-	global $LSP_URL;
-	connectdb();
-	$req = "SELECT licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
-	$req .= "insert_date,update_date,description,downloads,files.id FROM files ";
-	$req .= "INNER JOIN categories ON categories.id=files.category ";
-	$req .= "INNER JOIN subcategories ON subcategories.id=files.subcategory ";
-	$req .= "INNER JOIN users ON users.id=files.user_id ";
-	$req .= "INNER JOIN licenses ON licenses.id=files.license_id ";
-	$req .= sprintf( "WHERE files.id=%s", mysql_real_escape_string( $fid ) );
-
-	$res = mysql_query( $req );
-
-	if( mysql_num_rows( $res ) < 1 )
-	{
-		echo '<h3 style="color:#f60;">File not found</h3>';
-		return;
-	}
-	$f = mysql_fetch_object( $res );
-
-	echo '<div class="col-md-9">';
-	create_title(array($f->category, $f->subcategory, "($f->filename)"));
-	echo '<table class="table table-striped">';
-	show_basic_file_info_old( $f, FALSE );
+function show_file($file_id, $user) {
+	$dbh = &get_db();
+	$stmt = $dbh->prepare(
+		'SELECT licenses.name AS license, size, realname, filename, users.login, ' .
+		'categories.name AS category, subcategories.name AS subcategory,' .
+		'insert_date, update_date, description, downloads, files.id FROM files ' .
+		'INNER JOIN categories ON categories.id=files.category ' .
+		'INNER JOIN subcategories ON subcategories.id=files.subcategory ' .
+		'INNER JOIN users ON users.id=files.user_id ' .
+		'INNER JOIN licenses ON licenses.id=files.license_id ' .
+		'WHERE files.id=:file_id'
+	);
+	$stmt->bindParam(':file_id', $file_id);
 	
-	// Bump the download button under details block
-	echo '<tr><td><strong>Name:</strong>&nbsp;' . $f->filename . '</td><td class="lsp-file-info">';
-	$url = htmlentities( 'lsp_dl.php?file='.$f->id.'&name='.$f->filename );
-	echo '<a href="'.$url.'" id="downloadbtn" class="lsp-dl-btn btn btn-primary"><span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
-	echo '</td></tr>';
-	
-	echo "<tr><td colspan=\"2\"><strong>Description:</strong><p>";
-	echo ($f->description != '' ? newline_to_br($f->description) : 'No description available.');
-	echo '</p></td></tr>';
-	
-	echo '<tr><td colspan="2">';
-	echo '<nav class="navbar navbar-default"><ul class="nav navbar-nav">';
-	$can_edit = ($f->login == $user || is_admin(get_user_id($user)));
-	$can_rate = isset($_SESSION["remote_user"]);
-	
-	create_toolbar_item('Comment', "$LSP_URL?comment=add&file=$fid", 'fa-comment', $can_rate);
-	create_toolbar_item('Edit', "$LSP_URL?content=update&file=$fid", 'fa-pencil', $can_edit);
-	create_toolbar_item('Delete', "$LSP_URL?content=delete&file=$fid", 'fa-trash', $can_edit);
-	$star_url = $LSP_URL . '?' . file_show_query_string().'&rate=';
-	create_toolbar_item(get_stars($fid, $star_url, 'fa-star-o lsp-star', $can_rate), '', null, false);
-	
-	echo '</ul></nav>';
-	echo '<strong>Comments:</strong>';
-	echo '</td></tr>';
-	get_comments($fid);
-	//get_comments_old($fid, $f);
-	echo'</table></div>';
-	
-	mysql_free_result ($res);	
-
-	
-	/*
-	if (isset($_SESSION["remote_user"])) {
-		$urating = get_user_rating( $fid, $_SESSION["remote_user"] );
-		echo'<b>Rating:</b>';
-		for( $i = 1; $i < 6; ++$i )
-		{
-			echo '<a href="'.htmlentities($LSP_URL.'?'.file_show_query_string().'&rate='.$i ).'" class="ratelink" ';
-			if( $urating == $i )
-			{
-				echo 'style="border:1px solid #88f;"';
-			}
-			echo '>';
-			for( $j = 1; $j <= $i ; ++$j )
-			{
-				echo '<span class="fa fa-star lsp-star">';
-			}
-			echo '</a><br />';
+	$found = false;
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			echo '<div class="col-md-9">';
+			create_title(array($object['category'], $object['subcategory'], "($object[filename])"));
+			echo '<table class="table table-striped">';
+			show_basic_file_info($object, false);
+			
+			// Bump the download button under details block
+			echo '<tr><td><strong>Name:</strong>&nbsp;' . $object['filename'] . '</td><td class="lsp-file-info">';
+			$url = htmlentities('lsp_dl.php?file=' . $object['id'] . '&name=' . $object['filename']);
+			echo '<a href="' . $url . '" id="downloadbtn" class="lsp-dl-btn btn btn-primary">';
+			echo '<span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
+			echo '</td></tr>';
+			
+			echo '<tr><td colspan="2"><strong>Description:</strong><p>';
+			echo ($object['description'] != '' ? newline_to_br($object['description']) : 'No description available.');
+			echo '</p></td></tr>';
+			
+			echo '<tr><td colspan="2">';
+			echo '<nav class="navbar navbar-default"><ul class="nav navbar-nav">';
+			$can_edit = ($object['login'] == $user || is_admin(get_user_id($user)));
+			$can_rate = isset($_SESSION["remote_user"]);
+			
+			global $LSP_URL;
+			create_toolbar_item('Comment', "$LSP_URL?comment=add&file=$file_id", 'fa-comment', $can_rate);
+			create_toolbar_item('Edit', "$LSP_URL?content=update&file=$file_id", 'fa-pencil', $can_edit);
+			create_toolbar_item('Delete', "$LSP_URL?content=delete&file=$file_id", 'fa-trash', $can_edit);
+			$star_url = $LSP_URL . '?' . file_show_query_string().'&rate=';
+			create_toolbar_item(get_stars($file_id, $star_url, 'fa-star-o lsp-star', $can_rate), '', null, false);
+			
+			echo '</ul></nav>';
+			echo '<strong>Comments:</strong>';
+			echo '</td></tr>';
+			get_comments($file_id);
+			echo'</table></div>';
+			$found = true;
+			break;
 		}
 	}
-	echo'</ul></nav></td></tr></table></div>';
-	echo "<br />\n";
-	*/
-
-
+	if (!$found) {
+		echo '<h3 style="color:#f60;">File not found</h3>';
+	}
+	$stmt = null;
+	$dbh = null;
 }
 
-
-function get_user_rating( $fid, $user ) {
-	$uid = get_user_id($user);
-	if( $uid >= 0 )
-	{
-		connectdb ();
-		$q = sprintf( "SELECT COUNT(stars) AS cnt FROM ratings WHERE `file_id`='%s' AND `user_id`='%s'", mysql_real_escape_string( $fid ), mysql_real_escape_string( $uid ) );
-		$result = mysql_query( $q );
-		$object = mysql_fetch_object ($result);
-		mysql_free_result ($result);
-		if( $object->cnt < 1 )
-		{
-			return( 0 );
+/*
+ * Used when updating a rating for a particular file
+ * (or displaying the logged-in user's rating for a particular file)
+ */
+function get_user_rating($file_id, $user) {
+	$return_val = 0;
+	$user_id = get_user_id($user);
+	if ($user_id >= 0) {
+		$dbh = &get_db();
+		$stmt = $dbh->prepare('SELECT COUNT(stars) AS stars_count FROM ratings WHERE file_id=:file_id AND user_id=:user_id');
+		$stmt->bindParam(':file_id', $file_id);
+		$stmt->bindParam(':user_id', $user_id);
+		if ($stmt->execute()) {
+			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				if ($object['stars_count'] >= 1) {
+					$stmt = $dbh->prepare('SELECT stars FROM ratings WHERE file_id=:file_id AND user_id=:user_id');
+					$stmt->bindParam(':file_id', $file_id);
+					$stmt->bindParam(':user_id', $user_id);
+					if ($stmt->execute()) {
+						while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+							$return_val = $object['stars'];
+							break;
+						}
+					}
+				}
+			}
 		}
-
-		
-		$q = sprintf( "SELECT stars FROM ratings WHERE `file_id`='%s' AND `user_id`='%s'", mysql_real_escape_string( $fid ), mysql_real_escape_string( $uid) );
-		$result = mysql_query( $q );
-
-		$object = mysql_fetch_object ($result);
-		mysql_free_result ($result);
-		return $object->stars;
 	}
+	return $return_val;
 }
 
 function update_rating( $fid, $stars, $user )
@@ -989,6 +982,30 @@ function connectdb()
 }
 
 
+function get_user_rating_old( $fid, $user ) {
+	$uid = get_user_id($user);
+	if( $uid >= 0 )
+	{
+		connectdb ();
+		$q = sprintf( "SELECT COUNT(stars) AS cnt FROM ratings WHERE `file_id`='%s' AND `user_id`='%s'", mysql_real_escape_string( $fid ), mysql_real_escape_string( $uid ) );
+		$result = mysql_query( $q );
+		$object = mysql_fetch_object ($result);
+		mysql_free_result ($result);
+		if( $object->cnt < 1 )
+		{
+			return( 0 );
+		}
+
+		
+		$q = sprintf( "SELECT stars FROM ratings WHERE `file_id`='%s' AND `user_id`='%s'", mysql_real_escape_string( $fid ), mysql_real_escape_string( $uid) );
+		$result = mysql_query( $q );
+
+		$object = mysql_fetch_object ($result);
+		mysql_free_result ($result);
+		return $object->stars;
+	}
+}
+
 
 function get_comments_old($fid, $f) {
 	global $LSP_URL;
@@ -1010,6 +1027,98 @@ function get_comments_old($fid, $f) {
 	mysql_free_result( $result );
 }
 
+
+
+function show_file_old( $fid, $user )
+{
+/* TODO: NOT SURE IF THIS LOGIC IS NEEDED?
+	if (GET_EMPTY('category')) {
+		$_GET['category'] = get_file_category(GET('file'));
+	}
+	if (GET_EMPTY('subcategory')) {
+		$_GET['subcategory'] = get_file_subcategory(GET('file'));
+	}
+*/
+	global $LSP_URL;
+	connectdb();
+	$req = "SELECT licenses.name AS license,size,realname,filename,users.login,categories.name AS category,subcategories.name AS subcategory,";
+	$req .= "insert_date,update_date,description,downloads,files.id FROM files ";
+	$req .= "INNER JOIN categories ON categories.id=files.category ";
+	$req .= "INNER JOIN subcategories ON subcategories.id=files.subcategory ";
+	$req .= "INNER JOIN users ON users.id=files.user_id ";
+	$req .= "INNER JOIN licenses ON licenses.id=files.license_id ";
+	$req .= sprintf( "WHERE files.id=%s", mysql_real_escape_string( $fid ) );
+
+	$res = mysql_query( $req );
+
+	if( mysql_num_rows( $res ) < 1 )
+	{
+		echo '<h3 style="color:#f60;">File not found</h3>';
+		return;
+	}
+	$f = mysql_fetch_object( $res );
+
+	echo '<div class="col-md-9">';
+	create_title(array($f->category, $f->subcategory, "($f->filename)"));
+	echo '<table class="table table-striped">';
+	show_basic_file_info_old( $f, FALSE );
+	
+	// Bump the download button under details block
+	echo '<tr><td><strong>Name:</strong>&nbsp;' . $f->filename . '</td><td class="lsp-file-info">';
+	$url = htmlentities( 'lsp_dl.php?file='.$f->id.'&name='.$f->filename );
+	echo '<a href="'.$url.'" id="downloadbtn" class="lsp-dl-btn btn btn-primary"><span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
+	echo '</td></tr>';
+	
+	echo "<tr><td colspan=\"2\"><strong>Description:</strong><p>";
+	echo ($f->description != '' ? newline_to_br($f->description) : 'No description available.');
+	echo '</p></td></tr>';
+	
+	echo '<tr><td colspan="2">';
+	echo '<nav class="navbar navbar-default"><ul class="nav navbar-nav">';
+	$can_edit = ($f->login == $user || is_admin(get_user_id($user)));
+	$can_rate = isset($_SESSION["remote_user"]);
+	
+	create_toolbar_item('Comment', "$LSP_URL?comment=add&file=$fid", 'fa-comment', $can_rate);
+	create_toolbar_item('Edit', "$LSP_URL?content=update&file=$fid", 'fa-pencil', $can_edit);
+	create_toolbar_item('Delete', "$LSP_URL?content=delete&file=$fid", 'fa-trash', $can_edit);
+	$star_url = $LSP_URL . '?' . file_show_query_string().'&rate=';
+	create_toolbar_item(get_stars($fid, $star_url, 'fa-star-o lsp-star', $can_rate), '', null, false);
+	
+	echo '</ul></nav>';
+	echo '<strong>Comments:</strong>';
+	echo '</td></tr>';
+	get_comments($fid);
+	//get_comments_old($fid, $f);
+	echo'</table></div>';
+	
+	mysql_free_result ($res);	
+
+	
+	/*
+	if (isset($_SESSION["remote_user"])) {
+		$urating = get_user_rating( $fid, $_SESSION["remote_user"] );
+		echo'<b>Rating:</b>';
+		for( $i = 1; $i < 6; ++$i )
+		{
+			echo '<a href="'.htmlentities($LSP_URL.'?'.file_show_query_string().'&rate='.$i ).'" class="ratelink" ';
+			if( $urating == $i )
+			{
+				echo 'style="border:1px solid #88f;"';
+			}
+			echo '>';
+			for( $j = 1; $j <= $i ; ++$j )
+			{
+				echo '<span class="fa fa-star lsp-star">';
+			}
+			echo '</a><br />';
+		}
+	}
+	echo'</ul></nav></td></tr></table></div>';
+	echo "<br />\n";
+	*/
+
+
+}
 
 
 
