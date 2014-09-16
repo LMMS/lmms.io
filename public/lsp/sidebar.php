@@ -1,7 +1,18 @@
 <?php 
-require_once('lsp_utils.php');
+require_once('utils.php');
 require_once('inc/mysql.inc.php');
 global $LSP_URL;
+
+// Determine a successful login
+$auth_failure = false;
+switch (GET('action')) {
+	case 'logout' : logout(); break;
+	case 'login' : 
+		if (!login()) {
+			$auth_failure = true;
+		}
+		break;
+}
 ?>
 
 <div class="page-header"><h1>LMMS Sharing Platform</h1></div>
@@ -24,29 +35,19 @@ global $LSP_URL;
 	<div id="login-panel" class="panel panel-default">
 		<div class="panel-heading"><h3 class="panel-title">
 			<a data-toggle="collapse" data-parent="#login-panel" href="#login-collapse">
-			<span class="fa fa-user"></span>&nbsp;My Account<?php echo SESSION_EMPTY() ? '' : ' (' . SESSION() . ')'; ?></a>
+			<span class="fa fa-user"></span>&nbsp;My Account<?php 
+				// Append username to title
+				echo SESSION_EMPTY() ? '' : ' (' . SESSION() . ')'; 
+				// Show auth-fail alert in title for smaller screens
+				echo $auth_failure ? '&nbsp;<span class="pull-right fa fa-exclamation-circle text-danger"></span>' : '';
+			?></a>
 		</h3></div>
 		<div id="login-collapse" class="panel-collapse collapse in">
-		<div id="login" class="panel-body overflow-hidden">
+		<div id="login-div" class="panel-body overflow-hidden">
 			<?php
-			if (GET('action') == 'logout') {
-				unset ($_SESSION["remote_user"]);
-				session_destroy();
-				$_GET["action"] = GET('oldaction');
-				if (GET('action') != "browse" && GET('action') != "show" &&	GET('action') != "" ) {
-					$_GET["action"] = "show";
-				}
-			}
-
-			if (SESSION_EMPTY() && GET('action') == 'login') {
-				if (password_match(POST('password'), POST('login'))) {
-					$_SESSION["remote_user"] = POST('login');
-					$_GET["action"] = POST('oldaction');
-					set_get_post('category');
-					set_get_post('subcategory');
-				} else /*if ($_POST["ok"] == 'Login')*/	{
-					echo '<span class="text-danger"><strong>Authentication failure.</strong></span><br />';
-				}
+			
+			if ($auth_failure) {
+				echo '<span class="text-danger"><strong>Authentication failure.</strong></span><br />';
 			}
 			
 			/*
@@ -75,7 +76,7 @@ global $LSP_URL;
 				//echo 'Hello ' . SESSION() . '!<br />';
 				echo '<div><ul style="list-style: none; margin-left: -2.5em;">';
 				echo '<li><a href="?content=add"><span class="fa fa-upload"></span>&nbsp;&nbsp;Add file</a></li>';
-				echo '<li><a href="?action=browse&user=' . SESSION() . '"><span class="fa fa-user"></span>&nbsp;&nbsp;My files</a></li>';
+				echo '<li><a href="?action=browse&user=' . SESSION() . '"><span class="fa fa-files-o "></span>&nbsp;&nbsp;My files</a></li>';
 				echo '<li><a href="?account=settings"><span class="fa fa-gear"></span>&nbsp;&nbsp;Settings</a></li>';
 				echo '<li><a href="?action=logout&oldaction=' . GET('action') . '&file=' . 
 					GET('file') .'&f=' . GET('category') . '&subcategory=' . GET('subcategory') . 
@@ -98,4 +99,10 @@ $(window).bind('resize load',function(){
 		$('.collapse').addClass('in');
 	}   
 });
+
+function loginFocus() {
+	javascript:$('#login-collapse').addClass('in');
+	$('#login').focus();
+	$('#login').fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+}
 </script>

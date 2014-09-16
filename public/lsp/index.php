@@ -9,8 +9,8 @@ session_start ();
 include_once("inc/mysql.inc.php");
 include_once("inc/xhtml.inc.php");
 include_once("../header.php");
-require_once('lsp_utils.php');
-include_once("lsp_sidebar.php");
+require_once('utils.php');
+include_once("sidebar.php");
 
 // Set $_GET[...] variables to their $_POST equivalents
 set_get_post('file');
@@ -44,13 +44,13 @@ function process_params() {
 		
 			// Process built-in functions
 			switch ($func . ":" . GET($func)) {
-				case 'comment:add' : require ("./lsp_addcomment.php"); return;
-				case 'content:add' : require ("./lsp_addcontent.php"); return;
-				case 'content:update' : require ("./lsp_updatecontent.php"); return;
-				case 'content:delete' : require ("./lsp_delcontent.php"); return;
-				case 'account:settings' : require("./lsp_accountsettings.php"); return;
+				case 'comment:add' : require ("./comment_file.php"); return;
+				case 'content:add' : require ("./add_file.php"); return;
+				case 'content:update' : require ("./edit_file.php"); return;
+				case 'content:delete' : require ("./delete_file.php"); return;
+				case 'account:settings' : require("./user_settings.php"); return;
 				case 'action:show' : show_file(GET("file"), SESSION()); return;
-				case 'action:register' : require ("./lsp_adduser.php"); return;
+				case 'action:register' : require ("./register.php"); return;
 				case 'action:browse' :
 					// Browsing by category seems is currently only supported "browse" option
 					if (!GET_EMPTY('category')) {

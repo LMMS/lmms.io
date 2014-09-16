@@ -1,6 +1,6 @@
 <br><div class="lsp-table">
 <?php
-
+require_once('utils.php');
 global $LSP_URL;
 /*
  * Adds the specified user to the database
@@ -36,8 +36,8 @@ $isadmin = (POST_EMPTY("isadmin")) ? true : false;
 /*
  * Create the HTML form used for registration
  */
-if ((POST("adduser") != "Create") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), $isadmin))) {
-	echo '<div class="col-md-9"><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Create account</h3></div>';
+if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), $isadmin))) {
+	echo '<div class="col-md-9"><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Register</h3></div>';
 	echo '<div class="panel-body">';
 	$form = new form($LSP_URL . "?action=register");
 	echo '<div class="form-group">';
@@ -54,8 +54,10 @@ if ((POST("adduser") != "Create") || (!try_add_user(POST("login"), POST("passwor
 	if (is_admin(get_user_id(SESSION()))) {
 		echo '<div class="checkbox"><label><input type="checkbox" name="isadmin" />Is administrator</label></div>';
 	}
-	echo '<input type="submit" class="btn btn-primary" name="adduser" value="Create" />';
+	echo '<input type="submit" class="btn btn-default" name="adduser" value="Register" />&nbsp;';
+	echo '<a href="' . $LSP_URL . '" class="btn btn-warning">Cancel</a>';
 	$form->close();
+	echo "<a href=\"javascript:loginFocus();\"><span class=\"fa  fa-chevron-circle-left\"></span>&nbsp;Already registered?  Login here.</a>"; 
 	echo '</div></div></div>';
 }
 ?>

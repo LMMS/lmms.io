@@ -32,7 +32,7 @@ define('POST_FUNCS', 'comment,content,action,search,q,account');
 define('DBO_FUNCS', 'count,avg');
 
 require_once('config.inc.php');
-require_once('lsp_utils.php');
+require_once('../utils.php');
 
 /*
  * Returns a reference to the database object
@@ -711,8 +711,8 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	$rs['downloads'] = isset($rs['downloads']) ? $rs['downloads'] : get_file_downloads($rs['id']);
 	
 	$downloads = $rs['downloads'];
-	echo "<b>Popularity: </b><span class=\"lsp-badge badge\"><span class=\"fa fa-download\"></span>&nbsp;" . $downloads . "</span> ";
-	echo "<span class=\"lsp-badge badge\"><span class=\"fa fa-comments\"></span>&nbsp;" . $rs['comments'] . "</span><br>";
+	echo "<b>Popularity: </b><span class=\"\"><span class=\"fa fa-download\"></span>&nbsp;" . $downloads . "</span>&nbsp; ";
+	echo "<span class=\"\"><span class=\"fa fa-comments\"></span>&nbsp;" . $rs['comments'] . "</span><br>";
 	echo "<b>Rating:</b> ";
 	
 	$rating = isset($rs['rating']) ? $rs['rating'] : get_file_rating($rs['id']);
@@ -722,7 +722,7 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	for ($i = $rating+1; floor( $i )<=5 ; ++$i) {
 		echo '<span class="fa fa-star-o lsp-star-o"></span>';
 	}
-	echo '&nbsp;<span class="lsp-badge badge"><span class="fa fa-check-square-o"></span>&nbsp;'. $rs['rating_count'].'</span>';
+	echo '&nbsp;&nbsp;<span class=""><span class="fa fa-check-square-o"></span>&nbsp;'. $rs['rating_count'].'</span>';
 	echo '</small></td></tr>';
 }
 
@@ -968,23 +968,25 @@ function delete_file($file_id) {
 	return $return_val;
 }
 
-
-function add_visitor_comment( $file, $comment, $user)
-{
-	$uid = get_user_id( $user );
-	$comment = htmlspecialchars($comment, ENT_COMPAT, 'UTF-8' );
-
-	if( $uid >= 0 )
-	{
-	 	connectdb();
-	 	$req = sprintf( "INSERT INTO comments (user_id,file_id,text) VALUES('%s', '%s', '%s')",
-					mysql_real_escape_string( $uid ),
-					mysql_real_escape_string( $file ),
-					mysql_real_escape_string( $comment ) );
-	 	mysql_query( $req );
+function add_visitor_comment($file_id, $comment, $user) {
+	$user_id = get_user_id($user);
+	$text = htmlspecialchars($comment, ENT_COMPAT, 'UTF-8');
+	$return_val = false;
+	
+	if ($file_id >= 0 && $user_id >= 0) {
+		$dbh = &get_db();
+		$stmt = $dbh->prepare('INSERT INTO comments (user_id, file_id, text) VALUES(:user_id, :file_id, :text)');
+		$stmt->bindParam(':user_id', $user_id);
+		$stmt->bindParam(':file_id', $file_id);
+		$stmt->bindParam(':text', $text);
+		if ($stmt->execute()) {
+			$return_val = true;
+		}
+		$stmt = null;
+		$dbh = null;
 	}
+	return $return_val;
 }
-
 
 /*
  * Convenience Functions

@@ -266,5 +266,43 @@ function get_pagination($count) {
 	return $pagination;
 }
 
+/*
+ * Clears session data and performs a user logout
+ */
+function logout() {
+	unset ($_SESSION["remote_user"]);
+	session_destroy();
+	$_GET["action"] = GET('oldaction');
+	if (GET('action') != "browse" && GET('action') != "show" &&	GET('action') != "" ) {
+		$_GET["action"] = "show";
+	}
+}
+
+/*
+ * Verifies the POST is a password match and logs in the user
+ */
+function login() {
+	if (SESSION_EMPTY() && GET('action') == 'login') {
+		if (password_match(POST('password'), POST('login'))) {
+			$_SESSION["remote_user"] = POST('login');
+			$_GET["action"] = POST('oldaction');
+			set_get_post('category');
+			set_get_post('subcategory');
+			return true;
+		}
+	}
+	return false;
+}
+
+/*
+ * Attempts to build a file hyperlink from the GET('file') value
+ */
+function get_file_url($file_id = null) {
+	global $LSP_URL;
+	$url = $LSP_URL . '?action=show&file=' . (isset($file_id) ? $file_id : GET('file'));
+	$name = '(' . get_file_name((isset($file_id) ? $file_id : GET('file'))) . ')';
+	return '<a href="' . $url . '">' . $name . '</a>';
+}
+
 
 ?>
