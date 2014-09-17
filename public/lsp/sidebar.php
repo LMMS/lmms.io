@@ -35,7 +35,9 @@ switch (GET('action')) {
 	<div id="login-panel" class="panel panel-default">
 		<div class="panel-heading"><h3 class="panel-title">
 			<a data-toggle="collapse" data-parent="#login-panel" href="#login-collapse">
-			<span class="fa fa-user"></span>&nbsp;My Account<?php 
+			<span class="fa fa-user"></span>&nbsp;My Account&nbsp;
+			<span id="caret" class="fa"></span>
+			<?php 
 				// Append username to title
 				echo SESSION_EMPTY() ? '' : ' (' . SESSION() . ')'; 
 				// Show auth-fail alert in title for smaller screens
@@ -71,7 +73,7 @@ switch (GET('action')) {
 				echo '<input type="hidden" name="subcategory" value="' . GET('subcategory') . '" />'."\n";
 				echo '<input type="hidden" name="oldaction" value="' . GET('action') . '" />'."\n";
 				echo '</p></form><br />';
-				echo '<a href="?action=register"><span class="fa  fa-chevron-circle-right"></span>&nbsp;Not registered yet?</a>';
+				echo '<a href="?action=register"><span class="fa fa-chevron-circle-right"></span>&nbsp;Not registered yet?</a>';
 			} else {
 				//echo 'Hello ' . SESSION() . '!<br />';
 				echo '<div><ul style="list-style: none; margin-left: -2.5em;">';
@@ -92,17 +94,74 @@ switch (GET('action')) {
 $(window).bind('resize load',function(){
 	if( $(this).width() < 962 ) {
 		$('.collapse').removeClass('in');
-		$('.collapse').addClass('out');
+		$('#caret').removeClass('fa-caret-down');
+		$('#caret').addClass('fa-caret-left');
 	}
 	else {
-		$('.collapse').removeClass('out');
 		$('.collapse').addClass('in');
+		$('#caret').removeClass('fa-caret-left');
+		$('#caret').addClass('fa-caret-down');
 	}   
 });
+
+$('.collapse').on('shown.bs.collapse', function(){
+	$('#caret').removeClass('fa-caret-left');
+	$('#caret').addClass('fa-caret-down');
+});
+
+$('.collapse').on('hidden.bs.collapse', function(){
+	$('#caret').removeClass('fa-caret-down');
+	$('#caret').addClass('fa-caret-left');
+});
+
+$(document).ready(function() {
+  /*
+   * Redirect page if alert contains a data-redirect tag
+   */
+  $('.alert').each(function() {
+		var o = $(this);
+		var counter = $('.redirect-counter:first');
+		var timeout = counter.length ? parseInt(counter.text()) * 1000 : 5000;
+		if (o.data('redirect').length) {
+			window.setTimeout(function() {window.location = o.data('redirect');}, timeout);
+			countDown(false);
+		}
+  });
+  
+  /*
+   * Focus to comment text-area if it is on the screen
+   */
+   commentFocus();
+ 
+});
+
+function countDown(decrement) {
+	var counter = $('.redirect-counter:first');
+	if (counter.length) {
+		if (decrement) {
+			counter.text(parseInt(counter.text()) - 1);
+		}
+		if (counter.text() == '-1') {
+			counter.remove();
+			return;
+		} else {
+			window.setTimeout(function() { countDown(true); }, 1000);
+			return;
+		}
+	}
+}
+
+function commentFocus() {
+	var comment = $('#comment');
+	if (comment.length) {
+		comment.focus();
+	}
+}
 
 function loginFocus() {
 	javascript:$('#login-collapse').addClass('in');
 	$('#login').focus();
 	$('#login').fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 }
+
 </script>

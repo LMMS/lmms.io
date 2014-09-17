@@ -87,13 +87,6 @@ function quote($string) {
 	return PDO::quote($string);
 }
 
-/*
- * Basic column/field-name sanitization by removing non alpha-numeric characters from the input string
- */
-function sanitize($string) {
-	return preg_replace('/[^A-Za-z0-9_]+/', '', $string);
-}
-
 function get_object_by_id($table, $id, $field, $id_field = 'id', $func = null) {
 	// Sanitize column and table values
 	$table = sanitize($table);

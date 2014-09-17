@@ -5,23 +5,23 @@
  */
 function GET($var, $default_val = null) {
 	if (!GET_EMPTY($var)) {
-		return $_GET[$var];
+		return htmlentities($_GET[$var]);
 	}
-	return $default_val;
+	return htmlentities($default_val);
 }
 
 function SESSION($var = 'remote_user', $default_val = null) {
 	if (!SESSION_EMPTY($var)) {
-		return $_SESSION[$var];
+		return htmlentities($_SESSION[$var]);
 	}
-	return $default_val;
+	return htmlentities($default_val);
 }
 
 function POST($var, $default_val = null) {
 	if (!POST_EMPTY($var)) {
-		return $_POST[$var];
+		return htmlentities($_POST[$var]);
 	}
-	return $default_val;
+	return htmlentities($default_val);
 }
 
 /*
@@ -72,7 +72,7 @@ function set_get_post($param, $default = null) {
 		$_GET[$param] = POST($param);
 	} else {
 		if (isset($default)) {
-			$_GET[$param] = $default;
+			$_GET[$param] = htmlentities($default);
 		}
 	}
 }
@@ -92,15 +92,26 @@ function list_sort_options($additional_html = '') {
 		//'comments' => '<span class="fa fa-comment"></span>&nbsp;COMMENTS'
 	);
 	
+	// Catch singular/plural
+	switch (sanitize(GET('sort'), true)) {
+		case 'download' : $_GET['sort'] = 'download'; break;
+		case 'ratings' : $_GET['sort'] = 'rating'; break;
+		//case 'comment' : $_GET['sort'] = 'comments'; break;
+	}
+	
 	// Get the active sort, or use 'date' if none is defined
-	if (GET_EMPTY('sort')) {
+	if (array_key_exists(sanitize(GET('sort'), true), $sortings)) {
+		$_GET['sort'] = sanitize(GET('sort'), true);
+	}
+	
+	if (GET_EMPTY('sort') || !array_key_exists(GET('sort'), $sortings)) {
 		$_GET['sort'] = 'date';
 	}
 
 	// List all sort options
 	echo '<ul class="nav nav-pills lsp-sort">';
 	foreach ($sortings as $s => $v) {
-		echo '<li class="' . (GET('sort') == $s ? 'active' : '') . '">';
+		echo '<li id="sort-' . strtolower(sanitize($s)) . '" class="' . (GET('sort') == $s ? 'active' : '') . '">';
 		echo '<a href="' . $LSP_URL . '?' . rebuild_url_query('sort', $s) . '">' . $v . '</a></li>';
 	}
 	
@@ -120,20 +131,30 @@ function rebuild_url_query($key, $value) {
 		return '';
 	}
 	$old = GET($key);
-	$_GET[$key] = $value;
+	$_GET[$key] = htmlentities($value);
 	$new_query = array();
 	foreach($_GET as $k => $v) {
 		if (!array_key_exists($k, $new_query)) {
 			array_push($new_query, $k . "=" . $v);
 		}
 	}
-	$_GET[$key] = $old;
+	$_GET[$key] = htmlentities($old);
 	return implode("&amp;", $new_query);
 }
 
 function file_show_query_string() {
 	return 'action=show&file=' . GET("file");
 }
+
+
+/*
+ * Basic column/field-name sanitization by removing non alpha-numeric characters from the input string
+ */
+function sanitize($string, $tolower = false) {
+	$return_val = preg_replace('/[^A-Za-z0-9_]+/', '', $string);
+	return $tolower ? $return_val : strtolower($return_val);
+}
+
 
 /*
  * For show-file page, creates a <li> for Comment/Edit/Delete/Rate tool-bar
@@ -217,27 +238,33 @@ function one_element($array) {
 /*
  * Displays a formatted error message in a small dialogue to the right of the sidebar
  */
-function display_message($message, $severity = 'danger', $title = 'Error', $title_array = null) {
+function display_message($message, $severity = 'danger', $title = 'Error', $title_array = null, $redirect = null) {
 	echo '<div class="col-md-9"><table class="table table-striped">';
 	create_title(isset($title_array) ? $title_array : $title);
-	echo '<div class="alert alert-' . $severity . ' center"><strong>' . $title . ':</strong> ' . $message . '</div>';
+	echo '<div data-redirect="' . (isset($redirect) ? htmlentities($redirect) : '') . '" ' .
+		'class="alert alert-' . $severity . ' center"><strong>' . 
+		$title . ':</strong> ' . $message . '</div>';
+	if (isset($redirect)) {
+		echo '<p>You will automatically be redirected in <strong>' . 
+			'<span class="redirect-counter">5</span> seconds</strong></p>';
+	}
 	echo '</table></div>';
 }
 
-function display_error($message, $title_array = null) {
-	return display_message($message, 'danger', 'Error', $title_array);
+function display_error($message, $title_array = null, $redirect = null) {
+	return display_message($message, 'danger', 'Error', $title_array, $redirect);
 }
 
-function display_warning($message, $title_array = null) {
-	return display_message($message, 'warning', 'Warning', $title_array);
+function display_warning($message, $title_array = null, $redirect = null) {
+	return display_message($message, 'warning', 'Warning', $title_array, $redirect);
 }
 
-function display_info($message, $title_array = null) {
-	return display_message($message, 'info', 'Information', $title_array);
+function display_info($message, $title_array = null, $redirect = null) {
+	return display_message($message, 'info', 'Information', $title_array, $redirect);
 }
 
-function display_success($message, $title_array = null) {
-	return display_message($message, 'success', 'Information', $title_array);
+function display_success($message, $title_array = null, $redirect = null) {
+	return display_message($message, 'success', 'Information', $title_array, $redirect);
 }
 
 /*

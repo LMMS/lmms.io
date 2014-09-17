@@ -12,7 +12,7 @@ if (!SESSION_EMPTY()) {
 		<?php	$form = new form($LSP_URL . "?action=register"); ?>
 		<div class="form-group">
 		<label for="text">Add comment to "<?php echo get_file_name(GET('file')); ?>"</label>
-		<textarea name="text" class="form-control"></textarea>
+		<textarea id="comment" name="text" class="form-control"></textarea>
 		</div>
 		<input type="submit" class="btn btn-default" name="addcomment" value="Comment" />&nbsp;
 		<a href="<?php echo $LSP_URL . '?action=show&file=' . GET('file'); ?>" class="btn btn-warning"></span>Cancel</a>
@@ -23,7 +23,7 @@ if (!SESSION_EMPTY()) {
 		<?php
 	} else {
 		add_visitor_comment(GET('file'), POST('text'), SESSION());
-		display_success('Comment posted successfully', array('Comment', get_file_url()));
+		display_success('Comment posted successfully', array('Comment', get_file_url()), $LSP_URL . '?action=show&file=' . GET('file') . '#footer');
 	}
 } else {
 	display_error('Not logged in', array('Comment', get_file_url()));
