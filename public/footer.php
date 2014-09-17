@@ -1,6 +1,6 @@
 <?php ?>
 </div><br>
-<div class="text-center">
+<div id="footer" class="text-center">
 	<a class="btn btn-adefault btn-xs" href="//github.com/LMMS" target="_blank"><span class="fa fa-github"></span> GitHub</a>
 	<a class="btn btn-adefault btn-xs" href="http://facebook.com/makefreemusic" target="_blank"><span class="fa fa-facebook"></span> Facebook</a>
 	<a class="btn btn-adefault btn-xs" href="https://plus.google.com/113001340835122723950" target="_blank"><span class="fa fa-google-plus"></span> Google+</a>
