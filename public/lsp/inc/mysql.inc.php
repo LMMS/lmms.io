@@ -257,9 +257,9 @@ function add_user($login, $realname, $pass, $is_admin = false) {
  /*
   * Update the realname and/or password of the specified user
   */
- function change_user($login, $realname, $pass = '') {
+ function change_user($login, $realname, $password) {
 	$dbh = &get_db();
-	if ($pass != '') {
+	if ($password != '') {
 		$stmt = $dbh->prepare('UPDATE users SET realname=:realname, password=SHA1(:password) WHERE LOWER(login)=LOWER(:login)');
 		debug("UPDATE users SET realname=$realname, password=SHA1($password) WHERE LOWER(login)=LOWER($login)");
 		$stmt->bindParam(':realname', $realname);

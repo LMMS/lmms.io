@@ -6,7 +6,7 @@ if (!SESSION_EMPTY()) {
 		if (POST_EMPTY('text') && POST('addcomment', false)) {
 			display_error('Please type a message', array('Comment', get_file_url()));
 		} else {
-			display_warning('Do not submit offending, pornographic, racistic or violent content.', array('Comment', get_file_url()));
+			display_warning('Do not submit offending, pornographic, racist or violent content.', array('Comment', get_file_url()));
 		}	
 		?>
 		<div class="col-md-9"><div class="panel panel-default">

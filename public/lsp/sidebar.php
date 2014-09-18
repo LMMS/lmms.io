@@ -39,7 +39,7 @@ switch (GET('action')) {
 			
 			<?php 
 				// Append username to title
-				echo SESSION_EMPTY() ? '' : ' (' . SESSION() . ')'; 
+				echo SESSION_EMPTY() ? '' : ' <span class="badge pull-right">' . SESSION() . '</span>'; 
 				// Show auth-fail alert in title for smaller screens
 				echo $auth_failure ? '&nbsp;<span class="pull-right fa fa-exclamation-circle text-danger"></span>' : '';
 			?></a>
@@ -55,35 +55,34 @@ switch (GET('action')) {
 			/*
 			 * Hide or show the Login Dialog/My Account Panel
 			 */
-			if (SESSION_EMPTY()) {
-				echo '<form action="' . $LSP_URL . '?action=login" method="post" role="form">';
-				echo '<div class="form-group">';
-				echo '<label for="login">Username</label>';
-				echo '<input type="text" id="login" name="login" class="form-control textin" maxlength="10" placeholder="username" />';
-				echo '</div>';
-				echo '<div class="form-group">';
-				echo '<label for="password">Password</label>';
-				echo '<input type="password" id="password" name="password" class="form-control textin" maxlength="15" placeholder="password"/>';
-				echo '</div>';
-				echo '<button type="submit" name="ok" class="btn btn-primary textin"><span class="fa fa-check"></span>&nbsp;Login</button>';
-				echo '</form>';
+			if (SESSION_EMPTY()) {?>
+				<form action="<?php echo $LSP_URL; ?>?action=login" method="post" role="form">
+				<div class="form-group">
+				<label for="login">User Name</label>
+				<input type="text" id="login" name="login" class="form-control textin" maxlength="10" placeholder="username" />
+				</div>
+				<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" id="password" name="password" class="form-control textin" maxlength="15" placeholder="password"/>
+				</div>
+				<button type="submit" name="ok" class="btn btn-primary textin"><span class="fa fa-check"></span>&nbsp;Login</button>
+				</form>
 
-				echo '<input type="hidden" name="file" value="' . GET('file') . '" />'."\n";
-				echo '<input type="hidden" name="category" value="' . GET('category') . '" />'."\n";
-				echo '<input type="hidden" name="subcategory" value="' . GET('subcategory') . '" />'."\n";
-				echo '<input type="hidden" name="oldaction" value="' . GET('action') . '" />'."\n";
-				echo '</p></form><br />';
-				echo '<a href="?action=register"><span class="fa fa-chevron-circle-right"></span>&nbsp;Not registered yet?</a>';
-			} else {
-				//echo 'Hello ' . SESSION() . '!<br />';
-				echo '<div><ul style="list-style: none; margin-left: -2.5em;">';
-				echo '<li><a href="?content=add"><span class="fa fa-upload"></span>&nbsp;&nbsp;Add file</a></li>';
-				echo '<li><a href="?action=browse&user=' . SESSION() . '"><span class="fa fa-files-o "></span>&nbsp;&nbsp;My files</a></li>';
-				echo '<li><a href="?account=settings"><span class="fa fa-gear"></span>&nbsp;&nbsp;Settings</a></li>';
-				echo '<li><a href="?action=logout&oldaction=' . GET('action') . '&file=' . 
-					GET('file') .'&f=' . GET('category') . '&subcategory=' . GET('subcategory') . 
-					'"><span class="fa fa-power-off"></span>&nbsp;&nbsp;Logout</a></li>';
-				echo '</ul></div>';
+				<input type="hidden" name="file" value="<?php echo GET('file');?>" />
+				<input type="hidden" name="category" value="<?php echo GET('category');?>" />
+				<input type="hidden" name="subcategory" value="<?php echo GET('subcategory');?>" />
+				<input type="hidden" name="oldaction" value="<?php echo GET('action');?>" />
+				</form>
+				<a href="?action=register"><span class="fa fa-chevron-circle-right"></span>&nbsp;Not registered yet?</a><?php
+			} else {?>
+				<div><ul style="list-style: none; margin-left: -2.5em;">
+				<li><a href="?content=add"><span class="fa fa-upload"></span>&nbsp;&nbsp;Add file</a></li>
+				<li><a href="?action=browse&user=<?php echo SESSION(); ?>"><span class="fa fa-files-o "></span>&nbsp;&nbsp;My files</a></li>
+				<li><a href="?account=settings"><span class="fa fa-gear"></span>&nbsp;&nbsp;Settings</a></li>
+				<li><a href="?action=logout&oldaction=<?php echo GET('action');?>&file=<?php echo GET('file');?>
+					&f=<?php echo GET('category');?>&subcategory=<?php echo GET('subcategory');?>">
+					<span class="fa fa-power-off"></span>&nbsp;&nbsp;Logout</a></li>
+				</ul></div><?php
 			}
 			?>
 		</div>
@@ -159,7 +158,23 @@ function commentFocus() {
 function loginFocus() {
 	javascript:$('#login-collapse').addClass('in');
 	$('#login').focus();
-	$('#login').fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+	blink('#login');
 }
+
+function blink(item_id) {
+	$(item_id).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+}
+
+/*
+ * Bootstrap file button listener
+ */
+$(document).on('change', '.btn-file :file', function() {
+    var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		$('#file-selected').html(label ? label : "No file selected");
+		$('#file-selected').removeClass().addClass(label ? 'text-primary' : 'text-danger');
+		blink('#file-selected');
+});
 
 </script>

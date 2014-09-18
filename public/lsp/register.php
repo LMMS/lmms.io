@@ -36,7 +36,8 @@ $control = POST("control", false);
  * Create the HTML form used for registration
  */
 if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), $control))) {
-	echo '<div class="col-md-9"><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Register</h3></div>';
+	echo '<div class="col-md-9"><div class="panel panel-default"><div class="panel-heading">';
+	echo '<h3 class="panel-title"><span class="fa fa-list-alt"></span>&nbsp;Register</h3></div>';
 	echo '<div class="panel-body">';
 	$form = new form($LSP_URL . "?action=register");
 	echo '<div class="form-group">';
