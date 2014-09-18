@@ -74,6 +74,10 @@ p.jumbo {
 	opacity: .65;
 }
 
+.fa-files-o {
+	margin-right: -.15em;
+}
+
 .btn-file {
 	margin-right: .75em;
 	margin-top: .15em;
