@@ -74,7 +74,7 @@ p.jumbo {
 	opacity: .65;
 }
 
-.fa-files-o {
+li>a>span.fa-files-o {
 	margin-right: -.15em;
 }
 
