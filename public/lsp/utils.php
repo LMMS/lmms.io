@@ -239,16 +239,26 @@ function one_element($array) {
  * Displays a formatted error message in a small dialogue to the right of the sidebar
  */
 function display_message($message, $severity = 'danger', $title = 'Error', $title_array = null, $redirect = null) {
-	echo '<div class="col-md-9"><table class="table table-striped">';
+	
+	switch ($severity) {
+		case 'info': $icon = 'fa-info-circle'; break;
+		case 'success': $icon = 'fa-check-circle'; break;
+		case 'warning': // move down
+		default: $icon = 'fa-exclamation-circle';
+	}
+	
+	$icon = '<span class="fa ' . $icon . '"></span>&nbsp;';
+
+	echo '<div class="col-md-9">';
 	create_title(isset($title_array) ? $title_array : $title);
 	echo '<div data-redirect="' . (isset($redirect) ? htmlentities($redirect) : '') . '" ' .
-		'class="alert alert-' . $severity . ' center"><strong>' . 
-		$title . ':</strong> ' . $message . '</div>';
+		'class="alert alert-' . $severity . ' center"><strong>' . $icon .
+		($title == '' ? '' : "$title:") . '</strong> ' . $message . '</div>';
 	if (isset($redirect)) {
-		echo '<p>You will automatically be redirected in <strong>' . 
+		echo '<p class="center">You will automatically be redirected in <strong>' . 
 			'<span class="redirect-counter">5</span> seconds</strong></p>';
 	}
-	echo '</table></div>';
+	echo '</div>';
 }
 
 function display_error($message, $title_array = null, $redirect = null) {
@@ -260,11 +270,11 @@ function display_warning($message, $title_array = null, $redirect = null) {
 }
 
 function display_info($message, $title_array = null, $redirect = null) {
-	return display_message($message, 'info', 'Information', $title_array, $redirect);
+	return display_message($message, 'info', '', $title_array, $redirect);
 }
 
 function display_success($message, $title_array = null, $redirect = null) {
-	return display_message($message, 'success', 'Information', $title_array, $redirect);
+	return display_message($message, 'success', '', $title_array, $redirect);
 }
 
 /*

@@ -35,8 +35,8 @@ switch (GET('action')) {
 	<div id="login-panel" class="panel panel-default">
 		<div class="panel-heading"><h3 class="panel-title">
 			<a data-toggle="collapse" data-parent="#login-panel" href="#login-collapse">
-			<span class="fa fa-user"></span>&nbsp;My Account&nbsp;
-			<span id="caret" class="fa"></span>
+			<span id="caret" class="fa"></span>&nbsp;<span class="fa fa-user"></span>&nbsp;My Account&nbsp;
+			
 			<?php 
 				// Append username to title
 				echo SESSION_EMPTY() ? '' : ' (' . SESSION() . ')'; 
@@ -65,7 +65,7 @@ switch (GET('action')) {
 				echo '<label for="password">Password</label>';
 				echo '<input type="password" id="password" name="password" class="form-control textin" maxlength="15" placeholder="password"/>';
 				echo '</div>';
-				echo '<button type="submit" name="ok" class="btn btn-default textin" />Login</button>';
+				echo '<button type="submit" name="ok" class="btn btn-primary textin"><span class="fa fa-check"></span>&nbsp;Login</button>';
 				echo '</form>';
 
 				echo '<input type="hidden" name="file" value="' . GET('file') . '" />'."\n";
@@ -91,28 +91,26 @@ switch (GET('action')) {
 	</div>
 </div>
 <script>
+
 $(window).bind('resize load',function(){
-	if( $(this).width() < 962 ) {
-		$('.collapse').removeClass('in');
-		$('#caret').removeClass('fa-caret-down');
-		$('#caret').addClass('fa-caret-left');
-	}
-	else {
-		$('.collapse').addClass('in');
-		$('#caret').removeClass('fa-caret-left');
-		$('#caret').addClass('fa-caret-down');
-	}   
+	if ($(this).width() < 962) { collapse_in('#caret'); }
+	else { collapse_out('#caret'); }
 });
 
-$('.collapse').on('shown.bs.collapse', function(){
-	$('#caret').removeClass('fa-caret-left');
-	$('#caret').addClass('fa-caret-down');
-});
+function collapse_out(item_id) {
+	$('.collapse').addClass('in');
+	$(item_id).removeClass('fa-caret-right');
+	$(item_id).addClass('fa-caret-down');
+}
 
-$('.collapse').on('hidden.bs.collapse', function(){
-	$('#caret').removeClass('fa-caret-down');
-	$('#caret').addClass('fa-caret-left');
-});
+function collapse_in(item_id) {
+	$('.collapse').removeClass('in');
+	$(item_id).removeClass('fa-caret-down');
+	$(item_id).addClass('fa-caret-right');
+}
+
+$('.collapse').on('shown.bs.collapse', function(){collapse_out('#caret')});
+$('.collapse').on('hidden.bs.collapse', function(){collapse_in('#caret')});
 
 $(document).ready(function() {
   /*

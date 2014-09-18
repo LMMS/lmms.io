@@ -3,24 +3,40 @@
 global $LSP_URL;
 function apply_settings($pass, $pass2, $realname) {
 	if( $pass != $pass2 ) { 
-		echo "password mismatch !<br />\n";
+		display_error('Password mismatch');
 		return false;
 	} else {
 		change_user(SESSION(), $realname, $pass);
-		echo "<br /><span style=\"font-weight:bold; color:#0a0;\">Your account settings have been updated</span>";
+		display_success('Account settings have been updated');
 		return true;
 	}
 }
 
 if ((POST('settings') != "apply" ) || (!apply_settings(POST('password'), POST('password2'), POST('realname')))) {
-	create_title('Account Settings');
+	create_title('<a href="">User Settings</a>');
+	?>
+	<div class="col-md-9"><div class="panel panel-default">
+	<div class="panel-heading"><h3 class="panel-title">
+	<span class="fa fa-gear"></span>&nbsp;User Settings</h3></div>
+	<?php
+	echo '<div class="panel-body">';
 	$form = new form( $LSP_URL."?account=settings" );
-	echo "<table style=\"border:none;\" cellspacing=\"5\">";
-	echo "<tr><td><b>Real name:</b></td><td><input type=\"text\" name=\"realname\" class=\"textin\" value=\"" . get_user_realname(SESSION()) . "\" /></td></tr>\n";
-	echo "<tr><td><b>Password:</b></td><td><input type=\"password\" name=\"password\" /></td></tr>\n";
-	echo "<tr><td><b>Confirm password:</b></td><td><input type=\"password\" name=\"password2\" /></td></tr>\n";
-	echo "</table><p /><input type=\"submit\" name=\"settings\" value=\"apply\" /><p />\n";
+	echo '<div class="form-group">';
+	echo "<label for=\"realname\">Real name:</label>";
+	echo "<input type=\"text\" name=\"realname\" class=\"form-control\" value=\"" . get_user_realname(SESSION()) . "\" />";
+	echo '</div>';
+	echo '<div class="form-group">';
+	echo "<label for=\"password\">Password:</label>";
+	echo "<input type=\"password\" name=\"password\" class=\"form-control\"/>";
+	echo '</div>';
+	echo '<div class="form-group">';
+	echo "<label for=\"password2\">Confirm Password:</label>";
+	echo "<input type=\"password\" class=\"form-control\" name=\"password2\" />";
+	echo '</div>';
+	echo '<button class="btn btn-primary" type="submit" name="settings" value="apply"><span class="fa fa-check"></span>&nbsp;Apply</button>';
+
 	$form->close();
+	echo '</div></div></div>';
 }
 
 ?>

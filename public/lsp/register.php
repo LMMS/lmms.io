@@ -26,17 +26,16 @@ function try_add_user($login , $pass, $pass2, $realname, $is_admin) {
 	}
 	echo '<div class="col-md-9 center"><div class="alert alert-' . $class . '" role="alert">';
     echo "$message";
-    echo '</div></div>';	
+    echo '</div></div>';
 	return $return_val;
 }
 
-// FIXME TODO: This could be a security problem
-$isadmin = (POST_EMPTY("isadmin")) ? true : false;
+$control = POST("control", false);
 
 /*
  * Create the HTML form used for registration
  */
-if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), $isadmin))) {
+if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), $control))) {
 	echo '<div class="col-md-9"><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Register</h3></div>';
 	echo '<div class="panel-body">';
 	$form = new form($LSP_URL . "?action=register");
@@ -52,10 +51,10 @@ if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("passw
 	echo '</div>';
 	//print_r ($_SERVER);
 	if (is_admin(get_user_id(SESSION()))) {
-		echo '<div class="checkbox"><label><input type="checkbox" name="isadmin" />Is administrator</label></div>';
+		echo '<div class="checkbox"><label><input type="checkbox" name="control" />Is administrator</label></div>';
 	}
-	echo '<input type="submit" class="btn btn-default" name="adduser" value="Register" />&nbsp;';
-	echo '<a href="' . $LSP_URL . '" class="btn btn-warning">Cancel</a>';
+	echo '<button type="submit" class="btn btn-primary" name="adduser" value="Register"><span class="fa fa-check"></span>&nbsp;Register</button>&nbsp;';
+	echo '<a href="' . $LSP_URL . '" class="btn btn-warning"><span class="fa fa-close"></span>&nbsp;Cancel</a>';
 	$form->close();
 	echo "<a href=\"javascript:loginFocus();\"><span class=\"fa  fa-chevron-circle-left\"></span>&nbsp;Already registered?  Login here.</a>"; 
 	echo '</div></div></div>';
