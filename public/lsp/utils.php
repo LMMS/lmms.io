@@ -104,6 +104,13 @@ function list_sort_options($additional_html = '') {
 		$_GET['sort'] = sanitize(GET('sort'), true);
 	}
 	
+	// Get the order (asc/desc) 'desc' if none is defined
+	if (!GET_EMPTY('order')) {
+		$order = sanitize(GET('order'), true);
+	} else {
+		$order = null;
+	}
+	
 	if (GET_EMPTY('sort') || !array_key_exists(GET('sort'), $sortings)) {
 		$_GET['sort'] = 'date';
 	}
@@ -111,6 +118,22 @@ function list_sort_options($additional_html = '') {
 	// List all sort options
 	echo '<ul class="nav nav-pills lsp-sort">';
 	foreach ($sortings as $s => $v) {
+		if (GET('sort') == $s) {
+			switch ($order) {
+				case 'asc':
+					unset($_GET['order']);
+					$v .= '&nbsp;(<span class="fa fa-long-arrow-up"></span>)';
+					break;
+				case 'desc':
+					// move down
+				default:
+					$_GET['order'] = 'asc';
+					$v .= '&nbsp;(<span class="fa fa-long-arrow-down"></span>)';
+			}
+		} else {
+			// Don't allow order to be defined for other buttons
+			unset($_GET['order']);
+		}
 		echo '<li id="sort-' . strtolower(sanitize($s)) . '" class="' . (GET('sort') == $s ? 'active' : '') . '">';
 		echo '<a href="' . $LSP_URL . '?' . rebuild_url_query('sort', $s) . '">' . $v . '</a></li>';
 	}

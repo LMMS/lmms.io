@@ -507,10 +507,11 @@ function get_results_count($category, $subcategory = '', $search = '', $user_id 
  * Displays a table of search results, usually based on category, subcategory or search
  * filters
  */
-function get_results($category, $subcategory, $sort = '', $search = '', $user_name = '') {
+function get_results($category, $subcategory, $sort = '', $search = '', $user_name = '', $order = 'DESC') {
 	global $PAGE_SIZE;
 	global $LSP_URL;
 	$user_id = '';
+	$order = in_array(trim(strtoupper($order)), array('DESC', 'ASC')) ? trim(strtoupper($order)) : 'DESC';
 	if (strlen($user_name)) { $user_id = get_user_id($user_name); } 
 	$count = get_results_count($category, $subcategory, $search, $user_id);
 	
@@ -523,7 +524,7 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 		$order_by = 'files.insert_date';
 		switch ($sort) {
 			case 'downloads' : $order_by = 'downloads_per_day'; break;
-			case 'rating' : $order_by = 'rating DESC, COUNT(ratings.file_id)'; break;
+			case 'rating' : $order_by = "rating $order, COUNT(ratings.file_id)"; break;
 			case 'comments' : break; //FIXME: TODO: Add support for sorting by comments
 		}
 		
@@ -546,7 +547,7 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 			(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
 			(strlen($search) ? '(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search)' : 'true') . ' ' .
 			'GROUP BY files.id ' . 
-			'ORDER BY ' . $order_by . ' DESC ' .
+			'ORDER BY ' . $order_by . " $order " .
 			"LIMIT $start, $PAGE_SIZE"
 		);
 		

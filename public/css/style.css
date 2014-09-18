@@ -74,6 +74,10 @@ p.jumbo {
 	opacity: .65;
 }
 
+#caret.fa-caret-right {
+	margin-right: .2em;
+}
+
 span.lsp-badge {
 	opacity: .70;
 }

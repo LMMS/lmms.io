@@ -37,7 +37,7 @@ function process_params() {
 					break;  // break for file/rate, return for all others
 				case 'search': //move down
 				case 'q':
-					get_results(GET('category'), GET('subcategory'), GET('sort'), GET('q', GET('search', '')));
+					get_results(GET('category'), GET('subcategory'), GET('sort'), GET('q', GET('search', '')), GET('order'));
 					return;
 					// default: // do nothing
 			}
@@ -54,10 +54,10 @@ function process_params() {
 				case 'action:browse' :
 					// Browsing by category seems is currently only supported "browse" option
 					if (!GET_EMPTY('category')) {
-						get_results(GET('category'), GET('subcategory'), GET('sort'));	
+						get_results(GET('category'), GET('subcategory'), GET('sort'), '', '', GET('order'));
 						return;
 					} else if(!GET_EMPTY('user')) {
-						get_results(GET('category'), GET('subcategory'), GET('sort'), '', GET('user'));
+						get_results(GET('category'), GET('subcategory'), GET('sort'), '', GET('user'), GET('order'));
 						return;
 					}
 					// default: // do nothing
