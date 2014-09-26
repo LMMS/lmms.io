@@ -54,7 +54,7 @@ include_once('utils.php');
 <br><br>
 <div class="page-header">
 	<hr><h1>Houston, we've had a problem.</h1>
-	<h4>Ok, standby we've got you covered.</h4>
+	<h4>Standby, we've got you covered.</h4>
 </div>
 
 <div class="row">
