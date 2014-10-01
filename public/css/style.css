@@ -416,6 +416,34 @@ p.forum-stats  {
 }
 
 /*
+ * nav-tabs style
+ */
+
+.nav-tabs {
+	border-bottom: none;
+}
+
+.nav-tabs > li > a,
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus {
+	border-style: none;
+	background-color: white;
+}
+
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus {
+	border-bottom: 2px solid #75A3CA;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+	border-style: none;
+	background-color: white;
+	border-bottom: 2px solid #428bca;
+}
+
+/*
  * Image reflection effects
  */
 #reflect-black .image-block ,
