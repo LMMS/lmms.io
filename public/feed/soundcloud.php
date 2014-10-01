@@ -11,7 +11,7 @@ if (count($obj) <= 0 || !$obj[0]->user_id) {
 	exit;
 }
 
-echo '<table class="table table-striped"><th><h2 class="center">LMMS SoundCloud</h2></th>';
+echo '<table class="table table-striped"><th><h2 class="text-center">LMMS SoundCloud</h2></th>';
 foreach ($obj as $item) {
 	create_row(
 		'soundcloud', 					// $service	i.e. "facebook"

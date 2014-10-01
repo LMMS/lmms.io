@@ -20,7 +20,7 @@ $count = 0;
 /*
  * Echo our data to the page
  */
-echo '<table class="table table-striped"><th><h2 class="center">LMMS GitHub</h2></th>';
+echo '<table class="table table-striped"><th><h2 class="text-center">LMMS GitHub</h2></th>';
 foreach($obj as $item) {
 	$title = 'GitHub #' . $item->number . ' &bull; ' . $item->title;
 	create_row(

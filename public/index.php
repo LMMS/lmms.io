@@ -68,7 +68,7 @@ include_once('utils.php');
 	</div>
 </div>
 <br>
-<p class="center visible-lg">View all community pages <a href="/community/">here</a>.</p>
+<p class="text-center visible-lg">View all community pages <a href="/community/">here</a>.</p>
 <br>
 <div class="page-header">
 	<hr><h1>Sharing means caring.</h1>
@@ -100,7 +100,7 @@ include_once('utils.php');
 		<?php make_reflection('img/ss_instr.png', NULL, "white"); ?>
 	</div>
 </div>
-	<p class="center visible-lg">More screenshots can be found <a href="/screenshots/">here</a>.</p>
+	<p class="text-center visible-lg">More screenshots can be found <a href="/screenshots/">here</a>.</p>
 <br><br>
 
 <div>
@@ -108,7 +108,7 @@ include_once('utils.php');
 	<hr><h1>Featuring</h1>
 </div>
 	<div class="col-lg-4">
-		<h2 class="center"><span class="fa-3x fa fa-check-square-o"></span><br>Core Functionality</h2>
+		<h2 class="text-center"><span class="fa-3x fa fa-check-square-o"></span><br>Core Functionality</h2>
 		<ul>
 		<li>Compose music on Windows, Linux and Apple OS&nbsp;X</li>
 		<li>Sequence, compose, mix and automate songs in one simple interface</li>
@@ -120,7 +120,7 @@ include_once('utils.php');
 		</ul>
 	</div>
 	<div class="col-lg-4">
-		<h2 class="center"><span class="fa-3x fa fa fa-bar-chart-o"></span><br>Effects Mixing</h2>
+		<h2 class="text-center"><span class="fa-3x fa fa fa-bar-chart-o"></span><br>Effects Mixing</h2>
 		<ul>
 		<li>Drop-in LADSPA plug-in support</li>
 		<li>Drop-in VST ® effect plug-in support on (Linux and Windows)</li>
@@ -130,7 +130,7 @@ include_once('utils.php');
 		</ul>
 	</div>
 	<div class="col-lg-4">
-		<h2 class="center"><span class="fa-3x fa fa fa-music"></span><br>Musical Instruments</h2>
+		<h2 class="text-center"><span class="fa-3x fa fa fa-music"></span><br>Musical Instruments</h2>
 		<ul>
 		<li>Built-in 32-bit VST instrument support</li>
 		<li>Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit Windows)</li>
