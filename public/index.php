@@ -15,6 +15,8 @@ include_once('utils.php');
 </div>
 </div>
 <br><br><br><br>
+
+<div class="text-center">
 <div class="page-header">
 	<hr><h1>Making beats has never been easier.</h1>
 </div>
@@ -41,7 +43,7 @@ include_once('utils.php');
 	<hr><h1>Made by musicians, for musicians.</h1>
 </div>
 
-<div class="row">
+<div>
 	<div>
 		<a href="/download/#linux" class="btn btn-default"><span class="fa-5x fa fa-linux fa-fw"></span></a>&nbsp;
 		<a href="/download/#windows" class="btn btn-default"><span class="fa-5x fa fa-windows fa-fw"></span></a>&nbsp;
@@ -57,7 +59,7 @@ include_once('utils.php');
 	<h4>Standby, we've got you covered.</h4>
 </div>
 
-<div class="row">
+<div>
 	<div>
 		<a href="/forum/" class="btn btn-default"><span class="fa-5x fa fa-comments fa-fw"></span></a>&nbsp;
 		<a href="http://facebook.com/makefreemusic" target="_blank" class="btn btn-default"><span class="fa-5x fa fa-facebook fa-fw"></span></a>&nbsp;
@@ -74,7 +76,7 @@ include_once('utils.php');
 	<hr><h1>Sharing means caring.</h1>
 </div>
 
-<div class="row">
+<div>
 	<div>
 		<a href="https://soundcloud.com/groups/linux-multimedia-studio" target="_blank" class="btn btn-default"><span class="fa-5x fa fa-soundcloud fa-fw"></span></a>&nbsp;
 		<a href="/lsp/" class="btn btn-default"><span class="fa-5x fa fa-volume-down">	LSP</span></a>&nbsp;
@@ -83,7 +85,7 @@ include_once('utils.php');
 	</div>
 </div>
 <br><br>
-<div class="row overflow-hidden visible-lg">
+<div class="overflow-hidden visible-lg">
 <div class="page-header">
 	<hr><h1>Take a peek</h1>
 </div>
@@ -102,6 +104,7 @@ include_once('utils.php');
 </div>
 	<p class="text-center visible-lg">More screenshots can be found <a href="/screenshots/">here</a>.</p>
 <br><br>
+</div>
 
 <div>
 <div class="page-header">

@@ -6,7 +6,7 @@
 
 	<p>Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:</p>
 
-	<div class="row">
+	<div>
 		<div class="btn-group" data-toggle="buttons">
 			<label class="btn btn-default" onclick="showOS('#linux')">
 				<input type="radio" name="options" id="linux-button"><span class="fa fa-linux fa-5x"></span><br>Linux
