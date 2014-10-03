@@ -37,8 +37,6 @@ if (!SESSION_EMPTY()) {
 		$nocopy = POST('nocopyright');
 		$cat = POST('category');
 
-		$ulfile = $TMP_DIR.$file;
-
 		if (POST('ok') == 'OK') {
 			if (POST_EMPTY('nocopyright')) {
 				display_error("Copyrighted content is forbidden", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
@@ -49,25 +47,34 @@ if (!SESSION_EMPTY()) {
 			$categories = get_categories_for_ext( $fext );
 			if ($categories != false) {
 				if (isset($_FILES["filename"]["tmp_name"])) {
-					move_uploaded_file($_FILES["filename"]["tmp_name"],	$ulfile);
-//					echo "moving ".$_FILES["filename"]["tmp_name"]." to ".$ulfile;
-					$form = new form( $LSP_URL.'?content=add' );?>
-					<h2>Adding <?php echo $filename;?></h2>
-					<table style="border:none;" cellpadding="5">
-					<tr><td>Category:</td><td><select name="category" />
-					<?php echo $categories;?>
-					</select></td></tr>
-					<tr><td>License:</td><td><select name="license" />
-					<?php echo get_licenses(); ?>
-					</select></td></tr></table>
-					<br />Description: <br /><textarea cols="50" rows="20" name="description">
-					</textarea><br /><br />
-					<input type="submit" name="addfinalok" value="OK" />
+					create_title(array('<a href="">Add File</a>', $filename));
+					move_uploaded_file($_FILES["filename"]["tmp_name"], $TMP_DIR);
+					echo "<pre>moving ".$_FILES["filename"]["tmp_name"]." to $TMP_DIR</pre>";?>
+				    <div class="col-md-9"><div class="panel panel-default"><div class="panel-heading">
+					<h3 class="panel-title"><span class="fa fa-upload"></span>&nbsp;File Details</h3></div>
+					<div class="panel-body">
+					<?php $form = new form($LSP_URL . '?content=add'); ?>
+					<div class="form-group">
+					<label for="category">Category</label>
+					<select name="category" class="form-control"><?php echo $categories;?></select>
+					</div>
+					<div class="form-group">
+					<label for="category">License</label>
+					<select name="license" class="form-control"><?php echo get_licenses(); ?></select>
+					</div>
+					
+					<div class="form-group">
+					<label for="category">Description</label>
+					<textarea id="description" name="description" class="form-control"></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary" name="addfinalok" value="Add File"><span class="fa fa-check"></span>&nbsp;Add File</button>&nbsp;
+					<a href="" class="btn btn-warning"></span><span class="fa fa-close"></span>&nbsp;Cancel</a>
 					<input type="hidden" name="fn" value="' . $filename . '" />
 					<input type="hidden" name="tmpname" value="' . $file . '" />
 					<input type="hidden" name="fsize" value="' . $fsize . '" />
 					<input type="hidden" name="nocopyright" value="' . $nocopy . '" /><?php
-					$form->close();
+					$form->close();?>
+					</div></div></div><?php
 				}
 				else {
 					echo 'NO FILE';
