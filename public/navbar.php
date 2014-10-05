@@ -48,11 +48,14 @@ function create_navbar() {
  * Returns the current page name, i.e. "Home", etc
  */
 function get_page_name() {
-	if (str_startswith($_SERVER["REQUEST_URI"], '/forum/')) {
+	$uri = trim($_SERVER["REQUEST_URI"], "/");
+
+	if (str_startswith($uri, 'forum')) {
 		return 'Community';
 	}
-
-	$uri = trim($_SERVER["REQUEST_URI"], "/");
+	if (str_startswith($uri, 'documentation')) {
+		return 'Documentation';
+	}
 
 	switch($uri) {
 		case '':
@@ -76,7 +79,7 @@ function get_page_name() {
  */
 function menu_item($text, $url = NULL, $dropdown = NULL, $disabled = NULL, $class = NULL) {
 	$class .= mini_me($text, $url, $dropdown, $disabled, $class);
-	
+
 	// Determine the "Active Tab
 	if ($text == get_page_name()) {
 		$active = 'active';
