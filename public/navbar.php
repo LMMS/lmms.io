@@ -1,6 +1,7 @@
 <?php
 include_once('utils.php');
 
+global $shortened;
 $shortened = array(
 	'Screens' => 'Screenshots',
 	'Docs' => 'Documentation'
