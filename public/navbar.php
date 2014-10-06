@@ -1,5 +1,11 @@
 <?php
 include_once('utils.php');
+
+$shortened = array(
+	'Screens' => 'Screenshots',
+	'Docs' => 'Documentation'
+);
+
 function create_navbar() {
 ?>
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -81,7 +87,9 @@ function menu_item($text, $url = NULL, $dropdown = NULL, $disabled = NULL, $clas
 	$class .= mini_me($text, $url, $dropdown, $disabled, $class);
 
 	// Determine the "Active Tab
-	if ($text == get_page_name()) {
+	global $shortened;
+	if ($text == get_page_name() || 
+		(array_key_exists($text, $shortened) && $shortened[$text] == get_page_name())) {
 		$active = 'active';
 	} else {
 		$active = '';
@@ -104,15 +112,13 @@ function menu_item($text, $url = NULL, $dropdown = NULL, $disabled = NULL, $clas
  * to help prevent overflow in the navbar
  */
 function mini_me($text, $url, $dropdown, $disabled, $class) {
-	switch ($text) {
-		case "Screenshots":
-			menu_item("Screens", "/screenshots/", $dropdown, $disabled, $class . ' hidden-lg');
-			return ' visible-lg';
-		case "Documentation":
-			menu_item("Docs", "/documentation/", $dropdown, $disabled, $class . ' hidden-lg');
-			return ' visible-lg';
-		default: return '';
+	global $shortened;
+	$mini_val = array_search($text, $shortened);
+	if ($mini_val !== false) {
+		menu_item($mini_val, "/" . strtolower($text) . "/", $dropdown, $disabled, $class . ' hidden-lg');
+		return ' visible-lg';
 	}
+	return '';
 }
 
 /*
