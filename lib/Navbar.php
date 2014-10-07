@@ -141,7 +141,7 @@ class Navbar
 	public function __construct($items)
 	{
 		foreach ($items as $item) {
-			$this->items[] = new MenuItem(...$item);
+			$this->items[] = new MenuItem($item[0], $item[1], $item[2]);
 		}
 	}
 
