@@ -6,6 +6,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/utils.php');
  * Class representing an item in the navbar. This class is not intended to be
  * used directly
  */
+
 class MenuItem
 {
 	/**
@@ -15,7 +16,7 @@ class MenuItem
 	 * 		be either string or array with long and short name
 	 *		(e.g. ['Screenshots, Sreens'])
 	 * @param string $url	The item's target URL, e.g. '/screenshots/'
-	 * @param array $children	Can be either
+	 * @param array|null $children	Can be either
 	 *		(1) null for a normal menu item or
 	 *		(2) A two-dimensional array listing subitems in a dropdown.
 	 *			Each item in the array must have format [$icon, $text, $url]
@@ -141,7 +142,7 @@ class Navbar
 	public function __construct($items)
 	{
 		foreach ($items as $item) {
-			$this->items[] = new MenuItem($item[0], $item[1], $item[2]);
+			$this->items[] = new MenuItem($item[0], $item[1], count($item)>2 ? $item[2] : null);
 		}
 	}
 
