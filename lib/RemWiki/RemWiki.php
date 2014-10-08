@@ -26,6 +26,9 @@ class RemWiki
 		$this->url = $url;
 
 		$this->wikipath = parse_url($url, PHP_URL_PATH);
+		if ($this->wikipath == false) {
+			throw new Exception('Invalid wiki URL');
+		}
 
 		$adapter = new LocalAdapter('/tmp/doc', true);
 		$this->fs = new Filesystem($adapter);
@@ -113,9 +116,9 @@ class RemWiki
 					return json_decode($cachefile->getContent());
 				}
 			}
-
+		} else {
+			$remoterev = $this->requestRev($page);
 		}
-
 		$json = $this->requestParse($page);
 		$cachefile->setContent(json_encode($json));
 		$revfile->setContent($remoterev);
