@@ -33,6 +33,10 @@ p.jumbo {
 	margin-left: 4px;
 }
 
+.inputbox {
+        line-height: normal;
+}
+
 .dl-vert-label {
 	position: relative;
 	top: -2px;
