@@ -261,7 +261,7 @@ function one_element($array) {
 /*
  * Displays a formatted error message in a small dialogue to the right of the sidebar
  */
-function display_message($message, $severity = 'danger', $title = 'Error', $title_array = null, $redirect = null) {
+function display_message($message, $severity = 'danger', $title = 'Error', $title_array = null, $redirect = null, $counter = 5) {
 	
 	switch ($severity) {
 		case 'info': $icon = 'fa-info-circle'; break;
@@ -279,25 +279,25 @@ function display_message($message, $severity = 'danger', $title = 'Error', $titl
 		($title == '' ? '' : "$title:") . '</strong> ' . $message . '</div>';
 	if (isset($redirect)) {
 		echo '<p class="center">You will automatically be redirected in <strong>' . 
-			'<span class="redirect-counter">5</span> seconds</strong></p>';
+			'<span class="redirect-counter">' . $counter . '</span> seconds</strong></p>';
 	}
 	echo '</div>';
 }
 
-function display_error($message, $title_array = null, $redirect = null) {
-	return display_message($message, 'danger', 'Error', $title_array, $redirect);
+function display_error($message, $title_array = null, $redirect = null, $counter = 15) {
+	return display_message($message, 'danger', 'Error', $title_array, $redirect, $counter);
 }
 
-function display_warning($message, $title_array = null, $redirect = null) {
-	return display_message($message, 'warning', 'Warning', $title_array, $redirect);
+function display_warning($message, $title_array = null, $redirect = null, $counter = 15) {
+	return display_message($message, 'warning', 'Warning', $title_array, $redirect, $counter);
 }
 
-function display_info($message, $title_array = null, $redirect = null) {
-	return display_message($message, 'info', '', $title_array, $redirect);
+function display_info($message, $title_array = null, $redirect = null, $counter = 5) {
+	return display_message($message, 'info', '', $title_array, $redirect, $counter);
 }
 
-function display_success($message, $title_array = null, $redirect = null) {
-	return display_message($message, 'success', '', $title_array, $redirect);
+function display_success($message, $title_array = null, $redirect = null, $counter = 5) {
+	return display_message($message, 'success', '', $title_array, $redirect, $counter);
 }
 
 /*
