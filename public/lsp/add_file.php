@@ -31,25 +31,28 @@ if (!SESSION_EMPTY()) {
 		<?php $form->close();?>
 		</div></div></div><?php
 	} else if(GET('content') == "add" ) {
-		if (POST_EMPTY('tmpname')) $file = $_FILES["filename"]["tmp_name"]; else $file = POST('tmpname');
-		if (POST_EMPTY('fn')) $filename = $_FILES["filename"]["name"]; else $filename = POST('fn');
-		if (POST_EMPTY('fsize')) $fsize = $_FILES["filename"]["size"]; else $fsize = POST('fsize');
-		$nocopy = POST('nocopyright');
-		$cat = POST('category');
+		if (POST_EMPTY('tmpname')) $tmp_path = $_FILES["filename"]["tmp_name"]; else $tmp_path = POST('tmpname');
+		if (POST_EMPTY('fn')) $file_path = $_FILES["filename"]["name"]; else $file_path = POST('fn');
+		if (POST_EMPTY('fsize')) $file_size = $_FILES["filename"]["size"]; else $file_size = POST('fsize');
+		$no_copyright = POST('nocopyright');
+		//$cat = POST('category');
 
 		if (POST('ok') == 'OK') {
 			if (POST_EMPTY('nocopyright')) {
 				display_error("Copyrighted content is forbidden", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
 				return;
 			}
-			$firstdot = strpos($filename, '.');
-			$fext = substr( $filename, $firstdot, strlen( $filename ) - $firstdot );
-			$categories = get_categories_for_ext( $fext );
+			//$firstdot = strpos($filename, '.');
+			//$fext = substr( $filename, $firstdot, strlen( $filename ) - $firstdot );
+			$file_extension = '.' . pathinfo($file_path, PATHINFO_EXTENSION);
+			$categories = get_categories_for_ext($file_extension);
 			if ($categories != false) {
 				if (isset($_FILES["filename"]["tmp_name"])) {
-					create_title(array('<a href="">Add File</a>', $filename));
-					move_uploaded_file($_FILES["filename"]["tmp_name"], $TMP_DIR);
-					echo "<pre>moving ".$_FILES["filename"]["tmp_name"]." to $TMP_DIR</pre>";?>
+					create_title(array('<a href="">Add File</a>', $file_path));
+					$tmp_path = $_FILES["filename"]["tmp_name"];
+					$tmp_name_only = pathinfo($tmp_path, PATHINFO_FILENAME) . '.' . pathinfo($tmp_path, PATHINFO_EXTENSION);
+					move_uploaded_file($tmp_path, $TMP_DIR . $tmp_name_only);
+					echo "<code>moving $tmp_path to $TMP_DIR$tmp_name_only</code>";?>
 				    <div class="col-md-9"><div class="panel panel-default"><div class="panel-heading">
 					<h3 class="panel-title"><span class="fa fa-upload"></span>&nbsp;File Details</h3></div>
 					<div class="panel-body">
@@ -59,65 +62,58 @@ if (!SESSION_EMPTY()) {
 					<select name="category" class="form-control"><?php echo $categories;?></select>
 					</div>
 					<div class="form-group">
-					<label for="category">License</label>
-					<select name="license" class="form-control"><?php echo get_licenses(); ?></select>
+					<label for="license">License</label>
+					<select name="license" class="form-control"><?php echo get_licenses();?></select>
 					</div>
 					
 					<div class="form-group">
-					<label for="category">Description</label>
+					<label for="description">Description</label>
 					<textarea id="description" name="description" class="form-control"></textarea>
 					</div>
 					<button type="submit" class="btn btn-primary" name="addfinalok" value="Add File"><span class="fa fa-check"></span>&nbsp;Add File</button>&nbsp;
 					<a href="" class="btn btn-warning"></span><span class="fa fa-close"></span>&nbsp;Cancel</a>
-					<input type="hidden" name="fn" value="' . $filename . '" />
-					<input type="hidden" name="tmpname" value="' . $file . '" />
-					<input type="hidden" name="fsize" value="' . $fsize . '" />
-					<input type="hidden" name="nocopyright" value="' . $nocopy . '" /><?php
-					$form->close();?>
+					<input type="hidden" name="fn" value="<?php echo $file_path; ?>" />
+					<input type="hidden" name="tmpname" value="<?php echo $tmp_path; ?>" />
+					<input type="hidden" name="fsize" value="<?php echo $file_size; ?>" />
+					<input type="hidden" name="nocopyright" value="<?php echo $no_copyright; ?>" />
+					<?php $form->close();?>
 					</div></div></div><?php
-				}
-				else {
-					echo 'NO FILE';
+				} else {
+					display_error("No file specified", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
 				}
 			} else {
-				display_error("Sorry, file-type <strong>$fext</strong> is not permitted", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
+				display_error("Sorry, file-type <strong>$file_extension</strong> is not permitted", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
 				echo '<div class="col-md-9">';
-				echo '<strong>Valid Types:</strong><ul><li>.mmpz</li><li>.mmp</li><li>etc</li></ul>';
+				$extensions = get_extensions();
+				echo "<strong>Valid Types:</strong><pre><ul>$extensions</ul></pre>";
 				echo '</div>';
-				/*@connectdb();
-				$res = @mysql_query('SELECT DISTINCT extension FROM filetypes;');
-				while ($object = @mysql_fetch_object($res)) {
-					echo '<li>'.$object->extension.'</li>';
-				}
-				echo '</ul><br /><img src="forward.png" alt="" style="vertical-align:middle; padding-right:5px;" /><a href="' . 
-					$LSP_URL . '?content=add" style="font-weight:bold;">Try again</a>';
-				*/
 			}
-		} elseif (POST('addfinalok') == 'OK' ) {  
-			if (file_exists($ulfile)) {
-				$firstdot = strpos($_POST["fn"], ".");
-				$fext = substr(POST('fn'), $firstdot, strlen(POST('fn')) - $firstdot);
+		} elseif (POST('addfinalok') == 'OK' ) {
+			$file_path = $_POST["fn"];
+			$file_extension = '.' . pathinfo($file_path, PATHINFO_EXTENSION);
+			if (file_exists($file_path)) {
+				//$firstdot = strpos($_POST["fn"], ".");
+				//$fext = substr(POST('fn'), $firstdot, strlen(POST('fn')) - $firstdot);
+	
+				$category = explode(' - ', POST('category'));
+				$category_id = get_category_id($category[0]);
+				$subcategory_id = get_subcategory_id($category[1]);
+				$license_id = get_license_id(POST('license'));
 
-				$cat = explode('-', POST('category'));
-				$catid = get_category_id($cat[0]);
-				$subcatid = get_subcategory_id($cat[1]);
-				$licenseid = get_license_id(POST('license'));
-
-				$uid = get_user_id(SESSION());
-				$fileid = 0;
-				$filesum = sha1_file($ulfile);
-				if (insert_file(POST('fn'), $uid, $catid, $subcatid, $licenseid, POST('description'), POST('fsize'), $filesum)) {
-//					echo "rename ". $ulfile. " to ".$DATA_DIR.$fileid;
-					rename($ulfile, $DATA_DIR.$fileid);
-					echo "<br /><span style=\"font-weight:bold; color:#0a0;\">Your file has been added.</span> <br /><br />";
-					show_file ($fileid, SESSION());
+				$user_id = get_user_id(SESSION());
+				$file_id = 0;
+				if (insert_file($file_path, $user_id, $category_id, $subcategory_id, $license_id, POST('description'), POST('fsize'), sha1_file($file_path))) {
+					echo "rename " . $file_path . " to " . $DATA_DIR . $file_id;
+					rename($file_path, $DATA_DIR . $file_id);
+					//echo "<br /><span style=\"font-weight:bold; color:#0a0;\">Your file has been added.</span> <br /><br />";
+					//display_success("Your file <strong>$file_path</strong> has been added", array('<a href="">Add File</a>', 'Success'));
+					show_file($file_id, SESSION());
 				} else {
-					echo "Failed to commit file";
-					echo mysql_error();
+					display_error("Failed to commit file <strong>$file_extension</strong>", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
 				}
 			}
 			else {
-				echo "<br /><span style=\"font-weight:bold; color:#f80; font-size:12pt;\">File not found.</span> <br /><br />";
+				display_error("Sorry, file-type <strong>$file_extension</strong> is not permitted", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
 			}
 		}
 	}
