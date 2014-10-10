@@ -317,8 +317,6 @@ function get_subcategories($category, $id) {
 	global $LSP_URL;
 	$dbh = &get_db();
 	
-	// TODO: FIXME:  Some database values are broken i.e. Presets\Basses vs. Samples\Basses
-	// This needs to be fixed in the mysql database prior to the COUNT() working properly
 	$stmt = $dbh->prepare(
 		'SELECT subcategories.name AS name, COUNT(files.id) AS file_count ' .
 		'FROM subcategories ' .
@@ -354,7 +352,7 @@ function get_subcategories($category, $id) {
 function get_categories_for_ext($extension, $default = '') {
 	$dbh = &get_db();
 	$stmt = $dbh->prepare(
-		"SELECT CONCAT(categories.name, '-', subcategories.name) AS fullname FROM filetypes " .
+		"SELECT CONCAT(categories.name, ' - ', subcategories.name) AS fullname FROM filetypes " .
 		'INNER JOIN categories ON categories.id=filetypes.category ' .
 		'INNER JOIN subcategories ON subcategories.category=categories.id ' . 
 		'WHERE LOWER(extension) = LOWER(:extension) ' .
@@ -368,6 +366,26 @@ function get_categories_for_ext($extension, $default = '') {
 			$fullname = $object['fullname'];
 			$selected = strtolower($fullname) == strtolower($default) ? 'selected' : '';
 			$html .= "<option $selected>$fullname</option>";
+		}
+	}
+	$stmt = null;
+	$dbh = null;
+	return $html;
+}
+
+/*
+ * Returns <li> tags for each extension type found in the database
+ * Usage:
+ * 		echo get_extensions();
+ */
+function get_extensions() {
+	$dbh = &get_db();
+	$stmt = $dbh->prepare('SELECT distinct extension from filetypes');
+	$html = '';
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$name = $object['extension'];
+			$html .= "<li>$name</li>";
 		}
 	}
 	$stmt = null;
