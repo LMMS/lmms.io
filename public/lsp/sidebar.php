@@ -1,6 +1,6 @@
 <?php 
 require_once('utils.php');
-require_once('inc/mysql.inc.php');
+require_once('dbo.php');
 global $LSP_URL;
 
 // Determine a successful login

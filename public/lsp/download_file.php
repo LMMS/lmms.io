@@ -1,8 +1,7 @@
 <?php
 
-include "inc/config.inc.php";
-include "inc/mysql.inc.php";
-
+require_once('config.php');
+require_once('dbo.php');
 
 function dl_file ($fid,$filename)
 {

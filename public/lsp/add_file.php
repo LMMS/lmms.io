@@ -1,6 +1,6 @@
 <?php
 
-include "inc/config.inc.php";
+require_once('config.php');
 
 global $TMP_DIR;
 global $DATA_DIR;
@@ -88,22 +88,23 @@ if (!SESSION_EMPTY()) {
 				echo "<strong>Valid Types:</strong><pre><ul>$extensions</ul></pre>";
 				echo '</div>';
 			}
-		} elseif (POST('addfinalok') == 'OK' ) {
-			$file_path = $_POST["fn"];
-			$file_extension = '.' . pathinfo($file_path, PATHINFO_EXTENSION);
-			if (file_exists($file_path)) {
+		} elseif (POST('addfinalok') == 'Add File' ) {
+			$tmp_path = POST("tmpname");
+			$file_name = POST("fn");
+			$file_extension = '.' . pathinfo($file_name, PATHINFO_EXTENSION);
+			if (file_exists($tmp_path)) {
 				//$firstdot = strpos($_POST["fn"], ".");
 				//$fext = substr(POST('fn'), $firstdot, strlen(POST('fn')) - $firstdot);
 	
-				$category = explode(' - ', POST('category'));
-				$category_id = get_category_id($category[0]);
+				$category = explode(' - ', POST('category'))[0];
+				$category_id = get_category_id($category);
 				$subcategory_id = get_subcategory_id($category[1]);
 				$license_id = get_license_id(POST('license'));
 
 				$user_id = get_user_id(SESSION());
 				$file_id = 0;
-				if (insert_file($file_path, $user_id, $category_id, $subcategory_id, $license_id, POST('description'), POST('fsize'), sha1_file($file_path))) {
-					echo "rename " . $file_path . " to " . $DATA_DIR . $file_id;
+				if (insert_file($file_name, $user_id, $category_id, $subcategory_id, $license_id, POST('description'), POST('fsize'), sha1_file($tmp_path))) {
+					echo "<code>rename " . $tmp_path . " to " . $DATA_DIR . $file_id . '</code>';
 					rename($file_path, $DATA_DIR . $file_id);
 					//echo "<br /><span style=\"font-weight:bold; color:#0a0;\">Your file has been added.</span> <br /><br />";
 					//display_success("Your file <strong>$file_path</strong> has been added", array('<a href="">Add File</a>', 'Success'));
@@ -111,10 +112,11 @@ if (!SESSION_EMPTY()) {
 				} else {
 					display_error("Failed to commit file <strong>$file_extension</strong>", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
 				}
+			} else {
+				display_error("Sorry, $tmp_path seems to have disappeared.", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
 			}
-			else {
-				display_error("Sorry, file-type <strong>$file_extension</strong> is not permitted", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
-			}
+		} else {
+			display_error("Something went wrong");
 		}
 	}
 } else {

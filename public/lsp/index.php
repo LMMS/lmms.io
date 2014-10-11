@@ -1,16 +1,20 @@
 <?php
 
-ini_set('session.use_trans_sid',false);
-ini_set('session.save_handler', 'files');
-ini_set('session.save_path','../../tmp');
-ini_set('arg_separator.output','&amp;');
+include_once("config.php");
+global $TMP_DIR;
 
-session_start ();
-include_once("inc/mysql.inc.php");
-include_once("inc/xhtml.inc.php");
-include_once("../header.php");
+ini_set('session.use_trans_sid', false);
+ini_set('session.save_handler', 'files');
+ini_set('session.save_path', $TMP_DIR);
+ini_set('arg_separator.output', '&amp;');
+
+session_start();
+require_once("dbo.php");
+require_once("xhtml.php");
+require_once('../utils.php');
+require_once("../header.php");
 require_once('utils.php');
-include_once("sidebar.php");
+require_once("sidebar.php");
 
 // Set $_GET[...] variables to their $_POST equivalents
 set_get_post('file');

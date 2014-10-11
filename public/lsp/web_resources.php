@@ -1,5 +1,5 @@
 <?php
-include "lsp_dl.php";
+require_once('lsp_dl.php');
 if( $_GET['download'] == 'index' )
 {
 	$req = "SELECT files.filename AS fname, ".
