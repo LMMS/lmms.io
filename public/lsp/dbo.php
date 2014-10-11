@@ -794,7 +794,7 @@ function show_file($file_id, $user) {
 			
 			// Bump the download button under details block
 			echo '<tr><td><strong>Name:</strong>&nbsp;' . $object['filename'] . '</td><td class="lsp-file-info">';
-			$url = htmlentities('lsp_dl.php?file=' . $object['id'] . '&name=' . $object['filename']);
+			$url = htmlentities('download_file.php?file=' . $object['id'] . '&name=' . $object['filename']);
 			echo '<a href="' . $url . '" id="downloadbtn" class="lsp-dl-btn btn btn-primary">';
 			echo '<span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
 			echo '</td></tr>';
