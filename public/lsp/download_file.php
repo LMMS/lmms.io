@@ -8,22 +8,24 @@
 require_once('config.php');
 require_once('dbo.php');
 
-function download_file($fid, $filename) {
+function download_file($file_id, $file_name) {
     global $DATA_DIR;
-	$fn = $DATA_DIR . $fid;
-	if (file_exists($fn)) {
-		increment_file_downloads($fid);
+	$file_path = $DATA_DIR . $file_id;
+	if (file_exists($file_path)) {
+		increment_file_downloads($file_id);
 		header("Content-type: application/force-download");
-		header(((is_integer(strpos($user_agent,"msie")))&&(is_integer(strpos($user_agent, "win"))))?"Content-Disposition:filename=\"$filename\"":"Content-Disposition: attachment; filename=\"$filename\"");
+		header(((is_integer(strpos($user_agent,"msie")))&&(is_integer(strpos($user_agent, "win"))))?"Content-Disposition:filename=\"$file_name\"":"Content-Disposition: attachment; filename=\"$file_name\"");
 		header("Content-Description: Download"); 	
 		ob_clean();
 		flush();
-		readfile($fn);
+		readfile($file_path);
 	} else {
 		require_once('dbo.php');
 		header("HTTP/1.0 404 Not Found");
 		echo "<h1>HTTP/1.0 404 Not Found</h1>";
-		echo "Sorry, <code>$filename (file $fid)</code> was not found.  Please notify <a href=\"mailto:webmaster@lmms.io\">webmaster@lmms.io</a> of this error.";
+		$link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+		echo "Sorry, file was not found.  Please notify <a href=\"mailto:webmaster@lmms.io" . 
+			"?subject=LSP 404&body=FYI: 404 Not Found: $link\">webmaster@lmms.io</a> of this error.";
 	}
 	exit;
 }
