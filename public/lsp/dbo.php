@@ -114,6 +114,10 @@ function quote($string) {
 	return PDO::quote($string);
 }
 
+/*
+ * Abstract object id to object value wrapper.  Has sanitization checks to protect
+ * against misuse.
+ */
 function get_object_by_id($table, $id, $field, $id_field = 'id', $func = null) {
 	// Sanitize column and table values
 	$table = sanitize($table);
@@ -192,7 +196,6 @@ function get_latest() {
 	 	ORDER BY files.update_date DESC LIMIT ' . sanitize($PAGE_SIZE));
 		$object = null;
 		if ($stmt->execute()) {
-			
 			echo '<div class="col-md-9">';
 			echo create_title('Latest Uploads');
 			echo '<table class="table table-striped">';
@@ -379,7 +382,7 @@ function get_subcategories($category, $id) {
 function get_categories_for_ext($extension, $default = '') {
 	$dbh = &get_db();
 	$stmt = $dbh->prepare(
-		"SELECT CONCAT(categories.name, ' - ', subcategories.name) AS fullname FROM filetypes " .
+		'SELECT CONCAT(categories.name, ' - ', subcategories.name) AS fullname FROM filetypes ' .
 		'INNER JOIN categories ON categories.id=filetypes.category ' .
 		'INNER JOIN subcategories ON subcategories.category=categories.id ' . 
 		'WHERE LOWER(extension) = LOWER(:extension) ' .
@@ -1029,6 +1032,37 @@ function add_visitor_comment($file_id, $comment, $user) {
 	}
 	return $return_val;
 }
+
+/*
+ * Build DOM content for optional XML API.  An application can call upon 
+ * this using $LSP_URL/web_resources.php.  At the time of the LSP upgrade (2014) no 
+ * applications are actively using this API.
+ */
+function get_web_resources() {
+	$dbh = &get_db();
+	$stmt = $dbh->prepare(
+		'SELECT files.filename AS fname, files.hash AS hash, ' . 
+		'categories.name AS catname, subcategories.name AS subcatname, ' . 
+		'files.size AS size, files.update_date AS date, ' .
+		'users.login AS author FROM files ' .
+		'INNER JOIN categories ON categories.id=files.category ' .
+		'INNER JOIN subcategories ON subcategories.id=files.subcategory ' .
+		'INNER JOIN users ON users.id=files.user_id ' . 
+		'ORDER BY files.id'
+	);
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			echo "<file><name>" . htmlspecialchars($object['fname'], ENT_COMPAT, 'UTF-8') . "</name>" .
+				"<hash>$object[hash]</hash><size>$object[size]</size><date>$object[date]</date>" .
+				"<author>" . htmlspecialchars($object['author'], ENT_COMPAT, 'UTF-8') . "</author>" .
+				"<dir>" . htmlspecialchars("$object[catname]/$object[subcatname]", ENT_COMPAT, 'UTF-8') . "</dir>" .
+				"</file>";
+		}
+	}
+	$stmt = null;
+	$dbh = null;
+}
+
 
 /*
  * Convenience Functions
