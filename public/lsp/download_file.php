@@ -1,9 +1,9 @@
 <?php
 
 /*
- * Provides the file as a downloadable file through the browser
- * including the necessary header content to ensure the browser
- * doesn't accidentally display the file as a new page
+ * Provides the file as a downloadable file through the browser including the
+ * necessary header content to ensure the browser doesn't accidentally display
+ * the file as a new page
  */
 require_once('config.php');
 require_once('dbo.php');
