@@ -382,7 +382,7 @@ function get_subcategories($category, $id) {
 function get_categories_for_ext($extension, $default = '') {
 	$dbh = &get_db();
 	$stmt = $dbh->prepare(
-		'SELECT CONCAT(categories.name, ' - ', subcategories.name) AS fullname FROM filetypes ' .
+		'SELECT CONCAT(categories.name, \' - \', subcategories.name) AS fullname FROM filetypes ' .
 		'INNER JOIN categories ON categories.id=filetypes.category ' .
 		'INNER JOIN subcategories ON subcategories.category=categories.id ' . 
 		'WHERE LOWER(extension) = LOWER(:extension) ' .
@@ -393,11 +393,12 @@ function get_categories_for_ext($extension, $default = '') {
 	$html = '';
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$fullname = $object['fullname'];
-			$selected = strtolower($fullname) == strtolower($default) ? 'selected' : '';
-			$html .= "<option $selected>$fullname</option>";
+			$fullname = htmlspecialchars($object['fullname']);
+			$selected = strtolower($fullname) == strtolower($default) ? ' selected' : '';
+			$html .= "<option$selected>$fullname</option>";
 		}
 	}
+
 	$stmt = null;
 	$dbh = null;
 	return $html;
@@ -773,7 +774,7 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
  * This page much include a download button, links to edit, comment, delete, rate
  * as well as all information that's already displayed in the original search results.
  */
-function show_file($file_id, $user) {
+function show_file($file_id, $user, $success = null) {
 	$dbh = &get_db();
 	$stmt = $dbh->prepare(
 		'SELECT licenses.name AS license, size, realname, filename, users.login, ' .
@@ -790,8 +791,18 @@ function show_file($file_id, $user) {
 	$found = false;
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			echo '<div class="col-md-9">';
-			create_title(array($object['category'], $object['subcategory'], "($object[filename])"));
+			$title = array($object['category'], $object['subcategory'], get_file_url());
+			if ($success == null) {
+				echo '<div class="col-md-9">';
+				create_title($title);
+			} else if ($success) {
+				display_success("Updated successfully", $title);
+				echo '<div class="col-md-9">';
+			} else {
+				display_error("Update failed.", $title);
+				echo '<div class="col-md-9">';
+			}
+			
 			echo '<table class="table table-striped">';
 			show_basic_file_info($object, false);
 			
@@ -958,6 +969,7 @@ function update_file($file_id, $category_id, $subcategory_id, $license_id, $desc
 		'WHERE id=:file_id'
 	);
 	$html_description = htmlspecialchars($description);
+	$stmt->bindParam(':file_id', $file_id);
 	$stmt->bindParam(':category_id', $category_id);
 	$stmt->bindParam(':subcategory_id', $subcategory_id);
 	$stmt->bindParam(':license_id', $license_id);
