@@ -9,11 +9,8 @@ global $LSP_URL;
 if (!SESSION_EMPTY()) {
 	if (POST_EMPTY('ok') && POST_EMPTY('addfinalok')) {
 		display_warning('Do not submit offending, pornographic, racist or violent content.', array('<a href="">Add File</a>'));
-		?>
-		<div class="col-md-9"><div class="panel panel-default"><div class="panel-heading">
-		<h3 class="panel-title"><span class="fa fa-upload"></span>&nbsp;Add File</h3></div>
-		<div class="panel-body">
-		<?php $form = new form($LSP_URL . '?content=add'); ?>
+		echo '<div class="col-md-9">';
+		$form = new form($LSP_URL . '?content=add', 'Add File', 'fa-upload'); ?>
 		<label for="filename">File to add</label>
 		<div class="form-group">
 		<span class="pull-left btn btn-default btn-file">
@@ -28,8 +25,8 @@ if (!SESSION_EMPTY()) {
 		</label>
 		</div>
 		<button type="submit" name="ok" value="OK" class="btn btn-primary"><span class="fa fa-upload"></span>&nbsp;Upload</button>
-		<?php $form->close();?>
-		</div></div></div><?php
+		<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fa fa-close"></span>&nbsp;Cancel</a>
+		<?php $form->close(); echo '</div>';
 	} else if(GET('content') == "add" ) {
 		if (POST_EMPTY('tmpname')) $tmp_path = $_FILES["filename"]["tmp_name"]; else $tmp_path = POST('tmpname');
 		if (POST_EMPTY('fn')) $file_path = $_FILES["filename"]["name"]; else $file_path = POST('fn');
@@ -48,15 +45,13 @@ if (!SESSION_EMPTY()) {
 			$categories = get_categories_for_ext($file_extension);
 			if ($categories != false) {
 				if (isset($_FILES["filename"]["tmp_name"])) {
+					echo '<div class="col-md-9">';
 					create_title(array('<a href="">Add File</a>', $file_path));
 					$tmp_path = $_FILES["filename"]["tmp_name"];
 					$tmp_name_only = pathinfo($tmp_path, PATHINFO_FILENAME) . '.' . pathinfo($tmp_path, PATHINFO_EXTENSION);
 					move_uploaded_file($tmp_path, $TMP_DIR . $tmp_name_only);
 					echo "<code>moving $tmp_path to $TMP_DIR$tmp_name_only</code>";?>
-				    <div class="col-md-9"><div class="panel panel-default"><div class="panel-heading">
-					<h3 class="panel-title"><span class="fa fa-upload"></span>&nbsp;File Details</h3></div>
-					<div class="panel-body">
-					<?php $form = new form($LSP_URL . '?content=add'); ?>
+					<?php $form = new form($LSP_URL . '?content=add', 'File Details', 'fa-upload'); ?>
 					<div class="form-group">
 					<label for="category">Category</label>
 					<select name="category" class="form-control"><?php echo $categories;?></select>
@@ -76,8 +71,7 @@ if (!SESSION_EMPTY()) {
 					<input type="hidden" name="tmpname" value="<?php echo $tmp_path; ?>" />
 					<input type="hidden" name="fsize" value="<?php echo $file_size; ?>" />
 					<input type="hidden" name="nocopyright" value="<?php echo $no_copyright; ?>" />
-					<?php $form->close();?>
-					</div></div></div><?php
+					<?php $form->close(); echo '</div>';
 				} else {
 					display_error("No file specified", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
 				}
