@@ -193,17 +193,19 @@ function create_toolbar_item($text, $href = '#', $font_awesome = '', $enabled = 
 /*
  * For show-file page, creates 5 stars which may be click-able to set file rating
  */
-function get_stars($fid = -1, $href = '#', $font_awesome = '', $enabled = true) {
+function get_stars($fid = -1, $href = '#', $enabled = true) {
 	$ret_val = 'Rate:' . ($enabled ? '' : '&nbsp; &nbsp;');
-	$urating =  SESSION_EMPTY() ? get_user_rating($fid, SESSION()) : -1;
-	$font_awesome = ($font_awesome = '' ? '' : 'fa ' . $font_awesome);
+	$urating =  SESSION_EMPTY() ? -1 : get_user_rating($fid, SESSION());
+	$class = 'fa fa-star-o lsp-star';
 	$title = $enabled ? '' : 'Login to rate';
 	$href = $enabled ? htmlentities($href) : '#';
 	for( $i = 1; $i < 6; ++$i ) {
-		$ret_val .= ($enabled ? '<a href="' . ($href == '#' ? '#' : $href . $i) . '" class="clearfix pull-left lsp-ratelink" ' : '<span class="lsp-ratelink" ');
-		$ret_val .=  'title="' . $title . '">';	
-		$ret_val .= '<span class="' . ($urating == $i ? 'text-primary ' : '') . $font_awesome . '"></span>';
-		$ret_val .= ($enabled ? '</a>' : '</span>');
+		if ($enabled) {
+			$ret_val .= '<a href="' . ($href == '#' ? '#' : $href . $i) . '" class="clearfix pull-left lsp-ratelink" title="' . $title . '">';
+			$ret_val .= '<span class="lsp-ratelink"><span class="' . ($urating == $i ? "fa fa-star text-primary" : $class) . '"></span></span></a>';
+		} else {
+			$ret_val .= '<span class="lsp-ratelink"><span class="' . $class . '"></span></span>';
+		}
 	}
 	return $ret_val;
 }

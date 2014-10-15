@@ -53,7 +53,7 @@ define('DBO_TABLES', 'categories,comments,files,filetypes,licenses,ratings,subca
  * Valid root functions to be looped over and processed by index.php. This order is important
  * as a user could potentially key in many functions, but we only want to process one.
  */
-define('POST_FUNCS', 'comment,content,action,search,q,account');
+define('POST_FUNCS', 'rate,comment,content,action,search,q,account');
 
 /*
  * MySQL functions allowed to be called around non-specific columns
@@ -771,7 +771,7 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 
 /*
  * The page which displays the file details, i.e. ?action=show&file=1234
- * This page much include a download button, links to edit, comment, delete, rate
+ * This page must include a download button, links to edit, comment, delete, rate
  * as well as all information that's already displayed in the original search results.
  */
 function show_file($file_id, $user, $success = null) {
@@ -820,14 +820,14 @@ function show_file($file_id, $user, $success = null) {
 			echo '<tr><td colspan="2">';
 			echo '<nav class="navbar navbar-default"><ul class="nav navbar-nav">';
 			$can_edit = ($object['login'] == $user || is_admin(get_user_id($user)));
-			$can_rate = isset($_SESSION["remote_user"]);
+			$can_rate = !SESSION_EMPTY();
 			
 			global $LSP_URL;
 			create_toolbar_item('Comment', "$LSP_URL?comment=add&file=$file_id", 'fa-comment', $can_rate);
 			create_toolbar_item('Edit', "$LSP_URL?content=update&file=$file_id", 'fa-pencil', $can_edit);
 			create_toolbar_item('Delete', "$LSP_URL?content=delete&file=$file_id", 'fa-trash', $can_edit);
 			$star_url = $LSP_URL . '?' . file_show_query_string().'&rate=';
-			create_toolbar_item(get_stars($file_id, $star_url, 'fa-star-o lsp-star', $can_rate), '', null, false);
+			create_toolbar_item(get_stars($file_id, $star_url, $can_rate), '', null, $can_rate);
 			
 			echo '</ul></nav>';
 			echo '<strong>Comments:</strong>';
@@ -890,7 +890,7 @@ function update_rating($file_id, $stars, $user) {
 	}
 	
 	// Incorrect $file_id supplied
-	if (!is_int($file_id) || !isset($file_id) || $file_id < 0) {
+	if (!is_numeric($file_id) || !isset($file_id) || $file_id < 0) {
 		echo '<h3 class="text-danger">Invalid file_id: ' . 
 			(is_int($file_id) ? '"' . intval($file_id) . '"' : 
 			(isset($file_id) ?  '"' . sanitize($file_id) . '"' : '(empty)'))  . '</h3>';

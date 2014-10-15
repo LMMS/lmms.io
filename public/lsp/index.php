@@ -33,7 +33,6 @@ function process_params() {
 	$post_funcs = explode(',', POST_FUNCS);
 	foreach ($post_funcs as $func) {
 		if (!GET_EMPTY($func)) {
-		
 			// Process parametrized functions
 			switch($func) {
 				case 'rate':
