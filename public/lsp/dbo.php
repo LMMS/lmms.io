@@ -1,6 +1,5 @@
 <?php
 
-require_once('config.php');
 require_once('utils.php');
 
 /*
@@ -14,12 +13,18 @@ $DB_DATABASE = 'somedatabase';
 
 /*
  * Query preferences
+ * Note:  MySQL defaults to latin1 charset
  */
-// mysql defaults to latin1
 $DB_CHARSET = 'latin1';
 $PAGE_SIZE = 25;
 $MAX_LOGIN_ATTEMPTS = 6;
 
+/*
+ * Global paths
+ */
+$TMP_DIR = $_SERVER['DOCUMENT_ROOT'] . '/../../tmp/';
+$DATA_DIR = $_SERVER['DOCUMENT_ROOT'] . '/../../tmp/';
+$LSP_URL = '/lsp/';
 
 /*
  * By default, the LSP will use the default database values defined above
@@ -31,13 +36,16 @@ $LSP_SECRET = '/home/deploy/secrets/LSP_SECRETS';
 if (file_exists($LSP_SECRET)) { include($LSP_SECRET); }
 
 /*
- * Override database values with those from $LSP_SECRET, if available
+ * Override constants with those from $LSP_SECRET, if available
  */
 $DB_TYPE = defined('DB_TYPE') ? DB_TYPE : $DB_TYPE;
 $DB_HOST = defined('DB_HOST') ? DB_HOST : $DB_HOST;
 $DB_USER = defined('DB_USER') ? DB_USER : $DB_USER;
 $DB_PASS = defined('DB_PASS') ? DB_PASS : $DB_PASS;
 $DB_DATABASE = defined('DB_DATABASE') ? DB_DATABASE : $DB_DATABASE;
+$TMP_DIR = defined('TMP_DIR') ? TMP_DIR : $TMP_DIR;
+$DATA_DIR = defined('DB_PASS') ? DATA_DIR : $DATA_DIR;
+$LSP_URL = defined('LSP_URL') ? LSP_URL : $LSP_URL;
 
 /*
  * DANGER! When set to true will attempt to echo database statements and values to screen
@@ -791,7 +799,7 @@ function show_file($file_id, $user, $success = null) {
 	$found = false;
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$title = array($object['category'], $object['subcategory'], get_file_url());
+			$title = array($object['category'], $object['subcategory'], get_file_url($file_id));
 			if ($success == null) {
 				echo '<div class="col-md-9">';
 				create_title($title);
@@ -926,9 +934,12 @@ function update_rating($file_id, $stars, $user) {
 /*
  * Inserts an row into the files table
  */
-function insert_file($filename, $user_id, $category_id, $subcategory_id, $license_id, $description, $file_size, $hash) {
+function insert_file($filename, $user_id, $category_id, $subcategory_id, $license_id, $description, $size, $hash) {
+	if (DBO_DEBUG) {
+		echo "<code>insert_file($filename, $user_id, $category_id, $subcategory_id, $license_id, $description, $size, $hash)</code>";
+	}
 	$dbh = &get_db();
-	$return_val = false;
+	$return_val = -1;
 	$stmt = $dbh->prepare(
 		'INSERT INTO files (' . 
 			'filename, user_id, insert_date, update_date, category, ' . 
@@ -948,7 +959,7 @@ function insert_file($filename, $user_id, $category_id, $subcategory_id, $licens
 	$stmt->bindParam(':size', $size);
 	$stmt->bindParam(':hash', $hash);
 	if ($stmt->execute()) {
-		$return_val = true;
+		$return_val = $dbh->lastInsertId('id');
 	}
 	$stmt = null;
 	$dbh = null;
@@ -1075,6 +1086,34 @@ function get_web_resources() {
 	$dbh = null;
 }
 
+/*
+ * Retrieve the subcategory id from the database.
+ * Since subcategories can have identical names, a parent category id
+ * must also be provided
+ */
+function get_subcategory_id($category_id, $subcategory) {
+	$subcategory_id = -1;
+	if ($category_id < 0) {
+		return $subcategory_id;
+	}
+	$dbh = &get_db();
+	$stmt = $dbh->prepare(
+		'SELECT id FROM subcategories ' .
+		'WHERE category = :category_id and LOWER(name) = LOWER(:subcategory)'
+	);
+	$stmt->bindParam(':category_id', $category_id);
+	$stmt->bindParam(':subcategory', $subcategory);
+	
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$subcategory_id = $object['id'];
+			break;
+		}
+	}
+	$stmt = null;
+	$dbh = null;
+	return $subcategory_id;
+}
 
 /*
  * Convenience Functions
@@ -1090,7 +1129,6 @@ function get_file_rating_count($file_id) { return get_object_by_id('ratings', $f
 function get_file_rating($file_id) { return get_object_by_id('ratings', $file_id, 'stars', 'file_id', 'avg'); }
 function get_file_downloads($file_id) { return( get_object_by_id('files', $file_id, 'downloads')); }
 function get_category_id($category) { return get_id_by_object('categories', 'name', $category); }
-function get_subcategory_id($category) { return get_id_by_object('subcategories', 'name', $category); }
 function get_license_id($license) {	return  get_id_by_object('licenses', 'name', $license); }
 function get_license_name($license_name) { return get_object_by_id('licenses', $license_name, 'name'); }
 

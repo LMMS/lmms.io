@@ -1,13 +1,12 @@
 <?php
+require_once('utils.php');
+require_once('dbo.php');
 
 /*
  * Provides the file as a downloadable file through the browser including the
  * necessary header content to ensure the browser doesn't accidentally display
  * the file as a new page
  */
-require_once('config.php');
-require_once('dbo.php');
-
 function download_file($file_id, $file_name) {
     global $DATA_DIR;
 	$file_path = $DATA_DIR . $file_id;

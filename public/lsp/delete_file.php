@@ -1,5 +1,7 @@
 <?php
 require_once('utils.php');
+require_once('dbo.php');
+
 global $LSP_URL;
 // This next line was cherry-picked from index.html. Doesn't it do the same thing as what's already here?
 //if(get_user_id(SESSION()) == get_object_by_id("files", $_GET['file'], "user_id"))

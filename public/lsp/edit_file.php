@@ -1,6 +1,8 @@
 <?php
 require_once('utils.php');
 require_once('dbo.php');
+require_once('xhtml.php');
+
 global $LSP_URL;
 
 if (get_user_id(SESSION()) == get_object_by_id("files", GET('file'), 'user_id') || is_admin(get_user_id(SESSION()))) {

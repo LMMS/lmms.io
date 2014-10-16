@@ -1,5 +1,8 @@
 <?php
 require_once('utils.php');
+require_once('dbo.php');
+require_once('xhtml.php');
+
 global $LSP_URL;
 if (!SESSION_EMPTY()) {
 	if (!POST('addcomment', false) || POST_EMPTY('text')) {

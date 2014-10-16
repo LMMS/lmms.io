@@ -1,4 +1,7 @@
 <?php
+require_once('utils.php');
+require_once('dbo.php');
+require_once('xhtml.php');
 global $LSP_URL;
 
 function apply_settings($password, $password2, $realname) {

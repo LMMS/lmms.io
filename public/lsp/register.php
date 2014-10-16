@@ -1,32 +1,25 @@
-<br><div class="lsp-table">
 <?php
 require_once('utils.php');
+require_once('dbo.php');
+require_once('xhtml.php');
+
 global $LSP_URL;
+
 /*
  * Adds the specified user to the database
  */
 function try_add_user($login , $pass, $pass2, $realname, $is_admin) {
-	$message = '';
-	$class = 'warning';
 	$return_val = false;
-	if ($pass != $pass2) { 
-		$message = "Password mismatch.";
-		$class = 'warning';
+	if ($pass != $pass2) {
+		display_warning("Password mismatch");
 	} else if($realname == '' || $pass == '' || $pass2 == '' || $login == '') {
-		$message = "Please fill out all fields.";
-		$class = 'warning';
+		display_warning("Please fill out all fields");
 	} else if(get_user_id($login) > 0) {
-		$message = "The user <strong>$login</strong> already exists.";
-		$class = 'danger';
+		display_error("The user <strong>$login</strong> already exists.");
 	} else {
 		add_user($login, $realname, $pass, $is_admin);
-		$message = "<strong>$login</strong> has been successfully created";
-		$class = 'success';
-		$return_val = true;
+		$return_val = display_success("<strong>$login</strong> has been successfully created");
 	}
-	echo '<div class="col-md-9 center"><div class="alert alert-' . $class . '" role="alert">';
-    echo "$message";
-    echo '</div></div>';
 	return $return_val;
 }
 
@@ -36,10 +29,8 @@ $control = POST("control", false);
  * Create the HTML form used for registration
  */
 if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), $control))) {
-	echo '<div class="col-md-9"><div class="panel panel-default"><div class="panel-heading">';
-	echo '<h3 class="panel-title"><span class="fa fa-list-alt"></span>&nbsp;Register</h3></div>';
-	echo '<div class="panel-body">';
-	$form = new form($LSP_URL . "?action=register");
+	echo '<div class="col-md-9">';
+	$form = new form($LSP_URL . '?action=register', 'Register', 'fa-list-alt');
 	echo '<div class="form-group">';
 	echo '<label for="realname">Real name</label>';
 	echo '<input type="text" name="realname" class="form-control textin" maxlength="50" placeholder="real name" />';
@@ -58,8 +49,7 @@ if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("passw
 	echo '<a href="' . $LSP_URL . '" class="btn btn-warning"><span class="fa fa-close"></span>&nbsp;Cancel</a>';
 	$form->close();
 	echo "<a href=\"javascript:loginFocus();\"><span class=\"fa  fa-chevron-circle-left\"></span>&nbsp;Already registered?  Login here.</a>"; 
-	echo '</div></div></div>';
+	echo '</div>';
 }
 ?>
-</div>
 

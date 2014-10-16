@@ -1,6 +1,6 @@
 <?php
-
-require_once('config.php');
+require_once('utils.php');
+require_once('dbo.php');
 
 global $TMP_DIR;
 global $DATA_DIR;
@@ -68,7 +68,7 @@ if (!SESSION_EMPTY()) {
 					<button type="submit" class="btn btn-primary" name="addfinalok" value="Add File"><span class="fa fa-check"></span>&nbsp;Add File</button>&nbsp;
 					<a href="" class="btn btn-warning"></span><span class="fa fa-close"></span>&nbsp;Cancel</a>
 					<input type="hidden" name="fn" value="<?php echo $file_path; ?>" />
-					<input type="hidden" name="tmpname" value="<?php echo $tmp_path; ?>" />
+					<input type="hidden" name="tmpname" value="<?php echo "$TMP_DIR$tmp_name_only"; ?>" />
 					<input type="hidden" name="fsize" value="<?php echo $file_size; ?>" />
 					<input type="hidden" name="nocopyright" value="<?php echo $no_copyright; ?>" />
 					<?php $form->close(); echo '</div>';
@@ -87,19 +87,26 @@ if (!SESSION_EMPTY()) {
 			$file_name = POST("fn");
 			$file_extension = '.' . pathinfo($file_name, PATHINFO_EXTENSION);
 			if (file_exists($tmp_path)) {
-				//$firstdot = strpos($_POST["fn"], ".");
-				//$fext = substr(POST('fn'), $firstdot, strlen(POST('fn')) - $firstdot);
-	
 				$category = explode(' - ', POST('category'))[0];
+				$subcategory = explode(' - ', POST('category'))[1];
 				$category_id = get_category_id($category);
-				$subcategory_id = get_subcategory_id($category[1]);
+				$subcategory_id = get_subcategory_id($category_id, $subcategory);
 				$license_id = get_license_id(POST('license'));
 
 				$user_id = get_user_id(SESSION());
-				$file_id = 0;
-				if (insert_file($file_name, $user_id, $category_id, $subcategory_id, $license_id, POST('description'), POST('fsize'), sha1_file($tmp_path))) {
+				$file_id = insert_file(
+					$file_name, 
+					$user_id, 
+					$category_id, 
+					$subcategory_id, 
+					$license_id, 
+					POST('description'), 
+					POST('fsize'), 
+					sha1_file($tmp_path)
+				);
+				if ($file_id > 0) {
 					echo "<code>rename " . $tmp_path . " to " . $DATA_DIR . $file_id . '</code>';
-					rename($file_path, $DATA_DIR . $file_id);
+					rename($tmp_path, $DATA_DIR . $file_id);
 					//echo "<br /><span style=\"font-weight:bold; color:#0a0;\">Your file has been added.</span> <br /><br />";
 					//display_success("Your file <strong>$file_path</strong> has been added", array('<a href="">Add File</a>', 'Success'));
 					show_file($file_id, SESSION());
