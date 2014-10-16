@@ -37,13 +37,14 @@ if (get_user_id(SESSION()) == get_object_by_id("files", GET('file'), 'user_id') 
 		<input type="hidden" name="action" value="update" />
 		<?php $form->close(); echo '</div>';
 	}  else {
-		$cat = explode(' - ', POST('category'));
-		$catid = get_category_id($cat[0]);
-		$subcatid = get_subcategory_id($cat[1]);
-		$licenseid = get_license_id(POST('license'));
+		$category = explode(' - ', POST('category'))[0];
+		$subcategory = explode(' - ', POST('category'))[1];
+		$category_id = get_category_id($category);
+		$subcategory_id = get_subcategory_id($category_id, $subcategory);
+		$license_id = get_license_id(POST('license'));
 
 		$success = false;
-		if (update_file(GET('file'), $catid, $subcatid, $licenseid, POST('description'))) {
+		if (update_file(GET('file'), $category_id, $subcategory_id, $license_id, POST('description'))) {
 			$success = true;
 		}
 		

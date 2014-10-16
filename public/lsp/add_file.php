@@ -1,6 +1,7 @@
 <?php
 require_once('utils.php');
 require_once('dbo.php');
+require_once('xhtml.php');
 
 global $TMP_DIR;
 global $DATA_DIR;
