@@ -1,29 +1,29 @@
 <?php
 require_once('utils.php');
 require_once('dbo.php');
+require_once('xhtml.php');
 
 global $LSP_URL;
-// This next line was cherry-picked from index.html. Doesn't it do the same thing as what's already here?
-//if(get_user_id(SESSION()) == get_object_by_id("files", $_GET['file'], "user_id"))
 if (!SESSION_EMPTY() && 
 	(get_user_id(SESSION()) == get_file_owner(GET('file')) || is_admin(get_user_id(SESSION())))) {
 	if (GET('confirmation') == "true" ) {
-		echo '<div class="alert alert-success center"><strong>Info:</strong> File has been deleted</div>';
+		display_success('File deleted successfully', array('Delete'));
 		get_latest();
 	} else {
+		display_warning('This will delete all comments and ratings.', array('Delete', get_file_url()));
 		echo '<div class="col-md-9">';
-		create_title(array('Delete', get_file_url()));
-		echo '<table class="table table-striped">';
-		echo "<br /><span>Please confirm deletion of <i>\"" . get_file_name(GET('file')) . "\"</i> with all its comments and ratings?</span> <br /><br />";
-		echo '&nbsp; &nbsp;&nbsp; <b><a class="btn btn-danger href="'.$LSP_URL.'?content=delete&confirmation=true&file=' . GET('file') . '">Delete</a>';
-		echo ' <a class="btn btn-warning" href="' . $LSP_URL . '?action=show&file=' . GET('file') . '">Cancel</a></b>';
-		echo '</table></div>';
+		$form = new form(null, 'Confirm Delete', 'fa-trash'); ?>
+		<p class="lead">Confirm deletion of <strong><?php echo get_file_name(GET('file')); ?></strong>?</p>
+		<div class="form-group">
+		<a class="btn btn-danger" href="<?php echo "$LSP_URL?content=delete&confirmation=true&file=" . GET('file'); ?>">
+		<span class="fa fa-check"></span>&nbsp;Delete</a>
+		<a class="btn btn-warning" href="<?php echo "$LSP_URL?action=show&file=" . GET('file'); ?>">
+		<span class="fa fa-close"></span>&nbsp;Cancel</a>
+		</form>
+		<?php $form->close(); echo '</div>';
 	}
-}
-else
-{
-	echo "<br /><span style=\"font-weight:bold; color:#f80; font-size:12pt;\">You're not allowed to delete this file!!!</span> <br /><br />";
-	show_file( $_GET["file"], $_SESSION["remote_user"] );
+} else {
+	show_file(GET('file'), SESSION(), false);
 }
 
 ?>

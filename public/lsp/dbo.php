@@ -803,12 +803,14 @@ function show_file($file_id, $user, $success = null) {
 			if ($success == null) {
 				echo '<div class="col-md-9">';
 				create_title($title);
-			} else if ($success) {
+			} else if ($success === true) {
 				display_success("Updated successfully", $title);
 				echo '<div class="col-md-9">';
-			} else {
+			} else if ($success === false) {
 				display_error("Update failed.", $title);
 				echo '<div class="col-md-9">';
+			} else {
+				display_success("$success", $title);
 			}
 			
 			echo '<table class="table table-striped">';

@@ -33,15 +33,12 @@ if (!SESSION_EMPTY()) {
 		if (POST_EMPTY('fn')) $file_path = $_FILES["filename"]["name"]; else $file_path = POST('fn');
 		if (POST_EMPTY('fsize')) $file_size = $_FILES["filename"]["size"]; else $file_size = POST('fsize');
 		$no_copyright = POST('nocopyright');
-		//$cat = POST('category');
 
 		if (POST('ok') == 'OK') {
 			if (POST_EMPTY('nocopyright')) {
 				display_error("Copyrighted content is forbidden", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
 				return;
 			}
-			//$firstdot = strpos($filename, '.');
-			//$fext = substr( $filename, $firstdot, strlen( $filename ) - $firstdot );
 			$file_extension = '.' . pathinfo($file_path, PATHINFO_EXTENSION);
 			$categories = get_categories_for_ext($file_extension);
 			if ($categories != false) {
@@ -108,14 +105,12 @@ if (!SESSION_EMPTY()) {
 				if ($file_id > 0) {
 					echo "<code>rename " . $tmp_path . " to " . $DATA_DIR . $file_id . '</code>';
 					rename($tmp_path, $DATA_DIR . $file_id);
-					//echo "<br /><span style=\"font-weight:bold; color:#0a0;\">Your file has been added.</span> <br /><br />";
-					//display_success("Your file <strong>$file_path</strong> has been added", array('<a href="">Add File</a>', 'Success'));
-					show_file($file_id, SESSION());
+					show_file($file_id, SESSION(), "File added successfully");
 				} else {
 					display_error("Failed to commit file <strong>$file_extension</strong>", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
 				}
 			} else {
-				display_error("Sorry, $tmp_path seems to have disappeared.", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
+				display_error("Sorry, the uploaded file is no longer available.", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
 			}
 		} else {
 			display_error("Something went wrong");

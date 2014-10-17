@@ -38,8 +38,9 @@ switch (GET('action')) {
 			<span id="caret" class="fa"></span>&nbsp;<span class="fa fa-user"></span>&nbsp;My Account&nbsp;
 			
 			<?php 
-				// Append username to title
-				echo SESSION_EMPTY() ? '' : ' <span class="badge pull-right">' . SESSION() . '</span>'; 
+				// Append username and admin shield to title
+				$shield = is_admin(get_user_id(SESSION())) ? '<span class="fa fa-shield"></span>&nbsp;' : '';
+				echo SESSION_EMPTY() ? '' : ' <span class="badge pull-right">' . $shield . SESSION() . '</span>'; 
 				// Show auth-fail alert in title for smaller screens
 				echo $auth_failure ? '&nbsp;<span class="pull-right fa fa-exclamation-circle text-danger"></span>' : '';
 			?></a>
@@ -47,7 +48,6 @@ switch (GET('action')) {
 		<div id="login-collapse" class="panel-collapse collapse in">
 		<div id="login-div" class="panel-body overflow-hidden">
 			<?php
-			
 			if ($auth_failure) {
 				echo '<span class="text-danger"><strong>Authentication failure.</strong></span><br />';
 			}
@@ -74,7 +74,7 @@ switch (GET('action')) {
 				<input type="hidden" name="oldaction" value="<?php echo GET('action');?>" />
 				</form>
 				<a href="?action=register"><span class="fa fa-chevron-circle-right"></span>&nbsp;Not registered yet?</a><?php
-			} else {?>
+			} else { ?>
 				<div><ul style="list-style: none; margin-left: -2.5em;">
 				<li><a href="?content=add"><span class="fa fa-upload"></span>&nbsp;&nbsp;Add file</a></li>
 				<li><a href="?action=browse&user=<?php echo SESSION(); ?>"><span class="fa fa-files-o "></span>&nbsp;&nbsp;My files</a></li>
@@ -82,7 +82,11 @@ switch (GET('action')) {
 				<li><a href="?action=logout&oldaction=<?php echo GET('action');?>&file=<?php echo GET('file');?>
 					&f=<?php echo GET('category');?>&subcategory=<?php echo GET('subcategory');?>">
 					<span class="fa fa-power-off"></span>&nbsp;&nbsp;Logout</a></li>
-				</ul></div><?php
+				</ul><?php
+				if (is_admin(get_user_id(SESSION()))) {
+					echo '<p class="badge pull-right"><span class="fa fa-shield"></span>&nbsp;<strong>admin</strong></p>';
+				}
+				echo '</div>';
 			}
 			?>
 		</div>

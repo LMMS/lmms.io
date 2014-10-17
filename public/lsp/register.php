@@ -8,9 +8,14 @@ global $LSP_URL;
 /*
  * Adds the specified user to the database
  */
-function try_add_user($login , $pass, $pass2, $realname, $is_admin) {
+function try_add_user($login , $pass, $pass2, $realname, $session, $is_admin, $antispam) {
 	$return_val = false;
-	if ($pass != $pass2) {
+	// Help prevent robot registrations
+	if (!check_antispam($antispam)) {
+		display_error("Invalid security code");
+	} else if ($session != md5(session_id() . $_SERVER['REMOTE_ADDR'])) {
+		display_error("Invalid session.");
+	} else if ($pass != $pass2) {
 		display_warning("Password mismatch");
 	} else if($realname == '' || $pass == '' || $pass2 == '' || $login == '') {
 		display_warning("Please fill out all fields");
@@ -23,33 +28,60 @@ function try_add_user($login , $pass, $pass2, $realname, $is_admin) {
 	return $return_val;
 }
 
+/*
+ * Just a quick hash verification.  Obscure, not secure.
+ */
+function check_antispam($antispam) {
+	if (isset($antispam)) {
+		for ($i = 0; $i < 25; $i++) {
+			$md5 = md5(session_id() + $i);
+			if (strpos($antispam, substr($md5, strlen("$md5") - 4, strlen("$md5"))) !== false) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 $control = POST("control", false);
 
 /*
  * Create the HTML form used for registration
  */
-if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), $control))) {
+if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), POST("session"), $control, POST("antispam")))) {
 	echo '<div class="col-md-9">';
-	$form = new form($LSP_URL . '?action=register', 'Register', 'fa-list-alt');
-	echo '<div class="form-group">';
-	echo '<label for="realname">Real name</label>';
-	echo '<input type="text" name="realname" class="form-control textin" maxlength="50" placeholder="real name" />';
-	echo '<label for="login">Username</label>';
-	echo '<input type="text" name="login" class="form-control textin" maxlength="10" placeholder="username" />';
-	echo '<label for="password">Password</label>';
-	echo '<input type="password" name="password" class="form-control textin" maxlength="15" placeholder="password" />';
-	echo '<label for="password2">Confirm password</label>';
-	echo '<input type="password" name="password2" class="form-control textin" maxlength="15" placeholder="confirm password" />';
-	echo '</div>';
-	//print_r ($_SERVER);
-	if (is_admin(get_user_id(SESSION()))) {
-		echo '<div class="checkbox"><label><input type="checkbox" name="control" />Is administrator</label></div>';
-	}
-	echo '<button type="submit" class="btn btn-primary" name="adduser" value="Register"><span class="fa fa-check"></span>&nbsp;Register</button>&nbsp;';
-	echo '<a href="' . $LSP_URL . '" class="btn btn-warning"><span class="fa fa-close"></span>&nbsp;Cancel</a>';
-	$form->close();
-	echo "<a href=\"javascript:loginFocus();\"><span class=\"fa  fa-chevron-circle-left\"></span>&nbsp;Already registered?  Login here.</a>"; 
-	echo '</div>';
+	$form = new form($LSP_URL . '?action=register', 'Register', 'fa-list-alt'); ?>
+	<div class="form-group">
+	<label for="realname">Real name</label>
+	<input type="text" name="realname" class="form-control textin" maxlength="50" placeholder="real name" />
+	</div><div class="form-group">
+	<label for="login">Username</label>
+	<input type="text" name="login" class="form-control textin" maxlength="10" placeholder="username" />
+	</div><div class="form-group">
+	<label for="password">Password</label>
+	<input type="password" name="password" class="form-control textin" maxlength="15" placeholder="password" />
+	</div><div class="form-group">
+	<label for="password2">Confirm password</label>
+	<input type="password" name="password2" class="form-control textin" maxlength="15" placeholder="confirm password" />
+	</div>
+	<div class="form-group">
+	<label for="password2">Security code</label>
+	<img class="thumbnail" style="zoom: 200%" src="get_image.php" />
+	<input type="text" name="antispam" class="form-control textin" maxlength="6" placeholder="type the security code above" />
+	</div>
+	<input type="hidden" name="session" value="<?php echo md5(session_id() . $_SERVER['REMOTE_ADDR']); ?>"/><?php
+	/* // Admin user creation
+	 * print_r ($_SERVER);
+	 * if (is_admin(get_user_id(SESSION()))) {
+	 *	echo '<div class="checkbox"><label><input type="checkbox" name="control" />Is administrator</label></div>';
+	 * }
+	 */
+	?>
+	<button type="submit" class="btn btn-primary" name="adduser" value="Register"><span class="fa fa-check"></span>&nbsp;Register</button>&nbsp;
+	<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fa fa-close"></span>&nbsp;Cancel</a>
+	<?php $form->close(); ?>
+	<a href="javascript:loginFocus();"><span class="fa fa-chevron-circle-left"></span>&nbsp;Already registered?  Login here.</a>
+	</div><?php
 }
 ?>
 
