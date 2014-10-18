@@ -1,5 +1,4 @@
 <?php
-
 require_once('utils.php');
 
 /*
@@ -542,7 +541,7 @@ function get_results_count($category, $subcategory = '', $search = '', $user_id 
 		(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
 		(strlen($search) ? ' (files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search)' : 'true')
 	);
-
+	
 	if (strlen($user_id)) { $stmt->bindParam(':user_id', $user_id); }
 	if (strlen($category)) { $stmt->bindParam(':category', $category); }
 	if (strlen($subcategory)) { $stmt->bindParam(':subcategory', $subcategory); }
@@ -569,7 +568,8 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 	global $LSP_URL;
 	$user_id = '';
 	$order = in_array(trim(strtoupper($order)), array('DESC', 'ASC')) ? trim(strtoupper($order)) : 'DESC';
-	if (strlen($user_name)) { $user_id = get_user_id($user_name); } 
+	if (strlen($user_name)) { $user_id = get_user_id($user_name);} 
+	$user_id = $user_id == -1 ? '' : $user_id;
 	$count = get_results_count($category, $subcategory, $search, $user_id);
 	
 	

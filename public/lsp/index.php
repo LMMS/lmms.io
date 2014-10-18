@@ -36,7 +36,7 @@ function process_params() {
 					break;  // break for file/rate, return for all others
 				case 'search': //move down
 				case 'q':
-					get_results(GET('category'), GET('subcategory'), GET('sort'), GET('q', GET('search', '')), GET('order'));
+					get_results(GET('category'), GET('subcategory'), GET('sort'), GET('q', GET('search', '')), '', GET('order'));
 					return;
 					// default: // do nothing
 			}
