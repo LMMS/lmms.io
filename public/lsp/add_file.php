@@ -21,9 +21,7 @@ if (!SESSION_EMPTY()) {
 		</div>
 		<div class="form-group">
 		<input type="checkbox" id="nocopyright" name="nocopyright" />
-		<label for="nocopyright">&nbsp;<span class="text-warning fa fa-exclamation-circle"></span>
-		Content does not violate any existing copyright, law or trademark
-		</label>
+		<label for="nocopyright">Does not violate any existing copyright, law or trademark</label>
 		</div>
 		<button type="submit" name="ok" value="OK" class="btn btn-primary"><span class="fa fa-upload"></span>&nbsp;Upload</button>
 		<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fa fa-close"></span>&nbsp;Cancel</a>
