@@ -31,7 +31,7 @@ if (get_user_id(SESSION()) == get_object_by_id("files", GET('file'), 'user_id') 
 				echo get_file_description(GET('file'));
 			?></textarea>
 		</div>
-		<button class="btn btn-primary" type="submit" name="updateok" value="OK">Update File</button>
+		<button class="btn btn-primary" type="submit" name="updateok" value="OK"><span class="fa fa-check"></span>&nbsp;Update File</button>
 		<a href="<?php echo "$LSP_URL?action=show&file=" . GET('file'); ?>" class="btn btn-warning"><span class="fa fa-close"></span>&nbsp;Cancel</a>
 		<input type="hidden" name="fn" value="'.$file_name.'" />
 		<input type="hidden" name="action" value="update" />
