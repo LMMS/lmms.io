@@ -823,9 +823,9 @@ function show_file($file_id, $user, $success = null) {
 			echo '<span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
 			echo '</td></tr>';
 			
-			echo '<tr><td colspan="2"><strong>Description:</strong><p>';
+			echo '<tr><td colspan="2"><div class="well"><strong>Description:</strong><p>';
 			echo ($object['description'] != '' ? newline_to_br($object['description']) : 'No description available.');
-			echo '</p></td></tr>';
+			echo '</p></div></td></tr>';
 			
 			echo '<tr><td colspan="2">';
 			echo '<nav class="navbar navbar-default"><ul class="nav navbar-nav">';
