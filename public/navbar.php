@@ -35,7 +35,7 @@ function create_navbar() {
 							array('<span class="fa fa-youtube fa-fw"></span> YouTube', '/community/#youtube'),
 							array('<span class="fa fa-github fa-fw"></span> GitHub', '/community/#github')
 						));
-						//menu_item('Share', '/lsp/');
+						menu_item('Share', '/lsp/');
 					?>
 				</ul>
 			</div>
