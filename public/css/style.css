@@ -13,6 +13,15 @@ h1.jumbo, p.jumbo {
 	font-family: 'Ubuntu', sans-serif;
 }
 
+a.lsp-ratelink,
+span.lsp-ratelink {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	padding-left: 1px !important;
+	padding-right: 1px !important;
+	display: inline-block;
+}
+
 div.jumbo {
 	overflow: hidden;
 	margin-top: 10px;
@@ -47,6 +56,15 @@ p.jumbo {
 	text-align: center;
 }
 
+.row {
+	text-align: center;
+}
+
+.lsp-row {
+	margin-top: 10px;
+	text-align: left;
+}
+
 .download-icon {
 	margin: 0;
 	padding: 0;
@@ -58,6 +76,53 @@ p.jumbo {
 	top: -0.50em;
 	left: -1.1em;
 	opacity: .65;
+}
+
+li>a>span.fa-files-o {
+	margin-right: -.15em;
+}
+
+.btn-file {
+	margin-right: .75em;
+	margin-top: .15em;
+}
+
+#caret.fa-caret-right {
+	margin-right: .2em;
+}
+
+span.lsp-badge {
+	opacity: .70;
+}
+
+pre.lsp-filename {
+	float: right;
+	text-align: right;
+	margin: auto;
+}
+
+ul.lsp-sort {
+	display: inline-block;
+}
+
+div.lsp-sidebar {
+	margin-right: .50em;
+	margin-top: 1.6em;
+}
+
+td.lsp-file-info {
+	padding-left: 2em;
+}
+
+div.lsp-search-button {
+	position: relative;
+	float: right;
+	margin-right: 2.7em;
+	margin-top: -2.4em;
+	right: 0;
+	width: 0;
+	height: 0;
+	overflow: none;
 }
 
 .fl-tab {
@@ -85,6 +150,13 @@ p.jumbo {
 	text-align: right;
 	margin-right: 5px;
 	opacity: .60;
+}
+
+.lsp-small {
+	display: block;
+	position: relative;
+	bottom: -1.5em;
+	text-align: right;
 }
 
 .youtube-thumb-overlay {
@@ -338,11 +410,28 @@ p.forum-stats  {
 	margin-bottom: 5px;
 }
 
-.panel-body {
-	overflow-y:scroll;
+/* Some missing bootstrap styles */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
 }
 
-/* Some missing bootstrap styles */
 .btn-dark {
 	background-color: #464f47;
 	border-color: #464f47;
