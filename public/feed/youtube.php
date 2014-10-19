@@ -9,7 +9,7 @@ include_once('json_common.php');
 $videos_url = 'https://www.youtube.com/user/LMMSOfficial/videos';
 $obj = get_json_data('youtube', 'activities', '&part=snippet&maxResults=25');
 
-echo '<table class="table table-striped"><th><h2 class="center">LMMS YouTube</h2></th>';
+echo '<table class="table table-striped"><th><h2 class="text-center">LMMS YouTube</h2></th>';
 foreach ($obj as $items) {
 	if (!is_array($items) || count($items) < 1 ) {
 		continue;

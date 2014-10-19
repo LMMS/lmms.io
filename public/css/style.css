@@ -42,6 +42,10 @@ p.jumbo {
 	margin-left: 4px;
 }
 
+.inputbox {
+        line-height: normal;
+}
+
 .dl-vert-label {
 	position: relative;
 	top: -2px;
@@ -288,10 +292,6 @@ img {
 	margin: 0 auto;
 }
 
-.center {
-	text-align: center;
-}
-
 .top {
 	float: top;
 }
@@ -502,6 +502,34 @@ p.forum-stats  {
 
 .hor-link-list > a + a{
 	border-left: 1px solid #eee;
+}
+
+/*
+ * nav-tabs style
+ */
+
+.nav-tabs {
+	border-bottom: none;
+}
+
+.nav-tabs > li > a,
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus {
+	border-style: none;
+	background-color: white;
+}
+
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus {
+	border-bottom: 2px solid #75A3CA;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+	border-style: none;
+	background-color: white;
+	border-bottom: 2px solid #428bca;
 }
 
 /*

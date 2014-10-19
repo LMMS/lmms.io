@@ -1,9 +1,18 @@
-<?php include('../header.php'); ?>
-<div class="page-header">
-	<h1><?php echo get_page_name(); ?> Page Placeholder</h1>
-	<p>Please edit <code><?php echo strtolower(get_page_name()) . '.php'; ?></code></p>
-</div>
+<?php
 
+include('../header.php');
+require_once('../../lib/RemWiki/RemWiki.php');
 
-<?php ?>
-<?php include('../footer.php'); ?>
+if (array_key_exists('page', $_GET)) {
+	$page = $_GET['page'];
+} else {
+	$page = 'Main_Page';
+}
+
+$wiki = new RemWiki\RemWiki('http://lmms.sourceforge.net/wiki/');
+$json = $wiki->parse($page);
+
+echo '<h1>' . $json->displaytitle . '</h1>';
+echo $json->text->{'*'};
+
+include('../footer.php');

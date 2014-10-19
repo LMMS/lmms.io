@@ -1,8 +1,8 @@
 <?php include('../header.php'); ?>
 
-<h1 class="center">LMMS Community</h1>
+<h1 class="text-center">LMMS Community</h1>
 <hr id="hr" class="show hidden-sm hidden-xs">
-<div id="alert" class="alert show center alert-warning hidden-sm hidden-xs" role="alert">
+<div id="alert" class="alert show text-center alert-warning hidden-sm hidden-xs" role="alert">
 	<a class="close" onclick="hideAlert()">×</a>
 	<a class="close pull-left" onclick="hideAlert()">×</a>
 	<p>Click a button to be redirected to that page.  Clicking on the down arrow &nbsp;<strong><span class="fa fa-arrow-down"></span></strong>&nbsp; below each button will preview its content.</p>
@@ -53,7 +53,7 @@
 </div>
 
 	<div id="wait-div" class="panel-body show">
-		<h1 class="center"><span class="fa fa-clock-o"></span> Please wait, loading feeds...</h1>
+		<h1 class="text-center"><span class="fa fa-clock-o"></span> Please wait, loading feeds...</h1>
 	</div>
 
 	<div id="forums-div" class="panel-body hidden">

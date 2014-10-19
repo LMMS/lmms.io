@@ -5,7 +5,7 @@ include_once('../utils.php');
 <div class="page-header">
 	<h1>Screenshots</h1>
 </div>
-<div class="row center overflow-hidden">
+<div class="row text-center overflow-hidden">
 <?php
 	$ss_dir = '../img/screenshots/';
 	$files = scandir($ss_dir);

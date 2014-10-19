@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+# Immediately updates the JSON feeds by invoking the page directly with php
+curl -sSL http://localhost/community/?max_age=0 > /dev/null

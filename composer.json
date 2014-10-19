@@ -1,7 +1,13 @@
 {
+	"name": "lmms/lmms.io",
+	"description": "New website for LMMS",
+	"type": "project",
 	"require": {
+		"php": ">=5.4.0",
+		"ext-gd": "*",
 		"mgargano/simplehtmldom": "1.5",
-		"kellan/magpierss": "dev-master"
+		"kellan/magpierss": "dev-master",
+		"knplabs/gaufrette": "0.1.*"
 	},
 	"config": {
 		"vendor-dir": "./public/vendor"

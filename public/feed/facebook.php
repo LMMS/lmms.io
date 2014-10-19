@@ -13,7 +13,7 @@ if (count($obj) <= 0 || !$obj->entries) {
 		exit;
 }
 
-echo '<table class="table table-striped"><th><h2 class="center">LMMS Facebook</h2></th>';
+echo '<table class="table table-striped"><th><h2 class="text-center">LMMS Facebook</h2></th>';
 foreach ($obj->entries as $item) {
 	create_row(
 		'facebook', 							// $service	i.e. "facebook"

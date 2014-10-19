@@ -10,7 +10,7 @@ if ( !defined('MAGPIE_OUTPUT_ENCODING') ) {
 
 $rss = fetch_rss('http://lmms.io/forum/feed.php');
 
-echo '<table class="table table-striped"><th><h2 class="center">LMMS Forums</h2></th>';
+echo '<table class="table table-striped"><th><h2 class="text-center">LMMS Forums</h2></th>';
 foreach ($rss->items as $item) {
 	// Prepare the html a bit
 	$atom = $item['atom_content'];

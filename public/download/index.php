@@ -6,7 +6,7 @@
 
 	<p>Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:</p>
 
-	<div class="row">
+	<div>
 		<div class="btn-group" data-toggle="buttons">
 			<label class="btn btn-default" onclick="showOS('#linux')">
 				<input type="radio" name="options" id="linux-button"><span class="fa fa-linux fa-5x"></span><br>Linux
@@ -21,17 +21,17 @@
 	</div>
 </div><hr>
 
-<div id="linux-div" class="center hidden">
+<div id="linux-div" class="text-center hidden">
 	<?php include('linux.php'); ?>
 </div>
-<div id="windows-div" class="center hidden">
+<div id="windows-div" class="text-center hidden">
 	<h2>Install LMMS on Windows</h2>
 	<p>Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows</p>
 	<?php get_releases('stable', '.exe'); ?>
 	<h3>Beta Versions</h3>
 	<?php get_releases('prerelease', '.exe'); ?>
 </div>
-<div id="mac-div" class="center hidden">
+<div id="mac-div" class="text-center hidden">
 	<h2>Install LMMS on Apple OS&nbsp;X</h2>
 	<p>Click one of the buttons below to download LMMS for Apple</p>
 	<?php get_releases('stable', '.dmg'); ?>

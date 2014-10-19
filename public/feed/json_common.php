@@ -58,7 +58,7 @@ $cache_dir = $_SERVER["DOCUMENT_ROOT"] . '/../tmp/';
  * The directory on the server which stores the json secrets.
  * This should always end in a forward slash.
  */
-$secrets_dir = '/home/deploy/lmms.io/';
+$secrets_dir = '/home/deploy/secrets/';
 $alt_secrets_dir = $cache_dir;
 
 /*
@@ -311,23 +311,23 @@ function create_row($service, $title, $href, $message, $author = NULL, $author_h
 	if (!isset($title) || trim($title) == '') {
 		$title = get_alternate_title($service);
 	}
-	
+
 	$id = (isset($id) ? 'id="' . $id  . '" ' : '');
-	
+
 	echo '<tr><td><div ' . $id . 'class="row ' . $service . '-row"><a target="_blank" href="' . $href . '"><h4><strong>';
 	if (isset($thumbnail)) {
 		echo '<img class="img-thumbnail ' . $service . '-thumb" src="' . $thumbnail . '"/>';
 	}
-	
+
 	if ($service == 'youtube') {
 		echo '<div class="' . $service . '-thumb-overlay"><span class="fa-3x fa fa-play"></span></div>';
 	}
-	
+
 	echo get_icon($service) . ' ' . $title . '</strong></h4></a>';
 
 	echo $message;
 	// Format and concat a pretty timestamp
-	
+
 	if (isset($author)) {
 		echo '</div><small class="feed-small">Posted by: <a href="' . $author_href . '">' . $author . '</a> at ' .
 			date("D, d M Y h:ia ", strtotime($date)) . '(GMT ' . sprintf('%+d', date('O')*1/100) . ')</small>';
@@ -397,11 +397,11 @@ function is_image($a_tag) {
 }
 
 /*
- * 
+ *
  */
 function scale_image($url, $width) {
 	ini_set('user_agent', 'gd/2.x (linux)');
-	
+
 	$image = NULL;
 	try {
 		switch (strtolower(pathinfo($url, PATHINFO_EXTENSION))) {
@@ -419,14 +419,14 @@ function scale_image($url, $width) {
 	} catch (Exception $e) {
 		return $url;
 	}
-	
+
 	if ($image === false) {
 		return $url;
 	}
-	
+
 	$orig_width = imagesx($image);
 	$orig_height = imagesy($image);
-	
+
 	if ($orig_width < $width) {
 		return $url;
 	}
@@ -445,11 +445,11 @@ function scale_image($url, $width) {
 
 	// Capture object to memory
 	ob_start();
-	//header( "Content-type: image/jpeg" ); 
+	//header( "Content-type: image/jpeg" );
 	imagepng($new_image);
 	imagedestroy($new_image);
 	$i = ob_get_clean();
-	
+
 	return 'data:image/png;base64,' . base64_encode($i). '"';
 }
 

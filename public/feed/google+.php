@@ -8,7 +8,7 @@ include_once('json_common.php');
 
 $obj = get_json_data('google', 'activities', '?maxResults=25');
 
-echo '<table class="table table-striped"><th><h2 class="center">LMMS Google+</h2></th>';
+echo '<table class="table table-striped"><th><h2 class="text-center">LMMS Google+</h2></th>';
 foreach ($obj as $items) {
 	if (!is_array($items) || count($items) < 1 ) {
 		continue;

@@ -1,5 +1,6 @@
 *~
-/tmp
-/community/cache/
-/forum/
-/vendor/
+/public/community/cache/
+/public/forum/
+/tmp/
+/public/vendor/
+composer.phar
