@@ -21,8 +21,8 @@ $MAX_LOGIN_ATTEMPTS = 6;
 /*
  * Global paths
  */
-$TMP_DIR = $_SERVER['DOCUMENT_ROOT'] . '/../../tmp/';
-$DATA_DIR = $_SERVER['DOCUMENT_ROOT'] . '/../../tmp/';
+$TMP_DIR = $_SERVER['DOCUMENT_ROOT'] . '/../tmp/';
+$DATA_DIR = $_SERVER['DOCUMENT_ROOT'] . '/../tmp/';
 $LSP_URL = '/lsp/';
 
 /*
