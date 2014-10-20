@@ -101,19 +101,19 @@ $(window).bind('resize load',function(){
 });
 
 function collapse_out(item_id) {
-	$('.collapse').addClass('in');
+	$('.collapse').not('.navbar-collapse').addClass('in');
 	$(item_id).removeClass('fa-caret-right');
 	$(item_id).addClass('fa-caret-down');
 }
 
 function collapse_in(item_id) {
-	$('.collapse').removeClass('in');
+	$('.collapse').not('.navbar-collapse').removeClass('in');
 	$(item_id).removeClass('fa-caret-down');
 	$(item_id).addClass('fa-caret-right');
 }
 
-$('.collapse').on('shown.bs.collapse', function(){collapse_out('#caret')});
-$('.collapse').on('hidden.bs.collapse', function(){collapse_in('#caret')});
+$('.collapse').not('.navbar-collapse').on('shown.bs.collapse', function(){collapse_out('#caret')});
+$('.collapse').not('.navbar-collapse').on('hidden.bs.collapse', function(){collapse_in('#caret')});
 
 $(document).ready(function() {
   /*
