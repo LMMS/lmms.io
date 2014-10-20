@@ -1,4 +1,5 @@
 <?php
+require_once('../feed/json_common.php');
 
 /*
  * Prevent PHP warnings by first checking to see if a variable is set, or returns null
@@ -364,6 +365,53 @@ function get_file_url($file_id = null) {
 	$url = $LSP_URL . '?action=show&file=' . (isset($file_id) ? $file_id : GET('file'));
 	$name = '(' . get_file_name((isset($file_id) ? $file_id : GET('file'))) . ')';
 	return '<a href="' . $url . '">' . $name . '</a>';
+}
+
+/*
+ * Scrapes a message for a link to a service such as YouTube or SoundCloud and
+ * embeds a player
+ */
+function embed_player($message, $width = "100%", $height = 100) {
+	// Process youtube.com
+	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i', youtube_iframe('$1', $width, $height), $message);
+	
+	// Process youtu.be
+	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*youtu.be\/([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i',  youtube_iframe('$1', $width, $height) , $message);
+	
+	// Process soundcloud
+	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*soundcloud.com\/([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]+)/i', '<sc>$1</sc>', $message);
+	return soundcloud_iframe($message, $width, $height);
+}
+
+function youtube_iframe($url_part, $width, $height) {
+	$html = '<iframe width="' . $width . '" height="' . $width . '" src="http://www.youtube.com/embed/' . 
+		$url_part . '" frameborder="0" allowfullscreen></iframe>';
+		
+	return $html;
+}
+
+/*
+ * Replaces soundcloud links such as <sc>soundcloud.com/artist1/track1</sc> with the proper iframe tags
+ */
+function soundcloud_iframe($message, $width, $height) {
+	$parts = explode('<sc>', $message);
+	$html = '';
+	
+	foreach ($parts as $part) {
+		if (strpos($part, '</sc>') !== false) {
+			$url_parts = explode('</sc>', $part);
+			$object = get_json_data('soundcloud', '../resolve', "?url=https://soundcloud.com/$url_parts[0]", '.');
+			$html .= '<iframe width="' . $width.'" height="' . $height.'" scrolling="no" frameborder="no" ' . 
+				'src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' . 
+				$object->id . '&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;' . 
+				'show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>';
+			$html .= $url_parts[1];
+		} else {
+			$html .= $part;
+		}
+	}
+
+	return $html;
 }
 
 
