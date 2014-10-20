@@ -59,11 +59,11 @@ switch (GET('action')) {
 				<form action="<?php echo $LSP_URL; ?>?action=login" method="post" role="form">
 				<div class="form-group">
 				<label for="login">User Name</label>
-				<input type="text" id="login" name="login" class="form-control textin" maxlength="10" placeholder="username" />
+				<input type="text" id="login" name="login" class="form-control textin" maxlength="16" placeholder="username" />
 				</div>
 				<div class="form-group">
 				<label for="password">Password</label>
-				<input type="password" id="password" name="password" class="form-control textin" maxlength="15" placeholder="password"/>
+				<input type="password" id="password" name="password" class="form-control textin" maxlength="20" placeholder="password"/>
 				</div>
 				<button type="submit" name="ok" class="btn btn-primary textin"><span class="fa fa-check"></span>&nbsp;Login</button>
 				</form>

@@ -31,11 +31,11 @@ if ((POST('settings') != "apply" ) || (!apply_settings(POST('password'), POST('p
 	</div>
 	<div class="form-group">
 	<label for="password">Password:</label>
-	<input type="password" name="password" class="form-control"/>
+	<input type="password" name="password" maxlength="20" class="form-control"/>
 	</div>
 	<div class="form-group">
 	<label for="password2">Confirm Password:</label>
-	<input type="password" class="form-control" name="password2" />
+	<input type="password" class="form-control" maxlength="20" name="password2" />
 	</div>
 	<button class="btn btn-primary" type="submit" name="settings" value="apply">
 	<span class="fa fa-check"></span>&nbsp;Apply</button>

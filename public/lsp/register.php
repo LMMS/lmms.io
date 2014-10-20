@@ -56,13 +56,13 @@ if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("passw
 	<input type="text" name="realname" class="form-control textin" maxlength="50" placeholder="real name" />
 	</div><div class="form-group">
 	<label for="login">Username</label>
-	<input type="text" name="login" class="form-control textin" maxlength="10" placeholder="username" />
+	<input type="text" name="login" class="form-control textin" maxlength="16" placeholder="username" />
 	</div><div class="form-group">
 	<label for="password">Password</label>
-	<input type="password" name="password" class="form-control textin" maxlength="15" placeholder="password" />
+	<input type="password" name="password" class="form-control textin" maxlength="20" placeholder="password" />
 	</div><div class="form-group">
 	<label for="password2">Confirm password</label>
-	<input type="password" name="password2" class="form-control textin" maxlength="15" placeholder="confirm password" />
+	<input type="password" name="password2" class="form-control textin" maxlength="20" placeholder="confirm password" />
 	</div>
 	<div class="form-group">
 	<label for="password2">Security code</label>
