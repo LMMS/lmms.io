@@ -156,6 +156,8 @@ class Navbar
 				return $item->getTitle();
 			}
 		}
+		if ($_SERVER["REQUEST_URI"] == '/')
+			return 'Home';
 	}
 
 	/**
@@ -164,7 +166,7 @@ class Navbar
 	public function flush()
 	{
 		?>
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -174,7 +176,7 @@ class Navbar
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/"><img class="logo-sm pull-left" src="/img/logo_sm.png" />LMMS</a>
+					<a class="navbar-brand" href="/"><img class="logo-sm pull-left" height="22px" width="22px" src="/img/logo_sm.png"></img>LMMS</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->

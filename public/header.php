@@ -2,7 +2,6 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/../lib/Navbar.php');
 $navbar = new Navbar(
 	[
-		['Home', '/'],
 		['Download', '/download/', [
 			['fa-download', 'Download LMMS', '/download/'],
 			['fa-music', 'Download Sample Packs', '/download/samples'],
@@ -45,5 +44,21 @@ $navbar = new Navbar(
 	</head>
 
 	<body role="document">
-		<?php $navbar->flush(); ?>
+		<?php $navbar->flush();
+		// This is quite dirty, couldn't think of a better solution
+		if ($navbar->activePageTitle() === 'Home') {
+			?>
+		<div class="jumbotron jumbo">
+			<div class="container">
+
+				<?php make_reflection('img/ss_proj.png', null, "black", "pull-right visible-lg"); ?>
+
+				<h1 class="jumbo">Let's make music :)</h1>
+				<p class="jumbo">with a free, cross-platform tool for your computer.</p><br>
+				<a class="btn btn-primary btn-lg" href="https://www.youtube.com/watch?v=uWPfIIaAHQg" target="_blank" role="button">See how »</a>&nbsp;
+				<a class="btn btn-primary btn-lg" href="/download/" role="button">Download now »</a>&nbsp;
+				<a class="btn btn-primary btn-lg" href="/community/" role="button">Get involved »</a>
+			</div>
+		</div>
+		<?php } ?>
 		<div class="container theme-showcase main-div" role="main">

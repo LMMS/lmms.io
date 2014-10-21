@@ -1,7 +1,18 @@
 body {
-	padding-top: 50px;
 	padding-bottom: 30px;
-	background-color: #f8f8f8;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
+.navbar-default {
+	box-shadow: none;
+	border: none;
+}
+
+.navbar-default .navbar-nav > .active > a {
+	box-shadow: none;
 }
 
 blockquote {
@@ -24,7 +35,6 @@ span.lsp-ratelink {
 
 div.jumbo {
 	overflow: hidden;
-	margin-top: 10px;
 	background: url('/img/jumbotron_bg.jpg');
 	color: #fff;
 }
@@ -43,7 +53,7 @@ p.jumbo {
 }
 
 .inputbox {
-        line-height: normal;
+    line-height: normal;
 }
 
 .dl-vert-label {
@@ -317,9 +327,6 @@ img {
 }
 
 .main-div {
-	background-color: #fff;
-	border: 1px solid;
-	border-color: #ddd;
 	padding-bottom: 20px;
 }
 
@@ -344,7 +351,7 @@ li.dropdown-split-right > a {
 }
 
 .bandcamp-iframe {
-	border: 0; 
+	border: 0;
 	width: 800px;
 	height: 472px;
 }
@@ -481,29 +488,6 @@ p.forum-stats  {
 	border-color: #464f47;
 }
 
-.hor-link-list > a {
-	display: inline;
-	padding: 5px 10px;
-}
-
-.hor-link-list > .active {
-	color: inherit;
-	cursor: default;
-}
-
-.hor-link-list > .active:hover {
-	text-decoration: none;
-}
-
-.hor-link-list > .active:hover {
-	color: inherit;
-	cursor: default;
-}
-
-.hor-link-list > a + a{
-	border-left: 1px solid #eee;
-}
-
 /*
  * nav-tabs style
  */
@@ -551,19 +535,19 @@ p.forum-stats  {
 	margin-bottom: -22%;
 }
 
-#reflect-black  img { 	
+#reflect-black  img {
 	border: 1px solid rgba(255,255,255,.33);
 }
 
-#reflect-white  img { 	
+#reflect-white  img {
 	border: 1px solid rgba(0,0,0,.33);
 }
 
-#reflect-black  img:hover{ 	
+#reflect-black  img:hover{
 	border: 1px solid rgba(255,255,255,.5);
 }
 
-#reflect-white  img:hover{ 	
+#reflect-white  img:hover{
 	border: 1px solid rgba(0,0,0,.75);
 }
 
@@ -580,15 +564,15 @@ p.forum-stats  {
 
 #reflect-black .reflection img {
 	opacity:0.30;
-	filter: alpha(opacity='40'); 
+	filter: alpha(opacity='40');
 }
 
 #reflect-white .reflection img {
 	opacity:0.15;
-	filter: alpha(opacity='15'); 
+	filter: alpha(opacity='15');
 }
 
-#reflect-black .overlay {position:absolute; top:0px; left:0px; width:100%; height:100%; 
+#reflect-black .overlay {position:absolute; top:0px; left:0px; width:100%; height:100%;
 	background-image: -moz-linear-gradient(center bottom, rgb(0,0,0) 60%, rgba(0,0,0,0) 75%);
 	background-image: 	-o-linear-gradient(rgba(0,0,0,0) 25%, rgb(0,0,0) 40%);
 	background-image:     -webkit-gradient(linear, left bottom, left top, color-stop(0.60, rgb(0,0,0)), color-stop(0.75, rgba(0,0,0,0)));
