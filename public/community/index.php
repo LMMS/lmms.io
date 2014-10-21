@@ -52,8 +52,8 @@
 </table>
 </div>
 
-	<div id="wait-div" class="panel-body show">
-		<h1 class="text-center"><span class="fa fa-clock-o"></span> Please wait, loading feeds...</h1>
+	<div id="wait-div" class="panel-body text-center show">
+		<img src='/img/loading.gif' /><br>
 	</div>
 
 	<div id="forums-div" class="panel-body hidden">
