@@ -371,7 +371,7 @@ function get_file_url($file_id = null) {
  * Scrapes a message for a link to a service such as YouTube or SoundCloud and
  * embeds a player
  */
-function embed_player($message, $width = "100%", $height = 100) {
+function embed_player($message, $width = "100%", $height = 120) {
 	// Process youtube.com
 	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i', youtube_iframe('$1', $width, $height), $message);
 	
