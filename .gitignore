@@ -1,5 +1,6 @@
 *~
 /public/community/cache/
+/public/feed/cache/
 /public/forum/
 /tmp/
 /public/vendor/
