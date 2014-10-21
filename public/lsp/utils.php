@@ -380,7 +380,6 @@ function embed_player($message, $width = "100%", $height = 100) {
 	
 	// Process soundcloud
 	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*soundcloud.com\/([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]+)/i', '<sc>$1</sc>', $message);
-	echo "<h1>DEBUG:</h1><pre>$message</pre>"; 
 	return soundcloud_iframe($message, $width, $height);
 }
 
