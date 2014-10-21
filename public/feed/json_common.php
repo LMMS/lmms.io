@@ -461,4 +461,22 @@ function scale_image($url, $width) {
 	return 'data:image/png;base64,' . base64_encode($i). '"';
 }
 
+/*
+ * Canonicalizes a http url
+ */
+function realurl($url) {
+	$url = str_replace('/./', '/', $url);
+	
+    $url = explode('/', $url);
+    $keys = array_keys($url, '..');
+
+    foreach($keys AS $keypos => $key) {
+        array_splice($url, $key - ($keypos * 2 + 1), 2);
+    }
+
+    $url = implode('/', $url);
+    
+	return $url;
+}
+
 ?>
