@@ -125,8 +125,16 @@ function get_json_data($service, $object = NULL, $params = '', $repo = NULL) {
 	}
 
 	// Local 'tmp' cache file on the webserver, preferably out of public reach, i.e.
-	// htdocs/tmp/.json_github_lmms_releases
-	$tmp_cache = $cache_dir . $cache_file . ($repo ? $repo : $service_id) . ($object ? '_' . $object : '');
+	// htdocs/tmp/.json_github_lmms_releases.
+	$tmp_suffix = ($repo ? $repo : $service_id) . ($object ? '_' . $object : '');
+	$tmp_suffix = str_replace('/', '', str_replace('.', '', str_replace('__', '_', $tmp_suffix)));
+	
+	// For "resolve" requests, hash the track URL for cache filename
+	if ($service == 'soundcloud' && $params && strpos($params, '://') !== false) {
+		$tmp_suffix = md5($params) . $tmp_suffix;
+	}
+	
+	$tmp_cache = $cache_dir . $cache_file . $tmp_suffix;
 
 	// If the repository isn't specified, assume it's the same as the project name and build accordingly
 	// i.e. "https://api.github.com/repos/lmms/lmms/releases?param=value"
