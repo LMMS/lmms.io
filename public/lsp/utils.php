@@ -278,10 +278,10 @@ function display_message($message, $severity = 'danger', $title = 'Error', $titl
 	echo '<div class="col-md-9">';
 	create_title(isset($title_array) ? $title_array : $title);
 	echo '<div data-redirect="' . (isset($redirect) ? htmlentities($redirect) : '') . '" ' .
-		'class="alert alert-' . $severity . ' center"><strong>' . $icon .
+		'class="alert alert-' . $severity . ' text-center"><strong>' . $icon .
 		($title == '' ? '' : "$title:") . '</strong> ' . $message . '</div>';
 	if (isset($redirect)) {
-		echo '<p class="center">You will automatically be redirected in <strong>' . 
+		echo '<p class="text-center">You will automatically be redirected in <strong>' . 
 			'<span class="redirect-counter">' . $counter . '</span> seconds</strong></p>';
 	}
 	echo '</div>';
