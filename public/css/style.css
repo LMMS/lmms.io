@@ -356,6 +356,13 @@ li.dropdown-split-right > a {
 	height: 1000px;
 }
 
+@media (max-width:700px) {
+.bandcamp-iframe {
+	width: 100%;
+}
+}
+
+
 .art-thumb {
 	float: left;
 	margin-right: 10px;
