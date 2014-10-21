@@ -160,7 +160,7 @@ function get_json_data($service, $object = NULL, $params = '', $repo = NULL) {
 	$using_url = false;
 
 	if (cache_expired($tmp_cache)) {
-		$json = file_get_contents_curl($full_api, $service);
+		$json = file_get_contents_curl(realurl($full_api), $service);
 		$using_url = true;
 	} else {
 		$json = file_get_contents($tmp_cache);

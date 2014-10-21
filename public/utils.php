@@ -37,6 +37,22 @@ function make_reflection($image_path, $thumbnail_path = NULL, $blackorwhite = 'b
 	echo '</div>';
 }
 
+/*
+ * Canonicalizes a http url
+ */
+function realurl($url) {
+    $url = explode('/', $url);
+    $keys = array_keys($url, '..');
+
+    foreach($keys AS $keypos => $key) {
+        array_splice($url, $key - ($keypos * 2 + 1), 2);
+    }
+
+    $url = implode('/', $url);
+    $url = str_replace('./', '', $url);
+	return $url;
+}
+
 
 /*
  * Helper function to replace first occurance
