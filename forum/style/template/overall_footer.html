@@ -1,0 +1,78 @@
+	</div>
+	<div id="page-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="btn-group">
+						<!-- IF U_MCP -->
+							<a class="btn btn-primary" href="{U_MCP}" style=" display: block; ">{L_MCP}</a>
+						<!-- ENDIF -->
+						<!-- IF U_ACP -->
+							<a class="btn btn-primary" href="{U_ACP}" style=" display: block; ">{L_ACP}</a>
+						<!-- ENDIF -->
+						</div>
+					</div>
+				<div class="col-md-2 text-right">
+					<!-- IF S_DISPLAY_SEARCH or (S_USER_LOGGED_IN and not S_IS_BOT) -->
+					<div class="btn-group dropup pull-right">
+						<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" style=" display: block; ">
+						<i class="fa fa-wrench"></i>
+						<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<!-- IF S_DISPLAY_SEARCH -->
+							<li><a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a></li>
+							<!-- IF S_LOAD_UNREADS -->
+							<li><a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a></li>
+							<!-- ENDIF -->
+							<!-- IF S_USER_LOGGED_IN -->
+							<li><a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a></li>
+							<!-- ENDIF -->
+							<li><a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a></li>
+							<!-- ENDIF -->
+							<!-- IF not S_IS_BOT and U_MARK_FORUMS -->
+							<li class="rightside"><a href="{U_MARK_FORUMS}" accesskey="m">{L_MARK_FORUMS_READ}</a></li>
+							<!-- ENDIF -->
+							<!-- IF S_HAS_SUBFORUM -->
+							<!-- IF not S_IS_BOT and U_MARK_FORUMS -->
+							<li><a href="{U_MARK_FORUMS}">{L_MARK_SUBFORUMS_READ}</a></li>
+							<!-- ENDIF -->
+							<!-- ENDIF -->
+						</ul>
+					</div>
+					<br />
+				</div>
+				<!-- ENDIF -->
+			</div>
+		</div>
+		<div class="text-center">{CREDIT_LINE}
+			<!-- IF TRANSLATION_INFO --><br />{TRANSLATION_INFO}<!-- ENDIF -->
+			<!-- IF DEBUG_OUTPUT --><br />{DEBUG_OUTPUT}<!-- ENDIF -->
+		</div>
+	</div>
+	<nav class="navbar navbar-default navbar-fixed-bottom hidden-sm hidden-xs" role="navigation">
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="{U_INDEX}" accesskey="h"><i class="fa fa-home"></i></a></li>
+					<!-- IF not S_IS_BOT -->
+						<!-- IF S_WATCH_FORUM_LINK --><li><a href="{S_WATCH_FORUM_LINK}" title="{S_WATCH_FORUM_TITLE}"><i <!-- IF S_WATCHING_FORUM -->class="fa fa-times"<!-- ELSE -->class="fa fa-check-square-o"<!-- ENDIF -->></i> {S_WATCH_FORUM_TITLE}</a></li><!-- ENDIF -->
+						<!-- IF U_WATCH_TOPIC --><li><a href="{U_WATCH_TOPIC}" title="{L_WATCH_TOPIC}"><i <!-- IF S_WATCHING_TOPIC -->class="fa fa-times"<!-- ELSE -->class="fa fa-check-square-o"<!-- ENDIF -->></i> {L_WATCH_TOPIC}</a></li><!-- ENDIF -->
+						<!-- IF U_BOOKMARK_TOPIC --><li><a href="{U_BOOKMARK_TOPIC}" title="{L_BOOKMARK_TOPIC}"><i class="fa fa-bookmark"></i> {L_BOOKMARK_TOPIC}</a></li><!-- ENDIF -->
+						<!-- IF U_BUMP_TOPIC --><li><a href="{U_BUMP_TOPIC}" title="{L_BUMP_TOPIC}"><i class="fa fa-caret-square-o-up"></i> {L_BUMP_TOPIC}</a></li><!-- ENDIF -->
+					<!-- ENDIF -->
+				<li><!-- IF U_TEAM --><a href="{U_TEAM}"><i class="fa fa-users"></i> {L_THE_TEAM}</a> </li><!-- ENDIF --><!-- IF not S_IS_BOT --><li><a href="{U_DELETE_COOKIES}"><i class="fa fa-trash-o"></i> {L_DELETE_COOKIES}</a> </li> <!-- ENDIF -->
+				<li><p class="navbar-text">{S_TIMEZONE}</p></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><p class="navbar-text">Design: <a href="http://thezoker.github.io/proBoot3/" target="_blank">proBoot3</a> by <a href="http://www.florian-gareis.de" target="_blank">Florian Gareis</a></p></li>
+			</ul>
+		</div>
+	</nav>
+	<a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+	<a id="bottom" accesskey="z"></a>
+	<!-- IF not S_IS_BOT -->{RUN_CRON_TASK}<!-- ENDIF -->
+</div>
+
+<!-- Dev mode -->
+</body>
+</html>
