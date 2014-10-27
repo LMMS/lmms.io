@@ -184,9 +184,15 @@ function sanitize($string, $tolower = false) {
  * For show-file page, creates a <li> for Comment/Edit/Delete/Rate tool-bar
  * with tool-tip text "Login to Comment", etc.
  */
-function create_toolbar_item($text, $href = '#', $font_awesome = '', $enabled = true) {
+function create_toolbar_item($text, $href = '#', $font_awesome = '', $enabled = true, $rate_self = false) {
+	if ($rate_self) {
+		$enabled = false;
+		$tooltip = 'Cannot ' . strtolower(sanitize(remove_after_lt($text))) . ' own file';
+	} else {
+		$tooltip = $enabled ? '' : 'Login to ' . strtolower(sanitize(remove_after_lt($text)));
+	}
 	$href = $enabled ? htmlentities($href) : '#';
-	$tooltip = $enabled ? '' : 'Login to ' . strtolower(sanitize(remove_after_lt($text)));
+	
 	$font_awesome = $font_awesome == '' ? '' : 'fa ' . $font_awesome;
 	echo '<li class="' . ($enabled ? '' : 'disabled') . '"><a class="pull-left" href="' . $href . '" title="' . $tooltip . '"><span class="' . $font_awesome . '"></span>&nbsp;' . $text . '</a></li>';
 }
