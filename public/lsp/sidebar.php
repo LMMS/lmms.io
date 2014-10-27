@@ -107,6 +107,9 @@ function collapse_out(item_id) {
 }
 
 function collapse_in(item_id) {
+	if ($('#login').is(":focus") || $('#password').is(":focus")) {
+		return;
+	}
 	$('.collapse').not('.navbar-collapse').removeClass('in');
 	$(item_id).removeClass('fa-caret-down');
 	$(item_id).addClass('fa-caret-right');
