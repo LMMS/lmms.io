@@ -7,5 +7,6 @@
 	<a class="btn btn-adefault btn-xs" href="http://soundcloud.com/groups/linux-multimedia-studio" target="_blank" rel="publisher"><span class="fa fa-soundcloud"></span> Soundcloud</a>
 </div>
 <div class="text-center"><a href="http://www.networkredux.com/" target="_blank"><img src="/img/network_redux.png"></a></div>
+<script type="text/javascript" src="/js/analytics.js"></script>
 </body>
 </html>
