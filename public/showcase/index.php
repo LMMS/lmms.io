@@ -1,6 +1,6 @@
 <?php include('../header.php'); ?>
 
-<div class="page-header"> <h1>Tracks made with LMMS</h1> </div>
+<div class="page-header text-center"> <h1>Tracks made with LMMS</h1> </div>
 
 <div class="text-center">
 <div id="wait-div" class="text-center">

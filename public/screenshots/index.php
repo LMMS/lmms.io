@@ -2,7 +2,7 @@
 include_once('../header.php');
 include_once('../utils.php');
 ?>
-<div class="page-header">
+<div class="page-header text-center">
 	<h1>Screenshots</h1>
 </div>
 <div class="row text-center overflow-hidden">
