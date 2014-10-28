@@ -84,10 +84,13 @@ class RemWiki
 				'/"'.$path_escaped.'index.php\/(.+?)"/m',
 				// Links to other resources like images
 				'/"'.$path_escaped.'(.+?)"/m',
+				// Thumbnails
+				'/class="thumbimage"/m',
 			],
 			[
 				'/documentation/?page=$1',
 				$this->url.'$1',
+				'class="img-thumbnail"',
 			],
 			$html
 		);
