@@ -1,6 +1,12 @@
 body {
-	padding-bottom: 30px;
+	padding-bottom: 0;
 	padding-top: 0;
+	margin-bottom: 200px;
+}
+
+html {
+	position: relative;
+	min-height: 100%;
 }
 
 .navbar {
@@ -38,6 +44,15 @@ div.jumbo {
 	overflow: hidden;
 	background: url('/img/jumbotron_bg.jpg');
 	color: #fff;
+}
+
+footer {
+	background-color: #f9f9f9;
+	background-image: none;
+	padding: 20px;
+	position: absolute;;
+	bottom: 0;
+	width: 100%;
 }
 
 div.p-pagination span.label a:link {

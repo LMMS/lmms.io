@@ -1,12 +1,50 @@
 <?php ?>
 </div><br>
-<div id="footer" class="text-center">
-	<a class="btn btn-adefault btn-xs" href="//github.com/LMMS" target="_blank"><span class="fa fa-github"></span> GitHub</a>
-	<a class="btn btn-adefault btn-xs" href="http://facebook.com/makefreemusic" target="_blank"><span class="fa fa-facebook"></span> Facebook</a>
-	<a class="btn btn-adefault btn-xs" href="https://plus.google.com/113001340835122723950" target="_blank"><span class="fa fa-google-plus"></span> Google+</a>
-	<a class="btn btn-adefault btn-xs" href="http://soundcloud.com/groups/linux-multimedia-studio" target="_blank" rel="publisher"><span class="fa fa-soundcloud"></span> Soundcloud</a>
-</div>
-<div class="text-center"><a href="http://www.networkredux.com/" target="_blank"><img src="/img/network_redux.png"></a></div>
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<p>LMMS</p>
+				<small>
+					<a href="/download/">Download</a><br>
+					<a href="//github.com/LMMS/lmms">Source Code</a><br>
+					<a href="/documentation">Documentation</a><br>
+					<a href="/download/artwork">Logo & Artwork</a><br>
+				</small>
+			</div>
+			<div class="col-lg-3">
+				<p>Get Involved</p>
+				<small>
+					<a href="/get-involved/#donate">Donations</a><br>
+					<a href="/get-involved/#development">Development</a><br>
+					<a href="/get-involved/#translate">Translation</a><br>
+					<a href="/get-involved/#docs">Website & Docs</a>
+				</small>
+			</div>
+			<div class="col-lg-3">
+				<p>Contact</p>
+				<small>
+					<a href="/get-involved/#mailinglist">Mailing Lists</a><br>
+					<a href="/get-involved/#forum">Forum</a><br>
+					<a href="/get-involved/#irc">IRC</a><br>
+					<a href="/get-involved/#github">Report a bug</a><br>
+				</small>
+			</div>
+			<div class="col-lg-3">
+				<p>Community</p>
+				<small>
+					<a href="/lsp">LMMS Sharing Platform</a><br>
+					<a href="http://facebook.com/makefreemusic">Facebook</a><br>
+					<a href="https://plus.google.com/113001340835122723950">Google+</a><br>
+					<a href="http://soundcloud.com/groups/linux-multimedia-studio" rel="publisher">Soundcloud</a><br>
+				</small>
+			</div>
+		</div>
+	</div><br>
+	<div class="text-center small">
+		<a href="http://www.networkredux.com/"><img src="/img/network_redux.png"></a></p>
+	</div>
+</footer>
 <script type="text/javascript" src="/js/analytics.js"></script>
 </body>
 </html>
