@@ -1,7 +1,13 @@
 body {
 	padding-bottom: 0;
 	padding-top: 0;
-	margin-bottom: 200px;
+	margin-bottom: 591px;
+}
+
+@media (min-width: 768px) {
+	body {
+		margin-bottom: 200px;
+	}
 }
 
 html {
