@@ -1,12 +1,20 @@
+/* margin-bottoms for dynamic footer */
+
 body {
 	padding-bottom: 0;
 	padding-top: 0;
-	margin-bottom: 591px;
+	margin-bottom: 191px;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1200px) {
 	body {
-		margin-bottom: 200px;
+		margin-bottom: 296px;
+	}
+}
+
+@media (max-width: 500px) {
+	body {
+		margin-bottom: 521px;
 	}
 }
 
@@ -59,6 +67,50 @@ footer {
 	position: absolute;;
 	bottom: 0;
 	width: 100%;
+}
+
+/* Footer */
+footer > .container > div{
+	display: inline;
+}
+
+footer > .container > div+div,
+footer > .container > div > span+span {
+	margin-left: 14%;
+}
+
+footer span {
+	display: inline-block;
+	width: 14%;
+}
+
+@media (max-width: 1200px) {
+	footer > .container > div{
+		display: block;
+	}
+	footer > .container > div+div{
+		margin-left: 0;
+		margin-top: 15px;
+	}
+	footer span {
+		width: 33%;
+	}
+	footer > .container > div > span+span {
+		margin-left: 33%;
+	}
+}
+
+@media (max-width: 500px) {
+	footer span {
+		width: 100%;
+	}
+	footer > .container > div > span+span {
+		margin-left: 0;
+		margin-top: 15px;
+	}
+	footer > .container {
+		text-align: center;
+	}
 }
 
 div.p-pagination span.label a:link {
