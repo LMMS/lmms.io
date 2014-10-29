@@ -44,7 +44,8 @@ if (!SESSION_EMPTY()) {
 					echo '<div class="col-md-9">';
 					create_title(array('<a href="">Add File</a>', $file_path));
 					$tmp_path = $_FILES["filename"]["tmp_name"];
-					$tmp_name_only = pathinfo($tmp_path, PATHINFO_FILENAME) . '.' . pathinfo($tmp_path, PATHINFO_EXTENSION);
+					$tmp_ext = trim(pathinfo($tmp_path, PATHINFO_EXTENSION));
+					$tmp_name_only = pathinfo($tmp_path, PATHINFO_FILENAME) . ($tmp_ext == "" ? '' : '.' . $tmp_ext);
 					move_uploaded_file($tmp_path, $TMP_DIR . $tmp_name_only);
 					echo "<code>moving $tmp_path to $TMP_DIR$tmp_name_only</code>";?>
 					<?php $form = new form($LSP_URL . '?content=add', 'File Details', 'fa-upload'); ?>
