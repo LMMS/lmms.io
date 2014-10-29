@@ -11,7 +11,7 @@
 <p>There are multiple ways of contributing:</p>
 
 <div class="row">
-	<div class="col-lg-6">
+	<div class="col-sm-6">
 		<div class="panel panel-default">
 			<div class="panel-heading" id="development">
 				<h3 class="panel-title"><i class="fa fa-fw fa-file-code-o"></i> Join Development</h3>
@@ -24,7 +24,7 @@
 		</div>
 	</div>
 
-	<div class="col-lg-6">
+	<div class="col-sm-6">
 		<div class="panel panel-default">
 			<div class="panel-heading" id="docs">
 				<h3 class="panel-title"><i class="fa fa-fw fa-book"></i> Website & Docs</h3>
@@ -38,7 +38,7 @@
 </div>
 
 <div class="row">
-	<div class="col-lg-6">
+	<div class="col-sm-6">
 		<div class="panel panel-default">
 			<div class="panel-heading" id="donate">
 				<h3 class="panel-title"><i class="fa fa-fw fa-money"></i> Donate</h3>
@@ -52,7 +52,7 @@
 		</div>
 	</div>
 
-	<div class="col-lg-6">
+	<div class="col-sm-6">
 		<div class="panel panel-default">
 			<div class="panel-heading" id="translate">
 				<h3 class="panel-title"><i class="fa fa-fw fa-flag"></i> Translations</h3>
@@ -67,7 +67,7 @@
 <h2 id="contact">How to get in touch</h2>
 
 <div class="row">
-	<div class="col-lg-6">
+	<div class="col-sm-6">
 		<div class="panel panel-default">
 			<div class="panel-heading" id="mailinglist">
 				<h3 class="panel-title"><i class="fa fa-fw fa-envelope"></i> Mailing List</h3>
@@ -79,7 +79,7 @@
 		</div>
 	</div>
 
-	<div class="col-lg-6">
+	<div class="col-sm-6">
 		<div class="panel panel-default">
 			<div class="panel-heading" id="irc">
 				<h3 class="panel-title"><i class="fa fa-fw fa-comments"></i> IRC</h3>
@@ -93,7 +93,7 @@
 </div>
 
 <div class="row">
-	<div class="col-lg-6">
+	<div class="col-sm-6">
 		<div class="panel panel-default">
 			<div class="panel-heading" id="forum">
 				<h3 class="panel-title"><i class="fa fa-fw fa-bars"></i> Forum</h3>
@@ -105,7 +105,7 @@
 		</div>
 	</div>
 
-	<div class="col-lg-6">
+	<div class="col-sm-6">
 		<div class="panel panel-default">
 			<div class="panel-heading" id="github">
 				<h3 class="panel-title"><i class="fa fa-fw fa-github"></i> GitHub</h3>
