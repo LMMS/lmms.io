@@ -15,7 +15,7 @@ switch (GET('action')) {
 }
 ?>
 
-<div class="page-header"><h1>LMMS Sharing Platform</h1></div>
+<div class="page-header text-center"><h1>LMMS Sharing Platform</h1></div>
 <div class="row lsp-row">
 <div class="col-md-3">
 	<div class="panel panel-default">
