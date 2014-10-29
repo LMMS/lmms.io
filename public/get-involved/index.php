@@ -64,7 +64,7 @@
 	</div>
 </div>
 
-<h2>How to get in touch</h2>
+<h2 id="contact">How to get in touch</h2>
 
 <div class="row">
 	<div class="col-lg-6">
