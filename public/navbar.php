@@ -18,6 +18,6 @@ $navbar = new Navbar(
 			['fa-google-plus','Google+', '/community/#google+'],
 			['fa-youtube', 'YouTube', '/community/#youtube'],
 			['fa-github', 'GitHub', '/community/#github']]],
-		//['Share', '/lsp/'],
+		['Share', '/lsp/'],
 	]
 );
