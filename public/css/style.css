@@ -61,6 +61,12 @@ div.jumbo {
 	color: #fff;
 }
 
+/* Fix for forum back-to-top button */
+.back-to-top {
+	z-index: 1;
+}
+
+/* Footer */
 footer {
 	background-color: #f9f9f9;
 	background-image: none;
@@ -70,7 +76,6 @@ footer {
 	width: 100%;
 }
 
-/* Footer */
 footer > .container > div{
 	display: inline;
 }
