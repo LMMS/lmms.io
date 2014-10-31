@@ -87,7 +87,7 @@ function list_sort_options($additional_html = '') {
 	global $LSP_URL;
 	$sortings = array(
 		'date' => '<span class="fa fa-calendar"></span>&nbsp;DATE',
-		'downloads' => '<span class="fa fa-download"></span>&nbsp;DOWNLOADS',
+		'downloads' => '<span class="fa fa-download"></span>&nbsp;DOWNLOADS / AGE',
 		'rating' => '<span class="fa fa-star"></span>&nbsp;RATING' //,
 		// TODO:  Add comment sorting support
 		//'comments' => '<span class="fa fa-comment"></span>&nbsp;COMMENTS'
