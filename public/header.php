@@ -1,5 +1,10 @@
 <?php
 require_once('navbar.php');
+
+function begin_content()
+{
+	echo '<div class="container theme-showcase main-div" role="main">';
+}
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -25,20 +30,3 @@ require_once('navbar.php');
 
 	<body role="document">
 		<?php $navbar->flush();
-		// This is quite dirty, couldn't think of a better solution
-		if ($navbar->activePageTitle() === 'Home') {
-			?>
-		<div class="jumbotron jumbo">
-			<div class="container">
-
-				<?php make_reflection('img/ss_proj.png', null, "black", "pull-right visible-lg"); ?>
-
-				<h1 class="jumbo">Let's make music</h1>
-				<p class="jumbo">with a free, cross-platform tool for your computer.</p><br>
-				<a class="btn btn-primary btn-lg" href="https://www.youtube.com/watch?v=uWPfIIaAHQg" target="_blank" role="button">See how »</a>&nbsp;
-				<a class="btn btn-primary btn-lg" href="/download/" role="button">Download now »</a>&nbsp;
-				<a class="btn btn-primary btn-lg" href="/community/" role="button">Get involved »</a>
-			</div>
-		</div>
-		<?php } ?>
-		<div class="container theme-showcase main-div" role="main">

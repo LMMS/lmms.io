@@ -1,5 +1,11 @@
 <?php require_once('../header.php'); ?>
-<h1 class="page-header text-center">Get Involved</h1>
+<div class="jumbotron jumbo">
+	<div class="container">
+		<h1 class="jumbo">Get Involved</h1>
+		<p class="jumbo">Help making LMMS better!</p>
+	</div>
+</div>
+<?php begin_content(); ?>
 <p>
 	LMMS is a free open-source software built entirely by a small number of
 	volunteers in their free time. But to keep the project going, we need this

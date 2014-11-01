@@ -1,6 +1,12 @@
+<?php include('../header.php'); ?>
+<div class="jumbotron jumbo">
+	<div class="container">
+		<h1 class="jumbo">Documentation</h1>
+	</div>
+</div>
 <?php
+begin_content();
 
-include('../header.php');
 require_once('../../lib/RemWiki/RemWiki.php');
 
 if (array_key_exists('page', $_GET)) {

@@ -1,7 +1,11 @@
 <?php include('../header.php'); ?>
+<div class="jumbotron jumbo">
+	<div class="container">
+		<h1 class="jumbo">LMMS Community</h1>
+	</div>
+</div>
+<?php begin_content(); ?>
 
-<h1 class="text-center">LMMS Community</h1>
-<hr id="hr" class="show hidden-sm hidden-xs">
 <div id="alert" class="alert show text-center alert-warning hidden-sm hidden-xs" role="alert">
 	<a class="close" onclick="hideAlert()">×</a>
 	<a class="close pull-left" onclick="hideAlert()">×</a>
@@ -46,7 +50,7 @@
 		<td><label data-name="Google+" id="google+-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#google+')"><span class="fa fa-arrow-down"></span></label></td>
 
 		<td><label data-name="YouTube" id="youtube-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#youtube')"><span class="fa fa-arrow-down"></span></label></td>
-		
+
 		<td><label data-name="GitHub" id="github-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#github')"><span class="fa fa-arrow-down"></span></label></td>
 	</tr>
 </table>
@@ -76,7 +80,7 @@
 	<div id="github-div" class="panel-body hidden">
 		<?php include('../feed/issues.php'); ?>
 	</div>
-	
+
 	<div id="youtube-div" class="panel-body hidden">
 		<?php include('../feed/youtube.php'); ?>
 	</div>
@@ -245,21 +249,21 @@
 		$('#alert').removeClass('show');
 		$('#hr').removeClass('show');
 	}
-	
+
 	// Adds a YouTube iframe to the DOM
 	function embedVideo(parent, id, width, height) {
 		// Don't add the iframe twice
 		if ($(parent).has('iframe').length) {
 			return;
 		}
-		
+
 		// Default to 320x180 if not specified
 		switch (arguments.length) {
 			case 4: break;
 			default:
 				width = 320; height = 180;
 		}
-		
+
 		// A hack to pause all playing videos by reloading
 		// the the "src" attribute with autoplay param removed
 		$('tr').find('iframe').each(function(){
@@ -267,7 +271,7 @@
 			$(this).attr('src', '');
 			$(this).attr('src', tmp.replace(/\?autoplay=1/g, ''));
 		});
-		
+
 		var iframe = $('<iframe></iframe>');
 		iframe.addClass('youtube-thumb');
 		iframe.addClass('img-thumbnail');
@@ -287,7 +291,7 @@
 			$(this).find('div').each(function(){
 				$(this).hide();
 			});
-			
+
 			// Add the YoutTube iframe
 			$(this).append(iframe);
 			iframe.animate({'width':width, 'height':height});

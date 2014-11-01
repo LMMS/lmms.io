@@ -1,10 +1,13 @@
+<?php include_once('../header.php'); ?>
+<div class="jumbotron jumbo">
+	<div class="container">
+		<h1 class="jumbo">Screenshots</h1>
+	</div>
+</div>
 <?php
-include_once('../header.php');
+begin_content();
 include_once('../utils.php');
 ?>
-<div class="page-header text-center">
-	<h1>Screenshots</h1>
-</div>
 <div class="row text-center overflow-hidden">
 <?php
 	$ss_dir = '../img/screenshots/';
@@ -20,7 +23,7 @@ include_once('../utils.php');
 ?>
 </div>
 
-<?php 
+<?php
 
 /*
  * Creates an english-readable title from a file name
@@ -35,7 +38,7 @@ function humanize_title($filename) {
 		'automation' => 'Automation Editor',
 		'vst' => 'VSTi Running via Vestige'
 	);
-	
+
 	$title_split = explode('_', $filename);
 
 	$found = false;
@@ -49,7 +52,7 @@ function humanize_title($filename) {
 		if (str_contains($item, '.png', false)) {
 			$item = str_replace('.png', '', $item);
 		}
-		
+
 		if (array_key_exists($item, $replacement)) {
 			$temp = $replacement[$item];
 			$item = ($found ? ', ' : ' ') . $temp;
@@ -58,7 +61,7 @@ function humanize_title($filename) {
 			$item = ' ' . ucfirst($item);
 		}
 	}
-	
+
 	return trim(implode('', $title_split));
 }
 ?>

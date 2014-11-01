@@ -28,6 +28,21 @@ function circle_stack($icon, $class = '', $tooltip = '')
 }
 ?>
 
+<div class="jumbotron jumbo">
+	<div class="container">
+
+		<?php make_reflection('img/ss_proj.png', null, "black", "pull-right visible-lg"); ?>
+
+		<h1 class="jumbo">Let's make music</h1>
+		<p class="jumbo">with a free, cross-platform tool for your computer.</p><br>
+		<a class="btn btn-primary btn-lg" href="https://www.youtube.com/watch?v=uWPfIIaAHQg" target="_blank" role="button">See how »</a>&nbsp;
+		<a class="btn btn-primary btn-lg" href="/download/" role="button">Download now »</a>&nbsp;
+		<a class="btn btn-primary btn-lg" href="/community/" role="button">Get involved »</a>
+	</div>
+</div>
+
+<?php begin_content(); ?>
+
 <div class="text-center">
 	<div class="page-header">
 		<h2>Making beats has never been easier.</h2>

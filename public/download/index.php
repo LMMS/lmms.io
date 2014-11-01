@@ -1,10 +1,17 @@
 <?php include('../header.php'); ?>
-<?php include('../feed/releases.php'); ?>
+<div class="jumbotron jumbo">
+	<div class="container">
+		<h1 class="jumbo">Download LMMS</h1>
+		<p class="jumbo">Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on.</p>
+	</div>
+</div>
+<?php
+begin_content();
+include('../feed/releases.php');
+?>
 
 <div class="text-center">
-	<h1>Download LMMS</h1>
 
-	<p>Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:</p>
 
 	<div>
 		<div class="btn-group" data-toggle="buttons">
@@ -56,12 +63,12 @@ function showOS(os) {
 	}
 
 	$(os+"-button").tab("show");
-	
+
 	hide('#windows-div');
 	hide('#linux-div');
 	hide('#mac-div');
 	show(os+'-div');
-	
+
 	$(os+"-button").parent().addClass("active") ;
 }
 
@@ -73,7 +80,7 @@ function showLinux() {
 	} else {
 		$('#linux-tabs a[href="#linux-debian"]').tab('show');
 	}
-	
+
 	$('#linux-tabs a').click(function (e) {
 		e.preventDefault();
 		$(this).tab('show');
