@@ -64,6 +64,7 @@ div.jumbo {
 /* Fix for forum back-to-top button */
 .back-to-top {
 	z-index: 1;
+	bottom: 30px;
 }
 
 /* Footer */
