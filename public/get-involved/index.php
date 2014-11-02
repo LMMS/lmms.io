@@ -17,9 +17,13 @@
 				<h3 class="panel-title"><i class="fa fa-fw fa-file-code-o"></i> Join Development</h3>
 			</div>
 			<div class="panel-body">
-				<p>We are in desperate need of new developers joining our team. LMMS is written in C++ using the Qt Framework, so if you know a thing or two about these, don't hesitate to get yourself dirtywith coding!</p>
-				<p>See our <a href="//github.com/LMMS/lmms/wiki">GitHub Wiki</a> and our <a href="//github.com/LMMS/lmms/issues">bug tracker</a> to get started.</p>
-				<p>Furthermore, the LMMS <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">mailing list</a> is a great place to introduce yourself.</p>
+				<p>We are in desperate need of new developers joining our team. LMMS is written in C++ using the Qt
+				   Framework, so if you know a thing or two about these, don't hesitate to get yourself dirty with
+				   coding!</p>
+				<p>See our <a href="//github.com/LMMS/lmms/wiki">GitHub Wiki</a> and our
+				   <a href="//github.com/LMMS/lmms/issues">bug tracker</a> to get started. Furthermore, the LMMS
+				   <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">mailing list</a> is a great place
+				   to introduce yourself.</p>
 			</div>
 		</div>
 	</div>
@@ -30,8 +34,12 @@
 				<h3 class="panel-title"><i class="fa fa-fw fa-book"></i> Website & Docs</h3>
 			</div>
 			<div class="panel-body">
-				<p>You can help us by improving this website or documenting the software. Please post to the <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">mailing list</a> if you're interested in helping!</p>
-				<p>The website sources are in our GitHub repo <a href="//github.com/LMMS/lmms.io">LMMS/lmmms.io</a>, our documentation is hosted using a <a href="//lmms.sf.net/wiki">MediaWiki instance</a>.</p>
+				<p>You can help us by improving this website or documenting the software. The website sources are in our
+				   GitHub repo <a href="//github.com/LMMS/lmms.io">LMMS/lmms.io</a>, our documentation is hosted using a
+				   <a href="//lmms.sf.net/wiki">MediaWiki instance</a>.</p>
+				<p>Public registration on our Wiki is disabled due to spam issues. Please post to the
+				   <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">mailing list</a> if you're
+				   interested in helping out with the documentation!</p>
 			</div>
 		</div>
 	</div>
@@ -44,7 +52,8 @@
 				<h3 class="panel-title"><i class="fa fa-fw fa-money"></i> Donate</h3>
 			</div>
 			<div class="panel-body">
-				<p>Even though donations are not the thing we need the most (that'd be developers), they help us pay our bills, for our domain lmms.io for instance. </p>
+				<p>Even though donations are not the thing we need the most (that'd be developers), they help us pay
+				   our bills, for our domain lmms.io for instance. </p>
 				<a href="https://www.paypal.com/cgi-bin/webscr?item_name=Donation+to+LMMS&cmd=_donations&business=donations%40lmms.io">
 					<span class="fa fa-paypal"></span> Donate via PayPal
 				</a>
@@ -58,7 +67,10 @@
 				<h3 class="panel-title"><i class="fa fa-fw fa-flag"></i> Translations</h3>
 			</div>
 			<div class="panel-body">
-				<p>If your language is missing in LMMS, help the project and other users speaking the same language by translating the software. You can find instructions on the page "<a href="//github.com/LMMS/lmms/wiki/Creating-a-localization">Creating a localization</a>" in our GitHub Wiki.</p>
+				<p>If your language is missing in LMMS, help the project and other users speaking the same language by
+				   translating the software. You can find instructions on the page
+				   "<a href="//github.com/LMMS/lmms/wiki/Creating-a-localization">Creating a localization</a>" in our
+				   GitHub Wiki.</p>
 			</div>
 		</div>
 	</div>
@@ -85,7 +97,8 @@
 				<h3 class="panel-title"><i class="fa fa-fw fa-comments"></i> IRC</h3>
 			</div>
 			<div class="panel-body">
-				<p>Our IRC channel is <a href="irc://chat.freenode.net/#lmms">#lmms</a> on <a href="http://freenode.net/irc_servers.shtml">Freenode</a></p>
+				<p>Our IRC channel is <a href="irc://chat.freenode.net/#lmms">#lmms</a> on
+				<a href="http://freenode.net/irc_servers.shtml">Freenode</a></p>
 			</div>
 		</div>
 	</div>
@@ -119,4 +132,4 @@
 </div>
 
 
-<?php require_once('../footer.php'); ?>
+<?php require_once('../footer.php');
