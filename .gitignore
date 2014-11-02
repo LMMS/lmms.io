@@ -3,5 +3,5 @@
 /public/feed/cache/
 /public/forum/
 /tmp/
-/public/vendor/
+/vendor/
 composer.phar

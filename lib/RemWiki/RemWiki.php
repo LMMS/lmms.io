@@ -2,7 +2,7 @@
 
 namespace RemWiki;
 
-require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/../vendor/autoload.php');
 use Gaufrette\Filesystem;
 use Gaufrette\Adapter\Local as LocalAdapter;
 use Gaufrette\File;

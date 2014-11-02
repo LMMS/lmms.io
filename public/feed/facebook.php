@@ -1,7 +1,7 @@
 <?php
 include_once('../utils.php');
 include_once('json_common.php');
-require_once('../vendor/autoload.php');
+require_once('../../vendor/autoload.php');
 
 /*
  * Echo out the data
@@ -19,7 +19,7 @@ foreach ($obj->entries as $item) {
 		'facebook', 							// $service	i.e. "facebook"
 		$item->title, 							// $title 	i.e. "LMMS Released!"
 		$item->alternate, 						// $href	i.e. "http://facebook.com/post1234"
-		cleanse_urls($item->content, $item->alternate),		// $message   i.e "We are pleased to announce..." 
+		cleanse_urls($item->content, $item->alternate),		// $message   i.e "We are pleased to announce..."
 		$item->author->name, 					// $author	i.e. "John Smith"
 		'http://facebook.com/' . get_json_id('facebook'), 	// $author_href	i.e. "http://facebook.com/user1234"
 		$item->published						// $date	i.e. "2014-01-01 00:00:00"
