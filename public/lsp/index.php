@@ -9,6 +9,14 @@ ini_set('arg_separator.output', '&amp;');
 session_start();
 require_once('../utils.php');
 require_once('../header.php');
+?>
+<div class="jumbotron jumbo">
+	<div class="container">
+		<h1 class="jumbo">LMMS Sharing Platform</h1>
+	</div>
+</div>
+<?php
+begin_content();
 require_once('utils.php');
 require_once("sidebar.php");
 
@@ -40,7 +48,7 @@ function process_params() {
 					return;
 					// default: // do nothing
 			}
-		
+
 			// Process built-in functions
 			switch ($func . ":" . GET($func)) {
 				case 'comment:add' : require ("./comment_file.php"); return;
@@ -63,7 +71,7 @@ function process_params() {
 			}
 		}
 	}
-	
+
 	// All else fails, show the "Latest Uploads" page
 	get_latest();
 }

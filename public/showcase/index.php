@@ -1,6 +1,10 @@
 <?php include('../header.php'); ?>
-
-<div class="page-header text-center"> <h1>Tracks made with LMMS</h1> </div>
+<div class="jumbotron jumbo">
+	<div class="container">
+		<h1 class="jumbo">Tracks made with LMMS</h1>
+	</div>
+</div>
+<?php begin_content(); ?>
 
 <div class="text-center">
 <div id="wait-div" class="text-center">
@@ -12,7 +16,7 @@
 <?php include('../footer.php'); ?>
 
 <script>
-$('.bandcamp-iframe').load(function() { 
+$('.bandcamp-iframe').load(function() {
 	$('#wait-div').hide();
 });
 </script>

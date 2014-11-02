@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once('utils.php');
 require_once('dbo.php');
 global $LSP_URL;
@@ -7,7 +7,7 @@ global $LSP_URL;
 $auth_failure = false;
 switch (GET('action')) {
 	case 'logout' : logout(); break;
-	case 'login' : 
+	case 'login' :
 		if (!login()) {
 			$auth_failure = true;
 		}
@@ -15,7 +15,6 @@ switch (GET('action')) {
 }
 ?>
 
-<div class="page-header text-center"><h1>LMMS Sharing Platform</h1></div>
 <div class="row lsp-row">
 <div class="col-md-3">
 	<div class="panel panel-default">
@@ -36,11 +35,11 @@ switch (GET('action')) {
 		<div class="panel-heading"><h3 class="panel-title">
 			<a data-toggle="collapse" data-parent="#login-panel" href="#login-collapse">
 			<span id="caret" class="fa"></span>&nbsp;<span class="fa fa-user"></span>&nbsp;My Account&nbsp;
-			
-			<?php 
+
+			<?php
 				// Append username and admin shield to title
 				$shield = is_admin(get_user_id(SESSION())) ? '<span class="fa fa-shield"></span>&nbsp;' : '';
-				echo SESSION_EMPTY() ? '' : ' <span class="badge pull-right">' . $shield . SESSION() . '</span>'; 
+				echo SESSION_EMPTY() ? '' : ' <span class="badge pull-right">' . $shield . SESSION() . '</span>';
 				// Show auth-fail alert in title for smaller screens
 				echo $auth_failure ? '&nbsp;<span class="pull-right fa fa-exclamation-circle text-danger"></span>' : '';
 			?></a>
@@ -51,7 +50,7 @@ switch (GET('action')) {
 			if ($auth_failure) {
 				echo '<span class="text-danger"><strong>Authentication failure.</strong></span><br />';
 			}
-			
+
 			/*
 			 * Hide or show the Login Dialog/My Account Panel
 			 */
@@ -131,12 +130,12 @@ $(document).ready(function() {
 			countDown(false);
 		}
   });
-  
+
   /*
    * Focus to comment text-area if it is on the screen
    */
    commentFocus();
- 
+
 });
 
 function countDown(decrement) {

@@ -1,11 +1,14 @@
-<?php include('../../header.php'); ?>
-<?php include('../../feed/releases.php'); ?>
-<div class="page-header">
-	<h1>Download LMMS Artwork</h1>
-</div>
-
-
 <?php
+include('../../header.php');
+include('../../feed/releases.php');
+?>
+<div class="jumbotron jumbo">
+	<div class="container">
+		<h1 class="jumbo">Download LMMS Artwork</h1>
+	</div>
+</div>
+<?php
+begin_content();
 
 /* Usage:
  * 	create_artwork_item($artwork_name,
