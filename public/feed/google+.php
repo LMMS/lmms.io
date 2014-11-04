@@ -9,6 +9,12 @@ include_once('json_common.php');
 $obj = get_json_data('google', 'activities', '?maxResults=25');
 
 echo '<table class="table table-striped"><th><h2 class="text-center">LMMS Google+</h2></th>';
+
+// Sort on publish date
+usort($obj->items, function($a,$b) {
+	return (strtotime($a->published) > strtotime($b->published) ? -1 : 1);
+});
+
 foreach ($obj as $items) {
 	if (!is_array($items) || count($items) < 1 ) {
 		continue;
