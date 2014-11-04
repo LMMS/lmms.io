@@ -40,7 +40,8 @@
 		</div>
 	</div><br>
 	<div class="text-center small">
-		<a href="http://www.networkredux.com/"><img src="/img/network_redux.png"></a></p>
+		<p>Hosted by:</p>
+		<a href="http://www.networkredux.com/"><img id="banner" src="/img/network_redux.png"></a>
 	</div>
 </footer>
 <script type="text/javascript" src="/js/analytics.js"></script>
