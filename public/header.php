@@ -37,7 +37,7 @@ require_once('navbar.php');
 				<p class="jumbo">with a free, cross-platform tool for your computer.</p><br>
 				<a class="btn btn-primary btn-lg" href="https://www.youtube.com/watch?v=uWPfIIaAHQg" target="_blank" role="button">See how »</a>&nbsp;
 				<a class="btn btn-primary btn-lg" href="/download/" role="button">Download now »</a>&nbsp;
-				<a class="btn btn-primary btn-lg" href="/community/" role="button">Get involved »</a>
+				<a class="btn btn-primary btn-lg" href="/get-involved/" role="button">Get involved »</a>
 			</div>
 		</div>
 		<?php } ?>
