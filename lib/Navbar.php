@@ -156,7 +156,8 @@ class Navbar
 				return $item->getTitle();
 			}
 		}
-		if ($_SERVER["REQUEST_URI"] == '/')
+		if ($_SERVER["REQUEST_URI"] === '/' or
+			$_SERVER["REQUEST_URI"] === '/index.php')
 			return 'Home';
 	}
 
