@@ -8,7 +8,7 @@ global $LSP_URL;
 if (get_user_id(SESSION()) == get_object_by_id("files", GET('file'), 'user_id') || is_admin(get_user_id(SESSION()))) {
 	if(!POST('updateok', false)) {
 		$file_name = get_file_name(GET('file'));
-		$file_extension = '.' . pathinfo($file_name, PATHINFO_EXTENSION);
+		$file_extension = parse_extension($file_name);
 		$categories = get_categories_for_ext($file_extension, get_file_category(GET('file')) . ' - ' . get_file_subcategory(GET('file')));
 		echo '<div class="col-md-9">';
 		create_title(array('Edit', get_file_url()));

@@ -37,7 +37,7 @@ if (!SESSION_EMPTY()) {
 				display_error("Copyrighted content is forbidden", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
 				return;
 			}
-			$file_extension = '.' . pathinfo($file_path, PATHINFO_EXTENSION);
+			$file_extension = parse_extension($file_path);
 			$categories = get_categories_for_ext($file_extension);
 			if ($categories != false) {
 				if (isset($_FILES["filename"]["tmp_name"])) {
@@ -47,7 +47,7 @@ if (!SESSION_EMPTY()) {
 					$tmp_ext = trim(pathinfo($tmp_path, PATHINFO_EXTENSION));
 					$tmp_name_only = pathinfo($tmp_path, PATHINFO_FILENAME) . ($tmp_ext == "" ? '' : '.' . $tmp_ext);
 					move_uploaded_file($tmp_path, $TMP_DIR . $tmp_name_only);
-					echo "<code>moving $tmp_path to $TMP_DIR$tmp_name_only</code>";?>
+					//echo "<code>moving $tmp_path to $TMP_DIR$tmp_name_only</code>";?>
 					<?php $form = new form($LSP_URL . '?content=add', 'File Details', 'fa-upload'); ?>
 					<div class="form-group">
 					<label for="category">Category</label>
@@ -102,7 +102,7 @@ if (!SESSION_EMPTY()) {
 					sha1_file($tmp_path)
 				);
 				if ($file_id > 0) {
-					echo "<code>rename " . $tmp_path . " to " . $DATA_DIR . $file_id . '</code>';
+					//echo "<code>rename " . $tmp_path . " to " . $DATA_DIR . $file_id . '</code>';
 					rename($tmp_path, $DATA_DIR . $file_id);
 					show_file($file_id, SESSION(), "File added successfully");
 				} else {

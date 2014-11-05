@@ -315,12 +315,12 @@ function display_success($message, $title_array = null, $redirect = null, $count
  */
 function get_pagination($count) {
 	global $PAGE_SIZE, $LSP_URL;
-	$user=!GET_EMPTY('user') ? '&amp;user=' . GET('user') : '';
-	$category=!GET_EMPTY('category') ? '&amp;category=' . GET('category') : '';
-	$subcategory=!GET_EMPTY('subcategory') ? '&amp;subcategory=' . GET('subcategory') : '';
+	$user=!GET_EMPTY('user') ? '&amp;user=' . rawurlencode(GET('user')) : '';
+	$category=!GET_EMPTY('category') ? '&amp;category=' . rawurlencode(GET('category')) : '';
+	$subcategory=!GET_EMPTY('subcategory') ? '&amp;subcategory=' . rawurlencode(GET('subcategory')) : '';
 	$browse = strlen("$user$category$subcategory") ? "?action=browse$user$category$subcategory" : '';
-	$search = !GET_EMPTY('search') ? '?search=' . GET('search') : '';
-	$sort=!GET_EMPTY('sort') ? '&amp;sort=' . GET('sort') : '';
+	$search = !GET_EMPTY('search') ? '?search=' . rawurlencode(GET('search')) : '';
+	$sort=!GET_EMPTY('sort') ? '&amp;sort=' . rawurlencode(GET('sort')) : '';
 	$pagination = '';
 	$pagination .= '<div class="lsp-pagination center"><ul class="pagination pagination-sm">';
 	$pages = $count / $PAGE_SIZE;
@@ -394,6 +394,18 @@ function youtube_iframe($url_part, $width, $height) {
 		$url_part . '" frameborder="0" allowfullscreen></iframe>';
 		
 	return $html;
+}
+
+/*
+ * Returns the file extension (including the dot), taking into consideration the double
+ * extensions used by linux archives, i.e. .tar.gz
+ */
+function parse_extension($file_path) {
+	if (strtolower(pathinfo(pathinfo($file_path, PATHINFO_FILENAME), PATHINFO_EXTENSION)) == 'tar') {
+		return '.tar.' . pathinfo($file_path, PATHINFO_EXTENSION);
+	} else {
+		return '.' . pathinfo($file_path, PATHINFO_EXTENSION);
+	}
 }
 
 /*

@@ -332,7 +332,7 @@ function get_categories() {
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			echo '<li class="lsp-category"><a href="' . 
-				htmlentities($LSP_URL . "?action=browse&category=" . $object['name'] . "&sort=$sort" ) . '">' .
+				htmlentities($LSP_URL . "?action=browse&category=" . rawurlencode($object['name']) . "&sort=$sort" ) . '">' .
 				$object['name'] . '&nbsp;<span class="count">(' . $object['file_count'] . ")</span></a>";
 					
 				if (!GET_EMPTY('category') && GET('category') == $object['name']) {
@@ -363,12 +363,12 @@ function get_subcategories($category, $id) {
 	$stmt->bindParam(':id', $id);
 	
 	echo '<ul class="lsp-subcategory">';
-	$sort = GET('sort', 'date');
+	$sort = rawurlencode(GET('sort', 'date'));
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			echo '<li class="lsp-subcategory"><a href="' . 
 				htmlentities($LSP_URL . "?action=browse&category=" . $category . 
-				"&subcategory=" . $object['name'] . "&sort=$sort" ) . '">' .
+				"&subcategory=" . rawurlencode($object['name']) . "&sort=$sort" ) . '">' .
 				$object['name'] . '&nbsp;<span class="count">(' . $object['file_count'] . ")</span></a></li>";
 		}
 	}
@@ -620,7 +620,7 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 			}
 		}
 		echo'</table></div>';
-		echo get_pagination($count);
+		echo '<div class="text-center">' . get_pagination($count) . '</div>';
 	} else {
 		display_info('No results found', array(GET('category'), GET('subcategory'), "\"$search\"", "($user_name)"));
 	}
