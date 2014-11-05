@@ -59,7 +59,10 @@ function remove_after_lt($text) {
 	return trim(explode("<",$text)[0]);
 }
 
-function newline_to_br($text) {
+function newline_to_br($text, $decode_special_chars = false) {
+	if ($decode_special_chars) {
+		return htmlspecialchars_decode(str_replace("\n", "<br>", $text), ENT_COMPAT);
+	}
 	return str_replace("\n", "<br>", $text);
 }
 

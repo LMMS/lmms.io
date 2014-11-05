@@ -28,7 +28,7 @@ if (get_user_id(SESSION()) == get_object_by_id("files", GET('file'), 'user_id') 
 		<div class="form-group">
 			<label for="description">Description</label>
 			<textarea rows=20 name="description" class="form-control"><?php
-				echo get_file_description(GET('file'));
+				echo htmlspecialchars_decode(get_file_description(GET('file')), ENT_COMPAT);
 			?></textarea>
 		</div>
 		<button class="btn btn-primary" type="submit" name="updateok" value="OK"><span class="fa fa-check"></span>&nbsp;Update File</button>

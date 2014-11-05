@@ -472,9 +472,10 @@ function get_comments($file_id) {
 	$html = '';
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$comment = htmlspecialchars($object['text'], ENT_COMPAT, 'UTF-8');
+			$comment = $object['text'];
 			// Bold comments made by the original author
 			$comment = ($object['commentuser'] == $object['fileuser']) ? "<strong>$comment</strong>" : $comment;
+			$comment = newline_to_br($comment, true);
 			$html .= '<tr><td colspan="2">';
 			$html .= "<blockquote>$comment" .
 				'<small class="lsp-small">Posted by: ' . '<a href="' . $LSP_URL . '?action=browse&amp;user=' . 
@@ -824,7 +825,7 @@ function show_file($file_id, $user, $success = null) {
 			echo '</td></tr>';
 			
 			echo '<tr><td colspan="2"><div class="well"><strong>Description:</strong><p>';
-			echo ($object['description'] != '' ? embed_player(newline_to_br($object['description'])) : 'No description available.');
+			echo ($object['description'] != '' ? embed_player(newline_to_br($object['description'], true)) : 'No description available.');
 			echo '</p></div></td></tr>';
 			
 			echo '<tr><td colspan="2">';
