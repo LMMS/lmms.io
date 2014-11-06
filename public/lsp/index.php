@@ -8,15 +8,16 @@ ini_set('arg_separator.output', '&amp;');
 
 session_start();
 require_once('../utils.php');
-require_once('../header.php');
-require_once('utils.php');
-require_once("sidebar.php");
-
 // Set $_GET[...] variables to their $_POST equivalents
 set_get_post('file');
 set_get_post('search');
 set_get_post('category');
 set_get_post('subcategory');
+set_get_post('commentsearch');
+
+require_once('../header.php');
+require_once('utils.php');
+require_once("sidebar.php");
 process_params();
 
 /*
@@ -36,7 +37,7 @@ function process_params() {
 					break;  // break for file/rate, return for all others
 				case 'search': //move down
 				case 'q':
-					get_results(GET('category'), GET('subcategory'), GET('sort'), GET('q', GET('search', '')), '', GET('order'));
+					get_results(GET('category'), GET('subcategory'), GET('sort'), GET('q', GET('search', '')), '', GET('order'), GET('commentsearch'));
 					return;
 					// default: // do nothing
 			}

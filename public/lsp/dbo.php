@@ -455,6 +455,26 @@ function get_licenses($default = '') {
 }
 
 /*
+ * Gets a CSV list of file_ids matching with comments matching the search string
+ */
+function search_comments($search) {
+	$dbh = &get_db();
+	$stmt = $dbh->prepare(
+		'SELECT DISTINCT(file_id) FROM comments ' . 
+		'WHERE text LIKE :search'
+	);
+	$search = "%{$search}%";
+	$stmt->bindParam(':search', $search);
+	$file_array = array();
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			array_push($file_array, $object['file_id']);
+		}
+	}
+	return implode(',', $file_array);
+}
+
+/*
  * Returns a list of <blockquote> items containing all comments for a particular file
  * with all comments made by the owner of said file in an alternate style
  */
@@ -529,7 +549,7 @@ function get_file_subcategory($file_id) {
  * Forecasts the total size of the database result set returned
  * by get_results for proper pagination
  */
-function get_results_count($category, $subcategory = '', $search = '', $user_id = '') {
+function get_results_count($category, $subcategory = '', $search = '', $user_id = '', $additional_items = '') {
 	$dbh = &get_db();
 	$return_val = 0;
 	$stmt = $dbh->prepare(
@@ -540,7 +560,7 @@ function get_results_count($category, $subcategory = '', $search = '', $user_id 
 		(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
 		(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
 		(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
-		(strlen($search) ? ' (files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search)' : 'true')
+		(strlen($search) ? " (files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search $additional_items)" : 'true')
 	);
 	
 	if (strlen($user_id)) { $stmt->bindParam(':user_id', $user_id); }
@@ -564,14 +584,22 @@ function get_results_count($category, $subcategory = '', $search = '', $user_id 
  * Displays a table of search results, usually based on category, subcategory or search
  * filters
  */
-function get_results($category, $subcategory, $sort = '', $search = '', $user_name = '', $order = 'DESC') {
+function get_results($category, $subcategory, $sort = '', $search = '', $user_name = '', $order = 'DESC', $comment_search = false) {
 	global $PAGE_SIZE;
 	global $LSP_URL;
 	$user_id = '';
 	$order = in_array(trim(strtoupper($order)), array('DESC', 'ASC')) ? trim(strtoupper($order)) : 'DESC';
 	if (strlen($user_name)) { $user_id = get_user_id($user_name);} 
+
+	$additional_items = '';
+	// Get an additional CSV list of files with comments match
+	if (strlen($search) && $comment_search) {
+		$additional_items = search_comments($search);
+		$additional_items = strlen($additional_items) ? "OR files.id IN ($additional_items)" : '';
+	}
+	
 	$user_id = $user_id == -1 ? '' : $user_id;
-	$count = get_results_count($category, $subcategory, $search, $user_id);
+	$count = get_results_count($category, $subcategory, $search, $user_id, $additional_items);
 	
 	
 	if ($count > 0) {
@@ -603,7 +631,7 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 			(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
 			(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
 			(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
-			(strlen($search) ? '(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search)' : 'true') . ' ' .
+			(strlen($search) ? "(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search $additional_items)" : 'true') . ' ' .
 			'GROUP BY files.id ' . 
 			'ORDER BY ' . $order_by . " $order " .
 			"LIMIT $start, $PAGE_SIZE"

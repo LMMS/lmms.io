@@ -318,6 +318,7 @@ function display_success($message, $title_array = null, $redirect = null, $count
  */
 function get_pagination($count) {
 	global $PAGE_SIZE, $LSP_URL;
+	$commentsearch=GET('commentsearch', false) ? '&amp;commentsearch=true' : '';
 	$user=!GET_EMPTY('user') ? '&amp;user=' . rawurlencode(GET('user')) : '';
 	$category=!GET_EMPTY('category') ? '&amp;category=' . rawurlencode(GET('category')) : '';
 	$subcategory=!GET_EMPTY('subcategory') ? '&amp;subcategory=' . rawurlencode(GET('subcategory')) : '';
@@ -331,7 +332,7 @@ function get_pagination($count) {
 	if ($pages > 1) {
 		for($j=0; $j < $count / $PAGE_SIZE; ++$j ) {
 			$class = $j==$page ? 'active' : '';	
-			$pagination .= '<li class="' . $class . '"><a href=' . $LSP_URL . "$search$browse&amp;page=$j$sort>" . ($j+1) . '</a></li>';
+			$pagination .= '<li class="' . $class . '"><a href=' . $LSP_URL . "$search$browse&amp;page=$j$sort$commentsearch>" . ($j+1) . '</a></li>';
 		}
 	}
 	$pagination .= '</ul></div>';

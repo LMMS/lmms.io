@@ -197,6 +197,21 @@ td.lsp-file-info {
 	padding-left: 2em;
 }
 
+div.lsp-search-comments {
+	position: relative;
+	float: right;
+	margin-right: 1.2em;
+	margin-top: .8em;
+	right: 0;
+	width: 0;
+	height: 0;
+	overflow: none;
+}
+
+div.lsp-search-comments > span.fa-comments {
+	margin-left: 0.2em;
+}
+
 div.lsp-search-button {
 	position: relative;
 	float: right;
