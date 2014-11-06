@@ -1,4 +1,4 @@
-<?php require_once('../header.php'); ?>
+<?php require_once('header.php'); ?>
 <h1 class="page-header text-center">Get Involved</h1>
 <p>
 	LMMS is a free open-source software built entirely by a small number of
@@ -132,4 +132,4 @@
 </div>
 
 
-<?php require_once('../footer.php');
+<?php require_once('footer.php');

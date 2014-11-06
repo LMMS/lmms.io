@@ -4,7 +4,8 @@ $uri = $_SERVER['REQUEST_URI'];
 
 $patterns = [
 	'Home' => ['/', 'home.php'],
-	'Documentation' => ['/documentation(/.*)?', 'documentation.php']
+	'Documentation' => ['/documentation(/.*)?', 'documentation.php'],
+	'Get Involved' => ['/get-involved', 'get-involved.php']
 ];
 
 foreach ($patterns as $key => $value) {
