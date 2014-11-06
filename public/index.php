@@ -8,7 +8,8 @@ $patterns = [
 	'Get Involved' => ['/get-involved', 'get-involved.php'],
 	'Community' => ['/community', 'community.php'],
 	'Screenshots' => ['/screenshots', 'screenshots.php'],
-	'Showcase' => ['/showcase', 'showcase.php']
+	'Showcase' => ['/showcase', 'showcase.php'],
+	'Download' => ['/download', 'download.php']
 ];
 
 foreach ($patterns as $key => $value) {
