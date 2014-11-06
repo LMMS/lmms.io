@@ -5,7 +5,10 @@ $uri = $_SERVER['REQUEST_URI'];
 $patterns = [
 	'Home' => ['/', 'home.php'],
 	'Documentation' => ['/documentation(/.*)?', 'documentation.php'],
-	'Get Involved' => ['/get-involved', 'get-involved.php']
+	'Get Involved' => ['/get-involved', 'get-involved.php'],
+	'Community' => ['/community', 'community.php'],
+	'Screenshots' => ['/screenshots', 'screenshots.php'],
+	'Showcase' => ['/showcase', 'showcase.php']
 ];
 
 foreach ($patterns as $key => $value) {
