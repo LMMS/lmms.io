@@ -29,6 +29,10 @@
 		<li><a href="#linux-arch" role="tab" data-toggle="tab" id="linux-arch-button">
 			<span class="fl fl-16 fl-archlinux fl-tab"></span>&nbsp;Arch Linux
 		</a></li>
+
+		<li><a href="#linux-slackware" role="tab" data-toggle="tab" id="linux-slackware-button">
+			<span class="fl fl-16 fl-slackware fl-tab"></span>&nbsp;Slackware Linux
+		</a></li>
 	</ul>
 </div>
 
@@ -61,6 +65,12 @@
 		<h3>Arch Linux</h3>
 		<p>Run the following command in a terminal:</p>
 		<div class="code-block"><pre>$ sudo pacman -S lmms</pre></div>
+	</div>
+
+	<div id="linux-slackware" class="tab-pane">
+		<h3>Slackware Linux</h3>
+		<p></p>
+		<div class="code-block"><pre># sbopkg -i fltk -i lmms</pre></div>
 	</div>
 
 	<div id="linux-suse" class="tab-pane">
