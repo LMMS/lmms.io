@@ -39,7 +39,7 @@
 	<?php get_releases('prerelease', '.dmg'); ?>
 </div>
 <div id="prerelease" class="text-center"><small><span class="fa fa-exclamation-circle"></span> Denotes pre-release software, stability may suffer.</small></div>
-
+<hr><div class="text-center"><a target="_blank" href="https://github.com/LMMS/lmms/tags">previous releases</a></div>
 <script>
 function showOS(os) {
 	location.hash = os;
