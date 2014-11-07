@@ -24,3 +24,5 @@ foreach ($patterns as $key => $value) {
 		exit();
 	}
 }
+
+require_once('404.php');
