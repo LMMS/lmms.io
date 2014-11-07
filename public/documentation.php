@@ -3,9 +3,11 @@
 include('header.php');
 require_once('../lib/RemWiki/RemWiki.php');
 
-if (array_key_exists('page', $_GET)) {
-	$page = $_GET['page'];
-} else {
+$uri = explode('/', $_SERVER['REQUEST_URI']);
+
+$page = (implode('/', array_slice($uri, 2)));
+
+if ($page === '') {
 	$page = 'Main_Page';
 }
 

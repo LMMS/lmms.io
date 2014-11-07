@@ -88,7 +88,7 @@ class RemWiki
 				'/class="thumbimage"/m',
 			],
 			[
-				'/documentation/?page=$1',
+				'/documentation/$1',
 				$this->url.'$1',
 				'class="img-thumbnail"',
 			],
