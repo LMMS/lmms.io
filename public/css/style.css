@@ -494,26 +494,6 @@ p.forum-stats  {
 	width: 100%;
 }
 
-.nav-center-container {
-	width: 100%;
-	overflow: hidden;
-}
-
-ul.nav-center {
-	list-style: none;
-	position: relative;
-	float: left;
-	display: block;
-	left: 50%;
-}
-
-ul.nav-center li {
-	position: relative;
-	float: left;
-	display: block;
-	right: 50%;
-}
-
 .theme-showcase > p > .btn {
 	margin: 5px 0;
 }
@@ -607,6 +587,33 @@ ul.nav-center li {
  * nav-tabs style
  */
 
+.nav-center-container {
+	width: 100%;
+	overflow: hidden;
+}
+
+ul.nav-center {
+	list-style: none;
+	position: relative;
+	float: left;
+	display: block;
+	left: 50%;
+}
+
+ul.nav-center li {
+	position: relative;
+	float: left;
+	display: block;
+	right: 50%;
+}
+
+@media(max-width: 768px) {
+	ul.nav-center li {
+			float: none;
+			width: 100%;
+	}
+}
+
 .nav-tabs {
 	border-bottom: none;
 }
@@ -614,7 +621,9 @@ ul.nav-center li {
 .nav-tabs > li > a,
 .nav-tabs > li > a:hover,
 .nav-tabs > li > a:focus {
+	border-radius: 0 0;
 	border-style: none;
+	border-bottom: 2px solid rgba(0,0,0,0);
 	background-color: white;
 }
 
