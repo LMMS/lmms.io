@@ -82,12 +82,12 @@ footer {
 	width: 100%;
 }
 
-footer a:link {
+footer a:link, a:visited {
 	color: #a6c8e5;
 }
 
 #banner {
-	width: 170px;
+	width: 150px;
 	height: auto;
 }
 
