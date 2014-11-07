@@ -4,41 +4,42 @@
 	<p>LMMS is included in most major Linux distribution's package repositories.<br>
 	Please <a href="/community/">contact us</a> if your distribution is not listed here.</p>
 
-	<ul id="linux-tabs" class="nav nav-tabs" role="tablist">
+	<ul id="linux-tabs" class="nav nav-tabs nav-justified" role="tablist">
 		<li><a href="#linux-debian" role="tab" data-toggle="tab" id="linux-debian-button" class="active">
 			<span class="visible-lg-inline"><span class="fl fl-16 fl-debian fl-tab"></span>&nbsp;Debian&nbsp;/</span>
 			<span class="fl fl-16 fl-ubuntu fl-tab"></span>&nbsp;Ubuntu
-			<span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-linuxmint-inverse fl-tab"></span>&nbsp;Linux Mint</span>
+			<!-- <span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-linuxmint-inverse fl-tab"></span>&nbsp;Mint</span> -->
 		</a></li>
 		
 		<li><a href="#linux-suse" role="tab" data-toggle="tab" id="linux-suse-button">
-			<span class="fl fl-16 fl-opensuse fl-tab"></span>&nbsp;OpenSUSE
+			<span class="fl fl-16 fl-opensuse fl-tab"></span>&nbsp;SUSE
 		</a></li>
 		
 		<li><a href="#linux-mageia" role="tab" data-toggle="tab" id="linux-mageia-button">
 			<span class="fl fl-16 fl-mageia fl-tab"></span>&nbsp;Mageia
-			<span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-mandriva fl-tab"></span>&nbsp;Mandriva</span>
+			<!-- <span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-mandriva fl-tab"></span>&nbsp;Mandriva</span> -->
 		</a></li>
 		
 		<li><a href="#linux-fedora" role="tab" data-toggle="tab" id="linux-fedora-button">
 			<span class="fl fl-16 fl-fedora fl-tab"></span>&nbsp;Fedora
-			<span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-centos fl-tab"></span>&nbsp;CentOS</span>
-			<span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-redhat fl-tab"></span>&nbsp;Red Hat</span>
+			<!-- <span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-centos fl-tab"></span>&nbsp;CentOS</span> -->
+			<!-- <span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-redhat fl-tab"></span>&nbsp;Red Hat</span> -->
 		</a></li>
 		
 		<li><a href="#linux-arch" role="tab" data-toggle="tab" id="linux-arch-button">
-			<span class="fl fl-16 fl-archlinux fl-tab"></span>&nbsp;Arch Linux
+			<span class="fl fl-16 fl-archlinux fl-tab"></span>&nbsp;Arch
 		</a></li>
 
 		<li><a href="#linux-slackware" role="tab" data-toggle="tab" id="linux-slackware-button">
-			<span class="fl fl-16 fl-slackware fl-tab"></span>&nbsp;Slackware Linux
+			<!-- FIXME:  Add glyph to font resource: <span class="fl fl-16 fl-slackware fl-tab"> -->
+			<span style="padding: 0; font-size: 1.5em; font-family: Courier, monospace; line-height: 1.1em;"><strong>S&#x332;</strong></span>&nbsp;Slackware
 		</a></li>
 	</ul>
 </div>
 
 <div class="tab-content">
 	<div id="linux-debian" class="tab-pane active">
-		<h3>Ubuntu, Linux Mint (deb)</h3>
+		<h3>Ubuntu, Linux Mint, Debian (deb)</h3>
 		<p>For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.<br></p>
 		<!-- <p><a class="btn btn-primary" target="new" href="apt://lmms"><span class="fa fa-download"></span> Install LMMS</a></p> -->
 		<p>
@@ -50,13 +51,13 @@
 	</div>
 
 	<div id="linux-mageia" class="tab-pane">
-		<h3> Mandriva, Mageia (rpm)</h3>
+		<h3>Mandriva, Mageia (rpm)</h3>
 		<p>Run the following command as root in a terminal:</p>
 		<div class="code-block"><pre>$ urpmi lmms</pre></div>
 	</div>
 
 	<div id="linux-fedora" class="tab-pane">
-		<h3>Fedora, CentOS (rpm)</h3>
+		<h3>Fedora, RedHat, CentOS (rpm)</h3>
 		<p>Run the following command as root in a terminal:</p>
 		<div class="code-block"><pre>$ yum install lmms</pre></div>
 	</div>

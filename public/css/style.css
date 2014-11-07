@@ -33,6 +33,10 @@ html {
 	border: none;
 }
 
+.nav-justified > li {
+	float:none;
+}
+
 .navbar-default .navbar-nav > .active > a {
 	box-shadow: none;
 }
