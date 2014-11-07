@@ -4,36 +4,38 @@
 	<p>LMMS is included in most major Linux distribution's package repositories.<br>
 	Please <a href="/community/">contact us</a> if your distribution is not listed here.</p>
 
-	<ul id="linux-tabs" class="nav nav-tabs nav-justified" role="tablist">
-		<li><a href="#linux-debian" role="tab" data-toggle="tab" id="linux-debian-button" class="active">
-			<span class="visible-lg-inline"><span class="fl fl-16 fl-debian fl-tab"></span>&nbsp;Debian&nbsp;/</span>
-			<span class="fl fl-16 fl-ubuntu fl-tab"></span>&nbsp;Ubuntu
-			<!-- <span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-linuxmint-inverse fl-tab"></span>&nbsp;Mint</span> -->
-		</a></li>
-		
-		<li><a href="#linux-suse" role="tab" data-toggle="tab" id="linux-suse-button">
-			<span class="fl fl-16 fl-opensuse fl-tab"></span>&nbsp;SUSE
-		</a></li>
-		
-		<li><a href="#linux-mageia" role="tab" data-toggle="tab" id="linux-mageia-button">
-			<span class="fl fl-16 fl-mageia fl-tab"></span>&nbsp;Mageia
-			<!-- <span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-mandriva fl-tab"></span>&nbsp;Mandriva</span> -->
-		</a></li>
-		
-		<li><a href="#linux-fedora" role="tab" data-toggle="tab" id="linux-fedora-button">
-			<span class="fl fl-16 fl-fedora fl-tab"></span>&nbsp;Fedora
-			<!-- <span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-centos fl-tab"></span>&nbsp;CentOS</span> -->
-			<!-- <span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-redhat fl-tab"></span>&nbsp;Red Hat</span> -->
-		</a></li>
-		
-		<li><a href="#linux-arch" role="tab" data-toggle="tab" id="linux-arch-button">
-			<span class="fl fl-16 fl-archlinux fl-tab"></span>&nbsp;Arch
-		</a></li>
+	<div class="nav-center-container">
+		<ul id="linux-tabs" class="nav nav-tabs nav-center" role="tablist">
+			<li><a href="#linux-debian" role="tab" data-toggle="tab" id="linux-debian-button" class="active">
+				<span class="visible-lg-inline"><span class="fl fl-16 fl-debian fl-tab"></span>&nbsp;Debian&nbsp;/</span>
+				<span class="fl fl-16 fl-ubuntu fl-tab"></span>&nbsp;Ubuntu
+				<span class="visible-md-inline visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-linuxmint-inverse fl-tab"></span>&nbsp;Mint</span>
+			</a></li>
 
-		<li><a href="#linux-slackware" role="tab" data-toggle="tab" id="linux-slackware-button">
-			<span class="fl fl-16 fl-slackware fl-tab"></span>&nbsp;Slackware
-		</a></li>
-	</ul>
+			<li><a href="#linux-suse" role="tab" data-toggle="tab" id="linux-suse-button">
+				<span class="fl fl-16 fl-opensuse fl-tab"></span>&nbsp;OpenSUSE
+			</a></li>
+
+			<li><a href="#linux-mageia" role="tab" data-toggle="tab" id="linux-mageia-button">
+				<span class="fl fl-16 fl-mageia fl-tab"></span>&nbsp;Mageia
+				<span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-mandriva fl-tab"></span>&nbsp;Mandriva</span>
+			</a></li>
+
+			<li><a href="#linux-fedora" role="tab" data-toggle="tab" id="linux-fedora-button">
+				<span class="fl fl-16 fl-fedora fl-tab"></span>&nbsp;Fedora
+				<span class="visible-md-inline visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-centos fl-tab"></span>&nbsp;CentOS</span>
+				<span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-redhat fl-tab"></span>&nbsp;Red Hat</span>
+			</a></li>
+
+			<li><a href="#linux-arch" role="tab" data-toggle="tab" id="linux-arch-button">
+				<span class="fl fl-16 fl-archlinux fl-tab"></span>&nbsp;Arch Linux
+			</a></li>
+
+			<li><a href="#linux-slackware" role="tab" data-toggle="tab" id="linux-slackware-button">
+				<span class="fl fl-16 fl-slackware fl-tab"></span>&nbsp;Slackware
+			</a></li>
+		</ul>
+	</div>
 </div>
 
 <div class="tab-content">

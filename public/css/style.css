@@ -494,8 +494,24 @@ p.forum-stats  {
 	width: 100%;
 }
 
-.nav li {
-	font-size: 14px;
+.nav-center-container {
+	width: 100%;
+	overflow: hidden;
+}
+
+ul.nav-center {
+	list-style: none;
+	position: relative;
+	float: left;
+	display: block;
+	left: 50%;
+}
+
+ul.nav-center li {
+	position: relative;
+	float: left;
+	display: block;
+	right: 50%;
 }
 
 .theme-showcase > p > .btn {

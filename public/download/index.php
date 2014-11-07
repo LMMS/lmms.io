@@ -56,12 +56,12 @@ function showOS(os) {
 	}
 
 	$(os+"-button").tab("show");
-	
+
 	hide('#windows-div');
 	hide('#linux-div');
 	hide('#mac-div');
 	show(os+'-div');
-	
+
 	$(os+"-button").parent().addClass("active") ;
 }
 
@@ -73,7 +73,7 @@ function showLinux() {
 	} else {
 		$('#linux-tabs a[href="#linux-debian"]').tab('show');
 	}
-	
+
 	$('#linux-tabs a').click(function (e) {
 		e.preventDefault();
 		$(this).tab('show');
