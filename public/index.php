@@ -20,6 +20,8 @@ foreach ($patterns as $key => $value) {
 	$regex = '/^' . $regex . '(\/)?$/i';
 
 	if (preg_match($regex, $uri)) {
+		$GLOBALS['pagetitle'] = $key;
+
 		require_once($file);
 		exit();
 	}
