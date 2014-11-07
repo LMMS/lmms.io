@@ -119,9 +119,9 @@ function circle_stack($icon, $class = '', $tooltip = '')
 
 
 
+	<br class="hidden-lg">
 	<a data-toggle="collapse" href="#screenshots" aria-expanded="false" aria-controls="screenshots">
-		Show more screenshots<br><i class="fa fa-angle-down"></i>
-	</a>
+		Show more screenshots<br><i class="fa fa-angle-down"></i></a>
 
 	<div id="screenshots" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 		<?php include('screenshots/index.php'); ?>
