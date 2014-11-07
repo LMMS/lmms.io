@@ -394,7 +394,7 @@ function get_alternate_title($service) {
  * Also has a patch for facebook images which don't use traditional image file extensions
  * but rather have the file extension as part of the element innerText
  */
-function is_image($a_tag) {
+function is_feed_image($a_tag) {
 	$image_exts = explode(',', 'png,jpg,jpeg,gif,bmp,tif,tiff,svg');
 	foreach($image_exts as $ext) {
 		if (str_endswith($a_tag->href, '.' . trim($ext), true) || str_contains($a_tag->innertext, '.' . trim($ext) . '?', false)) {
@@ -402,63 +402,6 @@ function is_image($a_tag) {
 		}
 	}
 	return false;
-}
-
-/*
- *
- */
-function scale_image($url, $width) {
-	ini_set('user_agent', 'gd/2.x (linux)');
-
-	$image = NULL;
-	try {
-		switch (strtolower(pathinfo($url, PATHINFO_EXTENSION))) {
-			case 'jpg':
-			case 'jpeg':
-				$image = @imagecreatefromjpeg($url); break;
-			case 'gif':
-				$image = @imagecreatefromgif($url); break;
-			case 'bmp':
-				$image = @imagecreatefromwbmp($url); break;
-			case 'png':
-			default:
-				$image = @imagecreatefrompng($url); break;
-		}
-	} catch (Exception $e) {
-		return $url;
-	}
-
-	if ($image === false) {
-		return $url;
-	}
-
-	$orig_width = imagesx($image);
-	$orig_height = imagesy($image);
-
-	if ($orig_width < $width) {
-		return $url;
-	}
-
-	// Calc the new height
-	$height = (($orig_height * $width) / $orig_width);
-
-	// Create new image to display
-	$new_image = imagecreatetruecolor($width, $height);
-
-	// Create new image with changed dimensions
-	imagecopyresampled($new_image, $image,
-		0, 0, 0, 0,
-		$width, $height,
-		$orig_width, $orig_height);
-
-	// Capture object to memory
-	ob_start();
-	//header( "Content-type: image/jpeg" );
-	imagepng($new_image);
-	imagedestroy($new_image);
-	$i = ob_get_clean();
-
-	return 'data:image/png;base64,' . base64_encode($i). '"';
 }
 
 /*

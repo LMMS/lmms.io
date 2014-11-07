@@ -12,9 +12,16 @@ function download_file($file_id, $file_name) {
 	$file_path = $DATA_DIR . $file_id;
 	if (file_exists($file_path)) {
 		increment_file_downloads($file_id);
-		header("Content-type: application/force-download");
-		header(((is_integer(strpos($user_agent,"msie")))&&(is_integer(strpos($user_agent, "win"))))?"Content-Disposition:filename=\"$file_name\"":"Content-Disposition: attachment; filename=\"$file_name\"");
-		header("Content-Description: Download"); 	
+		$content_type = get_content_type($file_name);
+		header("Content-type: $content_type");
+		if (!is_image($file_name)) {
+			if (is_integer(strpos($user_agent,"msie")) && is_integer(strpos($user_agent, "win"))) {
+				header("Content-Disposition:filename=\"$file_name\"");
+			} else {
+				header("Content-Disposition: attachment; filename=\"$file_name\"");
+			}
+			header("Content-Description: Download"); 	
+		}
 		ob_clean();
 		flush();
 		readfile($file_path);

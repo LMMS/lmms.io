@@ -37,7 +37,7 @@ function cleanse_urls($str, $article_url) {
 	$html = SimpleHtmlDom\str_get_html($str);
 	foreach($html->find('a') as $element) {
 		// Fix cross posts, especially those from LMMSChallenge facebook
-		if (!$element->find('img') && is_image($element)) {
+		if (!$element->find('img') && is_feed_image($element)) {
 			$element->innertext = '<img class="img-thumbnail fb-thumb" src="' . $element->href . '"/>';
 			$element->href = $article_url;
 		}

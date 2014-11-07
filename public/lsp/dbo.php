@@ -812,6 +812,7 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
  * as well as all information that's already displayed in the original search results.
  */
 function show_file($file_id, $user, $success = null) {
+	global $LSP_URL, $DATA_DIR;
 	$dbh = &get_db();
 	$stmt = $dbh->prepare(
 		'SELECT licenses.name AS license, size, realname, filename, users.login, ' .
@@ -846,8 +847,13 @@ function show_file($file_id, $user, $success = null) {
 			show_basic_file_info($object, false);
 			
 			// Bump the download button under details block
-			echo '<tr><td><strong>Name:</strong>&nbsp;' . $object['filename'] . '</td><td class="lsp-file-info">';
 			$url = htmlentities('download_file.php?file=' . $object['id'] . '&name=' . $object['filename']);
+			echo '<tr><td><strong>Name:</strong>&nbsp;' . $object['filename'];
+			if (is_image($url)) {
+				echo '<br><br><a href="' . $url . '"><img class="thumbnail" src="' . scale_image($DATA_DIR . $file_id, 300, parse_extension($url)) . '" alt=""></a>';
+			}
+			echo '</td><td class="lsp-file-info">';
+			
 			echo '<a href="' . $url . '" id="downloadbtn" class="lsp-dl-btn btn btn-primary">';
 			echo '<span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
 			echo '</td></tr>';
