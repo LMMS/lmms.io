@@ -31,8 +31,7 @@
 		</a></li>
 
 		<li><a href="#linux-slackware" role="tab" data-toggle="tab" id="linux-slackware-button">
-			<!-- FIXME:  Add glyph to font resource: <span class="fl fl-16 fl-slackware fl-tab"> -->
-			<span style="padding: 0; font-size: 1.5em; font-family: Courier, monospace; line-height: 1.1em;"><strong>S&#x332;</strong></span>&nbsp;Slackware
+			<span class="fl fl-16 fl-slackware fl-tab"></span>&nbsp;Slackware
 		</a></li>
 	</ul>
 </div>
