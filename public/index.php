@@ -99,7 +99,7 @@ function circle_stack($icon, $class = '', $tooltip = '')
 		</div>
 	</div>
 	<br><br>
-	<div class="overflow-hidden visible-lg">
+	<div class="overflow-hidden">
 		<div class="page-header">
 			<h2>Take a peek</h2>
 		</div>
@@ -116,7 +116,17 @@ function circle_stack($icon, $class = '', $tooltip = '')
 			<?php make_reflection('img/ss_instr.png', NULL, "white"); ?>
 		</div>
 	</div>
-	<p class="text-center visible-lg">More screenshots can be found <a href="/screenshots/">here</a>.</p>
+
+
+
+	<a data-toggle="collapse" href="#screenshots" aria-expanded="false" aria-controls="screenshots">
+		Show more screenshots<br><i class="fa fa-angle-down"></i>
+	</a>
+
+	<div id="screenshots" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+		<?php include('screenshots/index.php'); ?>
+	</div>
+
 	<br><br>
 </div>
 

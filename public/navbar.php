@@ -6,7 +6,6 @@ $navbar = new Navbar(
 			['fa-download', 'Download LMMS', '/download/'],
 			['fa-music', 'Download Sample Packs', '/download/samples'],
 			['fa-picture-o', 'Download Artwork', '/download/artwork']]],
-		[['Screenshots', 'Screens'], '/screenshots/'],
 		['Get Involved', '/get-involved/'],
 		['Showcase', '/showcase/'],
 		[['Documentation', 'Docs'], '/documentation/'],
