@@ -82,7 +82,8 @@ footer {
 	width: 100%;
 }
 
-footer a:link, a:visited {
+footer a:link,
+footer a:visited {
 	color: #a6c8e5;
 }
 
