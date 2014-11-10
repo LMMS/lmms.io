@@ -1,4 +1,5 @@
 <?php
+require_once('../utils.php');
 require_once('../feed/json_common.php');
 
 /*
@@ -401,14 +402,6 @@ function youtube_iframe($url_part, $width, $height) {
 }
 
 /*
- * Determines if a file is an image based on its file extension
- */
-function is_image($file_path) {
-	$images = explode(',', '.jpg,.jpeg,.gif,.png,.bmp,.tiff,.svg');
-	return in_array(parse_extension($file_path), $images);
-}
-
-/*
  * Gets the content type of an file based on extension.
  * Necessary for interpreting a LSP image attachment as an image
  */
@@ -421,18 +414,6 @@ function get_content_type($file_path) {
 		case '.svg' : return 'image/svg+xml';
 		case '.tiff' : return 'image/tiff';
 		default: return 'application/force-download';
-	}
-}
-
-/*
- * Returns the file extension (including the dot), taking into consideration the double
- * extensions used by linux archives, i.e. .tar.gz
- */
-function parse_extension($file_path) {
-	if (strtolower(pathinfo(pathinfo($file_path, PATHINFO_FILENAME), PATHINFO_EXTENSION)) == 'tar') {
-		return strtolower('.tar.' . pathinfo($file_path, PATHINFO_EXTENSION));
-	} else {
-		return strtolower('.' . pathinfo($file_path, PATHINFO_EXTENSION));
 	}
 }
 
@@ -463,68 +444,5 @@ function soundcloud_iframe($message, $width, $height) {
 
 	return $html;
 }
-
-/*
- * Using GD, scales the supplied image server-side to create a 
- * proportional thumbnail in base64 image format
- */
-function scale_image($url, $width, $extension = null) {
-	if ($extension == null) {
-		$extension = parse_extension($url);
-	}
-	ini_set('user_agent', 'gd/2.x (linux)');
-	$image = NULL;
-	try {
-		switch ($extension) {
-			case '.jpg':
-			case '.jpeg':
-				$image = @imagecreatefromjpeg($url); break;
-			case '.gif':
-				$image = @imagecreatefromgif($url); break;
-			case '.bmp':
-				$image = @imagecreatefromwbmp($url); break;
-			case '.png':
-			default:
-				$image = @imagecreatefrompng($url); break;
-		}
-	} catch (Exception $e) {
-		return $url;
-	}
-
-	if ($image === false) {
-		return $url;
-	}
-
-	$orig_width = imagesx($image);
-	$orig_height = imagesy($image);
-
-	if ($orig_width < $width) {
-		return $url;
-	}
-
-	// Calc the new height
-	$height = (($orig_height * $width) / $orig_width);
-
-	// Create new image to display
-	$new_image = imagecreatetruecolor($width, $height);
-	imagealphablending($new_image, false);
-	imagesavealpha($new_image, true);
-
-	// Create new image with changed dimensions
-	imagecopyresampled($new_image, $image,
-		0, 0, 0, 0,
-		$width, $height,
-		$orig_width, $orig_height);
-
-	// Capture object to memory
-	ob_start();
-	//header( "Content-type: image/jpeg" );
-	imagepng($new_image);
-	imagedestroy($new_image);
-	$i = ob_get_clean();
-
-	return 'data:image/png;base64,' . base64_encode($i). '"';
-}
-
 
 ?>
