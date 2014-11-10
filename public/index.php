@@ -91,7 +91,7 @@ function circle_stack($icon, $class = '', $tooltip = '')
 
 	<div>
 		<div>
-			<a href="https://soundcloud.com/groups/linux-multimedia-studio">
+			<a href="https://soundcloud.com/groups/lmms">
 				<?php circle_stack('fa-soundcloud', 'fa-3x', 'Visit our Soundcloud group'); ?></a>
 			<a href="/lsp/"><?php circle_stack('fa-volume-down', 'fa-3x', 'Visit the LMMS Sharing Platform (LSP)'); ?></a>
 			<h4>Don't be modest,</h4>
