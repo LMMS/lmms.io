@@ -80,7 +80,7 @@ function &get_db() {
 /*
  * When DBO_DEBUG is set to true, additional query data will be echoed to screen
  */
-function debug($object) {
+function debug_out($object) {
 	if (DBO_DEBUG) {
 		echo '<pre>';
 		print_r($object);
@@ -140,13 +140,13 @@ function get_object_by_id($table, $id, $field, $id_field = 'id', $func = null) {
 		}
 		$dbh = &get_db();
 		$stmt = $dbh->prepare("SELECT $field FROM $table WHERE $id_field=:id");
-		debug("SELECT $field FROM $table WHERE $id_field='$id'");
+		debug_out("SELECT $field FROM $table WHERE $id_field='$id'");
 		$stmt->bindParam(':id', $id);
 		$object = null;
 		if ($stmt->execute()) {
 			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				$object = $object[$field];
-				debug($object);
+				debug_out($object);
 				break;
 			}
 		}
@@ -169,7 +169,7 @@ function get_id_by_object($table, $field, $value) {
 	if (is_valid_table($table))  {
 		$dbh = &get_db();
 		$stmt = $dbh->prepare("SELECT id FROM $table WHERE LOWER($field) = LOWER(:value)");
-		debug("SELECT id FROM $table WHERE LOWER($field) = LOWER('$value')");
+		debug_out("SELECT id FROM $table WHERE LOWER($field) = LOWER('$value')");
 		$stmt->bindParam(':value', $value);
 		if ($stmt->execute()) {
 			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -179,7 +179,7 @@ function get_id_by_object($table, $field, $value) {
 		}
 		$stmt = null;
 		$dbh = null;
-		debug("> id=\"$id\"");
+		debug_out("> id=\"$id\"");
 	}
 	
 	return $id;
@@ -208,7 +208,7 @@ function get_latest() {
 			echo '<table class="table table-striped">';
 			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				show_basic_file_info($object, true);
-				debug($object);
+				debug_out($object);
 			}
 			echo '</table></div>';
 		}
@@ -225,7 +225,7 @@ function password_match($pass, $user) {
 	global $MAX_LOGIN_ATTEMPTS;
 	$dbh = &get_db();
 	$stmt = $dbh->prepare('SELECT login FROM users WHERE LOWER(password) = LOWER(SHA1(:pass)) AND LOWER(login) = LOWER(:user) AND loginFailureCount < :max_login_attempts');
-	debug("SELECT login FROM users WHERE LOWER(password) = LOWER(SHA1($pass)) AND LOWER(login) = LOWER($user) AND loginFailureCount < $MAX_LOGIN_ATTEMPTS");
+	debug_out("SELECT login FROM users WHERE LOWER(password) = LOWER(SHA1($pass)) AND LOWER(login) = LOWER($user) AND loginFailureCount < $MAX_LOGIN_ATTEMPTS");
 	$stmt->bindParam(':pass', $pass);
 	$stmt->bindParam(':user', $user);
 	$stmt->bindParam(':max_login_attempts', $MAX_LOGIN_ATTEMPTS);
@@ -255,10 +255,10 @@ function set_failure_count($user, $incriment=false) {
 	$dbh = &get_db();
 	if ($incriment) {
 		$stmt = $dbh->prepare('UPDATE users SET loginFailureCount = loginFailureCount + 1 WHERE LOWER(login) = LOWER(:user)');
-		debug("UPDATE users SET loginFailureCount = loginFailureCount + 1 WHERE LOWER(login) = LOWER($user)");
+		debug_out("UPDATE users SET loginFailureCount = loginFailureCount + 1 WHERE LOWER(login) = LOWER($user)");
 	} else {
 		$stmt = $dbh->prepare('UPDATE users SET loginFailureCount=0 WHERE LOWER(login) = LOWER(:user)');
-		debug("UPDATE users SET loginFailureCount=0 WHERE login = $user");
+		debug_out("UPDATE users SET loginFailureCount=0 WHERE login = $user");
 	}
 	
 	$stmt->bindParam(':user', $user);
@@ -281,7 +281,7 @@ function is_admin($uid) {
 function add_user($login, $realname, $pass, $is_admin = false) {
 	$dbh = &get_db();
 	$stmt = $dbh->prepare('INSERT INTO users(login, realname, password, is_admin) VALUES(:login, :realname, SHA1(:password), :is_admin)');
-	debug("INSERT INTO users(login, realname, password, is_admin) VALUES($login, $realname, SHA1($pass), $is_admin)");
+	debug_out("INSERT INTO users(login, realname, password, is_admin) VALUES($login, $realname, SHA1($pass), $is_admin)");
 	$stmt->bindParam(':login', $login);
 	$stmt->bindParam(':realname', $realname);
 	$stmt->bindParam(':password', $pass);
@@ -298,13 +298,13 @@ function add_user($login, $realname, $pass, $is_admin = false) {
 	$dbh = &get_db();
 	if ($password != '') {
 		$stmt = $dbh->prepare('UPDATE users SET realname=:realname, password=SHA1(:password) WHERE LOWER(login)=LOWER(:login)');
-		debug("UPDATE users SET realname=$realname, password=SHA1($password) WHERE LOWER(login)=LOWER($login)");
+		debug_out("UPDATE users SET realname=$realname, password=SHA1($password) WHERE LOWER(login)=LOWER($login)");
 		$stmt->bindParam(':realname', $realname);
 		$stmt->bindParam(':password', $password);
 		$stmt->bindParam(':login', $login);
 	} else {
 		$stmt = $dbh->prepare('UPDATE users SET realname=:realname WHERE LOWER(login)=LOWER(:login)');
-		debug("UPDATE users SET realname=$realname WHERE LOWER(login)=LOWER($login)");
+		debug_out("UPDATE users SET realname=$realname WHERE LOWER(login)=LOWER($login)");
 		$stmt->bindParam(':realname', $realname);
 		$stmt->bindParam(':login', $login);
 	}
