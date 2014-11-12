@@ -6,12 +6,12 @@ $uri = $_SERVER['REQUEST_URI'];
 
 // Each item like: 'Page title' => [ 'URL (opt. regex)', 'page php file' ]
 $pages = [
-	'Home' => ['/', 'home.html'],
+	'Home' => ['/', 'home.twig'],
 	'Documentation' => ['/documentation(/.*)?', 'documentation.php'],
-	'Get Involved' => ['/get-involved', 'get-involved.html'],
+	'Get Involved' => ['/get-involved', 'get-involved.twig'],
 	'Community' => ['/community', 'community.php'],
 	'Screenshots' => ['/screenshots', 'screenshots.php'],
-	'Showcase' => ['/showcase', 'showcase.html'],
+	'Showcase' => ['/showcase', 'showcase.twig'],
 	'Download' => ['/download', 'download.php']
 ];
 
@@ -33,7 +33,7 @@ foreach ($pages as $key => $page) {
 			// Include the page's php file and exit
 			require_once($file);
 			exit();
-		} elseif (str_endswith($file, '.html')) {
+		} elseif (str_endswith($file, '.twig')) {
 			require_once('navbar.php');
 
 			$loader = new Twig_Loader_Filesystem('../templates');
