@@ -11,7 +11,7 @@ $pages = [
 	'Get Involved' => ['/get-involved', 'get-involved.html'],
 	'Community' => ['/community', 'community.php'],
 	'Screenshots' => ['/screenshots', 'screenshots.php'],
-	'Showcase' => ['/showcase', 'showcase.php'],
+	'Showcase' => ['/showcase', 'showcase.html'],
 	'Download' => ['/download', 'download.php']
 ];
 
