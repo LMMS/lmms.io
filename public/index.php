@@ -1,4 +1,6 @@
 <?php
+require_once('../vendor/autoload.php');
+require_once('utils.php');
 
 $uri = $_SERVER['REQUEST_URI'];
 
@@ -6,7 +8,7 @@ $uri = $_SERVER['REQUEST_URI'];
 $pages = [
 	'Home' => ['/', 'home.php'],
 	'Documentation' => ['/documentation(/.*)?', 'documentation.php'],
-	'Get Involved' => ['/get-involved', 'get-involved.php'],
+	'Get Involved' => ['/get-involved', 'get-involved.html'],
 	'Community' => ['/community', 'community.php'],
 	'Screenshots' => ['/screenshots', 'screenshots.php'],
 	'Showcase' => ['/showcase', 'showcase.php'],
@@ -27,9 +29,20 @@ foreach ($pages as $key => $page) {
 		// If this is the requested page, set the global pagetitle to be used by the navbar
 		$GLOBALS['pagetitle'] = $key;
 
-		// Include the page's php file and exit
-		require_once($file);
-		exit();
+		if (str_endswith($file, '.php')) {
+			// Include the page's php file and exit
+			require_once($file);
+			exit();
+		} elseif (str_endswith($file, '.html')) {
+			require_once('navbar.php');
+
+			$loader = new Twig_Loader_Filesystem('../templates');
+			$twig = new Twig_Environment($loader, array(
+				//'cache' => '/path/to/compilation_cache',
+			));
+			echo $twig->render($file, ['navbar' => $navbar]);
+			exit();
+		}
 	}
 }
 
