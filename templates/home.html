@@ -1,32 +1,6 @@
-<?php
-include_once('header.php');
-include_once('utils.php');
+{% extends 'base.html' %}
 
-// Some dirty helper functions, may be moved into moved into a separate file
-// or class if/when needed.
-
-// Prints an FontAwesome icon
-function icon($icon)
-{
-	echo "<span class='fa $icon'></span>";
-}
-
-// Prints an FontAwesome icon stack with two icons and a tooltip
-function icon_stack($icon1, $icon2, $parentclass, $tooltip = '')
-{
-	echo "<span class='fa-stack $parentclass' data-toggle='tooltip' data-placement='bottom' title='$tooltip'>";
-	icon($icon1);
-	icon($icon2);
-	echo "</span>";
-}
-
-// Prints an icon stack with the lower one being a double sized circle
-// and the upper one being inversed
-function circle_stack($icon, $class = '', $tooltip = '')
-{
-	icon_stack('fa-circle fa-stack-2x', "$icon fa-stack-1x fa-inverse", $class, $tooltip);
-}
-?>
+{% block content %}
 
 <div class="text-center">
 	<div class="page-header">
@@ -57,9 +31,9 @@ function circle_stack($icon, $class = '', $tooltip = '')
 
 	<div>
 		<div>
-			<a href="/download/#linux"><?php circle_stack('fa-linux', 'fa-3x', 'Download for Linux') ?></a>
-			<a href="/download/#windows"><?php circle_stack('fa-windows', 'fa-3x', 'Download for Windows') ?></a>
-			<a href="/download/#mac"><?php circle_stack('fa-apple', 'fa-3x', 'Download for OS X') ?></a>
+			<a href="/download/#linux">{{ circle_stack('fa-linux', 'fa-3x', 'Download for Linux') }}</a>
+			<a href="/download/#windows">{{ circle_stack('fa-windows', 'fa-3x', 'Download for Windows') }}</a>
+			<a href="/download/#mac">{{ circle_stack('fa-apple', 'fa-3x', 'Download for OS X') }}</a>
 			<h4>Take your pick</h4>
 			<p>for Linux, Windows or Apple OS X</p>
 		</div>
@@ -73,11 +47,11 @@ function circle_stack($icon, $class = '', $tooltip = '')
 
 	<div>
 		<div>
-			<a href="/forum/"><?php circle_stack('fa-comments', 'fa-3x', 'Visit our forum'); ?></a>&nbsp;
-			<a href="http://facebook.com/makefreemusic"><?php circle_stack('fa-facebook', 'fa-3x', 'Visit our Facebook page'); ?></a>&nbsp;
+			<a href="/forum/">{{ circle_stack('fa-comments', 'fa-3x', 'Visit our forum') }}</a>&nbsp;
+			<a href="http://facebook.com/makefreemusic">{{ circle_stack('fa-facebook', 'fa-3x', 'Visit our Facebook page') }}</a>&nbsp;
 			<a href="https://plus.google.com/u/0/113001340835122723950/posts">
-				<?php circle_stack('fa-google', 'fa-3x', 'Visit our Google+ page'); ?></a>&nbsp;
-			<a href="http://github.com/lmms/lmms"><?php circle_stack('fa-github', 'fa-3x', 'Visit our GitHub page'); ?></a>
+				{{ circle_stack('fa-google', 'fa-3x', 'Visit our Google+ page') }}</a>&nbsp;
+			<a href="http://github.com/lmms/lmms">{{ circle_stack('fa-github', 'fa-3x', 'Visit our GitHub page') }}</a>
 			<h4>Ask your questions here</h4>
 			<p>and answer a few questions while you're waiting.</p>
 		</div>
@@ -92,8 +66,8 @@ function circle_stack($icon, $class = '', $tooltip = '')
 	<div>
 		<div>
 			<a href="https://soundcloud.com/groups/linux-multimedia-studio">
-				<?php circle_stack('fa-soundcloud', 'fa-3x', 'Visit our Soundcloud group'); ?></a>
-			<a href="/lsp/"><?php circle_stack('fa-volume-down', 'fa-3x', 'Visit the LMMS Sharing Platform (LSP)'); ?></a>
+				{{ circle_stack('fa-soundcloud', 'fa-3x', 'Visit our Soundcloud group') }}</a>
+			<a href="/lsp/">{{ circle_stack('fa-volume-down', 'fa-3x', 'Visit the LMMS Sharing Platform (LSP)') }}</a>
 			<h4>Don't be modest,</h4>
 			<p>show us your creations.</p>
 		</div>
@@ -105,15 +79,15 @@ function circle_stack($icon, $class = '', $tooltip = '')
 		</div>
 		<div class="col-lg-4">
 			<h4>Overall Project</h4>
-			<?php make_reflection('img/ss_proj.png', NULL, "white"); ?>
+			{{ make_reflection('img/ss_proj.png', NULL, "white") }}
 		</div>
 		<div class="col-lg-4">
 			<h4>Song Editor</h4>
-			<?php make_reflection('img/ss_song.png', NULL, "white"); ?>
+			{{ make_reflection('img/ss_song.png', NULL, "white") }}
 		</div>
 		<div class="col-lg-4">
 			<h4>Native Instruments</h4>
-			<?php make_reflection('img/ss_instr.png', NULL, "white"); ?>
+			{{ make_reflection('img/ss_instr.png', NULL, "white") }}
 		</div>
 	</div>
 	<p class="text-center visible-lg">More screenshots can be found <a href="/screenshots/">here</a>.</p>
@@ -170,4 +144,5 @@ $(document).ready(function(){
 </script>
 
 <br>
-<?php include('footer.php'); ?>
+
+{% endblock %}

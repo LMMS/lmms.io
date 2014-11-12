@@ -21,6 +21,13 @@ function str_endswith($haystack, $needle, $ignorecase = FALSE) {
     return $needle === "" || substr($haystack, -strlen($needle)) === $needle;
 }
 
+/*
+ * Helper function to replace first occurance
+ */
+function str_replace_first($find, $replace, $subject) {
+	return implode($replace, explode($find, $subject, 2));
+}
+
 function make_reflection($image_path, $thumbnail_path = NULL, $blackorwhite = 'black', $class = '') {
 	// If no thumbnail is supplied, try 'th_' . $image_path
 	if (!$thumbnail_path) {
@@ -37,11 +44,24 @@ function make_reflection($image_path, $thumbnail_path = NULL, $blackorwhite = 'b
 	echo '</div>';
 }
 
-/*
- * Helper function to replace first occurance
- */
-function str_replace_first($find, $replace, $subject) {
-	return implode($replace, explode($find, $subject, 2));
+// Prints an FontAwesome icon
+function icon($icon)
+{
+	return "<span class='fa $icon'></span>";
+}
+
+// Prints an FontAwesome icon stack with two icons and a tooltip
+function icon_stack($icon1, $icon2, $parentclass, $tooltip = '')
+{
+	return "<span class='fa-stack $parentclass' data-toggle='tooltip' data-placement='bottom' title='$tooltip'>" .
+		icon($icon1) . icon($icon2) . "</span>";
+}
+
+// Prints an icon stack with the lower one being a double sized circle
+// and the upper one being inversed
+function circle_stack($icon, $class = '', $tooltip = '')
+{
+	return icon_stack('fa-circle fa-stack-2x', "$icon fa-stack-1x fa-inverse", $class, $tooltip);
 }
 
 ?>

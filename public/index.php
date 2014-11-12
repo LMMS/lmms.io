@@ -1,12 +1,12 @@
 <?php
-require_once('../vendor/autoload.php');
-require_once('utils.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/../vendor/autoload.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/utils.php');
 
 $uri = $_SERVER['REQUEST_URI'];
 
 // Each item like: 'Page title' => [ 'URL (opt. regex)', 'page php file' ]
 $pages = [
-	'Home' => ['/', 'home.php'],
+	'Home' => ['/', 'home.html'],
 	'Documentation' => ['/documentation(/.*)?', 'documentation.php'],
 	'Get Involved' => ['/get-involved', 'get-involved.html'],
 	'Community' => ['/community', 'community.php'],
@@ -40,6 +40,14 @@ foreach ($pages as $key => $page) {
 			$twig = new Twig_Environment($loader, array(
 				//'cache' => '/path/to/compilation_cache',
 			));
+
+			$safehtml = ['is_safe' => ['html']];
+			$twig->addFunction(new Twig_SimpleFunction('icon', 'icon', $safehtml));
+			$twig->addFunction(new Twig_SimpleFunction('icon_stack', 'icon_stack', $safehtml));
+			$twig->addFunction(new Twig_SimpleFunction('circle_stack', 'circle_stack', $safehtml));
+			$twig->addFunction(new Twig_SimpleFunction('make_reflection', 'make_reflection', $safehtml));
+
+
 			echo $twig->render($file, ['navbar' => $navbar]);
 			exit();
 		}
