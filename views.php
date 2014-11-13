@@ -1,6 +1,7 @@
 <?php
-
+require_once('../vendor/autoload.php');
 require_once('../lib/RemWiki/RemWiki.php');
+require_once('../lib/Releases.php');
 
 /* Documentation page */
 function documentationPage($page=null)
@@ -21,12 +22,17 @@ function documentationPage($page=null)
 }
 
 /* Downloads page */
-require_once('feed/releases.php');
-$app['twig']->addFunction(new Twig_SimpleFunction('get_releases', 'get_releases', ['is_safe' => ['html']]));
 function downloadPage()
 {
+	$releases = new Releases();
+
 	global $app;
-	return $app['twig']->render('download/index.twig');
+	return $app['twig']->render('download/index.twig', [
+		'winstable' => [$releases->latestWin32Asset(), $releases->latestWin64Asset()],
+		'winpre' => [$releases->latestWin32Asset(false), $releases->latestWin64Asset(false)],
+		'osxstable' => $releases->latestOSXAsset(),
+		'osxpre' => $releases->latestOSXAsset(false)
+	]);
 }
 
 require_once('artwork.php');

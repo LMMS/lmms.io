@@ -1,4 +1,4 @@
-<?php require_once('feed/releases.php');
+<?php
 
 /*
  * Creates a small summary box about an artwork item
