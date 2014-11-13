@@ -1,6 +1,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/../vendor/autoload.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/utils.php');
+require_once('../views.php');
 require_once('navbar.php');
 
 $app = new Silex\Application();
@@ -24,13 +25,14 @@ function twigrender($file)
 // Set up routes
 $app->get('/', twigrender('home.twig'));
 $app->get('/get-involved/', twigrender('get-involved.twig'));
+$app->get('/documentation/', 'documentationPage');
+$app->get('/documentation/{page}', 'documentationPage');
 $app->get('/showcase/', twigrender('showcase.twig'));
 
 $uri = $_SERVER['REQUEST_URI'];
 
 // Each item like: 'Page title' => [ 'URL (opt. regex)', 'page php file' ]
 $pages = [
-	'Documentation' => ['/documentation(/.*)?', 'documentation.php'],
 	'Community' => ['/community', 'community.php'],
 	'Screenshots' => ['/screenshots', 'screenshots.php'],
 	'Download' => ['/download', 'download.php']
