@@ -28,13 +28,13 @@ $app->get('/get-involved/', twigrender('get-involved.twig'));
 $app->get('/documentation/', 'documentationPage');
 $app->get('/documentation/{page}', 'documentationPage');
 $app->get('/showcase/', twigrender('showcase.twig'));
+$app->get('/screenshots/', 'screenshotsPage');
 
 $uri = $_SERVER['REQUEST_URI'];
 
 // Each item like: 'Page title' => [ 'URL (opt. regex)', 'page php file' ]
 $pages = [
 	'Community' => ['/community', 'community.php'],
-	'Screenshots' => ['/screenshots', 'screenshots.php'],
 	'Download' => ['/download', 'download.php']
 ];
 

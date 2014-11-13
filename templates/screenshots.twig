@@ -1,0 +1,16 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+<h1>Screenshots</h1>
+
+<div class="row text-center overflow-hidden">
+{% for screenshot in screenshots %}
+	<div class="col-lg-4">
+		<h4>{{ screenshot.title }}</h4>
+		{{ make_reflection(screenshot.path, NULL, 'white') }}
+	</div>
+{% endfor %}
+
+
+{{ text|raw }}
+{% endblock %}
