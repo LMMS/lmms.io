@@ -8,6 +8,7 @@
 		"mgargano/simplehtmldom": "1.5",
 		"kellan/magpierss": "dev-master",
 		"knplabs/gaufrette": "0.1.*",
-		"twig/twig": "~1.0"
+		"twig/twig": "~1.0",
+		"silex/silex": "~1.2"
 	}
 }

@@ -1,17 +1,38 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/../vendor/autoload.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/utils.php');
+require_once('navbar.php');
+
+$app = new Silex\Application();
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
+	'twig.path' => __DIR__.'/../templates',
+	));
+
+$app['twig']->addGlobal('navbar', $navbar);
+$app['twig']->addFunction(new Twig_SimpleFunction('make_reflection', 'make_reflection', ['is_safe' => ['html']]));
+
+$app['debug'] = true;
+
+function twigrender($file)
+{
+	global $app;
+	return function() use ($app, $file) {
+		return $app['twig']->render($file);
+	};
+}
+
+// Set up routes
+$app->get('/', twigrender('home.twig'));
+$app->get('/get-involved/', twigrender('get-involved.twig'));
+$app->get('/showcase/', twigrender('showcase.twig'));
 
 $uri = $_SERVER['REQUEST_URI'];
 
 // Each item like: 'Page title' => [ 'URL (opt. regex)', 'page php file' ]
 $pages = [
-	'Home' => ['/', 'home.twig'],
 	'Documentation' => ['/documentation(/.*)?', 'documentation.php'],
-	'Get Involved' => ['/get-involved', 'get-involved.twig'],
 	'Community' => ['/community', 'community.php'],
 	'Screenshots' => ['/screenshots', 'screenshots.php'],
-	'Showcase' => ['/showcase', 'showcase.twig'],
 	'Download' => ['/download', 'download.php']
 ];
 
@@ -29,27 +50,10 @@ foreach ($pages as $key => $page) {
 		// If this is the requested page, set the global pagetitle to be used by the navbar
 		$GLOBALS['pagetitle'] = $key;
 
-		if (str_endswith($file, '.php')) {
-			// Include the page's php file and exit
-			require_once($file);
-			exit();
-		} elseif (str_endswith($file, '.twig')) {
-			require_once('navbar.php');
-
-			$loader = new Twig_Loader_Filesystem('../templates');
-			$twig = new Twig_Environment($loader, array(
-				//'cache' => '/path/to/compilation_cache',
-			));
-
-			$safehtml = ['is_safe' => ['html']];
-			$twig->addFunction(new Twig_SimpleFunction('make_reflection', 'make_reflection', $safehtml));
-
-
-			echo $twig->render($file, ['navbar' => $navbar]);
-			exit();
-		}
+		// Include the page's php file and exit
+		require_once($file);
+		exit();
 	}
 }
 
-// If no page is found, load 404
-require_once('404.php');
+$app->run();

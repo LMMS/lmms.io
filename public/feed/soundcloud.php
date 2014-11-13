@@ -1,5 +1,5 @@
 <?php
-include_once('json_common.php');
+include_once('feed/json_common.php');
 
 /*
  * Echo out the data
@@ -17,7 +17,7 @@ foreach ($obj as $item) {
 		'soundcloud', 					// $service	i.e. "facebook"
 		$item->title, 						// $title 	i.e. "LMMS Released!"
 		$item->permalink_url, 			// $href	i.e. "http://facebook.com/post1234"
-		trim_feed($item->description, $item->permalink_url),	// $message   i.e "We are pleased to announce..." 
+		trim_feed($item->description, $item->permalink_url),	// $message   i.e "We are pleased to announce..."
 		$item->user->username, 			// $author	i.e. "John Smith"
 		$item->user->permalink_url, 	// $author_href	i.e. "http://facebook.com/user1234"
 		$item->created_at,				// $date	i.e. "2014-01-01 00:00:00"

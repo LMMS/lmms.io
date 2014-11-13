@@ -1,6 +1,6 @@
 <?php
 
-include_once('json_common.php');
+include_once('feed/json_common.php');
 
 
 /*
@@ -39,16 +39,16 @@ function get_releases($release = NULL, $name_filter = NULL, $repo = NULL, $max_r
 			$found = 0;
 			foreach($item->assets as $asset) {
 				$text = $item->name . '&nbsp;(' . get_os_name($asset->name) . ')';
-				
+
 				// Only show prerelease
-				if ($release == 'prerelease' || $release == NULL) {	
+				if ($release == 'prerelease' || $release == NULL) {
 					// Change to warning button for prerelease
 					if ($item->prerelease) {
 						$text = $text . '&nbsp;<span class="fa fa-exclamation-circle text-default"></span>';
 						// make_button($asset, $button_style, $text, $icon_style, $name_filter)
 						$found += make_button($asset, 'btn-warning', $text, 'download-icon', $name_filter);
 					}
-				} 
+				}
 				// Only show stable
 				else if ($release == 'stable' || $release == NULL) {
 					if (!$item->prerelease) {
@@ -67,7 +67,7 @@ function get_releases($release = NULL, $name_filter = NULL, $repo = NULL, $max_r
 				echo '<div id="collapse_' .  $div_id . '" class="collapse"><div class="release-notes"><pre>' . $created . $item->body . '</pre></div></div>';
 				echo '</div><hr>';
 			}
-			
+
 			if ($count >= $max_releases) {
 				break;
 			}
@@ -82,8 +82,8 @@ function make_button($asset, $button_style, $text, $icon_style, $name_filter) {
 	// If no $name_filter is provided, echo.  If $name_filter is provided, filter based on name
 	if (!$name_filter || ($name_filter && (strpos($asset->name,$name_filter) !== false))) {
 		$title = $asset->name . " (" . number_format($asset->download_count) . ")";
-		echo '<a data-dl-count="' . $asset->download_count . '" class="btn btn-lg btn-dl ' . 
-			$button_style . '" href="' . $asset->browser_download_url . '" title="' . $title . '"><span id="button-title">LMMS</span><br>' . 
+		echo '<a data-dl-count="' . $asset->download_count . '" class="btn btn-lg btn-dl ' .
+			$button_style . '" href="' . $asset->browser_download_url . '" title="' . $title . '"><span id="button-title">LMMS</span><br>' .
 			'<span class="fa fa-download ' . $icon_style . '"></span><big>Free Download</big><br>' .
 			'<small>' . $text . '</small></a> ';
 		return 1;
