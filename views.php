@@ -20,6 +20,23 @@ function documentationPage($page=null)
 	]);
 }
 
+/* Downloads page */
+require_once('feed/releases.php');
+$app['twig']->addFunction(new Twig_SimpleFunction('get_releases', 'get_releases', ['is_safe' => ['html']]));
+function downloadPage()
+{
+	global $app;
+	return $app['twig']->render('download/index.twig');
+}
+
+require_once('artwork.php');
+$app['twig']->addFunction(new Twig_SimpleFunction('create_artwork_item', 'create_artwork_item', ['is_safe' => ['html']]));
+function artworkPage()
+{
+	global $app;
+	return $app['twig']->render('download/artwork.twig');
+}
+
 /* Screenshots page */
 function screenshotsPage()
 {

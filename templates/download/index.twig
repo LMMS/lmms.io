@@ -1,6 +1,6 @@
-<?php include('../header.php'); ?>
-<?php include('../feed/releases.php'); ?>
+{% extends 'base.twig' %}
 
+{% block content %}
 <div class="text-center">
 	<h1>Download LMMS</h1>
 
@@ -22,21 +22,21 @@
 </div><hr>
 
 <div id="linux-div" class="text-center hidden">
-	<?php include('linux.php'); ?>
+	{% include 'download/linux.twig' %}
 </div>
 <div id="windows-div" class="text-center hidden">
 	<h2>Install LMMS on Windows</h2>
 	<p>Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows</p>
-	<?php get_releases('stable', '.exe'); ?>
+	{{ get_releases('stable', '.exe') }}
 	<h3>Beta Versions</h3>
-	<?php get_releases('prerelease', '.exe'); ?>
+	{{ get_releases('prerelease', '.exe') }}
 </div>
 <div id="mac-div" class="text-center hidden">
 	<h2>Install LMMS on Apple OS&nbsp;X</h2>
 	<p>Click one of the buttons below to download LMMS for Apple</p>
-	<?php get_releases('stable', '.dmg'); ?>
+	{{ get_releases('stable', '.dmg') }}
 	<h3>Beta Versions</h3>
-	<?php get_releases('prerelease', '.dmg'); ?>
+	{{ get_releases('prerelease', '.dmg') }}
 </div>
 <div id="prerelease" class="text-center"><small><span class="fa fa-exclamation-circle"></span> Denotes pre-release software, stability may suffer.</small></div>
 
@@ -56,12 +56,12 @@ function showOS(os) {
 	}
 
 	$(os+"-button").tab("show");
-	
+
 	hide('#windows-div');
 	hide('#linux-div');
 	hide('#mac-div');
 	show(os+'-div');
-	
+
 	$(os+"-button").parent().addClass("active") ;
 }
 
@@ -73,7 +73,7 @@ function showLinux() {
 	} else {
 		$('#linux-tabs a[href="#linux-debian"]').tab('show');
 	}
-	
+
 	$('#linux-tabs a').click(function (e) {
 		e.preventDefault();
 		$(this).tab('show');
@@ -121,4 +121,4 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 </script>
 
-<?php include('../footer.php'); ?>
+{% endblock %}

@@ -1,7 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/../vendor/autoload.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/utils.php');
-require_once('../views.php');
 require_once('navbar.php');
 
 $app = new Silex\Application();
@@ -22,11 +21,15 @@ function twigrender($file)
 	};
 }
 
+require_once('../views.php');
 // Set up routes
 $app->get('/', twigrender('home.twig'));
 $app->get('/get-involved/', twigrender('get-involved.twig'));
 $app->get('/documentation/', 'documentationPage');
 $app->get('/documentation/{page}', 'documentationPage');
+$app->get('/download/', 'downloadPage');
+$app->get('/download/artwork', twigrender('download/artwork.twig'));
+$app->get('/download/samples', twigrender('download/samples.twig'));
 $app->get('/showcase/', twigrender('showcase.twig'));
 $app->get('/screenshots/', 'screenshotsPage');
 
@@ -34,8 +37,7 @@ $uri = $_SERVER['REQUEST_URI'];
 
 // Each item like: 'Page title' => [ 'URL (opt. regex)', 'page php file' ]
 $pages = [
-	'Community' => ['/community', 'community.php'],
-	'Download' => ['/download', 'download.php']
+	'Community' => ['/community', 'community.php']
 ];
 
 // Loop all pages to find the one requested
