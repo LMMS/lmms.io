@@ -42,9 +42,6 @@ foreach ($pages as $key => $page) {
 			));
 
 			$safehtml = ['is_safe' => ['html']];
-			$twig->addFunction(new Twig_SimpleFunction('icon', 'icon', $safehtml));
-			$twig->addFunction(new Twig_SimpleFunction('icon_stack', 'icon_stack', $safehtml));
-			$twig->addFunction(new Twig_SimpleFunction('circle_stack', 'circle_stack', $safehtml));
 			$twig->addFunction(new Twig_SimpleFunction('make_reflection', 'make_reflection', $safehtml));
 
 

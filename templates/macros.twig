@@ -1,0 +1,20 @@
+{# Prints an FontAwesome icon #}
+{% macro icon(icon) %}
+	<span class='fa {{ icon }}'></span>
+{% endmacro %}
+
+{# Prints an FontAwesome icon stack with two icons and a tooltip #}
+{% macro icon_stack(icon1, icon2, parentclass, tooltip) %}
+	{% import _self as macros %}
+	<span class='fa-stack {{ parentclass }}' data-toggle='tooltip' data-placement='bottom' title='{{ tooltip }}'>
+		{{ macros.icon(icon1) }}
+		{{ macros.icon(icon2) }}
+	</span>
+{% endmacro %}
+
+{# Prints an icon stack with the lower one being a double sized circle
+   and the upper one being inversed #}
+{% macro circle_stack(icon, class = '', tooltip = '') %}
+	{% import _self as macros %}
+	{{ macros.icon_stack('fa-circle fa-stack-2x', "#{icon} fa-stack-1x fa-inverse", class , tooltip ) }}
+{% endmacro %}

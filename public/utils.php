@@ -44,24 +44,4 @@ function make_reflection($image_path, $thumbnail_path = NULL, $blackorwhite = 'b
 	echo '</div>';
 }
 
-// Prints an FontAwesome icon
-function icon($icon)
-{
-	return "<span class='fa $icon'></span>";
-}
-
-// Prints an FontAwesome icon stack with two icons and a tooltip
-function icon_stack($icon1, $icon2, $parentclass, $tooltip = '')
-{
-	return "<span class='fa-stack $parentclass' data-toggle='tooltip' data-placement='bottom' title='$tooltip'>" .
-		icon($icon1) . icon($icon2) . "</span>";
-}
-
-// Prints an icon stack with the lower one being a double sized circle
-// and the upper one being inversed
-function circle_stack($icon, $class = '', $tooltip = '')
-{
-	return icon_stack('fa-circle fa-stack-2x', "$icon fa-stack-1x fa-inverse", $class, $tooltip);
-}
-
 ?>

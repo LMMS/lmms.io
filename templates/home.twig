@@ -1,4 +1,5 @@
 {% extends 'base.twig' %}
+{% import 'macros.twig' as macros %}
 
 {% block header %}
 <div class="jumbotron jumbo">
@@ -46,9 +47,9 @@
 
 	<div>
 		<div>
-			<a href="/download/#linux">{{ circle_stack('fa-linux', 'fa-3x', 'Download for Linux') }}</a>
-			<a href="/download/#windows">{{ circle_stack('fa-windows', 'fa-3x', 'Download for Windows') }}</a>
-			<a href="/download/#mac">{{ circle_stack('fa-apple', 'fa-3x', 'Download for OS X') }}</a>
+			<a href="/download/#linux">{{ macros.circle_stack('fa-linux', 'fa-3x', 'Download for Linux') }}</a>
+			<a href="/download/#windows">{{ macros.circle_stack('fa-windows', 'fa-3x', 'Download for Windows') }}</a>
+			<a href="/download/#mac">{{ macros.circle_stack('fa-apple', 'fa-3x', 'Download for OS X') }}</a>
 			<h4>Take your pick</h4>
 			<p>for Linux, Windows or Apple OS X</p>
 		</div>
@@ -62,11 +63,11 @@
 
 	<div>
 		<div>
-			<a href="/forum/">{{ circle_stack('fa-comments', 'fa-3x', 'Visit our forum') }}</a>&nbsp;
-			<a href="http://facebook.com/makefreemusic">{{ circle_stack('fa-facebook', 'fa-3x', 'Visit our Facebook page') }}</a>&nbsp;
+			<a href="/forum/">{{ macros.circle_stack('fa-comments', 'fa-3x', 'Visit our forum') }}</a>&nbsp;
+			<a href="http://facebook.com/makefreemusic">{{ macros.circle_stack('fa-facebook', 'fa-3x', 'Visit our Facebook page') }}</a>&nbsp;
 			<a href="https://plus.google.com/u/0/113001340835122723950/posts">
-				{{ circle_stack('fa-google', 'fa-3x', 'Visit our Google+ page') }}</a>&nbsp;
-			<a href="http://github.com/lmms/lmms">{{ circle_stack('fa-github', 'fa-3x', 'Visit our GitHub page') }}</a>
+				{{ macros.circle_stack('fa-google', 'fa-3x', 'Visit our Google+ page') }}</a>&nbsp;
+			<a href="http://github.com/lmms/lmms">{{ macros.circle_stack('fa-github', 'fa-3x', 'Visit our GitHub page') }}</a>
 			<h4>Ask your questions here</h4>
 			<p>and answer a few questions while you're waiting.</p>
 		</div>
@@ -81,8 +82,8 @@
 	<div>
 		<div>
 			<a href="https://soundcloud.com/groups/linux-multimedia-studio">
-				{{ circle_stack('fa-soundcloud', 'fa-3x', 'Visit our Soundcloud group') }}</a>
-			<a href="/lsp/">{{ circle_stack('fa-volume-down', 'fa-3x', 'Visit the LMMS Sharing Platform (LSP)') }}</a>
+				{{ macros.circle_stack('fa-soundcloud', 'fa-3x', 'Visit our Soundcloud group') }}</a>
+			<a href="/lsp/">{{ macros.circle_stack('fa-volume-down', 'fa-3x', 'Visit the LMMS Sharing Platform (LSP)') }}</a>
 			<h4>Don't be modest,</h4>
 			<p>show us your creations.</p>
 		</div>
