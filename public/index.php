@@ -101,7 +101,7 @@ function circle_stack($icon, $class = '', $tooltip = '')
 	<br><br>
 	<div class="overflow-hidden">
 		<div class="page-header">
-			<h2>Take a peek</h2>
+			<h2 id="screenshots">Take a peek</h2>
 		</div>
 		<div class="col-lg-4">
 			<h4>Overall Project</h4>
