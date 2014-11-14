@@ -11,6 +11,7 @@ $app['twig']->addGlobal('navbar', $navbar);
 
 $app['debug'] = true;
 
+
 function twigrender($file)
 {
 	global $app;
@@ -20,21 +21,25 @@ function twigrender($file)
 }
 
 require_once('../views.php');
-// Set up routes
-$app->get('/', twigrender('home.twig'));
-$app->get('/community/', function () use($app) {
-	require_once('community.php');
-	return '';
-});
-$app->get('/documentation/', 'documentationPage');
-$app->get('/documentation/{page}', 'documentationPage');
-$app->get('/download/', 'downloadPage');
-$app->get('/download/artwork', twigrender('download/artwork.twig'));
-$app->get('/download/samples', twigrender('download/samples.twig'));
-$app->get('/get-involved/', twigrender('get-involved.twig'));
-$app->get('/screenshots/', 'screenshotsPage');
-$app->get('/showcase/', twigrender('showcase.twig'));
 
-$uri = $_SERVER['REQUEST_URI'];
+$pages = [
+	['/', twigrender('home.twig')],
+	['/community/', function () use($app) {
+		require_once('community.php');
+		return '';
+	}],
+	['/documentation/', 'documentationPage'],
+	['/documentation/{page}', 'documentationPage'],
+	['/download/', 'downloadPage'],
+	['/download/artwork', twigrender('download/artwork.twig')],
+	['/download/samples', twigrender('download/samples.twig')],
+	['/get-involved/', twigrender('get-involved.twig')],
+	['/screenshots/', 'screenshotsPage'],
+	['/showcase/', twigrender('showcase.twig')]
+];
+
+foreach ($pages as $page) {
+	$app->get($page[0], $page[1]);
+}
 
 $app->run();
