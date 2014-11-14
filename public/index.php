@@ -25,8 +25,11 @@ require_once('../views.php');
 $pages = [
 	['/', twigrender('home.twig')],
 	['/community/', function () use($app) {
+		ob_start();
 		require_once('community.php');
-		return '';
+		$html = ob_get_contents();
+		ob_end_clean();
+		return $html;
 	}],
 	['/documentation/', 'documentationPage'],
 	['/documentation/{page}', 'documentationPage'],
