@@ -38,6 +38,11 @@
  *		$obj = get_json_data('google', 'activities', '?maxResults=25');
  */
 
+global $max_age, $cache_dir, $secrets_dir, $alt_secrets_dir,
+	   $github_api_url, $google_api_url, $facebook_api_url, $soundcloud_api_url, $youtube_api_url,
+	   $github_id, $google_id, $facebook_id, $soundcloud_id, $youtube_id,
+       $github_cache_file, $google_cache_file, $facebook_cache_file, $soundcloud_cache_file, $youtube_cache_file;
+
 /*
  * Maximum age, in minutes before refreshing the cache
  */
@@ -45,7 +50,6 @@ $max_age = filter_input(INPUT_GET, 'max_age');
 if (!isset($max_age)) {
 	$max_age = 120;
 }
-
 
 
 /*
