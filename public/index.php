@@ -8,7 +8,6 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 	));
 
 $app['twig']->addGlobal('navbar', $navbar);
-$app['twig']->addFunction(new Twig_SimpleFunction('make_reflection', 'make_reflection', ['is_safe' => ['html']]));
 
 $app['debug'] = true;
 

@@ -56,7 +56,8 @@ function screenshotsPage()
 		if (str_startswith($file, 'ss_', true) && str_endswith($file, '.png', true)) {
 			$screenshots[] = [
 				'title' => humanize_title($file),
-				'path' => '/' . $ss_dir . $file
+				'path' => '/' . $ss_dir . $file,
+				'th_path' => '/' . $ss_dir . 'th_' . $file
 			];
 		}
 	}

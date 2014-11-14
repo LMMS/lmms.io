@@ -1,4 +1,5 @@
 {% extends 'base.twig' %}
+{% import 'macros.twig' as macros %}
 
 {% block content %}
 <h1>Screenshots</h1>
@@ -7,10 +8,9 @@
 {% for screenshot in screenshots %}
 	<div class="col-lg-4">
 		<h4>{{ screenshot.title }}</h4>
-		{{ make_reflection(screenshot.path, NULL, 'white') }}
+		{{ macros.make_reflection(screenshot.path, screenshot.th_path, 'white') }}
 	</div>
 {% endfor %}
+</div>
 
-
-{{ text|raw }}
 {% endblock %}
