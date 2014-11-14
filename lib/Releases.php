@@ -8,7 +8,7 @@ class Releases
 		$client = new \Github\Client(
 			new \Github\HttpClient\CachedHttpClient(['cache_dir' => '/tmp/github-api-cache'])
 		);
-		$this->json = $client->api('repo')->releases()->all('LMMS', 'lmms');
+		$this->json = $client->api('repo')->releases()->all($owner, $repo);
 	}
 
 	public function latestAsset($pattern, $stable = true)
