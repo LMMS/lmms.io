@@ -380,9 +380,9 @@ function get_file_url($file_id = null) {
 
 /*
  * Scrapes a message for a link to a service such as YouTube or SoundCloud and
- * embeds a player
+ * embeds a player. Also turns links into appropriate hyperlinks.
  */
-function embed_player($message, $width = "100%", $height = 120) {
+function parse_links($message, $width = "100%", $height = 120) {
 	// Process youtube.com
 	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i', youtube_iframe('$1', $width, $height), $message);
 	
@@ -392,6 +392,9 @@ function embed_player($message, $width = "100%", $height = 120) {
 	// Process soundcloud
 	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*soundcloud.com\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)/i', '<sc>$1/$2</sc>', $message);
 	return soundcloud_iframe($message, $width, $height);
+
+	// Process links
+	$message = preg_replace('#(?:[^"])\b((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i', '<a href="$1" target="_blank">$1</a>', $message);
 }
 
 /*

@@ -859,7 +859,7 @@ function show_file($file_id, $user, $success = null) {
 			echo '</td></tr>';
 			
 			echo '<tr><td colspan="2"><div class="well"><strong>Description:</strong><p>';
-			echo ($object['description'] != '' ? embed_player(newline_to_br($object['description'], true)) : 'No description available.');
+			echo ($object['description'] != '' ? parse_links(newline_to_br($object['description'], true)) : 'No description available.');
 			echo '</p></div></td></tr>';
 			
 			echo '<tr><td colspan="2">';
