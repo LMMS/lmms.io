@@ -390,7 +390,7 @@ function parse_links($message, $width = "100%", $height = 120) {
 	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*youtu.be\/([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i',  youtube_iframe('$1', $width, $height) , $message);
 	
 	// Process links
-	$message = preg_replace('#(?:[^"])\b((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i', '<a href="$1" target="_blank">$1</a>', $message);
+	$message = preg_replace('#([^"])\b((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i', '$1<a href="$2" target="_blank">$2</a>', $message);
 
 	// Process soundcloud
 	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*soundcloud.com\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)/i', '<sc>$1/$2</sc>', $message);
