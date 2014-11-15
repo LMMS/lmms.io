@@ -394,13 +394,6 @@ function embed_player($message, $width = "100%", $height = 120) {
 	return soundcloud_iframe($message, $width, $height);
 }
 
-function youtube_iframe($url_part, $width, $height) {
-	$html = '<iframe width="' . $width . '" height="' . $width . '" src="http://www.youtube.com/embed/' . 
-		$url_part . '" frameborder="0" allowfullscreen></iframe>';
-		
-	return $html;
-}
-
 /*
  * Gets the content type of an file based on extension.
  * Necessary for interpreting a LSP image attachment as an image

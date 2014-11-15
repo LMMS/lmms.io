@@ -152,4 +152,30 @@ function parse_extension($file_path) {
 	}
 }
 
+/*
+ * Embed youtube iframe based on URL 
+ */
+function youtube_iframe($url, $width = 300, $height = -1, $opts = '') {
+	if ($height == -1) {
+		$height = intval((9 * $width) / 16);
+	}
+	// Snag the url part from the full URL
+	if (strpos($url, "http://") === 0 || strpos($url, "https://") === 0) {
+		$parts = parse_url($url);
+		if (isset($parts['query'])) {
+			parse_str($parts['query'], $query);
+			if (isset($query['v']) ){
+				$url = $query['v'];
+			}
+		} else {
+			$url = $parts['path'];
+		}
+	}
+	
+	$html = '<iframe width="' . $width . '" height="' . $height . '" src="//www.youtube.com/embed/' . 
+		$url . $opts . '" frameborder="0" allowfullscreen></iframe>';
+		
+	return $html;
+}
+
 ?>
