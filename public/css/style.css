@@ -65,6 +65,12 @@ div.jumbo {
 	color: #fff;
 }
 
+.jumbotron-video {
+	background-color: #428bca;
+	border: 1px solid #2b669a;
+	height: 195px;
+}
+
 /* Fix for forum back-to-top button */
 .back-to-top {
 	z-index: 1;

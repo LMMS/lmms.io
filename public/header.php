@@ -30,8 +30,9 @@ require_once('navbar.php');
 			?>
 		<div class="jumbotron jumbo">
 			<div class="container">
-
-				<?php make_reflection('img/ss_proj.png', null, "black", "pull-right visible-lg"); ?>
+				<div class="visible-lg visible-md pull-right thumbnail jumbotron-video">
+				<?php echo youtube_iframe('http://youtu.be/W6tEolVz3_4', 330, 185, "?showinfo=0"); ?>
+				</div>
 
 				<h1 class="jumbo">Let's make music</h1>
 				<p class="jumbo">with a free, cross-platform tool for your computer.</p><br>
