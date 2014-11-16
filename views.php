@@ -44,6 +44,8 @@ function artworkPage()
 }
 
 /* Home page */
+require_once('utils.php');
+$app['twig']->addFunction(new Twig_SimpleFunction('youtube_iframe', 'youtube_iframe', ['is_safe' => ['html']]));
 function homePage()
 {
 	global $app;
