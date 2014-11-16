@@ -1,37 +1,48 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'].'/../vendor/autoload.php');
+require_once('navbar.php');
 
-$uri = $_SERVER['REQUEST_URI'];
+$app = new Silex\Application();
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
+	'twig.path' => __DIR__.'/../templates',
+	));
 
-// Each item like: 'Page title' => [ 'URL (opt. regex)', 'page php file' ]
-$pages = [
-	'Home' => ['/', 'home.php'],
-	'Documentation' => ['/documentation(/.*)?', 'documentation.php'],
-	'Get Involved' => ['/get-involved', 'get-involved.php'],
-	'Community' => ['/community', 'community.php'],
-	'Screenshots' => ['/screenshots', 'screenshots.php'],
-	'Showcase' => ['/showcase', 'showcase.php'],
-	'Download' => ['/download', 'download.php']
-];
+$app['twig']->addGlobal('navbar', $navbar);
 
-// Loop all pages to find the one requested
-foreach ($pages as $key => $page) {
-	$regex = $page[0];
-	$file = $page[1];
+$app['debug'] = true;
 
-	// Escape all '/' characters.
-	$regex = str_replace('/', '\/', $regex);
-	// Add an optional '/' at the end of the URL; Ignore case
-	$regex = '/^' . $regex . '(\/)?$/i';
 
-	if (preg_match($regex, $uri)) {
-		// If this is the requested page, set the global pagetitle to be used by the navbar
-		$GLOBALS['pagetitle'] = $key;
-
-		// Include the page's php file and exit
-		require_once($file);
-		exit();
-	}
+function twigrender($file)
+{
+	global $app;
+	return function() use ($app, $file) {
+		return $app['twig']->render($file);
+	};
 }
 
-// If no page is found, load 404
-require_once('404.php');
+require_once('../views.php');
+
+$pages = [
+	['/', twigrender('home.twig')],
+	['/community/', function () use($app) {
+		ob_start();
+		require_once('community.php');
+		$html = ob_get_contents();
+		ob_end_clean();
+		return $html;
+	}],
+	['/documentation/', 'documentationPage'],
+	['/documentation/{page}', 'documentationPage'],
+	['/download/', 'downloadPage'],
+	['/download/artwork', twigrender('download/artwork.twig')],
+	['/download/samples', twigrender('download/samples.twig')],
+	['/get-involved/', twigrender('get-involved.twig')],
+	['/screenshots/', 'screenshotsPage'],
+	['/showcase/', twigrender('showcase.twig')]
+];
+
+foreach ($pages as $page) {
+	$app->get($page[0], $page[1]);
+}
+
+$app->run();

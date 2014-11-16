@@ -38,6 +38,11 @@
  *		$obj = get_json_data('google', 'activities', '?maxResults=25');
  */
 
+global $max_age, $cache_dir, $secrets_dir, $alt_secrets_dir,
+	   $github_api_url, $google_api_url, $facebook_api_url, $soundcloud_api_url, $youtube_api_url,
+	   $github_id, $google_id, $facebook_id, $soundcloud_id, $youtube_id,
+       $github_cache_file, $google_cache_file, $facebook_cache_file, $soundcloud_cache_file, $youtube_cache_file;
+
 /*
  * Maximum age, in minutes before refreshing the cache
  */
@@ -45,7 +50,6 @@ $max_age = filter_input(INPUT_GET, 'max_age');
 if (!isset($max_age)) {
 	$max_age = 120;
 }
-
 
 
 /*
@@ -128,12 +132,12 @@ function get_json_data($service, $object = NULL, $params = '', $repo = NULL) {
 	// htdocs/tmp/.json_github_lmms_releases.
 	$tmp_suffix = ($repo ? $repo : $service_id) . ($object ? '_' . $object : '');
 	$tmp_suffix = str_replace('/', '', str_replace('.', '', str_replace('__', '_', $tmp_suffix)));
-	
+
 	// For "resolve" requests, hash the track URL for cache filename
 	if ($service == 'soundcloud' && $params && strpos($params, '://') !== false) {
 		$tmp_suffix = md5($params) . $tmp_suffix;
 	}
-	
+
 	$tmp_cache = $cache_dir . $cache_file . $tmp_suffix;
 
 	// If the repository isn't specified, assume it's the same as the project name and build accordingly
@@ -466,7 +470,7 @@ function scale_image($url, $width) {
  */
 function realurl($url) {
 	$url = str_replace('/./', '/', $url);
-	
+
     $url = explode('/', $url);
     $keys = array_keys($url, '..');
 
@@ -475,7 +479,7 @@ function realurl($url) {
     }
 
     $url = implode('/', $url);
-    
+
 	return $url;
 }
 

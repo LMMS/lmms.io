@@ -1,6 +1,6 @@
 <?php
 
-include_once('json_common.php');
+include_once('feed/json_common.php');
 
 /*
  * Maximum number of displayed items
@@ -27,7 +27,7 @@ foreach($obj as $item) {
 		'github', 					// $service	i.e. "facebook"
 		$title, 					// $title 	i.e. "LMMS Released!"
 		$item->html_url, 			// $href	i.e. "http://facebook.com/post1234"
-		trim_feed($item->body, $item->html_url),	// $message   i.e "We are pleased to announce..." 
+		trim_feed($item->body, $item->html_url),	// $message   i.e "We are pleased to announce..."
 		$item->user->login, 		// $author	i.e. "John Smith"
 		$item->user->html_url, 		// $author_href	i.e. "http://facebook.com/user1234"
 		$item->created_at			// $date	i.e. "2014-01-01 00:00:00"

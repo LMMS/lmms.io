@@ -7,6 +7,9 @@
 		"ext-gd": "*",
 		"mgargano/simplehtmldom": "1.5",
 		"kellan/magpierss": "dev-master",
-		"knplabs/gaufrette": "0.1.*"
+		"knplabs/gaufrette": "0.1.*",
+		"twig/twig": "~1.0",
+		"silex/silex": "~1.2",
+		"knplabs/github-api": "~1.3"
 	}
 }

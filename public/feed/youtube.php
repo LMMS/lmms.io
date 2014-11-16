@@ -1,6 +1,6 @@
 <?php
 
-include_once('json_common.php');
+include_once('feed/json_common.php');
 
 /*
  * Echo out the data
@@ -14,12 +14,12 @@ foreach ($obj as $items) {
 	if (!is_array($items) || count($items) < 1 ) {
 		continue;
 	}
-	
+
 	$duplicates = array();
 
 	foreach($items as $item) {
 		$item = $item->snippet;
-		
+
 		// YouTube seems to have some duplicates in their feed (likely historical edits)
 		// This is a quick hack to check for duplicates based on title name
 		if (array_key_exists($item->title, $duplicates)) {
@@ -31,12 +31,12 @@ foreach ($obj as $items) {
 
 		$id = parse_youtube_id($item->thumbnails->default->url);
 		$url = $id ? 'http://www.youtube.com/watch?v=' . $id : '';
-		
+
 		create_row(
 			'youtube', 					// $service	i.e. "facebook"
 			$item->title, 		// $title 	i.e. "LMMS Released!"
 			"javascript:embedVideo('#div-" . $id . "','" . $id . "')", 						// $href	i.e. "http://facebook.com/post1234"
-			trim_feed($item->description, $url),	// $message   i.e "We are pleased to announce..." 
+			trim_feed($item->description, $url),	// $message   i.e "We are pleased to announce..."
 			$item->channelTitle, 		// $author	i.e. "John Smith"
 			$videos_url, 				// $author_href	i.e. "http://facebook.com/user1234"
 			$item->publishedAt,			// $date	i.e. "2014-01-01 00:00:00"

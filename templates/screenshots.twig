@@ -1,0 +1,16 @@
+{% extends 'base.twig' %}
+{% import 'macros.twig' as macros %}
+
+{% block content %}
+<h1>Screenshots</h1>
+
+<div class="row text-center overflow-hidden">
+{% for screenshot in screenshots %}
+	<div class="col-lg-4">
+		<h4>{{ screenshot.title }}</h4>
+		{{ macros.make_reflection(screenshot.path, screenshot.th_path, 'white') }}
+	</div>
+{% endfor %}
+</div>
+
+{% endblock %}
