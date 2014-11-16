@@ -30,7 +30,7 @@ class RemWiki
 			throw new Exception('Invalid wiki URL');
 		}
 
-		$adapter = new LocalAdapter('/tmp/doc', true);
+		$adapter = new LocalAdapter('/tmp/wiki', true);
 		$this->fs = new Filesystem($adapter);
 	}
 
