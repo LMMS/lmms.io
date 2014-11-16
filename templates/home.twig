@@ -106,7 +106,20 @@
 			{{ macros.make_reflection('img/ss_instr.png', 'img/th_ss_instr.png', 'white') }}
 		</div>
 	</div>
-	<p class="text-center visible-lg">More screenshots can be found <a href="/screenshots/">here</a>.</p>
+
+	<br class="hidden-lg">
+	<a data-toggle="collapse" href="#screenshots" aria-expanded="false" aria-controls="screenshots">
+		Show more screenshots<br><i class="fa fa-angle-down"></i></a>
+
+	<div id="screenshots" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+		{% for screenshot in screenshots %}
+			<div class="col-lg-4">
+				<h4>{{ screenshot.title }}</h4>
+				{{ macros.make_reflection(screenshot.path, screenshot.th_path, 'white') }}
+			</div>
+		{% endfor %}
+	</div>
+
 	<br><br>
 </div>
 

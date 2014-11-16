@@ -1,4 +1,5 @@
 <?php
+require_once('../utils.php');
 require_once('../feed/json_common.php');
 
 /*
@@ -59,7 +60,10 @@ function remove_after_lt($text) {
 	return trim(explode("<",$text)[0]);
 }
 
-function newline_to_br($text) {
+function newline_to_br($text, $decode_special_chars = false) {
+	if ($decode_special_chars) {
+		return htmlspecialchars_decode(str_replace("\n", "<br>", $text), ENT_COMPAT);
+	}
 	return str_replace("\n", "<br>", $text);
 }
 
@@ -315,6 +319,7 @@ function display_success($message, $title_array = null, $redirect = null, $count
  */
 function get_pagination($count) {
 	global $PAGE_SIZE, $LSP_URL;
+	$commentsearch=GET('commentsearch', false) ? '&amp;commentsearch=true' : '';
 	$user=!GET_EMPTY('user') ? '&amp;user=' . rawurlencode(GET('user')) : '';
 	$category=!GET_EMPTY('category') ? '&amp;category=' . rawurlencode(GET('category')) : '';
 	$subcategory=!GET_EMPTY('subcategory') ? '&amp;subcategory=' . rawurlencode(GET('subcategory')) : '';
@@ -328,7 +333,7 @@ function get_pagination($count) {
 	if ($pages > 1) {
 		for($j=0; $j < $count / $PAGE_SIZE; ++$j ) {
 			$class = $j==$page ? 'active' : '';	
-			$pagination .= '<li class="' . $class . '"><a href=' . $LSP_URL . "$search$browse&amp;page=$j$sort>" . ($j+1) . '</a></li>';
+			$pagination .= '<li class="' . $class . '"><a href=' . $LSP_URL . "$search$browse&amp;page=$j$sort$commentsearch>" . ($j+1) . '</a></li>';
 		}
 	}
 	$pagination .= '</ul></div>';
@@ -375,36 +380,36 @@ function get_file_url($file_id = null) {
 
 /*
  * Scrapes a message for a link to a service such as YouTube or SoundCloud and
- * embeds a player
+ * embeds a player. Also turns links into appropriate hyperlinks.
  */
-function embed_player($message, $width = "100%", $height = 120) {
+function parse_links($message, $width = "100%", $height = 120) {
 	// Process youtube.com
 	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i', youtube_iframe('$1', $width, $height), $message);
 	
 	// Process youtu.be
 	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*youtu.be\/([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i',  youtube_iframe('$1', $width, $height) , $message);
 	
+	// Process links
+	$message = preg_replace('#([^"])\b((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i', '$1<a href="$2" target="_blank">$2</a>', $message);
+
 	// Process soundcloud
-	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*soundcloud.com\/([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]+)/i', '<sc>$1</sc>', $message);
+	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*soundcloud.com\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)/i', '<sc>$1/$2</sc>', $message);
 	return soundcloud_iframe($message, $width, $height);
 }
 
-function youtube_iframe($url_part, $width, $height) {
-	$html = '<iframe width="' . $width . '" height="' . $width . '" src="http://www.youtube.com/embed/' . 
-		$url_part . '" frameborder="0" allowfullscreen></iframe>';
-		
-	return $html;
-}
-
 /*
- * Returns the file extension (including the dot), taking into consideration the double
- * extensions used by linux archives, i.e. .tar.gz
+ * Gets the content type of an file based on extension.
+ * Necessary for interpreting a LSP image attachment as an image
  */
-function parse_extension($file_path) {
-	if (strtolower(pathinfo(pathinfo($file_path, PATHINFO_FILENAME), PATHINFO_EXTENSION)) == 'tar') {
-		return '.tar.' . pathinfo($file_path, PATHINFO_EXTENSION);
-	} else {
-		return '.' . pathinfo($file_path, PATHINFO_EXTENSION);
+function get_content_type($file_path) {
+	switch (parse_extension($file_path)) {
+		case '.jpg' :
+		case '.jpeg' : return 'image/jpeg';
+		case '.gif' : return 'image/gif';
+		case '.png' : return 'image/png';
+		case '.svg' : return 'image/svg+xml';
+		case '.tiff' : return 'image/tiff';
+		default: return 'application/force-download';
 	}
 }
 
@@ -435,6 +440,5 @@ function soundcloud_iframe($message, $width, $height) {
 
 	return $html;
 }
-
 
 ?>

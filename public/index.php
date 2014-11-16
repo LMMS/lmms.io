@@ -23,7 +23,7 @@ function twigrender($file)
 require_once('../views.php');
 
 $pages = [
-	['/', twigrender('home.twig')],
+	['/', 'homePage'],
 	['/community/', function () use($app) {
 		ob_start();
 		require_once('community.php');
@@ -37,7 +37,6 @@ $pages = [
 	['/download/artwork', twigrender('download/artwork.twig')],
 	['/download/samples', twigrender('download/samples.twig')],
 	['/get-involved/', twigrender('get-involved.twig')],
-	['/screenshots/', 'screenshotsPage'],
 	['/showcase/', twigrender('showcase.twig')]
 ];
 

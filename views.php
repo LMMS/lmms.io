@@ -43,8 +43,8 @@ function artworkPage()
 	return $app['twig']->render('download/artwork.twig');
 }
 
-/* Screenshots page */
-function screenshotsPage()
+/* Home page */
+function homePage()
 {
 	global $app;
 
@@ -62,7 +62,7 @@ function screenshotsPage()
 		}
 	}
 
-	return $app['twig']->render('screenshots.twig', [
+	return $app['twig']->render('home.twig', [
 		'screenshots' => $screenshots
 	]);
 }

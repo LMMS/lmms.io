@@ -80,7 +80,7 @@ function &get_db() {
 /*
  * When DBO_DEBUG is set to true, additional query data will be echoed to screen
  */
-function debug($object) {
+function debug_out($object) {
 	if (DBO_DEBUG) {
 		echo '<pre>';
 		print_r($object);
@@ -140,13 +140,13 @@ function get_object_by_id($table, $id, $field, $id_field = 'id', $func = null) {
 		}
 		$dbh = &get_db();
 		$stmt = $dbh->prepare("SELECT $field FROM $table WHERE $id_field=:id");
-		debug("SELECT $field FROM $table WHERE $id_field='$id'");
+		debug_out("SELECT $field FROM $table WHERE $id_field='$id'");
 		$stmt->bindParam(':id', $id);
 		$object = null;
 		if ($stmt->execute()) {
 			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				$object = $object[$field];
-				debug($object);
+				debug_out($object);
 				break;
 			}
 		}
@@ -169,7 +169,7 @@ function get_id_by_object($table, $field, $value) {
 	if (is_valid_table($table))  {
 		$dbh = &get_db();
 		$stmt = $dbh->prepare("SELECT id FROM $table WHERE LOWER($field) = LOWER(:value)");
-		debug("SELECT id FROM $table WHERE LOWER($field) = LOWER('$value')");
+		debug_out("SELECT id FROM $table WHERE LOWER($field) = LOWER('$value')");
 		$stmt->bindParam(':value', $value);
 		if ($stmt->execute()) {
 			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -179,7 +179,7 @@ function get_id_by_object($table, $field, $value) {
 		}
 		$stmt = null;
 		$dbh = null;
-		debug("> id=\"$id\"");
+		debug_out("> id=\"$id\"");
 	}
 	
 	return $id;
@@ -208,7 +208,7 @@ function get_latest() {
 			echo '<table class="table table-striped">';
 			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				show_basic_file_info($object, true);
-				debug($object);
+				debug_out($object);
 			}
 			echo '</table></div>';
 		}
@@ -225,7 +225,7 @@ function password_match($pass, $user) {
 	global $MAX_LOGIN_ATTEMPTS;
 	$dbh = &get_db();
 	$stmt = $dbh->prepare('SELECT login FROM users WHERE LOWER(password) = LOWER(SHA1(:pass)) AND LOWER(login) = LOWER(:user) AND loginFailureCount < :max_login_attempts');
-	debug("SELECT login FROM users WHERE LOWER(password) = LOWER(SHA1($pass)) AND LOWER(login) = LOWER($user) AND loginFailureCount < $MAX_LOGIN_ATTEMPTS");
+	debug_out("SELECT login FROM users WHERE LOWER(password) = LOWER(SHA1($pass)) AND LOWER(login) = LOWER($user) AND loginFailureCount < $MAX_LOGIN_ATTEMPTS");
 	$stmt->bindParam(':pass', $pass);
 	$stmt->bindParam(':user', $user);
 	$stmt->bindParam(':max_login_attempts', $MAX_LOGIN_ATTEMPTS);
@@ -255,10 +255,10 @@ function set_failure_count($user, $incriment=false) {
 	$dbh = &get_db();
 	if ($incriment) {
 		$stmt = $dbh->prepare('UPDATE users SET loginFailureCount = loginFailureCount + 1 WHERE LOWER(login) = LOWER(:user)');
-		debug("UPDATE users SET loginFailureCount = loginFailureCount + 1 WHERE LOWER(login) = LOWER($user)");
+		debug_out("UPDATE users SET loginFailureCount = loginFailureCount + 1 WHERE LOWER(login) = LOWER($user)");
 	} else {
 		$stmt = $dbh->prepare('UPDATE users SET loginFailureCount=0 WHERE LOWER(login) = LOWER(:user)');
-		debug("UPDATE users SET loginFailureCount=0 WHERE login = $user");
+		debug_out("UPDATE users SET loginFailureCount=0 WHERE login = $user");
 	}
 	
 	$stmt->bindParam(':user', $user);
@@ -281,7 +281,7 @@ function is_admin($uid) {
 function add_user($login, $realname, $pass, $is_admin = false) {
 	$dbh = &get_db();
 	$stmt = $dbh->prepare('INSERT INTO users(login, realname, password, is_admin) VALUES(:login, :realname, SHA1(:password), :is_admin)');
-	debug("INSERT INTO users(login, realname, password, is_admin) VALUES($login, $realname, SHA1($pass), $is_admin)");
+	debug_out("INSERT INTO users(login, realname, password, is_admin) VALUES($login, $realname, SHA1($pass), $is_admin)");
 	$stmt->bindParam(':login', $login);
 	$stmt->bindParam(':realname', $realname);
 	$stmt->bindParam(':password', $pass);
@@ -298,13 +298,13 @@ function add_user($login, $realname, $pass, $is_admin = false) {
 	$dbh = &get_db();
 	if ($password != '') {
 		$stmt = $dbh->prepare('UPDATE users SET realname=:realname, password=SHA1(:password) WHERE LOWER(login)=LOWER(:login)');
-		debug("UPDATE users SET realname=$realname, password=SHA1($password) WHERE LOWER(login)=LOWER($login)");
+		debug_out("UPDATE users SET realname=$realname, password=SHA1($password) WHERE LOWER(login)=LOWER($login)");
 		$stmt->bindParam(':realname', $realname);
 		$stmt->bindParam(':password', $password);
 		$stmt->bindParam(':login', $login);
 	} else {
 		$stmt = $dbh->prepare('UPDATE users SET realname=:realname WHERE LOWER(login)=LOWER(:login)');
-		debug("UPDATE users SET realname=$realname WHERE LOWER(login)=LOWER($login)");
+		debug_out("UPDATE users SET realname=$realname WHERE LOWER(login)=LOWER($login)");
 		$stmt->bindParam(':realname', $realname);
 		$stmt->bindParam(':login', $login);
 	}
@@ -455,6 +455,26 @@ function get_licenses($default = '') {
 }
 
 /*
+ * Gets a CSV list of file_ids matching with comments matching the search string
+ */
+function search_comments($search) {
+	$dbh = &get_db();
+	$stmt = $dbh->prepare(
+		'SELECT DISTINCT(file_id) FROM comments ' . 
+		'WHERE text LIKE :search'
+	);
+	$search = "%{$search}%";
+	$stmt->bindParam(':search', $search);
+	$file_array = array();
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			array_push($file_array, $object['file_id']);
+		}
+	}
+	return implode(',', $file_array);
+}
+
+/*
  * Returns a list of <blockquote> items containing all comments for a particular file
  * with all comments made by the owner of said file in an alternate style
  */
@@ -472,9 +492,10 @@ function get_comments($file_id) {
 	$html = '';
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$comment = htmlspecialchars($object['text'], ENT_COMPAT, 'UTF-8');
+			$comment = $object['text'];
 			// Bold comments made by the original author
 			$comment = ($object['commentuser'] == $object['fileuser']) ? "<strong>$comment</strong>" : $comment;
+			$comment = newline_to_br($comment, true);
 			$html .= '<tr><td colspan="2">';
 			$html .= "<blockquote>$comment" .
 				'<small class="lsp-small">Posted by: ' . '<a href="' . $LSP_URL . '?action=browse&amp;user=' . 
@@ -528,7 +549,7 @@ function get_file_subcategory($file_id) {
  * Forecasts the total size of the database result set returned
  * by get_results for proper pagination
  */
-function get_results_count($category, $subcategory = '', $search = '', $user_id = '') {
+function get_results_count($category, $subcategory = '', $search = '', $user_id = '', $additional_items = '') {
 	$dbh = &get_db();
 	$return_val = 0;
 	$stmt = $dbh->prepare(
@@ -539,7 +560,7 @@ function get_results_count($category, $subcategory = '', $search = '', $user_id 
 		(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
 		(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
 		(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
-		(strlen($search) ? ' (files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search)' : 'true')
+		(strlen($search) ? " (files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search $additional_items)" : 'true')
 	);
 	
 	if (strlen($user_id)) { $stmt->bindParam(':user_id', $user_id); }
@@ -563,14 +584,22 @@ function get_results_count($category, $subcategory = '', $search = '', $user_id 
  * Displays a table of search results, usually based on category, subcategory or search
  * filters
  */
-function get_results($category, $subcategory, $sort = '', $search = '', $user_name = '', $order = 'DESC') {
+function get_results($category, $subcategory, $sort = '', $search = '', $user_name = '', $order = 'DESC', $comment_search = false) {
 	global $PAGE_SIZE;
 	global $LSP_URL;
 	$user_id = '';
 	$order = in_array(trim(strtoupper($order)), array('DESC', 'ASC')) ? trim(strtoupper($order)) : 'DESC';
 	if (strlen($user_name)) { $user_id = get_user_id($user_name);} 
+
+	$additional_items = '';
+	// Get an additional CSV list of files with comments match
+	if (strlen($search) && $comment_search) {
+		$additional_items = search_comments($search);
+		$additional_items = strlen($additional_items) ? "OR files.id IN ($additional_items)" : '';
+	}
+	
 	$user_id = $user_id == -1 ? '' : $user_id;
-	$count = get_results_count($category, $subcategory, $search, $user_id);
+	$count = get_results_count($category, $subcategory, $search, $user_id, $additional_items);
 	
 	
 	if ($count > 0) {
@@ -602,7 +631,7 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 			(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
 			(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
 			(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
-			(strlen($search) ? '(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search)' : 'true') . ' ' .
+			(strlen($search) ? "(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search $additional_items)" : 'true') . ' ' .
 			'GROUP BY files.id ' . 
 			'ORDER BY ' . $order_by . " $order " .
 			"LIMIT $start, $PAGE_SIZE"
@@ -783,6 +812,7 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
  * as well as all information that's already displayed in the original search results.
  */
 function show_file($file_id, $user, $success = null) {
+	global $LSP_URL, $DATA_DIR;
 	$dbh = &get_db();
 	$stmt = $dbh->prepare(
 		'SELECT licenses.name AS license, size, realname, filename, users.login, ' .
@@ -817,14 +847,19 @@ function show_file($file_id, $user, $success = null) {
 			show_basic_file_info($object, false);
 			
 			// Bump the download button under details block
-			echo '<tr><td><strong>Name:</strong>&nbsp;' . $object['filename'] . '</td><td class="lsp-file-info">';
 			$url = htmlentities('download_file.php?file=' . $object['id'] . '&name=' . $object['filename']);
+			echo '<tr><td><strong>Name:</strong>&nbsp;' . $object['filename'];
+			if (is_image($url)) {
+				echo '<br><br><a href="' . $url . '"><img class="thumbnail" src="' . scale_image($DATA_DIR . $file_id, 300, parse_extension($url)) . '" alt=""></a>';
+			}
+			echo '</td><td class="lsp-file-info">';
+			
 			echo '<a href="' . $url . '" id="downloadbtn" class="lsp-dl-btn btn btn-primary">';
 			echo '<span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
 			echo '</td></tr>';
 			
 			echo '<tr><td colspan="2"><div class="well"><strong>Description:</strong><p>';
-			echo ($object['description'] != '' ? embed_player(newline_to_br($object['description'])) : 'No description available.');
+			echo ($object['description'] != '' ? parse_links(newline_to_br($object['description'], true)) : 'No description available.');
 			echo '</p></div></td></tr>';
 			
 			echo '<tr><td colspan="2">';

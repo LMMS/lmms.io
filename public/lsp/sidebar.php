@@ -27,6 +27,10 @@ switch (GET('action')) {
 		<div class="lsp-search-button">
 			<button type="submit" id="ok" name="ok" class="lsp-search btn btn-default textin"><span class="fa fa-search"></span></button>
 		</div>
+		<div class="lsp-search-comments">
+			<?php $checked = GET('commentsearch', false) ? 'checked' : ''; ?>
+			<input type="checkbox" title="Search comments" id="commentsearch" class="pull-right" name="commentsearch" <?php echo $checked; ?>><span class="fa fa-comments"></span></input>
+		</div>
 	</form>
 	</div>
 	<?php get_categories(); ?>
