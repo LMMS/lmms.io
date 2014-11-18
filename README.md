@@ -45,7 +45,7 @@ This repo contains the source for LMMS's new WIP website located at http://lmms.
 	```nginx
 	# go to our front controller if none of them exists
 	location / {
-		try_files $uri $uri/ @site;
+		try_files $uri $uri/ /index.php?$args;
 	}
 	```
 	
