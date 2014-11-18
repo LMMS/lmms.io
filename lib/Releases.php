@@ -25,6 +25,7 @@ class Releases
 					$asset['release'] = $release;
 					$asset['osname'] = $this->osName($asset['name']);
 					$asset['release']['index'] = $index;
+					$asset['url'] = $asset['browser_download_url'];
 					return $asset;
 				}
 			}
