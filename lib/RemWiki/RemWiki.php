@@ -109,33 +109,46 @@ class RemWiki
 		return $json['parse'];
 	}
 
+	public function isInCache($page)
+	{
+		return $this->revFile($page)->exists() && $this->cacheFile($page)->exists();
+	}
+
+	public function hasNewerRemote($page, $maxage = 60)
+	{
+		if (! $this->isInCache($page)) {
+			return true;
+		}
+
+		$revfile = $this->revFile($page);
+		$cachefile = $this->cacheFile($page);
+
+		// Don't check for newer revisions more often than every $maxage seconds
+		if (time() - $revfile->getMtime() < $maxage) {
+			return false;
+		}
+
+		$localrev = intval($revfile->getContent());
+		$remoterev = $this->requestRev($page);
+
+		return $remoterev != $localrev;
+	}
+
 	public function parse($page)
 	{
 		$revfile = $this->revFile($page);
 		$cachefile = $this->cacheFile($page);
 
-		if ($revfile->exists()) {
-			$localrev = intval($revfile->getContent());
-
-			// Don't check for newer revisions more often than every 5 minutes
-			if ((time() - $revfile->getMtime()) < 60*5) {
-				return json_decode($cachefile->getContent(), $assoc=true);
-			} else {
-				// Is there a newer remote revision?
-				$remoterev = $this->requestRev($page);
-				if ($remoterev == $localrev) {
-					$revfile->setContent($remoterev);
-					return json_decode($cachefile->getContent(), $assoc=true);
-				}
-			}
+		// Can we get the page from cache?
+		if (! $this->hasNewerRemote($page)) {
+			return json_decode($cachefile->getContent(), $assoc=true);
 		} else {
-			$remoterev = $this->requestRev($page);
-		}
-		$json = $this->requestParse($page);
-		$cachefile->setContent(json_encode($json));
-		$revfile->setContent($remoterev);
+			$json = $this->requestParse($page);
+			$cachefile->setContent(json_encode($json));
+			$revfile->setContent($remoterev);
 
-		return $json;
+			return $json;
+		}
 	}
 
 	private $url;
