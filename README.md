@@ -7,7 +7,7 @@ This repo contains the source for LMMS's new WIP website located at http://lmms.
 
 1. Clone the code
 
-	```
+	```bash
 	$ git clone https://github.com/LMMS/lmms.io.git
 	$ cd lmms.io
 	```
@@ -16,7 +16,7 @@ This repo contains the source for LMMS's new WIP website located at http://lmms.
 
 	This project uses [Composer](http://getcomposer.org) for dependency management. You'll have to fetch those dependencies using composer. For this, you must have Composer installed on your system. For quickly installing Composer locally on *nix, run:
 	
-	```
+	```bash
 	$ curl -sS https://getcomposer.org/installer | php
 	```
 	
@@ -26,7 +26,7 @@ This repo contains the source for LMMS's new WIP website located at http://lmms.
 
 	When you downloaded composer locally using the instructions above, fetch the dependencies by running
    
-	```
+	```bash
 	$ php composer.phar install
 	```
    
@@ -36,7 +36,7 @@ This repo contains the source for LMMS's new WIP website located at http://lmms.
 
 	Start a local PHP server by running
 	
-	```
+	```bash
 	$ php -S localhost:8000 -t ./
 	```
 	
