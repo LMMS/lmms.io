@@ -131,7 +131,11 @@ class RemWiki
 		$localrev = intval($revfile->getContent());
 		$remoterev = $this->requestRev($page);
 
-		return $remoterev != $localrev;
+		if ($remoterev == $localrev) {
+			return false;
+		} else {
+			return $remoterev;
+		}
 	}
 
 	public function parse($page)
@@ -140,7 +144,8 @@ class RemWiki
 		$cachefile = $this->cacheFile($page);
 
 		// Can we get the page from cache?
-		if (! $this->hasNewerRemote($page)) {
+		$remoterev = $this->hasNewerRemote($page);
+		if ($remoterev === false) {
 			return json_decode($cachefile->getContent(), $assoc=true);
 		} else {
 			$json = $this->requestParse($page);
