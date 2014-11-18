@@ -36,14 +36,14 @@ This repo contains the source for LMMS's new WIP website located at http://lmms.
 	Apache:
 	```xml
 	<Directory /home/user/lmms.io/public/>
-		// Add fallback resource to Apache config
+		# add fallback resource to Apache config
 		FallbackResource /index.php
 	</Directory>
 	```
 	
 	Nginx:
 	```nginx
-	#go to our front controller if none of them exists
+	# go to our front controller if none of them exists
 	location / {
 		try_files $uri $uri/ @site;
 	}
