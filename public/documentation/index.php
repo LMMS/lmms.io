@@ -12,7 +12,7 @@ if (array_key_exists('page', $_GET)) {
 $wiki = new RemWiki\RemWiki('http://lmms.io/wiki/');
 $json = $wiki->parse($page);
 
-echo '<h1>' . $json->displaytitle . '</h1>';
-echo $json->text->{'*'};
+echo '<h1>' . $json['displaytitle'] . '</h1>';
+echo $json['text']['*'];
 
 include('../footer.php');

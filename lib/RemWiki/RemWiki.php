@@ -6,6 +6,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/../vendor/autoload.php');
 use Gaufrette\Filesystem;
 use Gaufrette\Adapter\Local as LocalAdapter;
 use Gaufrette\File;
+use GuzzleHttp\Client;
 
 /**
  * Helper class for getting rendered pages from a remote MediaWiki instance
@@ -30,8 +31,20 @@ class RemWiki
 			throw new Exception('Invalid wiki URL');
 		}
 
+		$this->client = new Client([
+			'base_url' => $url
+		]);
+
 		$adapter = new LocalAdapter('/tmp/doc', true);
 		$this->fs = new Filesystem($adapter);
+	}
+
+	private function api($query)
+	{
+		$query['format'] = 'json';
+		return $this->client->get('/wiki/api.php', [
+			'query' => $query
+		]);
 	}
 
 	private function cacheFile($page)
@@ -46,32 +59,28 @@ class RemWiki
 
 	private function requestRev($page)
 	{
-		$ch = curl_init($this->url.'api.php?format=json&action=query&prop=info&titles='.$page);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-		//curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, 500);
-		$response = curl_exec($ch);
-		curl_close($ch);
+		$response = $this->api([
+			'action' => 'query',
+			'prop' => 'info',
+			'titles' => $page
+		]);
 
 		if ($response) {
-			return reset(json_decode($response)->query->pages)->lastrevid;
+			return reset($response->json()['query']['pages'])['lastrevid'];
 		}
 	}
 
 	private function requestParse($page)
 	{
-		// Do CURL request
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-		curl_setopt($ch, CURLOPT_URL, $this->url."api.php?format=json&action=parse&page=$page");
-		$response = curl_exec($ch);
-		curl_close($ch);
+		$response = $this->api([
+			'action' => 'parse',
+			'page' => $page
+		]);
 
-		$json = json_decode($response);
+		$json = $response->json();
 
 		// Fix relative links in rendered HTML
-		$html = $json->parse->text->{'*'};
+		$html = $json['parse']['text']['*'];
 
 		// Get the wiki's relative path on its server
 		// e.g. 'http://lmms.sf.net/wiki/' -> '/wiki/'
@@ -95,9 +104,9 @@ class RemWiki
 			$html
 		);
 
-		$json->parse->text->{'*'} = $html;
+		$json['parse']['text']['*'] = $html;
 
-		return $json->parse;
+		return $json['parse'];
 	}
 
 	public function parse($page)
@@ -110,13 +119,13 @@ class RemWiki
 
 			// Don't check for newer revisions more often than every 5 minutes
 			if ((time() - $revfile->getMtime()) < 60*5) {
-				return json_decode($cachefile->getContent());
+				return json_decode($cachefile->getContent(), $assoc=true);
 			} else {
 				// Is there a newer remote revision?
 				$remoterev = $this->requestRev($page);
 				if ($remoterev == $localrev) {
 					$revfile->setContent($remoterev);
-					return json_decode($cachefile->getContent());
+					return json_decode($cachefile->getContent(), $assoc=true);
 				}
 			}
 		} else {
@@ -131,6 +140,6 @@ class RemWiki
 
 	private $url;
 	private $wikipath;
-	private $ch;
 	private $fs;
+	private $client;
 }
