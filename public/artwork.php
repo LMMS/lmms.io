@@ -1,43 +1,14 @@
-<?php include('../../header.php'); ?>
-<?php include('../../feed/releases.php'); ?>
-<div class="page-header">
-	<h1>Download LMMS Artwork</h1>
-</div>
-
-
 <?php
 
-/* Usage:
+/*
+ * Creates a small summary box about an artwork item
+ * Usage:
  * 	create_artwork_item($artwork_name,
  *		$img_path, $raw_path,
  *		$rendered_path,
  *		$author_name,
  *		$author_link,
  *		$modified_by);
- */
-create_artwork_item('LMMS Logo',
-	'../../img/logo_md.png',
-	'http://raw.githubusercontent.com/LMMS/artwork/master/src/icon.svg',
-	'../../img/logo_lg.png',
-	'Martin Vacho',
-	'http://hdche.tumblr.com',
-	'LMMS Development Team');
-
-create_artwork_item('LMMS Project Icon',
-	'../../img/project_md.png',
-	'http://raw.githubusercontent.com/LMMS/artwork/master/src/mmpz_file_icon.svg',
-	'../../img/project_lg.png',
-	'Ubuntu',
-	'https://wiki.ubuntu.com/Artwork/Incoming/Karmic/Humanity_Icons',
-	'LMMS Development Team');
-
- ?>
-
-<?php
-
-
-/*
- * Creates a small summary box about an artwork item
  */
 function create_artwork_item($artwork_name, $img_path, $raw_path, $rendered_path, $author_name = NULL, $author_link = NULL, $modified_by = NULL) {
 	echo '<img class="art-thumb" src="' . $img_path . '">';
@@ -95,7 +66,3 @@ function get_file_description($extension) {
 		default:	return "Unknown File";
 	}
 }
-
-?>
-
-<?php include('../../footer.php'); ?>

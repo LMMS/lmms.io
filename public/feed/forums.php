@@ -1,8 +1,8 @@
 <?php
-include_once('../utils.php');
-include_once('json_common.php');
-include_once('../../vendor/kellan/magpierss/rss_fetch.inc');
-require_once('../../vendor/autoload.php');
+include_once('utils.php');
+include_once('feed/json_common.php');
+include_once('../vendor/kellan/magpierss/rss_fetch.inc');
+require_once('../vendor/autoload.php');
 
 if ( !defined('MAGPIE_OUTPUT_ENCODING') ) {
 	define('MAGPIE_OUTPUT_ENCODING', 'UTF-8');

@@ -151,6 +151,11 @@ class Navbar
 	 */
 	public function activePageTitle()
 	{
+		if (array_key_exists('pagetitle', $GLOBALS))
+		{
+			return $GLOBALS['pagetitle'];
+		}
+
 		foreach ($this->items as $item) {
 			if ($item->isActive()) {
 				return $item->getTitle();

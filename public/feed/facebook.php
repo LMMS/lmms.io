@@ -1,7 +1,7 @@
 <?php
-include_once('../utils.php');
-include_once('json_common.php');
-require_once('../../vendor/autoload.php');
+include_once('utils.php');
+include_once('feed/json_common.php');
+require_once('../vendor/autoload.php');
 
 /*
  * Echo out the data

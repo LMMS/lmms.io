@@ -35,7 +35,7 @@ class RemWiki
 			'base_url' => $url
 		]);
 
-		$adapter = new LocalAdapter('/tmp/doc', true);
+		$adapter = new LocalAdapter('/tmp/wiki', true);
 		$this->fs = new Filesystem($adapter);
 	}
 
@@ -97,7 +97,7 @@ class RemWiki
 				'/class="thumbimage"/m',
 			],
 			[
-				'/documentation/?page=$2',
+				'/documentation/$2',
 				$this->url.'$1',
 				'class="img-thumbnail"',
 			],
