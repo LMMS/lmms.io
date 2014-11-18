@@ -81,14 +81,14 @@ class RemWiki
 		$html = preg_replace(
 			[
 				// Internal links to wiki pages
-				'/"'.$path_escaped.'index.php\/(.+?)"/m',
+				'/"'.$path_escaped.'index.php\/?(\?title=)?(.+?)"/m',
 				// Links to other resources like images
 				'/"'.$path_escaped.'(.+?)"/m',
 				// Thumbnails
 				'/class="thumbimage"/m',
 			],
 			[
-				'/documentation/?page=$1',
+				'/documentation/?page=$2',
 				$this->url.'$1',
 				'class="img-thumbnail"',
 			],
