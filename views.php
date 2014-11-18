@@ -24,15 +24,22 @@ function documentationPage($page=null)
 /* Downloads page */
 function downloadPage()
 {
-	$releases = new Releases();
-
 	global $app;
-	return $app['twig']->render('download/index.twig', [
-		'winstable' => [$releases->latestWin32Asset(), $releases->latestWin64Asset()],
-		'winpre' => [$releases->latestWin32Asset(false), $releases->latestWin64Asset(false)],
-		'osxstable' => $releases->latestOSXAsset(),
-		'osxpre' => $releases->latestOSXAsset(false)
-	]);
+
+	try {
+		$releases = new Releases();
+
+		$vars = [
+			'winstable' => [$releases->latestWin32Asset(), $releases->latestWin64Asset()],
+			'winpre' => [$releases->latestWin32Asset(false), $releases->latestWin64Asset(false)],
+			'osxstable' => $releases->latestOSXAsset(),
+			'osxpre' => $releases->latestOSXAsset(false)
+		]
+	} catch (Exception $e) {
+		return $app['twig']->render('download/error.twig');
+	}
+
+	return $app['twig']->render('download/index.twig', $vars);
 }
 
 require_once('artwork.php');
