@@ -12,7 +12,7 @@ This repo contains the source for LMMS's new WIP website located at http://lmms.
 	$ cd lmms.io
 	```
 
-2. Get Composer
+1. Get Composer
 
 	This project uses [Composer](http://getcomposer.org) for dependency management. You'll have to fetch those dependencies using composer. For this, you must have Composer installed on your system. For quickly installing Composer locally on *nix, run:
 	
@@ -22,7 +22,7 @@ This repo contains the source for LMMS's new WIP website located at http://lmms.
 	
 	For instructions for other OSs or for installing globally, visit Composer's [Getting Started](https://getcomposer.org/doc/00-intro.md) document.
    
-3. Fetch dependencies using composer
+1. Fetch dependencies using composer
 
 	When you downloaded composer locally using the instructions above, fetch the dependencies by running
    
@@ -32,7 +32,7 @@ This repo contains the source for LMMS's new WIP website located at http://lmms.
    
 	You'll have to run this comand every time the dependencies in `composer.json` change.
    
-4. Start local server
+1. Start local server
 
 	Start a local PHP server by running
 	
