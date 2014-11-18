@@ -34,7 +34,7 @@ function downloadPage()
 			'winpre' => [$releases->latestWin32Asset(false), $releases->latestWin64Asset(false)],
 			'osxstable' => $releases->latestOSXAsset(),
 			'osxpre' => $releases->latestOSXAsset(false)
-		]
+		];
 	} catch (Exception $e) {
 		return $app['twig']->render('download/error.twig');
 	}
