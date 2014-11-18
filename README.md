@@ -31,7 +31,24 @@ This repo contains the source for LMMS's new WIP website located at http://lmms.
 	```
    
 	You'll have to run this comand every time the dependencies in `composer.json` change.
-   
+1. Configure local server
+	
+	Apache:
+	```xml
+	<Directory /home/user/lmms.io/public/>
+		// Add fallback resource to Apache config
+		FallbackResource /index.php
+	</Directory>
+	```
+	
+	Nginx:
+	```nginx
+	#go to our front controller if none of them exists
+	location / {
+		try_files $uri $uri/ @site;
+	}
+	```
+	
 1. Start local server
 
 	Start a local PHP server by running
