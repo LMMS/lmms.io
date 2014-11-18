@@ -6,6 +6,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/../vendor/autoload.php');
 use Gaufrette\Filesystem;
 use Gaufrette\Adapter\Local as LocalAdapter;
 use Gaufrette\File;
+use GuzzleHttp\Client;
 
 /**
  * Helper class for getting rendered pages from a remote MediaWiki instance
@@ -30,8 +31,20 @@ class RemWiki
 			throw new Exception('Invalid wiki URL');
 		}
 
+		$this->client = new Client([
+			'base_url' => $url
+		]);
+
 		$adapter = new LocalAdapter('/tmp/wiki', true);
 		$this->fs = new Filesystem($adapter);
+	}
+
+	private function api($query)
+	{
+		$query['format'] = 'json';
+		return $this->client->get('/wiki/api.php', [
+			'query' => $query
+		]);
 	}
 
 	private function cacheFile($page)
@@ -46,32 +59,28 @@ class RemWiki
 
 	private function requestRev($page)
 	{
-		$ch = curl_init($this->url.'api.php?format=json&action=query&prop=info&titles='.$page);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-		//curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, 500);
-		$response = curl_exec($ch);
-		curl_close($ch);
+		$response = $this->api([
+			'action' => 'query',
+			'prop' => 'info',
+			'titles' => $page
+		]);
 
 		if ($response) {
-			return reset(json_decode($response)->query->pages)->lastrevid;
+			return reset($response->json()['query']['pages'])['lastrevid'];
 		}
 	}
 
 	private function requestParse($page)
 	{
-		// Do CURL request
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-		curl_setopt($ch, CURLOPT_URL, $this->url."api.php?format=json&action=parse&page=$page");
-		$response = curl_exec($ch);
-		curl_close($ch);
+		$response = $this->api([
+			'action' => 'parse',
+			'page' => $page
+		]);
 
-		$json = json_decode($response);
+		$json = $response->json();
 
 		// Fix relative links in rendered HTML
-		$html = $json->parse->text->{'*'};
+		$html = $json['parse']['text']['*'];
 
 		// Get the wiki's relative path on its server
 		// e.g. 'http://lmms.sf.net/wiki/' -> '/wiki/'
@@ -81,23 +90,48 @@ class RemWiki
 		$html = preg_replace(
 			[
 				// Internal links to wiki pages
-				'/"'.$path_escaped.'index.php\/(.+?)"/m',
+				'/"'.$path_escaped.'index.php\/?(\?title=)?(.+?)"/m',
 				// Links to other resources like images
 				'/"'.$path_escaped.'(.+?)"/m',
 				// Thumbnails
 				'/class="thumbimage"/m',
 			],
 			[
-				'/documentation/$1',
+				'/documentation/$2',
 				$this->url.'$1',
 				'class="img-thumbnail"',
 			],
 			$html
 		);
 
-		$json->parse->text->{'*'} = $html;
+		$json['parse']['text']['*'] = $html;
 
-		return $json->parse;
+		return $json['parse'];
+	}
+
+	public function isInCache($page)
+	{
+		return $this->revFile($page)->exists() && $this->cacheFile($page)->exists();
+	}
+
+	public function hasNewerRemote($page, $maxage = 60)
+	{
+		if (! $this->isInCache($page)) {
+			return true;
+		}
+
+		$revfile = $this->revFile($page);
+		$cachefile = $this->cacheFile($page);
+
+		// Don't check for newer revisions more often than every $maxage seconds
+		if (time() - $revfile->getMtime() < $maxage) {
+			return false;
+		}
+
+		$localrev = intval($revfile->getContent());
+		$remoterev = $this->requestRev($page);
+
+		return $remoterev != $localrev;
 	}
 
 	public function parse($page)
@@ -105,32 +139,20 @@ class RemWiki
 		$revfile = $this->revFile($page);
 		$cachefile = $this->cacheFile($page);
 
-		if ($revfile->exists()) {
-			$localrev = intval($revfile->getContent());
-
-			// Don't check for newer revisions more often than every 5 minutes
-			if ((time() - $revfile->getMtime()) < 60*5) {
-				return json_decode($cachefile->getContent());
-			} else {
-				// Is there a newer remote revision?
-				$remoterev = $this->requestRev($page);
-				if ($remoterev == $localrev) {
-					$revfile->setContent($remoterev);
-					return json_decode($cachefile->getContent());
-				}
-			}
+		// Can we get the page from cache?
+		if (! $this->hasNewerRemote($page)) {
+			return json_decode($cachefile->getContent(), $assoc=true);
 		} else {
-			$remoterev = $this->requestRev($page);
-		}
-		$json = $this->requestParse($page);
-		$cachefile->setContent(json_encode($json));
-		$revfile->setContent($remoterev);
+			$json = $this->requestParse($page);
+			$cachefile->setContent(json_encode($json));
+			$revfile->setContent($remoterev);
 
-		return $json;
+			return $json;
+		}
 	}
 
 	private $url;
 	private $wikipath;
-	private $ch;
 	private $fs;
+	private $client;
 }

@@ -7,7 +7,7 @@ require_once('../lib/Releases.php');
 function documentationPage($page=null)
 {
 	global $app;
-	$wiki = new RemWiki\RemWiki('http://lmms.sourceforge.net/wiki/');
+	$wiki = new RemWiki\RemWiki('http://lmms.io/wiki/');
 
 	if ($page === null or $page === '') {
 		$page = 'Main_Page';
@@ -17,7 +17,7 @@ function documentationPage($page=null)
 
 	return $app['twig']->render('documentation.twig', [
 		'json' => $json,
-		'text' => $json->text->{'*'}
+		'text' => $json['text']['*']
 	]);
 }
 
