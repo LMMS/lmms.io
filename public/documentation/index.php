@@ -9,7 +9,7 @@ if (array_key_exists('page', $_GET)) {
 	$page = 'Main_Page';
 }
 
-$wiki = new RemWiki\RemWiki('http://lmms.sourceforge.net/wiki/');
+$wiki = new RemWiki\RemWiki('http://lmms.io/wiki/');
 $json = $wiki->parse($page);
 
 echo '<h1>' . $json->displaytitle . '</h1>';
