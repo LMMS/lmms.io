@@ -15,6 +15,7 @@ function download_file($file_id, $file_name) {
 		increment_file_downloads($file_id);
 		$content_type = get_content_type($file_name);
 		header("Content-type: $content_type");
+		$user_agent = $_SERVER['HTTP_USER_AGENT'];
 		if (!is_image($file_name)) {
 			if (is_integer(strpos($user_agent,"msie")) && is_integer(strpos($user_agent, "win"))) {
 				header("Content-Disposition:filename=\"$file_name\"");
