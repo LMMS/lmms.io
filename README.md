@@ -20,6 +20,13 @@ This repo contains the source for LMMS's new WIP website located at http://lmms.
 	$ curl -sS https://getcomposer.org/installer | php
 	```
 	
+	For installing Composer locally on Windows (i.e. Wamp), run:
+	```bash
+	$ php -r "eval('?>'.file_get_contents('https://getcomposer.org/installer'));"
+	```
+	
+	> **Note:** For this to work on Windows you need the php.exe processor to be on your path, usually located in `c:\wamp\bin\php\phpx.y.z`
+	
 	For instructions for other OSs or for installing globally, visit Composer's [Getting Started](https://getcomposer.org/doc/00-intro.md) document.
    
 1. Fetch dependencies using composer
