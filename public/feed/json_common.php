@@ -182,7 +182,7 @@ function get_json_data($service, $object = NULL, $params = '', $repo = NULL) {
 		}
 		return $obj;
 	} else {
-		$json = file_get_contents($tmp_cache);
+		$json = @file_get_contents($tmp_cache);
 		return json_decode($json);
 	}
 }
@@ -197,7 +197,7 @@ function get_json_data($service, $object = NULL, $params = '', $repo = NULL) {
 function has_children($obj, $service) {
 	switch ($service) {
 		case 'soundcloud' :
-			return (count($obj) == 1 && $obj->user_id || count($obj) > 1 && $obj[0]->user_id);
+			return (count($obj) == 1 && property_exists($obj, 'user_id') || count($obj) > 1 && $obj[0]->user_id);
 		case 'facebook' :
 			return (count($obj) > 0 && $obj->entries);
 		case 'youtube':
