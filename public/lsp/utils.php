@@ -431,11 +431,16 @@ function soundcloud_iframe($message, $width, $height) {
 			$url_parts = explode('</sc>', $part);
 			if (sizeof($url_parts) > 0) {
 				$object = get_json_data('soundcloud', '../resolve', "?url=https://soundcloud.com/$url_parts[0]", '.');
-				$html .= '<iframe width="' . $width.'" height="' . $height.'" scrolling="no" frameborder="no" ' . 
-					'src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' . 
-					$object->id . '&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;' . 
-					'show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>';
-				$html .= $url_parts[1];
+				if (is_object($object) && property_exists($object, 'id')) {
+					$html .= '<iframe width="' . $width.'" height="' . $height.'" scrolling="no" frameborder="no" ' . 
+						'src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' . 
+						$object->id . '&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;' . 
+						'show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>';
+					$html .= $url_parts[1];
+				} else {
+					$html .= 'https://soundcloud.com/' . $url_parts[0] . ' <i class="fa fa-exclamation-circle" title="Link is no longer valid"></i>';
+					$html .= $url_parts[1];
+				}
 			} else {
 				continue;
 			}
