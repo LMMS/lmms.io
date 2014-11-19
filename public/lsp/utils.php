@@ -383,6 +383,14 @@ function get_file_url($file_id = null) {
  * embeds a player. Also turns links into appropriate hyperlinks.
  */
 function parse_links($message, $width = "100%", $height = 120) {
+	// Process soundcloud, skip if old iframe code exists
+	if (strpos($message, '<iframe ') !== false && strpos($message, 'soundcloud.com') !== false) {
+		// Old iframe code, skip
+	} else {
+		$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*soundcloud.com\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)/i', '<sc>$1/$2</sc>', $message);
+		$message = soundcloud_iframe($message, $width, $height);
+	}
+	
 	// Process youtube.com
 	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i', youtube_iframe('$1', $width, $height), $message);
 	
@@ -392,9 +400,7 @@ function parse_links($message, $width = "100%", $height = 120) {
 	// Process links
 	$message = preg_replace('#([^"])\b((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i', '$1<a href="$2" target="_blank">$2</a>', $message);
 
-	// Process soundcloud
-	$message = preg_replace('/\s*[a-zA-Z\/\/:\.]*soundcloud.com\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)/i', '<sc>$1/$2</sc>', $message);
-	return soundcloud_iframe($message, $width, $height);
+	return $message;
 }
 
 /*
