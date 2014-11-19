@@ -1,7 +1,7 @@
 lmms.io
 ======
 
-This repo contains the source for LMMS's new WIP website located at http://lmms.io.
+This repo contains the source for LMMS's new website located at http://lmms.io.
 
 ## How to test the website locally ##
 
