@@ -420,6 +420,28 @@ function get_content_type($file_path) {
 }
 
 /*
+ * Reads an '.mmp' or '.mmpz' project from disk and returns the simplexml object
+ */
+function read_project($file_id) {
+	global $DATA_DIR;
+	$extension = parse_extension(get_file_name($file_id));
+	switch ($extension) {
+		case '.mmp' : 
+			// Treat as plain XML
+			return simplexml_load_file($DATA_DIR . $file_id);
+		case '.mmpz' :
+			// Open binary file for reading
+			$handle = fopen($DATA_DIR . $file_id, "rb");
+			// Skip the first 4 bytes for compressed mmpz files
+			fseek($handle, 4);
+			$data = fread($handle, filesize($DATA_DIR . $file_id) - 4);
+			return simplexml_load_string(zlib_decode($data));
+		default:
+			return null;
+	}
+}
+
+/*
  * Replaces soundcloud links such as <sc>soundcloud.com/artist1/track1</sc> with the proper iframe tags
  */
 function soundcloud_iframe($message, $width, $height) {

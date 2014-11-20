@@ -772,6 +772,9 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 		$hr_size = round($rs['size']/1024) . " KB";
 		echo "<b>Size:</b>&nbsp;$hr_size<br>";
 		echo "<b>License:</b>&nbsp;$rs[license]<br>";
+		if (($project_data = read_project($rs['id'])) != null) {
+			echo "<b>LMMS Version:</b>&nbsp;" . $project_data->attributes()['creatorversion'];
+		}
 	}
 	echo "</div></td><td class=\"lsp-file-info\"><small>";
 	if($browsing_mode) {
