@@ -15,15 +15,7 @@ if (is_secure_host() && $_SERVER['HTTPS'] !== 'on' && $_SERVER['SERVER_PORT'] ==
  * Returns the server protocol in the server request  "http://", "https://", etc.
  */
 function get_protocol() {
-	// Set some sane defaults
-	$protocol = is_secure_host() ? 'https://' : 'http://';
-	
-	// Override with the value requested from the server
-	if (isset($_SERVER['SERVER_PROTOCOL']) && strpos($_SERVER['SERVER_PROTOCOL'], '/') !== false) {
-		$protocol = strtolower(explode('/', $_SERVER['SERVER_PROTOCOL'])[0] . '://');
-	}
-	
-	return $protocol;
+	return is_secure_host() ? 'https://' : 'http://';
 }
 
 /*
