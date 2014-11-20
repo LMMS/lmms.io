@@ -1,4 +1,5 @@
 <?php
+require_once("../force-https.php");
 include_once("dbo.php");
 
 ini_set('session.use_trans_sid', false);

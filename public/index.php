@@ -1,4 +1,5 @@
 <?php
+require_once('force-https.php');
 require_once('app.php');
 use Symfony\Component\HttpFoundation\Response;
 
