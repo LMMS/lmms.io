@@ -9,7 +9,6 @@ This repo contains the source for LMMS's new website located at http://lmms.io.
 
 	```bash
 	$ git clone https://github.com/LMMS/lmms.io.git
-	$ cd lmms.io
 	```
 
 1. Get Composer
@@ -17,12 +16,14 @@ This repo contains the source for LMMS's new website located at http://lmms.io.
 	This project uses [Composer](http://getcomposer.org) for dependency management. You'll have to fetch those dependencies using composer. For this, you must have Composer installed on your system. For quickly installing Composer locally on *nix, run:
 	
 	```bash
+	$ cd lmms.io
 	$ curl -sS https://getcomposer.org/installer | php
 	```
 	
 	For installing Composer locally on Windows (i.e. Wamp), run:
 	```bash
-	$ php -r "eval('?>'.file_get_contents('https://getcomposer.org/installer'));"
+	> cd lmms.io
+	> php -r "eval('?>'.file_get_contents('https://getcomposer.org/installer'));"
 	```
 	
 	> **Note:** For this to work on Windows you need the php.exe processor to be on your path, usually located in `c:\wamp\bin\php\phpx.y.z`
