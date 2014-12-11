@@ -113,7 +113,7 @@
 
 	<br class="hidden-lg">
 	<a data-toggle="collapse" href="#screenshots" aria-expanded="false" aria-controls="screenshots">
-		Show more screenshots<br><i class="fa fa-angle-down"></i></a>
+	{{ macros.circle_stack('fa-angle-down', 'fa-2x', 'Show more screenshots') }}</a>
 
 	<div id="screenshots" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 		{% for screenshot in screenshots %}
