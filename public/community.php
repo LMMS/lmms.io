@@ -10,44 +10,44 @@
 </div>
 
 <div class="row overflow-auto">
-<table id="community-table" class="table table-striped">
+<table id="community-table" class="table">
 	<tr>
-		<td><label id="forums-button" class="btn btn-default" target="_self" data-href="/forum/" onclick="show(this)">
+		<td><label id="forums-button" class="btn btn-flat btn-default" target="_self" data-href="/forum/" onclick="show(this)">
 			<span class="fa-5x fa fa-comments"></span> <span class="visible-lg-inline"><br>Forums</span>
 		</label></td>
 
-		<td><label id="facebook-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="http://facebook.com/makefreemusic">
+		<td><label id="facebook-button" title="Visit page" class="btn btn-flat btn-default" onclick="show(this)" target="_blank" data-href="http://facebook.com/makefreemusic">
 			<span class="fa-5x fa fa-facebook"></span> <span class="visible-lg-inline"><br>Facebook</span>
 		</label></td>
 
-		<td><label id="soundcloud-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="https://soundcloud.com/groups/lmms">
+		<td><label id="soundcloud-button" title="Visit page" class="btn btn-flat btn-default" onclick="show(this)" target="_blank" data-href="https://soundcloud.com/groups/lmms">
 			<span class="fa-5x fa fa-soundcloud"></span> <span class="visible-lg-inline"><br>SoundCloud</span>
 		</label></td>
 
-		<td><label id="google+-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="https://plus.google.com/u/0/113001340835122723950/posts">
+		<td><label id="google+-button" title="Visit page" class="btn btn-flat btn-default" onclick="show(this)" target="_blank" data-href="https://plus.google.com/u/0/113001340835122723950/posts">
 			<span class="fa-5x fa fa-google-plus"></span> <span class="visible-lg-inline"><br>Google+</span>
 		</label></td>
 
-		<td><label id="youtube-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="http://youtube.com/lmmsofficial"><span class="fa-5x fa fa-youtube"></span>
+		<td><label id="youtube-button" title="Visit page" class="btn btn-flat btn-default" onclick="show(this)" target="_blank" data-href="http://youtube.com/lmmsofficial"><span class="fa-5x fa fa-youtube"></span>
 			<span class="visible-lg-inline"><br>YouTube</span>
 		</label></td>
 
-		<td><label id="github-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="new" data-href="http://github.com/LMMS/lmms">
+		<td><label id="github-button" title="Visit page" class="btn btn-flat btn-default" onclick="show(this)" target="new" data-href="http://github.com/LMMS/lmms">
 			<span class="fa-5x fa fa-github"></span> <span class="visible-lg-inline"><br>GitHub</span>
 		</label></td>
 	</tr>
 	<tr>
-		<td><label data-name="Forums" id="forums-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#forums')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="Forums" id="forums-toggle" title="Preview content" class="btn btn-flat btn-default dropdown-toggle" onclick="show('#forums')"><span class="fa fa-arrow-down"></span></label></td>
 
-		<td><label data-name="Facebook" id="facebook-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#facebook')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="Facebook" id="facebook-toggle" title="Preview content" class="btn btn-flat btn-default dropdown-toggle" onclick="show('#facebook')"><span class="fa fa-arrow-down"></span></label></td>
 
-		<td><label data-name="Soundcloud" id="soundcloud-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="Soundcloud" id="soundcloud-toggle" title="Preview content" class="btn btn-flat btn-default dropdown-toggle" onclick="show('#soundcloud')"><span class="fa fa-arrow-down"></span></label></td>
 
-		<td><label data-name="Google+" id="google+-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#google+')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="Google+" id="google+-toggle" title="Preview content" class="btn btn-flat btn-default dropdown-toggle" onclick="show('#google+')"><span class="fa fa-arrow-down"></span></label></td>
 
-		<td><label data-name="YouTube" id="youtube-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#youtube')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="YouTube" id="youtube-toggle" title="Preview content" class="btn btn-flat btn-default dropdown-toggle" onclick="show('#youtube')"><span class="fa fa-arrow-down"></span></label></td>
 
-		<td><label data-name="GitHub" id="github-toggle" title="Preview content" class="btn btn-default dropdown-toggle" onclick="show('#github')"><span class="fa fa-arrow-down"></span></label></td>
+		<td><label data-name="GitHub" id="github-toggle" title="Preview content" class="btn btn-flat btn-default dropdown-toggle" onclick="show('#github')"><span class="fa fa-arrow-down"></span></label></td>
 	</tr>
 </table>
 </div>
