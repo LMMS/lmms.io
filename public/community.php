@@ -10,7 +10,7 @@
 </div>
 
 <div class="row overflow-auto">
-<table id="community-table" class="table table-striped">
+<table id="community-table" class="table">
 	<tr>
 		<td><label id="forums-button" class="btn btn-default" target="_self" data-href="/forum/" onclick="show(this)">
 			<span class="fa-5x fa fa-comments"></span> <span class="visible-lg-inline"><br>Forums</span>

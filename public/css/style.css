@@ -67,8 +67,9 @@ div.jumbo {
 
 .jumbotron-video {
 	background-color: #428bca;
-	border: 1px solid #2b669a;
-	height: 195px;
+	height:  204px;
+	border: 2px solid #428bca;
+	border-radius: 1px;
 }
 
 /* Fix for forum back-to-top button */
@@ -514,30 +515,72 @@ p.forum-stats  {
 	margin-right: 5px;
 }
 
-.btn {
-	margin-bottom: 5px;
-}
-
 /* Some missing bootstrap styles */
 
+.btn {
+	filter:progid:DXImageTransform.Microsoft.Gradient(enabled='false');
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	background-image:none;
+	border: 0;
+	border-radius: 1px;
+	margin-bottom: 5px;
+	color: #fff;
+}
+
+.panel,
+.well,
+.alert {
+	filter:progid:DXImageTransform.Microsoft.Gradient(enabled='false');
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	background-image:none;
+	border-radius: 1px;
+}
+
+.navbar-default {
+	filter:progid:DXImageTransform.Microsoft.Gradient(enabled='false');
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	background-image:none;
+	border-bottom: solid 1px;
+	border-color: #c9c9c9;
+	background-color: #fcfcfc;
+}
+
+#lspnav,
+.alert {
+	border: 0;
+}
+
+.btn-default {
+	border: solid 1px;
+	border-color: #c9c9c9;
+	background-color: #fafafa;
+	color: #333;
+}
+
 .btn-file {
-    position: relative;
-    overflow: hidden;
+	position: relative;
+	overflow: hidden;
 }
 .btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;
-    background: white;
-    cursor: inherit;
-    display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	outline: none;
+	background: white;
+	cursor: inherit;
+	display: block;
 }
 
 .btn-dark {
