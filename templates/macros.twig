@@ -6,7 +6,7 @@
 {# Prints an FontAwesome icon stack with two icons and a tooltip #}
 {% macro icon_stack(icon1, icon2, parentclass, tooltip) %}
 	{% import _self as macros %}
-	<span class='green fa-stack {{ parentclass }}' data-toggle='tooltip' data-placement='bottom' title='{{ tooltip }}'>
+	<span class='fa-stack {{ parentclass }}' data-toggle='tooltip' data-placement='bottom' title='{{ tooltip }}'>
 		{{ macros.icon(icon1) }}
 		{{ macros.icon(icon2) }}
 	</span>

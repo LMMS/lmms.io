@@ -521,7 +521,7 @@ p.forum-stats  {
 
 /* Some missing bootstrap styles */
 
-.btn-flat {
+.btn {
 	filter:progid:DXImageTransform.Microsoft.Gradient(enabled='false');
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
