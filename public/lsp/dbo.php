@@ -866,7 +866,7 @@ function show_file($file_id, $user, $success = null) {
 			echo '</p></div></td></tr>';
 			
 			echo '<tr><td colspan="2">';
-			echo '<nav class="navbar navbar-default"><ul class="nav navbar-nav">';
+			echo '<nav id="lspnav" class="navbar navbar-default"><ul class="nav navbar-nav">';
 			$can_edit = ($object['login'] == $user || is_admin(get_user_id($user)));
 			$can_rate = !SESSION_EMPTY();
 			$rate_self =  $object['login'] == $user;
