@@ -3,7 +3,7 @@
 {# Macro for printing oversized download buttons #}
 {% macro printrelbutton(rel, btnclass = 'btn-primary') %}
 	{% if rel != null %}
-		<a data-dl-count="{{ rel.download_count }}" class="btn btn-lg btn-dl btn-flat {{ btnclass }}"
+		<a data-dl-count="{{ rel.download_count }}" class="btn btn-lg btn-dl {{ btnclass }}"
 		   href="{{ rel.browser_download_url }}">
 			<span id="button-title">LMMS</span><br>
 			<span class="fa fa-download download-icon"></span>
