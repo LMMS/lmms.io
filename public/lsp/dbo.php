@@ -764,8 +764,13 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	}
 	
 	if ($show_author) {
-		echo '<small>by <a href="' . $LSP_URL . '?action=browse&amp;user=' . 
+		if (empty($rs['realname'])) {
+			echo '<small>by <a href="' . $LSP_URL . '?action=browse&amp;user=' .
+			$rs['login'] . '">' . $rs['login'] . "</a></small><br>";
+		} else {
+			echo '<small>by <a href="' . $LSP_URL . '?action=browse&amp;user=' .
 			$rs['login'] . '">' . $rs['realname'] . " (" . $rs['login'] . ")</a></small><br>";
+		}
 	}
 
 	if(!$browsing_mode) {
