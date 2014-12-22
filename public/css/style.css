@@ -347,6 +347,7 @@ div.lsp-search-button {
 	position: relative;
 	display: inline-block;
 	text-align: left;
+	max-width: 800px;
 }
 
 .btn-dl small {

@@ -8,3 +8,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 	));
 
 $app['twig']->addGlobal('navbar', $navbar);
+
+require_once($_SERVER['DOCUMENT_ROOT'].'/../lib/GitHubMarkdownEngine.php');
+use Aptoma\Twig\Extension\MarkdownExtension;
+$app['twig']->addExtension(new MarkdownExtension(new GitHubMarkdownEngine()));
