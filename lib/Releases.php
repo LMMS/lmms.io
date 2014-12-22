@@ -1,11 +1,12 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/../vendor/autoload.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/../lib/GitHubClient.php');
 
 class Releases
 {
 	public function __construct($owner='LMMS', $repo='lmms')
 	{
-		$client = new \Github\Client(
+		$client = new \LMMS\GitHubClient(
 			new \Github\HttpClient\CachedHttpClient(['cache_dir' => '/tmp/github-api-cache'])
 		);
 		$this->json = $client->api('repo')->releases()->all($owner, $repo);
