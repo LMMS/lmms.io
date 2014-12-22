@@ -8,7 +8,7 @@ class GitHubMarkdownEngine implements MarkdownEngineInterface
 	public function __construct()
 	{
 		$this->client = new \LMMS\GithubClient(
-			new \Github\HttpClient\CachedHttpClient(['cache_dir' => '/tmp/github-api-cache'])
+			new \LMMS\SafeCachedHttpClient(['cache_dir' => '/tmp/github-api-cache'])
 		);
 	}
 
