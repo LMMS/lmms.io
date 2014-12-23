@@ -41,6 +41,7 @@ class SafeCachedHttpClient extends \Github\HttpClient\CachedHttpClient
 			if ($has) {
 				return $cache->get($path);
 			} else {
+				error_log("GitHub API request $path failed and no cache available! $e");
 				throw $e;
 			}
 		}
