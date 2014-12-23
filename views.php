@@ -36,6 +36,7 @@ function downloadPage()
 			'osxpre' => $releases->latestOSXAsset(false)
 		];
 	} catch (Exception $e) {
+		error_log($e);
 		return $app['twig']->render('download/error.twig');
 	}
 
