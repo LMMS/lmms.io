@@ -7,7 +7,7 @@ class Releases
 	public function __construct($owner='LMMS', $repo='lmms')
 	{
 		$client = new \LMMS\GitHubClient(
-			new \LMMS\SafeCachedHttpClient(['cache_dir' => '/tmp/github-api-cache'])
+			new \LMMS\SafeCachedHttpClient(['cache_dir' => '/tmp/github-api-cache'], 5*60)
 		);
 		$this->json = $client->api('repo')->releases()->all($owner, $repo);
 	}
