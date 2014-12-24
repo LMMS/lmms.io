@@ -29,11 +29,21 @@ function downloadPage()
 	try {
 		$releases = new Releases();
 
+		$winstable = [$releases->latestWin32Asset(), $releases->latestWin64Asset()];
+		$winpre = [$releases->latestWin32Asset(false), $releases->latestWin64Asset(false)];
+		$osxstable = $releases->latestOSXAsset();
+		$osxpre = $releases->latestOSXAsset(false);
+
+		if ($winpre[0]['created_at'] < $winstable[0]['created_at'])
+			$winpre = null;
+		if ($osxpre['created_at'] < $osxstable['created_at'])
+			$osxpre = null;
+
 		$vars = [
-			'winstable' => [$releases->latestWin32Asset(), $releases->latestWin64Asset()],
-			'winpre' => [$releases->latestWin32Asset(false), $releases->latestWin64Asset(false)],
-			'osxstable' => $releases->latestOSXAsset(),
-			'osxpre' => $releases->latestOSXAsset(false)
+			'winstable' => $winstable,
+			'winpre' => $winpre,
+			'osxstable' => $osxstable,
+			'osxpre' => $osxpre
 		];
 	} catch (Exception $e) {
 		error_log($e);

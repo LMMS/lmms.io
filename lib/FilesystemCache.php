@@ -49,12 +49,6 @@ class FilesystemCache
 			return filemtime($this->getPath($id));
 		}
 	}
-	public function getETag($id)
-	{
-		if (file_exists($this->getPath($id).'.etag')) {
-			return file_get_contents($this->getPath($id).'.etag');
-		}
-	}
 	/**
 	* @param $id string
 	*

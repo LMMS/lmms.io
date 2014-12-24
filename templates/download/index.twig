@@ -60,7 +60,7 @@
 
 	{{ download.releasenotes(winstable[0]['release']['body'], 'winstable') }}
 
-	{% if winpre[0]['release']['index'] < winstable[0]['release']['index'] %}
+	{% if winpre %}
 		<h3>Beta Versions</h3>
 		{{ download.printrelbutton(winpre[0], 'btn-warning') }}
 		{{ download.printrelbutton(winpre[1], 'btn-warning') }}
@@ -77,9 +77,11 @@
 		{{ download.printrelbutton(osxstable) }}
 		{{ download.releasenotes(osxstable['release']['body'], 'osxstable') }}
 	{% endif %}
-	<h3>Beta Versions</h3>
-	{{ download.printrelbutton(osxpre, 'btn-warning') }}
-	{{ download.releasenotes(osxpre['release']['body'], 'osxpre') }}
+	{% if osxpre %}
+		<h3>Beta Versions</h3>
+		{{ download.printrelbutton(osxpre, 'btn-warning') }}
+		{{ download.releasenotes(osxpre['release']['body'], 'osxpre') }}
+	{% endif %}
 </div>
 
 <div id="prerelease" class="text-center"><small><span class="fa fa-exclamation-circle"></span> Downloads labeled Beta are pre-release software, stability may suffer.</small></div>
