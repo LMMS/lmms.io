@@ -16,12 +16,13 @@ foreach ($obj as $item) {
 	create_row(
 		'soundcloud', 					// $service	i.e. "facebook"
 		$item->title, 						// $title 	i.e. "LMMS Released!"
-		$item->permalink_url, 			// $href	i.e. "http://facebook.com/post1234"
+		"javascript:embedSound('#div-" . $item->id . "','" . $item->id . "')", // $href	i.e. "http://facebook.com/post1234"
 		trim_feed($item->description, $item->permalink_url),	// $message   i.e "We are pleased to announce..."
 		$item->user->username, 			// $author	i.e. "John Smith"
 		$item->user->permalink_url, 	// $author_href	i.e. "http://facebook.com/user1234"
 		$item->created_at,				// $date	i.e. "2014-01-01 00:00:00"
-		($item->artwork_url ? $item->artwork_url : $item->user->avatar_url) // $thumbnail	i.e. "http://facebook.com/etc.png"
+		($item->artwork_url ? $item->artwork_url : $item->user->avatar_url), // $thumbnail	i.e. "http://facebook.com/etc.png"
+		'div-' . $item->id
 	);
 }
 echo '</table>';

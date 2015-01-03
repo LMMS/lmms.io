@@ -260,12 +260,12 @@
 				width = 320; height = 180;
 		}
 
-		// A hack to pause all playing videos by reloading
+		// A hack to pause all playing embeds by reloading
 		// the the "src" attribute with autoplay param removed
 		$('tr').find('iframe').each(function(){
 			var tmp = $(this).attr('src');
 			$(this).attr('src', '');
-			$(this).attr('src', tmp.replace(/\?autoplay=1/g, ''));
+			$(this).attr('src', tmp.replace(/(\?autoplay=1)|(\&amp;auto_play=true)/g, ''));
 		});
 
 		var iframe = $('<iframe></iframe>');
@@ -292,6 +292,54 @@
 			$(this).append(iframe);
 			iframe.animate({'width':width, 'height':height});
 			iframe.attr('src', '//www.youtube.com/embed/' + id + '?autoplay=1');
+		});
+	}
+
+	// Adds a Soundcloud iframe to the DOM
+	function embedSound(parent, id, width, height) {
+		// Don't add the iframe twice
+		if ($(parent).has('iframe').length) {
+			return;
+		}
+
+		// Default to 320x120 if not specified
+		switch (arguments.length) {
+			case 4: break;
+			default:
+				width = 320; height = 160;
+		}
+
+		// A hack to pause all playing embeds by reloading
+		// the the "src" attribute with autoplay param removed
+		$('tr').find('iframe').each(function(){
+			var tmp = $(this).attr('src');
+			$(this).attr('src', '');
+			$(this).attr('src', tmp.replace(/(\?autoplay=1)|(\&amp;auto_play=true)/g, ''));
+
+		});
+
+		var iframe = $('<iframe></iframe>');
+		iframe.addClass('soundcloud-thumb');
+		iframe.attr('id', 'iframe_' + id);
+		iframe.attr('frameborder', 'no');
+		$(parent).find('h4').each(function(){
+			// Add the YoutTube iframe
+			$(this).append(iframe);
+			// Hide the thumbnail
+			$(this).find('img').each(function(){
+				iframe.width($(this).width());
+				iframe.height($(this).height());
+				$(this).hide();
+			});
+			// Hide the play button
+			$(this).find('div').each(function(){
+				$(this).hide();
+			});
+
+			// Add the Soundcloud iframe
+			$(this).append(iframe);
+			iframe.animate({'width':width, 'height':height});
+			iframe.attr('src', '//w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + id + '&amp;color=ff5500&amp;auto_play=true&amp;show_reposts=true');
 		});
 	}
 

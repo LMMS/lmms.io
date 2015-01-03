@@ -331,7 +331,8 @@ function create_row($service, $title, $href, $message, $author = NULL, $author_h
 		echo '<img class="img-thumbnail ' . $service . '-thumb" src="' . $thumbnail . '"/>';
 	}
 
-	if ($service == 'youtube') {
+	//Adds an overlaying play button
+	if ($service == 'youtube' || $service == 'soundcloud') {
 		echo '<div class="' . $service . '-thumb-overlay"><span class="fa-3x fa fa-play"></span></div>';
 	}
 

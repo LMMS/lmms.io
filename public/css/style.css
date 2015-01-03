@@ -269,17 +269,29 @@ div.lsp-search-button {
 }
 
 .youtube-thumb-overlay {
-    position: relative;
+  position: relative;
 	top: 1em;
 	left: -5em;
 	display: inline-block;
 	width: 0; height 0;
-    z-index: 10;
+  z-index: 10;
 	color: #fff;
 	opacity: .40;
 }
 
-.youtube-thumb-overlay:hover {
+.soundcloud-thumb-overlay {
+  position: relative;
+	top: 1em;
+	left: -4.5em;
+	display: inline-block;
+	width: 0; height 0;
+  z-index: 10;
+	color: #fff;
+	opacity: .40;
+}
+
+.youtube-thumb-overlay:hover,
+.soundcloud-thumb-overlay:hover {
 	opacity: .60;
 }
 
