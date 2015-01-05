@@ -78,6 +78,11 @@ div.jumbo {
 	bottom: 30px;
 }
 
+/* Do not display the edit button in docs */
+.mw-editsection {
+	display: none;
+}
+
 /* Footer */
 footer {
 	background-color: #f9f9f9;
