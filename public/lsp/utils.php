@@ -383,6 +383,9 @@ function get_file_url($file_id = null) {
  * embeds a player. Also turns links into appropriate hyperlinks.
  */
 function parse_links($message, $width = "100%", $height = 120) {
+	//Ugly hack so the links process right
+	$message = " "  . $message . " ";
+
 	// Process soundcloud, skip if old iframe code exists
 	if (strpos($message, '<iframe ') !== false && strpos($message, 'soundcloud.com') !== false) {
 		// Old iframe code, skip
