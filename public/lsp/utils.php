@@ -383,25 +383,59 @@ function get_file_url($file_id = null) {
  * embeds a player. Also turns links into appropriate hyperlinks.
  */
 function parse_links($message, $width = "100%", $height = 120) {
-	//Ugly hack so the links process right
-	$message = " "  . $message . " ";
-
-	// Process soundcloud, skip if old iframe code exists
-	if (strpos($message, '<iframe ') !== false && strpos($message, 'soundcloud.com') !== false) {
-		// Old iframe code, skip
-	} else {
-		$message = preg_replace('#\s*[a-zA-Z\/\/:\.]*soundcloud.com\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)(\s)#i', '<sc>$1/$2</sc>$3', $message);
-		$message = soundcloud_iframe($message, $width, $height);
+	// Global pattern to find distinctive links
+	$pattern = "#[a-zA-Z\/\/:\.]*((soundcloud.com)|(youtube.com|youtu.be)|(https?:\/\/))+\S*#i";
+	preg_match_all($pattern, $message, $matched, PREG_SET_ORDER);
+	
+	if ($matched) {
+		for ($i = 0; $i < count($matched); $i++) {
+			// Soundcloud links
+			if ($matched[$i][2]) {
+				if (strpos($message, '<iframe ') !== false && strpos($message, 'soundcloud.com') !== false) {
+  			// Old iframe code, skip
+ 				} else {
+					preg_match("#\s*[a-zA-Z\/\/:\.]*soundcloud.com\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)\/*([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]*)#i", $matched[$i][0], $sc);
+					if (! empty($sc)) {
+						// Do not process playlists
+						if (! $sc[3]) {
+						$message = str_replace($sc[0], "<sc>$sc[1]/$sc[2]</sc>", $message);
+						$message = soundcloud_iframe($message, $width, $height);
+						} else {
+							// Check for links
+							preg_match("#((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i", $matched[$i][0], $link);
+							if (! empty($link)) {
+								$message = str_replace($link[0], '<a href="' . $link[0] . '" target="_blank">' . $link[0] . '</a>', $message);
+							}
+						}
+					// Check for links
+					} else {
+							preg_match("#((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i", $matched[$i][0], $link);
+							if (! empty($link)) {
+								$message = str_replace($link[0], '<a href="' . $link[0] . '" target="_blank">' . $link[0] . '</a>', $message);
+							}
+					}
+			}
+			// Youtube and youtu.be links
+			} elseif ($matched[$i][3]) {
+				preg_match("#\s*[a-zA-Z\/\/:\.]*(youtube.com\/watch\?v=|youtu.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)#i", $matched[$i][0], $yt );
+				if (! empty($yt)) {
+					$message = str_replace($yt[0], youtube_iframe($yt[2], $width, $height), $message);
+				// Check for links
+				} else {
+					preg_match("#((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i", $matched[$i][0], $link);
+					if (! empty($link)) {
+					$message = str_replace($link[0], '<a href="' . $link[0] . '" target="_blank">' . $link[0] . '</a>', $message);
+					}
+				}
+			// Check for links
+			}	elseif ($matched[$i][4]) {
+				preg_match("#((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i", $matched[$i][0], $link);
+				if (! empty($link)) {
+				$message = str_replace($link[0], '<a href="' . $link[0] . '" target="_blank">' . $link[0] . '</a>', $message);
+				}
+			}
+		}
 	}
-	
-	// Process youtube.com
-	$message = preg_replace('#\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)#i', youtube_iframe('$1', $width, $height), $message);
-	
-	// Process youtu.be
-	$message = preg_replace('#\s*[a-zA-Z\/\/:\.]*youtu.be\/([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)#i',  youtube_iframe('$1', $width, $height) , $message);
-	
-	// Process links
-	$message = preg_replace('#([^"])\b((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i', '$1<a href="$2" target="_blank">$2</a>', $message);
 
 	return $message;
 }
