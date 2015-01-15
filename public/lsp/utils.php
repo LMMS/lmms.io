@@ -384,7 +384,7 @@ function get_file_url($file_id = null) {
  */
 function parse_links($message, $width = "100%", $height = 120) {
 	// Global pattern to find distinctive links
-	$pattern = "#[a-zA-Z\/\/:\.]*((soundcloud.com)|(youtube.com|youtu.be)|(https?:\/\/))+\S*#i";
+	$pattern = "#[a-zA-Z\/\/:\.]*((soundcloud.com\/[a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+\/[a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)|(youtube.com\/watch\?v\=)|(youtu.be)|(https?:\/\/))+\S*#i";
 	preg_match_all($pattern, $message, $matched, PREG_SET_ORDER);
 	
 	if ($matched) {
@@ -393,46 +393,47 @@ function parse_links($message, $width = "100%", $height = 120) {
 			if ($matched[$i][2]) {
 				if (strpos($message, '<iframe ') !== false && strpos($message, 'soundcloud.com') !== false) {
   			// Old iframe code, skip
- 				} else {
-					preg_match("#\s*[a-zA-Z\/\/:\.]*soundcloud.com\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)\/*([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]*)#i", $matched[$i][0], $sc);
-					if (! empty($sc)) {
-						// Do not process playlists
-						if (! $sc[3]) {
-						$message = str_replace($sc[0], "<sc>$sc[1]/$sc[2]</sc>", $message);
-						$message = soundcloud_iframe($message, $width, $height);
-						} else {
-							// Check for links
-							preg_match("#((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i", $matched[$i][0], $link);
-							if (! empty($link)) {
-								$message = str_replace($link[0], '<a href="' . $link[0] . '" target="_blank">' . $link[0] . '</a>', $message);
-							}
-						}
-					// Check for links
+ 				}
+				// If the link is not a playlist, embed
+				elseif (strpos($matched[$i][0], '/sets/') === false) {
+					// Fix protocolless links
+					if(strpos($matched[$i][0], 'http') === false) {
+						$sc = parse_url('//' . $matched[$i][0]);
 					} else {
-							preg_match("#((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i", $matched[$i][0], $link);
-							if (! empty($link)) {
-								$message = str_replace($link[0], '<a href="' . $link[0] . '" target="_blank">' . $link[0] . '</a>', $message);
-							}
+						$sc = parse_url($matched[$i][0]);
 					}
+					$message = str_replace($matched[$i][0], '<sc>'. substr($sc["path"], 1) .'</sc>', $message);
+					$message = soundcloud_iframe($message, $width, $height);
+				}
+				// If the link is a playlist, create a normal link
+				else {
+					$message = str_replace($matched[$i][0], create_link($matched[$i][0]) , $message);
+				}
 			}
-			// Youtube and youtu.be links
-			} elseif ($matched[$i][3]) {
-				preg_match("#\s*[a-zA-Z\/\/:\.]*(youtube.com\/watch\?v=|youtu.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)#i", $matched[$i][0], $yt );
-				if (! empty($yt)) {
-					$message = str_replace($yt[0], youtube_iframe($yt[2], $width, $height), $message);
-				// Check for links
+			// Youtube links
+			elseif ($matched[$i][3]) {
+				$yt = parse_url($matched[$i][0]);
+				// Get a clean embed code, without garbage like "&feature=youtu.be"
+				if (strpos($yt["query"], "&") === false) {
+					$length = strlen($yt["query"]) - 2;
+				 } else {
+					$length = strpos($yt["query"], "&") - 2;
+				}
+				$message = str_replace($matched[$i][0], youtube_iframe(substr($yt["query"], 2, $length), $width, $height), $message);
+			}
+			// Youtu.be links
+			elseif ($matched[$i][4]) {
+				// Fix for protocolless links
+				if(strpos($matched[$i][0], 'http') === false) {
+					$ytbe = parse_url('//' . $matched[$i][0]);
 				} else {
-					preg_match("#((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i", $matched[$i][0], $link);
-					if (! empty($link)) {
-					$message = str_replace($link[0], '<a href="' . $link[0] . '" target="_blank">' . $link[0] . '</a>', $message);
-					}
+					$ytbe = parse_url($matched[$i][0]);
 				}
-			// Check for links
-			}	elseif ($matched[$i][4]) {
-				preg_match("#((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i", $matched[$i][0], $link);
-				if (! empty($link)) {
-				$message = str_replace($link[0], '<a href="' . $link[0] . '" target="_blank">' . $link[0] . '</a>', $message);
-				}
+				$message = str_replace($matched[$i][0], youtube_iframe(substr($ytbe["path"], 1), $width, $height), $message);
+			}
+			// Regular links
+			elseif ($matched[$i][5]) {
+				$message = str_replace($matched[$i][0], create_link($matched[$i][0]) , $message);
 			}
 		}
 	}
@@ -476,6 +477,18 @@ function read_project($file_id) {
 		default:
 			return null;
 	}
+}
+/*
+ *  Turns links such as http://example.com into the proper a tag
+ */
+function create_link ($url) {
+	// if the url has no protocol, use a protocol relative link
+	if(strpos($url, 'http') === false) {
+		$html = '<a href="//' . $url . '" target=_blank >' . $url . '</a>';
+	} else {
+		$html = '<a href="' . $url . '" target=_blank >' .$url . '</a>';
+	}
+	return $html;
 }
 
 /*
