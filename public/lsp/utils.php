@@ -384,24 +384,19 @@ function get_file_url($file_id = null) {
  */
 function parse_links($message, $width = "100%", $height = 120) {
 	// Global pattern to find distinctive links
-	$pattern = "#[a-zA-Z\/\/:\.]*((soundcloud.com\/[a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+\/[a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)|(youtube.com\/watch\?v\=)|(youtu.be)|(https?:\/\/))+\S*#i";
+	$pattern = "#[a-zA-Z\/\/:\.\"\=]*((soundcloud.com\/[a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+\/[a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)|(youtube.com\/watch\?v\=)|(youtu.be)|(https?:\/\/))+\S*#i";
 	preg_match_all($pattern, $message, $matched, PREG_SET_ORDER);
 	
 	if ($matched) {
 		for ($i = 0; $i < count($matched); $i++) {
 			// Soundcloud links
 			if ($matched[$i][2]) {
-				if (strpos($message, '<iframe ') !== false && strpos($message, 'soundcloud.com') !== false) {
+				if (strpos($matched[$i][0], 'src="') !== false) {
   			// Old iframe code, skip
  				}
 				// If the link is not a playlist, embed
 				elseif (strpos($matched[$i][0], '/sets/') === false) {
-					// Fix protocolless links
-					if(strpos($matched[$i][0], 'http') === false) {
-						$sc = parse_url('//' . $matched[$i][0]);
-					} else {
-						$sc = parse_url($matched[$i][0]);
-					}
+					$sc = parse_url_ext($matched[$i][0]);
 					$message = str_replace($matched[$i][0], '<sc>'. substr($sc["path"], 1) .'</sc>', $message);
 					$message = soundcloud_iframe($message, $width, $height);
 				}
@@ -412,7 +407,7 @@ function parse_links($message, $width = "100%", $height = 120) {
 			}
 			// Youtube links
 			elseif ($matched[$i][3]) {
-				$yt = parse_url($matched[$i][0]);
+				$yt = parse_url_ext($matched[$i][0]);
 				// Get a clean embed code, without garbage like "&feature=youtu.be"
 				if (strpos($yt["query"], "&") === false) {
 					$length = strlen($yt["query"]) - 2;
@@ -423,12 +418,7 @@ function parse_links($message, $width = "100%", $height = 120) {
 			}
 			// Youtu.be links
 			elseif ($matched[$i][4]) {
-				// Fix for protocolless links
-				if(strpos($matched[$i][0], 'http') === false) {
-					$ytbe = parse_url('//' . $matched[$i][0]);
-				} else {
-					$ytbe = parse_url($matched[$i][0]);
-				}
+				$ytbe = parse_url_ext($matched[$i][0]);
 				$message = str_replace($matched[$i][0], youtube_iframe(substr($ytbe["path"], 1), $width, $height), $message);
 			}
 			// Regular links
@@ -478,6 +468,19 @@ function read_project($file_id) {
 			return null;
 	}
 }
+/*
+ * Extended url_parse function, it can parse links that appear
+ * as relative, like "google.com/path?query" properly.
+ */
+function parse_url_ext ($url) {
+	if(strpos($url, 'http') === false) {
+		$parsed = parse_url('//' . $url);
+	} else {
+		$parsed = parse_url($url);
+	}
+	return $parsed;
+}
+
 /*
  *  Turns links such as http://example.com into the proper a tag
  */
