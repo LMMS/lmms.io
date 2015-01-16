@@ -392,7 +392,7 @@ function parse_links($message, $width = "100%", $height = 120) {
 			// Soundcloud links
 			if ($matched[$i][2]) {
 				if (strpos($matched[$i][0], 'src="') !== false) {
-  			// Old iframe code, skip
+				// Old iframe code, skip
  				}
 				// If the link is not a playlist, embed
 				elseif (strpos($matched[$i][0], '/sets/') === false) {
