@@ -4,7 +4,7 @@ $navbar = new Navbar(
 	[
 		['Download', '/download/', [
 			['fa-download', 'Download LMMS', '/download/'],
-			['fa-music', 'Download Sample Packs', '/download/samples'],
+	//		['fa-music', 'Download Sample Packs', '/download/samples'],
 			['fa-picture-o', 'Download Artwork', '/download/artwork']]],
 		['Get Involved', '/get-involved/'],
 		['Showcase', '/showcase/'],
