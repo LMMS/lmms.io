@@ -384,14 +384,14 @@ function get_file_url($file_id = null) {
  */
 function parse_links($message, $width = "100%", $height = 120) {
 	// Global pattern to find distinctive links
-	$pattern = "%[a-zA-Z\/\/:\.\"\=]*( 										 # group 1, contains all the other groups
+	$pattern = "%[a-zA-Z\/\/:\.\"\=]*(                                       # group 1, contains all the other groups
 				(soundcloud.com\/[\w\*\-\?\&\%\=\.]+\/[\w\*\-\?\&\%\=\.]+)|  # group 2, match links like soundcloud.com/user/sound
-				(youtube.com\/watch\?v\=)|									 # group 3, match links like youtube-com/watch?v=videocode
-				(youtu.be)|													 # group 4, match links like youtu.be/videocode
-				(https?:\/\/)												 # group 5, match links like http://example.com/page
+				(youtube.com\/watch\?v\=)|                                   # group 3, match links like youtube-com/watch?v=videocode
+				(youtu.be)|                                                  # group 4, match links like youtu.be/videocode
+				(https?:\/\/)                                                # group 5, match links like http://example.com/page
 				)+\S*%xi";
 	preg_match_all($pattern, $message, $matched, PREG_SET_ORDER);
-	
+
 	if ($matched) {
 		for ($i = 0; $i < count($matched); $i++) {
 			// Soundcloud links
