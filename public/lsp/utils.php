@@ -383,25 +383,55 @@ function get_file_url($file_id = null) {
  * embeds a player. Also turns links into appropriate hyperlinks.
  */
 function parse_links($message, $width = "100%", $height = 120) {
-	//Ugly hack so the links process right
-	$message = " "  . $message . " ";
+	// Global pattern to find distinctive links
+	$pattern = "%[a-zA-Z\/\/:\.\"\=]*(                                       # group 1, contains all the other groups
+				(soundcloud.com\/[\w\*\-\?\&\%\=\.]+\/[\w\*\-\?\&\%\=\.]+)|  # group 2, match links like soundcloud.com/user/sound
+				(youtube.com\/watch\?v\=)|                                   # group 3, match links like youtube-com/watch?v=videocode
+				(youtu.be)|                                                  # group 4, match links like youtu.be/videocode
+				(https?:\/\/)                                                # group 5, match links like http://example.com/page
+				)+\S*%xi";
+	preg_match_all($pattern, $message, $matched, PREG_SET_ORDER);
 
-	// Process soundcloud, skip if old iframe code exists
-	if (strpos($message, '<iframe ') !== false && strpos($message, 'soundcloud.com') !== false) {
-		// Old iframe code, skip
-	} else {
-		$message = preg_replace('#\s*[a-zA-Z\/\/:\.]*soundcloud.com\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)\/([a-zA-Z0-9\*\-\_\?\&\;\%\=\.]+)(\s)#i', '<sc>$1/$2</sc>$3', $message);
-		$message = soundcloud_iframe($message, $width, $height);
+	if ($matched) {
+		for ($i = 0; $i < count($matched); $i++) {
+			// Soundcloud links
+			if ($matched[$i][2]) {
+				if (strpos($matched[$i][0], 'src="') !== false) {
+				// Old iframe code, skip
+ 				}
+				// If the link is not a playlist, embed
+				elseif (strpos($matched[$i][0], '/sets/') === false) {
+					$sc = parse_url_ext($matched[$i][0]);
+					$message = str_replace($matched[$i][0], '<sc>'. substr($sc["path"], 1) .'</sc>', $message);
+					$message = soundcloud_iframe($message, $width, $height);
+				}
+				// If the link is a playlist, create a normal link
+				else {
+					$message = str_replace($matched[$i][0], create_link($matched[$i][0]) , $message);
+				}
+			}
+			// Youtube links
+			elseif ($matched[$i][3]) {
+				$yt = parse_url_ext($matched[$i][0]);
+				// Get a clean embed code, without garbage like "&feature=youtu.be"
+				if (strpos($yt["query"], "&") === false) {
+					$length = strlen($yt["query"]) - 2;
+				 } else {
+					$length = strpos($yt["query"], "&") - 2;
+				}
+				$message = str_replace($matched[$i][0], youtube_iframe(substr($yt["query"], 2, $length), $width, $height), $message);
+			}
+			// Youtu.be links
+			elseif ($matched[$i][4]) {
+				$ytbe = parse_url_ext($matched[$i][0]);
+				$message = str_replace($matched[$i][0], youtube_iframe(substr($ytbe["path"], 1), $width, $height), $message);
+			}
+			// Regular links
+			elseif ($matched[$i][5]) {
+				$message = str_replace($matched[$i][0], create_link($matched[$i][0]) , $message);
+			}
+		}
 	}
-	
-	// Process youtube.com
-	$message = preg_replace('#\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)#i', youtube_iframe('$1', $width, $height), $message);
-	
-	// Process youtu.be
-	$message = preg_replace('#\s*[a-zA-Z\/\/:\.]*youtu.be\/([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)#i',  youtube_iframe('$1', $width, $height) , $message);
-	
-	// Process links
-	$message = preg_replace('#([^"])\b((https?://)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.])+)#i', '$1<a href="$2" target="_blank">$2</a>', $message);
 
 	return $message;
 }
@@ -442,6 +472,31 @@ function read_project($file_id) {
 		default:
 			return null;
 	}
+}
+/*
+ * Extended url_parse function, it can parse links that appear
+ * as relative, like "google.com/path?query" properly.
+ */
+function parse_url_ext ($url) {
+	if(strpos($url, 'http') === false) {
+		$parsed = parse_url('//' . $url);
+	} else {
+		$parsed = parse_url($url);
+	}
+	return $parsed;
+}
+
+/*
+ *  Turns links such as http://example.com into the proper a tag
+ */
+function create_link ($url) {
+	// if the url has no protocol, use a protocol relative link
+	if(strpos($url, 'http') === false) {
+		$html = '<a href="//' . $url . '" target=_blank >' . $url . '</a>';
+	} else {
+		$html = '<a href="' . $url . '" target=_blank >' .$url . '</a>';
+	}
+	return $html;
 }
 
 /*
