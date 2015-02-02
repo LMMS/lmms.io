@@ -49,9 +49,36 @@ blockquote {
 h1.jumbo, p.jumbo {
 	font-family: 'Ubuntu', sans-serif;
 }
+/* Star ratings */
+.lsp-starrating {
+	padding:  15px 0px 15px 0px;
+	unicode-bidi: bidi-override;
+	direction: rtl;
+}
 
-a.lsp-ratelink,
-span.lsp-ratelink {
+.lsp-starrating > a:hover {
+	text-decoration: none;
+}
+.lsp-star:before {
+	content: "\f006";
+}
+
+.lsp-star.disabled {
+	color: #ccc;
+	pointer-events: none;
+    cursor: default;
+}
+.lsp-star:hover:before,
+.lsp-star:hover ~ .lsp-star:before,
+.lsp-star.active ~ .lsp-star:before {
+   content: "\f005";
+}
+
+.lsp-star.active:before {
+	content: "\f005";
+
+}
+.lsp-star {
 	margin-left: 0 !important;
 	margin-right: 0 !important;
 	padding-left: 1px !important;

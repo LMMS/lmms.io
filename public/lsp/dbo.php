@@ -805,10 +805,10 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	
 	$rating = isset($rs['rating']) ? $rs['rating'] : get_file_rating($rs['id']);
 	for ($i = 1; $i <= $rating ; ++$i) {
-		echo '<span class="fa fa-star lsp-star"></span>';
+		echo '<span class="fa fa-star"></span>';
 	}
 	for ($i = $rating+1; floor( $i )<=5 ; ++$i) {
-		echo '<span class="fa fa-star-o lsp-star-o"></span>';
+		echo '<span class="fa fa-star-o"></span>';
 	}
 	echo '&nbsp;&nbsp;<span class=""><span class="fa fa-check-square-o"></span>&nbsp;'. $rs['rating_count'].'</span>';
 	echo '</small></td></tr>';
