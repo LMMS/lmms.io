@@ -1,4 +1,4 @@
-{% include 'head.twig' %}
+{% include 'head.twig' with {head: block('head')} %}
 {% block header %}
 {% endblock %}
 <div class="container theme-showcase main-div" role="main">
