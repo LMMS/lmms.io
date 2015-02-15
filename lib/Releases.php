@@ -10,6 +10,12 @@ class Releases
 			new \LMMS\SafeCachedHttpClient(['cache_dir' => '/tmp/github-api-cache'], 5*60)
 		);
 		$this->json = $client->api('repo')->releases()->all($owner, $repo);
+
+		function compare_releases($a, $b)
+		{
+			return strtotime($b['created_at']) - strtotime($a['created_at']);
+		}
+		usort($this->json, 'compare_releases');
 	}
 
 	public function latestAsset($pattern, $stable = true)
