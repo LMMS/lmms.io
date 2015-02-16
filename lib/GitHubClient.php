@@ -25,6 +25,7 @@ class SafeCachedHttpClient extends \Github\HttpClient\CachedHttpClient
 
 	public function request($path, $body = null, $httpMethod = 'GET', array $headers = array(), array $options = array())
 	{
+		$path = $path . '?per_page=1000';
 		$cache = $this->getCache();
 		$has = $cache->has($path);
 
