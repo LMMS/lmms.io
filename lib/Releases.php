@@ -13,7 +13,7 @@ class Releases
 
 		function compare_releases($a, $b)
 		{
-			return strtotime($b['created_at']) - strtotime($a['created_at']);
+			return version_compare($b['tag_name'], $a['tag_name']); 
 		}
 		usort($this->json, 'compare_releases');
 	}
