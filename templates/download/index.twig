@@ -91,11 +91,11 @@
 function showOS(os) {
 	location.hash = os;
 	if (os.indexOf("linux") != -1) {
-		if (os != "#linux") {
-			$(os+"-button").tab("show");
-		} else {
-			$("#linux-debian-button").tab("show");
+		if (os == "#linux") {
+			// Default linux distro shown is Debian
+			os = "#linux-debian";
 		}
+		$(os+"-button").tab("show");
 		os = "#linux";
 		$('#prerelease').hide();
 	} else {
@@ -161,7 +161,6 @@ $(function() {
 });
 
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-	location.hash = e.target.hash;
 	$(e.target).parent().children().removeClass("active");
 	e.target.classList.add("active");
 })
