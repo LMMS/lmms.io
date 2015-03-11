@@ -11,6 +11,7 @@ $navbar = new Navbar(
 		[['Documentation', 'Docs'], '/documentation/'],
 		['Community', '/community/', [
 			['fa-users', 'Community', '/community/'],
+			['fa-trophy', 'Competitions', '/competitions/'],
 			['fa-comments', 'Forums', '/forum/'],
 			['fa-facebook', 'Facebook', '/community/#facebook'],
 			['fa-soundcloud', 'SoundCloud', '/community/#soundcloud'],

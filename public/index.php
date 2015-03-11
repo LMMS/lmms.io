@@ -28,7 +28,8 @@ $pages = [
 	['/download/artwork/', twigrender('download/artwork.twig')],
 //	['/download/samples/', twigrender('download/samples.twig')],
 	['/get-involved/', twigrender('get-involved.twig')],
-	['/showcase/', twigrender('showcase.twig')]
+	['/showcase/', twigrender('showcase.twig')],
+	['/competitions/', twigrender('competitions.twig')]
 ];
 
 foreach ($pages as $page) {

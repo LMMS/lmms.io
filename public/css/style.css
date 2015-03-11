@@ -803,3 +803,50 @@ ul.nav-center li {
 	background-image:     -webkit-gradient(linear, left bottom, left top, color-stop(0.60, rgb(255,255,255)), color-stop(0.75, rgba(255,255,255,0)));
 	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColor=0, EndColorStr=#ffffff);
 }
+
+.comp-header {
+	width: 100%;
+	max-height: 72px;
+	vertical-align: middle;
+	background-position: center center;
+	background-size: cover;
+}
+
+.comp-header:hover {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.comp-header span {
+	font-family: 'Lato', sans-serif;
+	font-size: 46px;
+	line-height: 72px;
+	font-weight: 300;
+	font-style: italic;
+	color: #f5f2f2;
+	padding: 1ex 0.5em 1ex 0.5em;
+}
+
+#bol1 {
+	background-image: url('/img/tbolv1.jpg');
+}
+
+#bol2 {
+	background-image: url('/img/tbolv2.jpg');
+}
+
+.competition {
+	padding: 2em 0em 2em 0em;
+}
+.competition a {
+	text-decoration: none;
+}
+
+.comp-desc {
+	border: 1px 1px 1px 0px solid #c9c9c9;
+	padding: 2ex 1em 1ex 1em;
+}
+.comp-desc h4 {
+	margin-bottom: 1ex;
+	margin-top: 2ex;
+}
