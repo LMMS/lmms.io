@@ -10,8 +10,9 @@
 <h1 class="page-header text-center">Competitions</h1>
 <h3>Currently running competitions:</h3>
 <div class="competition">
-	<div class="comp-header" id="bol2" data-toggle="collapse" data-target="#bol2-desc">
+	<div class="comp-header" id="bol2" data-target="#bol2-desc">
 		<span>The Best of LMMS vol. II</span>
+		<i class="fa fa-angle-down"></i>
 	</div>
 	<div class="comp-desc panel-collapse collapse" id="bol2-desc">
 		<h4>Submit your song at <a href="https://soundcloud.com/groups/the-best-of-lmms-competition-v2">our soundcloud group.</a></h4>
@@ -42,8 +43,9 @@
 </div>
 <h3>Past competitions:</h3>
 <div class="competition">
-	<div class="comp-header" id="bol1" data-toggle="collapse" data-target="#bol1-desc">
+	<div class="comp-header" id="bol1" data-target="#bol1-desc">
 		<span>The Best of LMMS vol. I</span>
+		<i class="fa fa-angle-down"></i>
 	</div>
 	<div class="comp-desc panel-collapse collapse" id="bol1-desc">
 		<h4>The competiton has ended on <b>February 15th 2014.</b></h4>
@@ -73,6 +75,16 @@
 
 
 {% endspaceless %}
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".comp-header").click(function(){
+		var target = $(this).attr('data-target');
+		$(target).collapse('toggle');
+		$(this).children('i').toggleClass('fa-rotate-180');
+	});
+});
+</script>
 
 <br>
 

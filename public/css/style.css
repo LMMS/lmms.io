@@ -827,6 +827,15 @@ ul.nav-center li {
 	padding: 1ex 0.5em 1ex 0.5em;
 }
 
+.comp-header i {
+	color: #fff;
+	font-size: 46px;
+	float: right;
+	margin: auto 0.5em auto 0.5em;
+	line-height: 72px;
+	transition: all 0.35s linear;
+}
+
 #bol1 {
 	background-image: url('/img/tbolv1.jpg');
 }
@@ -836,7 +845,7 @@ ul.nav-center li {
 }
 
 .competition {
-	padding: 2em 0em 2em 0em;
+	padding: 2em 0 2em 0;
 }
 .competition a {
 	text-decoration: none;
