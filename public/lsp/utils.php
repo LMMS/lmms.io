@@ -389,7 +389,8 @@ function parse_links($message, $width = "100%", $height = 120) {
 				(soundcloud.com\/[\w\*\-\?\&\%\=\.]+\/[\w\*\-\?\&\%\=\.]+)|  # group 2, match links like soundcloud.com/user/sound
 				(youtube.com\/watch\?v\=)|                                   # group 3, match links like youtube-com/watch?v=videocode
 				(youtu.be)|                                                  # group 4, match links like youtu.be/videocode
-				(https?:\/\/)                                                # group 5, match links like http://example.com/page
+				(https?:\/\/\S*\/\S*\.(jpe?g|png|gif)\b)|                    # group 5, match links like http://mylink.domain/image.png
+				(https?:\/\/)                                                # group 6, match links like http://example.com/page
 				)+\S*%xi";
 	preg_match_all($pattern, $message, $matched, PREG_SET_ORDER);
 
@@ -427,8 +428,12 @@ function parse_links($message, $width = "100%", $height = 120) {
 				$ytbe = parse_url_ext($matched[$i][0]);
 				$message = str_replace($matched[$i][0], youtube_iframe(substr($ytbe["path"], 1), $width, $height), $message);
 			}
-			// Regular links
+			// Image links
 			elseif ($matched[$i][5]) {
+				$message = str_replace($matched[$i][0], create_img($matched[$i][0]) , $message);
+			}
+			// Regular links
+			elseif ($matched[$i][7]) {
 				$message = str_replace($matched[$i][0], create_link($matched[$i][0]) , $message);
 			}
 		}
@@ -496,6 +501,18 @@ function create_link ($url) {
 		$html = '<a href="//' . $url . '" target=_blank >' . $url . '</a>';
 	} else {
 		$html = '<a href="' . $url . '" target=_blank >' .$url . '</a>';
+	}
+	return $html;
+}
+/*
+ *  Turns links such as http://example.com/pic.jpg into the proper img tag
+ */
+function create_img ($url) {
+	// if the url has no protocol, use a protocol relative link
+	if(strpos($url, 'http') === false) {
+		$html = '<img src="//' . $url . '" class="lsp-image" alt="' .$url . '">';
+	} else {
+		$html = '<img src="' . $url . '" class="lsp-image" alt="' .$url . '">';
 	}
 	return $html;
 }

@@ -49,6 +49,10 @@ blockquote {
 h1.jumbo, p.jumbo {
 	font-family: 'Ubuntu', sans-serif;
 }
+.lsp-image {
+	max-width:100%;
+}
+
 /* Star ratings */
 .lsp-starrating {
 	padding:  15px 0px 15px 0px;
