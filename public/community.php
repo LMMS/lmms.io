@@ -61,8 +61,9 @@
 	</div>
 
 	<div id="facebook-div" class="panel-body hidden">
-	<?php include('feed/facebook.php'); ?>
-	</div>
+        <h3 class="text-center">Sorry, this feed is temporarily disabled.</h3>
+        <?php // include('feed/facebook.php'); ?>
+        </div>
 
 
 	<div id="soundcloud-div" class="panel-body hidden">
