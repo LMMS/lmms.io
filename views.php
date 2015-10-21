@@ -7,7 +7,7 @@ require_once('../lib/Releases.php');
 function documentationPage($page=null)
 {
 	global $app;
-	$wiki = new RemWiki\RemWiki(get_protocol() . 'lmms.io/wiki/');
+	$wiki = new RemWiki\RemWiki('http://lmms.io/wiki/');
 
 	if ($page === null or $page === '') {
 		$page = 'Main_Page';
