@@ -23,7 +23,7 @@ function get_protocol() {
  */
 function is_secure_host() {
 	global $SECURE_HOST;
-	return $_SERVER['HTTP_HOST'] == $SECURE_HOST;
+	return $_SERVER['HTTP_HOST'] == $SECURE_HOST || preg_match("/\.$SECURE_HOST$/", $_SERVER['HTTP_HOST']);
 }
 
 ?>
