@@ -375,7 +375,7 @@ function login() {
 function get_file_url($file_id = null) {
 	global $LSP_URL;
 	$url = $LSP_URL . '?action=show&file=' . (isset($file_id) ? $file_id : GET('file'));
-	$name = '(' . get_file_name((isset($file_id) ? $file_id : GET('file'))) . ')';
+	$name = get_file_name((isset($file_id) ? $file_id : GET('file')));
 	return '<a href="' . $url . '">' . $name . '</a>';
 }
 
