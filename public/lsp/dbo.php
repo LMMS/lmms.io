@@ -872,9 +872,9 @@ function show_file($file_id, $user, $success = null) {
 			
 			echo '<tr><td colspan="2">';
 			echo '<nav id="lspnav" class="navbar navbar-default"><ul class="nav navbar-nav">';
-			$can_edit = ($object['login'] == $user || is_admin(get_user_id($user)));
+			$can_edit = (strtolower($object['login']) == strtolower($user) || is_admin(get_user_id($user)));
 			$can_rate = !SESSION_EMPTY();
-			$rate_self =  $object['login'] == $user;
+			$rate_self =  strtolower($object['login']) == strtolower($user);
 			
 			global $LSP_URL;
 			create_toolbar_item('Comment', "$LSP_URL?comment=add&file=$file_id", 'fa-comment', $can_rate);
