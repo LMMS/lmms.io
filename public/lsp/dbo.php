@@ -438,7 +438,7 @@ function get_extensions() {
  *		// or
  *		echo get_licenses();
  */
-function get_licenses($default = '') {
+function get_licenses($default = 'Creative Commons (by)') {
 	$dbh = &get_db();
 	$stmt = $dbh->prepare('SELECT name FROM licenses');
 	$html = '';
