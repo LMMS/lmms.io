@@ -17,7 +17,7 @@ if (!SESSION_EMPTY()) {
 		<span class="pull-left btn btn-default btn-file">
 			<span class="fa fa-folder-open"></span>&nbsp;Select file<input type="file" name="filename" />
 		</span><strong><span class="text-center"><pre class="text-warning" id="file-selected">No file selected</pre></span></strong>
-		<small>Maximum file size: 1 MB</small>
+		<small>Maximum file size: 2 MB</small>
 		</div>
 		<div class="form-group">
 		<input type="checkbox" id="nocopyright" name="nocopyright" />
