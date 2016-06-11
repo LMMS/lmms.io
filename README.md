@@ -59,10 +59,8 @@ This repo contains the source for LMMS's new website located at http://lmms.io.
 	
 1. Start local server
 
-	Start a local PHP server by running from lmms.io/public:
-	
 	```bash
-	$ php -S localhost:8000 -t ./
+	$ php -S localhost:8000 -t ./public/
 	```
 	
 	You can then open http://localhost:8000/ in a browser.
