@@ -559,6 +559,8 @@ p.forum-stats  {
 	background-image:none;
 	border: none;
 	background-color: #10b146;
+	background-image: url('/img/hexagon.png');
+	background-position: center;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -625,6 +627,7 @@ body {
     border-bottom-color: #e0e0e0;
 }
 
+/* mobile version */
 .dropdown-menu {
 	border: none;
 	border-radius: 0;
@@ -647,7 +650,6 @@ body {
 	background-color: rgba(255, 255, 255, 0.9); 	
 }
 
-/* mobile version */
 .navbar-custom .navbar-toggle {
     border: none;
 }
@@ -662,6 +664,9 @@ body {
 }
 
 @media (max-width: 767px) {
+		.navbar-custom {
+			background-image: none;
+		}
 		.navbar-custom .navbar-nav > li > a,
 		.navbar-custom .navbar-nav > li > a:visited,
 		.navbar-custom .navbar-nav > li > a:focus,
@@ -691,8 +696,6 @@ body {
 	height: 22px;
 }
 
-
-
 /* header */
 .jumbotron {
 	margin: 0;
@@ -716,17 +719,25 @@ div.jumbo {
 	overflow: hidden;
 	display: flex;
 	align-items: center;
+	justify-content: left;
 	background-color: #10b146;
-	background-image: url("/img/screen.png");
-	background-position: right bottom;
-	background-size: auto 130%;
-	background-repeat: no-repeat;
+	background: url("/img/screen.png"), url("/img/hexagon.png");
+	background-position: right bottom, center;
+	background-size: auto 130%, auto;
+	background-repeat: no-repeat, repeat;
 	color: #fff;
 	min-height: 60vh;
 }
+.jumbo div.header {
+	margin-bottom: 100px;
+}
+/*responsive bg change*/
 @media (max-width: 992px) and (min-width: 768px) {
 	div.jumbo {
-		background-size: auto 80%;
+		background-size: auto 80%, auto;
+	}
+	.jumbo div.header {
+		margin-bottom: 80px;
 	}
 }
 
@@ -740,6 +751,9 @@ div.jumbo {
 		background-position: right bottom;
 		background-repeat: no-repeat;
 	}	
+	.jumbo div.header {
+		margin-bottom: 50px;
+	}
 }
 
 .segment {
@@ -750,6 +764,7 @@ div.jumbo {
 .segment#home3 {
 	background: url("/img/hexagon2.png");
 	background-repeat: repeat;
+	background-position: center;
 }
 
 .segment#home2 {
@@ -759,6 +774,7 @@ div.jumbo {
 		rgba(16, 177, 70, 0.7)
 	), url("/img/promoshot1.jpg");
 	background-position: center;
+	background-size: cover;
 	background-attachment: fixed;
 }
 
