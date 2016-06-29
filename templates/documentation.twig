@@ -1,7 +1,12 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-<h1> {{ json.displaytitle }}</h1>
-
-{{ text|raw }}
+<div class="jumbotron mini">
+	<div class="container">
+		<h2>{{ json.displaytitle }}</h2>
+	</div>
+</div>
+<div class="container">
+  {{ text|raw }}
+</div>
 {% endblock %}

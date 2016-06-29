@@ -85,16 +85,14 @@ class MenuItem
 		} else {
 			// Dropdown item
 
-			// Split dropdown for big screens
-			echo "<li class='dropdown-split-left $this->active hidden-xs'> <a href='$this->url'>$this->text</a> </li>";
-			echo "<li class='dropdown-split-right $this->active hidden-xs'>
-					<a href='#' class='dropdown-toggle' data-toggle='dropdown'> <span class='caret'></span></a>";
-			echo "<ul class='dropdown-menu pull-right'>";
+			echo "<li tabindex='0' class='dropdown hidden-xs'>
+					<a href='#'>$this->text <span class='caret'></span></a>";
+			echo "<ul tabindex='0' class='dropdown-menu pull-right'>";
 			foreach ($this->children as $key => $child) {
 				$this->printItem('', $child[1], $child[2], $child[0]);
-				if ($key == 0) {
+				/*if ($key == 0) {
 					echo "<li class='divider'></li>";
-				}
+				}*/
 			}
 			echo '</ul></li>';
 
@@ -172,7 +170,7 @@ class Navbar
 	public function flush()
 	{
 		?>
-		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -182,7 +180,7 @@ class Navbar
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/"><img class="logo-sm pull-left" height="22px" width="22px" src="/img/logo_sm.png"></img>LMMS</a>
+					<a class="navbar-brand" href="/"><img class="logo-sm pull-left" height="22px" width="22px" src="/img/brand-icon.png"></img>LMMS</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
