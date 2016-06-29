@@ -764,7 +764,8 @@ div.jumbo {
 .segment#home3 {
 	background: url("/img/hexagon2.png");
 	background-repeat: repeat;
-	background-position: center;
+	background-position: 0px 0px; /*fallback*/
+	background-position: 0px calc(-1*(60vh + 50px));
 }
 
 .segment#home2 {
