@@ -3,6 +3,12 @@
 	<span class='fa {{ icon }}'></span>
 {% endmacro %}
 
+{% macro segment(content, name) %}
+	<div id=" {{ name }}">
+		<div class="container">{{ content | raw }}</div>
+	</div>
+{% endmacro %}
+
 {# Prints an FontAwesome icon stack with two icons and a tooltip #}
 {% macro icon_stack(icon1, icon2, parentclass, tooltip) %}
 	{% import _self as macros %}

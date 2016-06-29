@@ -2,7 +2,7 @@
 
 body {
 	padding-bottom: 0;
-	padding-top: 0;
+	padding-top: 50px;
 	margin-bottom: 191px;
 }
 
@@ -28,17 +28,8 @@ html {
 	margin-bottom: 0;
 }
 
-.navbar-default {
-	box-shadow: none;
-	border: none;
-}
-
 .nav-justified > li {
 	float:none;
-}
-
-.navbar-default .navbar-nav > .active > a {
-	box-shadow: none;
 }
 
 blockquote {
@@ -46,9 +37,6 @@ blockquote {
 	font-style: normal;
 }
 
-h1.jumbo, p.jumbo {
-	font-family: 'Ubuntu', sans-serif;
-}
 .lsp-image {
 	max-width:100%;
 }
@@ -90,18 +78,6 @@ h1.jumbo, p.jumbo {
 	display: inline-block;
 }
 
-div.jumbo {
-	overflow: hidden;
-	background: url('/img/jumbotron_bg.jpg');
-	color: #fff;
-}
-
-.jumbotron-video {
-	background-color: #428bca;
-	height:  204px;
-	border: 2px solid #428bca;
-	border-radius: 1px;
-}
 
 /* Fix for forum back-to-top button */
 .back-to-top {
@@ -171,14 +147,6 @@ div.p-pagination span.label a:link {
 	color: #fff;
 }
 
-h1.jumbo {
-	margin-top: 14px;
-}
-
-p.jumbo {
-	margin-top: -14px;
-	margin-left: 4px;
-}
 
 .inputbox {
     line-height: normal;
@@ -476,6 +444,7 @@ img {
 
 .main-div {
 	padding-bottom: 20px;
+	background-color: #fff;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -558,12 +527,6 @@ p.forum-stats  {
 	width: auto;
 }
 
-.logo-sm {
-	position: relative;
-	top: -2px;
-	margin-right: 5px;
-}
-
 /* Some missing bootstrap styles */
 
 .btn {
@@ -589,15 +552,214 @@ p.forum-stats  {
 	border-radius: 1px;
 }
 
-.navbar-default {
+/* navbar styling */
+.navbar-custom {
 	filter:progid:DXImageTransform.Microsoft.Gradient(enabled='false');
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
 	box-shadow: none;
 	background-image:none;
-	border-bottom: solid 1px;
-	border-color: #c9c9c9;
-	background-color: #fcfcfc;
+	border: none;
+	background-color: #10b146;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	transition: top 0.15s ease-in-out;
+}
+
+.nav-up {
+  top: -50px;
+}
+.nav-down {
+	top: 0;
+}
+/* Since we do the navbar scroll event in segments, we need to make the body the same color as the navbar */
+body {
+	background-color: #10b146;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-nav > li > a,
+.navbar-custom .navbar-nav > li > a:visited,
+.navbar-custom .navbar-nav > li > a:focus,
+.dropdown-split-right {
+    color: #fff;
+		background-color: inherit;
+		text-shadow: none;
+		transition: all 0.15s linear;
+		
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > .active > a, 
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .open > a, 
+.navbar-custom .navbar-nav > .open > a:hover {
+    color: #e0e0e0;
+		background-color: inherit;
+}
+
+/* inner bottom border on hover over navbar items*/
+@media(min-width: 768px) {
+	.navbar-custom .navbar-nav > li > a:hover,
+	.navbar-custom .navbar-nav > .active > a, 
+	.navbar-custom .navbar-nav > .active > a:hover,
+	.navbar-custom .navbar-nav > .open > a, 
+	.navbar-custom .navbar-nav > .open > a:hover,
+	.navbar-custom .dropdown-split-left:hover + .dropdown-split-right {
+			box-shadow: inset 0px -5px 0px 0px #373b37;
+	}	
+}
+
+
+/* caret */
+.navbar-custom .navbar-nav > .dropdown > a .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
+
+.navbar-custom .navbar-nav > .dropdown > a:hover .caret,
+.navbar-custom .navbar-nav > .dropdown > a:focus .caret,
+.navbar-custom .navbar-nav > .open > a .caret, 
+.navbar-custom .navbar-nav > .open > a:hover .caret, 
+.navbar-custom .navbar-nav > .open > a:focus .caret {
+    border-top-color: #e0e0e0;
+    border-bottom-color: #e0e0e0;
+}
+
+.dropdown-menu {
+	border: none;
+	border-radius: 0;
+	background-color: #373b37;
+	transition: all 0.2s linear;
+}
+
+.dropdown-menu > li > a {
+	color: #fff;
+	transition: all 0.2s linear;	
+}
+
+.dropdown-menu > li.divider {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.dropdown-menu > li > a:hover {
+	color: #373b37;
+	background-image: none;
+	background-color: rgba(255, 255, 255, 0.9); 	
+}
+
+/* mobile version */
+.navbar-custom .navbar-toggle {
+    border: none;
+}
+
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+    background-color: rgba(255, 255, 255, 0.2);;
+}
+
+.navbar-custom .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+@media (max-width: 767px) {
+		.navbar-custom .navbar-nav > li > a,
+		.navbar-custom .navbar-nav > li > a:visited,
+		.navbar-custom .navbar-nav > li > a:focus,
+		.navbar-custom .navbar-nav .open .dropdown-menu {
+			box-shadow: inset 0px -1px 0px 0px rgba(255, 255, 255, 0.1);
+		}
+		.navbar-custom .navbar-nav > li.open > a {
+			box-shadow: none;
+		}
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+        color: #fff;
+    }
+		.navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover {
+        color: #e0e0e0;
+    }
+		.dropdown-menu > li > a:hover {
+			color: #373b37;
+			background: transparent;
+		}
+}
+
+.logo-sm {
+	position: relative;
+	top: -2px;
+	margin-right: 5px;
+	width: 22px;
+	height: 22px;
+}
+
+
+
+/* header */
+.jumbotron {
+	margin: 0;
+}
+h1.jumbo, p.jumbo {
+	font-family: 'Ubuntu', sans-serif;
+
+}
+
+h1.jumbo {
+	margin-top: 14px;
+}
+
+p.jumbo {
+	margin-top: -14px;
+	margin-left: 4px;
+}
+
+
+div.jumbo {
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	background-color: #10b146;
+	background-image: url("/img/screen.png");
+	background-position: right bottom;
+	background-size: auto 130%;
+	background-repeat: no-repeat;
+	color: #fff;
+	min-height: 60vh;
+}
+@media (max-width: 992px) and (min-width: 768px) {
+	div.jumbo {
+		background-size: auto 80%;
+	}
+}
+
+@media (max-width: 768px) {
+	div.jumbo {
+		background: linear-gradient(
+      rgba(16, 177, 70, 0.9), 
+      rgba(16, 177, 70, 0.9)
+    ), url("/img/screen.png"), #10b146;
+		background-size: auto 160%;
+		background-position: right bottom;
+		background-repeat: no-repeat;
+	}	
+}
+
+.segment {
+	padding: 40px 0 40px 0; 
+}
+
+.segment#home1,
+.segment#home3 {
+	background: url("/img/hexagon2.png");
+	background-repeat: repeat;
+}
+
+.segment#home2 {
+	color: #fff;
+	background: linear-gradient(
+		rgba(16, 177, 70, 0.7), 
+		rgba(16, 177, 70, 0.7)
+	), url("/img/promoshot1.jpg");
+	background-position: center;
+	background-attachment: fixed;
 }
 
 #lspnav,
@@ -630,6 +792,26 @@ p.forum-stats  {
 	background: white;
 	cursor: inherit;
 	display: block;
+}
+
+.btn-outline {
+	background: none;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 8px;
+	transition: all 0.2s linear;
+}
+.btn-outline:hover {
+	color: #706d6d;
+	background-color: #fff;
+}
+
+.btn-xl {
+	font-size: 24px;
+}
+
+.btn-outline#involved {
+	border: none;
 }
 
 .btn-dark {
