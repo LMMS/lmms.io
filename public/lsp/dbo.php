@@ -4,12 +4,15 @@ require_once('utils.php');
 /*
  * Default database values.  Override with LSP_SECRETS below
  */
-$DB_TYPE = 'mysql';
-$DB_HOST = 'localhost';
-$DB_USER = 'someuser';
-$DB_PASS = 'P@SSWORD';
-$DB_DATABASE = 'somedatabase';
-
+ $DB_TYPE = 'mysql';
+ $DB_HOST = "localhost";
+ $DB_USER = "someuser";
+ $DB_PASS = "P@SSW0RD";
+ $DB_DATABASE = "somedatabase";
+ $PAGE_SIZE = 10;
+ $TMP_DIR = '../../../';	// "tmp" is added automatically
+ $DATA_DIR = '../../../';
+ $LSP_URL = 'http://lmms.io/lsp/index.php';
 /*
  * Query preferences
  * Note:  MySQL defaults to latin1 charset

@@ -4,20 +4,17 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>LMMS &bull;  {{ navbar.activePageTitle() }} </title>
+	<title>LMMS | {{ navbar.activePageTitle() }} </title>
 
+	<meta name=”description” content=”LMMS is a free, open source, multiplatform digital audio workstation.”>
 	<link rel="icon" type="image/png" href="/img/logo_sm.png">
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" rel="stylesheet">
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="/css/style.css" rel="stylesheet">
-
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script async type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+	<link href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Titillium+Web:400,600|Open+Sans|Orbitron:500" rel="stylesheet">
+	<link href="/css/style.min.css" rel="stylesheet">
 	{{ head|raw }}
 </head>
 
 <body role="document">
 	{{ navbar.flush() }}
-
