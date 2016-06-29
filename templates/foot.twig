@@ -42,6 +42,15 @@
 			<a href="http://www.networkredux.com/"><img src="/img/network_redux.png"></a></p>
 		</div>
 	</footer>
+	<script type="text/javascript">
+	$('.collapse').on('shown.bs.collapse', function () {
+		console.log('Ikr')
+		$(document).on('click', function () {
+			console.log('I dun it');
+			$('.collapse').collapse('hide');
+		});
+	});
+	</script>
 	<script type="text/javascript" src="/js/analytics.js"></script>
 	<script type="text/javascript" src="/js/smartNavbar.js"></script>
 </body>
