@@ -779,6 +779,17 @@ div.jumbo {
 	background-attachment: fixed;
 }
 
+.segment#home4 {
+	color: #fff;
+	background: linear-gradient(
+		rgba(16, 177, 70, 0.7), 
+		rgba(16, 177, 70, 0.7)
+	), url("/img/promoshot2.jpg");
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
 #lspnav,
 .alert {
 	border: 0;
