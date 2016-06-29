@@ -26,13 +26,13 @@
 
 {% import _self as download %}
 
+{% import 'macros.twig' as macros %}
+
 {% block content %}
+{{ macros.jumbo('Download LMMS', 
+'Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:') }}
 <div class="text-center">
-	<h1 class="page-header">Download LMMS</h1>
-
-	<p>Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:</p>
-
-	<div>
+		<div>
 		<div class="btn-group" data-toggle="buttons">
 			<label class="btn btn-default" onclick="showOS('#linux')">
 				<input type="radio" name="options" id="linux-button"><span class="fa fa-linux fa-5x"></span><br>Linux

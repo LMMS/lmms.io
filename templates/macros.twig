@@ -3,10 +3,13 @@
 	<span class='fa {{ icon }}'></span>
 {% endmacro %}
 
-{% macro segment(content, name) %}
-	<div id=" {{ name }}">
-		<div class="container">{{ content | raw }}</div>
+{% macro jumbo(title, subtitle) %}
+<div class="jumbotron mini">
+	<div class="container">
+		<h1>{{ title }}</h1>
+		<p>{{ subtitle }}</p>
 	</div>
+</div>
 {% endmacro %}
 
 {# Prints an FontAwesome icon stack with two icons and a tooltip #}
