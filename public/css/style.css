@@ -585,10 +585,10 @@ a:hover {
 .nav-down {
 	top: 0;
 }
-/* Since we do the navbar scroll event in segments, we need to make the body the same color as the navbar */
+/* Since we do the navbar scroll event in segments, we need to make the body the same color as the navbar 
 body {
 	background-color: #10b146;
-}
+}*/
 
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-nav > li > a,
@@ -713,7 +713,10 @@ body {
 	margin: 0;
 }
 
-h1.jumbo, p.jumbo {
+.jumbotron h1, 
+.jumbotron h2,
+.jumbotron h5,
+.jumbotron p {
 	font-family: 'Ubuntu', sans-serif;
 }
 
@@ -730,29 +733,30 @@ div.jumbo {
 	overflow: hidden;
 	display: flex;
 	align-items: center;
-	justify-content: left;
-	background-color: #10b146;
-	background: url("/img/screen.png"), url("/img/hexagon.png");
+	background: url("/img/screen.png"), url("/img/hexagon.png"), #10b146;
 	background-position: right bottom, 0px -50px;
 	background-size: auto 130%, auto;
 	background-repeat: no-repeat, repeat;
 	color: #fff;
 	min-height: 60vh;
 }
+
 .jumbo div.header {
 	margin-bottom: 100px;
 }
+
 div.mini {
 	overflow: hidden;
 	display: flex;
 	align-items: center;
-	justify-content: left;
-	background-color: #10b146;
-	background: url("/img/hexagon.png");
+	background: url("/img/hexagon.png"), #10b146;
 	background-position: 0px -50px;
 	color: #fff;
-	min-height: 20vh;
+	min-height: 15vh;
+	padding: 5px;
+	margin-bottom: 20px;
 }
+
 /*responsive bg change*/
 @media (max-width: 992px) and (min-width: 768px) {
 	div.jumbo {
@@ -778,6 +782,9 @@ div.mini {
 	}
 }
 
+.container {
+	min-height: 100%;
+}
 .segment {
 	padding: 40px 0 40px 0; 
 }
@@ -789,8 +796,7 @@ div.mini {
 .segment#home3 {
 	background: url("/img/hexagon2.png");
 	background-repeat: repeat;
-	background-position: 0px 0px; /*fallback*/
-	background-position: 0px calc(-1*(60vh + 50px));
+	background-position: 0px 0px;
 }
 
 .segment#home2 {
@@ -855,7 +861,7 @@ div.mini {
 	transition: all 0.2s linear;
 }
 .btn-outline:hover {
-	color: #706d6d;
+	color: #706d6d !important;
 	background-color: #fff;
 }
 

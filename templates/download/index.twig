@@ -31,7 +31,7 @@
 {% block content %}
 {{ macros.jumbo('Download LMMS', 
 'Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:') }}
-<div class="text-center">
+<div class="text-center container">
 		<div>
 		<div class="btn-group" data-toggle="buttons">
 			<label class="btn btn-default" onclick="showOS('#linux')">
@@ -47,11 +47,11 @@
 	</div>
 </div>
 
-<div id="linux-div" class="text-center hidden">
+<div id="linux-div" class="text-center hidden container">
 	{% include 'download/linux.twig' %}
 </div>
 
-<div id="windows-div" class="text-center hidden">
+<div id="windows-div" class="text-center hidden container">
 	<h2>Install LMMS on Windows</h2>
 	<p>Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows</p>
 	<h3>Stable Versions</h3>
@@ -69,7 +69,7 @@
 	{% endif %}
 </div>
 
-<div id="mac-div" class="text-center hidden">
+<div id="mac-div" class="text-center hidden container">
 	<h2>Install LMMS on Apple OS&nbsp;X</h2>
 	<p>Click one of the buttons below to download LMMS for Apple</p>
 	{% if osxstable %}
