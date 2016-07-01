@@ -42,18 +42,18 @@
 			<a href="http://www.networkredux.com/"><img src="/img/network_redux.png"></a></p>
 		</div>
 	</footer>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>	
+	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/smartNavbar.js"></script>
 	<script type="text/javascript">
+	// close out the open navbar in mobile mode when we click outside of it
 	$('.collapse').on('shown.bs.collapse', function () {
-		console.log('Ikr')
 		$(document).on('click', function () {
-			console.log('I dun it');
 			$('.collapse').collapse('hide');
 		});
 	});
 	</script>
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/js/analytics.js"></script>
-	<script type="text/javascript" src="/js/smartNavbar.js"></script>
+	{{ foot|raw }}
+	<script type="text/javascript" src="/js/analytics.js"></script>	
 </body>
 </html>

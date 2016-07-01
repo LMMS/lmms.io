@@ -5,4 +5,4 @@
 	{% block content %}
 	{% endblock %}
 </div>
-{% include 'foot.twig' %}
+{% include 'foot.twig' with {foot: block('foot')} %}

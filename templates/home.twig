@@ -2,7 +2,6 @@
 {% block head %}
 	<link href='//fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
 	<link href="/css/lightbox.css" rel="stylesheet">
-	<script async type="text/javascript" src="/js/lightbox.min.js"></script>
 {% endblock %}
 
 {% import 'macros.twig' as macros %}
@@ -186,12 +185,13 @@
 
 {% endspaceless %}
 
+{% endblock %}
+
+{% block foot %}
+<script type="text/javascript" src="/js/lightbox.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $("[data-toggle=tooltip]").tooltip();
 });
 </script>
-
-<br>
-
 {% endblock %}
