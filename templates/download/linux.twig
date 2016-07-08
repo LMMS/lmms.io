@@ -1,5 +1,5 @@
 {% block head %}
-	<link href="//cdn.rawgit.com/Lukas-W/font-linux/v0.1/assets/font-linux.css" rel="stylesheet">
+	<link href="//cdn.rawgit.com/Lukas-W/font-linux/v0.6/assets/font-linux.css" rel="stylesheet">
 {% endblock %}
 
 <div class="text-center">
@@ -37,6 +37,10 @@
 
 			<li><a href="#linux-slackware" role="tab" data-toggle="tab" id="linux-slackware-button">
 				<span class="fl fl-16 fl-slackware fl-tab"></span>&nbsp;Slackware
+			</a></li>
+
+			<li><a href="#linux-aosc" role="tab" data-toggle="tab" id="linux-aosc-button">
+				<span class="fl fl-16 fl-aosc fl-tab"></span>&nbsp;AOSC OS
 			</a></li>
 		</ul>
 	</div>
@@ -87,6 +91,17 @@
 	<div id="linux-suse" class="tab-pane">
 		<h3>openSUSE</h3>
 		<p>Run the following command in a terminal:</p>
+		<div class="code-block"><pre>$ sudo zypper install lmms</pre></div>
+	</div>
+
+	<div id="linux-aosc" class="tab-pane">
+		<h3>AOSC OS</h3>
+		<p>AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and more to come in the future), with VST support enabled by default on AMD64.</p>
+		<p>To install LMMS on AOSC OS with PackageKit (recommended):</p>
+		<div class="code-block"><pre>$ pkcon install lmms</pre></div>
+		<p>To install LMMS on AOSC OS with DPKG:</p>
+		<div class="code-block"><pre>$ sudo apt install lmms</pre></div>
+		<p>To install LMMS on AOSC OS with RPM:</p>
 		<div class="code-block"><pre>$ sudo zypper install lmms</pre></div>
 	</div>
 </div>
