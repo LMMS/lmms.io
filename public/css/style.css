@@ -821,6 +821,19 @@ div.mini {
 	background-attachment: fixed;
 }
 
+/* Get Involved Panels */
+.panel-custom {
+	border: 1px #dedede solid;
+}
+
+.panel-custom > .panel-heading {
+	background: url("/img/hexagon.png");
+	background-color: #373b37;
+	color: #fff;
+	background-repeat: repeat;
+	background-position: 0px 0px;
+}
+
 #lspnav,
 .alert {
 	border: 0;
