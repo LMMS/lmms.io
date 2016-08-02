@@ -46,38 +46,33 @@ blockquote {
 	padding:  15px 0px 15px 0px;
 	unicode-bidi: bidi-override;
 	direction: rtl;
+	> a:hover {
+		text-decoration: none;
+	}
 }
 
-.lsp-starrating > a:hover {
-	text-decoration: none;
-}
-.lsp-star:before {
-	content: "\f006";
-}
-
-.lsp-star.disabled {
-	color: #ccc;
-	pointer-events: none;
-    cursor: default;
-}
-.lsp-star:hover:before,
-.lsp-star:hover ~ .lsp-star:before,
-.lsp-star.active ~ .lsp-star:before {
-   content: "\f005";
-}
-
-.lsp-star.active:before {
-	content: "\f005";
-
-}
 .lsp-star {
 	margin-left: 0 !important;
 	margin-right: 0 !important;
 	padding-left: 1px !important;
 	padding-right: 1px !important;
 	display: inline-block;
+	&:before {
+			content: "\f006";
+	}
+	.disabled {
+		color: #ccc;
+		pointer-events: none;
+	    cursor: default;
+	}
 }
 
+.lsp-star:hover:before,
+.lsp-star:hover ~ .lsp-star:before,
+.lsp-star.active:before,
+.lsp-star.active ~ .lsp-star:before {
+   content: "\f005";
+}
 
 /* Fix for forum back-to-top button */
 .back-to-top {
@@ -100,12 +95,12 @@ footer {
 	width: 100%;
 }
 
-footer > .container > div{
+footer > .container > div {
 	display: inline;
 }
 
-footer > .container > div+div,
-footer > .container > div > span+span {
+footer > .container > div + div,
+footer > .container > div > span + span {
 	margin-left: 14%;
 }
 
@@ -115,31 +110,39 @@ footer span {
 }
 
 @media (max-width: 1200px) {
-	footer > .container > div{
-		display: block;
-	}
-	footer > .container > div+div{
-		margin-left: 0;
-		margin-top: 15px;
-	}
-	footer span {
-		width: 33%;
-	}
-	footer > .container > div > span+span {
-		margin-left: 33%;
+	footer {
+		> .container {
+			> div {
+				display: block;
+				+ div {
+					margin-left: 0;
+					margin-top: 15px;
+				}
+				span + span {
+					margin-left: 33%;
+				}
+			}
+		}
+		span {
+			width: 33%;
+		}
 	}
 }
 
 @media (max-width: 500px) {
-	footer span {
-		width: 100%;
-	}
-	footer > .container > div > span+span {
-		margin-left: 0;
-		margin-top: 15px;
-	}
-	footer > .container {
-		text-align: center;
+	footer {
+		span {
+			width: 100%;
+		}
+		> .container {
+			text-align: center;
+			> div {
+				> span + span {
+					margin-left: 0;
+					margin-top: 15px;
+				}
+			}
+		}
 	}
 }
 
@@ -176,7 +179,7 @@ div.p-pagination span.label a:link {
 	opacity: .65;
 }
 
-li>a>span.fa-files-o {
+li > a > span.fa-files-o {
 	margin-right: -.15em;
 }
 
@@ -277,26 +280,18 @@ div.lsp-search-button {
 	top: 1em;
 	left: -5em;
 	display: inline-block;
-	width: 0; height 0;
+	width: 0; height: 0;
   z-index: 10;
 	color: #fff;
 	opacity: .40;
+	&:hover {
+		opacity: .60;
+	}
 }
 
 .soundcloud-thumb-overlay {
-  position: relative;
-	top: 1em;
+  @extend .youtube-thumb-overlay;
 	left: -4.5em;
-	display: inline-block;
-	width: 0; height 0;
-  z-index: 10;
-	color: #fff;
-	opacity: .40;
-}
-
-.youtube-thumb-overlay:hover,
-.soundcloud-thumb-overlay:hover {
-	opacity: .60;
 }
 
 .google\2b-row,
@@ -312,6 +307,16 @@ div.lsp-search-button {
 
 .soundcloud-row {
 	margin-top: -2px;
+}
+
+.youtube-thumb {
+	background-color: #000;
+	float: left;
+	display: inline-block;
+	position: relative;
+	margin-top: -6px;
+	margin-left: 2px;
+	margin-right: 10px;
 }
 
 .soundcloud-thumb {
@@ -336,17 +341,6 @@ div.lsp-search-button {
 	height: auto;
 }
 
-.youtube-thumb {
-	background-color: #000;
-	float: left;
-	display: inline-block;
-	position: relative;
-	margin-top: -6px;
-	margin-left: 2px;
-	margin-right: 10px;
-}
-
-
 .forum-thumb {
 	display: block;
 	position: relative;
@@ -366,28 +360,17 @@ div.lsp-search-button {
 	max-width: 800px;
 }
 
-.btn-dl small {
-	position: relative;
-	font-size: 0.65em;
-	top: -1.8em;
-}
-
-.btn-dl-md small {
-	position: relative;
-	font-size: 0.65em;
-	top: -2.2em;
-}
-
-.btn-dl big {
-	font-size: 0.75em;
-	position: relative;
-	top: -12px;
-}
-
-.btn-dl-md big {
-	font-size: 0.75em;
-	position: relative;
-	top: -11px;
+.btn-dl-md {
+	small {
+		position: relative;
+		font-size: 0.65em;
+		top: -2.2em;
+	}
+	big {
+		font-size: 0.75em;
+		position: relative;
+		top: -11px;
+	}
 }
 
 .btn-dl {
@@ -398,14 +381,24 @@ div.lsp-search-button {
 	padding-left: 4em;
 	padding-right: 1em;
 	margin: 4px;
+	small {
+		position: relative;
+		font-size: 0.65em;
+		top: -1.8em;
+	}
+	big {
+		font-size: 0.75em;
+		position: relative;
+		top: -12px;
+	}
 }
 
 /* Prevent cutting off of images on narrow devices*/
 @media (max-width:767px) {
-img {
-	max-width: 100%;
-	height: auto;
-}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
 }
 
 .dl-horiz-label {
@@ -474,11 +467,10 @@ li.dropdown-split-right > a {
 }
 
 @media (max-width:700px) {
-.bandcamp-iframe {
-	width: 100%;
+	.bandcamp-iframe {
+		width: 100%;
+	}
 }
-}
-
 
 .art-thumb {
 	float: left;
@@ -585,7 +577,7 @@ a:hover {
 .nav-down {
 	top: 0;
 }
-/* Since we do the navbar scroll event in segments, we need to make the body the same color as the navbar 
+/* Since we do the navbar scroll event in segments, we need to make the body the same color as the navbar
 body {
 	background-color: #10b146;
 }*/
@@ -599,13 +591,13 @@ body {
 		background-color: inherit;
 		text-shadow: none;
 		transition: all 0.15s linear;
-		
+
 }
 
 .navbar-custom .navbar-nav > li > a:hover,
-.navbar-custom .navbar-nav > .active > a, 
+.navbar-custom .navbar-nav > .active > a,
 .navbar-custom .navbar-nav > .active > a:hover,
-.navbar-custom .navbar-nav > .open > a, 
+.navbar-custom .navbar-nav > .open > a,
 .navbar-custom .navbar-nav > .open > a:hover {
     color: #e0e0e0;
 		background-color: inherit;
@@ -614,13 +606,13 @@ body {
 /* inner bottom border on hover over navbar items*/
 @media(min-width: 768px) {
 	.navbar-custom .navbar-nav > li > a:hover,
-	.navbar-custom .navbar-nav > .active > a, 
+	.navbar-custom .navbar-nav > .active > a,
 	.navbar-custom .navbar-nav > .active > a:hover,
-	.navbar-custom .navbar-nav > .open > a, 
+	.navbar-custom .navbar-nav > .open > a,
 	.navbar-custom .navbar-nav > .open > a:hover,
 	.navbar-custom .dropdown-split-left:hover + .dropdown-split-right {
 			box-shadow: inset 0px -5px 0px 0px #373b37;
-	}	
+	}
 }
 
 
@@ -632,8 +624,8 @@ body {
 
 .navbar-custom .navbar-nav > .dropdown > a:hover .caret,
 .navbar-custom .navbar-nav > .dropdown > a:focus .caret,
-.navbar-custom .navbar-nav > .open > a .caret, 
-.navbar-custom .navbar-nav > .open > a:hover .caret, 
+.navbar-custom .navbar-nav > .open > a .caret,
+.navbar-custom .navbar-nav > .open > a:hover .caret,
 .navbar-custom .navbar-nav > .open > a:focus .caret {
     border-top-color: #e0e0e0;
     border-bottom-color: #e0e0e0;
@@ -649,7 +641,7 @@ body {
 
 .dropdown-menu > li > a {
 	color: #fff;
-	transition: all 0.2s linear;	
+	transition: all 0.2s linear;
 }
 
 .dropdown-menu > li.divider {
@@ -659,7 +651,7 @@ body {
 .dropdown-menu > li > a:hover {
 	color: #373b37;
 	background-image: none;
-	background-color: rgba(255, 255, 255, 0.9); 	
+	background-color: rgba(255, 255, 255, 0.9);
 }
 
 .navbar-custom .navbar-toggle {
@@ -713,7 +705,7 @@ body {
 	margin: 0;
 }
 
-.jumbotron h1, 
+.jumbotron h1,
 .jumbotron h2,
 .jumbotron h5,
 .jumbotron p {
@@ -770,13 +762,13 @@ div.mini {
 @media (max-width: 768px) {
 	div.jumbo {
 		background: linear-gradient(
-      rgba(16, 177, 70, 0.9), 
+      rgba(16, 177, 70, 0.9),
       rgba(16, 177, 70, 0.9)
     ), url("/img/screen.png"), #10b146;
 		background-size: auto 160%;
 		background-position: right bottom;
 		background-repeat: no-repeat;
-	}	
+	}
 	.jumbo div.header {
 		margin-bottom: 50px;
 	}
@@ -786,13 +778,13 @@ div.mini {
 	min-height: 100%;
 }
 .segment {
-	padding: 40px 0 40px 0; 
+	padding: 40px 0 40px 0;
 }
 
 .segment#home1 {
 	 background-color: #f7f7f7;
  }
- 
+
 .segment#home3 {
 	background: url("/img/hexagon2.png");
 	background-repeat: repeat;
@@ -802,7 +794,7 @@ div.mini {
 .segment#home2 {
 	color: #fff;
 	background: linear-gradient(
-		rgba(16, 16, 16, 0.7), 
+		rgba(16, 16, 16, 0.7),
 		rgba(16, 16, 16, 0.7)
 	), url("/img/promoshot1.jpg");
 	background-position: center;
@@ -813,7 +805,7 @@ div.mini {
 .segment#home4 {
 	color: #fff;
 	background: linear-gradient(
-		rgba(16, 16, 16, 0.7), 
+		rgba(16, 16, 16, 0.7),
 		rgba(16, 16, 16, 0.7)
 	), url("/img/promoshot2.jpg");
 	background-position: center;
