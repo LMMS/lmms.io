@@ -3,6 +3,7 @@
 	<span class='fa {{ icon }}'></span>
 {% endmacro %}
 
+{# Creates a small Jumbo header #}
 {% macro jumbo(title, subtitle) %}
 <div class="jumbotron mini">
 	<div class="container">
@@ -26,31 +27,4 @@
 {% macro circle_stack(icon, class = '', tooltip = '') %}
 	{% import _self as macros %}
 	{{ macros.icon_stack('fa-circle fa-stack-2x', "#{icon} fa-stack-1x fa-inverse", class , tooltip ) }}
-{% endmacro %}
-
-{% macro make_reflection(image_path, thumbnail_path = null, blackorwhite = 'black', class = '') %}
-	{# If no thumbnail is supplied, try 'th_' . $image_path #}
-	{#
-	{% if not thumbnail_path %}
-		{% set pieces = image_path|split('/') %}
-		{% set newpieces = [] %}
-
-		{% for piece in pieces %}
-			{% if piece == pieces|last %}
-				{% set newpieces = newpieces|merge(['th_' ~ piece]) %}
-			{% else %}
-				{% set newpieces = newpieces|merge([piece]) %}
-			{% endif %}
-		{% endfor %}
-		{% set thumbnail_path = newpieces|join('/') %}
-	{% endif %}
-	#}
-
-	<div id="reflect-{{ blackorwhite }}" class="image-block {{ class }}">
-		<a href="{{ image_path }}" data-lightbox="image" data-title="&lt;a target=&quot;_blank&quot; href=&quot;{{ image_path}}&quot; title=&quot;Download full size image&quot; download&gt;&lt;i class=&quot;fa fa-arrow-circle-down &quot;/&gt;&lt;/a&gt;" ><img src="{{ thumbnail_path }}" alt="" /></a>
-	<div class="reflection visible-lg">
-		<img src="{{ thumbnail_path }}" alt="" />
-		<div class="overlay"></div>
-	</div>
-	</div>
 {% endmacro %}

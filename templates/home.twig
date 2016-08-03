@@ -1,7 +1,6 @@
 {% extends 'base.twig' %}
 {% block head %}
 	<link href='//fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
-	<link href="/css/lightbox.css" rel="stylesheet">
 {% endblock %}
 
 {% import 'macros.twig' as macros %}
@@ -91,9 +90,9 @@
 <div class="text-center segment" id="home5">
 
 	<div class="full-video">
-    <video loop autoplay poster="img/videoframe.jpg">
-        <source src="vid/vid11.mp4" type="video/mp4">
-        <source src="vid/vid11.webm" type="video/webm">
+    <video loop autoplay poster="vid/promo.jpg">
+        <source src="vid/promo.mp4" type="video/mp4">
+        <source src="vid/promo.webm" type="video/webm">
     </video>
 	</div>
 	<div class="container">
@@ -172,7 +171,6 @@
 {% endblock %}
 
 {% block foot %}
-<script type="text/javascript" src="/js/lightbox.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $("[data-toggle=tooltip]").tooltip();
