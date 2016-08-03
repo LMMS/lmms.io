@@ -63,7 +63,7 @@ blockquote {
 	.disabled {
 		color: #ccc;
 		pointer-events: none;
-	    cursor: default;
+			cursor: default;
 	}
 }
 
@@ -71,7 +71,7 @@ blockquote {
 .lsp-star:hover ~ .lsp-star:before,
 .lsp-star.active:before,
 .lsp-star.active ~ .lsp-star:before {
-   content: "\f005";
+	 content: "\f005";
 }
 
 /* Fix for forum back-to-top button */
@@ -152,7 +152,7 @@ div.p-pagination span.label a:link {
 
 
 .inputbox {
-    line-height: normal;
+		line-height: normal;
 }
 
 .dl-vert-label {
@@ -276,12 +276,12 @@ div.lsp-search-button {
 }
 
 .youtube-thumb-overlay {
-  position: relative;
+	position: relative;
 	top: 1em;
 	left: -5em;
 	display: inline-block;
 	width: 0; height: 0;
-  z-index: 10;
+	z-index: 10;
 	color: #fff;
 	opacity: .40;
 	&:hover {
@@ -290,7 +290,7 @@ div.lsp-search-button {
 }
 
 .soundcloud-thumb-overlay {
-  @extend .youtube-thumb-overlay;
+	@extend .youtube-thumb-overlay;
 	left: -4.5em;
 }
 
@@ -523,6 +523,7 @@ $navbarTextHover: #e0e0e0;
 $navbarHoverBorder: #373b37;
 
 $grayOverlay: rgba(16, 16, 16, 0.7);
+$greenOverlay: rgba(16, 177, 70, 0.7);
 $linkColor: #ed9f00;
 $linkColorHover: #eb7500;
 $navbarHeight: 50px;
@@ -557,7 +558,7 @@ $animationTime: 0.15s;
 a,
 a:visited {
 	color: $linkColor;
-	transition: 0.2s all linear;
+	transition: color $animationTime linear;
 }
 
 a:hover,
@@ -580,6 +581,7 @@ a:focus {
 	.navbar-nav > li > a:visited,
 	.navbar-nav > li > a:focus, {
 		color: $navbarText;
+		background-color: transparent;
 		transition: all $animationTime linear;
 		text-shadow: none;
 	}
@@ -588,7 +590,7 @@ a:focus {
 	.navbar-nav > .active > a:hover,
 	.navbar-nav > .open > a,
 	.navbar-nav > .open > a:hover {
-	    color: $navbarTextHover;
+			color: $navbarTextHover;
 			background-color: $navbarBgHover;
 	}
 	.navbar-nav {
@@ -614,12 +616,12 @@ a:focus {
 			> a {
 				.caret {
 					border-top-color: $navbarText;
-		    	border-bottom-color: $navbarText;
+					border-bottom-color: $navbarText;
 				}
 				&:hover, &:focus {
 					.caret {
 						border-top-color: $navbarTextHover;
-			    	border-bottom-color: $navbarTextHover;
+						border-bottom-color: $navbarTextHover;
 					}
 				}
 			}
@@ -646,7 +648,7 @@ a:focus {
 	}
 	/* mobile version */
 	.navbar-toggle {
-	  border:none;
+		border:none;
 		&:hover, &:focus {
 			background-color: rgba(255, 255, 255, 0.2);
 		}
@@ -682,12 +684,12 @@ a:focus {
 		.navbar-nav > li.open > a {
 			box-shadow: none;
 		}
-    .navbar-nav .open .dropdown-menu > li > a {
-        color: $navbarText;
-    }
+		.navbar-nav .open .dropdown-menu > li > a {
+				color: $navbarText;
+		}
 		.navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover {
-        color: $navbarTextHover;
-    }
+				color: $navbarTextHover;
+		}
 		.dropdown-menu > li > a:hover {
 			color: $navbarHoverBorder;
 			background: transparent;
@@ -696,7 +698,7 @@ a:focus {
 }
 
 .nav-up {
-  top: -$navbarHeight;
+	top: -$navbarHeight;
 }
 
 .logo-sm {
@@ -765,8 +767,8 @@ div.mini {
 @media (max-width: 768px) {
 	div.jumbo {
 		background: linear-gradient(
-      $grayOverlay, $grayOverlay
-    ), url("/img/screen.png"), $navbarBg;
+			$greenOverlay, $greenOverlay
+		), url("/img/screen.png"), $navbarBg;
 		background-size: auto 160%;
 		background-position: right bottom;
 		background-repeat: no-repeat;
@@ -780,11 +782,12 @@ div.mini {
 	min-height: 100%;
 }
 .segment {
-	padding: 40px 0 40px 0;
+	padding: 40px 0 60px 0;
 	background-color: #fff;
 }
 
-.segment#home1 {
+.segment#home1,
+.segment#home5 {
 	 background-color: #f7f7f7;
  }
 
@@ -814,7 +817,7 @@ div.mini {
 	background-attachment: fixed;
 }
 
-.segment#home5 {
+.segment#home6 {
 	color: #fff;
 	padding: 50px 0 70px 0;
 	background: none;
@@ -822,25 +825,24 @@ div.mini {
 
 .full-video {
 	position: fixed;
-  top: 0;
+	top: 0;
 	left: 0;
 	z-index: -100;
 	width: 100%;
 	height: 100%;
 	video {
-  	min-width: 100%;
-  	min-height: 100%;
-  	width: auto;
-  	height: auto;
-  	z-index: -100;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
 	}
 	&:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url('../img/videopattern.png');
-	opacity: 0.7;
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url('../img/videopattern.png');
+	opacity: 0.5;
 	}
 }
 

@@ -539,7 +539,7 @@ p.forum-stats {
 a,
 a:visited {
   color: #ed9f00;
-  transition: 0.2s all linear;
+  transition: color 0.15s linear;
 }
 
 a:hover,
@@ -565,6 +565,7 @@ a:focus {
 .navbar-custom .navbar-nav > li > a:visited,
 .navbar-custom .navbar-nav > li > a:focus {
   color: #fff;
+  background-color: transparent;
   transition: all 0.15s linear;
   text-shadow: none;
 }
@@ -745,7 +746,7 @@ div.mini {
 
 @media (max-width: 768px) {
   div.jumbo {
-    background: linear-gradient(rgba(16, 16, 16, 0.7), rgba(16, 16, 16, 0.7)), url("/img/screen.png"), #10b146;
+    background: linear-gradient(rgba(16, 177, 70, 0.7), rgba(16, 177, 70, 0.7)), url("/img/screen.png"), #10b146;
     background-size: auto 160%;
     background-position: right bottom;
     background-repeat: no-repeat;
@@ -760,11 +761,12 @@ div.mini {
 }
 
 .segment {
-  padding: 40px 0 40px 0;
+  padding: 40px 0 60px 0;
   background-color: #fff;
 }
 
-.segment#home1 {
+.segment#home1,
+.segment#home5 {
   background-color: #f7f7f7;
 }
 
@@ -790,7 +792,7 @@ div.mini {
   background-attachment: fixed;
 }
 
-.segment#home5 {
+.segment#home6 {
   color: #fff;
   padding: 50px 0 70px 0;
   background: none;
@@ -810,7 +812,6 @@ div.mini {
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: -100;
 }
 
 .full-video:before {
@@ -819,7 +820,7 @@ div.mini {
   width: 100%;
   height: 100%;
   background: url("../img/videopattern.png");
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 /* Get Involved Panels */
