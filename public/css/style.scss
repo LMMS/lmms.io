@@ -518,6 +518,19 @@ p.forum-stats  {
 .theme-showcase .navbar .container {
 	width: auto;
 }
+/****************
+*** Variables ***
+****************/
+$navbarBg: #10b146;
+$navbarBgHover: inherit;
+$navbarText: #fff;
+$navbarTextHover: #e0e0e0;
+$navbarHoverBorder: #373b37;
+
+$borderColor: #bababa;
+
+$navbarHeight: 50px;
+$animationTime: 0.15s;
 
 /* Some missing bootstrap styles */
 
@@ -558,138 +571,136 @@ a:hover {
 
 /* navbar styling */
 .navbar-custom {
-	filter:progid:DXImageTransform.Microsoft.Gradient(enabled='false');
-	box-shadow: none;
-	background-image:none;
-	border: none;
-	background-color: #10b146;
+	background-color: $navbarBg;
 	background-image: url('/img/hexagon.png');
 	background-position: 0px 0px;
-	position: fixed;
+	transition: top $animationTime ease-in-out;
+	border: none;
 	top: 0;
-	width: 100%;
-	transition: top 0.15s ease-in-out;
-}
 
-.nav-up {
-  top: -50px;
-}
-.nav-down {
-	top: 0;
-}
-/* Since we do the navbar scroll event in segments, we need to make the body the same color as the navbar
-body {
-	background-color: #10b146;
-}*/
-
-.navbar-custom .navbar-brand,
-.navbar-custom .navbar-nav > li > a,
-.navbar-custom .navbar-nav > li > a:visited,
-.navbar-custom .navbar-nav > li > a:focus,
-.dropdown-split-right {
-    color: #fff;
-		background-color: inherit;
+	.navbar-brand,
+	.dropdown-split-right,
+	.navbar-nav > li > a,
+	.navbar-nav > li > a:visited,
+	.navbar-nav > li > a:focus, {
+		color: $navbarText;
+		transition: all $animationTime linear;
 		text-shadow: none;
-		transition: all 0.15s linear;
+	}
+	.navbar-nav > li > a:hover,
+	.navbar-nav > .active > a,
+	.navbar-nav > .active > a:hover,
+	.navbar-nav > .open > a,
+	.navbar-nav > .open > a:hover {
+	    color: $navbarTextHover;
+			background-color: $navbarBgHover;
+	}
+	.navbar-nav {
+		.open {
+				.caret {
+					border-top-color: $navbarTextHover;
+					border-bottom-color: $navbarTextHover;
+				}
 
+				&:hover, &:focus {
+					color: $navbarTextHover;
+					background-color: $navbarBgHover;
+
+					.caret {
+						border-top-color: $navbarTextHover;
+						border-bottom-color: $navbarTextHover;
+					}
+				}
+			}
+		}
+		/* caret */
+		.dropdown {
+			> a {
+				.caret {
+					border-top-color: $navbarText;
+		    	border-bottom-color: $navbarText;
+				}
+				&:hover, &:focus {
+					.caret {
+						border-top-color: $navbarTextHover;
+			    	border-bottom-color: $navbarTextHover;
+					}
+				}
+			}
+		}
+	.dropdown-menu {
+		border: none;
+		border-radius: 0;
+		background-color: $navbarHoverBorder;
+		transition: all $animationTime linear;
+		> li {
+			> a {
+				color: $navbarText;
+				transition: all $animationTime linear;
+				&:hover {
+					color: $navbarHoverBorder;
+					background-image: none;
+					background-color: rgba(255, 255, 255, 0.9);
+				}
+			}
+		}
+		.divider {
+			background-color: rgba(255, 255, 255, 0.3);
+		}
+	}
+	/* mobile version */
+	.navbar-toggle {
+	  border:none;
+		&:hover, &:focus {
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+		.icon-bar {
+			background-color: $navbarText;
+		}
+	}
 }
-
-.navbar-custom .navbar-nav > li > a:hover,
-.navbar-custom .navbar-nav > .active > a,
-.navbar-custom .navbar-nav > .active > a:hover,
-.navbar-custom .navbar-nav > .open > a,
-.navbar-custom .navbar-nav > .open > a:hover {
-    color: #e0e0e0;
-		background-color: inherit;
-}
-
 /* inner bottom border on hover over navbar items*/
 @media(min-width: 768px) {
-	.navbar-custom .navbar-nav > li > a:hover,
-	.navbar-custom .navbar-nav > .active > a,
-	.navbar-custom .navbar-nav > .active > a:hover,
-	.navbar-custom .navbar-nav > .open > a,
-	.navbar-custom .navbar-nav > .open > a:hover,
-	.navbar-custom .dropdown-split-left:hover + .dropdown-split-right {
-			box-shadow: inset 0px -5px 0px 0px #373b37;
+	.navbar-custom {
+		.navbar-nav > li > a:hover,
+		.navbar-nav > .active > a,
+		.navbar-nav > .active > a:hover,
+		.navbar-nav > .open > a,
+		.navbar-nav > .open > a:hover,
+		.dropdown-split-left:hover + .dropdown-split-right {
+			box-shadow: inset 0px -5px 0px 0px $navbarHoverBorder;
+		}
 	}
 }
 
-
-/* caret */
-.navbar-custom .navbar-nav > .dropdown > a .caret {
-    border-top-color: #fff;
-    border-bottom-color: #fff;
-}
-
-.navbar-custom .navbar-nav > .dropdown > a:hover .caret,
-.navbar-custom .navbar-nav > .dropdown > a:focus .caret,
-.navbar-custom .navbar-nav > .open > a .caret,
-.navbar-custom .navbar-nav > .open > a:hover .caret,
-.navbar-custom .navbar-nav > .open > a:focus .caret {
-    border-top-color: #e0e0e0;
-    border-bottom-color: #e0e0e0;
-}
-
-/* mobile version */
-.dropdown-menu {
-	border: none;
-	border-radius: 0;
-	background-color: #373b37;
-	transition: all 0.2s linear;
-}
-
-.dropdown-menu > li > a {
-	color: #fff;
-	transition: all 0.2s linear;
-}
-
-.dropdown-menu > li.divider {
-	background-color: rgba(255, 255, 255, 0.3);
-}
-
-.dropdown-menu > li > a:hover {
-	color: #373b37;
-	background-image: none;
-	background-color: rgba(255, 255, 255, 0.9);
-}
-
-.navbar-custom .navbar-toggle {
-    border: none;
-}
-
-.navbar-custom .navbar-toggle:hover,
-.navbar-custom .navbar-toggle:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.navbar-custom .navbar-toggle .icon-bar {
-    background-color: #fff;
-}
-
 @media (max-width: 767px) {
-		.navbar-custom {
-			background-image: none;
-		}
-		.navbar-custom .navbar-nav > li > a,
-		.navbar-custom .navbar-nav > li > a:visited,
-		.navbar-custom .navbar-nav > li > a:focus,
-		.navbar-custom .navbar-nav .open .dropdown-menu {
+	.navbar-custom {
+		background-image: none;
+		.navbar-nav > li > a,
+		.navbar-nav > li > a:visited,
+		.navbar-nav > li > a:focus,
+		.navbar-nav .open .dropdown-menu {
 			box-shadow: inset 0px -1px 0px 0px rgba(255, 255, 255, 0.1);
+			background: inherit;
 		}
-		.navbar-custom .navbar-nav > li.open > a {
+		.navbar-nav > li.open > a {
 			box-shadow: none;
 		}
-    .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
-        color: #fff;
+    .navbar-nav .open .dropdown-menu > li > a {
+        color: $navbarText;
     }
 		.navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover {
-        color: #e0e0e0;
+        color: $navbarTextHover;
     }
 		.dropdown-menu > li > a:hover {
-			color: #373b37;
+			color: $navbarHoverBorder;
 			background: transparent;
 		}
+	}
+}
+
+.nav-up {
+  top: -$navbarHeight;
 }
 
 .logo-sm {
@@ -703,13 +714,9 @@ body {
 /* header */
 .jumbotron {
 	margin: 0;
-}
-
-.jumbotron h1,
-.jumbotron h2,
-.jumbotron h5,
-.jumbotron p {
-	font-family: 'Ubuntu', sans-serif;
+	h1, h2, h5, p {
+		font-family: 'Ubuntu', sans-serif;
+	}
 }
 
 h1.jumbo {
@@ -725,8 +732,8 @@ div.jumbo {
 	overflow: hidden;
 	display: flex;
 	align-items: center;
-	background: url("/img/screen.png"), url("/img/hexagon.png"), #10b146;
-	background-position: right bottom, 0px -50px;
+	background: url("/img/screen.png"), url("/img/hexagon.png"), $navbarBg;
+	background-position: right bottom, 0px #{-$navbarHeight};
 	background-size: auto 130%, auto;
 	background-repeat: no-repeat, repeat;
 	color: #fff;
@@ -741,8 +748,8 @@ div.mini {
 	overflow: hidden;
 	display: flex;
 	align-items: center;
-	background: url("/img/hexagon.png"), #10b146;
-	background-position: 0px -50px;
+	background: url("/img/hexagon.png"), $navbarBg;
+	background-position: 0px #{-$navbarHeight};
 	color: #fff;
 	min-height: 15vh;
 	padding: 5px;
@@ -764,13 +771,13 @@ div.mini {
 		background: linear-gradient(
       rgba(16, 177, 70, 0.9),
       rgba(16, 177, 70, 0.9)
-    ), url("/img/screen.png"), #10b146;
+    ), url("/img/screen.png"), $navbarBg;
 		background-size: auto 160%;
 		background-position: right bottom;
 		background-repeat: no-repeat;
 	}
 	.jumbo div.header {
-		margin-bottom: 50px;
+		margin-bottom: $navbarHeight;
 	}
 }
 
@@ -820,7 +827,7 @@ div.mini {
 
 .panel-custom > .panel-heading {
 	background: url("/img/hexagon.png");
-	background-color: #373b37;
+	background-color: $navbarHoverBorder;
 	color: #fff;
 	background-repeat: repeat;
 	background-position: 0px 0px;
@@ -864,19 +871,19 @@ div.mini {
 	color: #fff !important;
 	border-radius: 8px;
 	transition: all 0.2s linear;
-}
-.btn-outline:hover {
-	color: #706d6d !important;
-	background-color: #fff;
-}
-
-.btn-xl {
-	font-size: 24px;
+	&:hover {
+		color: #706d6d !important;
+		background-color: #fff;
+	}
 }
 
 .btn-outline#involved {
 	border: none;
 	margin-top: 6px;
+}
+
+.btn-xl {
+	font-size: 24px;
 }
 
 .btn-dark {
@@ -1061,30 +1068,27 @@ ul.nav-center li {
 	vertical-align: middle;
 	background-position: center center;
 	background-size: cover;
-}
-
-.comp-header:hover {
-	cursor: pointer;
-	cursor: hand;
-}
-
-.comp-header span {
-	font-family: 'Lato', sans-serif;
-	font-size: 46px;
-	line-height: 72px;
-	font-weight: 300;
-	font-style: italic;
-	color: #f5f2f2;
-	padding: 1ex 0.5em 1ex 0.5em;
-}
-
-.comp-header i {
-	color: #fff;
-	font-size: 46px;
-	float: right;
-	margin: auto 0.5em auto 0.5em;
-	line-height: 72px;
-	transition: all 0.35s linear;
+	&:hover {
+		cursor: pointer;
+		cursor: hand;
+	}
+	span {
+		font-family: 'Lato', sans-serif;
+		font-size: 46px;
+		line-height: 72px;
+		font-weight: 300;
+		font-style: italic;
+		color: #f5f2f2;
+		padding: 1ex 0.5em 1ex 0.5em;
+	}
+	i {
+		color: #fff;
+		font-size: 46px;
+		float: right;
+		margin: auto 0.5em auto 0.5em;
+		line-height: 72px;
+		transition: all $animationTime linear;
+	}
 }
 
 #bol1 {
@@ -1101,16 +1105,16 @@ ul.nav-center li {
 
 .competition {
 	padding: 2em 0 2em 0;
-}
-.competition a {
-	text-decoration: none;
+	a {
+		text-decoration: none;
+	}
 }
 
 .comp-desc {
 	border: 1px 1px 1px 0px solid #c9c9c9;
 	padding: 2ex 1em 1ex 1em;
-}
-.comp-desc h4 {
-	margin-bottom: 1ex;
-	margin-top: 2ex;
+	h4 {
+		margin-bottom: 1ex;
+		margin-top: 2ex;
+	}
 }
