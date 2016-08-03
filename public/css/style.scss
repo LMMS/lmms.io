@@ -527,8 +527,9 @@ $navbarText: #fff;
 $navbarTextHover: #e0e0e0;
 $navbarHoverBorder: #373b37;
 
-$borderColor: #bababa;
-
+$grayOverlay: rgba(16, 16, 16, 0.7);
+$linkColor: #ed9f00;
+$linkColorHover: #eb7500;
 $navbarHeight: 50px;
 $animationTime: 0.15s;
 
@@ -559,14 +560,14 @@ $animationTime: 0.15s;
 
 /* links */
 a,
-a:visited,
-a:focus {
-	color: #bc820e;
+a:visited {
+	color: $linkColor;
 	transition: 0.2s all linear;
 }
 
-a:hover {
-	color: #ed9f00;
+a:hover,
+a:focus {
+	color: $linkColorHover;
 }
 
 /* navbar styling */
@@ -756,7 +757,7 @@ div.mini {
 	margin-bottom: 20px;
 }
 
-/*responsive bg change*/
+/* responsive bg change */
 @media (max-width: 992px) and (min-width: 768px) {
 	div.jumbo {
 		background-size: auto 80%, auto;
@@ -769,8 +770,7 @@ div.mini {
 @media (max-width: 768px) {
 	div.jumbo {
 		background: linear-gradient(
-      rgba(16, 177, 70, 0.9),
-      rgba(16, 177, 70, 0.9)
+      $grayOverlay, $grayOverlay
     ), url("/img/screen.png"), $navbarBg;
 		background-size: auto 160%;
 		background-position: right bottom;
@@ -786,6 +786,8 @@ div.mini {
 }
 .segment {
 	padding: 40px 0 40px 0;
+	display: flex;
+	align-items: center;
 }
 
 .segment#home1 {
@@ -801,8 +803,7 @@ div.mini {
 .segment#home2 {
 	color: #fff;
 	background: linear-gradient(
-		rgba(16, 16, 16, 0.7),
-		rgba(16, 16, 16, 0.7)
+		$grayOverlay, $grayOverlay
 	), url("/img/promoshot1.jpg");
 	background-position: center;
 	background-size: cover;
@@ -812,12 +813,43 @@ div.mini {
 .segment#home4 {
 	color: #fff;
 	background: linear-gradient(
-		rgba(16, 16, 16, 0.7),
-		rgba(16, 16, 16, 0.7)
+		$grayOverlay, $grayOverlay
 	), url("/img/promoshot2.jpg");
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
+}
+
+.segment#home5 {
+	color: #fff;
+	padding: 0;
+	min-height: 60vh;
+	.container {
+		position: relative;
+		z-index: 100;
+	}
+}
+
+.full-video {
+	position: absolute;
+	overflow: hidden;
+	max-height: 60vh;
+	min-width: 100%;
+	video {
+		min-height: 100%;
+		min-width: 100%;
+		width: 100%;
+		height: auto;
+	}
+	&:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('../img/videopattern.png') rgba(0,0,0, 0.2);
+
+	opacity: 0.5;
+}
 }
 
 /* Get Involved Panels */
@@ -865,21 +897,20 @@ div.mini {
 	display: block;
 }
 
-.btn-outline {
+a.btn-outline {
 	background: none;
 	border: 2px solid #fff;
-	color: #fff !important;
+	color: #fff;
 	border-radius: 8px;
 	transition: all 0.2s linear;
 	&:hover {
-		color: #706d6d !important;
+		color: #706d6d;
 		background-color: #fff;
 	}
-}
-
-.btn-outline#involved {
-	border: none;
-	margin-top: 6px;
+	&#involved {
+		border: none;
+		margin-top: 6px;
+	}
 }
 
 .btn-xl {
@@ -950,13 +981,12 @@ ul.nav-center {
 	float: left;
 	display: block;
 	left: 50%;
-}
-
-ul.nav-center li {
-	position: relative;
-	float: left;
-	display: block;
-	right: 50%;
+	li {
+		position: relative;
+		float: left;
+		display: block;
+		right: 50%;
+	}
 }
 
 @media(max-width: 768px) {
@@ -968,99 +998,31 @@ ul.nav-center li {
 
 .nav-tabs {
 	border-bottom: none;
+	> li {
+		> a {
+			border-radius: 0 0;
+			border-style: none;
+			border-bottom: 2px solid rgba(0,0,0,0);
+			background-color: white;
+			&:hover, &:focus {
+				border-radius: 0 0;
+				border-style: none;
+				border-bottom: 2px solid #75A3CA;
+				background-color: white;
+			}
+		}
+		&.active {
+			> a,
+			> a:hover,
+			> a:focus {
+				border-style: none;
+				background-color: white;
+				border-bottom: 2px solid #428bca;
+			}
+		}
+	}
 }
 
-.nav-tabs > li > a,
-.nav-tabs > li > a:hover,
-.nav-tabs > li > a:focus {
-	border-radius: 0 0;
-	border-style: none;
-	border-bottom: 2px solid rgba(0,0,0,0);
-	background-color: white;
-}
-
-.nav-tabs > li > a:hover,
-.nav-tabs > li > a:focus {
-	border-bottom: 2px solid #75A3CA;
-}
-
-.nav-tabs > li.active > a,
-.nav-tabs > li.active > a:hover,
-.nav-tabs > li.active > a:focus {
-	border-style: none;
-	background-color: white;
-	border-bottom: 2px solid #428bca;
-}
-
-/*
- * Image reflection effects
- */
-#reflect-black .image-block ,
-#reflect-white .image-block {
-	width:100%;
-	margin:0px 10px;
-	float:left;
-}
-
-#reflect-black .reflection {
-	position: relative;
-	margin-bottom: -33%;
-}
-#reflect-white .reflection {
-	position:relative;
-	margin-bottom: -22%;
-}
-
-#reflect-black  img {
-	border: 1px solid rgba(255,255,255,.33);
-}
-
-#reflect-white  img {
-	border: 1px solid rgba(0,0,0,.33);
-}
-
-#reflect-black  img:hover{
-	border: 1px solid rgba(255,255,255,.5);
-}
-
-#reflect-white  img:hover{
-	border: 1px solid rgba(0,0,0,.75);
-}
-
-
-#reflect-black .reflection img,
-#reflect-white .reflection img {
-	-webkit-transform: scaleY(-1);
- 	   -moz-transform: scaleY(-1);
-	    -ms-transform: scaleY(-1);
-	     -o-transform: scaleY(-1);
-		    transform: scaleY(-1);
-			   filter: flipv;
-}
-
-#reflect-black .reflection img {
-	opacity:0.30;
-	filter: alpha(opacity='40');
-}
-
-#reflect-white .reflection img {
-	opacity:0.15;
-	filter: alpha(opacity='15');
-}
-
-#reflect-black .overlay {position:absolute; top:0px; left:0px; width:100%; height:100%;
-	background-image: -moz-linear-gradient(center bottom, rgb(0,0,0) 60%, rgba(0,0,0,0) 75%);
-	background-image: 	-o-linear-gradient(rgba(0,0,0,0) 25%, rgb(0,0,0) 40%);
-	background-image:     -webkit-gradient(linear, left bottom, left top, color-stop(0.60, rgb(0,0,0)), color-stop(0.75, rgba(0,0,0,0)));
-	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColor=0, EndColorStr=#000000);
-}
-
-#reflect-white .overlay {position:absolute; top:0px; left:0px; width:100%; height:100%;
-	background-image: -moz-linear-gradient(center bottom, rgb(255,255,255) 60%, rgba(255,255,255,0) 75%);
-	background-image: 	-o-linear-gradient(rgba(255,255,255,0) 25%, rgb(255,255,255) 40%);
-	background-image:     -webkit-gradient(linear, left bottom, left top, color-stop(0.60, rgb(255,255,255)), color-stop(0.75, rgba(255,255,255,0)));
-	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColor=0, EndColorStr=#ffffff);
-}
 
 .comp-header {
 	width: 100%;

@@ -54,7 +54,7 @@
 	<div class="container">
 		<div class="page-header">
 			<h2>Made by musicians, for musicians.</h2>
-		</div>		
+		</div>
 		<div>
 			<div>
 				<a class="stack" href="/download/#linux">{{ macros.circle_stack('fa-linux', 'fa-3x', 'Download for Linux') }}</a>&nbsp;
@@ -88,56 +88,20 @@
 	</div>
 </div>
 
-<div class="text-center segment" id="home4">
+<div class="text-center segment" id="home5">
+
+	<div class="full-video">
+    <video loop autoplay poster="img/videoframe.jpg">
+        <source src="vid/vid11.mp4" type="video/mp4">
+        <source src="vid/vid11.webm" type="video/webm">
+    </video>
+	</div>
 	<div class="container">
 		<div class="page-header">
-			<h2>Sharing means caring.</h2>
+			<h2>Take a peek</h2>
 		</div>
-
-		<div>
-			<div>
-				<a href="https://soundcloud.com/groups/LMMS">
-					{{ macros.circle_stack('fa-soundcloud', 'fa-3x', 'Visit our Soundcloud group') }}</a>&nbsp;
-				<a href="/lsp/">{{ macros.circle_stack('fa-volume-down', 'fa-3x', 'Visit the LMMS Sharing Platform (LSP)') }}</a>&nbsp;
-				<h4>Don't be modest,</h4>
-				<p>show us your creations.</p>
-			</div>
-		</div>
+		<a>{{ macros.circle_stack('fa-youtube-play', 'fa-3x', 'Watch our promo video') }}</a>
 	</div>
-</div>
-	
-<div class="text-center segment" id="home5">
-	<div class="container">
-		<div class="overflow-hidden visible-lg">
-			<div class="page-header">
-				<h2>Take a peek</h2>
-			</div>
-			<div class="col-lg-4">
-				<h4>Overall Project</h4>
-				{{ macros.make_reflection('img/ss_proj.png', 'img/th_ss_proj.png', 'white') }}
-			</div>
-			<div class="col-lg-4">
-				<h4>Song Editor</h4>
-				{{ macros.make_reflection('img/ss_song.png', 'img/th_ss_song.png', 'white') }}
-			</div>
-			<div class="col-lg-4">
-				<h4>Native Instruments</h4>
-				{{ macros.make_reflection('img/ss_instr.png', 'img/th_ss_instr.png', 'white') }}
-			</div>
-		</div>
-		<br class="hidden-lg">
-		<a data-toggle="collapse" href="#screenshots" aria-expanded="false" aria-controls="screenshots">
-			{{ macros.circle_stack('fa-angle-down', 'fa-2x', 'Show more screenshots') }}</a>
-
-			<div id="screenshots" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-				{% for screenshot in screenshots %}
-				<div class="col-lg-4">
-					<h4>{{ screenshot.title }}</h4>
-				{{ macros.make_reflection(screenshot.path, screenshot.th_path, 'white') }}
-			</div>
-				{% endfor %}
-			</div>
-		</div>
 </div>
 
 <div class="segment" id="home6">
@@ -181,6 +145,23 @@
 				<li>2 built-in wavetable-based synthesizers</li>
 				<li>Gravis UltraSound ® GUS Patch support</li>
 			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="text-center segment" id="home4">
+	<div class="container">
+		<div class="page-header">
+			<h2>Sharing means caring.</h2>
+		</div>
+		<div>
+			<div>
+				<a href="https://soundcloud.com/groups/LMMS">
+					{{ macros.circle_stack('fa-soundcloud', 'fa-3x', 'Visit our Soundcloud group') }}</a>&nbsp;
+				<a href="/lsp/">{{ macros.circle_stack('fa-volume-down', 'fa-3x', 'Visit the LMMS Sharing Platform (LSP)') }}</a>&nbsp;
+				<h4>Don't be modest,</h4>
+				<p>show us your creations.</p>
+			</div>
 		</div>
 	</div>
 </div>
