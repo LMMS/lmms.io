@@ -519,7 +519,7 @@ p.forum-stats  {
 $navbarBg: #10b146;
 $navbarBgHover: inherit;
 $navbarText: #fff;
-$navbarTextHover: #e0e0e0;
+$navbarTextHover: #f2f2f2;
 $navbarHoverBorder: #373b37;
 
 $grayOverlay: rgba(16, 16, 16, 0.7);
@@ -666,7 +666,7 @@ a:focus {
 		.navbar-nav > .open > a,
 		.navbar-nav > .open > a:hover,
 		.dropdown-split-left:hover + .dropdown-split-right {
-			box-shadow: inset 0px -5px 0px 0px $navbarHoverBorder;
+			box-shadow: inset 0px -4px 0px 0px $navbarHoverBorder;
 		}
 	}
 }
