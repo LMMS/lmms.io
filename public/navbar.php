@@ -4,11 +4,12 @@ $navbar = new Navbar(
 	[
 		['Download', '/download/'],
 		['Get Involved', '/get-involved/'],
-		['Showcase', '/showcase/'],
 		[['Documentation', 'Docs'], '/documentation/'],
-		['Community', '/community/', [
+		['Forum', '/forum/'],
+		[['Sharing Platform', 'Share'], '/lsp/'],
+		['More', '/nonsence/', [
+			['fa-eye', 'Showcase', '/showcase/'],
 			['fa-trophy', 'Competitions', '/competitions/'],
-			['fa-comments', 'Forums', '/forum/'],
-			['fa-share-alt', 'Sharing Platform', '/lsp/']]],
+			['fa-tags', 'Branding', '/branding']]],
 	]
 );

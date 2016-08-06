@@ -74,11 +74,11 @@
 		</div>
 
 		<div>
-			<a href="/forum/">{{ macros.circle_stack('fa-comments', 'fa-3x', 'Visit our forum') }}</a>&nbsp;
-			<a href="http://facebook.com/makefreemusic">{{ macros.circle_stack('fa-facebook', 'fa-3x', 'Visit our Facebook page') }}</a>&nbsp;
-			<a href="https://plus.google.com/u/0/113001340835122723950/posts">
+			<a class="stack" href="/forum/">{{ macros.circle_stack('fa-comments', 'fa-3x', 'Visit our forum') }}</a>&nbsp;
+			<a class="stack" href="http://facebook.com/makefreemusic">{{ macros.circle_stack('fa-facebook', 'fa-3x', 'Visit our Facebook page') }}</a>&nbsp;
+			<a class="stack" href="https://plus.google.com/u/0/113001340835122723950/posts">
 				{{ macros.circle_stack('fa-google-plus', 'fa-3x', 'Visit our Google+ page') }}</a>&nbsp;
-			<a href="http://github.com/lmms/lmms">{{ macros.circle_stack('fa-github', 'fa-3x', 'Visit our GitHub page') }}</a>
+			<a class="stack" href="http://github.com/lmms/lmms">{{ macros.circle_stack('fa-github', 'fa-3x', 'Visit our GitHub page') }}</a>
 			<h4>Ask your questions here</h4>
 			<p>and answer a few questions while you're waiting.</p>
 		</div>
@@ -91,9 +91,9 @@
 		</div>
 		<div>
 			<div>
-				<a href="https://soundcloud.com/groups/LMMS">
+				<a class="stack" href="https://soundcloud.com/groups/LMMS">
 					{{ macros.circle_stack('fa-soundcloud', 'fa-3x', 'Visit our Soundcloud group') }}</a>&nbsp;
-				<a href="/lsp/">{{ macros.circle_stack('fa-share-alt', 'fa-3x', 'Visit the LMMS Sharing Platform (LSP)') }}</a>&nbsp;
+				<a class="stack" href="/lsp/">{{ macros.circle_stack('fa-share-alt', 'fa-3x', 'Visit the LMMS Sharing Platform (LSP)') }}</a>&nbsp;
 				<h4>Don't be modest,</h4>
 				<p>show us your creations.</p>
 			</div>
@@ -107,9 +107,9 @@
 		</div>
 		<div>
 			<div>
-				<a href="https://github.com/LMMS/lmms">
+				<a class="stack" href="https://github.com/LMMS/lmms">
 					{{ macros.circle_stack('fa-code-fork', 'fa-3x', 'Fork us on Github') }}</a>&nbsp;
-				<a href="/get-involved/">{{ macros.circle_stack('fa-users', 'fa-3x', 'Get involved') }}</a>&nbsp;
+				<a class="stack" href="/get-involved/">{{ macros.circle_stack('fa-users', 'fa-3x', 'Get involved') }}</a>&nbsp;
 				<h4>LMMS is a 100% free, open source, community driven project,</h4>
 				<p>proudly hosted on Github</p>
 			</div>
@@ -118,7 +118,7 @@
 </div>
 
 <div class="text-center segment" id="home6">
-	<div class="full-video">
+	<div class="full-video hidden-xs">
     <video loop autoplay poster="vid/promo.jpg">
         <source src="vid/promo.mp4" type="video/mp4">
         <source src="vid/promo.webm" type="video/webm">
@@ -128,7 +128,7 @@
 		<div class="page-header">
 			<h2>Take a peek</h2>
 		</div>
-		<a>{{ macros.circle_stack('fa-youtube-play', 'fa-3x', '') }}</a>
+		<a class="stack" href="#">{{ macros.circle_stack('fa-youtube-play', 'fa-3x', '') }}</a>
 		<h4>Watch our promo video.</h4>
 	</div>
 </div>
