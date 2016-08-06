@@ -442,19 +442,6 @@ $animationTime: 0.15s;
 	border-radius: 1px;
 }
 
-/* stack */
-a.stack {
-	color: $stackColor;
-	transition: color $animationTime linear;
-	&:visited {
-		color: $stackColor;
-	}
-	&:hover,
-	&:focus {
-		color: $stackColorHover;
-	}
-}
-
 /* navbar styling */
 .navbar-custom {
 	background-color: $navbarBg;
@@ -684,9 +671,26 @@ div.mini {
 .container {
 	min-height: 100%;
 }
+
+/* stack */
+a.stack {
+	color: $stackColor;
+	transition: color $animationTime linear;
+	&:visited {
+		color: $stackColor;
+	}
+	&:hover,
+	&:focus {
+		color: $stackColorHover;
+	}
+}
+
 .segment {
-	padding: 40px 0 60px 0;
+	padding: 60px 0 80px 0;
 	background-color: #fff;
+	.page-header {
+		border-bottom-color: #d4d4d4;
+	}
 }
 
 .segment#home1,
@@ -746,6 +750,16 @@ div.mini {
 	height: 100%;
 	background: url('../img/videopattern.png');
 	}
+}
+
+.segment#home8 {
+	color: #fff;
+	background: linear-gradient(
+		$grayOverlay, $grayOverlay
+	), url("/img/promoshot3.jpg");
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 /* Video gets hidden on small screens */
