@@ -1,27 +1,12 @@
 /* margin-bottoms for dynamic footer */
 
 body {
-	padding-bottom: 0;
 	padding-top: 50px;
-	margin-bottom: 191px;
-}
-
-@media (max-width: 1200px) {
-	body {
-		margin-bottom: 296px;
-	}
-}
-
-@media (max-width: 500px) {
-	body {
-		margin-bottom: 521px;
-	}
+	height: 100%;
 }
 
 html {
-	position: relative;
-	min-height: 100%;
-	height: initial;
+	height: 100%;
 }
 
 .navbar {
@@ -85,71 +70,9 @@ blockquote {
 	display: none;
 }
 
-/* Footer */
-footer {
-	background-color: #f9f9f9;
-	background-image: none;
-	padding: 20px;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-}
-
-footer > .container > div {
-	display: inline;
-}
-
-footer > .container > div + div,
-footer > .container > div > span + span {
-	margin-left: 14%;
-}
-
-footer span {
-	display: inline-block;
-	width: 14%;
-}
-
-@media (max-width: 1200px) {
-	footer {
-		> .container {
-			> div {
-				display: block;
-				&+div {
-					margin-left: 0;
-					margin-top: 15px;
-				}
-				span+span {
-					margin-left: 33%;
-				}
-			}
-		}
-		span {
-			width: 33%;
-		}
-	}
-}
-
-@media (max-width: 500px) {
-	footer {
-		span {
-			width: 100%;
-		}
-		> .container {
-			text-align: center;
-			> div {
-				> span+span {
-					margin-left: 0;
-					margin-top: 15px;
-				}
-			}
-		}
-	}
-}
-
 div.p-pagination span.label a:link {
 	color: #fff;
 }
-
 
 .inputbox {
 		line-height: normal;
@@ -420,7 +343,11 @@ $grayOverlay: rgba(16, 16, 16, 0.7);
 $greenOverlay: rgba(16, 177, 70, 0.7);
 $stackColor: #ed9f00;
 $stackColorHover: #eb7500;
+$socialColor: rgba(255, 255, 255, 0.7);
+$socialColorHover: #fff;
+
 $navbarHeight: 50px;
+$footerHeight: 120px;
 $animationTime: 0.15s;
 
 /* Some missing bootstrap styles */
@@ -447,6 +374,7 @@ $animationTime: 0.15s;
 	background-color: $navbarBg;
 	background-image: url('/img/hexagon.png');
 	background-position: 0px 0px;
+	margin-bottom: 0;
 	transition: top $animationTime ease-in-out;
 	border: none;
 	top: 0;
@@ -599,6 +527,26 @@ $animationTime: 0.15s;
 	height: 22px;
 }
 
+/* Footer */
+
+footer {
+	background-color: $navbarHoverBorder;
+	background-image: url('../img/hexagon.png');
+	width: 100%;
+}
+.main-div {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -$footerHeight;
+}
+.main-div:after {
+  content: "";
+  display: block;
+}
+footer, .main-div:after {
+  height: $footerHeight;
+}
+
 /* header */
 .jumbotron {
 	margin: 0;
@@ -685,8 +633,24 @@ a.stack {
 	}
 }
 
+a.social {
+	color: $socialColor;
+	.fa-inverse {
+		color: $navbarHoverBorder;
+	}
+	transition: color $animationTime linear;
+	&:visited {
+		color: $socialColor;
+	}
+	&:hover,
+	&:focus {
+		color: $socialColorHover;
+		text-decoration: none;
+	}
+}
+
 .segment {
-	padding: 60px 0 80px 0;
+	padding: 60px 0 70px 0;
 	background-color: #fff;
 	.page-header {
 		border-bottom-color: #d4d4d4;

@@ -28,3 +28,10 @@
 	{% import _self as macros %}
 	{{ macros.icon_stack('fa-circle fa-stack-2x', "#{icon} fa-stack-1x fa-inverse", class , tooltip ) }}
 {% endmacro %}
+
+{# Prints an icon stack with the lower one being a double square
+   and the upper one being inversed #}
+{% macro square_stack(icon, class = '', tooltip = '') %}
+	{% import _self as macros %}
+	{{ macros.icon_stack('fa-square fa-stack-2x', "#{icon} fa-stack-1x fa-inverse", class , tooltip ) }}
+{% endmacro %}
