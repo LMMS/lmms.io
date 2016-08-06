@@ -260,91 +260,11 @@ div.lsp-search-button {
 	opacity: .65;
 }
 
-.feed-small {
-	display: table-cell;
-	float: right;
-	text-align: right;
-	margin-right: 5px;
-	opacity: .60;
-}
-
 .lsp-small {
 	display: block;
 	position: relative;
 	bottom: -1.5em;
 	text-align: right;
-}
-
-.youtube-thumb-overlay {
-	position: relative;
-	top: 1em;
-	left: -5em;
-	display: inline-block;
-	width: 0; height: 0;
-	z-index: 10;
-	color: #fff;
-	opacity: .40;
-	&:hover {
-		opacity: .60;
-	}
-}
-
-.soundcloud-thumb-overlay {
-	@extend .youtube-thumb-overlay;
-	left: -4.5em;
-}
-
-.google\2b-row,
-.soundcloud-row,
-.github-row,
-.facebook-row,
-.forums-row,
-.youtube-row {
-	text-align: left;
-	position: relative;
-	margin: 0;
-}
-
-.soundcloud-row {
-	margin-top: -2px;
-}
-
-.youtube-thumb {
-	background-color: #000;
-	float: left;
-	display: inline-block;
-	position: relative;
-	margin-top: -6px;
-	margin-left: 2px;
-	margin-right: 10px;
-}
-
-.soundcloud-thumb {
-	float: left;
-	display: inline-block;
-	position: relative;
-	margin-top: -6px;
-	margin-left: 2px;
-	margin-right: 10px;
-	width: 100px;
-	height: 100px;
-}
-
-
-.fb-thumb {
-	position: relative;
-	left: -6px;
-	top: -2px;
-	margin: 5px;
-	width: auto;
-	max-width: 100%;
-	height: auto;
-}
-
-.forum-thumb {
-	display: block;
-	position: relative;
-	margin: 20px;
 }
 
 #button-title {
@@ -472,38 +392,12 @@ li.dropdown-split-right > a {
 	margin-right: 10px;
 }
 
+.spacey {
+	padding: 5px;
+}
+
 p.forum-stats  {
 	font-size: 0.75em;
-}
-
-#community-table {
-	text-align:center;
-	margin: 0 auto;
-}
-
-#forums-div,
-#facebook-div,
-#soundcloud-div,
-#google-div,
-#youtube-div,
-#github-div {
-	max-height: 9999px;
-	overflow: auto;
-}
-
-#forums-toggle,
-#facebook-toggle,
-#soundcloud-toggle,
-#google\2b-toggle,
-#youtube-toggle,
-#github-toggle,
-#forums-button,
-#facebook-button,
-#soundcloud-button,
-#google\2b-button,
-#youtube-button,
-#github-button {
-	width: 100%;
 }
 
 .theme-showcase > p > .btn {
@@ -536,6 +430,10 @@ $animationTime: 0.15s;
 	border-radius: 1px;
 	margin-bottom: 5px;
 	color: #fff;
+	&.active,
+	&:active {
+		box-shadow: none;
+	}
 }
 
 .panel,
@@ -654,10 +552,28 @@ a:focus {
 		.navbar-nav > .active > a,
 		.navbar-nav > .active > a:hover,
 		.navbar-nav > .open > a,
-		.navbar-nav > .open > a:hover,
-		.dropdown-split-left:hover + .dropdown-split-right {
+		.navbar-nav > .open > a:hover {
 			box-shadow: inset 0px -4px 0px 0px $navbarHoverBorder;
 		}
+		.dropdown-menu {
+  	 	right: auto;
+  		text-align: left;
+			display: block;
+			visibility: hidden;
+			box-shadow: none;
+			opacity: 0;
+			transition: visibility 0s, opacity $animationTime,
+									box-shadow $animationTime linear;
+		 }
+		 .dropdown:hover,
+		 .dropdown:focus {
+			 .dropdown-menu {
+	 		  	visibility: visible;
+					display: block;
+	 		  	margin-top: 0;
+					opacity: 1;
+	 			}
+			}
 	}
 }
 
@@ -900,56 +816,6 @@ a.btn-outline {
 .btn-xl {
 	font-size: 24px;
 }
-
-.btn-dark {
-	background-color: #464f47;
-	border-color: #464f47;
-	color: #fff;
-	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
-	background-color: #3c443d;
-	background-image: -moz-linear-gradient(top,#464f47,#2e342f);
-	background-image: -webkit-gradient(linear,0 0,0 100%,from(#464f47),to(#2e342f));
-	background-image: -webkit-linear-gradient(top,#464f47,#2e342f);
-	background-image: -o-linear-gradient(top,#464f47,#2e342f);
-	background-image: linear-gradient(to bottom,#464f47,#2e342f);
-	background-repeat: repeat-x;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff464f47', endColorstr='#ff2e332e', GradientType=0);
-	border-color: #2e342f #2e342f #0a0b0a;
-	border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
-}
-.btn-dark:hover,
-.btn-dark:focus {
-	color: #fff;
-	text-decoration: none;
-	background-position: 0 -15px;
-	-webkit-transition: background-position .1s linear;
-	-moz-transition: background-position .1s linear;
-	-o-transition: background-position .1s linear;
-	transition: background-position .1s linear;
-	background-color: #2e342f;
-}
-
-.btn-dark:active,
-.btn-dark.active,
-.btn-dark.active:hover {
-	color: #fff;
-	background-color: #3a413b;
-	border-color: #2e342f;
-}
-
-.btn-dark.disabled:hover,
-.btn-dark.disabled:focus,
-.btn-dark.disabled:active,
-.btn-dark.disabled.active,
-.btn-dark[disabled] .btn-dark:hover,
-.btn-dark[disabled] .btn-dark:focus,
-.btn-dark[disabled] .btn-dark:active,
-.btn-dark[disabled] .btn-dark.active {
-	color: #fff;
-	background-color: #464f47;
-	border-color: #464f47;
-}
-
 /*
  * nav-tabs style
  */

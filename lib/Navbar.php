@@ -85,16 +85,14 @@ class MenuItem
 		} else {
 			// Dropdown item
 
-			// Split dropdown for big screens
-			echo "<li class='dropdown-split-left $this->active hidden-xs'> <a href='$this->url'>$this->text</a> </li>";
-			echo "<li class='dropdown-split-right $this->active hidden-xs'>
-					<a href='#' class='dropdown-toggle' data-toggle='dropdown'> <span class='caret'></span></a>";
-			echo "<ul class='dropdown-menu pull-right'>";
+			echo "<li tabindex='0' class='dropdown hidden-xs'>
+					<a href='#'>$this->text <span class='caret'></span></a>";
+			echo "<ul tabindex='0' class='dropdown-menu pull-right'>";
 			foreach ($this->children as $key => $child) {
 				$this->printItem('', $child[1], $child[2], $child[0]);
-				if ($key == 0) {
+				/*if ($key == 0) {
 					echo "<li class='divider'></li>";
-				}
+				}*/
 			}
 			echo '</ul></li>';
 
