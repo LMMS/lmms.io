@@ -12,18 +12,25 @@ cd ~/github-repo
 if [ -e lmms ]
 then
 	cd lmms
-	git pull
+	PULLRES=$(git pull)
+	if [ "$PULLRES" = "Already up-to-date." -a -e maintenance-tasks-done ]
+	then
+		exit
+	fi
 else
 	git clone https://github.com/LMMS/lmms
 	cd lmms
 fi
 
+rm -f maintenance-tasks-done
+
 run-parts --exit-on-error "$CRONPWD/../tasks/lmms"
 
-if [ -z "$(git diff)" ]
+if [ "$(git diff)" ]
 then
-	exit
+	git add -u
+	git commit -m "Maintenance tasks"
+	git push
 fi
-git add -u
-git commit -m "Maintenance tasks"
-git push
+
+touch maintenance-tasks-done
