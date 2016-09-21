@@ -1,0 +1,4 @@
+#!/bin/sh
+set -e
+
+git shortlog -sne | cut -c 8- > doc/CONTRIBUTORS

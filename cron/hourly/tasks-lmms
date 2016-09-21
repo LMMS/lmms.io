@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+
+CRONPWD="$PWD"
+
+if [ ! -e ~/github-repo ]
+then
+	mkdir ~/github-repo
+fi
+cd ~/github-repo
+
+if [ -e lmms ]
+then
+	cd lmms
+	git pull
+else
+	git clone https://github.com/LMMS/lmms
+	cd lmms
+fi
+
+run-parts --exit-on-error "$CRONPWD/../tasks/lmms"
+
+if [ -z "$(git diff)" ]
+then
+	exit
+fi
+git add -u
+git commit -m "Maintenance tasks"
+git push
