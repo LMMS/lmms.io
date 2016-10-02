@@ -12,6 +12,7 @@ function twigrender($file)
 }
 
 require_once('../views.php');
+require_once('../hooks/github.php');
 
 $pages = [
 	['/', 'homePage'],
@@ -36,7 +37,10 @@ foreach ($pages as $page) {
 	$app->get($page[0], $page[1]);
 }
 
+$app->post('/hooks/github/', 'githubHook');
+
 $app->error(function (\Exception $e, $code) use($app) {
+	error_log($e);
 	switch ($code) {
 		case 404:
 			$message = 'The requested page could not be found.';

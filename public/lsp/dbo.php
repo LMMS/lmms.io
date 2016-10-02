@@ -1,14 +1,15 @@
 <?php
 require_once('utils.php');
+require_once('../config.php');
 
 /*
- * Default database values.  Override with LSP_SECRETS below
+ * Default database values.  Define in LSP_SECRETS file to override default values.
  */
-$DB_TYPE = 'mysql';
-$DB_HOST = 'localhost';
-$DB_USER = 'someuser';
-$DB_PASS = 'P@SSWORD';
-$DB_DATABASE = 'somedatabase';
+$DB_TYPE = defined('DB_TYPE') ? DB_TYPE : 'mysql';
+$DB_HOST = defined('DB_HOST') ? DB_HOST : 'localhost';
+$DB_USER = defined('DB_USER') ? DB_USER : 'someuser';
+$DB_PASS = defined('DB_PASS') ? DB_PASS : 'P@SSWORD';
+$DB_DATABASE = defined('DB_DATABASE') ? DB_DATABASE : 'somedatabase';
 
 /*
  * Query preferences
@@ -21,30 +22,9 @@ $MAX_LOGIN_ATTEMPTS = 6;
 /*
  * Global paths
  */
-$TMP_DIR = $_SERVER['DOCUMENT_ROOT'] . '/../tmp/';
-$DATA_DIR = $_SERVER['DOCUMENT_ROOT'] . '/../tmp/';
-$LSP_URL = '/lsp/';
-
-/*
- * By default, the LSP will use the default database values defined above
- * however, for production environments, the defaults must be overridden.  This
- * is done in a separate config file defined as $LSP_CONFIG which should be out
- * of the document root and inaccessible from a webpage.
- */
-$LSP_SECRET = '/home/deploy/secrets/LSP_SECRETS';
-if (file_exists($LSP_SECRET)) { include($LSP_SECRET); }
-
-/*
- * Override constants with those from $LSP_SECRET, if available
- */
-$DB_TYPE = defined('DB_TYPE') ? DB_TYPE : $DB_TYPE;
-$DB_HOST = defined('DB_HOST') ? DB_HOST : $DB_HOST;
-$DB_USER = defined('DB_USER') ? DB_USER : $DB_USER;
-$DB_PASS = defined('DB_PASS') ? DB_PASS : $DB_PASS;
-$DB_DATABASE = defined('DB_DATABASE') ? DB_DATABASE : $DB_DATABASE;
-$TMP_DIR = defined('TMP_DIR') ? TMP_DIR : $TMP_DIR;
-$DATA_DIR = defined('DB_PASS') ? DATA_DIR : $DATA_DIR;
-$LSP_URL = defined('LSP_URL') ? LSP_URL : $LSP_URL;
+$TMP_DIR = defined('TMP_DIR') ? TMP_DIR : $_SERVER['DOCUMENT_ROOT'] . '/../tmp/';
+$DATA_DIR = defined('DATA_DIR') ? DATA_DIR : $_SERVER['DOCUMENT_ROOT'] . '/../tmp/';
+$LSP_URL = defined('LSP_URL') ? LSP_URL : '/lsp/';
 
 /*
  * DANGER! When set to true will attempt to echo database statements and values to screen
