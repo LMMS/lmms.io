@@ -3,6 +3,7 @@
 body {
 	padding-top: 50px;
 	height: 100%;
+	font-family: 'Open Sans', sans-serif;
 }
 
 html {
@@ -375,9 +376,16 @@ $animationTime: 0.15s;
 	background-image: url('/img/hexagon.png');
 	background-position: 0px 0px;
 	margin-bottom: 0;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
 	transition: top $animationTime ease-in-out;
 	border: none;
 	top: 0;
+	
+	.navbar-brand {
+		font-family: 'Orbitron', sans-serif;
+		font-size: 16px;
+	}
 
 	.navbar-brand,
 	.dropdown-split-right,
@@ -551,7 +559,8 @@ footer, .main-div:after {
 .jumbotron {
 	margin: 0;
 	h1, h2, h5, p {
-		font-family: 'Ubuntu', sans-serif;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 500;
 	}
 }
 
