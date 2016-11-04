@@ -376,7 +376,7 @@ $animationTime: 0.15s;
 	background-image: url('/img/hexagon.png');
 	background-position: 0px 0px;
 	margin-bottom: 0;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Titillium Web', sans-serif;
 	font-weight: 600;
 	transition: top $animationTime ease-in-out;
 	border: none;
@@ -385,6 +385,7 @@ $animationTime: 0.15s;
 	.navbar-brand {
 		font-family: 'Orbitron', sans-serif;
 		font-size: 16px;
+		line-height: 22px;
 	}
 
 	.navbar-brand,
@@ -559,8 +560,8 @@ footer, .main-div:after {
 .jumbotron {
 	margin: 0;
 	h1, h2, h5, p {
-		font-family: 'Raleway', sans-serif;
-		font-weight: 500;
+		font-family: 'Titillium Web', sans-serif;
+		font-weight: 400;
 	}
 }
 
@@ -664,43 +665,50 @@ a.social {
 	.page-header {
 		border-bottom-color: #d4d4d4;
 	}
-}
 
-.segment#home1,
-.segment#home5 {
-	 background-color: #f7f7f7;
- }
 
-.segment#home3 {
-	background-image: url("/img/hexagon2.png");
-	background-repeat: repeat;
-	background-position: 0px 0px;
-}
+	&#home1 {
+		.col-lg-4 {
+			h4, p {
+				text-align: left;
+			}
+		}
+	}
+	&#home5 {
+		 background-color: #f7f7f7;
+	}
+	
+	 &#home3 {
+		background-image: url("/img/hexagon2.png");
+		background-repeat: repeat;
+		background-position: 0px 0px;
+	}
 
-.segment#home2 {
-	color: #fff;
-	background: linear-gradient(
-		$grayOverlay, $grayOverlay
-	), url("/img/promoshot1.jpg");
-	background-position: center;
-	background-size: cover;
-	background-attachment: fixed;
-}
+	&#home2 {
+		color: #fff;
+		background: linear-gradient(
+			$grayOverlay, $grayOverlay
+		), url("/img/promoshot1.jpg");
+		background-position: center;
+		background-size: cover;
+		background-attachment: fixed;
+	}
 
-.segment#home4 {
-	color: #fff;
-	background: linear-gradient(
-		$grayOverlay, $grayOverlay
-	), url("/img/promoshot2.jpg");
-	background-position: center;
-	background-size: cover;
-	background-attachment: fixed;
-}
+	&#home4 {
+		color: #fff;
+		background: linear-gradient(
+			$grayOverlay, $grayOverlay
+		), url("/img/promoshot2.jpg");
+		background-position: center;
+		background-size: cover;
+		background-attachment: fixed;
+	}
 
-.segment#home6 {
-	color: #fff;
-	padding: 50px 0 70px 0;
-	background: none;
+	&#home6 {
+		color: #fff;
+		padding: 50px 0 70px 0;
+		background: none;
+	}
 }
 
 .full-video {
