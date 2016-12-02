@@ -557,7 +557,7 @@ function soundcloud_iframe($message, $width, $height) {
 }
 
 /*
- *
+ * Converts clyp.it links to the appropriate iframe
  */
 function clyp_iframe($url, $width, $height) {
 	$html = '<iframe width="' . $width . '" height="' . $height . '" 
