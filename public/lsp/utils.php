@@ -383,14 +383,15 @@ function get_file_url($file_id = null) {
  * Scrapes a message for a link to a service such as YouTube or SoundCloud and
  * embeds a player. Also turns links into appropriate hyperlinks.
  */
-function parse_links($message, $width = "100%", $height = 120) {
+function parse_links($message, $width = "100%", $height = 160) {
 	// Global pattern to find distinctive links
-	$pattern = "%[a-zA-Z\/\/:\.\"\=]*(                                       # group 1, contains all the other groups
+	$pattern = "%[a-zA-Z\/\/:\.\"\=]*(                                 # group 1, contains all the other groups
 				(soundcloud.com\/[\w\*\-\?\&\%\=\.]+\/[\w\*\-\?\&\%\=\.]+)|  # group 2, match links like soundcloud.com/user/sound
 				(youtube.com\/watch\?v\=)|                                   # group 3, match links like youtube-com/watch?v=videocode
 				(youtu.be)|                                                  # group 4, match links like youtu.be/videocode
-				(https?:\/\/\S*\/\S*\.(jpe?g|png|gif)\b)|                    # group 5, match links like http://mylink.domain/image.png
-				(https?:\/\/)                                                # group 6, match links like http://example.com/page
+				(clyp.it(?!\/user)\/\S+)|                                    # group 5, match links like clyp.it/somehash, do not capture user links
+				(https?:\/\/\S*\/\S*\.(jpe?g|png|gif)\b)|                    # groups 6 & 7, match links like http://mylink.domain/image.png
+				(https?:\/\/)                                                # group 8, match links like http://example.com/page
 				)+\S*%xi";
 	preg_match_all($pattern, $message, $matched, PREG_SET_ORDER);
 
@@ -428,12 +429,17 @@ function parse_links($message, $width = "100%", $height = 120) {
 				$ytbe = parse_url_ext($matched[$i][0]);
 				$message = str_replace($matched[$i][0], youtube_iframe(substr($ytbe["path"], 1), $width, $height), $message);
 			}
-			// Image links
+			// clyp.it links
 			elseif ($matched[$i][5]) {
+				$clyp = parse_url_ext($matched[$i][0]);
+				$message = str_replace($matched[$i][0], clyp_iframe(substr($clyp["path"], 1), $width, $height), $message);
+			}
+			// Image links
+			elseif ($matched[$i][6]) {
 				$message = str_replace($matched[$i][0], create_img($matched[$i][0]) , $message);
 			}
 			// Regular links
-			elseif ($matched[$i][7]) {
+			elseif ($matched[$i][8]) {
 				$message = str_replace($matched[$i][0], create_link($matched[$i][0]) , $message);
 			}
 		}
@@ -550,4 +556,13 @@ function soundcloud_iframe($message, $width, $height) {
 	return $html;
 }
 
+/*
+ * Converts clyp.it links to the appropriate iframe
+ */
+function clyp_iframe($url, $width, $height) {
+	$html = '<iframe width="' . $width . '" height="' . $height . '" 
+		src="https://clyp.it/' . $url . '/widget" frameborder="0"></iframe>';
+
+	return $html;
+}
 ?>
