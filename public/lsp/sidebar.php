@@ -29,7 +29,7 @@ switch (GET('action')) {
 		</div>
 		<div class="lsp-search-comments">
 			<?php $checked = GET('commentsearch', false) ? 'checked' : ''; ?>
-			<input type="checkbox" title="Search comments" id="commentsearch" class="pull-right" name="commentsearch" <?php echo $checked; ?>/><span class="fa fa-comments"></span>
+			<input type="checkbox" title="Search comments" id="commentsearch" class="pull-right" name="commentsearch" <?php echo $checked; ?>><span class="fa fa-comments"></span></input>
 		</div>
 	</form>
 	</div>
@@ -62,12 +62,16 @@ switch (GET('action')) {
 			if (SESSION_EMPTY()) {?>
 				<form action="<?php echo $LSP_URL; ?>?action=login" method="post" role="form">
 				<div class="form-group">
-				<input type="text" id="login" name="login" class="form-control textin" maxlength="16" placeholder="Username" />
+				<label for="login">User Name</label>
+				<input type="text" id="login" name="login" class="form-control textin" maxlength="16" placeholder="username" />
 				</div>
 				<div class="form-group">
-				<input type="password" id="password" name="password" class="form-control textin" maxlength="20" placeholder="Password"/>
+				<label for="password">Password</label>
+				<input type="password" id="password" name="password" class="form-control textin" maxlength="20" placeholder="password"/>
 				</div>
 				<button type="submit" name="ok" class="btn btn-primary textin"><span class="fa fa-check"></span>&nbsp;Login</button>
+				</form>
+
 				<input type="hidden" name="file" value="<?php echo GET('file');?>" />
 				<input type="hidden" name="category" value="<?php echo GET('category');?>" />
 				<input type="hidden" name="subcategory" value="<?php echo GET('subcategory');?>" />
