@@ -49,8 +49,15 @@ blockquote {
 h1.jumbo, p.jumbo {
 	font-family: 'Ubuntu', sans-serif;
 }
+
 .lsp-image {
 	max-width:100%;
+}
+
+/* LSP Login Sidebar*/
+
+#login-div form {
+	padding: 0.5em;
 }
 
 /* Star ratings */
