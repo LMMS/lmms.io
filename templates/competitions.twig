@@ -7,27 +7,27 @@
 {% block content %}
 
 {% spaceless %}
-{{ macros.jumbo('Competitions', 'Official competitions organised by LMMS and its community members')}}
+{{ macros.jumbo('Competitions'|trans, 'Official competitions organised by LMMS and its community members'|trans)}}
 <div class="container">
-	<h3>Past competitions:</h3>
+	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol3" data-target="#bol3-desc">
-			<span>The Best of LMMS vol. III</span>
+			<span>{% trans %}The Best of LMMS vol.{% endtrans %} III</span>
 			<i class="fa fa-angle-down"></i>
 		</div>
 		<div class="comp-desc panel-collapse collapse" id="bol3-desc">
-			<h4>The competition has ended on <b>March 16th, 2016.</b></h4>
-			<p>Support LMMS and buy the compilation over at our <a href="https://lmmsartists.bandcamp.com/">bandcamp page.</a><br>
+			<h4>{% trans %}The competition has ended on <b>March 16th, 2016.</b>{% endtrans %}</h4>
+			<p>{% trans %}Support LMMS and buy the compilation over at our <a href="https://lmmsartists.bandcamp.com/">bandcamp page.</a><br>
 				Listen to all entries <a href="https://soundcloud.com/groups/the-best-of-lmms-competition-v3">here.</a><br>
-				Winners:
+				Winners:{% endtrans %}
 			</p>
 			<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/211975750&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			<h4>Original description:</h4>
-			<p>It’s that time of the year again: If you have made amazing tracks with LMMS we have a contest for you!
+			<h4>{% trans %}Original description:{% endtrans %}</h4>
+			<p>{% trans %}It’s that time of the year again: If you have made amazing tracks with LMMS we have a contest for you!
 				The Best of LMMS contest is back!  The compilation aims to inspire new users and everyone to create music.
 				The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS.
-				Submit your track before midnight on March 16th (UTC time), and find details about the contest on the <a href="https://soundcloud.com/groups/the-best-of-lmms-competition-v3">soundcloud group.</a></p>
-			<h4>Competition rules:</h4>
+				Submit your track before midnight on March 16th (UTC time), and find details about the contest on the <a href="https://soundcloud.com/groups/the-best-of-lmms-competition-v3">soundcloud group.</a>{% endtrans %}</p>
+			<h4>{% trans %}Competition rules:{% endtrans %}</h4>
 			<ol>
 				<li>The Deadline. The tracks must be submitted by March 16th 0:00 UTC. The tracks can be of any genre, preferably under 10 minutes.
 					The track must be produced in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.</li>
@@ -41,7 +41,7 @@
 	</div>
 	<div class="competition">
 		<div class="comp-header" id="bol2" data-target="#bol2-desc">
-			<span>The Best of LMMS vol. II</span>
+			<span>{% trans %}The Best of LMMS vol.{% endtrans %} II</span>
 			<i class="fa fa-angle-down"></i>
 		</div>
 		<div class="comp-desc panel-collapse collapse" id="bol2-desc">
@@ -79,7 +79,7 @@
 	</div>
 	<div class="competition">
 		<div class="comp-header" id="bol1" data-target="#bol1-desc">
-			<span>The Best of LMMS vol. I</span>
+			<span>{% trans %}The Best of LMMS vol.{% endtrans %} I</span>
 			<i class="fa fa-angle-down"></i>
 		</div>
 		<div class="comp-desc panel-collapse collapse" id="bol1-desc">

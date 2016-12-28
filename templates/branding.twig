@@ -3,28 +3,28 @@
 {% import 'macros.twig' as macros %}
 
 {% block content %}
-{{ macros.jumbo('Branding', 'Baa Baa Black Sheep')}}
+{{ macros.jumbo('Branding'|trans, 'Baa Baa Black Sheep'|trans)}}
 <div class="container">
 	<div class="page-header">
-		<h1>Download LMMS Artwork</h1>
+		<h1>{% trans %}Download LMMS Artwork{% endtrans %}</h1>
 	</div>
 
 	{{ create_artwork_item(
-		'LMMS Logo',
+		'LMMS Logo'|trans,
 		'../../img/logo_md.png',
 		'http://raw.githubusercontent.com/LMMS/artwork/master/src/icon.svg',
 		'../../img/logo_lg.png',
 		'Martin Vacho',
 		'http://hdche.tumblr.com',
-		'LMMS Development Team') }}
+		'LMMS Development Team'|trans) }}
 
 	{{ create_artwork_item(
-		'LMMS Project Icon',
+		'LMMS Project Icon'|trans,
 		'../../img/project_md.png',
 		'http://raw.githubusercontent.com/LMMS/artwork/master/src/mmpz_file_icon.svg',
 		'../../img/project_lg.png',
 		'Ubuntu',
 		'https://wiki.ubuntu.com/Artwork/Incoming/Karmic/Humanity_Icons',
-		'LMMS Development Team') }}
+		'LMMS Development Team'|trans) }}
 </div>
 {% endblock %}
