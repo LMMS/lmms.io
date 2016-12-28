@@ -1,0 +1,25 @@
+#!/bin/bash
+if ! (which xgettext > /dev/null 2>&1); then
+    echo "Please install GNU gettext tools before you continue!"
+    exit 1
+fi
+
+echo "This device currently defined the following locales:"
+locale -a
+
+echo "Updating translation template..."
+srctop=$(realpath $(dirname $0)/../public)
+rm ${srctop}/locale/message.pot || true
+
+tmpfile=$(mktemp)
+python3 $(dirname $0)/extractor.py -o ${tmpfile}
+xgettext -L php --from-code=utf-8 -j -o ${tmpfile} ${srctop}/*.php
+mv ${tmpfile} ${srctop}/locale/message.pot
+
+for dir in ${srctop}/locale/*/
+do
+    dir=${srctop}/${dir%*/}
+    tr_file=${srctop}/locale/${dir##*/}/LC_MESSAGES/messages.po
+    echo "Updating ${tr_file}..."
+    msgmerge -U --backup=off ${tr_file} ${srctop}/locale/message.pot
+done

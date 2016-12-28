@@ -1,15 +1,16 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/../lib/Navbar.php');
+require_once('i18n.php');
 $navbar = new Navbar(
 	[
-		['Download', '/download/'],
-		['Get Involved', '/get-involved/'],
-		[['Documentation', 'Docs'], '/documentation/'],
-		['Forum', '/forum/'],
-		[['Sharing Platform', 'Share'], '/lsp/'],
-		['More', '/nonsence/', [
-			['fa-eye', 'Showcase', '/showcase/'],
-			['fa-trophy', 'Competitions', '/competitions/'],
-			['fa-tags', 'Branding', '/branding']]],
+		[_('Download'), '/download/'],
+		[_('Get Involved'), '/get-involved/'],
+		[[_('Documentation'), _('Docs')], '/documentation/'],
+		[_('Forum'), '/forum/'],
+		[[_('Sharing Platform'), _('Share')], '/lsp/'],
+		[_('More'), '/nonsence/', [
+			['fa-eye', _('Showcase'), '/showcase/'],
+			['fa-trophy', _('Competitions'), '/competitions/'],
+			['fa-tags', _('Branding'), '/branding']]],
 	]
 );

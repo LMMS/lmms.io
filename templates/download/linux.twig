@@ -3,10 +3,10 @@
 {% endblock %}
 
 <div class="text-center">
-	<h2>Install LMMS on Linux</h2>
+	<h2>{% trans %}Install LMMS on Linux{% endtrans %}</h2>
 
-	<p>LMMS is included in most major Linux distribution's package repositories.<br>
-	Please <a href="/community/">contact us</a> if your distribution is not listed here.</p>
+	<p>{% trans %}LMMS is included in most major Linux distribution's package repositories.<br>
+	Please <a href="/community/">contact us</a> if your distribution is not listed here.{% endtrans %}</p>
 
 	<div class="nav-center-container">
 		<ul id="linux-tabs" class="nav nav-tabs nav-center" role="tablist">
@@ -48,37 +48,37 @@
 <div class="tab-content">
 	<div id="linux-debian" class="tab-pane active">
 		<h3>Ubuntu, Linux Mint, Debian (deb)</h3>
-		<p>For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.<br></p>
+		<p>{% trans %}For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.{% endtrans %}<br></p>
 		<!-- <p><a class="btn btn-primary" target="new" href="apt://lmms"><span class="fa fa-download"></span> Install LMMS</a></p> -->
 		<p>
 		<a class="btn btn-md btn-dl btn-dl-md btn-primary" href="apt://lmms" title="apt://lmms"><span id="button-title">LMMS</span><br><span class="fa fa-download download-icon"></span><big>Install Now</big><br><small>(From Package Manager)</small></a>
 		</p>
-		<p>If this doesn't work for you, run this command in a terminal.</p>
+		<p>{% trans %}If this doesn't work for you, run this command in a terminal.{% endtrans %}</p>
 		<div class="code-block"><pre>$ sudo apt-get install lmms</pre></div>
-		<p>If the traditional repositories lag behind on versions, try the <a href="http://kxstudio.sourceforge.net/Repositories#Ubuntu">KXStudio repository</a>.</p>
-		<h3>VST Support</h3>
-		<p>If your distribution offers VST support (requires the installation of Wine) it is generally offered in a separate package.  For example, using the <a href="http://kxstudio.sourceforge.net/Repositories#Ubuntu">KXStudio repository</a>, run this command in a terminal.</p>
+		<p>{% trans %}If the traditional repositories lag behind on versions, try the <a href="http://kxstudio.sourceforge.net/Repositories#Ubuntu">KXStudio repository</a>.{% endtrans %}</p>
+		<h3>{% trans %}VST Support{% endtrans %}</h3>
+		<p>{% trans %}If your distribution offers VST support (requires the installation of Wine) it is generally offered in a separate package.  For example, using the <a href="http://kxstudio.sourceforge.net/Repositories#Ubuntu">KXStudio repository</a>, run this command in a terminal.{% endtrans %}</p>
 		<div class="code-block"><pre>$ sudo apt-get install lmms-vst-full</pre></div>
 	</div>
 
 	<div id="linux-mageia" class="tab-pane">
 		<h3>Mandriva, Mageia (rpm)</h3>
-		<p>Run the following command as root in a terminal:</p>
+		<p>{% trans %}Run the following command as root in a terminal:{% endtrans %}</p>
 		<div class="code-block"><pre>$ urpmi lmms</pre></div>
 	</div>
 
 	<div id="linux-fedora" class="tab-pane">
 		<h3>Fedora, RedHat, CentOS (rpm)</h3>
-		<p>Run the following command as root in a terminal:</p>
+		<p>{% trans %}Run the following command as root in a terminal:{% endtrans %}</p>
 		<div class="code-block"><pre>$ yum install lmms</pre></div>
 	</div>
 
 	<div id="linux-arch" class="tab-pane">
 		<h3>Arch Linux</h3>
-		<p>Run the following command in a terminal:</p>
+		<p>{% trans %}Run the following command in a terminal:{% endtrans %}</p>
 		<div class="code-block"><pre>$ sudo pacman -S lmms</pre></div>
-		<h3>VST Support</h3>
-		<p>For VST support, please see the <a href="https://wiki.archlinux.org/index.php/LMMS" target="_blank">Arch LMMS wiki page</a></p>
+		<h3>{% trans %}VST Support{% endtrans %}</h3>
+		<p>{% trans %}For VST support, please see the <a href="https://wiki.archlinux.org/index.php/LMMS" target="_blank">Arch LMMS wiki page</a>{% endtrans %}</p>
 	</div>
 
 	<div id="linux-slackware" class="tab-pane">
@@ -89,23 +89,23 @@
 
 	<div id="linux-suse" class="tab-pane">
 		<h3>openSUSE</h3>
-		<p>Run the following command in a terminal:</p>
+		<p>{% trans %}Run the following command in a terminal:{% endtrans %}</p>
 		<div class="code-block"><pre>$ sudo zypper install lmms</pre></div>
 	</div>
 
 	<div id="linux-aosc" class="tab-pane">
 		<h3>AOSC OS</h3>
-		<p>AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and more to come in the future), with VST support enabled by default on AMD64.</p>
-		<p>To install LMMS on AOSC OS with PackageKit (recommended):</p>
+		<p>{% trans %}AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and more to come in the future), with VST support enabled by default on AMD64.{% endtrans %}</p>
+		<p>{% trans %}To install LMMS on AOSC OS with PackageKit (recommended):{% endtrans %}</p>
 		<div class="code-block"><pre>$ pkcon install lmms</pre></div>
-		<p>To install LMMS on AOSC OS with DPKG:</p>
+		<p>{% trans %}To install LMMS on AOSC OS with DPKG:{% endtrans %}</p>
 		<div class="code-block"><pre>$ sudo apt install lmms</pre></div>
-		<p>To install LMMS on AOSC OS with RPM:</p>
+		<p>{% trans %}To install LMMS on AOSC OS with RPM:{% endtrans %}</p>
 		<div class="code-block"><pre>$ sudo zypper install lmms</pre></div>
 	</div>
 </div>
 
 <div id="linux-source">
-	<h3>Build LMMS from source</h3>
-	<p>If your Linux distribution does not provide a lmms package (or only an out-dated one), you can still build LMMS from source. Visit the <a href="https://github.com/LMMS/lmms/wiki/Compiling-lmms">LMMS development wiki on GitHub</a> for instructions on how to compile LMMS for Linux.</p>
+	<h3>{% trans %}Build LMMS from source{% endtrans %}</h3>
+	<p>{% trans %}If your Linux distribution does not provide a lmms package (or only an out-dated one), you can still build LMMS from source. Visit the <a href="https://github.com/LMMS/lmms/wiki/Compiling-lmms">LMMS development wiki on GitHub</a> for instructions on how to compile LMMS for Linux.{% endtrans %}</p>
 </div>

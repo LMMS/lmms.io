@@ -3,13 +3,13 @@
 {% import 'macros.twig' as macros %}
 
 {% block content %}
-{{ macros.jumbo('Get Involved', 'LMMS is a free, open-source software built entirely by a small number of
+{{ macros.jumbo('Get Involved'|trans, 'LMMS is a free, open-source software built entirely by a small number of
 	volunteers in their free time. But to keep the project going, we need this
 	number to grow. So if you feel like giving something back to the community,
-	join us in making LMMS better!') }}
+	join us in making LMMS better!'|trans) }}
 <div class="container">
-	<h2>What you can do</h2>
-	<p>There are multiple ways of contributing:</p>
+	<h2>{% trans %}What you can do{% endtrans %}</h2>
+	<p>{% trans %}There are multiple ways of contributing:{% endtrans %}</p>
 
 	<div class="row">
 		<div class="col-sm-6">
@@ -18,13 +18,13 @@
 					<h3 class="panel-title"><i class="fa fa-fw fa-file-code-o"></i> Join Development</h3>
 				</div>
 				<div class="panel-body">
-					<p>We are in desperate need of new developers to join our team. LMMS is written in C++ using the Qt
+					<p>{% trans %}We are in desperate need of new developers to join our team. LMMS is written in C++ using the Qt
 					   Framework, so if you know a thing or two about these, don't hesitate to get yourself dirty with
-					   coding!</p>
-					<p>See our <a href="//github.com/LMMS/lmms/wiki">GitHub Wiki</a> and our
+					   coding!{% endtrans %}</p>
+					<p>{% trans %}See our <a href="//github.com/LMMS/lmms/wiki">GitHub Wiki</a> and our
 					   <a href="//github.com/LMMS/lmms/issues">bug tracker</a> to get started. Furthermore, the LMMS
 					   <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">mailing list</a> is a great place
-					   to introduce yourself.</p>
+					   to introduce yourself.{% endtrans %}</p>
 				</div>
 			</div>
 		</div>
@@ -32,15 +32,15 @@
 		<div class="col-sm-6">
 			<div class="panel panel-custom">
 				<div class="panel-heading" id="docs">
-					<h3 class="panel-title"><i class="fa fa-fw fa-book"></i> Website & Docs</h3>
+					<h3 class="panel-title"><i class="fa fa-fw fa-book"></i> {% trans %}Website & Docs{% endtrans %}</h3>
 				</div>
 				<div class="panel-body">
-					<p>You can help us by improving this website or documenting the software. The website sources are in our
+					<p>{% trans %}You can help us by improving this website or documenting the software. The website sources are in our
 					   GitHub repo <a href="//github.com/LMMS/lmms.io">LMMS/lmms.io</a>, our documentation is hosted using a
-					   <a href="//lmms.io/wiki">MediaWiki instance</a>.</p>
-					<p>Public registration on our Wiki is disabled due to spam issues. Please post to the
+					   <a href="//lmms.io/wiki">MediaWiki instance</a>.{% endtrans %}</p>
+					<p>{% trans %}Public registration on our Wiki is disabled due to spam issues. Please post to the
 					   <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">mailing list</a> if you're
-					   interested in helping out with the documentation!</p>
+					   interested in helping out with the documentation!{% endtrans %}</p>
 				</div>
 			</div>
 		</div>
@@ -53,10 +53,10 @@
 					<h3 class="panel-title"><i class="fa fa-fw fa-money"></i> Donate</h3>
 				</div>
 				<div class="panel-body">
-					<p>Even though donations are not the thing we need the most (that'd be developers), they help us pay
-					   our bills, for our domain lmms.io for instance. </p>
+					<p>{% trans %}Even though donations are not the thing we need the most (that'd be developers), they help us pay
+					   our bills, for our domain lmms.io for instance.{% endtrans %} </p>
 					<a href="https://www.paypal.com/cgi-bin/webscr?item_name=Donation+to+LMMS&cmd=_donations&business=donations%40lmms.io">
-						<span class="fa fa-paypal"></span> Donate via PayPal
+						<span class="fa fa-paypal"></span> {% trans %}Donate via PayPal{% endtrans %}
 					</a>
 				</div>
 			</div>
@@ -65,19 +65,19 @@
 		<div class="col-sm-6">
 			<div class="panel panel-custom">
 				<div class="panel-heading" id="translate">
-					<h3 class="panel-title"><i class="fa fa-fw fa-flag"></i> Translations</h3>
+					<h3 class="panel-title"><i class="fa fa-fw fa-flag"></i> {% trans %}Translations{% endtrans %}</h3>
 				</div>
 				<div class="panel-body">
-					<p>If your language is missing in LMMS, help the project and other users speaking the same language by
+					<p>{% trans %}If your language is missing in LMMS, help the project and other users speaking the same language by
 					   translating the software. You can find instructions on the page
 					   "<a href="//github.com/LMMS/lmms/wiki/Creating-a-localization">Creating a localization</a>" in our
-					   GitHub Wiki.</p>
+					   GitHub Wiki.{% endtrans %}</p>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<h2 id="contact">How to get in touch</h2>
+	<h2 id="contact">{% trans %}How to get in touch{% endtrans %}</h2>
 
 	<div class="row">
 		<div class="col-sm-6">
@@ -86,8 +86,8 @@
 					<h3 class="panel-title"><i class="fa fa-fw fa-envelope"></i> Mailing List</h3>
 				</div>
 				<div class="panel-body">
-					<p>Posting to the mailing list is the best way to reach out to our developers: </p>
-					<p><a href="http://lists.sourceforge.net/lists/listinfo/lmms-devel">Subscribe to LMMS-Devel mailing list</a></p>
+					<p>{% trans %}Posting to the mailing list is the best way to reach out to our developers:{% endtrans %} </p>
+					<p><a href="http://lists.sourceforge.net/lists/listinfo/lmms-devel">{% trans %}Subscribe to LMMS-Devel mailing list{% endtrans %}</a></p>
 				</div>
 			</div>
 		</div>
@@ -98,11 +98,11 @@
 					<h3 class="panel-title"><i class="fa fa-fw fa-comments"></i> IRC &amp; Discord</h3>
 				</div>
 				<div class="panel-body">
-					<p>Our IRC channel is <a href="irc://chat.freenode.net/#lmms">#lmms</a> on
-					<a href="https://freenode.net/irc_servers.shtml">Freenode</a></p>
-					<p><a href="https://discordapp.com/" target="_blank">Discord</a>
-					is a more modern alternative to IRC. Join our server 
-					<a href="https://discord.gg/5kSc32Z">by clicking here</a></p>
+					<p>{% trans %}Our IRC channel is <a href="irc://chat.freenode.net/#lmms">#lmms</a> on
+					<a href="https://freenode.net/irc_servers.shtml">Freenode</a>{% endtrans %}</p>
+					<p>{% trans %}<a href="https://discordapp.com/" target="_blank">Discord</a>
+					is a more modern alternative to IRC. Join our server
+					<a href="https://discord.gg/5kSc32Z">by clicking here</a>{% endtrans %}</p>
 				</div>
 			</div>
 		</div>
@@ -116,7 +116,7 @@
 					<h3 class="panel-title"><i class="fa fa-fw fa-bars"></i> Forum</h3>
 				</div>
 				<div class="panel-body">
-					<p>We host a forum for our users here on this website:</p>
+					<p>{% trans %}We host a forum for our users here on this website:{% endtrans %}</p>
 					<a href="/forum">https://lmms.io/forum</a>
 				</div>
 			</div>
@@ -128,7 +128,7 @@
 					<h3 class="panel-title"><i class="fa fa-fw fa-github"></i> GitHub</h3>
 				</div>
 				<div class="panel-body">
-					<p>For reporting a bug or suggesting a new feature, please use the GitHub issue tracker:
+					<p>{% trans %}For reporting a bug or suggesting a new feature, please use the GitHub issue tracker:{% endtrans %}
 					<a href="//github.com/LMMS/lmms/issues">https://github.com/LMMS/lmms/issues</a></p>
 				</div>
 			</div>
