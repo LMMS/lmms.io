@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lmms.io 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-28 23:19-0700\n"
-"PO-Revision-Date: 2016-12-27 22:07-0700\n"
+"POT-Creation-Date: 2016-12-29 17:14-0700\n"
+"PO-Revision-Date: 2016-12-29 17:23-0700\n"
 "Last-Translator: liushuyu <liushuyu011@gmail.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
 "Language: zh_CN\n"
@@ -70,11 +70,11 @@ msgstr ""
 
 #: download/linux.twig:66 download/linux.twig:72
 msgid "Run the following command as root in a terminal:"
-msgstr ""
+msgstr "在命令终端中以 Root 用户身份运行下面指令:"
 
-#: download/linux.twig:78 download/linux.twig:92
+#: download/linux.twig:51 download/linux.twig:92
 msgid "Run the following command in a terminal:"
-msgstr ""
+msgstr "在命令终端中运行下面指令:"
 
 #: download/linux.twig:81
 msgid ""
@@ -148,14 +148,13 @@ msgstr "稳定版本"
 msgid "Beta Versions"
 msgstr "测试版本"
 
-#: download/index.twig:18
-#, fuzzy
+#: download/index.twig:73
 msgid "Install LMMS on Apple OS&nbsp;X"
-msgstr "在 Windows 下安装 LMMS"
+msgstr "在 Apple OS&nbsp;X 下安装 LMMS"
 
 #: download/index.twig:57
 msgid "Click one of the buttons below to download LMMS for Apple"
-msgstr ""
+msgstr "点击下面的按钮下载 Apple 版本的 LMMS"
 
 #: download/index.twig:87
 msgid "Downloads labeled Beta are pre-release software, stability may suffer."
@@ -185,48 +184,171 @@ msgstr "LMMS 社区官方举办的竞赛"
 msgid "Past competitions:"
 msgstr "之前的比赛:"
 
-#: competitions.twig:15 competitions.twig:8 competitions.twig:82
-msgid "The Best of LMMS vol."
-msgstr "LMMS 精选专辑 卷"
+#: competitions.twig:13
+msgid "The Best of LMMS vol. III"
+msgstr "LMMS 精选集 III"
 
-#: competitions.twig:19
-msgid "The competition has ended on <b>March 16th, 2016.</b>"
-msgstr "比赛已于 <b>2016 年 3 月 16 日</b> 结束"
-
-#: competitions.twig:20
-msgid ""
-"Support LMMS and buy the compilation over at our <a href=\"https://"
-"lmmsartists.bandcamp.com/\">bandcamp page.</a><br>\n"
-"\t\t\t\tListen to all entries <a href=\"https://soundcloud.com/groups/the-"
-"best-of-lmms-competition-v3\">here.</a><br>\n"
-"\t\t\t\tWinners:"
+#: competitions.twig:13
+msgid "March 16th, 2016"
 msgstr ""
-"前往我们的 <a href=\"https://lmmsartists.bandcamp.com/\">Bandcamp 页面</a> 购"
-"买专辑支持 LMMS吧！<br>\n"
-"\t\t\t\t您也可以在<a href=\"https://soundcloud.com/groups/the-best-of-lmms-"
-"competition-v3\">这里</a>试听所有曲目<br>\n"
-"\t\t\t\t优胜者:"
 
-#: competitions.twig:25
-msgid "Original description:"
-msgstr "之前的描述:"
-
-#: competitions.twig:26
+#: competitions.twig:13
 msgid ""
 "It’s that time of the year again: If you have made amazing tracks with LMMS "
 "we have a contest for you!\n"
-"\t\t\t\tThe Best of LMMS contest is back!  The compilation aims to inspire "
-"new users and everyone to create music.\n"
-"\t\t\t\tThe compilation will be uploaded to Bandcamp and all profit will be "
+"\t\tThe Best of LMMS contest is back!  The compilation aims to inspire new "
+"users and everyone to create music.\n"
+"\t\tThe compilation will be uploaded to Bandcamp and all profit will be "
 "donated for the further development of LMMS.\n"
-"\t\t\t\tSubmit your track before midnight on March 16th (UTC time), and find "
+"\t\tSubmit your track before midnight on March 16th (UTC time), and find "
 "details about the contest on the <a href=\"https://soundcloud.com/groups/the-"
 "best-of-lmms-competition-v3\">soundcloud group.</a>"
 msgstr ""
 
-#: competitions.twig:30
+#: competitions.twig:61
+msgid ""
+"<li>The Deadline. The tracks must be submitted by March 16th 0:00 UTC. The "
+"tracks can be of any genre, preferably under 10 minutes.\n"
+"\t\tThe track must be produced in LMMS, but it is allowed to use some other "
+"software (Audacity, Ardour etc.) for post mixing/mastering.</li>\n"
+"\t<li>The tracks. All submissions will be handled via SoundCloud using the "
+"dedicated group. You can submit a maximum of two tracks.\n"
+"\t\tYou may submit previously released tracks, but not tracks that were in "
+"the previous Best of LMMS albums. Remixes are not allowed. A collaboration "
+"between a judge and yourself is not allowed.</li>\n"
+"\t<li>The Judges. The jury consists of: Zach Henderson, Second Flight, "
+"Umcaruje, Greippi, Tres Finnochiaro, Abludo.</li>\n"
+"\t<li>The Judging Process. After the deadline, the judges will make their "
+"decisions and release the results within next 14 days.</li>\n"
+"\t<li>Release. The compilation will be released on a dedicated LMMS artists "
+"Bandcamp with the price of “Pay what you want”. All the received funds\n"
+"\t\twill be donated for further development of LMMS, the program that we "
+"love.</li>"
+msgstr ""
+
+#: competitions.twig:28
+msgid "The Best of LMMS vol. II"
+msgstr "LMMS 精选集 II"
+
+#: competitions.twig:28
+msgid "April 1st, 2015"
+msgstr ""
+
+#: competitions.twig:28
+msgid ""
+"If you have made amazing songs with LMMS we have a contest for you! The LMMS "
+"top songs contest is back!\n"
+"\t\tThe compilation aims to inspire new users and everyone to create music. "
+"The compilation will be uploaded\n"
+"\t\tto Bandcamp and all profit will be donated for the further development "
+"of LMMS."
+msgstr ""
+
+#: competitions.twig:76
+msgid ""
+"<li>The Deadline. The songs must be submitted by April 1st 0:00 UTC. The "
+"songs can be of any genre, preferably under 10 minutes.\n"
+"\t\tThe song should be made mostly in LMMS, but it is allowed to use some "
+"other software (Audacity, Ardour etc.) for post mixing/mastering.\n"
+"\t</li>\n"
+"\t<li>The songs. All submissions will be handled via SoundCloud using the "
+"dedicated group. A user can submit a maximum of two songs.\n"
+"\t\tUsers CAN submit previously released songs, BUT not songs submitted for "
+"previous BoL competitions. Remixes are not allowed.\n"
+"\t\tA song cooperation between a judge and yourself is not allowed.\n"
+"\t</li>\n"
+"\t<li>The Judges and the Release. The judges consist of Stian Jørgensrud "
+"(Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix and "
+"Jernemies.\n"
+"\t\tThe compilation will be released on the dedicated LMMS artists Bandcamp "
+"with the price of “Pay what you want”. All the received funds will be "
+"donated\n"
+"\t\tfor further development of LMMS or to cover other program related "
+"costs.\n"
+"\t</li>"
+msgstr ""
+
+#: competitions.twig:86
+msgid ""
+"By marking your song with the tag \"Want Feedback\" you can get feedback "
+"from the judges. Comments from different judges will be combined into one\n"
+"\ttext so you won't know from who or how many the feedback is. Note that you "
+"aren't guaranteed any feedback, it depends on how much time the judges "
+"have.\n"
+"\tAlso note that the judges are just regular LMMS artists and no matter what "
+"feedback you get the judges' decision for album songs is final."
+msgstr ""
+
+#: competitions.twig:9
+msgid "The Best of LMMS vol. I"
+msgstr "LMMS 精选集 I"
+
+#: competitions.twig:9
+msgid "February 15th, 2014"
+msgstr ""
+
+#: competitions.twig:9
+msgid ""
+"If you have made amazing songs with LMMS we have a contest for you! A LMMS "
+"top songs contest.\n"
+"\t\tThe compilation aims to inspire new users and get new producers to use "
+"the program as well as to give a big thank you to LMMS developers.\n"
+"\t\tThe compilation will be uploaded to Bandcamp and all profit will be "
+"donated for the further development of LMMS. Submit your song before\n"
+"\t\tmidnight on February 15th, and find details about this contest on the "
+"Soundcloud site."
+msgstr ""
+
+#: competitions.twig:97
+msgid ""
+"<li>The Deadline. The songs must be submitted by February 15th 12 PM GMT. A "
+"user can submit a maximum of two songs. The songs can be of any genre,\n"
+"\t\t\tpreferably under 10 minutes. All submissions will be handled via "
+"SoundCloud using the dedicated group. User CAN submit previously released "
+"songs.\n"
+"\t\t\tRemixes are not allowed. The song should be made mostly in LMMS, but "
+"it is allowed to use some other software (Audacity, Ardour etc.) for post "
+"mixing/mastering.</li>\n"
+"\t\t<li>The Judges. The judges consist of the group Avelocity: Brian Amin "
+"(Maniarib), Joshua Wade (Second Flight),\n"
+"\t\t\tUroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn "
+"(Raptor980), Jan Heemstra (Combustible Lemonade)</li>\n"
+"\t\t<li>The Judging Process. After the deadline, the judges will make their "
+"decisions and release the results within next 7 days.</li>\n"
+"\t\t<li>Release. The compilation will be released on a dedicated LMMS "
+"artists Bandcamp with the price of “Pay what you want”. All the received "
+"funds\n"
+"\t\t\twill be donated for further development of LMMS, the program that we "
+"love.</li>"
+msgstr ""
+
+#: macros.twig:50
+msgid "The competition has ended on <b>%due_date%.</b>"
+msgstr "比赛已于 <b>%due_date%</b> 结束"
+
+#: macros.twig:51
+msgid ""
+"Support LMMS and buy the compilation over at our <a href=\"https://"
+"lmmsartists.bandcamp.com/\">bandcamp page.</a><br>\n"
+"\t      Listen to all entries <a href=%group_url%>here</a>.<br>\n"
+"\t      Winners:"
+msgstr ""
+"前往我们的 <a href=\"https://lmmsartists.bandcamp.com/\">Bandcamp 页面</a> 购"
+"买专辑支持 LMMS吧！<br>\n"
+"\t\t\t\t您也可以在<a href=%group_url%>这里</a>试听所有曲目<br>\n"
+"\t\t\t\t优胜者:"
+
+#: macros.twig:56
+msgid "Original description:"
+msgstr "之前的描述:"
+
+#: macros.twig:58
 msgid "Competition rules:"
 msgstr "比赛规则:"
+
+#: macros.twig:301
+msgid "Extra:"
+msgstr "更多:"
 
 #: showcase.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:12
 msgid "Showcase"
@@ -246,12 +368,12 @@ msgstr "LMMS 精选专辑 卷"
 msgid "The Best of LMMS Vol.2 by LMMS Artists"
 msgstr "LMMS 精选专辑 卷"
 
-#: showcase.twig:28
+#: showcase.twig:1
 #, fuzzy
 msgid "The Best of LMMS Vol.1 by LMMS Artists"
 msgstr "LMMS 精选专辑 卷"
 
-#: home.twig:11
+#: home.twig:1
 msgid "Let's make music"
 msgstr "让我们创作音乐吧"
 
@@ -275,7 +397,7 @@ msgstr "音乐创作其实很简单"
 msgid "Produce music with your computer"
 msgstr "使用您的电脑制作音乐"
 
-#: home.twig:33
+#: home.twig:5
 msgid ""
 "by creating melodies and beats, synthesizing and mixing sounds, arranging "
 "samples and much more."
@@ -293,13 +415,13 @@ msgstr ""
 msgid "Bundled with ready-to-use stuff"
 msgstr "附带了一些开箱即用的东西"
 
-#: home.twig:12
+#: home.twig:43
 msgid ""
 "from an assortment of instrument and effect plugins, presets and samples to "
 "VST and SoundFont support."
 msgstr ""
 
-#: home.twig:14
+#: home.twig:52
 msgid "Made by musicians, for musicians."
 msgstr "音乐人给音乐人的礼物"
 
@@ -328,7 +450,7 @@ msgstr ""
 msgid "Houston, we've had a problem."
 msgstr ""
 
-#: home.twig:70
+#: home.twig:22
 #, fuzzy
 msgid "Standby, we've got you covered."
 msgstr "不要慌张，我们会掩护您的。"
@@ -381,21 +503,21 @@ msgstr "将您的才华展现给大家"
 msgid "We <3 Open Source."
 msgstr "我们 <3 开源"
 
-#: home.twig:108
+#: home.twig:42
 #, fuzzy
 msgid "Fork us on Github"
 msgstr "在 GitHub 上"
 
-#: home.twig:110
-#, fuzzy, php-format
+#: home.twig:10
+#, php-format
 msgid "LMMS is a 100% free, open source, community driven project,"
 msgstr "LMMS 是一个 100% 自由开源且由社区驱动的项目，"
 
-#: home.twig:111
+#: home.twig:11
 msgid "proudly hosted on Github"
 msgstr "我们很荣幸能托管在 GitHub 上"
 
-#: home.twig:30
+#: home.twig:126
 msgid "Take a peek"
 msgstr "先睹为快"
 
@@ -407,7 +529,7 @@ msgstr "观赏我们的宣传片"
 msgid "Featuring"
 msgstr "功能 "
 
-#: home.twig:16
+#: home.twig:140
 msgid "Core Functionality"
 msgstr "核心功能"
 
@@ -423,7 +545,7 @@ msgstr ""
 msgid "Note playback via MIDI or typing keyboard"
 msgstr ""
 
-#: home.twig:60
+#: home.twig:147
 msgid "Consolidate instrument tracks using Beat+Bassline Editor"
 msgstr ""
 
@@ -513,7 +635,7 @@ msgstr ""
 msgid "Bundled graphic and parametric equalizers"
 msgstr ""
 
-#: home.twig:80
+#: home.twig:191
 msgid "Built-in visualization/spectrum analyser"
 msgstr ""
 
@@ -545,7 +667,7 @@ msgid ""
 "\tjoin us in making LMMS better!"
 msgstr ""
 
-#: get-involved.twig:11
+#: get-involved.twig:1
 msgid "What you can do"
 msgstr "您可以做的事情"
 
