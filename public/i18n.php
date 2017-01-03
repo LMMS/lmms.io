@@ -22,9 +22,13 @@ if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
     }
 }
 //end of snippet
-$locale = str_replace('-', '_', $locale) . '.utf-8';
-putenv("LANGUAGE=$locale"); // Workaround for ISO language code given by browser
-putenv("LC_ALL=$locale");
-setlocale(LC_ALL, $locale);
-bindtextdomain("messages", "./locale");
-textdomain("messages");
+function set_language($lang_pair) {
+  $locale = str_replace('-', '_', $lang_pair) . '.utf-8';
+  putenv("LANGUAGE=$locale"); // Workaround for ISO language code given by browser
+  putenv("LC_ALL=$locale");
+  setlocale(LC_ALL, $locale);
+  bindtextdomain("messages", "./locale");
+  textdomain("messages");
+}
+
+set_language($locale);
