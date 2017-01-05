@@ -22,7 +22,7 @@
 		</label></td>
 		-->
 
-		<td><label id="soundcloud-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="https://soundcloud.com/groups/lmms">
+		<td><label id="soundcloud-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="https://soundcloud.com/search/sounds?q=lmms">
 			<span class="fa-5x fa fa-soundcloud"></span> <span class="visible-lg-inline"><br>SoundCloud</span>
 		</label></td>
 
