@@ -74,13 +74,17 @@
 	<p>Click one of the buttons below to download LMMS for Apple</p>
 	{% if osxstable %}
 		<h3>Stable Versions</h3>
-		{{ download.printrelbutton(osxstable) }}
-		{{ download.releasenotes(osxstable['release']['body'], 'osxstable') }}
+		{% for osx in osxstable %}
+			{{ download.printrelbutton(osx) }}
+		{% endfor %}
+		{{ download.releasenotes(osxstable[0]['release']['body'], 'osxstable') }}
 	{% endif %}
 	{% if osxpre %}
 		<h3>Beta Versions</h3>
-		{{ download.printrelbutton(osxpre, 'btn-warning') }}
-		{{ download.releasenotes(osxpre['release']['body'], 'osxpre') }}
+		{% for osx in osxpre %}
+			{{ download.printrelbutton(osx, 'btn-warning') }}
+		{% endfor %}
+		{{ download.releasenotes(osxpre[0]['release']['body'], 'osxpre') }}
 	{% endif %}
 </div>
 

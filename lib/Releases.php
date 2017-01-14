@@ -18,13 +18,14 @@ class Releases
 		usort($this->json, 'compare_releases');
 	}
 
-	public function latestAsset($pattern, $stable = true)
+	public function latestAssets($pattern, $stable = true)
 	{
 		foreach ($this->json as $index => $release) {
 			if ($release['prerelease'] === $stable) {
 				continue;
 			}
 
+			$assets = [];
 			foreach($release['assets'] as $asset)
 			{
 				if (preg_match($pattern, $asset['name']))
@@ -32,10 +33,17 @@ class Releases
 					$asset['release'] = $release;
 					$asset['osname'] = $this->osName($asset['name']);
 					$asset['release']['index'] = $index;
-					return $asset;
+					array_push($assets, $asset);
 				}
 			}
+			return $assets;
 		}
+	}
+
+	public function latestAsset($pattern, $stable = true)
+	{
+		$assets = $this->latestAssets($pattern, $stable);
+		return $assets ? array_pop($assets) : null;
 	}
 
 	public function latestWin32Asset($stable = true)
@@ -48,9 +56,9 @@ class Releases
 		return $this->latestAsset('/.*-win64\.exe/i', $stable);
 	}
 
-	public function latestOSXAsset($stable = true)
+	public function latestOSXAssets($stable = true)
 	{
-		return $this->latestAsset('/.*\.dmg/', $stable);
+		return $this->latestAssets('/.*\.dmg/', $stable);
 	}
 
 	/*
@@ -67,6 +75,17 @@ class Releases
 	}
 
 	/*
+	 * Get "10.11", etc based on Download URL
+	 */
+	private function get_osver($text) {
+		if (strpos($text, '.dmg') !== false) {
+			$parts = explode('-', explode('.dmg', $text)[0]);
+			return filter_var(array_pop($parts), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+		}
+		return 'all';
+	}
+
+	/*
 	 * Get "Windows", "Apple", etc based on Download URL
 	 */
 	private function osName($text) {
@@ -77,7 +96,7 @@ class Releases
 		} else if (strpos($text, '.rpm') !== false) {
 			return 'Fedora ' . $this->get_arch($text);
 		} else if (strpos($text, '.dmg') !== false) {
-			return 'Apple OS X';
+			return 'macOS ' . $this->get_osver($text) . '+';
 		} else if (strpos($text, '.exe') !== false) {
 			return 'Windows ' . $this->get_arch($text);
 		} else {

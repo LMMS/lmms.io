@@ -31,12 +31,12 @@ function downloadPage()
 
 		$winstable = [$releases->latestWin32Asset(), $releases->latestWin64Asset()];
 		$winpre = [$releases->latestWin32Asset(false), $releases->latestWin64Asset(false)];
-		$osxstable = $releases->latestOSXAsset();
-		$osxpre = $releases->latestOSXAsset(false);
+		$osxstable = $releases->latestOSXAssets();
+		$osxpre = $releases->latestOSXAssets(false);
 
 		if ($winpre[0]['created_at'] < $winstable[0]['created_at'])
 			$winpre = null;
-		if ($osxpre['created_at'] < $osxstable['created_at'])
+		if ($osxpre[0]['created_at'] < $osxstable[0]['created_at'])
 			$osxpre = null;
 
 		$vars = [
