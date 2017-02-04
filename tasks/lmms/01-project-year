@@ -11,7 +11,10 @@ do
 	YEAR=$((YEAR - 1))
 done
 
-sed -e "
-/^SET(PROJECT_YEAR / c \
-SET(PROJECT_YEAR $YEAR)
-" -i CMakeLists.txt
+sed -e "/^SET(PROJECT_YEAR / c SET(PROJECT_YEAR $YEAR)" -i CMakeLists.txt
+
+git add CMakeLists.txt
+if [ "$(git diff HEAD)" ]
+then
+	git commit -m "Update PROJECT_YEAR"
+fi

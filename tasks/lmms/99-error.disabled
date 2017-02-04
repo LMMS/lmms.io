@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+
+echo ERROR: This task should be disabled
+exit 1

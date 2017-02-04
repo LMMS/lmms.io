@@ -1,10 +1,13 @@
 #!/bin/sh
 set -e
 
-CRONPWD="$PWD"
+TOPDIR="$(readlink -e "$(dirname $0)/..")"
 
-mkdir -p ~/github-repo
-cd ~/github-repo
+# Force C locale
+export LC_ALL=C
+
+mkdir -p ~/lmms-repo
+cd ~/lmms-repo
 
 if [ -e lmms ]
 then
@@ -15,19 +18,11 @@ then
 		exit
 	fi
 else
-	git clone https://github.com/LMMS/lmms
+	git clone -b master https://github.com/LMMS/lmms
 	cd lmms
 fi
 
 rm -f maintenance-tasks-done
-
-run-parts --exit-on-error "$CRONPWD/../tasks/lmms"
-
-if [ "$(git diff)" ]
-then
-	git add -u
-	git commit -m "Maintenance tasks"
-	git push
-fi
-
+run-parts --exit-on-error "$TOPDIR/tasks/lmms"
+git push origin master
 touch maintenance-tasks-done
