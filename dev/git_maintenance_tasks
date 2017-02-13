@@ -1,0 +1,31 @@
+#!/bin/sh
+set -e
+
+BRANCH=master
+BRANCH=maintenance-test
+
+TOPDIR="$(readlink -e "$(dirname $0)/..")"
+
+# Force C locale
+export LC_ALL=C
+
+mkdir -p ~/lmms-repo
+cd ~/lmms-repo
+
+if [ -e lmms ]
+then
+	cd lmms
+	PULLRES=$(git pull)
+	if [ "$PULLRES" = "Already up-to-date." -a -e maintenance-tasks-done ]
+	then
+		exit
+	fi
+else
+	git clone -b "$BRANCH" ssh://github.com/LMMS/lmms
+	cd lmms
+fi
+
+rm -f maintenance-tasks-done
+run-parts --exit-on-error "$TOPDIR/tasks/lmms"
+git push origin "$BRANCH"
+touch maintenance-tasks-done

@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+git shortlog -sne | cut -c 8- > doc/CONTRIBUTORS
+
+git add doc/CONTRIBUTORS
+if [ "$(git diff HEAD)" ]
+then
+	git commit -m "Update CONTRIBUTORS"
+fi
