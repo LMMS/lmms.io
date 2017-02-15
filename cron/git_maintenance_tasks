@@ -4,7 +4,7 @@ set -e
 BRANCH=master
 BRANCH=maintenance-test
 
-TOPDIR="$(readlink -e "$(dirname $0)/..")"
+DIR="$(readlink -e "$(dirname $0)")"
 
 # Force C locale
 export LC_ALL=C
@@ -26,6 +26,6 @@ else
 fi
 
 rm -f maintenance-tasks-done
-run-parts --exit-on-error "$TOPDIR/tasks/lmms"
+run-parts --exit-on-error "$DIR/tasks/lmms"
 git push origin "$BRANCH"
 touch maintenance-tasks-done
