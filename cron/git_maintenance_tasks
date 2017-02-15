@@ -21,7 +21,7 @@ then
 		exit
 	fi
 else
-	git clone -b "$BRANCH" ssh://github.com/LMMS/lmms
+	git clone -b "$BRANCH" ssh://git@github.com/LMMS/lmms
 	cd lmms
 fi
 
