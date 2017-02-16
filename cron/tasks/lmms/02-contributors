@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-git shortlog -sne > tmp/shortlog
+git shortlog -sne HEAD > tmp/shortlog
 cut -c 8- tmp/shortlog > doc/CONTRIBUTORS
 
 git add doc/CONTRIBUTORS
