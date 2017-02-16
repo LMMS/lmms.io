@@ -26,6 +26,8 @@ else
 fi
 
 rm -f maintenance-tasks-done
+mkdir -p tmp
 run-parts --exit-on-error "$DIR/tasks/lmms"
 git push origin "$BRANCH"
+rm -fr tmp
 touch maintenance-tasks-done
