@@ -3,7 +3,7 @@ set -e
 
 BRANCH=master
 BRANCH=maintenance-test
-BRANCH=maintenance-test2
+#BRANCH=maintenance-test2
 
 DIR="$(readlink -e "$(dirname $0)")"
 
