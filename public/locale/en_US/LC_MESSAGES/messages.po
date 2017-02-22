@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lmms.io 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-29 17:14-0700\n"
+"POT-Creation-Date: 2017-02-22 15:38-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgstr ""
 msgid "Run the following command as root in a terminal:"
 msgstr ""
 
-#: download/linux.twig:51 download/linux.twig:92
+#: download/linux.twig:78 download/linux.twig:92
 msgid "Run the following command in a terminal:"
 msgstr ""
 
@@ -84,7 +84,7 @@ msgid ""
 "more to come in the future), with VST support enabled by default on AMD64."
 msgstr ""
 
-#: download/linux.twig:60
+#: download/linux.twig:99
 msgid "To install LMMS on AOSC OS with PackageKit (recommended):"
 msgstr ""
 
@@ -136,11 +136,11 @@ msgstr ""
 msgid "Beta Versions"
 msgstr ""
 
-#: download/index.twig:73
+#: download/index.twig:18
 msgid "Install LMMS on Apple OS&nbsp;X"
 msgstr ""
 
-#: download/index.twig:57
+#: download/index.twig:74
 msgid "Click one of the buttons below to download LMMS for Apple"
 msgstr ""
 
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Show release notes"
 msgstr ""
 
-#: competitions.twig:10 /home/liushuyu/Development/lmms.io/public/navbar.php:13
+#: competitions.twig:10
 msgid "Competitions"
 msgstr ""
 
@@ -174,10 +174,6 @@ msgstr ""
 
 #: competitions.twig:13
 msgid "The Best of LMMS vol. III"
-msgstr ""
-
-#: competitions.twig:13
-msgid "March 16th, 2016"
 msgstr ""
 
 #: competitions.twig:13
@@ -216,10 +212,6 @@ msgstr ""
 
 #: competitions.twig:28
 msgid "The Best of LMMS vol. II"
-msgstr ""
-
-#: competitions.twig:28
-msgid "April 1st, 2015"
 msgstr ""
 
 #: competitions.twig:28
@@ -267,15 +259,11 @@ msgid ""
 "feedback you get the judges' decision for album songs is final."
 msgstr ""
 
-#: competitions.twig:9
+#: competitions.twig:47
 msgid "The Best of LMMS vol. I"
 msgstr ""
 
-#: competitions.twig:9
-msgid "February 15th, 2014"
-msgstr ""
-
-#: competitions.twig:9
+#: competitions.twig:47
 msgid ""
 "If you have made amazing songs with LMMS we have a contest for you! A LMMS "
 "top songs contest.\n"
@@ -322,11 +310,11 @@ msgid ""
 "\t      Winners:"
 msgstr ""
 
-#: macros.twig:56
+#: macros.twig:380
 msgid "Original description:"
 msgstr ""
 
-#: macros.twig:58
+#: macros.twig:388
 msgid "Competition rules:"
 msgstr ""
 
@@ -334,7 +322,7 @@ msgstr ""
 msgid "Extra:"
 msgstr ""
 
-#: showcase.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:12
+#: showcase.twig:6
 msgid "Showcase"
 msgstr ""
 
@@ -350,11 +338,11 @@ msgstr ""
 msgid "The Best of LMMS Vol.2 by LMMS Artists"
 msgstr ""
 
-#: showcase.twig:1
+#: showcase.twig:28
 msgid "The Best of LMMS Vol.1 by LMMS Artists"
 msgstr ""
 
-#: home.twig:1
+#: home.twig:11
 msgid "Let's make music"
 msgstr ""
 
@@ -370,7 +358,7 @@ msgstr ""
 msgid "Get involved"
 msgstr ""
 
-#: home.twig:3
+#: home.twig:27
 msgid "Making beats has never been easier."
 msgstr ""
 
@@ -378,7 +366,7 @@ msgstr ""
 msgid "Produce music with your computer"
 msgstr ""
 
-#: home.twig:5
+#: home.twig:33
 msgid ""
 "by creating melodies and beats, synthesizing and mixing sounds, arranging "
 "samples and much more."
@@ -396,7 +384,7 @@ msgstr ""
 msgid "Bundled with ready-to-use stuff"
 msgstr ""
 
-#: home.twig:43
+#: home.twig:12
 msgid ""
 "from an assortment of instrument and effect plugins, presets and samples to "
 "VST and SoundFont support."
@@ -415,22 +403,22 @@ msgid "Download for Windows"
 msgstr ""
 
 #: home.twig:58
-msgid "Download for OS X"
+msgid "Download for macOS"
 msgstr ""
 
 #: home.twig:59
-msgid "Take your pick"
+msgid "Pick your flavour"
 msgstr ""
 
 #: home.twig:60
-msgid "of Linux, Windows or Apple OS X."
+msgid "Linux, Windows or macOS."
 msgstr ""
 
 #: home.twig:69
 msgid "Houston, we've had a problem."
 msgstr ""
 
-#: home.twig:22
+#: home.twig:70
 msgid "Standby, we've got you covered."
 msgstr ""
 
@@ -482,24 +470,24 @@ msgstr ""
 msgid "We <3 Open Source."
 msgstr ""
 
-#: home.twig:42
+#: home.twig:108
 msgid "Fork us on Github"
 msgstr ""
 
-#: home.twig:10
+#: home.twig:110
 #, php-format
 msgid "LMMS is a 100% free, open source, community driven project,"
 msgstr ""
 
-#: home.twig:11
+#: home.twig:111
 msgid "proudly hosted on Github"
 msgstr ""
 
-#: home.twig:126
+#: home.twig:30
 msgid "Take a peek"
 msgstr ""
 
-#: home.twig:129
+#: home.twig:39
 msgid "Watch our promo video."
 msgstr ""
 
@@ -507,7 +495,7 @@ msgstr ""
 msgid "Featuring"
 msgstr ""
 
-#: home.twig:140
+#: home.twig:16
 msgid "Core Functionality"
 msgstr ""
 
@@ -591,7 +579,7 @@ msgstr ""
 msgid "Gravis UltraSound ® GUS Patch support"
 msgstr ""
 
-#: home.twig:78
+#: home.twig:183
 msgid "Effects Mixing"
 msgstr ""
 
@@ -627,7 +615,7 @@ msgid ""
 "issue</a> on GitHub."
 msgstr ""
 
-#: get-involved.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:7
+#: get-involved.twig:6
 msgid "Get Involved"
 msgstr ""
 
@@ -641,7 +629,7 @@ msgid ""
 "\tjoin us in making LMMS better!"
 msgstr ""
 
-#: get-involved.twig:1
+#: get-involved.twig:11
 msgid "What you can do"
 msgstr ""
 
@@ -705,7 +693,7 @@ msgstr ""
 msgid "Translations"
 msgstr ""
 
-#: get-involved.twig:27
+#: get-involved.twig:71
 msgid ""
 "If your language is missing in LMMS, help the project and other users "
 "speaking the same language by\n"
@@ -752,7 +740,7 @@ msgid ""
 "tracker:"
 msgstr ""
 
-#: branding.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:14
+#: branding.twig:6
 msgid "Branding"
 msgstr ""
 
@@ -776,90 +764,5 @@ msgstr ""
 msgid "LMMS Project Icon"
 msgstr ""
 
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:18
-msgid "Author:"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:24
-msgid "Modified/Themed By:"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:56
-msgid "Scalable Vector Format"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:57
-msgid "Gimp Image Editor Format"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:58
-msgid "Portable Document Format"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:59
-msgid "Adobe Photoshop Format"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:60
-msgid "PNG Format"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:62
-msgid "JPEG Format"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:63
-msgid "Bitmap Format"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:64
-msgid "Windows Icon Format"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:65
-msgid "Apple Icon Format"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:66
-msgid "Unknown File"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/index.php:41
-msgid "The requested page could not be found."
-msgstr "The requested page could not be found..."
-
-#: /home/liushuyu/Development/lmms.io/public/index.php:44
-msgid "We are sorry, but something went terribly wrong."
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/index.php:47
-msgid "Yuck, an error!"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:6
-msgid "Download"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:8
-msgid "Documentation"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:8
-msgid "Docs"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:9
-msgid "Forum"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:10
-msgid "Sharing Platform"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:10
-msgid "Share"
-msgstr ""
-
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:11
-msgid "More"
-msgstr ""
+#~ msgid "The requested page could not be found."
+#~ msgstr "The requested page could not be found..."

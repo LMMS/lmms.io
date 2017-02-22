@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lmms.io 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-29 17:14-0700\n"
-"PO-Revision-Date: 2016-12-29 17:23-0700\n"
+"POT-Creation-Date: 2017-02-22 15:38-0700\n"
+"PO-Revision-Date: 2017-02-22 15:57-0700\n"
 "Last-Translator: liushuyu <liushuyu011@gmail.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
 "Language: zh_CN\n"
@@ -23,6 +23,8 @@ msgid ""
 "still download releases on <a href=\"//github.com/LMMS/lmms/releases"
 "\">GitHub</a>."
 msgstr ""
+"非常抱歉，我们在获取最新版本信息时遇到了一些问题。不过您仍然可以在 <a href="
+"\"//github.com/LMMS/lmms/releases\">GitHub</a> 上面完成下载。"
 
 #: download/linux.twig:6
 msgid "Install LMMS on Linux"
@@ -47,7 +49,7 @@ msgstr ""
 
 #: download/linux.twig:56
 msgid "If this doesn't work for you, run this command in a terminal."
-msgstr ""
+msgstr "如果此方法不管用，请在终端中运行以下命令。"
 
 #: download/linux.twig:58
 msgid ""
@@ -55,6 +57,8 @@ msgid ""
 "\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio repository</"
 "a>."
 msgstr ""
+"如果系统自带的软件源当中的 LMMS 版本太旧，您可以试试 <a href=\"http://"
+"kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio 软件源</a>。"
 
 #: download/linux.twig:59 download/linux.twig:80
 msgid "VST Support"
@@ -67,12 +71,15 @@ msgid ""
 "href=\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio "
 "repository</a>, run this command in a terminal."
 msgstr ""
+"如果您的发行版提供 VST 支持 （需要安装 Wine），一般来讲，此支持会在另外一个软"
+"件包中提供。比如，如果您使用的是 <a href=\"http://kxstudio.sourceforge.net/"
+"Repositories#Ubuntu\">KXStudio 软件源</a>，请在终端中运行以下命令。"
 
 #: download/linux.twig:66 download/linux.twig:72
 msgid "Run the following command as root in a terminal:"
 msgstr "在命令终端中以 Root 用户身份运行下面指令:"
 
-#: download/linux.twig:51 download/linux.twig:92
+#: download/linux.twig:78 download/linux.twig:92
 msgid "Run the following command in a terminal:"
 msgstr "在命令终端中运行下面指令:"
 
@@ -92,7 +99,7 @@ msgstr ""
 "AOSC OS 在很多处理器架构的版本 (AMD64/x86_64, ARMv7, 未来会有更多) 中都包含"
 "了 LMMS，并且在 AMD64 架构上面默认启用了 VST 支持。"
 
-#: download/linux.twig:60
+#: download/linux.twig:99
 msgid "To install LMMS on AOSC OS with PackageKit (recommended):"
 msgstr "使用 PackageKit 在 AOSC OS 上安装 LMMS (推荐):"
 
@@ -148,11 +155,11 @@ msgstr "稳定版本"
 msgid "Beta Versions"
 msgstr "测试版本"
 
-#: download/index.twig:73
+#: download/index.twig:18
 msgid "Install LMMS on Apple OS&nbsp;X"
 msgstr "在 Apple OS&nbsp;X 下安装 LMMS"
 
-#: download/index.twig:57
+#: download/index.twig:74
 msgid "Click one of the buttons below to download LMMS for Apple"
 msgstr "点击下面的按钮下载 Apple 版本的 LMMS"
 
@@ -172,7 +179,7 @@ msgstr "免费下载"
 msgid "Show release notes"
 msgstr "显示发行注记"
 
-#: competitions.twig:10 /home/liushuyu/Development/lmms.io/public/navbar.php:13
+#: competitions.twig:10
 msgid "Competitions"
 msgstr "比赛"
 
@@ -187,10 +194,6 @@ msgstr "之前的比赛:"
 #: competitions.twig:13
 msgid "The Best of LMMS vol. III"
 msgstr "LMMS 精选集 III"
-
-#: competitions.twig:13
-msgid "March 16th, 2016"
-msgstr ""
 
 #: competitions.twig:13
 msgid ""
@@ -229,10 +232,6 @@ msgstr ""
 #: competitions.twig:28
 msgid "The Best of LMMS vol. II"
 msgstr "LMMS 精选集 II"
-
-#: competitions.twig:28
-msgid "April 1st, 2015"
-msgstr ""
 
 #: competitions.twig:28
 msgid ""
@@ -279,15 +278,11 @@ msgid ""
 "feedback you get the judges' decision for album songs is final."
 msgstr ""
 
-#: competitions.twig:9
+#: competitions.twig:47
 msgid "The Best of LMMS vol. I"
 msgstr "LMMS 精选集 I"
 
-#: competitions.twig:9
-msgid "February 15th, 2014"
-msgstr ""
-
-#: competitions.twig:9
+#: competitions.twig:47
 msgid ""
 "If you have made amazing songs with LMMS we have a contest for you! A LMMS "
 "top songs contest.\n"
@@ -338,11 +333,11 @@ msgstr ""
 "\t\t\t\t您也可以在<a href=%group_url%>这里</a>试听所有曲目<br>\n"
 "\t\t\t\t优胜者:"
 
-#: macros.twig:56
+#: macros.twig:380
 msgid "Original description:"
 msgstr "之前的描述:"
 
-#: macros.twig:58
+#: macros.twig:388
 msgid "Competition rules:"
 msgstr "比赛规则:"
 
@@ -350,7 +345,7 @@ msgstr "比赛规则:"
 msgid "Extra:"
 msgstr "更多:"
 
-#: showcase.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:12
+#: showcase.twig:6
 msgid "Showcase"
 msgstr "展示"
 
@@ -368,12 +363,12 @@ msgstr "LMMS 精选专辑 卷"
 msgid "The Best of LMMS Vol.2 by LMMS Artists"
 msgstr "LMMS 精选专辑 卷"
 
-#: showcase.twig:1
+#: showcase.twig:28
 #, fuzzy
 msgid "The Best of LMMS Vol.1 by LMMS Artists"
 msgstr "LMMS 精选专辑 卷"
 
-#: home.twig:1
+#: home.twig:11
 msgid "Let's make music"
 msgstr "让我们创作音乐吧"
 
@@ -389,7 +384,7 @@ msgstr "立即下载"
 msgid "Get involved"
 msgstr "帮助我们"
 
-#: home.twig:3
+#: home.twig:27
 msgid "Making beats has never been easier."
 msgstr "音乐创作其实很简单"
 
@@ -397,7 +392,7 @@ msgstr "音乐创作其实很简单"
 msgid "Produce music with your computer"
 msgstr "使用您的电脑制作音乐"
 
-#: home.twig:5
+#: home.twig:33
 msgid ""
 "by creating melodies and beats, synthesizing and mixing sounds, arranging "
 "samples and much more."
@@ -415,7 +410,7 @@ msgstr ""
 msgid "Bundled with ready-to-use stuff"
 msgstr "附带了一些开箱即用的东西"
 
-#: home.twig:43
+#: home.twig:12
 msgid ""
 "from an assortment of instrument and effect plugins, presets and samples to "
 "VST and SoundFont support."
@@ -434,23 +429,22 @@ msgid "Download for Windows"
 msgstr "下载 Windows 版本"
 
 #: home.twig:58
-msgid "Download for OS X"
+msgid "Download for macOS"
 msgstr "下载 macOS 版本"
 
 #: home.twig:59
-#, fuzzy
-msgid "Take your pick"
-msgstr "先睹为快"
+msgid "Pick your flavour"
+msgstr ""
 
 #: home.twig:60
-msgid "of Linux, Windows or Apple OS X."
-msgstr ""
+msgid "Linux, Windows or macOS."
+msgstr "Linux, Windows 或是 macOS"
 
 #: home.twig:69
 msgid "Houston, we've had a problem."
 msgstr ""
 
-#: home.twig:22
+#: home.twig:70
 #, fuzzy
 msgid "Standby, we've got you covered."
 msgstr "不要慌张，我们会掩护您的。"
@@ -503,25 +497,25 @@ msgstr "将您的才华展现给大家"
 msgid "We <3 Open Source."
 msgstr "我们 <3 开源"
 
-#: home.twig:42
+#: home.twig:108
 #, fuzzy
 msgid "Fork us on Github"
 msgstr "在 GitHub 上"
 
-#: home.twig:10
+#: home.twig:110
 #, php-format
 msgid "LMMS is a 100% free, open source, community driven project,"
 msgstr "LMMS 是一个 100% 自由开源且由社区驱动的项目，"
 
-#: home.twig:11
+#: home.twig:111
 msgid "proudly hosted on Github"
 msgstr "我们很荣幸能托管在 GitHub 上"
 
-#: home.twig:126
+#: home.twig:30
 msgid "Take a peek"
 msgstr "先睹为快"
 
-#: home.twig:129
+#: home.twig:39
 msgid "Watch our promo video."
 msgstr "观赏我们的宣传片"
 
@@ -529,7 +523,7 @@ msgstr "观赏我们的宣传片"
 msgid "Featuring"
 msgstr "功能 "
 
-#: home.twig:140
+#: home.twig:16
 msgid "Core Functionality"
 msgstr "核心功能"
 
@@ -614,7 +608,7 @@ msgstr ""
 msgid "Gravis UltraSound ® GUS Patch support"
 msgstr "Gravis UltraSound ® GUS 音源支持"
 
-#: home.twig:78
+#: home.twig:183
 msgid "Effects Mixing"
 msgstr "效果混合"
 
@@ -653,7 +647,7 @@ msgstr ""
 "烦请您尽快联系我们，并在 GitHub 上 <a href=\"//github.com/LMMS/lmms.io/"
 "issues/new\">回报错误</a>。"
 
-#: get-involved.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:7
+#: get-involved.twig:6
 msgid "Get Involved"
 msgstr "帮助我们"
 
@@ -667,7 +661,7 @@ msgid ""
 "\tjoin us in making LMMS better!"
 msgstr ""
 
-#: get-involved.twig:1
+#: get-involved.twig:11
 msgid "What you can do"
 msgstr "您可以做的事情"
 
@@ -696,7 +690,7 @@ msgstr ""
 
 #: get-involved.twig:35
 msgid "Website & Docs"
-msgstr ""
+msgstr "网站 & 文档"
 
 #: get-involved.twig:38
 msgid ""
@@ -731,7 +725,7 @@ msgstr "通过 PayPal 捐款"
 msgid "Translations"
 msgstr "翻译"
 
-#: get-involved.twig:27
+#: get-involved.twig:71
 msgid ""
 "If your language is missing in LMMS, help the project and other users "
 "speaking the same language by\n"
@@ -744,7 +738,7 @@ msgstr ""
 
 #: get-involved.twig:80
 msgid "How to get in touch"
-msgstr ""
+msgstr "如何与我们取得联系"
 
 #: get-involved.twig:89
 msgid ""
@@ -760,6 +754,8 @@ msgid ""
 "Our IRC channel is <a href=\"irc://chat.freenode.net/#lmms\">#lmms</a> on\n"
 "\t\t\t\t\t<a href=\"https://freenode.net/irc_servers.shtml\">Freenode</a>"
 msgstr ""
+"我们的 IRC 频道 <a href=\"irc://chat.freenode.net/#lmms\">#lmms</a> 位于\n"
+"\t\t\t\t\t<a href=\"https://freenode.net/irc_servers.shtml\">Freenode</a>"
 
 #: get-involved.twig:103
 msgid ""
@@ -767,6 +763,9 @@ msgid ""
 "\t\t\t\t\tis a more modern alternative to IRC. Join our server\n"
 "\t\t\t\t\t<a href=\"https://discord.gg/5kSc32Z\">by clicking here</a>"
 msgstr ""
+"<a href=\"https://discordapp.com/\" target=\"_blank\">Discord</a>\n"
+"\t\t\t\t\t是一个更为现代化的 IRC 替代。<a href=\"https://discord.gg/5kSc32Z"
+"\">点击此处加入我们的房间</a>"
 
 #: get-involved.twig:119
 msgid "We host a forum for our users here on this website:"
@@ -778,7 +777,7 @@ msgid ""
 "tracker:"
 msgstr "如果您要报告 bug 或者建议加入新的功能，请使用 GitHub 的问题追踪系统:"
 
-#: branding.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:14
+#: branding.twig:6
 msgid "Branding"
 msgstr "品牌"
 
@@ -802,90 +801,72 @@ msgstr "LMMS 开发团队"
 msgid "LMMS Project Icon"
 msgstr ""
 
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:18
-msgid "Author:"
-msgstr "作者:"
+#, fuzzy
+#~ msgid "Take your pick"
+#~ msgstr "先睹为快"
 
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:24
-msgid "Modified/Themed By:"
-msgstr "润色/主题制作:"
+#~ msgid "Author:"
+#~ msgstr "作者:"
 
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:56
-msgid "Scalable Vector Format"
-msgstr "可缩放矢量图形格式"
+#~ msgid "Modified/Themed By:"
+#~ msgstr "润色/主题制作:"
 
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:57
-msgid "Gimp Image Editor Format"
-msgstr "GIMP 图片编辑器格式"
+#~ msgid "Scalable Vector Format"
+#~ msgstr "可缩放矢量图形格式"
 
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:58
-msgid "Portable Document Format"
-msgstr "Adobe 便携文档格式 (PDF)"
+#~ msgid "Gimp Image Editor Format"
+#~ msgstr "GIMP 图片编辑器格式"
 
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:59
-msgid "Adobe Photoshop Format"
-msgstr "Adobe Photoshop 格式"
+#~ msgid "Portable Document Format"
+#~ msgstr "Adobe 便携文档格式 (PDF)"
 
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:60
-msgid "PNG Format"
-msgstr "PNG 格式"
+#~ msgid "Adobe Photoshop Format"
+#~ msgstr "Adobe Photoshop 格式"
 
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:62
-msgid "JPEG Format"
-msgstr "JPEG 格式"
+#~ msgid "PNG Format"
+#~ msgstr "PNG 格式"
 
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:63
-msgid "Bitmap Format"
-msgstr "位图格式"
+#~ msgid "JPEG Format"
+#~ msgstr "JPEG 格式"
 
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:64
-msgid "Windows Icon Format"
-msgstr "Windows 图标格式"
+#~ msgid "Bitmap Format"
+#~ msgstr "位图格式"
 
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:65
-msgid "Apple Icon Format"
-msgstr "Apple 图标格式"
+#~ msgid "Windows Icon Format"
+#~ msgstr "Windows 图标格式"
 
-#: /home/liushuyu/Development/lmms.io/public/artwork.php:66
-msgid "Unknown File"
-msgstr "未知文件"
+#~ msgid "Apple Icon Format"
+#~ msgstr "Apple 图标格式"
 
-#: /home/liushuyu/Development/lmms.io/public/index.php:41
-msgid "The requested page could not be found."
-msgstr "您所请求的页面找不到了"
+#~ msgid "Unknown File"
+#~ msgstr "未知文件"
 
-#: /home/liushuyu/Development/lmms.io/public/index.php:44
-msgid "We are sorry, but something went terribly wrong."
-msgstr "很抱歉，我们这里似乎出现了一些问题"
+#~ msgid "The requested page could not be found."
+#~ msgstr "您所请求的页面找不到了"
 
-#: /home/liushuyu/Development/lmms.io/public/index.php:47
-msgid "Yuck, an error!"
-msgstr "出错了！"
+#~ msgid "We are sorry, but something went terribly wrong."
+#~ msgstr "很抱歉，我们这里似乎出现了一些问题"
 
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:6
-msgid "Download"
-msgstr "下载"
+#~ msgid "Yuck, an error!"
+#~ msgstr "出错了！"
 
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:8
-msgid "Documentation"
-msgstr "文档"
+#~ msgid "Download"
+#~ msgstr "下载"
 
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:8
-msgid "Docs"
-msgstr "文档"
+#~ msgid "Documentation"
+#~ msgstr "文档"
 
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:9
-msgid "Forum"
-msgstr "论坛"
+#~ msgid "Docs"
+#~ msgstr "文档"
 
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:10
-msgid "Sharing Platform"
-msgstr "分享平台"
+#~ msgid "Forum"
+#~ msgstr "论坛"
 
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:10
-msgid "Share"
-msgstr "分享"
+#~ msgid "Sharing Platform"
+#~ msgstr "分享平台"
 
-#: /home/liushuyu/Development/lmms.io/public/navbar.php:11
-msgid "More"
-msgstr "更多"
+#~ msgid "Share"
+#~ msgstr "分享"
+
+#~ msgid "More"
+#~ msgstr "更多"
