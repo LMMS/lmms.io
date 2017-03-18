@@ -859,6 +859,10 @@ ul.nav-center li {
 	background-image: url('/img/tbolv3.jpg');
 }
 
+#bol4 {
+	background-image: url('/img/tbolv4.jpg');
+}
+
 .competition {
 	padding: 2em 0 2em 0;
 }
