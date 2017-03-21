@@ -35,7 +35,7 @@ This repo contains the source for LMMS's new website located at http://lmms.io.
 	When you downloaded composer locally using the instructions above, fetch the dependencies by running
    
 	```bash
-	$ php composer.phar install
+	$ php ~/composer.phar install
 	```
    
 	You'll have to run this comand every time the dependencies in `composer.json` change.
