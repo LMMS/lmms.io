@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+DIR="$(readlink -e "$(dirname $0)")"
+
+if ! "$DIR/git_maintenance_tasks"
+then
+	echo Job error, retrying from scratch >&2
+	rm -fr ~/lmms-repo
+	"$DIR/git_maintenance_tasks"
+fi

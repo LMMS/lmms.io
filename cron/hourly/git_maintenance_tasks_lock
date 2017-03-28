@@ -4,4 +4,5 @@ set -e
 # Run git_maintenance_tasks only if not running already
 DIR="$(readlink -e "$(dirname $0)/..")"
 mkdir -p ~/lmms-repo
-flock -w 0 ~/lmms-repo/git_maintenance_tasks.lock "$DIR/git_maintenance_tasks"
+flock -w 0 ~/lmms-repo/git_maintenance_tasks.lock \
+	"$DIR/git_maintenance_tasks_retry"

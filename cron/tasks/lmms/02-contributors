@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 set -e -o pipefail
 
 git shortlog -sne HEAD | cut -c 8- > doc/CONTRIBUTORS
