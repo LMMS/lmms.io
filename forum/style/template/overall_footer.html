@@ -1,60 +1,159 @@
-	</div>
-	<div id="page-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="btn-group">
-						<!-- IF U_MCP -->
-							<a class="btn btn-primary" href="{U_MCP}" style=" display: block; ">{L_MCP}</a>
-						<!-- ENDIF -->
-						<!-- IF U_ACP -->
-							<a class="btn btn-primary" href="{U_ACP}" style=" display: block; ">{L_ACP}</a>
-						<!-- ENDIF -->
-						</div>
-					</div>
-				<div class="col-md-2 text-right">
-					<!-- IF S_DISPLAY_SEARCH or (S_USER_LOGGED_IN and not S_IS_BOT) -->
-					<div class="btn-group dropup pull-right">
-						<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" style=" display: block; ">
-						<i class="fa fa-wrench"></i>
-						<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu">
-							<!-- IF S_DISPLAY_SEARCH -->
-							<li><a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a></li>
-							<!-- IF S_LOAD_UNREADS -->
-							<li><a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a></li>
-							<!-- ENDIF -->
-							<!-- IF S_USER_LOGGED_IN -->
-							<li><a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a></li>
-							<!-- ENDIF -->
-							<li><a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a></li>
-							<!-- ENDIF -->
-							<!-- IF not S_IS_BOT and U_MARK_FORUMS -->
-							<li class="rightside"><a href="{U_MARK_FORUMS}" accesskey="m">{L_MARK_FORUMS_READ}</a></li>
-							<!-- ENDIF -->
-							<!-- IF S_HAS_SUBFORUM -->
-							<!-- IF not S_IS_BOT and U_MARK_FORUMS -->
-							<li><a href="{U_MARK_FORUMS}">{L_MARK_SUBFORUMS_READ}</a></li>
-							<!-- ENDIF -->
-							<!-- ENDIF -->
-						</ul>
-					</div>
-					<br />
 				</div>
-				<!-- ENDIF -->
+			<!-- EVENT overall_footer_content_after -->
+
+			<!-- EVENT overall_footer_page_body_after -->
+
+			<div id="page-footer" class="container">
+				<div class="row">
+					<!-- IF U_MCP or U_ACP -->
+						<div class="col-md-8 col-md-offset-2 text-center">
+							<div class="btn-group">
+								<!-- IF U_MCP -->
+									<a class="btn btn-primary" href="{U_MCP}">{L_MCP}</a>
+								<!-- ENDIF -->
+								<!-- IF U_ACP -->
+									<a class="btn btn-primary" href="{U_ACP}">{L_ACP}</a>
+								<!-- ENDIF -->
+							</div>
+						</div>
+					<!-- ENDIF -->
+					<!-- IF S_DISPLAY_SEARCH or (S_USER_LOGGED_IN and not S_IS_BOT) -->
+						<div class="col-md-2 pull-right">
+							<div class="btn-group dropup pull-right">
+								<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" style=" display: block; ">
+								<i class="fa fa-wrench fa-fw" aria-hidden="true"></i>
+								<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<!-- IF S_DISPLAY_SEARCH -->
+										<li><a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a></li>
+									<!-- IF S_LOAD_UNREADS -->
+										<li><a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a></li>
+									<!-- ENDIF -->
+									<!-- IF S_USER_LOGGED_IN -->
+										<li><a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a></li>
+									<!-- ENDIF -->
+										<li><a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a></li>
+									<!-- ENDIF -->
+									<!-- IF not S_IS_BOT and U_MARK_FORUMS -->
+										<li class="rightside"><a href="{U_MARK_FORUMS}" accesskey="m">{L_MARK_FORUMS_READ}</a></li>
+									<!-- ENDIF -->
+									<!-- IF S_HAS_SUBFORUM -->
+										<!-- IF not S_IS_BOT and U_MARK_FORUMS -->
+											<li><a href="{U_MARK_FORUMS}">{L_MARK_SUBFORUMS_READ}</a></li>
+										<!-- ENDIF -->
+									<!-- ENDIF -->
+								</ul>
+							</div>
+							<br />
+						</div>
+					<!-- ENDIF -->
+				</div>
+				<div class="copyright text-center">
+					<!-- EVENT overall_footer_copyright_prepend -->
+					{CREDIT_LINE}
+					<!-- IF TRANSLATION_INFO --><br />{TRANSLATION_INFO}<!-- ENDIF -->
+					<!-- EVENT overall_footer_copyright_append -->
+					<!-- IF DEBUG_OUTPUT --><br />{DEBUG_OUTPUT}<!-- ENDIF -->
+				</div>
+				<div id="darkenwrapper" data-ajax-error-title="{L_AJAX_ERROR_TITLE}" data-ajax-error-text="{L_AJAX_ERROR_TEXT}" data-ajax-error-text-abort="{L_AJAX_ERROR_TEXT_ABORT}" data-ajax-error-text-timeout="{L_AJAX_ERROR_TEXT_TIMEOUT}" data-ajax-error-text-parsererror="{L_AJAX_ERROR_TEXT_PARSERERROR}">
+					<div id="darken">&nbsp;</div>
+				</div>
+
+				<div id="phpbb_alert" class="phpbb_alert alert alert-info" data-l-err="{L_ERROR}" data-l-timeout-processing-req="{L_TIMEOUT_PROCESSING_REQ}">
+					<a href="#" class="alert_close"><i class="fa fa-times-circle fa-fw" aria-hidden="true"></i></a>
+					<strong class="alert_title">&nbsp;</strong><p class="alert_text"></p>
+				</div>
+				<div id="phpbb_confirm" class="phpbb_alert">
+					<a href="#" class="alert_close"><i class="fa fa-times-circle fa-fw" aria-hidden="true"></i></a>
+					<div class="alert_text"></div>
+				</div>
+				<!-- INCLUDE navbar_footer.html -->
+				<a id="bottom" class="anchor" accesskey="z"></a>
+				<!-- IF not S_IS_BOT -->{RUN_CRON_TASK}<!-- ENDIF -->
 			</div>
 		</div>
-		<div class="text-center">{CREDIT_LINE}
-			<!-- IF TRANSLATION_INFO --><br />{TRANSLATION_INFO}<!-- ENDIF -->
-			<!-- IF DEBUG_OUTPUT --><br />{DEBUG_OUTPUT}<!-- ENDIF -->
-			<br />Design: <a href="http://thezoker.github.io/proBoot3/" target="_blank">proBoot3</a> by <a href="http://www.florian-gareis.de" target="_blank">Florian Gareis</a>
-		</div>
-	</div>
-	<a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
-	<a id="bottom" accesskey="z"></a>
-	<!-- IF not S_IS_BOT -->{RUN_CRON_TASK}<!-- ENDIF -->
+		<script type="text/javascript" src="{T_JQUERY_LINK}"></script>
+		<!-- IF S_ALLOW_CDN --><script type="text/javascript">window.jQuery || document.write('\x3Cscript src="{T_ASSETS_PATH}/javascript/jquery.min.js?assets_version={T_ASSETS_VERSION}">\x3C/script>');</script><!-- ENDIF -->
+		<script type="text/javascript" src="{T_ASSETS_PATH}/javascript/core.js?assets_version={T_ASSETS_VERSION}"></script>
+		<!-- INCLUDEJS forum_fn.js -->
+		<!-- INCLUDEJS ajax.js -->
 
-<!-- PHP -->
-require_once($_SERVER['DOCUMENT_ROOT'].'/footer.php');
-<!-- ENDPHP -->
+		<!-- IF S_ALLOW_CDN -->
+			<script type="text/javascript">
+				(function($){
+					var $fa_cdn = $('head').find('link[rel="stylesheet"]').first(),
+						$span = $('<span class="fa" style="display:none"></span>').appendTo('body');
+					if ($span.css('fontFamily') !== 'FontAwesome' ) {
+						$fa_cdn.after('<link href="{T_ASSETS_PATH}/css/font-awesome.min.css" rel="stylesheet">');
+						$fa_cdn.remove();
+					}
+					$span.remove();
+				})(jQuery);
+			</script>
+		<!-- ENDIF -->
+
+		<!-- IF (U_MCP or U_ACP) and $NOTIFICATION == 1 -->
+			<!-- INCLUDEJS {T_THEME_PATH}/comboot/notification.js -->
+		<!-- ENDIF -->
+
+		<!-- IF S_COOKIE_NOTICE -->
+			<script src="{T_ASSETS_PATH}/cookieconsent/cookieconsent.min.js?assets_version={T_ASSETS_VERSION}"></script>
+			<script>
+				window.addEventListener("load", function(){
+					window.cookieconsent.initialise({
+						"palette": {
+							"popup": {
+								"background": "#0F538A"
+							},
+							"button": {
+								"background": "#E5E5E5"
+							}
+						},
+						"theme": "classic",
+						"content": {
+							"message": "{LA_COOKIE_CONSENT_MSG}",
+							"dismiss": "{LA_COOKIE_CONSENT_OK}",
+							"link": "{LA_COOKIE_CONSENT_INFO}"
+						}
+					})});
+			</script>
+		<!-- ENDIF -->
+
+		<!-- EVENT overall_footer_after -->
+
+		<!-- IF S_PLUPLOAD --><!-- INCLUDE plupload.html --><!-- ENDIF -->
+		{$SCRIPTS}
+
+		<script type="text/javascript">
+			$( document ).ready(function($){
+				<!-- IF S_MERGE_VIEW -->
+					$('#merge-panel-tab').tab('show');
+				<!-- ELSEIF S_SPLIT_VIEW -->
+					$('#split-panel-tab').tab('show');
+				<!-- ELSE -->
+					$('#display-panel-tab').tab('show');
+				<!-- ENDIF -->
+			});
+
+			<!-- IF $AJAX_PAGELOAD == 1 -->
+					$(document).pjax('a', '#wrap', {fragment: '#wrap'});
+			<!-- ENDIF -->
+			<!-- IF $PAGELOAD_INDICATOR == 1 -->
+				$primaryColor = $('.btn-primary').css('background-color');
+				$('.pace .pace-progress').css('background-color', $primaryColor);
+			<!-- ENDIF -->
+			<!-- IF $AUTOSAVE == 1 -->
+				if( $('#message, #subject').val() ) {
+					$('#message, #subject').phoenix('remove');
+				}
+				$('#message, #subject').phoenix();
+				$('#postform, #qr_postform').submit(function(e){
+					$('#message, #subject').phoenix('remove');
+				});
+			<!-- ENDIF -->
+		</script>
+
+		<!-- EVENT overall_footer_body_after -->
+	</body>
+</html>

@@ -1,176 +1,141 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}">
-<head>
+	<head>
 
-<meta charset="{S_CONTENT_ENCODING}" />
-<meta http-equiv="content-style-type" content="text/css" />
-<meta name="resource-type" content="document" />
-<meta name="distribution" content="global" />
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="author" content="Florian Gareis" />
-{META}
-<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
+	<!-- INCLUDE config.html -->
 
-<!-- IF S_ENABLE_FEEDS -->
-	<!-- IF S_ENABLE_FEEDS_OVERALL --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {SITENAME}" href="{U_FEED}" /><!-- ENDIF -->
-	<!-- IF S_ENABLE_FEEDS_NEWS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_NEWS}" href="{U_FEED}?mode=news" /><!-- ENDIF -->
-	<!-- IF S_ENABLE_FEEDS_FORUMS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_FORUMS}" href="{U_FEED}?mode=forums" /><!-- ENDIF -->
-	<!-- IF S_ENABLE_FEEDS_TOPICS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_NEW}" href="{U_FEED}?mode=topics" /><!-- ENDIF -->
-	<!-- IF S_ENABLE_FEEDS_TOPICS_ACTIVE --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_ACTIVE}" href="{U_FEED}?mode=topics_active" /><!-- ENDIF -->
-	<!-- IF S_ENABLE_FEEDS_FORUM and S_FORUM_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FORUM} - {FORUM_NAME}" href="{U_FEED}?f={S_FORUM_ID}" /><!-- ENDIF -->
-	<!-- IF S_ENABLE_FEEDS_TOPIC and S_TOPIC_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_TOPIC} - {TOPIC_TITLE}" href="{U_FEED}?f={S_FORUM_ID}&amp;t={S_TOPIC_ID}" /><!-- ENDIF -->
-<!-- ENDIF -->
+	<link rel="shortcut icon" href="{T_THEME_PATH}/images/favicon.ico" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="icon" sizes="256x256" href="{T_THEME_PATH}/images/favicon.ico">
 
-<!--
-	phpBB style name: proBoot3
-	Based on style:   prosilver (this is the default phpBB3 style)
-	Original author:  Tom Beddard ( http://www.subBlue.com/ )
-	Modified by: Florian Gareis (http://www.florian-gareis.de)
--->
+	<meta name="comboot-version" content="1.1-rc4">
+	<meta name="comboot-channel" content="<!-- IF $BETA == 1 -->beta<!-- ELSE -->stable<!-- ENDIF -->">
 
-<script type="text/javascript">
-// <![CDATA[
-	var jump_page = '{LA_JUMP_PAGE}:';
-	var on_page = '{ON_PAGE}';
-	var per_page = '{PER_PAGE}';
-	var base_url = '{A_BASE_URL}';
-	var style_cookie = 'phpBBstyle';
-	var style_cookie_settings = '{A_COOKIE_SETTINGS}';
-	var onload_functions = new Array();
-	var onunload_functions = new Array();
+	{META}
+	<title><!-- IF UNREAD_NOTIFICATIONS_COUNT -->({UNREAD_NOTIFICATIONS_COUNT}) <!-- ENDIF --><!-- IF not S_VIEWTOPIC and not S_VIEWFORUM -->{SITENAME} - <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} - <!-- ELSEIF S_IN_UCP -->{L_UCP} - <!-- ENDIF -->{PAGE_TITLE}<!-- IF S_VIEWTOPIC or S_VIEWFORUM --> - {SITENAME}<!-- ENDIF --></title>
 
-	<!-- IF S_USER_PM_POPUP and S_NEW_PM -->
-		var url = '{UA_POPUP_PM}';
-		window.open(url.replace(/&amp;/g, '&'), '_phpbbprivmsg', 'height=225,resizable=yes,scrollbars=yes, width=400');
+	<!-- IF S_ENABLE_FEEDS -->
+		<!-- IF S_ENABLE_FEEDS_OVERALL --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {SITENAME}" href="{{ path('phpbb_feed_index') }}"><!-- ENDIF -->
+		<!-- IF S_ENABLE_FEEDS_NEWS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_NEWS}" href="{{ path('phpbb_feed_news') }}"><!-- ENDIF -->
+		<!-- IF S_ENABLE_FEEDS_FORUMS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_FORUMS}" href="{{ path('phpbb_feed_forums') }}"><!-- ENDIF -->
+		<!-- IF S_ENABLE_FEEDS_TOPICS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_NEW}" href="{{ path('phpbb_feed_topics') }}"><!-- ENDIF -->
+		<!-- IF S_ENABLE_FEEDS_TOPICS_ACTIVE --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_ACTIVE}" href="{{ path('phpbb_feed_topics_active') }}"><!-- ENDIF -->
+		<!-- IF S_ENABLE_FEEDS_FORUM and S_FORUM_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FORUM} - {FORUM_NAME}" href="{{ path('phpbb_feed_forum', { forum_id : S_FORUM_ID } ) }}"><!-- ENDIF -->
+		<!-- IF S_ENABLE_FEEDS_TOPIC and S_TOPIC_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_TOPIC} - {TOPIC_TITLE}" href="{{ path('phpbb_feed_topic', { topic_id : S_TOPIC_ID } ) }}"><!-- ENDIF -->
+		<!-- EVENT overall_header_feeds -->
 	<!-- ENDIF -->
 
-	/**
-	* Find a member
-	*/
-	function find_username(url)
-	{
-		popup(url, 760, 570, '_usersearch');
-		return false;
-	}
+	<!-- IF U_CANONICAL -->
+		<link rel="canonical" href="{U_CANONICAL}">
+	<!-- ENDIF -->
 
-	/**
-	* New function for handling multiple calls to window.onload and window.unload by pentapenguin
-	*/
-	window.onload = function()
-	{
-		for (var i = 0; i < onload_functions.length; i++)
-		{
-			eval(onload_functions[i]);
-		}
-	};
+	<!--
+		phpBB style name: ComBoot Free
+		Based on style:   prosilver (this is the default phpBB3 style)
+		Original author:  Tom Beddard ( http://www.subBlue.com/ )
+		Modified by: Florian Gareis (http://www.florian-gareis.de)
+	-->
 
-	window.onunload = function()
-	{
-		for (var i = 0; i < onunload_functions.length; i++)
-		{
-			eval(onunload_functions[i]);
-		}
-	};
+	<!-- IF S_ALLOW_CDN -->
+	<script>
+		WebFontConfig = {
+			google: {
+				families: ['Open+Sans:600:cyrillic-ext,latin,greek-ext,greek,vietnamese,latin-ext,cyrillic']
+			}
+		};
 
-// ]]>
-</script>
-<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/styleswitcher.js"></script>
-<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/forum_fn.js"></script>
+		(function(d) {
+			var wf = d.createElement('script'), s = d.scripts[0];
+			wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
+			wf.async = true;
+			s.parentNode.insertBefore(wf, s);
+		})(document);
+	</script>
+	<!-- ENDIF -->
+	<link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
+	<link href="{T_STYLESHEET_LINK}" rel="stylesheet">
 
-<link href="{T_THEME_PATH}/print.css" rel="stylesheet" type="text/css" media="print" title="printonly" />
-<link href="{T_STYLESHEET_LINK}" rel="stylesheet" type="text/css" media="screen, projection" />
+	<!-- IF S_CONTENT_DIRECTION eq 'rtl' -->
+		<link href="{T_THEME_PATH}/bidi.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+	<!-- ENDIF -->
 
-<link href="{T_THEME_PATH}/normal.css" rel="stylesheet" type="text/css" title="A" />
-<link href="{T_THEME_PATH}/medium.css" rel="alternate stylesheet" type="text/css" title="A+" />
-<link href="{T_THEME_PATH}/large.css" rel="alternate stylesheet" type="text/css" title="A++" />
+	<!-- IF S_PLUPLOAD -->
+		<link href="{T_THEME_PATH}/plupload.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+	<!-- ENDIF -->
 
-<link href="{T_THEME_PATH}/proBoot3/proBoot3.css" rel="stylesheet" />
-<link href="{T_THEME_PATH}/proBoot3/font-awesome.min.css" rel="stylesheet" />
-<link href="{T_THEME_PATH}/proBoot3/bootstrap.min.css" rel="stylesheet"/>
-<link href="{T_THEME_PATH}/proBoot3/bootstrap-select.css" rel="stylesheet"/>
-<link href="{T_THEME_PATH}/proBoot3/bootstrap-colorpicker.min.css" rel="stylesheet"/>
-<script src="{T_THEME_PATH}/proBoot3/jquery.min.js" type="text/javascript"></script>
-<script src="{T_THEME_PATH}/proBoot3/bootstrap.min.js" type="text/javascript"></script>
-<script src="{T_THEME_PATH}/proBoot3/bootstrap-select.js" type="text/javascript"></script>
-<script src="{T_THEME_PATH}/proBoot3/proBoot3.js" type="text/javascript"></script>
-<script src="{T_THEME_PATH}/proBoot3/bootstrap-colorpicker.min.js" type="text/javascript"></script>
+	<!-- IF S_COOKIE_NOTICE -->
+		<link href="{T_ASSETS_PATH}/cookieconsent/cookieconsent.min.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+	<!-- ENDIF -->
 
-<link href="/css/style.css" rel="stylesheet">
+	<!--[if lte IE 9]>
+		<link href="{T_THEME_PATH}/tweaks.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+	<![endif]-->
 
-<!-- IF S_CONTENT_DIRECTION eq 'rtl' -->
-	<link href="{T_THEME_PATH}/bidi.css" rel="stylesheet" type="text/css" media="screen, projection" />
-<!-- ENDIF -->
+	<!-- EVENT overall_header_head_append -->
 
-</head>
+	<!-- INCLUDE additional_files.html -->
 
-<body id="phpbb" class="section-{SCRIPT_NAME} {S_CONTENT_DIRECTION}">
-	<a id="top" accesskey="t"></a>
-<!-- PHP -->
-require_once($_SERVER['DOCUMENT_ROOT'].'/force-https.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/navbar.php');
-$navbar->flush();
-<!-- ENDPHP -->
-	<a id="start_here"></a><br>
-	<div class="container" id="content-wrapper">
-		<div>
-			<div class="btn-group btn-breadcrumb">
-				 <a href="{U_INDEX}" accesskey="h" class="btn btn-primary" title="{L_INDEX}"><i class="glyphicon glyphicon-home"></i></a> <!-- BEGIN navlinks --> <a href="{navlinks.U_VIEW_FORUM}" class="btn btn-primary">{navlinks.FORUM_NAME}</a><!-- END navlinks -->
+	{$STYLESHEETS}
+
+	<!-- EVENT overall_header_stylesheets_after -->
+
+	</head>
+
+	<body id="phpbb" class="nojs notouch section-{SCRIPT_NAME} {S_CONTENT_DIRECTION} {BODY_CLASS} <!-- IF S_USER_LOGGED_IN -->logged-in<!-- ENDIF -->">
+
+		<!-- EVENT overall_header_body_before -->
+
+		<div id="wrap">
+			<a id="top" class="anchor" accesskey="t"></a>
+			<div id="page-header">
+				<!-- EVENT overall_header_headerbar_before -->
+				<!-- EVENT overall_header_navbar_before -->
+				<!-- INCLUDE navbar_header.html -->
+				<!-- EVENT overall_header_headerbar_after -->
 			</div>
 
-			<div class="btn-group pull-right">
-				<button type="button" class="btn btn-primary btn-labeled dropdown-toggle" data-toggle="dropdown" ><span class="btn-label"><i class="glyphicon glyphicon-user"></i></span> <!-- IF not S_IS_BOT and S_USER_LOGGED_IN --> {S_USERNAME} <!-- ENDIF --><span class="caret"></span></button>
-				<ul class="dropdown-menu">
-					<!-- IF not S_USER_LOGGED_IN -->
-					<li>
-						<form action="{S_LOGIN_ACTION}" method="post" id="navloginform" name="loginform">
-							<input type="text" placeholder="{L_USERNAME}" name="username" id="username" size="10" class="form-control" title="{L_USERNAME}"/>
-							<input type="password" placeholder="{L_PASSWORD}" name="password" id="password" size="10" class="form-control" title="{L_PASSWORD}"/>
-							<!-- IF S_DISPLAY_FULL_LOGIN -->
-							<div class="checkbox">
-								<!-- IF S_AUTOLOGIN_ENABLED --><label for="autologin"><input type="checkbox" name="autologin" id="autologin" tabindex="4" /> {L_LOG_ME_IN}</label><!-- ENDIF -->
-								<br><label for="viewonline"><input type="checkbox" name="viewonline" id="viewonline" tabindex="5" /> {L_HIDE_ME}</label>
-							</div>
-							<!-- ENDIF -->
-							{S_LOGIN_REDIRECT}
-							<input type="submit" name="login" value="{L_LOGIN}" class="btn btn-primary" />
-						</form>
-					</li>
-					<!-- IF S_REGISTER_ENABLED -->
-					<li class="divider"></li>
-					<li><a href="{U_REGISTER}" class="reg-button"><button class="btn btn-primary"><i class="glyphicon glyphicon-user"></i> {L_REGISTER}</button></a></li>
-					<!-- ELSE -->
-					<li class="divider"></li>
-					<li><a href="#" class="btn btn-primary disabled"><i class="glyphicon glyphicon-user"></i> {L_REGISTER}</a></li>
-					<!-- ENDIF -->
-					<!-- ENDIF -->
-					<!-- IF not S_IS_BOT and S_USER_LOGGED_IN -->
-					<!-- IF S_DISPLAY_PM -->
-					<li><a href="{U_PRIVATEMSGS}"><i class="fa fa-envelope"></i>
-						<span class="label label-primary">
-							{PRIVATE_MESSAGE_INFO}
-							<!-- IF PRIVATE_MESSAGE_INFO_UNREAD -->
-							, {PRIVATE_MESSAGE_INFO_UNREAD}
-							<!-- ENDIF -->
-						</span>
-						</a>
-					</li>
-					<!-- ENDIF -->
-					<!-- IF S_DISPLAY_SEARCH -->
-					<li><a href="{U_SEARCH_SELF}"><i class="fa fa-file"></i> {L_SEARCH_SELF}</a></li>
-					<li class="divider"></li>
-					<!-- ENDIF -->
-					<li><a href="{U_PROFILE}" title="{L_PROFILE}" accesskey="e"><i class="fa fa-wrench"></i> {L_PROFILE}</a></li>
-					<li><a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" accesskey="x" class="btn btn-danger"><i class="fa fa-sign-out"></i> {L_LOGIN_LOGOUT}</a></li>
-					<!-- ENDIF -->
-				</ul>
-			</div>
-		</div>
-		<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
-			<div class="alert alert-danger row rules">
-				<div class="well">
-					<strong>{L_INFORMATION}:</strong> {L_BOARD_DISABLED}
+			<div class="jumbotron no-margin-bottom no-padding-bottom">
+				<div class="container text-center">
+					<a id="logo" class="logo" href="<!-- IF U_SITE_HOME -->{U_SITE_HOME}<!-- ELSE -->{U_INDEX}<!-- ENDIF -->" title="<!-- IF U_SITE_HOME -->{L_SITE_HOME}<!-- ELSE -->{L_INDEX}<!-- ENDIF -->">{SITE_LOGO_IMG}</a>
+					<p>{SITE_DESCRIPTION}</p>
+					<p class="skiplink"><a href="#start_here">{L_SKIP}</a></p>
 				</div>
 			</div>
-		<!-- ENDIF -->
+
+			<!-- EVENT overall_header_page_body_before -->
+
+			<a id="start_here" class="anchor"></a>
+			<div class="container" id="page-body">
+				<div class="row">
+					<div class="col-md-12">
+						<!-- DEFINE $MICRODATA = ' itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""' -->
+						<!-- EVENT overall_header_breadcrumbs_before -->
+						<ol class="breadcrumb no-margin-bottom" id="nav-breadcrumbs">
+							<!-- IF U_SITE_HOME -->
+								<li><span class="crumb"{$MICRODATA}><a href="{U_SITE_HOME}" data-navbar-reference="home" itemprop="url"><span itemprop="title"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span></a></span></li>
+							<!-- ENDIF -->
+							<li><span class="crumb"{$MICRODATA}><a href="{U_INDEX}" title="{L_INDEX}" data-navbar-reference="home" itemprop="url"><span itemprop="title">{L_INDEX}</span></a></span></li>
+							<!-- EVENT overall_header_breadcrumb_prepend -->
+							<!-- BEGIN navlinks -->
+								<!-- EVENT overall_header_navlink_prepend -->
+								<li><span class="crumb"{$MICRODATA}><a href="{navlinks.U_VIEW_FORUM}" <!-- IF navlinks.MICRODATA --> {navlinks.MICRODATA}<!-- ENDIF --> itemprop="url"><span itemprop="title">{navlinks.FORUM_NAME}</span></a></span></li>
+								<!-- EVENT overall_header_navlink_append -->
+							<!-- END navlinks -->
+							<!-- EVENT overall_header_breadcrumb_append -->
+						</ol>
+						<!-- EVENT overall_header_breadcrumbs_after -->
+					</div>
+				</div>
+				<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
+					<div id="information" class="row">
+						<div class="col-md-12">
+							<div class="alert alert-danger rules">
+								<strong>{L_INFORMATION}{L_COLON}</strong> {L_BOARD_DISABLED}
+							</div>
+						</div>
+					</div>
+				<!-- ENDIF -->
+
+				<!-- EVENT overall_header_content_before -->
