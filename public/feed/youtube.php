@@ -30,7 +30,7 @@ foreach ($obj as $items) {
 
 
 		$id = parse_youtube_id($item->thumbnails->default->url);
-		$url = $id ? 'https://www.youtube.com/watch?v=' . $id : '';
+		$url = $id ? 'http://www.youtube.com/watch?v=' . $id : '';
 
 		create_row(
 			'youtube', 					// $service	i.e. "facebook"
