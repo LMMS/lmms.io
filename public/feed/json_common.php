@@ -6,7 +6,7 @@
  * Author:
  *		Tres Finocchiaro 2014-08-05
  *		c/o LMMS Development Team
- *		http://lmms.io
+ *		https://lmms.io
  * License:
  * 		GPL 2+
  * Works with:
