@@ -30,7 +30,7 @@ foreach ($obj as $items) {
 
 
 		$id = parse_youtube_id($item->thumbnails->default->url);
-		$url = $id ? 'http://www.youtube.com/watch?v=' . $id : '';
+		$url = $id ? 'https://www.youtube.com/watch?v=' . $id : '';
 
 		create_row(
 			'youtube', 					// $service	i.e. "facebook"
@@ -38,7 +38,7 @@ foreach ($obj as $items) {
 			"javascript:embedVideo('#div-" . $id . "','" . $id . "')", 						// $href	i.e. "http://facebook.com/post1234"
 			trim_feed($item->description, $url),	// $message   i.e "We are pleased to announce..."
 			$item->channelTitle, 		// $author	i.e. "John Smith"
-			$videos_url, 				// $author_href	i.e. "http://facebook.com/user1234"
+			$videos_url, 				// $author_href	i.e. "https://facebook.com/user1234"
 			$item->publishedAt,			// $date	i.e. "2014-01-01 00:00:00"
 			$item->thumbnails->default->url,
 			'div-' . $id
