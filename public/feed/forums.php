@@ -26,10 +26,10 @@ foreach ($rss->items as $item) {
 	create_row(
 		'forums', 				// $service	i.e. "facebook"
 		$item['title'], 		// $title 	i.e. "LMMS Released!"
-		$item['id'], 			// $href	i.e. "https://facebook.com/post1234"
+		$item['id'], 			// $href	i.e. "http://facebook.com/post1234"
 		cleanse_html($atom, $item['id'])	// $message   i.e "We are pleased to announce..."
 		//$author, 				// $author	i.e. "John Smith"
-		//$author_href, 		// $author_href	i.e. "https://facebook.com/user1234"
+		//$author_href, 		// $author_href	i.e. "http://facebook.com/user1234"
 		//$date					// $date	i.e. "2014-01-01 00:00:00"
 	);
 }
