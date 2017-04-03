@@ -17,7 +17,7 @@
 		</label></td>
 		
 		<!-- 
-		<td><label id="facebook-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="http://facebook.com/makefreemusic">
+		<td><label id="facebook-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="https://facebook.com/makefreemusic">
 			<span class="fa-5x fa fa-facebook"></span> <span class="visible-lg-inline"><br>Facebook</span>
 		</label></td>
 		-->
@@ -30,11 +30,11 @@
 			<span class="fa-5x fa fa-google-plus"></span> <span class="visible-lg-inline"><br>Google+</span>
 		</label></td>
 
-		<td><label id="youtube-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="http://youtube.com/lmmsofficial"><span class="fa-5x fa fa-youtube"></span>
+		<td><label id="youtube-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="_blank" data-href="https://youtube.com/lmmsofficial"><span class="fa-5x fa fa-youtube"></span>
 			<span class="visible-lg-inline"><br>YouTube</span>
 		</label></td>
 
-		<td><label id="github-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="new" data-href="http://github.com/LMMS/lmms">
+		<td><label id="github-button" title="Visit page" class="btn btn-default" onclick="show(this)" target="new" data-href="https://github.com/LMMS/lmms">
 			<span class="fa-5x fa fa-github"></span> <span class="visible-lg-inline"><br>GitHub</span>
 		</label></td>
 	</tr>
@@ -376,10 +376,10 @@
 </div>
 
 <h2>Build LMMS</h2>
-<p>Building LMMS from source requires Linux or BSD/Unix (including Apple) operating system.  Visit the <a class="btn btn-default btn-xs" href="http://github.com/LMMS/lmms/wiki">LMMS GitHub wiki</a> for compile instructions.</p><br>
+<p>Building LMMS from source requires Linux or BSD/Unix (including Apple) operating system.  Visit the <a class="btn btn-default btn-xs" href="https://github.com/LMMS/lmms/wiki">LMMS GitHub wiki</a> for compile instructions.</p><br>
 
 <h2>Bug Tracker</h2>
-<p>To view open issues (bugs, enhancements) or to create a new issue, please visit the <a class="btn btn-default btn-xs" href="http://github.com/LMMS/lmms/issues">LMMS GitHub issues page</a></p>
+<p>To view open issues (bugs, enhancements) or to create a new issue, please visit the <a class="btn btn-default btn-xs" href="https://github.com/LMMS/lmms/issues">LMMS GitHub issues page</a></p>
 <!--<div class="row"> -->
 <!--<div style="float: right;" class="col-sm-5"> -->
 
