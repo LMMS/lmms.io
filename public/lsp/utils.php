@@ -390,8 +390,8 @@ function parse_links($message, $width = "100%", $height = 160) {
 				(youtube.com\/watch\?v\=)|                                   # group 3, match links like youtube-com/watch?v=videocode
 				(youtu.be)|                                                  # group 4, match links like youtu.be/videocode
 				(clyp.it(?!\/user)\/\S+)|                                    # group 5, match links like clyp.it/somehash, do not capture user links
-				(https?:\/\/\S*\/\S*\.(jpe?g|png|gif)\b)|                    # groups 6 & 7, match links like https://mylink.domain/image.png
-				(https?:\/\/)                                                # group 8, match links like https://example.com/page
+				(https?:\/\/\S*\/\S*\.(jpe?g|png|gif)\b)|                    # groups 6 & 7, match links like http://mylink.domain/image.png
+				(https?:\/\/)                                                # group 8, match links like http://example.com/page
 				)+\S*%xi";
 	preg_match_all($pattern, $message, $matched, PREG_SET_ORDER);
 
