@@ -35,10 +35,10 @@ foreach ($obj as $items) {
 		create_row(
 			'google+', 					// $service	i.e. "facebook"
 			$item->title, 				// $title 	i.e. "LMMS Released!"
-			$item->url, 				// $href	i.e. "https://facebook.com/post1234"
+			$item->url, 				// $href	i.e. "http://facebook.com/post1234"
 			trim_feed($item->object->content, $item->url),	// $message   i.e "We are pleased to announce..."
 			$item->actor->displayName, 	// $author	i.e. "John Smith"
-			$item->actor->url, 			// $author_href	i.e. "https://facebook.com/user1234"
+			$item->actor->url, 			// $author_href	i.e. "http://facebook.com/user1234"
 			$item->published			// $date	i.e. "2014-01-01 00:00:00"
 		);
 	}
