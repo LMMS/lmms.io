@@ -3,7 +3,6 @@ import os
 import sys
 import subprocess
 import webbrowser
-import logging
 import time
 import threading
 import shutil
@@ -72,16 +71,11 @@ class LMMSIOGettext(object):
             return
 
     def invoke_gettext(self):
-        if self.output:
-            output = self.output
-        else:
-            output = '/tmp/lmms.io.pot'
-            logging.warning('Output to /tmp/lmms.io.pot')
         for dirs, _, files in os.walk('/tmp/cache/twig/lmms.io/'):
             for f in files:
                 self.php_files.append(os.path.join(dirs, f))
         cmd = ['xgettext', '-L', 'php', '--from-code=utf-8',
-               '-o', output] + self.php_files
+               '-o', self.output] + self.php_files
         subprocess.check_call(cmd)
 
     def convert_filename(self, name):
@@ -118,7 +112,7 @@ class LMMSIOGettext(object):
 def main():
     debug = False
     flag = False
-    output = None
+    output = '/tmp/lmms.io.pot'
     if len(sys.argv) > 1:
         for i in sys.argv:
             if i == '--webbrowser':

@@ -18,7 +18,7 @@
 	<a data-toggle="collapse" href="#collapse_{{ divid }}">{% trans %}Show release notes{% endtrans %}<br><i class="fa fa-angle-down"></i></a>
 	<div id="collapse_{{ divid }}" class="panel-collapse collapse">
 		<div class="release-notes well">
-			{{ notes|markdown }}
+			{{ ('|GH|' ~ notes)|markdown }}
 		</div>
 	</div>
 </div>
