@@ -35,34 +35,3 @@
 	{% import _self as macros %}
 	{{ macros.icon_stack('fa-square fa-stack-2x', "#{icon} fa-stack-1x fa-inverse", class , tooltip ) }}
 {% endmacro %}
-
-{# Create a competition entry #}
-{# params: competition name, due date, url of all the submissions, embed player URL
-   original description, list of rules #}
-{% macro competition_entry(name, id, due_date, group_url, player_url, desc, rules, extras = '') %}
-	{% import _self as macros %}
-	<div class="competition">
-	  <div class="comp-header" id={{"#{id}"}} data-target={{"##{id}-desc"}}>
-	    <span>{{name}}</span>
-	    <i class="fa fa-angle-down"></i>
-	  </div>
-	  <div class="comp-desc panel-collapse collapse" id={{"#{id}-desc"}}>
-	    <h4>{% trans %}The competition has ended on <b>{{due_date}}.</b>{% endtrans %}</h4>
-	    <p>{% trans %}Support LMMS and buy the compilation over at our <a href="https://lmmsartists.bandcamp.com/">bandcamp page.</a><br>
-	      Listen to all entries <a href={{group_url}}>here</a>.<br>
-	      Winners:{% endtrans %}
-	    </p>
-	    <iframe width="100%" height="450" scrolling="no" frameborder="no" src={{player_url}}></iframe>
-	    <h4>{% trans %}Original description:{% endtrans %}</h4>
-	    <p>{{desc|raw}}</p>
-	    <h4>{% trans %}Competition rules:{% endtrans %}</h4>
-	    <ol>
-	      {{rules|raw}}
-			</ol>
-			{% if extras %}
-				<h4>{% trans %}Extra:{% endtrans %}</h4>
-				<p>{{extras|raw}}</p>
-			{% endif %}
-	  </div>
-	</div>
-{% endmacro %}
