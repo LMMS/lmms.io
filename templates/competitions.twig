@@ -7,165 +7,158 @@
 {% block content %}
 
 {% spaceless %}
-{{ macros.jumbo('Competitions', 'Official competitions organised by LMMS and its community members')}}
+{{ macros.jumbo('Competitions'|trans, 'Official competitions organised by LMMS and its community members'|trans)}}
 <div class="container">
 	<h1 class="page-header text-center">Competitions</h1>
 	<h3>Current competitions</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol4" data-target="#bol4-desc">
-			<span>The Best of LMMS vol. IV</span>
+			<span>{% trans %}The Best of LMMS vol. IV{% endtrans %}</span>
 			<i class="fa fa-angle-up"></i>
 		</div>
-		<div class="comp-desc panel-collapse" id="bol4-desc">
-			<h4>The competition has started <b>March 16th, 2017</b>, submit <a href="https://goo.gl/forms/cifEliOViOXTSc8H2">here</a>.</h4>
-			<h4>Description:</h4>
-			<p>We are proud to present to you The Best of LMMS contest volume 4!
-				The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight 
-				on April 16th (UTC time) for a chance to be featured on the BoL v4 album. The compilation will be uploaded to Bandcamp, with all 
-				profits going towards LMMS' further development.
-				This year's submissions are handled through Google forms. We accept submissions hosted on YouTube, Soundcloud and Clyp. For the full rules check out the submission form:
-				<a href="https://goo.gl/forms/cifEliOViOXTSc8H2">https://goo.gl/forms/cifEliOViOXTSc8H2</a>
-			<h4>Competition rules:</h4>
-			<ol>
-				<li><b>The Deadline</b>
-					<ul>
-					<li>Tracks must be submitted by April 16th at 0:00 UTC using <a href="https://goo.gl/forms/cifEliOViOXTSc8H2">this form</a>.</li>
-					</ul>
-				</li>
-				<li><b>The Tracks</b>
-					<ul>
-					<li>Must be produced in LMMS.</li>
-					<li>You may use other programs for mastering and post processing.</li>
-					<li>Must be under 10 minutes long.</li>
-					<li>No winning tracks from previous Best of LMMS albums allowed.</li>
-					<li>No remixes allowed.</li>
-					</ul>
-				</li>
-				<li><b>The Submissions</b>
-					<ul>
-					<li>You must submit using this form only.</li>
-					<li>No more than TWO entries per artist are allowed.</li>
-					<li>Collaborations count as ONE entry for each artist involved.</li>
-					<li>No collaborating with judges on entries.</li>
-					<li>Only submissions hosted on Soundcloud, YouTube or Clyp are allowed.</li>
-					<li>Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.</li>
-					</ul>
-				</li>
-				<li><b>The Judges</b>
-					<ul>
-					<li>The jury consists of: Greippi, Jacoby Davis, Spekular, Stakeout Punch and Squatro.</li>
-					</ul>
-				</li>
-				<li><b>The Judging Process</b>
-					<ul>
-					<li>After the deadline, the judges will make their decisions and release the results within 14 days.</li>
-					</ul>
-				</li>
-				<li><b>The Release</b>
-					<ul>
-					<li>The 25 highest scoring songs will be released as an album on Bandcamp with the price of "Pay what you want".
-					    All the received funds will be donated for further development of LMMS, the program that we love.
-					</li>
-				</li>
-				</ol>
+		<div class="comp-desc panel-collapse" role="tabpanel" id="bol4-desc">
+			{% markdown %}
+			{% trans %}
+			#### The competition has started **March 16th, 2017**, submit [here](https://goo.gl/forms/cifEliOViOXTSc8H2).
+			#### Description:
+			We are proud to present to you The Best of LMMS contest volume 4!
+			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
+			on April 16th (UTC time) for a chance to be featured on the BoL v4 album. The compilation will be uploaded to Bandcamp, with all
+			profits going towards LMMS' further development.
+			This year's submissions are handled through Google forms. We accept submissions hosted on YouTube, Soundcloud and Clyp. For the full rules check out the submission form:
+			https://goo.gl/forms/cifEliOViOXTSc8H2
+			#### Competition rules:
+			1. **The Deadline**
+			  - Tracks must be submitted by April 16th at 0:00 UTC using [this form](https://goo.gl/forms/cifEliOViOXTSc8H2).
+			2. **The Deadline**
+			  - Must be produced in LMMS.
+				- You may use other programs for mastering and post processing.
+				- Must be under 10 minutes long.
+				- No winning tracks from previous Best of LMMS albums allowed.
+				- No remixes allowed.
+			3. **The Submissions**
+			  - You must submit using this form only.
+				- No more than **TWO** entries per artist are allowed.
+				- Collaborations count as **ONE** entry for each artist involved.
+				- Only submissions hosted on Soundcloud, YouTube or Clyp are allowed.
+				- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
+			4. **The Judges**
+			  - The jury consists of: Greippi, Jacoby Davis, Spekular, Stakeout Punch and Squatro.
+			5. **The Judging Process**
+			  - After the deadline, the judges will make their decisions and release the results within 14 days.
+			6. **The Release**
+			  - The 25 highest scoring songs will be released as an album on Bandcamp with the price of "Pay what you want".
+					All the received funds will be donated for further development of LMMS, the program that we love.
+			{% endtrans %}
+			{% endmarkdown %}
 		</div>
 	</div>
-	<h3>Past competitions:</h3>
+	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol3" data-target="#bol3-desc">
-			<span>The Best of LMMS vol. III</span>
+			<span>{% trans %}The Best of LMMS vol. III{% endtrans %}</span>
 			<i class="fa fa-angle-down"></i>
 		</div>
 		<div class="comp-desc panel-collapse collapse" id="bol3-desc">
-			<h4>The competition has ended on <b>March 16th, 2016.</b></h4>
-			<p>Support LMMS and buy the compilation over at our <a href="https://lmmsartists.bandcamp.com/">bandcamp page.</a><br>
-				Listen to all entries <a href="https://soundcloud.com/groups/the-best-of-lmms-competition-v3">here.</a><br>
-				Winners:
-			</p>
+			{% markdown %}
+			{% trans %}
+			#### The competition has ended on **March 16th, 2016.**
+			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)
+
+			Listen to all entries [here.](https://soundcloud.com/groups/the-best-of-lmms-competition-v3)
+
+			Winners:
 			<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/211975750&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			<h4>Original description:</h4>
-			<p>It’s that time of the year again: If you have made amazing tracks with LMMS we have a contest for you!
-				The Best of LMMS contest is back!  The compilation aims to inspire new users and everyone to create music.
-				The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS.
-				Submit your track before midnight on March 16th (UTC time), and find details about the contest on the <a href="https://soundcloud.com/groups/the-best-of-lmms-competition-v3">soundcloud group.</a></p>
-			<h4>Competition rules:</h4>
-			<ol>
-				<li>The Deadline. The tracks must be submitted by March 16th 0:00 UTC. The tracks can be of any genre, preferably under 10 minutes.
-					The track must be produced in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.</li>
-				<li>The tracks. All submissions will be handled via SoundCloud using the dedicated group. You can submit a maximum of two tracks.
-					You may submit previously released tracks, but not tracks that were in the previous Best of LMMS albums. Remixes are not allowed. A collaboration between a judge and yourself is not allowed.</li>
-				<li>The Judges. The jury consists of: Zach Henderson, Second Flight, Umcaruje, Greippi, Tres Finnochiaro, Abludo.</li>
-				<li>The Judging Process. After the deadline, the judges will make their decisions and release the results within next 14 days.</li>
-				<li>Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
-					will be donated for further development of LMMS, the program that we love.</li>
+			#### Original description:
+
+			It’s that time of the year again: If you have made amazing tracks with LMMS we have a contest for you!
+			The Best of LMMS contest is back!  The compilation aims to inspire new users and everyone to create music.
+			The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS.
+			Submit your track before midnight on March 16th (UTC time), and find details about the contest on the [soundcloud group.](https://soundcloud.com/groups/the-best-of-lmms-competition-v3)
+
+			#### Competition rules:
+
+			1. The Deadline. The tracks must be submitted by March 16th 0:00 UTC. The tracks can be of any genre, preferably under 10 minutes.
+				The track must be produced in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.
+			2. The tracks. All submissions will be handled via SoundCloud using the dedicated group. You can submit a maximum of two tracks.
+				You may submit previously released tracks, but not tracks that were in the previous Best of LMMS albums. Remixes are not allowed. A collaboration between a judge and yourself is not allowed.
+			3. The Judges. The jury consists of: Zach Henderson, Second Flight, Umcaruje, Greippi, Tres Finnochiaro, Abludo.
+			4. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 14 days.
+			5. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
+				will be donated for further development of LMMS, the program that we love.
+			{% endtrans %}
+			{% endmarkdown %}
 		</div>
 	</div>
 	<div class="competition">
 		<div class="comp-header" id="bol2" data-target="#bol2-desc">
-			<span>The Best of LMMS vol. II</span>
+			<span>{% trans %}The Best of LMMS vol. II{% endtrans %}</span>
 			<i class="fa fa-angle-down"></i>
 		</div>
 		<div class="comp-desc panel-collapse collapse" id="bol2-desc">
-			<h4>The competiton has ended on <b>April 1st, 2015.</b></h4>
-			<p>Support LMMS and buy the compilation over at our <a href="https://lmmsartists.bandcamp.com/">bandcamp page.</a><br>
-				Listen to all entries <a href="https://soundcloud.com/groups/the-best-of-lmms-competition-v2">here.</a><br>
-				Winners:
-			</p>
-			<iframe width="100%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/103762698&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			<h4>Original description:</h4>
-			<p>If you have made amazing songs with LMMS we have a contest for you! The LMMS top songs contest is back!
-				The compilation aims to inspire new users and everyone to create music. The compilation will be uploaded
-				to Bandcamp and all profit will be donated for the further development of LMMS.</p>
-			<h4>Competition rules:</h4>
-			<ol>
-				<li>The Deadline. The songs must be submitted by April 1st 0:00 UTC. The songs can be of any genre, preferably under 10 minutes.
-					The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.
-				</li>
-				<li>The songs. All submissions will be handled via SoundCloud using the dedicated group. A user can submit a maximum of two songs.
-					Users CAN submit previously released songs, BUT not songs submitted for previous BoL competitions. Remixes are not allowed.
-					A song cooperation between a judge and yourself is not allowed.
-				</li>
-				<li>The Judges and the Release. The judges consist of Stian Jørgensrud (Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix and Jernemies.
-					The compilation will be released on the dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds will be donated
-					for further development of LMMS or to cover other program related costs.
-				</li>
-			</ol>
+			{% markdown %}
+			{% trans %}
+			#### The competition has ended on **April 1st, 2015.**
 
-			<p>Extras:<br>
-				By marking your song with the tag "Want Feedback" you can get feedback from the judges. Comments from different judges will be combined into one
-				text so you won't know from who or how many the feedback is. Note that you aren't guaranteed any feedback, it depends on how much time the judges have.
-				Also note that the judges are just regular LMMS artists and no matter what feedback you get the judges' decision for album songs is final.
-			</p>
+			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)
+
+			Listen to all entries [here.](https://soundcloud.com/groups/the-best-of-lmms-competition-v2)
+
+			Winners:
+			<iframe width="100%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/103762698&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+			#### Original description:
+			1. The Deadline. The songs must be submitted by April 1st 0:00 UTC. The songs can be of any genre, preferably under 10 minutes.
+				The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.
+			2. The songs. All submissions will be handled via SoundCloud using the dedicated group. A user can submit a maximum of two songs.
+				Users CAN submit previously released songs, BUT not songs submitted for previous BoL competitions. Remixes are not allowed.
+				A song cooperation between a judge and yourself is not allowed.
+			3. The Judges and the Release. The judges consist of Stian Jørgensrud (Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix and Jernemies.
+				The compilation will be released on the dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds will be donated
+				for further development of LMMS or to cover other program related costs.
+
+			Extras:
+
+			By marking your song with the tag "Want Feedback" you can get feedback from the judges. Comments from different judges will be combined into one
+			text so you won't know from who or how many the feedback is. Note that you aren't guaranteed any feedback, it depends on how much time the judges have.
+			Also note that the judges are just regular LMMS artists and no matter what feedback you get the judges' decision for album songs is final.
+			{% endtrans %}
+			{% endmarkdown %}
 		</div>
 	</div>
 	<div class="competition">
 		<div class="comp-header" id="bol1" data-target="#bol1-desc">
-			<span>The Best of LMMS vol. I</span>
+			<span>{% trans %}The Best of LMMS vol. I{% endtrans %}</span>
 			<i class="fa fa-angle-down"></i>
 		</div>
 		<div class="comp-desc panel-collapse collapse" id="bol1-desc">
-			<h4>The competiton has ended on <b>February 15th, 2014.</b></h4>
-			<p>Support LMMS and buy the compilation over at our <a href="https://lmmsartists.bandcamp.com/">bandcamp page.</a><br>
-				Listen to all entries <a href="https://soundcloud.com/groups/lmms-top-songs-compilation">here.</a><br>
-				Winners:
-			</p>
+			{% markdown %}
+			{% trans %}
+			#### The competition has ended on **February 15th, 2014.**
+
+			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)
+
+			Listen to all entries [here.](https://soundcloud.com/groups/lmms-top-songs-compilation)
+
+			Winners:
 			<iframe width="100%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/27083727&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			<h4>Original description:</h4>
-			<p>If you have made amazing songs with LMMS we have a contest for you! A LMMS top songs contest.
-				The compilation aims to inspire new users and get new producers to use the program as well as to give a big thank you to LMMS developers.
-				The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS. Submit your song before
-				midnight on February 15th, and find details about this contest on the Soundcloud site. </p>
-			<h4>Competition rules:</h4>
-			<ol>
-				<li>The Deadline. The songs must be submitted by February 15th 12 PM GMT. A user can submit a maximum of two songs. The songs can be of any genre,
-					preferably under 10 minutes. All submissions will be handled via SoundCloud using the dedicated group. User CAN submit previously released songs.
-					Remixes are not allowed. The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.</li>
-				<li>The Judges. The judges consist of the group Avelocity: Brian Amin (Maniarib), Joshua Wade (Second Flight),
-					Uroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn (Raptor980), Jan Heemstra (Combustible Lemonade)</li>
-				<li>The Judging Process. After the deadline, the judges will make their decisions and release the results within next 7 days.</li>
-				<li>Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
-					will be donated for further development of LMMS, the program that we love.</li>
-			</ol>
+			#### Original description:
+
+			If you have made amazing songs with LMMS we have a contest for you! A LMMS top songs contest.
+			The compilation aims to inspire new users and get new producers to use the program as well as to give a big thank you to LMMS developers.
+			The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS. Submit your song before
+			midnight on February 15th, and find details about this contest on the Soundcloud site. </p>
+
+			#### Competition rules:
+			1. The Deadline. The songs must be submitted by February 15th 12 PM GMT. A user can submit a maximum of two songs. The songs can be of any genre,
+				preferably under 10 minutes. All submissions will be handled via SoundCloud using the dedicated group. User CAN submit previously released songs.
+				Remixes are not allowed. The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.
+			2. The Judges. The judges consist of the group Avelocity: Brian Amin (Maniarib), Joshua Wade (Second Flight),
+				Uroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn (Raptor980), Jan Heemstra (Combustible Lemonade)
+			3. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 7 days.
+			4. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
+				will be donated for further development of LMMS, the program that we love.
+			{% endtrans %}
+			{% endmarkdown %}
 		</div>
 	</div>
 </div>

@@ -1,0 +1,911 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lmms.io 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-13 22:10-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: download/error.twig:32
+msgid ""
+"We're sorry, something went wrong fetching the latest release info. You can "
+"still download releases on <a href=\"//github.com/LMMS/lmms/releases"
+"\">GitHub</a>."
+msgstr ""
+
+#: download/index.twig:32
+msgid "Download LMMS"
+msgstr ""
+
+#: download/index.twig:32
+msgid ""
+"Downloading and using LMMS is free! Just choose the operating system you "
+"want to run LMMS on:"
+msgstr ""
+
+#: download/index.twig:55
+msgid "Install LMMS on Windows"
+msgstr ""
+
+#: download/index.twig:56
+msgid ""
+"Click one of the buttons below (either 32bit or 64bit) to download LMMS for "
+"Windows"
+msgstr ""
+
+#: download/index.twig:57 download/index.twig:129
+msgid "Stable Versions"
+msgstr ""
+
+#: download/index.twig:95 download/index.twig:156
+msgid "Beta Versions"
+msgstr ""
+
+#: download/index.twig:18
+msgid "Install LMMS on Apple OS&nbsp;X"
+msgstr ""
+
+#: download/index.twig:74
+msgid "Click one of the buttons below to download LMMS for Apple"
+msgstr ""
+
+#: download/index.twig:91
+msgid "Downloads labeled Beta are pre-release software, stability may suffer."
+msgstr ""
+
+#: download/index.twig:92
+msgid "Previous releases"
+msgstr ""
+
+#: download/index.twig:18
+msgid "Free Download"
+msgstr ""
+
+#: download/index.twig:351
+msgid "Show release notes"
+msgstr ""
+
+#: competitions.twig:10 /home/liushuyu/Development/lmms.io/public/navbar.php:13
+msgid "Competitions"
+msgstr ""
+
+#: competitions.twig:10
+msgid "Official competitions organised by LMMS and its community members"
+msgstr ""
+
+#: competitions.twig:16
+msgid "The Best of LMMS vol. IV"
+msgstr ""
+
+#: competitions.twig:68
+msgid ""
+"#### The competition has started **March 16th, 2017**, submit [here](https://"
+"goo.gl/forms/cifEliOViOXTSc8H2).\n"
+"\t\t\t#### Description:\n"
+"\t\t\tWe are proud to present to you The Best of LMMS contest volume 4!\n"
+"\t\t\tThe contest aims to inspire the community to create and share their "
+"music. Submit your track at the link below before midnight\n"
+"\t\t\ton April 16th (UTC time) for a chance to be featured on the BoL v4 "
+"album. The compilation will be uploaded to Bandcamp, with all\n"
+"\t\t\tprofits going towards LMMS' further development.\n"
+"\t\t\tThis year's submissions are handled through Google forms. We accept "
+"submissions hosted on YouTube, Soundcloud and Clyp. For the full rules check "
+"out the submission form:\n"
+"\t\t\thttps://goo.gl/forms/cifEliOViOXTSc8H2\n"
+"\t\t\t#### Competition rules:\n"
+"\t\t\t1. **The Deadline**\n"
+"\t\t\t  - Tracks must be submitted by April 16th at 0:00 UTC using [this "
+"form](https://goo.gl/forms/cifEliOViOXTSc8H2).\n"
+"\t\t\t2. **The Deadline**\n"
+"\t\t\t  - Must be produced in LMMS.\n"
+"\t\t\t\t- You may use other programs for mastering and post processing.\n"
+"\t\t\t\t- Must be under 10 minutes long.\n"
+"\t\t\t\t- No winning tracks from previous Best of LMMS albums allowed.\n"
+"\t\t\t\t- No remixes allowed.\n"
+"\t\t\t3. **The Submissions**\n"
+"\t\t\t  - You must submit using this form only.\n"
+"\t\t\t\t- No more than **TWO** entries per artist are allowed.\n"
+"\t\t\t\t- Collaborations count as **ONE** entry for each artist involved.\n"
+"\t\t\t\t- Only submissions hosted on Soundcloud, YouTube or Clyp are "
+"allowed.\n"
+"\t\t\t\t- Your entry must be available for listening until the end of the "
+"judging process. If not, your entry will be disqualified.\n"
+"\t\t\t4. **The Judges**\n"
+"\t\t\t  - The jury consists of: Greippi, Jacoby Davis, Spekular, Stakeout "
+"Punch and Squatro.\n"
+"\t\t\t5. **The Judging Process**\n"
+"\t\t\t  - After the deadline, the judges will make their decisions and "
+"release the results within 14 days.\n"
+"\t\t\t6. **The Release**\n"
+"\t\t\t  - The 25 highest scoring songs will be released as an album on "
+"Bandcamp with the price of \"Pay what you want\".\n"
+"\t\t\t\t\tAll the received funds will be donated for further development of "
+"LMMS, the program that we love."
+msgstr ""
+
+#: competitions.twig:11
+msgid "Past competitions:"
+msgstr ""
+
+#: competitions.twig:17
+msgid "The Best of LMMS vol. III"
+msgstr ""
+
+#: competitions.twig:127
+msgid ""
+"#### The competition has ended on **March 16th, 2016.**\n"
+"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
+"(https://lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tListen to all entries [here.](https://soundcloud.com/groups/the-best-"
+"of-lmms-competition-v3)\n"
+"\n"
+"\t\t\tWinners:\n"
+"\t\t\t<iframe width=\"100%\" height=\"450\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/211975750&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Original description:\n"
+"\n"
+"\t\t\tIt’s that time of the year again: If you have made amazing tracks with "
+"LMMS we have a contest for you!\n"
+"\t\t\tThe Best of LMMS contest is back!  The compilation aims to inspire new "
+"users and everyone to create music.\n"
+"\t\t\tThe compilation will be uploaded to Bandcamp and all profit will be "
+"donated for the further development of LMMS.\n"
+"\t\t\tSubmit your track before midnight on March 16th (UTC time), and find "
+"details about the contest on the [soundcloud group.](https://soundcloud.com/"
+"groups/the-best-of-lmms-competition-v3)\n"
+"\n"
+"\t\t\t#### Competition rules:\n"
+"\n"
+"\t\t\t1. The Deadline. The tracks must be submitted by March 16th 0:00 UTC. "
+"The tracks can be of any genre, preferably under 10 minutes.\n"
+"\t\t\t\tThe track must be produced in LMMS, but it is allowed to use some "
+"other software (Audacity, Ardour etc.) for post mixing/mastering.\n"
+"\t\t\t2. The tracks. All submissions will be handled via SoundCloud using "
+"the dedicated group. You can submit a maximum of two tracks.\n"
+"\t\t\t\tYou may submit previously released tracks, but not tracks that were "
+"in the previous Best of LMMS albums. Remixes are not allowed. A "
+"collaboration between a judge and yourself is not allowed.\n"
+"\t\t\t3. The Judges. The jury consists of: Zach Henderson, Second Flight, "
+"Umcaruje, Greippi, Tres Finnochiaro, Abludo.\n"
+"\t\t\t4. The Judging Process. After the deadline, the judges will make their "
+"decisions and release the results within next 14 days.\n"
+"\t\t\t5. Release. The compilation will be released on a dedicated LMMS "
+"artists Bandcamp with the price of “Pay what you want”. All the received "
+"funds\n"
+"\t\t\t\twill be donated for further development of LMMS, the program that we "
+"love."
+msgstr ""
+
+#: competitions.twig:95
+msgid "The Best of LMMS vol. II"
+msgstr ""
+
+#: competitions.twig:176
+msgid ""
+"#### The competition has ended on **April 1st, 2015.**\n"
+"\n"
+"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
+"(https://lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tListen to all entries [here.](https://soundcloud.com/groups/the-best-"
+"of-lmms-competition-v2)\n"
+"\n"
+"\t\t\tWinners:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/103762698&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Original description:\n"
+"\t\t\t1. The Deadline. The songs must be submitted by April 1st 0:00 UTC. "
+"The songs can be of any genre, preferably under 10 minutes.\n"
+"\t\t\t\tThe song should be made mostly in LMMS, but it is allowed to use "
+"some other software (Audacity, Ardour etc.) for post mixing/mastering.\n"
+"\t\t\t2. The songs. All submissions will be handled via SoundCloud using the "
+"dedicated group. A user can submit a maximum of two songs.\n"
+"\t\t\t\tUsers CAN submit previously released songs, BUT not songs submitted "
+"for previous BoL competitions. Remixes are not allowed.\n"
+"\t\t\t\tA song cooperation between a judge and yourself is not allowed.\n"
+"\t\t\t3. The Judges and the Release. The judges consist of Stian Jørgensrud "
+"(Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix and "
+"Jernemies.\n"
+"\t\t\t\tThe compilation will be released on the dedicated LMMS artists "
+"Bandcamp with the price of “Pay what you want”. All the received funds will "
+"be donated\n"
+"\t\t\t\tfor further development of LMMS or to cover other program related "
+"costs.\n"
+"\n"
+"\t\t\tExtras:\n"
+"\n"
+"\t\t\tBy marking your song with the tag \"Want Feedback\" you can get "
+"feedback from the judges. Comments from different judges will be combined "
+"into one\n"
+"\t\t\ttext so you won't know from who or how many the feedback is. Note that "
+"you aren't guaranteed any feedback, it depends on how much time the judges "
+"have.\n"
+"\t\t\tAlso note that the judges are just regular LMMS artists and no matter "
+"what feedback you get the judges' decision for album songs is final."
+msgstr ""
+
+#: competitions.twig:130
+msgid "The Best of LMMS vol. I"
+msgstr ""
+
+#: competitions.twig:224
+msgid ""
+"#### The competition has ended on **February 15th, 2014.**\n"
+"\n"
+"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
+"(https://lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tListen to all entries [here.](https://soundcloud.com/groups/lmms-top-"
+"songs-compilation)\n"
+"\n"
+"\t\t\tWinners:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/27083727&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Original description:\n"
+"\n"
+"\t\t\tIf you have made amazing songs with LMMS we have a contest for you! A "
+"LMMS top songs contest.\n"
+"\t\t\tThe compilation aims to inspire new users and get new producers to use "
+"the program as well as to give a big thank you to LMMS developers.\n"
+"\t\t\tThe compilation will be uploaded to Bandcamp and all profit will be "
+"donated for the further development of LMMS. Submit your song before\n"
+"\t\t\tmidnight on February 15th, and find details about this contest on the "
+"Soundcloud site. </p>\n"
+"\n"
+"\t\t\t#### Competition rules:\n"
+"\t\t\t1. The Deadline. The songs must be submitted by February 15th 12 PM "
+"GMT. A user can submit a maximum of two songs. The songs can be of any "
+"genre,\n"
+"\t\t\t\tpreferably under 10 minutes. All submissions will be handled via "
+"SoundCloud using the dedicated group. User CAN submit previously released "
+"songs.\n"
+"\t\t\t\tRemixes are not allowed. The song should be made mostly in LMMS, but "
+"it is allowed to use some other software (Audacity, Ardour etc.) for post "
+"mixing/mastering.\n"
+"\t\t\t2. The Judges. The judges consist of the group Avelocity: Brian Amin "
+"(Maniarib), Joshua Wade (Second Flight),\n"
+"\t\t\t\tUroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn "
+"(Raptor980), Jan Heemstra (Combustible Lemonade)\n"
+"\t\t\t3. The Judging Process. After the deadline, the judges will make their "
+"decisions and release the results within next 7 days.\n"
+"\t\t\t4. Release. The compilation will be released on a dedicated LMMS "
+"artists Bandcamp with the price of “Pay what you want”. All the received "
+"funds\n"
+"\t\t\t\twill be donated for further development of LMMS, the program that we "
+"love."
+msgstr ""
+
+#: download/linux.twig:6
+msgid "Install LMMS on Linux"
+msgstr ""
+
+#: download/linux.twig:8
+msgid ""
+"LMMS is included in most major Linux distribution's package repositories."
+"<br>\n"
+"\tPlease <a href=\"/community/\">contact us</a> if your distribution is not "
+"listed here."
+msgstr ""
+
+#: download/linux.twig:51
+msgid ""
+"For installing LMMS on Debian based distributions such as Debian itself, "
+"Ubuntu or Linux Mint, just click the button below."
+msgstr ""
+
+#: download/linux.twig:56
+msgid "If this doesn't work for you, run this command in a terminal."
+msgstr ""
+
+#: download/linux.twig:58
+msgid ""
+"If the traditional repositories lag behind on versions, try the <a href="
+"\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio repository</"
+"a>."
+msgstr ""
+
+#: download/linux.twig:59 download/linux.twig:80
+msgid "VST Support"
+msgstr ""
+
+#: download/linux.twig:60
+msgid ""
+"If your distribution offers VST support (requires the installation of Wine) "
+"it is generally offered in a separate package.  For example, using the <a "
+"href=\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio "
+"repository</a>, run this command in a terminal."
+msgstr ""
+
+#: download/linux.twig:66 download/linux.twig:72
+msgid "Run the following command as root in a terminal:"
+msgstr ""
+
+#: download/linux.twig:78 download/linux.twig:92
+msgid "Run the following command in a terminal:"
+msgstr ""
+
+#: download/linux.twig:81
+msgid ""
+"For VST support, please see the <a href=\"https://wiki.archlinux.org/index."
+"php/LMMS\" target=\"_blank\">Arch LMMS wiki page</a>"
+msgstr ""
+
+#: download/linux.twig:98
+msgid ""
+"AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and "
+"more to come in the future), with VST support enabled by default on AMD64."
+msgstr ""
+
+#: download/linux.twig:99
+msgid "To install LMMS on AOSC OS with PackageKit (recommended):"
+msgstr ""
+
+#: download/linux.twig:101
+msgid "To install LMMS on AOSC OS with DPKG:"
+msgstr ""
+
+#: download/linux.twig:103
+msgid "To install LMMS on AOSC OS with RPM:"
+msgstr ""
+
+#: download/linux.twig:109
+msgid "Build LMMS from source"
+msgstr ""
+
+#: download/linux.twig:110
+msgid ""
+"If your Linux distribution does not provide a lmms package (or only an out-"
+"dated one), you can still build LMMS from source. Visit the <a href="
+"\"https://github.com/LMMS/lmms/wiki/Compiling-lmms\">LMMS development wiki "
+"on GitHub</a> for instructions on how to compile LMMS for Linux."
+msgstr ""
+
+#: showcase.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:12
+msgid "Showcase"
+msgstr ""
+
+#: showcase.twig:6
+msgid "Tracks made with LMMS"
+msgstr ""
+
+#: showcase.twig:12
+msgid "The Best of LMMS Vol.3 by LMMS Artists"
+msgstr ""
+
+#: showcase.twig:20
+msgid "The Best of LMMS Vol.2 by LMMS Artists"
+msgstr ""
+
+#: showcase.twig:28
+msgid "The Best of LMMS Vol.1 by LMMS Artists"
+msgstr ""
+
+#: home.twig:11
+msgid "Let's make music"
+msgstr ""
+
+#: home.twig:12
+msgid "with a free, cross-platform tool for your computer."
+msgstr ""
+
+#: home.twig:14
+msgid "Download now"
+msgstr ""
+
+#: home.twig:15 home.twig:109
+msgid "Get involved"
+msgstr ""
+
+#: home.twig:27
+msgid "Making beats has never been easier."
+msgstr ""
+
+#: home.twig:32
+msgid "Produce music with your computer"
+msgstr ""
+
+#: home.twig:33
+msgid ""
+"by creating melodies and beats, synthesizing and mixing sounds, arranging "
+"samples and much more."
+msgstr ""
+
+#: home.twig:37
+msgid "Playback instruments, samples and plugins"
+msgstr ""
+
+#: home.twig:38
+msgid "with a typing or MIDI keyboard in a user-friendly and modern interface."
+msgstr ""
+
+#: home.twig:42
+msgid "Bundled with ready-to-use stuff"
+msgstr ""
+
+#: home.twig:12
+msgid ""
+"from an assortment of instrument and effect plugins, presets and samples to "
+"VST and SoundFont support."
+msgstr ""
+
+#: home.twig:52
+msgid "Made by musicians, for musicians."
+msgstr ""
+
+#: home.twig:56
+msgid "Download for Linux"
+msgstr ""
+
+#: home.twig:57
+msgid "Download for Windows"
+msgstr ""
+
+#: home.twig:58
+msgid "Download for macOS"
+msgstr ""
+
+#: home.twig:59
+msgid "Pick your flavour"
+msgstr ""
+
+#: home.twig:60
+msgid "Linux, Windows or macOS."
+msgstr ""
+
+#: home.twig:69
+msgid "Houston, we've had a problem."
+msgstr ""
+
+#: home.twig:70
+msgid "Standby, we've got you covered."
+msgstr ""
+
+#: home.twig:74
+msgid "Visit our forum"
+msgstr ""
+
+#: home.twig:75
+msgid "Visit our Facebook page"
+msgstr ""
+
+#: home.twig:77
+msgid "Visit our Google+ page"
+msgstr ""
+
+#: home.twig:78
+msgid "Visit our GitHub page"
+msgstr ""
+
+#: home.twig:79
+msgid "Ask your questions here"
+msgstr ""
+
+#: home.twig:80
+msgid "and answer a few questions while you're waiting."
+msgstr ""
+
+#: home.twig:87
+msgid "Sharing means caring."
+msgstr ""
+
+#: home.twig:92
+msgid "Visit our Soundcloud group"
+msgstr ""
+
+#: home.twig:93
+msgid "Visit the LMMS Sharing Platform (LSP)"
+msgstr ""
+
+#: home.twig:94
+msgid "Don't be modest,"
+msgstr ""
+
+#: home.twig:95
+msgid "show us your creations."
+msgstr ""
+
+#: home.twig:103
+msgid "We <3 Open Source."
+msgstr ""
+
+#: home.twig:108
+msgid "Fork us on Github"
+msgstr ""
+
+#: home.twig:110
+#, php-format
+msgid "LMMS is a 100% free, open source, community driven project,"
+msgstr ""
+
+#: home.twig:111
+msgid "proudly hosted on Github"
+msgstr ""
+
+#: home.twig:30
+msgid "Take a peek"
+msgstr ""
+
+#: home.twig:39
+msgid "Watch our promo video."
+msgstr ""
+
+#: home.twig:136
+msgid "Featuring"
+msgstr ""
+
+#: home.twig:16
+msgid "Core Functionality"
+msgstr ""
+
+#: home.twig:144
+msgid "Compose music on Windows, Linux and Apple OS&nbsp;X"
+msgstr ""
+
+#: home.twig:145
+msgid "Sequence, compose, mix and automate songs in one simple interface"
+msgstr ""
+
+#: home.twig:146
+msgid "Note playback via MIDI or typing keyboard"
+msgstr ""
+
+#: home.twig:147
+msgid "Consolidate instrument tracks using Beat+Bassline Editor"
+msgstr ""
+
+#: home.twig:148
+msgid "Fine tune patterns, notes, chords and melodies using Piano Roll Editor"
+msgstr ""
+
+#: home.twig:149
+msgid ""
+"Full user-defined track-based automation and computer-controlled automation "
+"sources"
+msgstr ""
+
+#: home.twig:150
+msgid "Import of MIDI files and Hydrogen project files"
+msgstr ""
+
+#: home.twig:160
+msgid "Musical Instruments"
+msgstr ""
+
+#: home.twig:164
+msgid "Built-in 32-bit VST instrument support"
+msgstr ""
+
+#: home.twig:165
+msgid ""
+"Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit "
+"Windows)"
+msgstr ""
+
+#: home.twig:166
+msgid "Roland ® TB-303 style monophonic bass synthesizer"
+msgstr ""
+
+#: home.twig:167
+msgid ""
+"Embedded ZynAddSubFx:  Polyphonic, mutlitimbral, microtonal, multi-voice "
+"additive, subtractive and pad synthesis all in one powerful plugin"
+msgstr ""
+
+#: home.twig:63
+msgid "Native Commodore 64 ® SID microchip/instrument emulation"
+msgstr ""
+
+#: home.twig:21
+msgid ""
+"Native SoundFont ® support (SF2), the industry standard for high quality "
+"instrument patches and banks"
+msgstr ""
+
+#: home.twig:170
+msgid "Nintendo ®, GameBoy ® and game sound effect emulation"
+msgstr ""
+
+#: home.twig:171
+msgid "2 built-in oscillator-based synthesizers"
+msgstr ""
+
+#: home.twig:172
+msgid "2 built-in wavetable-based synthesizers"
+msgstr ""
+
+#: home.twig:173
+msgid "Gravis UltraSound ® GUS Patch support"
+msgstr ""
+
+#: home.twig:183
+msgid "Effects Mixing"
+msgstr ""
+
+#: home.twig:187
+msgid "Drop-in LADSPA plug-in support"
+msgstr ""
+
+#: home.twig:188
+msgid "Drop-in VST ® effect plug-in support (Linux and Windows)"
+msgstr ""
+
+#: home.twig:189
+msgid ""
+"Built-in compressor, limiter, delay, reverb, distortion, EQ, bass-enhancer"
+msgstr ""
+
+#: home.twig:190
+msgid "Bundled graphic and parametric equalizers"
+msgstr ""
+
+#: home.twig:191
+msgid "Built-in visualization/spectrum analyser"
+msgstr ""
+
+#: errorpage.twig:6
+msgid "That's a %code%"
+msgstr ""
+
+#: errorpage.twig:7
+msgid ""
+"If you followed a valid link on this site, please contact us\n"
+"      about it and <a href=\"//github.com/LMMS/lmms.io/issues/new\">file an "
+"issue</a> on GitHub."
+msgstr ""
+
+#: get-involved.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:7
+msgid "Get Involved"
+msgstr ""
+
+#: get-involved.twig:6
+msgid ""
+"LMMS is a free, open-source software built entirely by a small number of\n"
+"\tvolunteers in their free time. But to keep the project going, we need "
+"this\n"
+"\tnumber to grow. So if you feel like giving something back to the "
+"community,\n"
+"\tjoin us in making LMMS better!"
+msgstr ""
+
+#: get-involved.twig:11
+msgid "What you can do"
+msgstr ""
+
+#: get-involved.twig:12
+msgid "There are multiple ways of contributing:"
+msgstr ""
+
+#: get-involved.twig:21
+msgid ""
+"We are in desperate need of new developers to join our team. LMMS is written "
+"in C++ using the Qt\n"
+"\t\t\t\t\t   Framework, so if you know a thing or two about these, don't "
+"hesitate to get yourself dirty with\n"
+"\t\t\t\t\t   coding!"
+msgstr ""
+
+#: get-involved.twig:24
+msgid ""
+"See our <a href=\"//github.com/LMMS/lmms/wiki\">GitHub Wiki</a> and our\n"
+"\t\t\t\t\t   <a href=\"//github.com/LMMS/lmms/issues\">bug tracker</a> to "
+"get started. Furthermore, the LMMS\n"
+"\t\t\t\t\t   <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
+"devel\">mailing list</a> is a great place\n"
+"\t\t\t\t\t   to introduce yourself."
+msgstr ""
+
+#: get-involved.twig:35
+msgid "Website & Docs"
+msgstr ""
+
+#: get-involved.twig:38
+msgid ""
+"You can help us by improving this website or documenting the software. The "
+"website sources are in our\n"
+"\t\t\t\t\t   GitHub repo <a href=\"//github.com/LMMS/lmms.io\">LMMS/lmms.io</"
+"a>, our documentation is hosted using a\n"
+"\t\t\t\t\t   <a href=\"//lmms.io/wiki\">MediaWiki instance</a>."
+msgstr ""
+
+#: get-involved.twig:41
+msgid ""
+"Public registration on our Wiki is disabled due to spam issues. Please post "
+"to the\n"
+"\t\t\t\t\t   <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
+"devel\">mailing list</a> if you're\n"
+"\t\t\t\t\t   interested in helping out with the documentation!"
+msgstr ""
+
+#: get-involved.twig:13
+msgid ""
+"Even though donations are not the thing we need the most (that'd be "
+"developers), they help us pay\n"
+"\t\t\t\t\t   our bills, for our domain lmms.io for instance."
+msgstr ""
+
+#: get-involved.twig:59
+msgid "Donate via PayPal"
+msgstr ""
+
+#: get-involved.twig:68
+msgid "Translations"
+msgstr ""
+
+#: get-involved.twig:71
+msgid ""
+"If your language is missing in LMMS, help the project and other users "
+"speaking the same language by\n"
+"\t\t\t\t\t   translating the software. You can find instructions on the "
+"page\n"
+"\t\t\t\t\t   \"<a href=\"//github.com/LMMS/lmms/wiki/Creating-a-localization"
+"\">Creating a localization</a>\" in our\n"
+"\t\t\t\t\t   GitHub Wiki."
+msgstr ""
+
+#: get-involved.twig:80
+msgid "How to get in touch"
+msgstr ""
+
+#: get-involved.twig:89
+msgid ""
+"Posting to the mailing list is the best way to reach out to our developers:"
+msgstr ""
+
+#: get-involved.twig:90
+msgid "Subscribe to LMMS-Devel mailing list"
+msgstr ""
+
+#: get-involved.twig:101
+msgid ""
+"Our IRC channel is <a href=\"irc://chat.freenode.net/#lmms\">#lmms</a> on\n"
+"\t\t\t\t\t<a href=\"https://freenode.net/irc_servers.shtml\">Freenode</a>"
+msgstr ""
+
+#: get-involved.twig:103
+msgid ""
+"<a href=\"https://discordapp.com/\" target=\"_blank\">Discord</a>\n"
+"\t\t\t\t\tis a more modern alternative to IRC. Join our server\n"
+"\t\t\t\t\t<a href=\"https://discord.gg/5kSc32Z\">by clicking here</a>"
+msgstr ""
+
+#: get-involved.twig:119
+msgid "We host a forum for our users here on this website:"
+msgstr ""
+
+#: get-involved.twig:131
+msgid ""
+"For reporting a bug or suggesting a new feature, please use the GitHub issue "
+"tracker:"
+msgstr ""
+
+#: branding.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:14
+msgid "Branding"
+msgstr ""
+
+#: branding.twig:6
+msgid "Baa Baa Black Sheep"
+msgstr ""
+
+#: branding.twig:9
+msgid "Download LMMS Artwork"
+msgstr ""
+
+#: branding.twig:12
+msgid "LMMS Logo"
+msgstr ""
+
+#: branding.twig:12 branding.twig:21
+msgid "LMMS Development Team"
+msgstr ""
+
+#: branding.twig:21
+msgid "LMMS Project Icon"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/artwork.php:18
+msgid "Author:"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/artwork.php:24
+msgid "Modified/Themed By:"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/artwork.php:56
+msgid "Scalable Vector Format"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/artwork.php:57
+msgid "Gimp Image Editor Format"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/artwork.php:58
+msgid "Portable Document Format"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/artwork.php:59
+msgid "Adobe Photoshop Format"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/artwork.php:60
+msgid "PNG Format"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/artwork.php:62
+msgid "JPEG Format"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/artwork.php:63
+msgid "Bitmap Format"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/artwork.php:64
+msgid "Windows Icon Format"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/artwork.php:65
+msgid "Apple Icon Format"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/artwork.php:66
+msgid "Unknown File"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/index.php:34
+msgid "The requested page could not be found."
+msgstr "The requested page could not be found..."
+
+#: /home/liushuyu/Development/lmms.io/public/index.php:37
+msgid "We are sorry, but something went terribly wrong."
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/index.php:40
+msgid "Yuck, an error!"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/navbar.php:6
+msgid "Download"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/navbar.php:8
+msgid "Documentation"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/navbar.php:8
+msgid "Docs"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/navbar.php:9
+msgid "Forum"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/navbar.php:10
+msgid "Sharing Platform"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/navbar.php:10
+msgid "Share"
+msgstr ""
+
+#: /home/liushuyu/Development/lmms.io/public/navbar.php:11
+msgid "More"
+msgstr ""

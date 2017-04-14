@@ -6,3 +6,4 @@
 /tmp/
 /vendor/
 composer.phar
+/**/*.mo

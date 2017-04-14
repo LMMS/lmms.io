@@ -3,13 +3,13 @@
 {% import 'macros.twig' as macros %}
 
 {% block content %}
-{{ macros.jumbo('Showcase', 'Tracks made with LMMS')}}
+{{ macros.jumbo('Showcase'|trans, 'Tracks made with LMMS'|trans)}}
 
 <div class="text-center container">
 	<div class="wait-div text-center">
 		<img src='/img/loading.gif' /><br>
 	</div>
-	<iframe class="bandcamp-iframe" src="//bandcamp.com/EmbeddedPlayer/album=1272155123/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-3">The Best of LMMS Vol.2 by LMMS Artists</a></iframe>
+	<iframe class="bandcamp-iframe" src="//bandcamp.com/EmbeddedPlayer/album=1272155123/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-3">{% trans %}The Best of LMMS Vol.3 by LMMS Artists{% endtrans %}</a></iframe>
 </div>
 <hr />
 
@@ -17,7 +17,7 @@
 	<div class="wait-div text-center">
 		<img src='/img/loading.gif' /><br>
 	</div>
-	<iframe class="bandcamp-iframe" src="//bandcamp.com/EmbeddedPlayer/album=2883175486/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="http://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-2">The Best of LMMS Vol.2 by LMMS Artists</a></iframe>
+	<iframe class="bandcamp-iframe" src="//bandcamp.com/EmbeddedPlayer/album=2883175486/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="http://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-2">{% trans %}The Best of LMMS Vol.2 by LMMS Artists{% endtrans %}</a></iframe>
 </div>
 <hr />
 
@@ -25,7 +25,7 @@
 	<div class="wait-div text-center">
 		<img src='/img/loading.gif' /><br>
 	</div>
-	<iframe class="bandcamp-iframe" src="//bandcamp.com/EmbeddedPlayer/album=2796846066/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="http://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-1">The Best of LMMS Vol.1 by LMMS Artists</a></iframe>
+	<iframe class="bandcamp-iframe" src="//bandcamp.com/EmbeddedPlayer/album=2796846066/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="http://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-1">{% trans %}The Best of LMMS Vol.1 by LMMS Artists{% endtrans %}</a></iframe>
 </div>
 
 {% endblock %}
