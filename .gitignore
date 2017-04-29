@@ -1,4 +1,7 @@
 *~
+.idea
+*.sublime-project
+*.sublime-workspace
 /public/community/cache/
 /public/feed/cache/
 /public/cache/
@@ -6,3 +9,4 @@
 /tmp/
 /vendor/
 composer.phar
+
