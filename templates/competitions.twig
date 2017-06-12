@@ -10,27 +10,35 @@
 {{ macros.jumbo('Competitions'|trans, 'Official competitions organised by LMMS and its community members'|trans)}}
 <div class="container">
 	<h1 class="page-header text-center">Competitions</h1>
-	<h3>Current competitions</h3>
+	<!-- Preserve l10n content, please don't remove the h3 tag below -->
+	<h3 class="hidden">Current competitions</h3>
+	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol4" data-target="#bol4-desc">
 			<span>{% trans %}The Best of LMMS vol. IV{% endtrans %}</span>
-			<i class="fa fa-angle-up"></i>
+			<i class="fa fa-angle-down"></i>
 		</div>
 		<div class="comp-desc panel-collapse" role="tabpanel" id="bol4-desc">
 			{% markdown %}
 			{% trans %}
-			#### The competition has started **March 16th, 2017**, submit [here](https://goo.gl/forms/cifEliOViOXTSc8H2).
-			#### Description:
+			#### The competition has ended on **April 16th, 2017**.
+			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)
+
+			Listen to all entries [here.](https://docs.google.com/spreadsheets/d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?gid=975440614&single=true)
+
+			Winners:
+			<iframe width="100%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+			#### Original Description:
 			We are proud to present to you The Best of LMMS contest volume 4!
 			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-			on April 16th (UTC time) for a chance to be featured on the BoL v4 album. The compilation will be uploaded to Bandcamp, with all
+  		(23:59.59) on April 16th (UTC time) for a chance to be featured on the BoL v4 album. The compilation will be uploaded to Bandcamp, with all
 			profits going towards LMMS' further development.
 			This year's submissions are handled through Google forms. We accept submissions hosted on YouTube, Soundcloud and Clyp. For the full rules check out the submission form:
 			https://goo.gl/forms/cifEliOViOXTSc8H2
 			#### Competition rules:
 			1. **The Deadline**
-			  - Tracks must be submitted by April 16th at 0:00 UTC using [this form](https://goo.gl/forms/cifEliOViOXTSc8H2).
-			2. **The Deadline**
+			  - Tracks must be submitted by April 16th at 23:59.59 UTC using [this form](https://goo.gl/forms/cifEliOViOXTSc8H2).
+			2. **The Tracks**
 			  - Must be produced in LMMS.
 				- You may use other programs for mastering and post processing.
 				- Must be under 10 minutes long.
@@ -53,7 +61,6 @@
 			{% endmarkdown %}
 		</div>
 	</div>
-	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol3" data-target="#bol3-desc">
 			<span>{% trans %}The Best of LMMS vol. III{% endtrans %}</span>

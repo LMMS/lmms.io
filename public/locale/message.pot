@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-13 22:12-0600\n"
+"POT-Creation-Date: 2017-06-12 22:07+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,20 +84,36 @@ msgstr ""
 msgid "Official competitions organised by LMMS and its community members"
 msgstr ""
 
-#: competitions.twig:16
+#: competitions.twig:15
+msgid "Past competitions:"
+msgstr ""
+
+#: competitions.twig:18
 msgid "The Best of LMMS vol. IV"
 msgstr ""
 
-#: competitions.twig:68
+#: competitions.twig:73
 msgid ""
-"#### The competition has started **March 16th, 2017**, submit [here](https://"
-"goo.gl/forms/cifEliOViOXTSc8H2).\n"
-"\t\t\t#### Description:\n"
+"#### The competition has ended on **April 16th, 2017**.\n"
+"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
+"(https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)\n"
+"\n"
+"\t\t\tListen to all entries [here.](https://docs.google.com/spreadsheets/"
+"d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?"
+"gid=975440614&single=true)\n"
+"\n"
+"\t\t\tWinners:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Original Description:\n"
 "\t\t\tWe are proud to present to you The Best of LMMS contest volume 4!\n"
 "\t\t\tThe contest aims to inspire the community to create and share their "
 "music. Submit your track at the link below before midnight\n"
-"\t\t\ton April 16th (UTC time) for a chance to be featured on the BoL v4 "
-"album. The compilation will be uploaded to Bandcamp, with all\n"
+"  \t\t(23:59.59) on April 16th (UTC time) for a chance to be featured on the "
+"BoL v4 album. The compilation will be uploaded to Bandcamp, with all\n"
 "\t\t\tprofits going towards LMMS' further development.\n"
 "\t\t\tThis year's submissions are handled through Google forms. We accept "
 "submissions hosted on YouTube, Soundcloud and Clyp. For the full rules check "
@@ -105,9 +121,9 @@ msgid ""
 "\t\t\thttps://goo.gl/forms/cifEliOViOXTSc8H2\n"
 "\t\t\t#### Competition rules:\n"
 "\t\t\t1. **The Deadline**\n"
-"\t\t\t  - Tracks must be submitted by April 16th at 0:00 UTC using [this "
+"\t\t\t  - Tracks must be submitted by April 16th at 23:59.59 UTC using [this "
 "form](https://goo.gl/forms/cifEliOViOXTSc8H2).\n"
-"\t\t\t2. **The Deadline**\n"
+"\t\t\t2. **The Tracks**\n"
 "\t\t\t  - Must be produced in LMMS.\n"
 "\t\t\t\t- You may use other programs for mastering and post processing.\n"
 "\t\t\t\t- Must be under 10 minutes long.\n"
@@ -134,15 +150,11 @@ msgid ""
 "LMMS, the program that we love."
 msgstr ""
 
-#: competitions.twig:11
-msgid "Past competitions:"
-msgstr ""
-
-#: competitions.twig:17
+#: competitions.twig:66
 msgid "The Best of LMMS vol. III"
 msgstr ""
 
-#: competitions.twig:127
+#: competitions.twig:134
 msgid ""
 "#### The competition has ended on **March 16th, 2016.**\n"
 "\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
@@ -191,11 +203,11 @@ msgid ""
 "love."
 msgstr ""
 
-#: competitions.twig:95
+#: competitions.twig:102
 msgid "The Best of LMMS vol. II"
 msgstr ""
 
-#: competitions.twig:176
+#: competitions.twig:183
 msgid ""
 "#### The competition has ended on **April 1st, 2015.**\n"
 "\n"
@@ -242,11 +254,11 @@ msgid ""
 "what feedback you get the judges' decision for album songs is final."
 msgstr ""
 
-#: competitions.twig:130
+#: competitions.twig:137
 msgid "The Best of LMMS vol. I"
 msgstr ""
 
-#: competitions.twig:224
+#: competitions.twig:231
 msgid ""
 "#### The competition has ended on **February 15th, 2014.**\n"
 "\n"
