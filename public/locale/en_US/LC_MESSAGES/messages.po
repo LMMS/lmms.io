@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lmms.io 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-12 22:07+0800\n"
+"POT-Creation-Date: 2017-06-18 13:59+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,65 +15,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: download/error.twig:32
-msgid ""
-"We're sorry, something went wrong fetching the latest release info. You can "
-"still download releases on <a href=\"//github.com/LMMS/lmms/releases"
-"\">GitHub</a>."
-msgstr ""
-
-#: download/index.twig:32
-msgid "Download LMMS"
-msgstr ""
-
-#: download/index.twig:32
-msgid ""
-"Downloading and using LMMS is free! Just choose the operating system you "
-"want to run LMMS on:"
-msgstr ""
-
-#: download/index.twig:55
-msgid "Install LMMS on Windows"
-msgstr ""
-
-#: download/index.twig:56
-msgid ""
-"Click one of the buttons below (either 32bit or 64bit) to download LMMS for "
-"Windows"
-msgstr ""
-
-#: download/index.twig:57 download/index.twig:129
-msgid "Stable Versions"
-msgstr ""
-
-#: download/index.twig:95 download/index.twig:156
-msgid "Beta Versions"
-msgstr ""
-
-#: download/index.twig:18
-msgid "Install LMMS on Apple OS&nbsp;X"
-msgstr ""
-
-#: download/index.twig:74
-msgid "Click one of the buttons below to download LMMS for Apple"
-msgstr ""
-
-#: download/index.twig:91
-msgid "Downloads labeled Beta are pre-release software, stability may suffer."
-msgstr ""
-
-#: download/index.twig:92
-msgid "Previous releases"
-msgstr ""
-
-#: download/index.twig:18
-msgid "Free Download"
-msgstr ""
-
-#: download/index.twig:351
-msgid "Show release notes"
-msgstr ""
 
 #: competitions.twig:10 /home/liushuyu/Development/lmms.io/public/navbar.php:13
 msgid "Competitions"
@@ -91,7 +32,7 @@ msgstr ""
 msgid "The Best of LMMS vol. IV"
 msgstr ""
 
-#: competitions.twig:73
+#: /tmp/cache/twig/lmms.io/08/08a5fe4671d394faeee72e72a7e0ae6796acedc57ee19ce6aa561168a081d296.php:73
 msgid ""
 "#### The competition has ended on **April 16th, 2017**.\n"
 "\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
@@ -153,7 +94,7 @@ msgstr ""
 msgid "The Best of LMMS vol. III"
 msgstr ""
 
-#: competitions.twig:134
+#: /tmp/cache/twig/lmms.io/08/08a5fe4671d394faeee72e72a7e0ae6796acedc57ee19ce6aa561168a081d296.php:134
 msgid ""
 "#### The competition has ended on **March 16th, 2016.**\n"
 "\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
@@ -206,7 +147,7 @@ msgstr ""
 msgid "The Best of LMMS vol. II"
 msgstr ""
 
-#: competitions.twig:183
+#: /tmp/cache/twig/lmms.io/08/08a5fe4671d394faeee72e72a7e0ae6796acedc57ee19ce6aa561168a081d296.php:183
 msgid ""
 "#### The competition has ended on **April 1st, 2015.**\n"
 "\n"
@@ -257,7 +198,7 @@ msgstr ""
 msgid "The Best of LMMS vol. I"
 msgstr ""
 
-#: competitions.twig:231
+#: /tmp/cache/twig/lmms.io/08/08a5fe4671d394faeee72e72a7e0ae6796acedc57ee19ce6aa561168a081d296.php:231
 msgid ""
 "#### The competition has ended on **February 15th, 2014.**\n"
 "\n"
@@ -282,7 +223,7 @@ msgid ""
 "\t\t\tThe compilation will be uploaded to Bandcamp and all profit will be "
 "donated for the further development of LMMS. Submit your song before\n"
 "\t\t\tmidnight on February 15th, and find details about this contest on the "
-"Soundcloud site. </p>\n"
+"Soundcloud site.\n"
 "\n"
 "\t\t\t#### Competition rules:\n"
 "\t\t\t1. The Deadline. The songs must be submitted by February 15th 12 PM "
@@ -307,6 +248,240 @@ msgid ""
 "love."
 msgstr ""
 
+#: branding.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:14
+msgid "Branding"
+msgstr ""
+
+#: branding.twig:6
+msgid "Baa Baa Black Sheep"
+msgstr ""
+
+#: branding.twig:9
+msgid "Download LMMS Artwork"
+msgstr ""
+
+#: branding.twig:12
+msgid "LMMS Logo"
+msgstr ""
+
+#: branding.twig:12 branding.twig:21
+msgid "LMMS Development Team"
+msgstr ""
+
+#: branding.twig:21
+msgid "LMMS Project Icon"
+msgstr ""
+
+#: get-involved.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:7
+msgid "Get Involved"
+msgstr ""
+
+#: get-involved.twig:6
+msgid ""
+"LMMS is a free, open-source software built entirely by a small number of\n"
+"\tvolunteers in their free time. But to keep the project going, we need "
+"this\n"
+"\tnumber to grow. So if you feel like giving something back to the "
+"community,\n"
+"\tjoin us in making LMMS better!"
+msgstr ""
+
+#: get-involved.twig:11
+msgid "What you can do"
+msgstr ""
+
+#: get-involved.twig:12
+msgid "There are multiple ways of contributing:"
+msgstr ""
+
+#: get-involved.twig:21
+msgid ""
+"We are in desperate need of new developers to join our team. LMMS is written "
+"in C++ using the Qt\n"
+"\t\t\t\t\t   Framework, so if you know a thing or two about these, don't "
+"hesitate to get yourself dirty with\n"
+"\t\t\t\t\t   coding!"
+msgstr ""
+
+#: get-involved.twig:24
+msgid ""
+"See our <a href=\"//github.com/LMMS/lmms/wiki\">GitHub Wiki</a> and our\n"
+"\t\t\t\t\t   <a href=\"//github.com/LMMS/lmms/issues\">bug tracker</a> to "
+"get started. Furthermore, the LMMS\n"
+"\t\t\t\t\t   <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
+"devel\">mailing list</a> is a great place\n"
+"\t\t\t\t\t   to introduce yourself."
+msgstr ""
+
+#: get-involved.twig:35
+msgid "Website & Docs"
+msgstr ""
+
+#: get-involved.twig:38
+msgid ""
+"You can help us by improving this website or documenting the software. The "
+"website sources are in our\n"
+"\t\t\t\t\t   GitHub repo <a href=\"//github.com/LMMS/lmms.io\">LMMS/lmms.io</"
+"a>, our documentation is hosted using a\n"
+"\t\t\t\t\t   <a href=\"//lmms.io/wiki\">MediaWiki instance</a>."
+msgstr ""
+
+#: get-involved.twig:41
+msgid ""
+"Public registration on our Wiki is disabled due to spam issues. Please post "
+"to the\n"
+"\t\t\t\t\t   <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
+"devel\">mailing list</a> if you're\n"
+"\t\t\t\t\t   interested in helping out with the documentation!"
+msgstr ""
+
+#: get-involved.twig:56
+msgid ""
+"Even though donations are not the thing we need the most (that'd be "
+"developers), they help us pay\n"
+"\t\t\t\t\t   our bills, for our domain lmms.io for instance."
+msgstr ""
+
+#: get-involved.twig:59
+msgid "Donate via PayPal"
+msgstr ""
+
+#: get-involved.twig:68
+msgid "Translations"
+msgstr ""
+
+#: get-involved.twig:71
+msgid ""
+"If your language is missing in LMMS, help the project and other users "
+"speaking the same language by\n"
+"\t\t\t\t\t   translating the software. You can find instructions on the "
+"page\n"
+"\t\t\t\t\t   \"<a href=\"//github.com/LMMS/lmms/wiki/Creating-a-localization"
+"\">Creating a localization</a>\" in our\n"
+"\t\t\t\t\t   GitHub Wiki."
+msgstr ""
+
+#: get-involved.twig:80
+msgid "How to get in touch"
+msgstr ""
+
+#: get-involved.twig:89
+msgid ""
+"Posting to the mailing list is the best way to reach out to our developers:"
+msgstr ""
+
+#: get-involved.twig:90
+msgid "Subscribe to LMMS-Devel mailing list"
+msgstr ""
+
+#: get-involved.twig:101
+msgid ""
+"Our IRC channel is <a href=\"irc://chat.freenode.net/#lmms\">#lmms</a> on\n"
+"\t\t\t\t\t<a href=\"https://freenode.net/irc_servers.shtml\">Freenode</a>"
+msgstr ""
+
+#: get-involved.twig:103
+msgid ""
+"<a href=\"https://discordapp.com/\" target=\"_blank\">Discord</a>\n"
+"\t\t\t\t\tis a more modern alternative to IRC. Join our server\n"
+"\t\t\t\t\t<a href=\"https://discord.gg/5kSc32Z\">by clicking here</a>"
+msgstr ""
+
+#: get-involved.twig:119
+msgid "We host a forum for our users here on this website:"
+msgstr ""
+
+#: get-involved.twig:131
+msgid ""
+"For reporting a bug or suggesting a new feature, please use the GitHub issue "
+"tracker:"
+msgstr ""
+
+#: errorpage.twig:6
+msgid "That's a %code%"
+msgstr ""
+
+#: errorpage.twig:7
+msgid ""
+"If you followed a valid link on this site, please contact us\n"
+"      about it and <a href=\"//github.com/LMMS/lmms.io/issues/new\">file an "
+"issue</a> on GitHub."
+msgstr ""
+
+#: download/index.twig:32
+msgid "Download LMMS"
+msgstr ""
+
+#: download/index.twig:32
+msgid ""
+"Downloading and using LMMS is free! Just choose the operating system you "
+"want to run LMMS on:"
+msgstr ""
+
+#: download/index.twig:55
+msgid "Install LMMS on Windows"
+msgstr ""
+
+#: download/index.twig:56
+msgid ""
+"Click one of the buttons below (either 32bit or 64bit) to download LMMS for "
+"Windows"
+msgstr ""
+
+#: download/index.twig:57
+#: /tmp/cache/twig/lmms.io/73/73e267c5f92f918eb282bdac38fc48f8b1ad1b8f06ed43c8dc117ae24298c196.php:129
+msgid "Stable Versions"
+msgstr ""
+
+#: /tmp/cache/twig/lmms.io/73/73e267c5f92f918eb282bdac38fc48f8b1ad1b8f06ed43c8dc117ae24298c196.php:95
+#: /tmp/cache/twig/lmms.io/73/73e267c5f92f918eb282bdac38fc48f8b1ad1b8f06ed43c8dc117ae24298c196.php:156
+msgid "Beta Versions"
+msgstr ""
+
+#: download/index.twig:73
+msgid "Install LMMS on Apple OS&nbsp;X"
+msgstr ""
+
+#: download/index.twig:74
+msgid "Click one of the buttons below to download LMMS for Apple"
+msgstr ""
+
+#: download/index.twig:91
+msgid "Downloads labeled Beta are pre-release software, stability may suffer."
+msgstr ""
+
+#: download/index.twig:92
+msgid "Previous releases"
+msgstr ""
+
+#: download/index.twig:10
+msgid "Free Download"
+msgstr ""
+
+#: /tmp/cache/twig/lmms.io/73/73e267c5f92f918eb282bdac38fc48f8b1ad1b8f06ed43c8dc117ae24298c196.php:351
+msgid "Show release notes"
+msgstr ""
+
+#: showcase.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:12
+msgid "Showcase"
+msgstr ""
+
+#: showcase.twig:6
+msgid "Tracks made with LMMS"
+msgstr ""
+
+#: showcase.twig:12
+msgid "The Best of LMMS Vol.3 by LMMS Artists"
+msgstr ""
+
+#: showcase.twig:20
+msgid "The Best of LMMS Vol.2 by LMMS Artists"
+msgstr ""
+
+#: showcase.twig:28
+msgid "The Best of LMMS Vol.1 by LMMS Artists"
+msgstr ""
+
 #: download/linux.twig:6
 msgid "Install LMMS on Linux"
 msgstr ""
@@ -323,6 +498,14 @@ msgstr ""
 msgid ""
 "For installing LMMS on Debian based distributions such as Debian itself, "
 "Ubuntu or Linux Mint, just click the button below."
+msgstr ""
+
+#: download/linux.twig:54
+msgid "Install Now"
+msgstr ""
+
+#: /tmp/cache/twig/lmms.io/cf/cffd2710715f60e964f092fc008e5dd43c7ef64789164e706d246c1169928575.php:86
+msgid "(From Package Manager)"
 msgstr ""
 
 #: download/linux.twig:56
@@ -392,24 +575,11 @@ msgid ""
 "on GitHub</a> for instructions on how to compile LMMS for Linux."
 msgstr ""
 
-#: showcase.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:12
-msgid "Showcase"
-msgstr ""
-
-#: showcase.twig:6
-msgid "Tracks made with LMMS"
-msgstr ""
-
-#: showcase.twig:12
-msgid "The Best of LMMS Vol.3 by LMMS Artists"
-msgstr ""
-
-#: showcase.twig:20
-msgid "The Best of LMMS Vol.2 by LMMS Artists"
-msgstr ""
-
-#: showcase.twig:28
-msgid "The Best of LMMS Vol.1 by LMMS Artists"
+#: /tmp/cache/twig/lmms.io/e4/e4b52be3c3e53a4e6f07b7ccbc91665e4753775702fa0f9dc7385301b629ba26.php:32
+msgid ""
+"We're sorry, something went wrong fetching the latest release info. You can "
+"still download releases on <a href=\"//github.com/LMMS/lmms/releases"
+"\">GitHub</a>."
 msgstr ""
 
 #: home.twig:11
@@ -454,7 +624,7 @@ msgstr ""
 msgid "Bundled with ready-to-use stuff"
 msgstr ""
 
-#: home.twig:12
+#: home.twig:43
 msgid ""
 "from an assortment of instrument and effect plugins, presets and samples to "
 "VST and SoundFont support."
@@ -553,11 +723,11 @@ msgstr ""
 msgid "proudly hosted on Github"
 msgstr ""
 
-#: home.twig:30
+#: home.twig:126
 msgid "Take a peek"
 msgstr ""
 
-#: home.twig:39
+#: home.twig:129
 msgid "Watch our promo video."
 msgstr ""
 
@@ -565,7 +735,7 @@ msgstr ""
 msgid "Featuring"
 msgstr ""
 
-#: home.twig:16
+#: home.twig:140
 msgid "Core Functionality"
 msgstr ""
 
@@ -623,11 +793,11 @@ msgid ""
 "additive, subtractive and pad synthesis all in one powerful plugin"
 msgstr ""
 
-#: home.twig:63
+#: home.twig:168
 msgid "Native Commodore 64 ® SID microchip/instrument emulation"
 msgstr ""
 
-#: home.twig:21
+#: home.twig:169
 msgid ""
 "Native SoundFont ® support (SF2), the industry standard for high quality "
 "instrument patches and banks"
@@ -672,166 +842,6 @@ msgstr ""
 
 #: home.twig:191
 msgid "Built-in visualization/spectrum analyser"
-msgstr ""
-
-#: errorpage.twig:6
-msgid "That's a %code%"
-msgstr ""
-
-#: errorpage.twig:7
-msgid ""
-"If you followed a valid link on this site, please contact us\n"
-"      about it and <a href=\"//github.com/LMMS/lmms.io/issues/new\">file an "
-"issue</a> on GitHub."
-msgstr ""
-
-#: get-involved.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:7
-msgid "Get Involved"
-msgstr ""
-
-#: get-involved.twig:6
-msgid ""
-"LMMS is a free, open-source software built entirely by a small number of\n"
-"\tvolunteers in their free time. But to keep the project going, we need "
-"this\n"
-"\tnumber to grow. So if you feel like giving something back to the "
-"community,\n"
-"\tjoin us in making LMMS better!"
-msgstr ""
-
-#: get-involved.twig:11
-msgid "What you can do"
-msgstr ""
-
-#: get-involved.twig:12
-msgid "There are multiple ways of contributing:"
-msgstr ""
-
-#: get-involved.twig:21
-msgid ""
-"We are in desperate need of new developers to join our team. LMMS is written "
-"in C++ using the Qt\n"
-"\t\t\t\t\t   Framework, so if you know a thing or two about these, don't "
-"hesitate to get yourself dirty with\n"
-"\t\t\t\t\t   coding!"
-msgstr ""
-
-#: get-involved.twig:24
-msgid ""
-"See our <a href=\"//github.com/LMMS/lmms/wiki\">GitHub Wiki</a> and our\n"
-"\t\t\t\t\t   <a href=\"//github.com/LMMS/lmms/issues\">bug tracker</a> to "
-"get started. Furthermore, the LMMS\n"
-"\t\t\t\t\t   <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
-"devel\">mailing list</a> is a great place\n"
-"\t\t\t\t\t   to introduce yourself."
-msgstr ""
-
-#: get-involved.twig:35
-msgid "Website & Docs"
-msgstr ""
-
-#: get-involved.twig:38
-msgid ""
-"You can help us by improving this website or documenting the software. The "
-"website sources are in our\n"
-"\t\t\t\t\t   GitHub repo <a href=\"//github.com/LMMS/lmms.io\">LMMS/lmms.io</"
-"a>, our documentation is hosted using a\n"
-"\t\t\t\t\t   <a href=\"//lmms.io/wiki\">MediaWiki instance</a>."
-msgstr ""
-
-#: get-involved.twig:41
-msgid ""
-"Public registration on our Wiki is disabled due to spam issues. Please post "
-"to the\n"
-"\t\t\t\t\t   <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
-"devel\">mailing list</a> if you're\n"
-"\t\t\t\t\t   interested in helping out with the documentation!"
-msgstr ""
-
-#: get-involved.twig:13
-msgid ""
-"Even though donations are not the thing we need the most (that'd be "
-"developers), they help us pay\n"
-"\t\t\t\t\t   our bills, for our domain lmms.io for instance."
-msgstr ""
-
-#: get-involved.twig:59
-msgid "Donate via PayPal"
-msgstr ""
-
-#: get-involved.twig:68
-msgid "Translations"
-msgstr ""
-
-#: get-involved.twig:71
-msgid ""
-"If your language is missing in LMMS, help the project and other users "
-"speaking the same language by\n"
-"\t\t\t\t\t   translating the software. You can find instructions on the "
-"page\n"
-"\t\t\t\t\t   \"<a href=\"//github.com/LMMS/lmms/wiki/Creating-a-localization"
-"\">Creating a localization</a>\" in our\n"
-"\t\t\t\t\t   GitHub Wiki."
-msgstr ""
-
-#: get-involved.twig:80
-msgid "How to get in touch"
-msgstr ""
-
-#: get-involved.twig:89
-msgid ""
-"Posting to the mailing list is the best way to reach out to our developers:"
-msgstr ""
-
-#: get-involved.twig:90
-msgid "Subscribe to LMMS-Devel mailing list"
-msgstr ""
-
-#: get-involved.twig:101
-msgid ""
-"Our IRC channel is <a href=\"irc://chat.freenode.net/#lmms\">#lmms</a> on\n"
-"\t\t\t\t\t<a href=\"https://freenode.net/irc_servers.shtml\">Freenode</a>"
-msgstr ""
-
-#: get-involved.twig:103
-msgid ""
-"<a href=\"https://discordapp.com/\" target=\"_blank\">Discord</a>\n"
-"\t\t\t\t\tis a more modern alternative to IRC. Join our server\n"
-"\t\t\t\t\t<a href=\"https://discord.gg/5kSc32Z\">by clicking here</a>"
-msgstr ""
-
-#: get-involved.twig:119
-msgid "We host a forum for our users here on this website:"
-msgstr ""
-
-#: get-involved.twig:131
-msgid ""
-"For reporting a bug or suggesting a new feature, please use the GitHub issue "
-"tracker:"
-msgstr ""
-
-#: branding.twig:6 /home/liushuyu/Development/lmms.io/public/navbar.php:14
-msgid "Branding"
-msgstr ""
-
-#: branding.twig:6
-msgid "Baa Baa Black Sheep"
-msgstr ""
-
-#: branding.twig:9
-msgid "Download LMMS Artwork"
-msgstr ""
-
-#: branding.twig:12
-msgid "LMMS Logo"
-msgstr ""
-
-#: branding.twig:12 branding.twig:21
-msgid "LMMS Development Team"
-msgstr ""
-
-#: branding.twig:21
-msgid "LMMS Project Icon"
 msgstr ""
 
 #: /home/liushuyu/Development/lmms.io/public/artwork.php:18
