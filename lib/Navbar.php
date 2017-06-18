@@ -154,14 +154,14 @@ class Navbar
 			return $GLOBALS['pagetitle'];
 		}
 
+		$pageURI = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+		if ($pageURI === '/' or $pageURI === '/index.php') return _('Home');
+
 		foreach ($this->items as $item) {
 			if ($item->isActive()) {
 				return $item->getTitle();
 			}
 		}
-		if ($_SERVER["REQUEST_URI"] === '/' or
-			$_SERVER["REQUEST_URI"] === '/index.php')
-			return 'Home';
 	}
 
 	/**
