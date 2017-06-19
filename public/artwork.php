@@ -1,5 +1,5 @@
 <?php
-
+require_once('i18n.php');
 /*
  * Creates a small summary box about an artwork item
  * Usage:
@@ -15,13 +15,13 @@ function create_artwork_item($artwork_name, $img_path, $raw_path, $rendered_path
 	echo '<h3>' . $artwork_name . '</h3>';
 
 	if ($author_name) {
-		echo '<p><strong>Author:</strong> <a href="' . $author_link . '">' . $author_name . '</a><br>';
+		echo '<p><strong>' . _('Author:') . '</strong> <a href="' . $author_link . '">' . $author_name . '</a><br>';
 	} else {
 		echo '<p>';
 	}
 
 	if ($modified_by) {
-		echo '<strong>Modified/Themed By: </strong>' . $modified_by . '</p>';
+		echo '<strong>' . _('Modified/Themed By:') . ' </strong>' . $modified_by . '</p>';
 	}	else {
 		echo '</p>';
 	}
@@ -53,16 +53,16 @@ function get_file_description($extension) {
 		return;
 	}
 	switch (strtolower($extension)) {
-		case 'svg' : return 'Scalable Vector Format';
-		case 'xcf' : return 'Gimp Image Editor Format';
-		case 'pdf' : return 'Portable Document Format';
-		case 'psd' : return 'Adobe Photoshop Format';
-		case 'png' : return 'PNG Format';
+		case 'svg' : return _('Scalable Vector Format');
+		case 'xcf' : return _('Gimp Image Editor Format');
+		case 'pdf' : return _('Portable Document Format');
+		case 'psd' : return _('Adobe Photoshop Format');
+		case 'png' : return _('PNG Format');
 		case 'jpg' :
-		case 'jpeg': return 'JPEG Format';
-		case 'bmp' : return 'Bitmap Format';
-		case 'ico' : return 'Windows Icon Format';
-		case 'icns': return 'Apple Icon Format';
-		default:	return "Unknown File";
+		case 'jpeg': return _('JPEG Format');
+		case 'bmp' : return _('Bitmap Format');
+		case 'ico' : return _('Windows Icon Format');
+		case 'icns': return _('Apple Icon Format');
+		default:	return _("Unknown File");
 	}
 }

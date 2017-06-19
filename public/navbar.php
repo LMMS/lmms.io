@@ -1,23 +1,17 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/../lib/Navbar.php');
+require_once('i18n.php');
 $navbar = new Navbar(
 	[
-		['Download', '/download/', [
-			['fa-download', 'Download LMMS', '/download/'],
-	//		['fa-music', 'Download Sample Packs', '/download/samples'],
-			['fa-picture-o', 'Download Artwork', '/download/artwork']]],
-		['Get Involved', '/get-involved/'],
-		['Showcase', '/showcase/'],
-		[['Documentation', 'Docs'], '/documentation/'],
-		['Community', '/community/', [
-			['fa-users', 'Community', '/community/'],
-			['fa-trophy', 'Competitions', '/competitions/'],
-			['fa-comments', 'Forums', '/forum/'],
-			['fa-facebook', 'Facebook', '/community/#facebook'],
-			['fa-soundcloud', 'SoundCloud', '/community/#soundcloud'],
-			['fa-google-plus','Google+', '/community/#google+'],
-			['fa-youtube', 'YouTube', '/community/#youtube'],
-			['fa-github', 'GitHub', '/community/#github']]],
-		['Share', '/lsp/'],
+		[_('Download'), '/download/'],
+		[_('Get Involved'), '/get-involved/'],
+		[[_('Documentation'), _('Docs')], '/documentation/'],
+		[_('Forum'), '/forum/'],
+		[[_('Sharing Platform'), _('Share')], '/lsp/'],
+		[_('More'), '/nonsence/', [
+			['fa-eye', _('Showcase'), '/showcase/'],
+			['fa-trophy', _('Competitions'), '/competitions/'],
+			['fa-tags', _('Branding'), '/branding']]],
+		$i18n->langDropdown()
 	]
 );

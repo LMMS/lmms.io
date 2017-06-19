@@ -12,24 +12,16 @@ function twigrender($file)
 }
 
 require_once('../views.php');
-
 $pages = [
 	['/', 'homePage'],
-	['/community/', function () use($app) {
-		ob_start();
-		require_once('community.php');
-		$html = ob_get_contents();
-		ob_end_clean();
-		return $html;
-	}],
 	['/documentation/', 'documentationPage'],
 	['/documentation/{page}', 'documentationPage'],
 	['/download/', 'downloadPage'],
-	['/download/artwork/', twigrender('download/artwork.twig')],
 //	['/download/samples/', twigrender('download/samples.twig')],
 	['/get-involved/', twigrender('get-involved.twig')],
 	['/showcase/', twigrender('showcase.twig')],
-	['/competitions/', twigrender('competitions.twig')]
+	['/competitions/', twigrender('competitions.twig')],
+	['/branding/', twigrender('branding.twig')]
 ];
 
 foreach ($pages as $page) {
@@ -39,13 +31,13 @@ foreach ($pages as $page) {
 $app->error(function (\Exception $e, $code) use($app) {
 	switch ($code) {
 		case 404:
-			$message = 'The requested page could not be found.';
+			$message = _('The requested page could not be found.');
 			break;
 		default:
-			$message = 'We are sorry, but something went terribly wrong.';
+			$message = _('We are sorry, but something went terribly wrong.');
 	}
 
-	$GLOBALS['pagetitle'] = 'Yuck, an error!';
+	$GLOBALS['pagetitle'] = _('Yuck, an error!');
 	return $app['twig']->render('errorpage.twig', [
 		'message' => $message,
 		'code' => $code
