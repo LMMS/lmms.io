@@ -41,7 +41,7 @@
 				<input type="radio" name="options" id="windows-button"><span class="fa fa-windows fa-3x"></span><br>Windows
 			</label>
 			<label class="btn btn-default" onclick="showOS('#mac')">
-				<input type="radio" name="options" id="mac-button"><span class="fa fa-apple fa-3x"></span><br>OS X
+				<input type="radio" name="options" id="mac-button"><span class="fa fa-apple fa-5x"></span><br>macOS
 			</label>
 		</div>
 	</div>
@@ -70,8 +70,8 @@
 </div>
 
 <div id="mac-div" class="text-center hidden container">
-	<h2>{% trans %}Install LMMS on Apple OS&nbsp;X{% endtrans %}</h2>
-	<p>{% trans %}Click one of the buttons below to download LMMS for Apple{% endtrans %}</p>
+	<h2>{% trans %}Install LMMS on macOS{% endtrans %}</h2>
+	<p>{% trans %}Click one of the buttons below to download LMMS for macOS{% endtrans %}</p>
 	{% if osxstable %}
 		<h3>{% trans %}Stable Versions{% endtrans %}</h3>
 		{% for osx in osxstable %}
