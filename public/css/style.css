@@ -878,3 +878,10 @@ ul.nav-center li {
 	margin-bottom: 1ex;
 	margin-top: 2ex;
 }
+
+/* responsive /documentation page */
+@media (max-width: 767px) {
+	#documentionTable, #documentionTable p {text-align: center;}
+	#documentionTable table td , #documentionTable div {width: 100%; min-width: 100%;}
+	#documentionTable table tr td {position: relative; float: left; width: 100%;}
+}
