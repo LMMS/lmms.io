@@ -21,7 +21,10 @@ $pages = [
 	['/get-involved/', twigrender('get-involved.twig')],
 	['/showcase/', twigrender('showcase.twig')],
 	['/competitions/', twigrender('competitions.twig')],
-	['/branding/', twigrender('branding.twig')]
+	['/branding/', twigrender('branding.twig')],
+	['/chat/', function () use ($app) {
+		return $app->redirect('https://discord.gg/3sc5su7');
+	}]
 ];
 
 foreach ($pages as $page) {
