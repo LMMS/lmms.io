@@ -14,7 +14,7 @@ class MenuItem
 	 *
 	 * @param mixed $text	Title of the item as displayed in the menu bar. Can
 	 * 		be either string or array with long and short name
-	 *		(e.g. ['Screenshots, Sreens'])
+	 *		(e.g. ['Screenshots, Screens'])
 	 * @param string $url	The item's target URL, e.g. '/screenshots/'
 	 * @param array|null $children	Can be either
 	 *		(1) null for a normal menu item or
