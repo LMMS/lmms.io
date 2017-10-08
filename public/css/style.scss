@@ -743,7 +743,7 @@ a.social {
 }
 
 /* Video gets shown on bigger screens*/
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
 	.segment#home6 {
 		color: #fff;
 		position: relative;
@@ -781,7 +781,7 @@ a.social {
 }
 
 .panel-custom > .panel-heading {
-	background: url("/img/hexagon.png");
+	background: url("/img/hexagon-panel.png");
 	background-color: $navbarHoverBorder;
 	color: #fff;
 	background-repeat: repeat;
