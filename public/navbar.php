@@ -8,7 +8,7 @@ $navbar = new Navbar(
 		[[_('Documentation'), _('Docs')], '/documentation/'],
 		[_('Forum'), '/forum/'],
 		[[_('Sharing Platform'), _('Share')], '/lsp/'],
-		[_('More'), '/nonsence/', [
+		[_('More'), null, [
 			['fa-eye', _('Showcase'), '/showcase/'],
 			['fa-trophy', _('Competitions'), '/competitions/'],
 			['fa-tags', _('Branding'), '/branding']]],

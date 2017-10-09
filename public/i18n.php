@@ -78,6 +78,7 @@ class LMMSI18N
 		foreach ($this->regions as $lk => $value) {
 			array_push($availableRegions, [null, $value, "$pageURI?lang=$lk"]);
 		}
-		return [$this->regions[$this->locale], NULL, $availableRegions];
+		//language dropdown is right aligned
+		return [$this->regions[$this->locale], NULL, $availableRegions, true];
 	}
 }

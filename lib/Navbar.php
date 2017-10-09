@@ -21,13 +21,15 @@ class MenuItem
 	 *		(2) A two-dimensional array listing subitems in a dropdown.
 	 *			Each item in the array must have format [$icon, $text, $url]
 	 *			with $icon being null or a FontAwesome icon class
+	 * @param boolval $rightAlign Sets wether the item is right aligned
 	 */
-	public function __construct($text, $url, $children = null)
+	public function __construct($text, $url, $children = null, $rightAlign = false)
 	{
 		$this->text = $text;
 		$this->url = $url;
 		$this->children = $children;
 		$this->active = $this->isActive() ? 'active' : '';
+		$this->rightAlign = $rightAlign;
 	}
 
 	/**
@@ -140,7 +142,7 @@ class Navbar
 	public function __construct($items)
 	{
 		foreach ($items as $item) {
-			$this->items[] = new MenuItem($item[0], $item[1], count($item)>2 ? $item[2] : null);
+			$this->items[] = new MenuItem($item[0], $item[1], count($item)>2 ? $item[2] : null, count($item)>3 ? $item[3] : null);
 		}
 	}
 
@@ -188,7 +190,18 @@ class Navbar
 					<ul class="nav navbar-nav">
 		<?php
 		foreach ($this->items as $item) {
-			$item->flush();
+			if (!$item->rightAlign) {
+				$item->flush();
+			}
+		}
+		?>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+		<?php
+		foreach ($this->items as $item) {
+			if ($item->rightAlign){
+				$item->flush();
+			}
 		}
 		?>
 					</ul>
