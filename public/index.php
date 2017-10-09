@@ -34,10 +34,10 @@ foreach ($pages as $page) {
 $app->error(function (\Exception $e, $code) use($app) {
 	switch ($code) {
 		case 404:
-			$message = _('The requested page could not be found.');
+			$message = _('You seem to have taken a wrong turn.');
 			break;
 		default:
-			$message = _('We are sorry, but something went terribly wrong.');
+			$message = _('Oops, that is not supposed to happen.');
 	}
 
 	$GLOBALS['pagetitle'] = _('Yuck, an error!');

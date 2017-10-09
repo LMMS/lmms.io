@@ -1,4 +1,25 @@
-/* margin-bottoms for dynamic footer */
+/****************
+*** Variables ***
+****************/
+$navbarBg: #10b146;
+$navbarBgHover: inherit;
+$navbarText: #fff;
+$navbarTextHover: #f2f2f2;
+$navbarHoverBorder: #373b37;
+$footerColor: #222522;
+
+$grayOverlay: rgba(16, 16, 16, 0.7);
+$greenOverlay: rgba(16, 177, 70, 0.7);
+$stackColor: #ed9f00;
+$stackColorHover: #eb7500;
+$socialColor: rgba(255, 255, 255, 0.8);
+$socialColorHover: #fff;
+
+$linkBg: #362a84;
+
+$navbarHeight: 50px;
+$animationTime: 0.15s;
+
 
 body {
 	padding-top: 50px;
@@ -7,6 +28,13 @@ body {
   display: flex;
   flex-direction: column;
 	font-family: 'Noto Sans', sans-serif;
+}
+
+/* extend the main div, so the footer extends to the end */
+.main-div {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
 }
 
 html {
@@ -341,25 +369,6 @@ p.forum-stats  {
 .theme-showcase .navbar .container {
 	width: auto;
 }
-/****************
-*** Variables ***
-****************/
-$navbarBg: #10b146;
-$navbarBgHover: inherit;
-$navbarText: #fff;
-$navbarTextHover: #f2f2f2;
-$navbarHoverBorder: #373b37;
-$footerColor: #222522;
-
-$grayOverlay: rgba(16, 16, 16, 0.7);
-$greenOverlay: rgba(16, 177, 70, 0.7);
-$stackColor: #ed9f00;
-$stackColorHover: #eb7500;
-$socialColor: rgba(255, 255, 255, 0.8);
-$socialColorHover: #fff;
-
-$navbarHeight: 50px;
-$animationTime: 0.15s;
 
 /* Some missing bootstrap styles */
 
@@ -549,10 +558,6 @@ $animationTime: 0.15s;
 
 /* Footer */
 
-.main-div {
-	flex: 1;
-}
-
 footer {
 	background-color: $footerColor;
 	background-image: url('../img/hexagon.png');
@@ -581,7 +586,7 @@ footer {
 /* header */
 .jumbotron {
 	margin: 0;
-	h1, h2, h5, p {
+	h1, h2, h3, h4, h5, p {
 		font-family: 'Titillium Web', sans-serif;
 		font-weight: 400;
 	}
@@ -624,6 +629,27 @@ div.mini {
 	margin-bottom: 20px;
 }
 
+div.error {
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	background: url("/img/hexagon.png"), $navbarBg;
+	background-position: 0px #{-$navbarHeight};
+	color: #fff;
+	flex: 1;
+	/*min-height: 80vh;*/
+	a {
+		color: #fff;
+		box-shadow: inset 0px -2px 0px 0px $linkBg;
+		transition: box-shadow $animationTime ease-in-out;
+		&:hover,
+		&:focus {
+			color: #fff;
+			text-decoration: none;
+			box-shadow: inset 0px -1.4em 0px 0px $linkBg;
+		}
+	}
+}
 /* responsive bg change */
 @media (max-width: 992px) and (min-width: 768px) {
 	div.jumbo {
@@ -825,7 +851,7 @@ a.btn-outline {
 	border: 2px solid #fff;
 	color: #fff;
 	border-radius: 8px;
-	transition: all 0.2s linear;
+	transition: all $animationTime linear;
 	&:hover {
 		color: #706d6d;
 		background-color: #fff;
