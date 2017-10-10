@@ -3,12 +3,8 @@
 {% import 'macros.twig' as macros %}
 
 {% block content %}
-{{ macros.jumbo('Branding'|trans, 'Baa Baa Black Sheep'|trans)}}
+{{ macros.jumbo('Branding'|trans, 'Download LMMS Artwork'|trans)}}
 <div class="container">
-	<div class="page-header">
-		<h1>{% trans %}Download LMMS Artwork{% endtrans %}</h1>
-	</div>
-
 	{{ create_artwork_item(
 		'LMMS Logo'|trans,
 		'../../img/logo_md.png',

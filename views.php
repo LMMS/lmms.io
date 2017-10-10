@@ -67,24 +67,7 @@ $app['twig']->addFunction(new Twig_SimpleFunction('youtube_iframe', 'youtube_ifr
 function homePage()
 {
 	global $app;
-
-	$screenshots = [];
-
-	$ss_dir = 'img/screenshots/';
-	$files = scandir($ss_dir);
-	foreach($files as $file) {
-		if (str_startswith($file, 'ss_', true) && str_endswith($file, '.png', true)) {
-			$screenshots[] = [
-				'title' => humanize_title($file),
-				'path' => '/' . $ss_dir . $file,
-				'th_path' => '/' . $ss_dir . 'th_' . $file
-			];
-		}
-	}
-
-	return $app['twig']->render('home.twig', [
-		'screenshots' => $screenshots
-	]);
+	return $app['twig']->render('home.twig');
 }
 
 /*

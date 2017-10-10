@@ -15,7 +15,9 @@ $stackColorHover: #eb7500;
 $socialColor: rgba(255, 255, 255, 0.8);
 $socialColorHover: #fff;
 
-$linkBg: #362a84;
+$linkBgDark: #362a84;
+$linkBg: #ffad0a;
+$fontColor: #333;
 
 $navbarHeight: 50px;
 $animationTime: 0.15s;
@@ -23,6 +25,7 @@ $animationTime: 0.15s;
 
 body {
 	padding-top: 50px;
+	color: $fontColor;
 	margin: 0;
 	min-height: 100%;
   display: flex;
@@ -40,6 +43,18 @@ body {
 html {
 	height: 100%;
 	margin: 0;
+}
+
+a {
+	color: $fontColor;
+	box-shadow: inset 0px -2px 0px 0px $linkBg;
+	transition: box-shadow $animationTime ease-in-out;
+	&:hover,
+	&:focus {
+		color: $fontColor;
+		text-decoration: none;
+		box-shadow: inset 0px -1.4em 0px 0px $linkBg;
+	}
 }
 
 .navbar {
@@ -383,6 +398,10 @@ p.forum-stats  {
 	}
 }
 
+a.btn {
+	box-shadow: none;
+}
+
 .panel,
 .well,
 .alert {
@@ -400,7 +419,11 @@ p.forum-stats  {
 	transition: top $animationTime ease-in-out;
 	border: none;
 	top: 0;
-	
+
+	a {
+		box-shadow: none;
+	}
+
 	.navbar-brand {
 		font-family: 'Orbitron', sans-serif;
 		font-size: 16px;
@@ -572,6 +595,9 @@ footer {
 		line-height: 80%;
 		font-size: 0.95em;
 		color: $socialColor;
+		a {
+			box-shadow: none;
+		}
 		img {
 			width: 180px;
 			opacity: 0.8;
@@ -637,19 +663,20 @@ div.error {
 	background-position: 0px #{-$navbarHeight};
 	color: #fff;
 	flex: 1;
-	/*min-height: 80vh;*/
+
 	a {
 		color: #fff;
-		box-shadow: inset 0px -2px 0px 0px $linkBg;
+		box-shadow: inset 0px -2px 0px 0px $linkBgDark;
 		transition: box-shadow $animationTime ease-in-out;
 		&:hover,
 		&:focus {
 			color: #fff;
 			text-decoration: none;
-			box-shadow: inset 0px -1.4em 0px 0px $linkBg;
+			box-shadow: inset 0px -1.4em 0px 0px $linkBgDark;
 		}
 	}
 }
+
 /* responsive bg change */
 @media (max-width: 992px) and (min-width: 768px) {
 	div.jumbo {
@@ -681,6 +708,7 @@ div.error {
 /* stack */
 a.stack {
 	color: $stackColor;
+	box-shadow: none;
 	transition: color $animationTime linear;
 	&:visited {
 		color: $stackColor;
@@ -693,6 +721,7 @@ a.stack {
 
 a.social {
 	color: $socialColor;
+	box-shadow: none;
 	.fa-inverse {
 		color: $navbarHoverBorder;
 	}
@@ -823,13 +852,14 @@ a.social {
 	border: solid 1px;
 	border-color: #c9c9c9;
 	background-color: #fafafa;
-	color: #333;
+	color: $fontColor;
 }
 
 .btn-file {
 	position: relative;
 	overflow: hidden;
 }
+
 .btn-file input[type=file] {
 	position: absolute;
 	top: 0;
