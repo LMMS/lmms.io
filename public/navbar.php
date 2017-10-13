@@ -9,15 +9,13 @@ $navbar = new Navbar(
 		['Get Involved', '/get-involved/'],
 		['Showcase', '/showcase/'],
 		[['Documentation', 'Docs'], '/documentation/'],
-		['Community', '/community/', [
-			['fa-users', 'Community', '/community/'],
+		['Community', '/chat/', [
+			['fa-comment','Discord Chat', '/chat/'],
 			['fa-trophy', 'Competitions', '/competitions/'],
-			['fa-comments', 'Forums', '/forum/'],
-			['fa-facebook', 'Facebook', '/community/#facebook'],
-			['fa-soundcloud', 'SoundCloud', '/community/#soundcloud'],
-			['fa-google-plus','Google+', '/community/#google+'],
-			['fa-youtube', 'YouTube', '/community/#youtube'],
-			['fa-github', 'GitHub', '/community/#github']]],
+			['fa-list-alt', 'Forums', '/forum/'],
+			['fa-facebook', 'Facebook', 'https://facebook.com/makefreemusic'],
+			['fa-soundcloud', 'SoundCloud', 'https://soundcloud.com/search/sounds?q=%23lmms'],
+			['fa-github', 'GitHub', 'https://github.com/lmms/lmms']]],
 		['Share', '/lsp/'],
 	]
 );
