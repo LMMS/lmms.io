@@ -92,9 +92,6 @@ class MenuItem
 			echo "<ul tabindex='0' class='dropdown-menu pull-right'>";
 			foreach ($this->children as $key => $child) {
 				$this->printItem('', $child[1], $child[2], $child[0]);
-				/*if ($key == 0) {
-					echo "<li class='divider'></li>";
-				}*/
 			}
 			echo '</ul></li>';
 

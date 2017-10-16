@@ -6,7 +6,7 @@ $SECURE_HOST='lmms.io';
 /*
  * Redirect HTTP PORT 80 traffic to use HTTPS
  */
-if (is_secure_host() && $_SERVER['HTTPS'] !== 'on' && $_SERVER['SERVER_PORT'] == '80') {
+if (is_secure_host() && (!isset($_SERVER["HTTPS"]) || $_SERVER['HTTPS'] !== 'on') && $_SERVER['SERVER_PORT'] == '80') {
 	header("Location: https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
     die();
 }
