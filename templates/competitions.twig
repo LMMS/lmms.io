@@ -9,9 +9,9 @@
 {% spaceless %}
 {{ macros.jumbo('Competitions'|trans, 'Official competitions organised by LMMS and its community members'|trans)}}
 <div class="container">
-	<h1 class="page-header text-center">Competitions</h1>
+	<h1 class="page-header text-center">{% trans %}Competitions{% endtrans %}</h1>
 	<!-- Preserve l10n content, please don't remove or comment out the h3 tag below -->
-	<h3 class="hidden">Current competitions</h3>
+	<h3 class="hidden">{% trans %}Current competitions{% endtrans %}</h3>
 	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol4" data-target="#bol4-desc">
@@ -169,6 +169,8 @@
 		</div>
 	</div>
 </div>
+
+
 
 {% endspaceless %}
 
