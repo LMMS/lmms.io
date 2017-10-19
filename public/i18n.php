@@ -16,6 +16,12 @@ class LMMSI18N
 		if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
 			// use php native locale detection (requires php 5.3+ w/ php-intl installed)
 			$this->locale = Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+			// php cannot distinguish zh_CN and zh_TW, default to zh_CN, since
+			// it has more complete translation
+			$this->locale = ($this->locale == 'zh' ? 'zh_CN' : $this->locale);
+			if (!array_key_exists($this->locale, $this->regions)) {
+				$this->locale = 'en_US'; // default
+			}
 		}
 		//dirty overrides
 		if (isset($_COOKIE['lng'])) {
@@ -42,6 +48,7 @@ class LMMSI18N
 		if ($pool->has('lks')) {
 			$this->regions = $pool->get('lks');
 		} else {
+			$this->compileLocale();
 			$this->regions = array();
 			$localeDir = glob(dirname(__FILE__) . '/locale/*', GLOB_ONLYDIR);
 			array_push($localeDir, '/en_US');
@@ -51,6 +58,11 @@ class LMMSI18N
 			}
 			$pool->set('lks', $this->regions);
 		}
+	}
+
+	// maintainance usage
+	function compileLocale() {
+		shell_exec($_SERVER['DOCUMENT_ROOT'].'/../dev/compile_locale');
 	}
 
 	function setLanguage($lang_pair) {

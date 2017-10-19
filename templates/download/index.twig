@@ -29,6 +29,7 @@
 {% import 'macros.twig' as macros %}
 
 {% block content %}
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 {{ macros.jumbo('Download LMMS'|trans,
 'Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:'|trans) }}
 <div class="text-center container">
@@ -91,9 +92,6 @@
 <div id="prerelease" class="text-center"><small><span class="fa fa-exclamation-circle"></span> {% trans %}Downloads labeled Beta are pre-release software, stability may suffer.{% endtrans %}</small></div>
 <hr><div class="text-center spacey"><a class="btn btn-default" target="_blank" href="https://github.com/LMMS/lmms/tags"><i class="fa fa-history"></i> {% trans %}Previous releases{% endtrans %}</a></div>
 
-{% endblock %}
-
-{% block foot %}
 <script>
 function showOS(os) {
 	location.hash = os;
@@ -172,4 +170,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 </script>
 
+{% endblock %}
+
+{% block foot %}
 {% endblock %}

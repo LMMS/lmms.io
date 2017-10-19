@@ -10,15 +10,15 @@
 		"mgargano/simplehtmldom": "~1.5",
 		"kellan/magpierss": "dev-master",
 		"knplabs/gaufrette": "0.1.*",
-		"twig/twig": "~1.0",
+		"twig/twig": "~2.4",
 		"silex/silex": "~1.2",
 		"knplabs/github-api": "^2.2",
 		"guzzlehttp/guzzle": "~6.2",
-		"aptoma/twig-markdown": "~1.0",
+		"aptoma/twig-markdown": "~3.0",
 		"twig/extensions": "^1.4",
 		"php-http/guzzle6-adapter": "^1.1",
-		"cache/array-adapter": "^0.5.0",
 		"erusev/parsedown": "^1.6",
-		"erusev/parsedown-extra": "^0.7.1"
+		"erusev/parsedown-extra": "^0.7.1",
+		"cache/array-adapter": "^1.0"
 	}
 }

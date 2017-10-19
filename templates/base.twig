@@ -1,8 +1,8 @@
-{% include 'head.twig' with {head: block('head')} %}
+{% include 'head.twig' %}
 {% block header %}
 {% endblock %}
-<div class="theme-showcase main-div" role="main">
+<div class="theme-showcase main-div" role="main" dir="auto">
 	{% block content %}
 	{% endblock %}
 </div>
-{% include 'foot.twig' with {foot: block('foot')} %}
+{% include 'foot.twig' %}
