@@ -62,7 +62,7 @@ class LMMSI18N
 
 	// maintainance usage
 	function compileLocale() {
-		shell_exec($_SERVER['DOCUMENT_ROOT'].'/../dev/compile_locale');
+		shell_exec('bash '.$_SERVER['DOCUMENT_ROOT'].'/../dev/compile_locale');
 	}
 
 	function setLanguage($lang_pair) {
