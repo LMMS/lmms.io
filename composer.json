@@ -7,6 +7,7 @@
 		"ext-gd": "*",
 		"ext-intl": "*",
 		"ext-gettext": "*",
+		"ext-apcu": "*",
 		"mgargano/simplehtmldom": "~1.5",
 		"kellan/magpierss": "dev-master",
 		"knplabs/gaufrette": "0.1.*",
@@ -18,7 +19,6 @@
 		"twig/extensions": "^1.4",
 		"php-http/guzzle6-adapter": "^1.1",
 		"erusev/parsedown": "^1.6",
-		"erusev/parsedown-extra": "^0.7.1",
-		"cache/array-adapter": "^1.0"
+		"erusev/parsedown-extra": "^0.7.1"
 	}
 }

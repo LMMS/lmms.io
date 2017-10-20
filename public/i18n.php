@@ -1,5 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/../lib/FilesystemCache.php');
+
 /**
  * LMMS i18n framework
  */
@@ -44,9 +45,8 @@ class LMMSI18N
 	}
 
 	function scanLocales() {
-		$pool = new \LMMS\FilesystemCache('/tmp/github-markdown-cache');
-		if ($pool->has('lks')) {
-			$this->regions = $pool->get('lks');
+		if (apcu_exists('lks')) {
+			$this->regions = apcu_fetch('lks');
 		} else {
 			$this->compileLocale();
 			$this->regions = array();
@@ -56,7 +56,7 @@ class LMMSI18N
 		    $lk = basename($lk);
 				$this->regions[$lk] = Locale::getDisplayName($this->cutOffLocale($lk), $lk);
 			}
-			$pool->set('lks', $this->regions);
+			apcu_store('lks', $this->regions);
 		}
 	}
 
