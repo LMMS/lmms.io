@@ -5,7 +5,12 @@ class Releases
 {
 	public function __construct($owner='LMMS', $repo='lmms')
 	{
-		$pool = new \Cache\Adapter\PHPArray\ArrayCachePool();
+		if (apcu_exists('ghpool')) {
+			$pool = apcu_fetch('ghpool');
+		} else {
+			$pool = new \Cache\Adapter\Apcu\ApcuCachePool();
+			apcu_store('ghpool', $pool);
+		}
 		$this->client = new \Github\Client();
 		$this->client->addCache($pool);
 		$this->json = $this->client->api('repo')->releases()->all($owner, $repo);
