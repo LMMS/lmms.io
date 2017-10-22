@@ -216,8 +216,20 @@
 
 {% block foot %}
 <script type="text/javascript">
-$(document).ready(function(){
-    $("[data-toggle=tooltip]").tooltip();
-});
+(function() {
+	// activate tooltips
+	$(document).ready(function(){
+	    $("[data-toggle=tooltip]").tooltip();
+	});
+}).call(this);
+
+(function() {
+	// close video in modal when modal closes
+	$(document).ready(function(){
+		$("#videoModal").on("hide.bs.modal", function () {
+	    $("#videoModal iframe").attr("src", $("#videoModal iframe").attr("src"));
+		});
+	});
+}).call(this);
 </script>
 {% endblock %}
