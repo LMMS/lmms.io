@@ -280,8 +280,8 @@ function is_admin($uid) {
  */
 function add_user($login, $realname, $pass, $is_admin = false) {
 	$dbh = &get_db();
-	$stmt = $dbh->prepare('INSERT INTO users(login, realname, password, is_admin) VALUES(:login, :realname, SHA1(:password), :is_admin)');
-	debug_out("INSERT INTO users(login, realname, password, is_admin) VALUES($login, $realname, SHA1($pass), $is_admin)");
+	$stmt = $dbh->prepare('INSERT INTO users(login, realname, password, is_admin, loginFailureCount) VALUES(:login, :realname, SHA1(:password), :is_admin, 0)');
+	debug_out("INSERT INTO users(login, realname, password, is_admin, loginFailureCount) VALUES($login, $realname, SHA1($pass), $is_admin, 0)");
 	$stmt->bindParam(':login', $login);
 	$stmt->bindParam(':realname', $realname);
 	$stmt->bindParam(':password', $pass);
