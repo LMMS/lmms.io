@@ -200,7 +200,7 @@ function get_latest() {
 		INNER JOIN subcategories ON subcategories.id=files.subcategory 
 		INNER JOIN users ON users.id=files.user_id 
 		INNER JOIN licenses ON licenses.id=files.license_id 
-	 	ORDER BY files.update_date DESC LIMIT ' . sanitize($PAGE_SIZE));
+	 	ORDER BY files.insert_date DESC LIMIT ' . sanitize($PAGE_SIZE));
 		$object = null;
 		if ($stmt->execute()) {
 			echo '<div class="col-md-9">';
@@ -784,7 +784,7 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	}
 	echo "</div></td><td class=\"lsp-file-info\"><small>";
 	if($browsing_mode) {
-		echo "<b>Date:</b>&nbsp;$rs[update_date]<br>";
+		echo "<b>Date:</b>&nbsp;$rs[insert_date]<br>";
 	} else {
 		echo "<div><b>Submitted:</b>&nbsp;$rs[insert_date]</div>";
 		echo "<b>Updated:</b>&nbsp;$rs[update_date]<br>";
