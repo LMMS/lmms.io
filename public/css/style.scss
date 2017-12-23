@@ -16,7 +16,8 @@ $socialColor: rgba(255, 255, 255, 0.8);
 $socialColorHover: #fff;
 
 $linkBgDark: #362a84;
-$linkBg: #ffad0a;
+$linkBg: hsl(40, 100%, 40%);
+$linkBgHover: hsl(40, 100%, 20%);
 $fontColor: #333;
 
 $navbarHeight: 50px;
@@ -46,14 +47,13 @@ html {
 }
 
 a {
-	color: $fontColor;
-	box-shadow: inset 0px -2px 0px 0px $linkBg;
-	transition: box-shadow $animationTime ease-in-out;
+	/*color: $linkBg;*/
+	font-weight: bold;
+	transition: all $animationTime ease-in-out;
 	&:hover,
 	&:focus {
-		color: $fontColor;
-		text-decoration: none;
-		box-shadow: inset 0px -1.4em 0px 0px $linkBg;
+	/*color: $linkBgHover;
+	text-decoration: none;*/I
 	}
 }
 

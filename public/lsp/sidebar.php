@@ -14,11 +14,9 @@ switch (GET('action')) {
 		break;
 }
 ?>
-
-<div class="page-header text-center"><h1>LMMS Sharing Platform</h1></div>
 <div class="row lsp-row">
 <div class="col-md-3">
-	<div class="panel panel-default">
+	<div class="panel panel-custom">
 	<div class="panel-heading">
 	<form action="<?php echo $LSP_URL; ?>" method="post" role="search">
 		<input type="hidden" name="category" value="<?php echo GET('category'); ?>" />
@@ -36,7 +34,7 @@ switch (GET('action')) {
 	<?php get_categories(); ?>
 	</div>
 
-	<div id="login-panel" class="panel panel-default">
+	<div id="login-panel" class="panel panel-custom">
 		<div class="panel-heading"><h3 class="panel-title">
 			<a data-toggle="collapse" data-parent="#login-panel" href="#login-collapse">
 			<span id="caret" class="fa"></span>&nbsp;<span class="fa fa-user"></span>&nbsp;My Account&nbsp;

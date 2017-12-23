@@ -11,7 +11,7 @@ $navbar = new Navbar(
 		[_('More'), null, [
 			['fa-eye', _('Showcase'), '/showcase/'],
 			['fa-trophy', _('Competitions'), '/competitions/'],
-			['fa-tags', _('Branding'), '/branding']]],
+			['fa-tags', _('Branding'), '/branding/']]],
 		$i18n->langDropdown()
 	]
 );
