@@ -48,8 +48,31 @@
 	</div>
 </div>
 
-<div id="linux-div" class="text-center hidden container">
-	{% include 'download/linux.twig' %}
+<div id="linux-div" class="text-center hidden">
+	<h2>Install LMMS on Linux</h2>
+	<p>Click one of the buttons below to download LMMS for Linux.</p>
+	{% if linstable %}
+		<h3>Stable Versions</h3>
+		{% for lin in linstable %}
+			{{ download.printrelbutton(lin) }}
+		{% endfor %}
+		{{ download.releasenotes(linstable[0]['release']['body'], 'linstable') }}
+		<p>Run <code>chmod +x ~/Downloads/*.AppImage</code> to set the <code>.AppImage</code> executable before running</p>
+	{% endif %}
+
+	{% if linpre %}
+		<h3>Beta Versions</h3>
+		{% for lin in linpre %}
+			{{ download.printrelbutton(lin, 'btn-warning') }}
+		{% endfor %}
+
+		{{ download.releasenotes(linpre[0]['release']['body'], 'linpre') }}
+	{% endif %}
+	<a data-toggle="collapse" href="#collapse_{{ divid }}">Other options<br><i class="fa fa-angle-down"></i></a>
+	<div id="collapse_{{ divid }}" class="panel-collapse collapse">
+		<hr>
+		{% include 'download/linux.twig' %}
+	</div>
 </div>
 
 <div id="windows-div" class="text-center hidden container">
@@ -102,9 +125,6 @@ function showOS(os) {
 		}
 		$(os+"-button").tab("show");
 		os = "#linux";
-		$('#prerelease').hide();
-	} else {
-		$('#prerelease').show();
 	}
 
 	hide('#windows-div');

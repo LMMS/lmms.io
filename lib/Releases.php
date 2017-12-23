@@ -69,11 +69,16 @@ class Releases
 		return $this->latestAssets('/.*\.dmg/', $stable);
 	}
 
+	public function latestLinuxAssets($stable = true)
+	{
+		return $this->latestAssets('/.*\.AppImage/', $stable);
+	}
+
 	/*
 	 * Get "32-bit", "64-bit", etc based on Download URL
 	 */
 	private function get_arch($text) {
-		$arch64 = array('amd64', 'win64', 'x86-64', 'x64', '64-bit', '.dmg');
+		$arch64 = array('amd64', 'win64', 'x86-64', 'x86_64', 'x64', '64-bit', '.dmg');
 		foreach ($arch64 as $x) {
 			if (strpos(strtolower($text), $x) !== false) {
 				return '64-bit';
@@ -107,6 +112,8 @@ class Releases
 			return 'macOS ' . $this->get_osver($text) . '+';
 		} else if (strpos($text, '.exe') !== false) {
 			return 'Windows ' . $this->get_arch($text);
+		} else if (strpos($text, '.AppImage') !== false) {
+			return 'Linux ' . $this->get_arch($text);
 		} else {
 			return $text;
 		}

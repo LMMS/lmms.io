@@ -4,7 +4,7 @@ include_once("dbo.php");
 
 ini_set('session.use_trans_sid', false);
 ini_set('session.save_handler', 'files');
-ini_set('session.save_path', $GLOBALS['TMP_DIR']);
+ini_set('session.save_path', $_SERVER["DOCUMENT_ROOT"] . '/../tmp/');
 ini_set('arg_separator.output', '&amp;');
 
 session_start();
