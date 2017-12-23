@@ -53,7 +53,7 @@ a {
 	&:hover,
 	&:focus {
 	/*color: $linkBgHover;
-	text-decoration: none;*/I
+	text-decoration: none;*/
 	}
 }
 
@@ -751,47 +751,43 @@ a.social {
 			}
 		}
 	}
-	&#home5 {
-		 background-color: #f7f7f7;
-	}
 
-	 &#home3 {
+	 &#home3,
+	 &#home7 {
 		background-image: url("/img/hexagon2.png");
 		background-repeat: repeat;
 		background-position: 0px 0px;
 	}
-
+	
 	&#home2 {
-		color: #fff;
 		background: linear-gradient(
 			$grayOverlay, $grayOverlay
 		), url("/img/promoshot1.jpg");
-		background-position: center;
-		background-size: cover;
 	}
 
 	&#home4 {
-		color: #fff;
 		background: linear-gradient(
 			$grayOverlay, $grayOverlay
 		), url("/img/promoshot2.jpg");
-		background-position: center;
-		background-size: cover;
 	}
 
 	&#home6 {
-		color: #fff;
 		background: url('../img/videopattern.png'), url('../vid/promo.jpg');
-		background-position: center;
 		background-size: auto, cover;
 		background-repeat: repeat, no-repeat;
 	}
 
 	&#home8 {
-		color: #fff;
 		background: linear-gradient(
 			$grayOverlay, $grayOverlay
 		), url("/img/promoshot3.jpg");
+	}
+	
+	&#home2,
+	&#home4,
+	&#home6,
+	&#home8 {
+		color: #fff;
 		background-position: center;
 		background-size: cover;
 	}
