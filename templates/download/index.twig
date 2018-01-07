@@ -5,17 +5,19 @@
 	{% if rel != null %}
 		<a data-dl-count="{{ rel.download_count }}" class="btn btn-lg btn-dl {{ btnclass }}"
 		   href="{{ rel.browser_download_url }}">
-			<span id="button-title">LMMS</span><br>
-			<span class="fa fa-download download-icon"></span>
-			<big>{% trans %}Free Download{% endtrans %}</big><br>
-			<small>{{ rel.release.name }}&nbsp;({{ rel.osname }})</small>
+			 <span class="fas fa-download fa-3x download-icon"></span>
+			 <span>
+				 <span id="button-title">LMMS</span><br>
+				 <big>{% trans %}Free Download{% endtrans %}</big><br>
+				 <small>{{ rel.release.name }}&nbsp;({{ rel.osname }})</small>
+			 </span>
 		</a>
 	{% endif %}
 {% endmacro %}
 
 {% macro releasenotes(notes, divid) %}
 <div id="release-notes">
-	<a data-toggle="collapse" href="#collapse_{{ divid }}">{% trans %}Show release notes{% endtrans %}<br><i class="fa fa-angle-down"></i></a>
+	<a data-toggle="collapse" href="#collapse_{{ divid }}">{% trans %}Show release notes{% endtrans %}<br><i class="fas fa-angle-down"></i></a>
 	<div id="collapse_{{ divid }}" class="panel-collapse collapse">
 		<div class="release-notes well">
 			{{ ('|GH|' ~ notes)|markdown }}
@@ -36,13 +38,13 @@
 		<div>
 		<div class="btn-group" data-toggle="buttons">
 			<label class="btn btn-default" onclick="showOS('#linux')">
-				<input type="radio" name="options" id="linux-button"><span class="fa fa-linux fa-3x"></span><br>Linux
+				<input type="radio" name="options" id="linux-button"><span class="fab fa-linux fa-3x"></span><br>Linux
 			</label>
 			<label class="btn btn-default" onclick="showOS('#windows')">
-				<input type="radio" name="options" id="windows-button"><span class="fa fa-windows fa-3x"></span><br>Windows
+				<input type="radio" name="options" id="windows-button"><span class="fab fa-windows fa-3x"></span><br>Windows
 			</label>
 			<label class="btn btn-default" onclick="showOS('#mac')">
-				<input type="radio" name="options" id="mac-button"><span class="fa fa-apple fa-3x"></span><br>macOS
+				<input type="radio" name="options" id="mac-button"><span class="fab fa-apple fa-3x"></span><br>macOS
 			</label>
 		</div>
 	</div>
@@ -69,7 +71,7 @@
 		{{ download.releasenotes(linpre[0]['release']['body'], 'linpre') }}
 	{% endif %}
 	<hr>
-	<a data-toggle="collapse" href="#collapse_{{ divid }}">{% trans %}Other options{% endtrans %}<br><i class="fa fa-angle-down"></i></a>
+	<a data-toggle="collapse" href="#collapse_{{ divid }}">{% trans %}Other options{% endtrans %}<br><i class="fas fa-angle-down"></i></a>
 	<div id="collapse_{{ divid }}" class="panel-collapse collapse">
 		{% include 'download/linux.twig' %}
 	</div>
@@ -112,8 +114,8 @@
 	{% endif %}
 </div>
 
-<div id="prerelease" class="text-center"><small><span class="fa fa-exclamation-circle"></span> {% trans %}Downloads labeled Beta are pre-release software, stability may suffer.{% endtrans %}</small></div>
-<hr><div class="text-center spacey"><a class="btn btn-default" target="_blank" href="https://github.com/LMMS/lmms/tags"><i class="fa fa-history"></i> {% trans %}Previous releases{% endtrans %}</a></div>
+<div id="prerelease" class="text-center"><small><span class="fas fa-exclamation-circle"></span> {% trans %}Downloads labeled Beta are pre-release software, stability may suffer.{% endtrans %}</small></div>
+<hr><div class="text-center spacey"><a class="btn btn-default" target="_blank" href="https://github.com/LMMS/lmms/tags"><i class="fas fa-history"></i> {% trans %}Previous releases{% endtrans %}</a></div>
 
 <script>
 function showOS(os) {

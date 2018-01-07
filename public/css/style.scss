@@ -90,29 +90,6 @@ blockquote {
 	}
 }
 
-.lsp-star {
-	margin-left: 0 !important;
-	margin-right: 0 !important;
-	padding-left: 1px !important;
-	padding-right: 1px !important;
-	display: inline-block;
-	&:before {
-			content: "\f006";
-	}
-	.disabled {
-		color: #ccc;
-		pointer-events: none;
-			cursor: default;
-	}
-}
-
-.lsp-star:hover:before,
-.lsp-star:hover ~ .lsp-star:before,
-.lsp-star.active:before,
-.lsp-star.active ~ .lsp-star:before {
-	 content: "\f005";
-}
-
 /* Fix for forum back-to-top button */
 .back-to-top {
 	z-index: 1;
@@ -141,19 +118,6 @@ div.p-pagination span.label a:link {
 .lsp-row {
 	margin-top: 10px;
 	text-align: left;
-}
-
-.download-icon {
-	margin: 0;
-	padding: 0;
-	display: block;
-	width: 0;
-	height: 0;
-	font-size: 3em;
-	position: relative;
-	top: -0.50em;
-	left: -1.1em;
-	opacity: .65;
 }
 
 li > a > span.fa-files-o {
@@ -192,49 +156,11 @@ td.lsp-file-info {
 	padding-left: 2em;
 }
 
-div.lsp-search-comments {
-	position: relative;
-	float: right;
-	margin-right: 1.2em;
-	margin-top: .8em;
-	right: 0;
-	width: 0;
-	height: 0;
-	overflow: none;
-}
-
-div.lsp-search-comments > span.fa-comments {
-	margin-left: 0.2em;
-}
-
-div.lsp-search-button {
-	position: relative;
-	float: right;
-	margin-right: 2.7em;
-	margin-top: -2.4em;
-	right: 0;
-	width: 0;
-	height: 0;
-	overflow: none;
-}
-
 .fl-tab {
 	position: relative;
 	left: .1em;
 	top: .05em;
 	margin-left: .3em;
-}
-
-.btn-dl  > small > .fa-exclamation-circle {
-	position: absolute;
-	font-size: 1.5em;
-	padding: 0;
-	width: 0;
-	height: 0;
-	margin: 0;
-	right: 3px;
-	bottom: 3px;
-	opacity: .65;
 }
 
 .lsp-small {
@@ -271,22 +197,13 @@ div.lsp-search-button {
 }
 
 .btn-dl {
-	height: 4.8em;
-	text-align: left;
-	padding-top: 0.5em;
-	padding-bottom: 0;
-	padding-left: 4em;
-	padding-right: 1em;
+	padding: 0.5em;
 	margin: 4px;
 	small {
-		position: relative;
 		font-size: 0.65em;
-		top: -1.8em;
 	}
 	big {
 		font-size: 0.75em;
-		position: relative;
-		top: -12px;
 	}
 }
 
@@ -318,18 +235,6 @@ div.lsp-search-button {
 
 .overflow-hidden {
 	overflow: hidden;
-}
-
-.fa-8x {
-	font-size: 8em;
-}
-
-.fa-7x {
-	font-size: 7em;
-}
-
-.fa-6x {
-	font-size: 6em;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -390,7 +295,6 @@ p.forum-stats  {
 .btn {
 	border: 0;
 	border-radius: 1px;
-	margin-bottom: 5px;
 	color: #fff;
 	&.active,
 	&:active {

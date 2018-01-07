@@ -35,7 +35,7 @@ function create_artwork_item($artwork_name, $img_path, $raw_path, $rendered_path
 			$description = get_file_description($extension);
 			$description = $description ? ' <br><small>(' . $description . ')</small>' : '';
 
-			echo '<a target="_blank" class="btn btn-default" href="' . $button . '" download><span class="fa fa-image"></span> ';
+			echo '<a target="_blank" class="btn btn-default" href="' . $button . '" download><span class="fas fa-image"></span> ';
 			echo $file_name . $description . '</a>&nbsp; ';
 		}
 	}

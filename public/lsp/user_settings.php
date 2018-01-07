@@ -38,9 +38,8 @@ if ((POST('settings') != "apply" ) || (!apply_settings(POST('password'), POST('p
 	<input type="password" class="form-control" maxlength="20" name="password2" />
 	</div>
 	<button class="btn btn-primary" type="submit" name="settings" value="apply">
-	<span class="fa fa-check"></span>&nbsp;Apply</button>
-	<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fa fa-close"></span>&nbsp;Cancel</a>
+	<span class="fas fa-check"></span>&nbsp;Apply</button>
+	<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
 	<?php $form->close(); echo '</div>';
 }
 ?>
-

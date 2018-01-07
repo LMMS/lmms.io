@@ -113,7 +113,7 @@ class MenuItem
 	private function printItem($class, $text, $url, $icon = null)
 	{
 		if ($icon) {
-			$text = "<i class='fa $icon fa-fw'></i> $text";
+			$text = "<i class='fas $icon fa-fw'></i> $text";
 		}
 		echo "<li class='$class'> <a href='$url'>$text</a></li>";
 	}

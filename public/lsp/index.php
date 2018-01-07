@@ -71,5 +71,5 @@ function process_params() {
 }
 
 echo '</div>';
-include("../footer.php");
+include("footer.php");
 ?>

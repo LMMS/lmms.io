@@ -11,7 +11,7 @@
 				<h1>{% trans %}Let's make music{% endtrans %}</h1>
 				<p>{% trans %}with a free, cross-platform tool for your computer.{% endtrans %}</p>
 			</div>
-			<a class="btn btn-outline btn-xl" href="/download/" role="button"><i class="fa fa-arrow-down"></i> {% trans %}Download now{% endtrans %}</a>&nbsp;
+			<a class="btn btn-outline btn-xl" href="/download/" role="button"><i class="fas fa-arrow-down"></i> {% trans %}Download now{% endtrans %}</a>&nbsp;
 			<a class="btn btn-outline btn-lg" id="involved" href="/get-involved/" role="button">{% trans %}Get involved{% endtrans %} »</a>
 		</div>
 	</div>
@@ -28,17 +28,17 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-4">
-				<span class="fa-5x fa fa-bar-chart-o"></span>
+				<span class="fa-5x far fa-chart-bar"></span>
 				<h4>{% trans %}Produce music with your computer{% endtrans %}</h4>
 				<p>{% trans %}by creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.{% endtrans %}</p>
 			</div>
 			<div class="col-lg-4">
-				<span class="fa-5x fa fa-keyboard-o"></span>
+				<span class="fa-5x fas fa-keyboard"></span>
 				<h4>{% trans %}Playback instruments, samples and plugins{% endtrans %}</h4>
 				<p>{% trans %}with a typing or MIDI keyboard in a user-friendly and modern interface.{% endtrans %}</p>
 			</div>
 			<div class="col-lg-4">
-				<span class="fa-5x fa fa-puzzle-piece"></span>
+				<span class="fas fa-puzzle-piece fa-5x"></span>
 				<h4>{% trans %}Bundled with ready-to-use stuff{% endtrans %}</h4>
 				<p>{% trans %}from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.{% endtrans %}</p>
 			</div>
@@ -53,9 +53,9 @@
 		</div>
 		<div>
 			<div>
-				<a class="stack" href="/download/#linux">{{ macros.circle_stack('fa-linux', 'fa-3x', 'Download for Linux'|trans) }}</a>&nbsp;
-				<a class="stack" href="/download/#windows">{{ macros.circle_stack('fa-windows', 'fa-3x', 'Download for Windows'|trans) }}</a>&nbsp;
-				<a class="stack" href="/download/#mac">{{ macros.circle_stack('fa-apple', 'fa-3x', 'Download for macOS'|trans) }}</a>&nbsp;
+				<a class="stack" href="/download/#linux">{{ macros.circle_stack('fa-linux', 'fa-6x', true, 'Download for Linux'|trans) }}</a>
+				<a class="stack" href="/download/#windows">{{ macros.circle_stack('fa-windows', 'fa-6x', true, 'Download for Windows'|trans) }}</a>
+				<a class="stack" href="/download/#mac">{{ macros.circle_stack('fa-apple', 'fa-6x', true, 'Download for macOS'|trans) }}</a>
 				<h4>{% trans %}Pick your flavour{% endtrans %}</h4>
 				<p>{% trans %}Linux, Windows or macOS.{% endtrans %}</p>
 			</div>
@@ -70,10 +70,10 @@
 			<h4>{% trans %}Standby, we've got you covered.{% endtrans %}</h4>
 		</div>
 		<div>
-			<a class="stack" href="/forum/">{{ macros.circle_stack('fa-list-alt', 'fa-3x', 'Visit our forum'|trans) }}</a>&nbsp;
-			<a class="stack" href="http://facebook.com/makefreemusic">{{ macros.circle_stack('fa-facebook', 'fa-3x', 'Visit our Facebook page'|trans) }}</a>&nbsp;
-			<a class="stack" href="https://lmms.io/chat">{{ macros.circle_stack('fa-comment', 'fa-3x', 'Chat now on Discord'|trans) }}</a>&nbsp;
-			<a class="stack" href="http://github.com/lmms/lmms">{{ macros.circle_stack('fa-github', 'fa-3x', 'Visit our GitHub page'|trans) }}</a>
+			<a class="stack" href="/forum/">{{ macros.circle_stack('fa-comments', 'fa-6x', false, 'Visit our forum'|trans) }}</a>&nbsp;
+			<a class="stack" href="http://facebook.com/makefreemusic">{{ macros.circle_stack('fa-facebook', 'fa-6x', true, 'Visit our Facebook page'|trans) }}</a>&nbsp;
+			<a class="stack" href="https://lmms.io/chat">{{ macros.circle_stack('fa-discord', 'fa-6x', true, 'Chat now on Discord'|trans) }}</a>&nbsp;
+			<a class="stack" href="http://github.com/lmms/lmms">{{ macros.circle_stack('fa-github', 'fa-6x', true, 'Visit our GitHub page'|trans) }}</a>
 			<h4>{% trans %}Ask your questions here{% endtrans %}</h4>
 			<p>{% trans %}and answer a few questions while you're waiting.{% endtrans %}</p>
 		</div>
@@ -87,8 +87,8 @@
 		<div>
 			<div>
 				<a class="stack" href="https://soundcloud.com/search/sounds?q=%23lmms">
-					{{ macros.circle_stack('fa-soundcloud', 'fa-3x', 'Find musicians'|trans) }}</a>&nbsp;
-				<a class="stack" href="/lsp/">{{ macros.circle_stack('fa-share-alt', 'fa-3x', 'Visit the LMMS Sharing Platform (LSP)'|trans) }}</a>&nbsp;
+					{{ macros.circle_stack('fa-soundcloud', 'fa-6x', true, 'Find musicians'|trans) }}</a>&nbsp;
+				<a class="stack" href="/lsp/">{{ macros.circle_stack('fa-share-alt', 'fa-6x', false, 'Visit the LMMS Sharing Platform (LSP)'|trans) }}</a>&nbsp;
 				<h4>{% trans %}Don't be modest,{% endtrans %}</h4>
 				<p>{% trans %}show us your creations.{% endtrans %}</p>
 			</div>
@@ -103,8 +103,8 @@
 		<div>
 			<div>
 				<a class="stack" href="https://github.com/LMMS/lmms">
-					{{ macros.circle_stack('fa-code-fork', 'fa-3x', 'Fork us on Github'|trans) }}</a>&nbsp;
-				<a class="stack" href="/get-involved/">{{ macros.circle_stack('fa-users', 'fa-3x', 'Get involved'|trans) }}</a>&nbsp;
+					{{ macros.circle_stack('fa-code-branch', 'fa-6x', false, 'Fork us on Github'|trans) }}</a>&nbsp;
+				<a class="stack" href="/get-involved/">{{ macros.circle_stack('fa-users', 'fa-6x', false, 'Get involved'|trans) }}</a>&nbsp;
 				<h4>{{"LMMS is a 100% free, open source, community driven project,"|trans}}</h4>
 				<p>{% trans %}proudly hosted on Github{% endtrans %}</p>
 			</div>
@@ -123,7 +123,7 @@
 		<div class="page-header">
 			<h2>{% trans %}Take a peek.{% endtrans %}</h2>
 		</div>
-		<a class="stack" data-toggle="modal" data-target="#videoModal" href="#">{{ macros.circle_stack('fa-youtube-play', 'fa-3x', '') }}</a>
+		<a class="stack" data-toggle="modal" data-target="#videoModal" href="#">{{ macros.circle_stack('fa-play-circle', 'fa-6x', false, '') }}</a>
 		<h4>{% trans %}Watch our promo video.{% endtrans %}</h4>
 	</div>
 	<div id="videoModal" class="modal fade" role="dialog">
@@ -150,7 +150,7 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-5">
-				<h3 class="text-center"><span class="fa-2x fa fa-check-square-o"></span><br>{% trans %}Core Functionality{% endtrans %}</h3>
+				<h3 class="text-center"><span class="far fa-2x fa-check-square"></span><br>{% trans %}Core Functionality{% endtrans %}</h3>
 			</div>
 			<div class="col-lg-7">
 				<ul>
@@ -170,7 +170,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-5">
-				<h3 class="text-center"><span class="fa-2x fa fa-music"></span><br>{% trans %}Musical Instruments{% endtrans %}</h3>
+				<h3 class="text-center"><span class="fas fa-2x fa-music"></span><br>{% trans %}Musical Instruments{% endtrans %}</h3>
 			</div>
 			<div class="col-lg-7">
 				<ul>
@@ -193,7 +193,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-5">
-				<h3 class="text-center"><span class="fa-2x fa fa-bar-chart-o"></span><br>{% trans %}Effects Mixing{% endtrans %}</h3>
+				<h3 class="text-center"><span class="fas fa-2x fa-sliders-h"></span><br>{% trans %}Effects Mixing{% endtrans %}</h3>
 			</div>
 			<div class="col-lg-7">
 				<ul>

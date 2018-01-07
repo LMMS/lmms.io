@@ -15,7 +15,7 @@ if (!SESSION_EMPTY()) {
 		<label for="filename">File to add</label>
 		<div class="form-group">
 		<span class="pull-left btn btn-default btn-file">
-			<span class="fa fa-folder-open"></span>&nbsp;Select file<input type="file" name="filename" />
+			<span class="fas fa-folder-open"></span>&nbsp;Select file<input type="file" name="filename" />
 		</span><strong><span class="text-center"><pre class="text-warning" id="file-selected">No file selected</pre></span></strong>
 		<small>Maximum file size: 2 MB</small>
 		</div>
@@ -23,8 +23,8 @@ if (!SESSION_EMPTY()) {
 		<input type="checkbox" id="nocopyright" name="nocopyright" />
 		<label for="nocopyright">Does not violate any existing copyright, law or trademark</label>
 		</div>
-		<button type="submit" name="ok" value="OK" class="btn btn-primary"><span class="fa fa-upload"></span>&nbsp;Upload</button>
-		<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fa fa-close"></span>&nbsp;Cancel</a>
+		<button type="submit" name="ok" value="OK" class="btn btn-primary"><span class="fas fa-upload"></span>&nbsp;Upload</button>
+		<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
 		<?php $form->close(); echo '</div>';
 	} else if(GET('content') == "add" ) {
 		if (POST_EMPTY('tmpname')) $tmp_path = $_FILES["filename"]["tmp_name"]; else $tmp_path = POST('tmpname');
@@ -57,13 +57,13 @@ if (!SESSION_EMPTY()) {
 					<label for="license">License</label>
 					<select name="license" class="form-control"><?php echo get_licenses();?></select>
 					</div>
-					
+
 					<div class="form-group">
 					<label for="description">Description</label>
 					<textarea id="description" name="description" class="form-control"></textarea>
 					</div>
-					<button type="submit" class="btn btn-primary" name="addfinalok" value="Add File"><span class="fa fa-check"></span>&nbsp;Add File</button>&nbsp;
-					<a href="" class="btn btn-warning"></span><span class="fa fa-close"></span>&nbsp;Cancel</a>
+					<button type="submit" class="btn btn-primary" name="addfinalok" value="Add File"><span class="fas fa-check"></span>&nbsp;Add File</button>&nbsp;
+					<a href="" class="btn btn-warning"></span><span class="fas fa-times"></span>&nbsp;Cancel</a>
 					<input type="hidden" name="fn" value="<?php echo $file_path; ?>" />
 					<input type="hidden" name="tmpname" value="<?php echo "$TMP_DIR$tmp_name_only"; ?>" />
 					<input type="hidden" name="fsize" value="<?php echo $file_size; ?>" />
@@ -119,4 +119,3 @@ if (!SESSION_EMPTY()) {
 	display_error("You need to be logged in!", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?action=register');
 }
 ?>
-
