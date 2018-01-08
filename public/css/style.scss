@@ -80,6 +80,10 @@ blockquote {
 	padding: 0.5em;
 }
 
+.alert.lsp {
+	margin-bottom: 0;
+}
+
 /* Star ratings */
 .lsp-starrating {
 	padding:  15px 0px 15px 0px;
@@ -628,6 +632,9 @@ a.social {
 	box-shadow: none;
 	.fa-inverse {
 		color: $navbarHoverBorder;
+	}
+	.fa-fw {
+		margin-right: -0.3em;
 	}
 	transition: color $animationTime linear;
 	&:visited {
