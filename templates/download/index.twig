@@ -5,12 +5,12 @@
 	{% if rel != null %}
 		<a data-dl-count="{{ rel.download_count }}" class="btn btn-lg btn-dl {{ btnclass }}"
 		   href="{{ rel.browser_download_url }}">
-			 <span class="fas fa-download fa-3x download-icon"></span>
-			 <span>
-				 <span id="button-title">LMMS</span><br>
-				 <big>{% trans %}Free Download{% endtrans %}</big><br>
-				 <small>{{ rel.release.name }}&nbsp;({{ rel.osname }})</small>
-			 </span>
+			 <span class="fas fa-cloud-download-alt fa-3x download-icon"></span>
+			 <div>
+				 <span id="button-title">LMMS&nbsp;{{ rel.release.name }}</span><br>
+				 <big>{{ rel.osname }}</big><br>
+				 <small>{% trans %}Free Download{% endtrans %}</small>
+			 </div>
 		</a>
 	{% endif %}
 {% endmacro %}
