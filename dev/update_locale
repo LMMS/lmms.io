@@ -14,6 +14,7 @@ rm "${srctop}"/locale/messages.pot || true
 tmpfile=$(mktemp)
 bash "$(dirname "$0")"/collect_strings "${tmpfile}"
 xgettext -L php --from-code=utf-8 -j -o "${tmpfile}" "${srctop}"/*.php
+sed -i "s|${srctop}/||g" "${tmpfile}"
 mv "${tmpfile}" "${srctop}"/locale/messages.pot
 
 for dir in ${srctop}/locale/*/
