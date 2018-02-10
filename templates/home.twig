@@ -126,20 +126,18 @@
 		<a class="stack" data-toggle="modal" data-target="#videoModal" href="#">{{ macros.circle_stack('fa-play-circle', 'fa-6x', false, '') }}</a>
 		<h4>{% trans %}Watch our promo video.{% endtrans %}</h4>
 	</div>
-	<div id="videoModal" class="modal fade" role="dialog">
+	<div id="videoModal" class="modal fade modal-custom" role="dialog">
 	  <div class="modal-dialog">
 	    <!-- Modal content-->
 	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title">Modal Header</h4>
-	      </div>
-	      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/W6tEolVz3_4" frameborder="0" allowfullscreen></iframe>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	      </div>
+				<div class="embed-responsive embed-responsive-16by9">
+	      	<iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/W6tEolVz3_4" allowfullscreen></iframe>
+				</div>
 	    </div>
 	  </div>
+		<div class="text-center">
+			<button class="close-modal" data-dismiss="modal">{% trans %}Click anywhere to close this dialog{% endtrans %}</button>
+		</div>
 	</div>
 </div>
 

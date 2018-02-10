@@ -174,12 +174,6 @@ td.lsp-file-info {
 	text-align: right;
 }
 
-#button-title {
-	display: inline-block;
-	position: relative;
-	font-size: 1.5em;
-}
-
 .release-notes {
 	position: relative;
 	display: inline-block;
@@ -187,27 +181,25 @@ td.lsp-file-info {
 	max-width: 800px;
 }
 
-.btn-dl-md {
-	small {
-		position: relative;
-		font-size: 0.65em;
-		top: -2.2em;
-	}
-	big {
-		font-size: 0.75em;
-		position: relative;
-		top: -11px;
-	}
-}
-
 .btn-dl {
+	position: relative;
 	padding: 0.5em;
 	margin: 4px;
-	small {
-		font-size: 0.65em;
+	text-align: left;
+	padding: 1em 1em 1em 5em;
+	.small {
+		position: relative;
+		font-size: .9em;
 	}
-	big {
-		font-size: 0.75em;
+	.big {
+		font-size: 1.2em;
+	}
+	.download-icon {
+		display: block;
+		position: absolute;
+		left: .2em;
+		top: .3em;
+		opacity: .9;
 	}
 }
 
@@ -730,7 +722,51 @@ a.social {
 			height: auto;
 		}
 	}
+	.modal-custom {
+		.modal-dialog {
+			margin-top: 60px;
+			width: 800px;
+		}
+	}
+}
 
+.modal-backdrop.in {
+	opacity: .7;
+}
+.modal-custom {
+	/* Custom close modal dialog text */
+	&.fade {
+		.close-modal {
+			opacity: 0;
+			transition: opacity .5s ease-out .3s;
+		}
+	}
+	&.in {
+		.close-modal {
+			opacity: .7;
+		}
+	}
+	/* The text is a button so the user can click it but behaves like normal text */
+	.close-modal {
+		background: none;
+		border: none;
+		cursor: default;
+	}
+	.modal-dialog {
+		max-width: 100%;
+		margin-bottom: 5px;
+		.modal-content {
+			padding: 5px;
+			background-color: #373b37;
+		}
+		button.close {
+			color: #fff;
+			opacity: .3;
+			&:hover {
+				color: #fff;
+			}
+		}
+	}
 }
 
 /* Get Involved Panels */
