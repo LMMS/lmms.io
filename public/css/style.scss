@@ -8,8 +8,9 @@ $navbarTextHover: #f2f2f2;
 $navbarHoverBorder: #373b37;
 $footerColor: #222522;
 
-$grayOverlay: rgba(16, 16, 16, 0.7);
+$grayOverlay: rgba(16, 16, 16, 0.75);
 $greenOverlay: rgba(16, 177, 70, 0.7);
+$bolOverlay: rgba(16, 16, 16, 0.2);
 $stackColor: #ed9f00;
 $stackColorHover: #eb7500;
 $socialColor: rgba(255, 255, 255, 0.8);
@@ -905,53 +906,67 @@ ul.nav-center {
 
 .comp-header {
 	width: 100%;
-	max-height: 72px;
+	padding: .1em .5em;
 	vertical-align: middle;
-	font-size: 46px;
-	background-position: center center;
-	background-size: cover;
+	font-size: 3.3em;
+	background-position: center, center center;
+	background-size: auto, cover;
+	color: #f5f2f2;
 	&:hover {
 		cursor: pointer;
 		cursor: hand;
 	}
 	span {
 		font-family: 'Lato', sans-serif;
-		font-size: 46px;
-		line-height: 72px;
+		line-height: 1.5em;
 		font-weight: 300;
 		font-style: italic;
-		color: #f5f2f2;
-		padding: 1ex 0.5em 1ex 0.5em;
 	}
 	.carret {
-		color: #fff;
-		transform: rotate(0);
-		path {
-			transition: transform 2s linear;
-		}
-		transition: transform 2s linear;
 		float: right;
-		margin: 0.28em 0.5em;
+		margin: .25em 0;
 		&.rotate {
 			transform: rotate(180deg);
 		}
 	}
 }
 
+@media screen and (max-width:767px) {
+	.comp-header {
+		font-size: 2em;
+	}
+}
+
 #bol1 {
-	background-image: url('/img/tbolv1.jpg');
+	background: linear-gradient(
+		$bolOverlay, $bolOverlay
+	), url("/img/tbolv1.jpg");
+	background-position: center, center center;
+	background-size: auto, cover;
 }
 
 #bol2 {
-	background-image: url('/img/tbolv2.jpg');
+	background: linear-gradient(
+		$bolOverlay, $bolOverlay
+	), url("/img/tbolv2.jpg");
+	background-position: center, center center;
+	background-size: auto, cover;
 }
 
 #bol3 {
-	background-image: url('/img/tbolv3.jpg');
+	background: linear-gradient(
+		$bolOverlay, $bolOverlay
+	), url("/img/tbolv3.jpg");
+	background-position: center, center center;
+	background-size: auto, cover;
 }
 
 #bol4 {
-	background-image: url('/img/tbolv4.jpg');
+	background: linear-gradient(
+		$bolOverlay, $bolOverlay
+	), url("/img/tbolv4.jpg");
+	background-position: center, center center;
+	background-size: auto, cover;
 }
 
 .competition {
