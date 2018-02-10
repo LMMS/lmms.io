@@ -16,7 +16,7 @@
 	<div class="competition">
 		<div class="comp-header" id="bol4" data-target="#bol4-desc">
 			<span>{% trans %}The Best of LMMS vol. IV{% endtrans %}</span>
-			<i class="fas fa-angle-down"></i>
+			<i class="fas fa-angle-down carret"></i>
 		</div>
 		<div class="comp-desc panel-collapse" role="tabpanel" id="bol4-desc">
 			{% markdown %}
@@ -64,7 +64,7 @@
 	<div class="competition">
 		<div class="comp-header" id="bol3" data-target="#bol3-desc">
 			<span>{% trans %}The Best of LMMS vol. III{% endtrans %}</span>
-			<i class="fasfa-angle-down"></i>
+			<i class="fas fa-angle-down carret"></i>
 		</div>
 		<div class="comp-desc panel-collapse collapse" id="bol3-desc">
 			{% markdown %}
@@ -100,7 +100,7 @@
 	<div class="competition">
 		<div class="comp-header" id="bol2" data-target="#bol2-desc">
 			<span>{% trans %}The Best of LMMS vol. II{% endtrans %}</span>
-			<i class="fasfa-angle-down"></i>
+			<i class="fas fa-angle-down carret"></i>
 		</div>
 		<div class="comp-desc panel-collapse collapse" id="bol2-desc">
 			{% markdown %}
@@ -135,7 +135,7 @@
 	<div class="competition">
 		<div class="comp-header" id="bol1" data-target="#bol1-desc">
 			<span>{% trans %}The Best of LMMS vol. I{% endtrans %}</span>
-			<i class="fas fa-angle-down"></i>
+			<i class="fas fa-angle-down carret"></i>
 		</div>
 		<div class="comp-desc panel-collapse collapse" id="bol1-desc">
 			{% markdown %}
@@ -182,7 +182,7 @@ $(document).ready(function(){
     $(".comp-header").click(function(){
 		var target = $(this).attr('data-target');
 		$(target).collapse('toggle');
-		$(this).children('i').toggleClass('fa-rotate-180');
+		$(this).children('svg').toggleClass('rotate');
 	});
 });
 </script>

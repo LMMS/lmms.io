@@ -12,7 +12,7 @@ if (get_user_id(SESSION()) == get_object_by_id("files", GET('file'), 'user_id') 
 		$categories = get_categories_for_ext($file_extension, get_file_category(GET('file')) . ' - ' . get_file_subcategory(GET('file')));
 		echo '<div class="col-md-9">';
 		create_title(array('Edit', get_file_url()));
-		$form = new form($LSP_URL . '?content=update&file=' . GET('file'), $title = 'Edit File', 'fa-pencil'); ?>
+		$form = new form($LSP_URL . '?content=update&file=' . GET('file'), $title = 'Edit File', 'fa-pencil-alt'); ?>
 		<div class="form-group">
 			<label for="category">Category</label>
 			<select name="category" class="form-control">
@@ -32,7 +32,7 @@ if (get_user_id(SESSION()) == get_object_by_id("files", GET('file'), 'user_id') 
 			?></textarea>
 		</div>
 		<button class="btn btn-primary" type="submit" name="updateok" value="OK"><span class="fas fa-check"></span>&nbsp;Update File</button>
-		<a href="<?php echo "$LSP_URL?action=show&file=" . GET('file'); ?>" class="btn btn-warning"><span class="fas fa-close"></span>&nbsp;Cancel</a>
+		<a href="<?php echo "$LSP_URL?action=show&file=" . GET('file'); ?>" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
 		<input type="hidden" name="fn" value="'.$file_name.'" />
 		<input type="hidden" name="action" value="update" />
 		<?php $form->close(); echo '</div>';

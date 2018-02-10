@@ -78,7 +78,7 @@ if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("passw
 	 */
 	?>
 	<button type="submit" class="btn btn-primary" name="adduser" value="Register"><span class="fas fa-check"></span>&nbsp;Register</button>&nbsp;
-	<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fas fa-close"></span>&nbsp;Cancel</a>
+	<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
 	<?php $form->close(); ?>
 	<a href="javascript:loginFocus();"><span class="fas fa-chevron-circle-left"></span>&nbsp;Already registered?  Login here.</a>
 	</div><?php

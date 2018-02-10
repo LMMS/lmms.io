@@ -44,7 +44,7 @@ switch (GET('action')) {
 				<span class="fas fa-user"></span>&nbsp;My Account
 				<?php
 					// Append username and admin shield to title
-					$shield = is_admin(get_user_id(SESSION())) ? '<span class="fas fa-shield"></span>&nbsp;' : '';
+					$shield = is_admin(get_user_id(SESSION())) ? '<span class="fas fa-shield-alt"></span>&nbsp;' : '';
 					echo SESSION_EMPTY() ? '' : ' <span class="badge pull-right">' . $shield . SESSION() . '</span>';
 					// Show auth-fail alert in title for smaller screens
 					echo $auth_failure ? '&nbsp;<span class="pull-right fas fa-exclamation-circle"></span>' : '';
@@ -77,7 +77,7 @@ switch (GET('action')) {
 					<input type="hidden" name="oldaction" value="<?php echo GET('action');?>" />
 					</form>
 					<a href="?action=register"><span class="fas fa-chevron-circle-right"></span>&nbsp;Not registered yet?</a>
-				</div>	
+				</div>
 			<?php
 			} else {
 			?>
@@ -99,7 +99,7 @@ switch (GET('action')) {
 					<span class="fas fa-fw fa-power-off"></span>&nbsp;&nbsp;Logout</a>
 				<?php
 				if (is_admin(get_user_id(SESSION()))) {
-					echo '<p class="badge pull-right"><span class="fas fa-shield"></span>&nbsp;<strong>admin</strong></p>';
+					echo '<p class="badge pull-right"><span class="fas fa-shield-alt"></span>&nbsp;<strong>admin</strong></p>';
 				}
 				echo '</div>';
 			}

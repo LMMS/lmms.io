@@ -882,7 +882,7 @@ function show_file($file_id, $user, $success = null) {
 			
 			global $LSP_URL;
 			create_toolbar_item('Comment', "$LSP_URL?comment=add&file=$file_id", 'fa-comment', $can_rate);
-			create_toolbar_item('Edit', "$LSP_URL?content=update&file=$file_id", 'fa-pencil', $can_edit);
+			create_toolbar_item('Edit', "$LSP_URL?content=update&file=$file_id", 'fa-pencil-alt', $can_edit);
 			create_toolbar_item('Delete', "$LSP_URL?content=delete&file=$file_id", 'fa-trash', $can_edit);
 			$star_url = $LSP_URL . '?' . file_show_query_string().'&rate=';
 			create_toolbar_item(get_stars($file_id, $star_url, $rate_self ? false : $can_rate), '', null, $can_rate, $rate_self);

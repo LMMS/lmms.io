@@ -22,7 +22,7 @@ if (!SESSION_EMPTY() &&
 		<a class="btn btn-danger" href="<?php echo "$LSP_URL?content=delete&confirmation=true&file=" . GET('file'); ?>">
 		<span class="fas fa-check"></span>&nbsp;Delete</a>
 		<a class="btn btn-warning" href="<?php echo "$LSP_URL?action=show&file=" . GET('file'); ?>">
-		<span class="fas fa-close"></span>&nbsp;Cancel</a>
+		<span class="fas fa-times"></span>&nbsp;Cancel</a>
 		</form>
 		<?php $form->close(); echo '</div>';
 	}

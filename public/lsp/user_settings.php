@@ -19,7 +19,7 @@ function apply_settings($password, $password2, $realname) {
 if ((POST('settings') != "apply" ) || (!apply_settings(POST('password'), POST('password2'), POST('realname')))) {
 	echo '<div class="col-md-9">';
 	create_title('<a href="">User Settings</a>');
-	$form = new form("$LSP_URL?account=settings", 'User Settings', 'fa-gear'); ?>
+	$form = new form("$LSP_URL?account=settings", 'User Settings', 'fa-cog'); ?>
 	<div class="form-group">
 	<label for="username" class="text-muted">User Name:</label>
 	<input type="text" name="username" class="form-control" value="<?php echo SESSION(); ?>" disabled="disabled" />

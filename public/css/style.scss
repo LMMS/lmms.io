@@ -860,6 +860,7 @@ ul.nav-center {
 	width: 100%;
 	max-height: 72px;
 	vertical-align: middle;
+	font-size: 46px;
 	background-position: center center;
 	background-size: cover;
 	&:hover {
@@ -875,13 +876,18 @@ ul.nav-center {
 		color: #f5f2f2;
 		padding: 1ex 0.5em 1ex 0.5em;
 	}
-	i {
+	.carret {
 		color: #fff;
-		font-size: 46px;
+		transform: rotate(0);
+		path {
+			transition: transform 2s linear;
+		}
+		transition: transform 2s linear;
 		float: right;
-		margin: auto 0.5em auto 0.5em;
-		line-height: 72px;
-		transition: all $animationTime linear;
+		margin: 0.28em 0.5em;
+		&.rotate {
+			transform: rotate(180deg);
+		}
 	}
 }
 
