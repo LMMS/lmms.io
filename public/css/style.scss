@@ -286,6 +286,17 @@ p.forum-stats  {
 	width: auto;
 }
 
+@media screen and (max-width: 767px) {
+	.container {
+		width: 100%;
+	}
+	footer {
+		.container {
+			width: inherit;
+		}
+	}
+}
+
 /* Some missing bootstrap styles */
 
 .btn {
