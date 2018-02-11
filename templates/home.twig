@@ -39,7 +39,7 @@
 			</div>
 			<div class="col-lg-4">
 				<span class="fas fa-puzzle-piece fa-5x"></span>
-				<h4>{% trans %}Bundled with ready-to-use stuff{% endtrans %}</h4>
+				<h4>{% trans %}Bundled with ready-to-use content{% endtrans %}</h4>
 				<p>{% trans %}from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.{% endtrans %}</p>
 			</div>
 		</div>
@@ -56,7 +56,7 @@
 				<a class="stack" href="/download/#linux">{{ macros.circle_stack('fa-linux', 'fa-6x', true, 'Download for Linux'|trans) }}</a>
 				<a class="stack" href="/download/#windows">{{ macros.circle_stack('fa-windows', 'fa-6x', true, 'Download for Windows'|trans) }}</a>
 				<a class="stack" href="/download/#mac">{{ macros.circle_stack('fa-apple', 'fa-6x', true, 'Download for macOS'|trans) }}</a>
-				<h4>{% trans %}Pick your flavour{% endtrans %}</h4>
+				<h4>{% trans %}Pick your flavor.{% endtrans %}</h4>
 				<p>{% trans %}Linux, Windows or macOS.{% endtrans %}</p>
 			</div>
 		</div>
@@ -66,8 +66,8 @@
 <div class="text-center segment" id="home3">
 	<div class="container">
 		<div class="page-header">
-			<h2>{% trans %}Houston, we've had a problem.{% endtrans %}</h2>
-			<h4>{% trans %}Standby, we've got you covered.{% endtrans %}</h4>
+			<h2>{% trans %}Houston, we have a problem.{% endtrans %}</h2>
+			<h4>{% trans %}Stand by, we got you covered.{% endtrans %}</h4>
 		</div>
 		<div>
 			<a class="stack" href="/forum/">{{ macros.circle_stack('fa-comments', 'fa-6x', false, 'Visit our forum'|trans) }}</a>&nbsp;
@@ -89,8 +89,8 @@
 				<a class="stack" href="https://soundcloud.com/search/sounds?q=%23lmms">
 					{{ macros.circle_stack('fa-soundcloud', 'fa-6x', true, 'Find musicians'|trans) }}</a>&nbsp;
 				<a class="stack" href="/lsp/">{{ macros.circle_stack('fa-share-alt', 'fa-6x', false, 'Visit the LMMS Sharing Platform (LSP)'|trans) }}</a>&nbsp;
-				<h4>{% trans %}Don't be modest,{% endtrans %}</h4>
-				<p>{% trans %}show us your creations.{% endtrans %}</p>
+				<h4>{% trans %}Don't be modest.{% endtrans %}</h4>
+				<p>{% trans %}Show us your creations.{% endtrans %}</p>
 			</div>
 		</div>
 	</div>
@@ -98,15 +98,15 @@
 <div class="text-center segment" id="home5">
 	<div class="container">
 		<div class="page-header">
-			<h2>{% trans %}We <3 Open Source.{% endtrans %}</h2>
+			<h2>{% trans %}We <3 open source.{% endtrans %}</h2>
 		</div>
 		<div>
 			<div>
 				<a class="stack" href="https://github.com/LMMS/lmms">
 					{{ macros.circle_stack('fa-code-branch', 'fa-6x', false, 'Fork us on Github'|trans) }}</a>&nbsp;
 				<a class="stack" href="/get-involved/">{{ macros.circle_stack('fa-users', 'fa-6x', false, 'Get involved'|trans) }}</a>&nbsp;
-				<h4>{{"LMMS is a 100% free, open source, community driven project,"|trans}}</h4>
-				<p>{% trans %}proudly hosted on Github{% endtrans %}</p>
+				<h4>{{"LMMS is a 100% free, open source, community-driven project."|trans}}</h4>
+				<p>{% trans %}Proudly hosted on Github.{% endtrans %}</p>
 			</div>
 		</div>
 	</div>
@@ -152,7 +152,7 @@
 			</div>
 			<div class="col-lg-7">
 				<ul>
-					<li>{% trans %}Compose music on Windows, Linux and Apple OS&nbsp;X{% endtrans %}</li>
+					<li>{% trans %}Compose music on Windows, Linux and macOS{% endtrans %}</li>
 					<li>{% trans %}Sequence, compose, mix and automate songs in one simple interface{% endtrans %}</li>
 					<li>{% trans %}Note playback via MIDI or typing keyboard{% endtrans %}</li>
 					<li>{% trans %}Consolidate instrument tracks using Beat+Bassline Editor{% endtrans %}</li>
@@ -172,16 +172,10 @@
 			</div>
 			<div class="col-lg-7">
 				<ul>
-					<li>{% trans %}Built-in 32-bit VST instrument support{% endtrans %}</li>
 					<li>{% trans %}Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit Windows){% endtrans %}</li>
-					<li>{% trans %}Roland ® TB-303 style monophonic bass synthesizer{% endtrans %}</li>
-					<li>{% trans %}Embedded ZynAddSubFx:  Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin{% endtrans %}</li>
-					<li>{% trans %}Native Commodore 64 ® SID microchip/instrument emulation{% endtrans %}</li>
-					<li>{% trans %}Native SoundFont ® support (SF2), the industry standard for high quality instrument patches and banks{% endtrans %}</li>
-					<li>{% trans %}Nintendo ®, GameBoy ® and game sound effect emulation{% endtrans %}</li>
-					<li>{% trans %}2 built-in oscillator-based synthesizers{% endtrans %}</li>
-					<li>{% trans %}2 built-in wavetable-based synthesizers{% endtrans %}</li>
-					<li>{% trans %}Gravis UltraSound ® GUS Patch support{% endtrans %}</li>
+					<li>{% trans %}16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more{% endtrans %}</li>
+					<li>{% trans %}Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin{% endtrans %}</li>
+					<li>{% trans %}Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks{% endtrans %}</li>
 				</ul>
 			</div>
 		</div>
@@ -197,9 +191,9 @@
 				<ul>
 					<li>{% trans %}Drop-in LADSPA plug-in support{% endtrans %}</li>
 					<li>{% trans %}Drop-in VST ® effect plug-in support (Linux and Windows){% endtrans %}</li>
-					<li>{% trans %}Built-in compressor, limiter, delay, reverb, distortion, EQ, bass-enhancer{% endtrans %}</li>
+					<li>{% trans %}Built-in compressor, limiter, delay, reverb, distortion and bass enhancer{% endtrans %}</li>
 					<li>{% trans %}Bundled graphic and parametric equalizers{% endtrans %}</li>
-					<li>{% trans %}Built-in visualization/spectrum analyser{% endtrans %}</li>
+					<li>{% trans %}Built-in visualization/spectrum analyzer{% endtrans %}</li>
 				</ul>
 			</div>
 		</div>
