@@ -14,20 +14,22 @@ class MenuItem
 	 *
 	 * @param mixed $text	Title of the item as displayed in the menu bar. Can
 	 * 		be either string or array with long and short name
-	 *		(e.g. ['Screenshots, Sreens'])
+	 *		(e.g. ['Screenshots, Screens'])
 	 * @param string $url	The item's target URL, e.g. '/screenshots/'
 	 * @param array|null $children	Can be either
 	 *		(1) null for a normal menu item or
 	 *		(2) A two-dimensional array listing subitems in a dropdown.
 	 *			Each item in the array must have format [$icon, $text, $url]
 	 *			with $icon being null or a FontAwesome icon class
+	 * @param boolval $rightAlign Sets wether the item is right aligned
 	 */
-	public function __construct($text, $url, $children = null)
+	public function __construct($text, $url, $children = null, $rightAlign = false)
 	{
 		$this->text = $text;
 		$this->url = $url;
 		$this->children = $children;
 		$this->active = $this->isActive() ? 'active' : '';
+		$this->rightAlign = $rightAlign;
 	}
 
 	/**
@@ -85,11 +87,9 @@ class MenuItem
 		} else {
 			// Dropdown item
 
-			// Split dropdown for big screens
-			echo "<li class='dropdown-split-left $this->active hidden-xs'> <a href='$this->url'>$this->text</a> </li>";
-			echo "<li class='dropdown-split-right $this->active hidden-xs'>
-					<a href='#' class='dropdown-toggle' data-toggle='dropdown'> <span class='caret'></span></a>";
-			echo "<ul class='dropdown-menu pull-right'>";
+			echo "<li tabindex='0' class='dropdown hidden-xs'>
+					<a href='#'>$this->text <span class='caret'></span></a>";
+			echo "<ul tabindex='0' class='dropdown-menu pull-right'>";
 			foreach ($this->children as $key => $child) {
 				$this->printItem('', $child[1], $child[2], $child[0]);
 			}
@@ -113,7 +113,7 @@ class MenuItem
 	private function printItem($class, $text, $url, $icon = null)
 	{
 		if ($icon) {
-			$text = "<i class='fa $icon fa-fw'></i> $text";
+			$text = "<i class='fas $icon fa-fw'></i> $text";
 		}
 		echo "<li class='$class'> <a href='$url'>$text</a></li>";
 	}
@@ -139,7 +139,7 @@ class Navbar
 	public function __construct($items)
 	{
 		foreach ($items as $item) {
-			$this->items[] = new MenuItem($item[0], $item[1], count($item)>2 ? $item[2] : null);
+			$this->items[] = new MenuItem($item[0], $item[1], count($item)>2 ? $item[2] : null, count($item)>3 ? $item[3] : null);
 		}
 	}
 
@@ -153,14 +153,14 @@ class Navbar
 			return $GLOBALS['pagetitle'];
 		}
 
+		$pageURI = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+		if ($pageURI === '/' or $pageURI === '/index.php') return _('Home');
+
 		foreach ($this->items as $item) {
 			if ($item->isActive()) {
 				return $item->getTitle();
 			}
 		}
-		if ($_SERVER["REQUEST_URI"] === '/' or
-			$_SERVER["REQUEST_URI"] === '/index.php')
-			return 'Home';
 	}
 
 	/**
@@ -169,7 +169,7 @@ class Navbar
 	public function flush()
 	{
 		?>
-		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -179,7 +179,7 @@ class Navbar
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/"><img class="logo-sm pull-left" height="22px" width="22px" src="/img/logo_sm.png"></img>LMMS</a>
+					<a class="navbar-brand" href="/"><img class="logo-sm pull-left" height="22px" width="22px" src="/img/brand-icon.png"></img>LMMS</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -187,7 +187,18 @@ class Navbar
 					<ul class="nav navbar-nav">
 		<?php
 		foreach ($this->items as $item) {
-			$item->flush();
+			if (!$item->rightAlign) {
+				$item->flush();
+			}
+		}
+		?>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+		<?php
+		foreach ($this->items as $item) {
+			if ($item->rightAlign){
+				$item->flush();
+			}
 		}
 		?>
 					</ul>

@@ -1,47 +1,34 @@
-	<br>
+{% import 'macros.twig' as macros %}
 	<footer id="footer">
 		<div class="container">
-			<div>
-				<span>
-					<p>LMMS</p>
-					<small>
-						<a href="/download/">Download</a><br>
-						<a href="//github.com/LMMS/lmms">Source Code</a><br>
-						<a href="/documentation">Documentation</a><br>
-					</small>
-				</span>
-				<span>
-					<p>Get Involved</p>
-					<small>
-						<a href="/get-involved/#donate">Donations</a><br>
-						<a href="/get-involved/#development">Software</a><br>
-						<a href="/get-involved/#docs">Website & Docs</a>
-					</small>
-				</span>
+			<div class="row">
+				<div class="column-md-6 pull-right">
+					<a class="social" href="https://github.com/LMMS">
+						{{ macros.square_stack('fa-github', 'fa-4x', true, '') }}
+				 	</a>
+					<a class="social" href="https://facebook.com/makefreemusic">
+						{{ macros.square_stack('fa-facebook', 'fa-4x', true, '') }}
+					</a>
+					<a class="social" href="/chat">
+						{{ macros.square_stack('fa-discord', 'fa-4x', true, '') }}
+					</a>
+					<a class="social" href="https://lmmsartists.bandcamp.com">
+						{{ macros.square_stack('fa-bandcamp', 'fa-4x', true, '') }}
+					</a>
+					<a class="social" href="https://www.youtube.com/user/LMMSOfficial">
+						{{ macros.square_stack('fa-youtube', 'fa-4x', true, '') }}
+					</a>
+				</div>
+
+				<div id="redux" class="column-md-6">
+					<p>{% trans %}Powered by{% endtrans %} </p>
+					<p><a href="http://www.networkredux.com/"><img src="/img/network_redux.png"></a></p>
+				</div>
 			</div>
-			<div>
-				<span>
-					<p>Community</p>
-					<small>
-						<a href="/get-involved/#forum">Forum</a><br>
-						<a href="/lsp">LMMS Sharing Platform</a><br>
-						<a href="/community">Social Networks</a><br>
-					</small>
-				</span>
-				<span>
-					<p>LMMS.io</p>
-					<small>
-						<a href="/get-involved/#contact">Contact</a><br>
-						<a href="/get-involved/#github">Report a bug</a><br>
-						<a href="/download/artwork">Logo & Artwork</a><br>
-					</small>
-				</span>
-			</div>
-		</div><br>
-		<div class="text-center small">
-			<a href="https://www.networkredux.com/"><img src="/img/network_redux.png"></a></p>
 		</div>
 	</footer>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="/js/smartNavbar.js"></script>
+	{{ foot|raw }}
 	<script type="text/javascript" src="/js/analytics.js"></script>
-</body>
-</html>

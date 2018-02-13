@@ -53,21 +53,21 @@ if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("passw
 	$form = new form($LSP_URL . '?action=register', 'Register', 'fa-list-alt'); ?>
 	<div class="form-group">
 	<label for="realname">Real name</label>
-	<input type="text" name="realname" class="form-control textin" maxlength="50" placeholder="real name" />
+	<input type="text" name="realname" class="form-control" maxlength="50" placeholder="real name" />
 	</div><div class="form-group">
 	<label for="login">Username</label>
-	<input type="text" name="login" class="form-control textin" maxlength="16" placeholder="username" />
+	<input type="text" name="login" class="form-control" maxlength="16" placeholder="username" />
 	</div><div class="form-group">
 	<label for="password">Password</label>
-	<input type="password" name="password" class="form-control textin" maxlength="20" placeholder="password" />
+	<input type="password" name="password" class="form-control" maxlength="20" placeholder="password" />
 	</div><div class="form-group">
 	<label for="password2">Confirm password</label>
-	<input type="password" name="password2" class="form-control textin" maxlength="20" placeholder="confirm password" />
+	<input type="password" name="password2" class="form-control" maxlength="20" placeholder="confirm password" />
 	</div>
 	<div class="form-group">
 	<label for="password2">Security code</label>
 	<img class="thumbnail" style="zoom: 200%" src="get_image.php" />
-	<input type="text" name="antispam" class="form-control textin" maxlength="6" placeholder="type the security code above" />
+	<input type="text" name="antispam" class="form-control" maxlength="6" placeholder="type the security code above" />
 	</div>
 	<input type="hidden" name="session" value="<?php echo md5(session_id() . $_SERVER['REMOTE_ADDR']); ?>"/><?php
 	/* // Admin user creation
@@ -77,11 +77,10 @@ if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("passw
 	 * }
 	 */
 	?>
-	<button type="submit" class="btn btn-primary" name="adduser" value="Register"><span class="fa fa-check"></span>&nbsp;Register</button>&nbsp;
-	<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fa fa-close"></span>&nbsp;Cancel</a>
+	<button type="submit" class="btn btn-primary" name="adduser" value="Register"><span class="fas fa-check"></span>&nbsp;Register</button>&nbsp;
+	<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
 	<?php $form->close(); ?>
-	<a href="javascript:loginFocus();"><span class="fa fa-chevron-circle-left"></span>&nbsp;Already registered?  Login here.</a>
+	<a href="javascript:loginFocus();"><span class="fas fa-chevron-circle-left"></span>&nbsp;Already registered?  Login here.</a>
 	</div><?php
 }
 ?>
-

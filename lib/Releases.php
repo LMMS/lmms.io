@@ -1,21 +1,29 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/../vendor/autoload.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/../lib/GitHubClient.php');
 
 class Releases
 {
 	public function __construct($owner='LMMS', $repo='lmms')
 	{
-		$client = new \LMMS\GitHubClient(
-			new \LMMS\SafeCachedHttpClient(['cache_dir' => '/tmp/github-api-cache'], 5*60)
-		);
-		$this->json = $client->api('repo')->releases()->all($owner, $repo);
+		if (apcu_exists('ghpool')) {
+			$pool = apcu_fetch('ghpool');
+		} else {
+			$pool = new \Cache\Adapter\Apcu\ApcuCachePool();
+			apcu_store('ghpool', $pool);
+		}
+		$this->client = new \Github\Client();
+		$this->client->addCache($pool);
+		$this->json = $this->client->api('repo')->releases()->all($owner, $repo);
 
 		function compare_releases($a, $b)
 		{
-			return version_compare($b['tag_name'], $a['tag_name']); 
+			return version_compare($b['tag_name'], $a['tag_name']);
 		}
 		usort($this->json, 'compare_releases');
+	}
+
+	public function __destruct() {
+		$this->client->removeCache();
 	}
 
 	public function latestAssets($pattern, $stable = true)
@@ -112,4 +120,5 @@ class Releases
 	}
 
 	private $json;
+	private $client;
 }

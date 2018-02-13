@@ -4,21 +4,20 @@
 {% macro printrelbutton(rel, btnclass = 'btn-primary') %}
 	{% if rel != null %}
 		<a data-dl-count="{{ rel.download_count }}" class="btn btn-lg btn-dl {{ btnclass }}"
-		   href="{{ rel.browser_download_url }}">
-			<span id="button-title">LMMS</span><br>
-			<span class="fa fa-download download-icon"></span>
-			<big>Free Download</big><br>
-			<small>{{ rel.release.name }}&nbsp;({{ rel.osname }})</small>
+		 href="{{ rel.browser_download_url }}">
+			<span class="fas fa-cloud-download-alt fa-3x download-icon"></span>
+			<span class="big">{{ rel.osname }}</span><br>
+			<span class="small">LMMS&nbsp;{{ rel.release.name }}</span>
 		</a>
 	{% endif %}
 {% endmacro %}
 
 {% macro releasenotes(notes, divid) %}
 <div id="release-notes">
-	<a data-toggle="collapse" href="#collapse_{{ divid }}">Show release notes<br><i class="fa fa-angle-down"></i></a>
+	<a data-toggle="collapse" href="#collapse_{{ divid }}">{% trans %}Show release notes{% endtrans %}<br><i class="fas fa-angle-down"></i></a>
 	<div id="collapse_{{ divid }}" class="panel-collapse collapse">
 		<div class="release-notes well">
-			{{ notes|markdown }}
+			{{ ('|GH|' ~ notes)|markdown }}
 		</div>
 	</div>
 </div>
@@ -26,65 +25,66 @@
 
 {% import _self as download %}
 
+{% import 'macros.twig' as macros %}
+
 {% block content %}
-<div class="text-center">
-	<h1 class="page-header">Download LMMS</h1>
-
-	<p>Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:</p>
-
-	<div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+{{ macros.jumbo('Download LMMS'|trans,
+'Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:'|trans) }}
+<div class="text-center container">
+		<div>
 		<div class="btn-group" data-toggle="buttons">
 			<label class="btn btn-default" onclick="showOS('#linux')">
-				<input type="radio" name="options" id="linux-button"><span class="fa fa-linux fa-5x"></span><br>Linux
+				<input type="radio" name="options" id="linux-button"><span class="fab fa-linux fa-3x"></span><br>Linux
 			</label>
 			<label class="btn btn-default" onclick="showOS('#windows')">
-				<input type="radio" name="options" id="windows-button"><span class="fa fa-windows fa-5x"></span><br>Windows
+				<input type="radio" name="options" id="windows-button"><span class="fab fa-windows fa-3x"></span><br>Windows
 			</label>
 			<label class="btn btn-default" onclick="showOS('#mac')">
-				<input type="radio" name="options" id="mac-button"><span class="fa fa-apple fa-5x"></span><br>macOS
+				<input type="radio" name="options" id="mac-button"><span class="fab fa-apple fa-3x"></span><br>macOS
 			</label>
 		</div>
 	</div>
 </div>
 
-<div id="linux-div" class="text-center hidden">
-	<h2>Install LMMS on Linux</h2>
-	<p>Click one of the buttons below to download LMMS for Linux.</p>
+<div id="linux-div" class="text-center hidden container">
+	<h2>{% trans %}Install LMMS on Linux{% endtrans %}</h2>
+	<p>{% trans %}Click one of the buttons below to download LMMS for Linux.{% endtrans %}</p>
 	{% if linstable %}
-		<h3>Stable Versions</h3>
+		<h3>{% trans %}Stable Versions{% endtrans %}</h3>
 		{% for lin in linstable %}
 			{{ download.printrelbutton(lin) }}
 		{% endfor %}
 		{{ download.releasenotes(linstable[0]['release']['body'], 'linstable') }}
-		<p>Run <code>chmod +x ~/Downloads/*.AppImage</code> to set the <code>.AppImage</code> executable before running</p>
+		<p>{% trans %}Run <code>chmod +x ~/Downloads/*.AppImage</code> to set the <code>.AppImage</code> executable before running{% endtrans %}</p>
 	{% endif %}
 
 	{% if linpre %}
-		<h3>Beta Versions</h3>
+		<h3>{% trans %}Beta Versions{% endtrans %}</h3>
 		{% for lin in linpre %}
 			{{ download.printrelbutton(lin, 'btn-warning') }}
 		{% endfor %}
 
 		{{ download.releasenotes(linpre[0]['release']['body'], 'linpre') }}
 	{% endif %}
-	<a data-toggle="collapse" href="#collapse_{{ divid }}">Other options<br><i class="fa fa-angle-down"></i></a>
+	<hr>
+	<a data-toggle="collapse" href="#collapse_{{ divid }}">{% trans %}Other options{% endtrans %}<br><i class="fas fa-angle-down"></i></a>
 	<div id="collapse_{{ divid }}" class="panel-collapse collapse">
-		<hr>
 		{% include 'download/linux.twig' %}
 	</div>
 </div>
 
-<div id="windows-div" class="text-center hidden">
-	<h2>Install LMMS on Windows</h2>
-	<p>Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows</p>
-	<h3>Stable Versions</h3>
+<div id="windows-div" class="text-center hidden container">
+	<h2>{% trans %}Install LMMS on Windows{% endtrans %}</h2>
+	<p>{% trans %}Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows{% endtrans %}</p>
+	<h3>{% trans %}Stable Versions{% endtrans %}</h3>
 	{{ download.printrelbutton(winstable[0]) }}
 	{{ download.printrelbutton(winstable[1]) }}
 
 	{{ download.releasenotes(winstable[0]['release']['body'], 'winstable') }}
 
 	{% if winpre %}
-		<h3>Beta Versions</h3>
+		<h3>{% trans %}Beta Versions{% endtrans %}</h3>
 		{{ download.printrelbutton(winpre[0], 'btn-warning') }}
 		{{ download.printrelbutton(winpre[1], 'btn-warning') }}
 
@@ -92,18 +92,18 @@
 	{% endif %}
 </div>
 
-<div id="mac-div" class="text-center hidden">
-	<h2>Install LMMS on macOS</h2>
-	<p>Click one of the buttons below to download LMMS for macOS</p>
+<div id="mac-div" class="text-center hidden container">
+	<h2>{% trans %}Install LMMS on macOS{% endtrans %}</h2>
+	<p>{% trans %}Click one of the buttons below to download LMMS for macOS{% endtrans %}</p>
 	{% if osxstable %}
-		<h3>Stable Versions</h3>
+		<h3>{% trans %}Stable Versions{% endtrans %}</h3>
 		{% for osx in osxstable %}
 			{{ download.printrelbutton(osx) }}
 		{% endfor %}
 		{{ download.releasenotes(osxstable[0]['release']['body'], 'osxstable') }}
 	{% endif %}
 	{% if osxpre %}
-		<h3>Beta Versions</h3>
+		<h3>{% trans %}Beta Versions{% endtrans %}</h3>
 		{% for osx in osxpre %}
 			{{ download.printrelbutton(osx, 'btn-warning') }}
 		{% endfor %}
@@ -111,8 +111,8 @@
 	{% endif %}
 </div>
 
-<div id="prerelease" class="text-center"><small><span class="fa fa-exclamation-circle"></span> Downloads labeled Beta are pre-release software, stability may suffer.</small></div>
-<hr><div class="text-center"><a target="_blank" href="https://github.com/LMMS/lmms/tags">previous releases</a></div>
+<div id="prerelease" class="text-center"><small><span class="fas fa-exclamation-circle"></span> {% trans %}Downloads labeled Beta are pre-release software, stability may suffer.{% endtrans %}</small></div>
+<hr><div class="text-center spacey"><a class="btn btn-default" href="https://github.com/LMMS/lmms/tags"><i class="fas fa-history"></i> {% trans %}Previous releases{% endtrans %}</a></div>
 
 <script>
 function showOS(os) {
@@ -189,4 +189,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 </script>
 
+{% endblock %}
+
+{% block foot %}
 {% endblock %}

@@ -90,11 +90,11 @@ function set_get_post($param, $default = null) {
 function list_sort_options($additional_html = '') {
 	global $LSP_URL;
 	$sortings = array(
-		'date' => '<span class="fa fa-calendar"></span>&nbsp;DATE',
-		'downloads' => '<span class="fa fa-download"></span>&nbsp;DOWNLOADS / AGE',
-		'rating' => '<span class="fa fa-star"></span>&nbsp;RATING' //,
+		'date' => '<span class="fas fa-calendar"></span>&nbsp;DATE',
+		'downloads' => '<span class="fas fa-download"></span>&nbsp;DOWNLOADS / AGE',
+		'rating' => '<span class="fas fa-star"></span>&nbsp;RATING' //,
 		// TODO:  Add comment sorting support
-		//'comments' => '<span class="fa fa-comment"></span>&nbsp;COMMENTS'
+		//'comments' => '<span class="fas fa-comment"></span>&nbsp;COMMENTS'
 	);
 	
 	// Catch singular/plural
@@ -127,13 +127,13 @@ function list_sort_options($additional_html = '') {
 			switch ($order) {
 				case 'asc':
 					unset($_GET['order']);
-					$v .= '&nbsp;(<span class="fa fa-long-arrow-up"></span>)';
+					$v .= '&nbsp;(<span class="fas fa-long-arrow-alt-up"></span>)';
 					break;
 				case 'desc':
 					// move down
 				default:
 					$_GET['order'] = 'asc';
-					$v .= '&nbsp;(<span class="fa fa-long-arrow-down"></span>)';
+					$v .= '&nbsp;(<span class="fas fa-long-arrow-alt-down"></span>)';
 			}
 		} else {
 			// Don't allow order to be defined for other buttons
@@ -197,7 +197,7 @@ function create_toolbar_item($text, $href = '#', $font_awesome = '', $enabled = 
 	}
 	$href = $enabled ? htmlentities($href) : '#';
 	
-	$font_awesome = $font_awesome == '' ? '' : 'fa ' . $font_awesome;
+	$font_awesome = $font_awesome == '' ? '' : 'fas ' . $font_awesome;
 	echo '<li class="' . ($enabled ? '' : 'disabled') . '"><a class="pull-left" href="' . $href . '" title="' . $tooltip . '"><span class="' . $font_awesome . '"></span>&nbsp;' . $text . '</a></li>';
 }
 
@@ -206,14 +206,14 @@ function create_toolbar_item($text, $href = '#', $font_awesome = '', $enabled = 
  */
 function get_stars($fid = -1, $href = '#', $enabled = true) {
 	$ret_val = 'Rate:' . ($enabled ? '' : '&nbsp; &nbsp;');
-	$urating =  SESSION_EMPTY() ? -1 : get_user_rating($fid, SESSION());
-	$class = 'fa lsp-star';
+	$userRating =  SESSION_EMPTY() ? -1 : get_user_rating($fid, SESSION());
+	$class = 'far fa-star lsp-star';
 	$title = $enabled ? '' : 'Login to rate';
 	$href = $enabled ? htmlentities($href) : '#';
 	$ret_val .= '<div class="lsp-starrating clearfix pull-left">';
 	for( $i = 5; $i > 0; --$i ) {
 		if ($enabled) {
-			$ret_val .= '<a href="' . ($href == '#' ? '#' : $href . $i) . '" class="' . ($urating == $i ? "fa lsp-star active" : $class) . '" title="' . $title . '"></a>';
+			$ret_val .= '<a href="' . ($href == '#' ? '#' : $href . $i) . '"><i class="' . ($userRating >= $i ? "fas lsp-star fa-star" : $class) . '" title="' . $title . '"></i></a>';
 		} else {
 			$ret_val .= '<a href="" class="' . $class . ' disabled"></a>';
 		}
@@ -240,7 +240,7 @@ function create_title($array) {
 	$title = "<a href=\"$LSP_URL\">All Content</a>";
 	foreach ($array as $element) {
 		if (isset($element) && trim($element) != '' && trim($element) != '""' && trim($element) != "()") {
-			$title .= '&nbsp;&nbsp;<span class="fa fa-caret-right lsp-caret-right"></span>&nbsp;&nbsp;';
+			$title .= '&nbsp;&nbsp;<span class="fas fa-caret-right lsp-caret-right"></span>&nbsp;&nbsp;';
 			$title .= trim($element);
 		}
 	}
@@ -284,7 +284,7 @@ function display_message($message, $severity = 'danger', $title = 'Error', $titl
 		default: $icon = 'fa-exclamation-circle';
 	}
 	
-	$icon = '<span class="fa ' . $icon . '"></span>&nbsp;';
+	$icon = '<span class="fas ' . $icon . '"></span>&nbsp;';
 
 	echo '<div class="col-md-9">';
 	create_title(isset($title_array) ? $title_array : $title);
@@ -542,7 +542,7 @@ function soundcloud_iframe($message, $width, $height) {
 						'show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>';
 					$html .= $url_parts[1];
 				} else {
-					$html .= 'https://soundcloud.com/' . $url_parts[0] . ' <i class="fa fa-exclamation-circle" title="Link is no longer valid"></i>';
+					$html .= 'https://soundcloud.com/' . $url_parts[0] . ' <i class="fas fa-exclamation-circle" title="Link is no longer valid"></i>';
 					$html .= $url_parts[1];
 				}
 			} else {

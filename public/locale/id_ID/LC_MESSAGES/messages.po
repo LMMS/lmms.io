@@ -1,0 +1,1318 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-13 21:45+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: G-RiNe Project <aden.aziz948@gmail.com>, 2017\n"
+"Language-Team: Indonesian (https://www.transifex.com/lmms/teams/61632/id/)\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: home.twig:11
+msgid "Let's make music"
+msgstr "Ayo buat musik"
+
+#: home.twig:12
+msgid "with a free, cross-platform tool for your computer."
+msgstr "Dengan alat cross-platform gratis untuk komputer Anda."
+
+#: home.twig:14
+msgid "Download now"
+msgstr "Unduh sekarang"
+
+#: home.twig:15 home.twig:107
+msgid "Get involved"
+msgstr "Ikut terlibat"
+
+#: home.twig:27
+msgid "Making beats has never been easier."
+msgstr "Membuat lagu tidak pernah semudah ini."
+
+#: home.twig:32
+msgid "Produce music with your computer"
+msgstr "Hasilkan musik dengan komputer Anda"
+
+#: home.twig:33
+msgid ""
+"by creating melodies and beats, synthesizing and mixing sounds, arranging "
+"samples and much more."
+msgstr ""
+"dengan membuat melodi, sintesisasi dan mixing suara, aransemen sampel dan "
+"banyak lagi."
+
+#: home.twig:37
+msgid "Playback instruments, samples and plugins"
+msgstr "Instrumen pemutaran, sampel dan plugin"
+
+#: home.twig:38
+msgid "with a typing or MIDI keyboard in a user-friendly and modern interface."
+msgstr ""
+"dengan ketikan atau keyboard MIDI dalam tampilan pengguna yang modern dan "
+"bersahabat."
+
+#: home.twig:42
+#, fuzzy
+msgid "Bundled with ready-to-use content"
+msgstr "Dibundel dengan barang siap pakai"
+
+#: home.twig:43
+msgid ""
+"from an assortment of instrument and effect plugins, presets and samples to "
+"VST and SoundFont support."
+msgstr ""
+"Dari bermacam-macam instrumen dan efek plugin, preset dan sampel untuk "
+"dukungan VST dan SoundFont."
+
+#: home.twig:52
+msgid "Made by musicians, for musicians."
+msgstr "Dibuat oleh musisi, untuk musisi."
+
+#: home.twig:56
+msgid "Download for Linux"
+msgstr "Unduh untuk Linux"
+
+#: home.twig:57
+msgid "Download for Windows"
+msgstr "Unduh untuk Windows"
+
+#: home.twig:58
+msgid "Download for macOS"
+msgstr "Unduh untuk macOS"
+
+#: home.twig:59
+#, fuzzy
+msgid "Pick your flavor."
+msgstr "Pilih rasamu"
+
+#: home.twig:60
+msgid "Linux, Windows or macOS."
+msgstr "Linux, Windows atau macOS."
+
+#: home.twig:69
+#, fuzzy
+msgid "Houston, we have a problem."
+msgstr "Bang, kita punya masalah."
+
+#: home.twig:70
+#, fuzzy
+msgid "Stand by, we got you covered."
+msgstr "Santai, kami siap membantu."
+
+#: home.twig:73
+msgid "Visit our forum"
+msgstr "Kunjungi forum kami"
+
+#: home.twig:74
+msgid "Visit our Facebook page"
+msgstr "Kunjungi halaman Facebook kami"
+
+#: home.twig:75
+msgid "Chat now on Discord"
+msgstr ""
+
+#: home.twig:76
+msgid "Visit our GitHub page"
+msgstr "Kunjungi halaman GitHub kami"
+
+#: home.twig:77
+msgid "Ask your questions here"
+msgstr "Tanyakan pertanyaanmu disini"
+
+#: home.twig:78
+msgid "and answer a few questions while you're waiting."
+msgstr "dan jawab beberapa pertanyaan sambil menunggu."
+
+#: home.twig:85
+msgid "Sharing means caring."
+msgstr " Berbagi berarti peduli."
+
+#: home.twig:90
+msgid "Find musicians"
+msgstr ""
+
+#: home.twig:91
+msgid "Visit the LMMS Sharing Platform (LSP)"
+msgstr "Kunjungi LMMS Sharing Platform (LSP)"
+
+#: home.twig:92
+#, fuzzy
+msgid "Don't be modest."
+msgstr "Jangan malu-malu,"
+
+#: home.twig:93
+#, fuzzy
+msgid "Show us your creations."
+msgstr "tunjukan kreasimu."
+
+#: home.twig:101
+#, fuzzy
+msgid "We <3 open source."
+msgstr "Kami <3 Open Source."
+
+#: home.twig:106
+msgid "Fork us on Github"
+msgstr "Fork kami di Github"
+
+#: home.twig:108
+#, fuzzy, php-format
+msgid "LMMS is a 100% free, open source, community-driven project."
+msgstr "LMMS adalah proyek 100% gratis, open source, berbasis komunitas,"
+
+#: home.twig:109
+#, fuzzy
+msgid "Proudly hosted on Github."
+msgstr "Dengan bangga di-host di Github"
+
+#: home.twig:124
+#, fuzzy
+msgid "Take a peek."
+msgstr "Coba intip"
+
+#: home.twig:127
+msgid "Watch our promo video."
+msgstr "Tonton video promo kami."
+
+#: home.twig:139
+msgid "Click anywhere to close this dialog"
+msgstr ""
+
+#: home.twig:147
+#, fuzzy
+msgid "Featuring:"
+msgstr "Fitur-fitur"
+
+#: home.twig:151
+msgid "Core Functionality"
+msgstr "Fungsionalitas Inti"
+
+#: home.twig:155
+#, fuzzy
+msgid "Compose music on Windows, Linux and macOS"
+msgstr "Menulis musik di Windows, Linux dan Apple OS&nbsp;X"
+
+#: home.twig:156
+msgid "Sequence, compose, mix and automate songs in one simple interface"
+msgstr "Mengurut, mencipta, mix dan otomasi lagu dalam satu tampilan sederhana"
+
+#: home.twig:157
+msgid "Note playback via MIDI or typing keyboard"
+msgstr "Pemutaran not via MIDI atau papan ketik"
+
+#: home.twig:158
+msgid "Consolidate instrument tracks using Beat+Bassline Editor"
+msgstr "Mengkonsolidasikan trek instrumen menggunakan Editor Beat+Bassline"
+
+#: home.twig:159
+msgid "Fine tune patterns, notes, chords and melodies using Piano Roll Editor"
+msgstr ""
+"Mempercantik pola, nada, akord dan melodi menggunakan Editor Piano Roll"
+
+#: home.twig:160
+msgid ""
+"Full user-defined track-based automation and computer-controlled automation "
+"sources"
+msgstr ""
+"Otomasi berbasis trek yang ditentukan pengguna dan sumber otomasi terkontrol "
+"komputer"
+
+#: home.twig:161
+msgid "Import of MIDI files and Hydrogen project files"
+msgstr "Impor berkas MIDI dan berkas proyek Hydrogen"
+
+#: home.twig:171
+msgid "Musical Instruments"
+msgstr "Alat-alat Musik"
+
+#: home.twig:175
+msgid ""
+"Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit "
+"Windows)"
+msgstr ""
+"Termasuk dukungan instrumen VST 64-bit dengan bridge VST 32-bit (Windows 64-"
+"bit)"
+
+#: home.twig:176
+msgid ""
+"16 built in synthesizers, including emultations of Roland ® TB-303, "
+"Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip "
+"and more"
+msgstr ""
+
+#: home.twig:177
+#, fuzzy
+msgid ""
+"Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice "
+"additive, subtractive and pad synthesis all in one powerful plugin"
+msgstr ""
+"Tertanam ZynAddSubFx: Polifonik, multitimbral, mikrotonal, aditif multi-"
+"voice, subtraktif dan sintesis pad semua dalam satu plugin yang hebat"
+
+#: home.twig:178
+#, fuzzy
+msgid ""
+"Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis "
+"UltraSound ® (GUS) formats for high quality instrument patches and banks"
+msgstr ""
+"Dukungan Native SoundFont ® (SF2), Standar industri untuk patch dan bank "
+"instrumen berkualitas tinggi"
+
+#: home.twig:188
+msgid "Effects Mixing"
+msgstr "Mixing Efek"
+
+#: home.twig:192
+msgid "Drop-in LADSPA plug-in support"
+msgstr "Dukungan plug-in LADSPA bawaan"
+
+#: home.twig:193
+msgid "Drop-in VST ® effect plug-in support (Linux and Windows)"
+msgstr "Dukungan efek plugin VST (Linux dan Windows)"
+
+#: home.twig:194
+#, fuzzy
+msgid ""
+"Built-in compressor, limiter, delay, reverb, distortion and bass enhancer"
+msgstr ""
+"Termasuk kompresor, pembatas, penundaan, gema, distorsi, EQ, penambah-bass"
+
+#: home.twig:195
+msgid "Bundled graphic and parametric equalizers"
+msgstr "Dilengkapi equalizer grafis dan parametrik"
+
+#: home.twig:196
+#, fuzzy
+msgid "Built-in visualization/spectrum analyzer"
+msgstr "Termasuk penganalisa spektrum/visualisasi"
+
+#: download/linux.twig:6
+#, fuzzy
+msgid ""
+"LMMS is included in most major Linux distribution's package repositories."
+"<br>\n"
+"\tPlease <a href=\"get-involved/#contact\">contact us</a> if your "
+"distribution is not listed here."
+msgstr ""
+"LMMS termasuk pada kebanyakan paket distribusi distro Linux.<br>\n"
+"\tMohon<a href=\"/community/\">Hubungi Kami</a> jika distribusi anda tidak "
+"tercantum disini."
+
+#: download/linux.twig:48
+msgid ""
+"For installing LMMS on Debian based distributions such as Debian itself, "
+"Ubuntu or Linux Mint, just click the button below."
+msgstr ""
+"Untuk memasang LMMS pada distro berbasis Debian seperti Debian itu sendiri, "
+"Ubuntu atau Linux Mint, tinggal klik tombol dibawah."
+
+#: download/linux.twig:53
+#, fuzzy
+msgid "Install LMMS now"
+msgstr "Pasang LMMS di Windows"
+
+#: download/linux.twig:54
+#, fuzzy
+msgid "From your package manager"
+msgstr "(Dari Manajer Paket)"
+
+#: download/linux.twig:57
+msgid "If this doesn't work for you, run this command in a terminal."
+msgstr "Jika ini tidak bekerja, jalankan perintah ini di terminal."
+
+#: download/linux.twig:59
+msgid ""
+"If the traditional repositories lag behind on versions, try the <a href="
+"\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio repository</"
+"a>."
+msgstr ""
+"Jika repositori tradisional terasa lag, cobalah <a href=\"http://kxstudio."
+"sourceforge.net/Repositories#Ubuntu\">repositori KXStudio</a>."
+
+#: download/linux.twig:60 download/linux.twig:81
+msgid "VST Support"
+msgstr "Dukungan VST"
+
+#: download/linux.twig:61
+msgid ""
+"If your distribution offers VST support (requires the installation of Wine) "
+"it is generally offered in a separate package.  For example, using the <a "
+"href=\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio "
+"repository</a>, run this command in a terminal."
+msgstr ""
+"JIka distro Anda menawarkan dukungan VST (membutuhkan pemasangan Wine) "
+"Biasanya ditawarkan dalam paket terpisah. Sebagai contoh, menggunakan <a "
+"href=\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\"> repositori "
+"KXStudio</a>, jalankan perintah ini didalam terminal."
+
+#: download/linux.twig:67 download/linux.twig:73
+msgid "Run the following command as root in a terminal:"
+msgstr "Jalankan perintah berikut sebagai root di terminal:"
+
+#: download/linux.twig:79 download/linux.twig:93
+msgid "Run the following command in a terminal:"
+msgstr "Jalankan perintah berikut di terminal:"
+
+#: download/linux.twig:82
+#, fuzzy
+msgid ""
+"For VST support, please see the <a href=\"https://wiki.archlinux.org/index."
+"php/LMMS\">Arch LMMS wiki page</a>"
+msgstr ""
+"Untuk dukungan VST, silakan lihat <a href=\"https://wiki.archlinux.org/index."
+"php/LMMS\" target=\"_blank\">Laman wiki Arch LMMS</a>"
+
+#: download/linux.twig:99
+msgid ""
+"AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and "
+"more to come in the future), with VST support enabled by default on AMD64."
+msgstr ""
+"OS AOSC memiliki LMMS di berbagai port arsitektur (AMD64/x86_64, ARMv7, dan "
+"lebih banyak lagi di masa depan), dengan dukungan VST sebagai bawaan di "
+"AMD64."
+
+#: download/linux.twig:100
+msgid "To install LMMS on AOSC OS with PackageKit (recommended):"
+msgstr "Untuk memasang LMMS di OS AOSC dengan PackageKit (direkomendasikan):"
+
+#: download/linux.twig:102
+msgid "To install LMMS on AOSC OS with DPKG:"
+msgstr "Untuk memasang LMMS di OS AOSC dengan DPKG:"
+
+#: download/linux.twig:104
+msgid "To install LMMS on AOSC OS with RPM:"
+msgstr "Untuk memasang LMMS di OS AOSC dengan RPM:"
+
+#: download/linux.twig:110
+msgid "Build LMMS from source"
+msgstr "Bangun LMMS dari sumber"
+
+#: download/linux.twig:111
+#, fuzzy
+msgid ""
+"If your Linux distribution does not provide a lmms package (or only an "
+"outdated one), you can still build LMMS from source. Visit the <a href="
+"\"https://github.com/LMMS/lmms/wiki/Compiling\">LMMS development wiki on "
+"GitHub</a> for instructions on how to compile LMMS for Linux."
+msgstr ""
+"Jika distro Linux Anda tidak menyediakan paket lmms (atau hanya yang sudah "
+"usang), Anda masih bisa membangun LMMS dari sumber. Kunjungi <a href="
+"\"https://github.com/LMMS/lmms/wiki/Compiling-lmms\"> Wiki pengembangan LMMS "
+"di GitHub</a> untuk instruksi bagaimana cara mengkompile LMMS untuk Linux."
+
+#: showcase.twig:6 navbar.php:12
+msgid "Showcase"
+msgstr "Tempat Pamer"
+
+#: showcase.twig:6
+msgid "Tracks made with LMMS"
+msgstr "Trek yang dibuat oleh LMMS"
+
+#: showcase.twig:12
+#, fuzzy
+msgid "The Best of LMMS Vol. 4 by LMMS Artists"
+msgstr "Yang Terbaik dari LMMS Vol.3 oleh Artis LMMS"
+
+#: showcase.twig:20
+msgid "The Best of LMMS Vol.3 by LMMS Artists"
+msgstr "Yang Terbaik dari LMMS Vol.3 oleh Artis LMMS"
+
+#: showcase.twig:28
+msgid "The Best of LMMS Vol.2 by LMMS Artists"
+msgstr "Yang Terbaik dari LMMS Vol.2 oleh Artis LMMS"
+
+#: showcase.twig:36
+msgid "The Best of LMMS Vol.1 by LMMS Artists"
+msgstr "Yang Terbaik dari LMMS Vol.1 oleh Artis LMMS"
+
+#: competitions.twig:10 competitions.twig:12 navbar.php:13
+msgid "Competitions"
+msgstr "Kompetisi"
+
+#: competitions.twig:10
+msgid "Official competitions organised by LMMS and its community members"
+msgstr ""
+"Kompetisi resmi yang diselenggarakan oleh LMMS dan anggota komunitasnya"
+
+#: competitions.twig:14
+#, fuzzy
+msgid "Current competitions"
+msgstr "Kompetisi"
+
+#: competitions.twig:15
+msgid "Past competitions:"
+msgstr "Kompetisi masa lalu:"
+
+#: competitions.twig:18
+msgid "The Best of LMMS vol. IV"
+msgstr "Yang Terbaik dari LMMS vol. IV"
+
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:79
+msgid ""
+"#### The competition has ended on **April 16th, 2017**.\n"
+"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
+"(https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)\n"
+"\n"
+"\t\t\tListen to all entries [here.](https://docs.google.com/spreadsheets/"
+"d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?"
+"gid=975440614&single=true)\n"
+"\n"
+"\t\t\tWinners:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Original Description:\n"
+"\t\t\tWe are proud to present to you The Best of LMMS contest volume 4!\n"
+"\t\t\tThe contest aims to inspire the community to create and share their "
+"music. Submit your track at the link below before midnight\n"
+"  \t\t(23:59.59) on April 16th (UTC time) for a chance to be featured on the "
+"BoL v4 album. The compilation will be uploaded to Bandcamp, with all\n"
+"\t\t\tprofits going towards LMMS' further development.\n"
+"\t\t\tThis year's submissions are handled through Google forms. We accept "
+"submissions hosted on YouTube, Soundcloud and Clyp. For the full rules check "
+"out the submission form:\n"
+"\t\t\thttps://goo.gl/forms/cifEliOViOXTSc8H2\n"
+"\t\t\t#### Competition rules:\n"
+"\t\t\t1. **The Deadline**\n"
+"\t\t\t  - Tracks must be submitted by April 16th at 23:59.59 UTC using [this "
+"form](https://goo.gl/forms/cifEliOViOXTSc8H2).\n"
+"\t\t\t2. **The Tracks**\n"
+"\t\t\t  - Must be produced in LMMS.\n"
+"\t\t\t\t- You may use other programs for mastering and post processing.\n"
+"\t\t\t\t- Must be under 10 minutes long.\n"
+"\t\t\t\t- No winning tracks from previous Best of LMMS albums allowed.\n"
+"\t\t\t\t- No remixes allowed.\n"
+"\t\t\t3. **The Submissions**\n"
+"\t\t\t  - You must submit using this form only.\n"
+"\t\t\t\t- No more than **TWO** entries per artist are allowed.\n"
+"\t\t\t\t- Collaborations count as **ONE** entry for each artist involved.\n"
+"\t\t\t\t- Only submissions hosted on Soundcloud, YouTube or Clyp are "
+"allowed.\n"
+"\t\t\t\t- Your entry must be available for listening until the end of the "
+"judging process. If not, your entry will be disqualified.\n"
+"\t\t\t4. **The Judges**\n"
+"\t\t\t  - The jury consists of: Greippi, Jacoby Davis, Spekular, Stakeout "
+"Punch and Squatro.\n"
+"\t\t\t5. **The Judging Process**\n"
+"\t\t\t  - After the deadline, the judges will make their decisions and "
+"release the results within 14 days.\n"
+"\t\t\t6. **The Release**\n"
+"\t\t\t  - The 25 highest scoring songs will be released as an album on "
+"Bandcamp with the price of \"Pay what you want\".\n"
+"\t\t\t\t\tAll the received funds will be donated for further development of "
+"LMMS, the program that we love."
+msgstr ""
+"#### Kompetisi ini telah berakhir pada **16 April, 2017**.\n"
+"\t\tDukung LMMS beli kompilasinya di [laman bandcamp.](https://lmmsartists."
+"bandcamp.com/album/the-best-of-lmms-vol-4)\n"
+"\n"
+"\t\t\tDengarkan semua entri [disini.](https://docs.google.com/spreadsheets/"
+"d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?"
+"gid=975440614&single=true)\n"
+"\n"
+"\t\t\tPemenang:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Deskripsi Asli:\n"
+"\t\t\tDengan bangga kami mempersembahkan kontes Yang terbaik dari LMMS "
+"volume 4!\n"
+"\t\t\tKontes ini bertujuan untuk menginspirasi komunitas untuk membuat dan "
+"berbagi musik mereka. Kirimkan lagu Anda di link di bawah sebelum tengah "
+"malam\n"
+"  \t\t(23.59.59) pada tanggal 16 April (waktu UTC) untuk kesempatan tampil "
+"di album YTDL v4. Kompilasi akan diunggah ke Bandcamp, dengan semua\n"
+"\t\t\tKeuntungan ditujukan untuk pengembangan LMMS lebih lanjut.\n"
+"\t\t\tPengajuan tahun ini ditangani melalui formulir Google. Kami menerima "
+"pengajuan yang dihosting di YouTube, Soundcloud dan Clyp. Untuk aturan "
+"lengkap, lihat formulir pengajuan:\n"
+"\t\t\thttps://goo.gl/forms/cifEliOViOXTSc8H2\n"
+"\t\t\t#### Aturan kompetisi:\n"
+"\t\t\t1. **Batas waktu**\n"
+"\t\t\t  - Trek harus diserahkan pada tanggal 16 April di 23.59.59 UTC "
+"menggunakan [formulir ini](https://goo.gl/forms/cifEliOViOXTSc8H2).\n"
+"\t\t\t2. **Trek**\n"
+"\t\t\t  - Harus diproduksi menggunakan LMMS.\n"
+"\t\t\t\t- Anda bisa menggunakan program lain untuk mixing dan mastering.\n"
+"\t\t\t\t- Panjang harus dibawah 10 menit.\n"
+"\t\t\t\t- Tidak diizinkan menggunakan trek yang sudah dimenangkan dari "
+"kompetisi sebelumnya..\n"
+"\t\t\t\t- Tidak diizinkan untuk melakukan remix.\n"
+"\t\t\t3. **Submisi**\n"
+"\t\t\t  - Anda harus mengirimkan hanya menggunakan formulir ini.\n"
+"\t\t\t\t- Tidak diizinkan lebih dari **DUA** entri per artis.\n"
+"\t\t\t\t- Kolaborasi dihitung sebagai **SATU** entri untuk setiap artis yang "
+"terlibat.\n"
+"\t\t\t\t- Pengajuan hanya diizinkan melalui hosting Soundcloud, YouTube atau "
+"Clyp..\n"
+"\t\t\t\t- Entri Anda harus tersedia untuk didengarkan sampai akhir proses "
+"penjurian. Jika tidak, entri Anda akan didiskualifikasi.\n"
+"\t\t\t4. **Para juri**\n"
+"\t\t\t  - Juri terdiri dari: Greippi, Jacoby Davis, Spekuler, Stakeout Punch "
+"dan Squatro.\n"
+"\t\t\t5. **Proses Peninjauan**\n"
+"\t\t\t  - Setelah batas akhir, juri akan mengambil keputusan dan melepaskan "
+"hasilnya dalam waktu 14 hari.\n"
+"\t\t\t6. **Perilisan**\n"
+"\t\t\t  - 25 lagu dengan nilai tertinggi akan dirilis sebagai album di "
+"Bandcamp dengan harga \"Bayar berapapun yang Anda inginkan\".\n"
+"\t\t\t\t\tSemua dana yang diterima akan disumbangkan untuk pengembangan LMMS "
+"lebih lanjut, program yang kita cintai."
+
+#: competitions.twig:66
+msgid "The Best of LMMS vol. III"
+msgstr "Yang terbaik dari LMMS vol. III"
+
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:140
+msgid ""
+"#### The competition has ended on **March 16th, 2016.**\n"
+"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
+"(https://lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tListen to all entries [here.](https://soundcloud.com/groups/the-best-"
+"of-lmms-competition-v3)\n"
+"\n"
+"\t\t\tWinners:\n"
+"\t\t\t<iframe width=\"100%\" height=\"450\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/211975750&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Original description:\n"
+"\n"
+"\t\t\tIt’s that time of the year again: If you have made amazing tracks with "
+"LMMS we have a contest for you!\n"
+"\t\t\tThe Best of LMMS contest is back!  The compilation aims to inspire new "
+"users and everyone to create music.\n"
+"\t\t\tThe compilation will be uploaded to Bandcamp and all profit will be "
+"donated for the further development of LMMS.\n"
+"\t\t\tSubmit your track before midnight on March 16th (UTC time), and find "
+"details about the contest on the [soundcloud group.](https://soundcloud.com/"
+"groups/the-best-of-lmms-competition-v3)\n"
+"\n"
+"\t\t\t#### Competition rules:\n"
+"\n"
+"\t\t\t1. The Deadline. The tracks must be submitted by March 16th 0:00 UTC. "
+"The tracks can be of any genre, preferably under 10 minutes.\n"
+"\t\t\t\tThe track must be produced in LMMS, but it is allowed to use some "
+"other software (Audacity, Ardour etc.) for post mixing/mastering.\n"
+"\t\t\t2. The tracks. All submissions will be handled via SoundCloud using "
+"the dedicated group. You can submit a maximum of two tracks.\n"
+"\t\t\t\tYou may submit previously released tracks, but not tracks that were "
+"in the previous Best of LMMS albums. Remixes are not allowed. A "
+"collaboration between a judge and yourself is not allowed.\n"
+"\t\t\t3. The Judges. The jury consists of: Zach Henderson, Second Flight, "
+"Umcaruje, Greippi, Tres Finnochiaro, Abludo.\n"
+"\t\t\t4. The Judging Process. After the deadline, the judges will make their "
+"decisions and release the results within next 14 days.\n"
+"\t\t\t5. Release. The compilation will be released on a dedicated LMMS "
+"artists Bandcamp with the price of “Pay what you want”. All the received "
+"funds\n"
+"\t\t\t\twill be donated for further development of LMMS, the program that we "
+"love."
+msgstr ""
+"#### Kompetisi ini telah berakhir pada **16 Maret, 2016.**\n"
+"\t\t\tDukung LMMS dan beli kompilasinya di  [laman bandcamp.](https://"
+"lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tDengarkan semua entri [disini.](https://soundcloud.com/groups/the-best-"
+"of-lmms-competition-v3)\n"
+"\n"
+"\t\t\tPemenang:\n"
+"\t\t\t<iframe width=\"100%\" height=\"450\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/211975750&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Deskripsi asli:\n"
+"\n"
+"\t\t\tTahun ini sudah waktunya lagi: Jika Anda telah membuat trek yang "
+"menakjubkan dengan LMMS, kami memiliki sebuah kontes untuk Anda!\n"
+"\t\t\t kontes Yang Terbaik dari LMMS telah kembali! Kompilasi ini bertujuan "
+"untuk menginspirasi pengguna baru dan setiap orang untuk menciptakan musik.\n"
+"\t\t\tKompilasi akan diunggah ke Bandcamp dan semua keuntungan akan "
+"disumbangkan untuk pengembangan LMMS lebih lanjut.\n"
+"\t\t\tKirimkan lagu Anda sebelum tengah malam pada tanggal 16 Maret (waktu "
+"UTC), dan temukan rincian tentang kontes di [grup soundcloud].(https://"
+"soundcloud.com/groups/the-best-of-lmms-competition-v3)\n"
+"\n"
+"\t\t\t#### Peraturan kompetisi:\n"
+"\n"
+"\t\t\t1. Batas waktu. Trek harus diserahkan pada 16 Maret 0:00 UTC. Trek "
+"bisa berupa genre apapun, sebaiknya di bawah 10 menit.\n"
+"\t\t\t\tTrek harus diproduksi di LMMS, namun diperbolehkan untuk menggunakan "
+"beberapa perangkat lunak lain (Audacity, Ardor dll.) Untuk mixing / "
+"mastering.\n"
+"\t\t\t2. Trek. Semua pengajuan akan ditangani melalui SoundCloud menggunakan "
+"grup khusus. Anda bisa mengirimkan maksimal dua lagu.\n"
+"\t\t\t\tAnda bisa mengirimkan lagu yang dirilis sebelumnya, tapi bukan lagu "
+"yang ada di album LMMS sebelumnya. Remix tidak diijinkan, Kolaborasi antara "
+"juri dan diri sendiri tidak diperbolehkan.\n"
+"\t\t\t3. Para juri. Juri terdiri dari: Zach Henderson, Second Flight, "
+"Umcaruje, Greippi, Tres Finnochiaro, Abludo.\n"
+"\t\t\t4. Proses Peninjauan. Setelah batas waktu, Hakim akan membuat "
+"keputusan dan melepaskan hasilnya dalam 14 hari ke depan.\n"
+"\t\t\t5. Pelepasan. Kompilasi tersebut akan dirilis pada Bandcamp artis LMMS "
+"khusus dengan harga \"Bayar berapapun yang Anda inginkan\". Semua dana yang "
+"diterima\n"
+"\t\t\t\tAkan disumbangkan untuk pengembangan lebih lanjut dari LMMS, program "
+"yang kita cintai."
+
+#: competitions.twig:102
+msgid "The Best of LMMS vol. II"
+msgstr "Yang terbaik dari LMMS vol. II"
+
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:189
+msgid ""
+"#### The competition has ended on **April 1st, 2015.**\n"
+"\n"
+"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
+"(https://lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tListen to all entries [here.](https://soundcloud.com/groups/the-best-"
+"of-lmms-competition-v2)\n"
+"\n"
+"\t\t\tWinners:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/103762698&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Original description:\n"
+"\t\t\t1. The Deadline. The songs must be submitted by April 1st 0:00 UTC. "
+"The songs can be of any genre, preferably under 10 minutes.\n"
+"\t\t\t\tThe song should be made mostly in LMMS, but it is allowed to use "
+"some other software (Audacity, Ardour etc.) for post mixing/mastering.\n"
+"\t\t\t2. The songs. All submissions will be handled via SoundCloud using the "
+"dedicated group. A user can submit a maximum of two songs.\n"
+"\t\t\t\tUsers CAN submit previously released songs, BUT not songs submitted "
+"for previous BoL competitions. Remixes are not allowed.\n"
+"\t\t\t\tA song cooperation between a judge and yourself is not allowed.\n"
+"\t\t\t3. The Judges and the Release. The judges consist of Stian Jørgensrud "
+"(Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix and "
+"Jernemies.\n"
+"\t\t\t\tThe compilation will be released on the dedicated LMMS artists "
+"Bandcamp with the price of “Pay what you want”. All the received funds will "
+"be donated\n"
+"\t\t\t\tfor further development of LMMS or to cover other program related "
+"costs.\n"
+"\n"
+"\t\t\tExtras:\n"
+"\n"
+"\t\t\tBy marking your song with the tag \"Want Feedback\" you can get "
+"feedback from the judges. Comments from different judges will be combined "
+"into one\n"
+"\t\t\ttext so you won't know from who or how many the feedback is. Note that "
+"you aren't guaranteed any feedback, it depends on how much time the judges "
+"have.\n"
+"\t\t\tAlso note that the judges are just regular LMMS artists and no matter "
+"what feedback you get the judges' decision for album songs is final."
+msgstr ""
+"#### Kompetisi ini telah berakhir pada  ** 1 April, 2015.**\n"
+"\n"
+"\t\t\tDukung LMMS dan beli kompilasinya di [laman bandcamp.](https://"
+"lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tDengarkan semua entri [disini.](https://soundcloud.com/groups/the-best-"
+"of-lmms-competition-v2)\n"
+"\n"
+"\t\t\tPemenang:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/103762698&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Deskripsi asli:\n"
+"\t\t\t1. Batas waktu. Lagu tersebut harus diserahkan pada tanggal 1 April "
+"0:00 UTC. Lagunya bisa berupa genre apapun, sebaiknya di bawah 10 menit.\n"
+"\t\t\t\tLagu tersebut harus dibuat sebagian besar di LMMS, namun "
+"diperbolehkan untuk menggunakan beberapa perangkat lunak lain (Audacity, "
+"Ardor dll.) Untuk pasca mixing / mastering.\n"
+"\t\t\t2. Lagunya. Semua pengajuan akan ditangani melalui SoundCloud "
+"menggunakan grup khusus. Pengguna bisa mengirimkan maksimal dua lagu.\n"
+"\t\t\t\tPengguna DAPAT mengirimkan lagu yang dirilis sebelumnya, NAMUN bukan "
+"lagu yang diserahkan untuk kompetisi YTdL sebelumnya. Remix tidak "
+"diijinkan.\n"
+"\t\t\t\tSebuah kerjasama lagu antara juri dan diri sendiri tidak "
+"diperbolehkan.\n"
+"\t\t\t3. Para juri dan Rilisnya. Para juri terdiri dari Stian Jørgensrud "
+"(Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix and "
+"Jernemies.\n"
+"\t\t\t\tKompilasi akan dirilis pada artis Bandcamp LMMS khusus dengan harga "
+"“Pay what you want”. Semua dana yang diterima akan didonasikan\n"
+"\t\t\t\tuntuk pengembangan LMMS lebih lanjut Atau untuk menutupi biaya "
+"terkait program lainnya.\n"
+"\n"
+"\t\t\tTambahan:\n"
+"\n"
+"\t\t\tDengan menandai lagu Anda dengan tag \"Want Feedback\" Anda bisa "
+"mendapatkan umpan balik dari para juri. Komentar dari juri yang berbeda akan "
+"digabungkan menjadi satu\n"
+"\t\t\tTeks sehingga Anda tidak akan tahu dari siapa atau berapa banyak umpan "
+"baliknya. Perhatikan bahwa Anda tidak dijamin mendapat umpan balik, itu "
+"tergantung pada berapa banyak waktu yang dimiliki juri.\n"
+"\t\t\tPerhatikan juga bahwa para juri hanya seniman LMMS biasa dan tidak "
+"peduli tanggapan apa yang Anda dapatkan dari keputusan juri untuk lagu album "
+"adalah keputusan akhir."
+
+#: competitions.twig:137
+msgid "The Best of LMMS vol. I"
+msgstr "Yang Terbaik dari LMMS vol. I"
+
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:237
+msgid ""
+"#### The competition has ended on **February 15th, 2014.**\n"
+"\n"
+"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
+"(https://lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tListen to all entries [here.](https://soundcloud.com/groups/lmms-top-"
+"songs-compilation)\n"
+"\n"
+"\t\t\tWinners:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/27083727&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Original description:\n"
+"\n"
+"\t\t\tIf you have made amazing songs with LMMS we have a contest for you! A "
+"LMMS top songs contest.\n"
+"\t\t\tThe compilation aims to inspire new users and get new producers to use "
+"the program as well as to give a big thank you to LMMS developers.\n"
+"\t\t\tThe compilation will be uploaded to Bandcamp and all profit will be "
+"donated for the further development of LMMS. Submit your song before\n"
+"\t\t\tmidnight on February 15th, and find details about this contest on the "
+"Soundcloud site.\n"
+"\n"
+"\t\t\t#### Competition rules:\n"
+"\t\t\t1. The Deadline. The songs must be submitted by February 15th 12 PM "
+"GMT. A user can submit a maximum of two songs. The songs can be of any "
+"genre,\n"
+"\t\t\t\tpreferably under 10 minutes. All submissions will be handled via "
+"SoundCloud using the dedicated group. User CAN submit previously released "
+"songs.\n"
+"\t\t\t\tRemixes are not allowed. The song should be made mostly in LMMS, but "
+"it is allowed to use some other software (Audacity, Ardour etc.) for post "
+"mixing/mastering.\n"
+"\t\t\t2. The Judges. The judges consist of the group Avelocity: Brian Amin "
+"(Maniarib), Joshua Wade (Second Flight),\n"
+"\t\t\t\tUroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn "
+"(Raptor980), Jan Heemstra (Combustible Lemonade)\n"
+"\t\t\t3. The Judging Process. After the deadline, the judges will make their "
+"decisions and release the results within next 7 days.\n"
+"\t\t\t4. Release. The compilation will be released on a dedicated LMMS "
+"artists Bandcamp with the price of “Pay what you want”. All the received "
+"funds\n"
+"\t\t\t\twill be donated for further development of LMMS, the program that we "
+"love."
+msgstr ""
+"#### Kompetisi ini telah berakhir pada **15 Februari 2014.**\n"
+"\n"
+"\t\t\tDukung LMMS dan beli kompilasinya di [laman bandcamp.](https://"
+"lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tDengarkan semua entri [disini.](https://soundcloud.com/groups/lmms-top-"
+"songs-compilation)\n"
+"\n"
+"\t\t\tPemenang:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/27083727&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Deskripsi asli:\n"
+"\n"
+"\t\t\tJika Anda telah membuat lagu yang menakjubkan dengan LMMS, kami "
+"memiliki sebuah kontes untuk Anda! Lomba lagu LMMS terbaik.\n"
+"\t\t\tKompilasi ini bertujuan untuk menginspirasi pengguna baru dan membuat "
+"produser baru untuk menggunakan program ini dan juga memberikan ucapan "
+"terima kasih yang sebesar-besarnya kepada para pengembang LMMS.\n"
+"\t\t\tKompilasi akan diunggah ke Bandcamp dan semua keuntungan akan "
+"disumbangkan untuk pengembangan LMMS lebih lanjut. Kirimkan lagu Anda "
+"sebelum\n"
+"\t\t\tTengah malam pada tanggal 15 Februari, dan temukan rincian tentang "
+"kontes ini di situs Soundcloud.\n"
+"\n"
+"\t\t\t#### Aturan kompetisi:\n"
+"\t\t\t1. Batas waktu. Lagu-lagu tersebut harus diserahkan pada 15 Februari "
+"12:00 GMT. Pengguna bisa mengirimkan maksimal dua lagu. Lagu-lagunya bisa "
+"berupa genre apapun,\n"
+"\t\t\t\tSebaiknya di bawah 10 menit. Semua pengajuan akan ditangani melalui "
+"SoundCloud menggunakan grup khusus. Pengguna BISA mengirimkan lagu yang "
+"dirilis sebelumnya.\n"
+"\t\t\t\tRemix tidak diijinkan. Lagu tersebut harus dibuat sebagian besar di "
+"LMMS, namun diperbolehkan untuk menggunakan beberapa perangkat lunak lain "
+"(Audacity, Ardor dll.) Untuk pasca mixing / mastering.\n"
+"\t\t\t2. Para juri. Juri terdiri dari kelompok Avelocity: Brian Amin "
+"(Maniarib), Joshua Wade (Second Flight),\n"
+"\t\t\t\tUroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn "
+"(Raptor980), Jan Heemstra (Combustible Lemonade)\n"
+"\t\t\t3. Proses Peninjauan. Setelah tenggat waktu, juri akan mengambil "
+"keputusan dan melepaskan hasilnya dalam 7 hari ke depan.\n"
+"\t\t\t4. Rilisnya. Kompilasi tersebut akan dirilis pada Bandcamp artis "
+"bandingan LMMS khusus dengan harga \"Bayar berapapun yang Anda inginkan\". "
+"Semua dana yang diterima\n"
+"\t\t\t\tAkan disumbangkan untuk pengembangan lebih lanjut dari LMMS, program "
+"yang kita cintai."
+
+#: download/index.twig:32
+msgid "Download LMMS"
+msgstr "Unduh LMMS"
+
+#: download/index.twig:32
+msgid ""
+"Downloading and using LMMS is free! Just choose the operating system you "
+"want to run LMMS on:"
+msgstr ""
+"Mengunduh dan menggunakan LMMS itu gratis! Tinggal pilih sistem operasi "
+"dimana LMMS akan dijalankan:"
+
+#: download/index.twig:51
+msgid "Install LMMS on Linux"
+msgstr "Pasang LMMS di Linux"
+
+#: download/index.twig:52
+#, fuzzy
+msgid "Click one of the buttons below to download LMMS for Linux."
+msgstr "Klik salah satu tombol dibawah untuk mengunduh LMMS untuk Apple"
+
+#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:73
+#: download/index.twig:80
+#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:215
+msgid "Stable Versions"
+msgstr "Versi Stabil"
+
+#: download/index.twig:59
+msgid ""
+"Run <code>chmod +x ~/Downloads/*.AppImage</code> to set the <code>.AppImage</"
+"code> executable before running"
+msgstr ""
+
+#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:106
+#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:181
+#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:242
+msgid "Beta Versions"
+msgstr "Versi Beta"
+
+#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:136
+msgid "Other options"
+msgstr ""
+
+#: download/index.twig:78
+msgid "Install LMMS on Windows"
+msgstr "Pasang LMMS di Windows"
+
+#: download/index.twig:79
+msgid ""
+"Click one of the buttons below (either 32bit or 64bit) to download LMMS for "
+"Windows"
+msgstr ""
+"Klik salah satu tombol dibawah (32bit atau 64bit) untuk mengunduh LMMS untuk "
+"Windows"
+
+#: download/index.twig:96
+#, fuzzy
+msgid "Install LMMS on macOS"
+msgstr "Pasang LMMS di Linux"
+
+#: download/index.twig:97
+#, fuzzy
+msgid "Click one of the buttons below to download LMMS for macOS"
+msgstr "Klik salah satu tombol dibawah untuk mengunduh LMMS untuk Apple"
+
+#: download/index.twig:114
+msgid "Downloads labeled Beta are pre-release software, stability may suffer."
+msgstr ""
+"Unduhan berlabel Beta adalah perangkat lunak pra-rilis, stabilitas mungkin "
+"akan terganggu."
+
+#: download/index.twig:115
+msgid "Previous releases"
+msgstr "Rilis sebelumnya"
+
+#: download/index.twig:333
+msgid "Show release notes"
+msgstr "Tampilkan catatan rilis"
+
+#: branding.twig:6 navbar.php:14
+msgid "Branding"
+msgstr "Branding"
+
+#: branding.twig:6
+msgid "Download LMMS Artwork"
+msgstr "Unduh Karya seni LMMS"
+
+#: branding.twig:8
+msgid "LMMS Logo"
+msgstr "Logo LMMS"
+
+#: branding.twig:8 branding.twig:17
+msgid "LMMS Development Team"
+msgstr "Tim Pengembang LMMS"
+
+#: branding.twig:17
+msgid "LMMS Project Icon"
+msgstr "Ikon Proyek LMMS"
+
+#: errorpage.twig:6
+msgid "Error <b>%code%</b>"
+msgstr ""
+
+#: errorpage.twig:8
+msgid ""
+"If you followed a valid link on this site, please contact us\n"
+"      about it and <a href=\"//github.com/LMMS/lmms.io/issues/new\">file an "
+"issue</a> on GitHub."
+msgstr ""
+"Jika anda mengikuti link yang valid pada situs ini, mohon hubungi kami\n"
+"tentang hal tersebut dan <a href=\"//github.com/LMMS/lmms.io/issues/new"
+"\">tambahkan isu</a> di GitHub."
+
+#: foot.twig:24
+msgid "Powered by"
+msgstr "Dipersembahkan oleh"
+
+#: get-involved.twig:6 navbar.php:7
+msgid "Get Involved"
+msgstr "Ikut terlibat"
+
+#: get-involved.twig:6
+msgid ""
+"LMMS is a free, open-source software built entirely by a small number of\n"
+"\tvolunteers in their free time. But to keep the project going, we need "
+"this\n"
+"\tnumber to grow. So if you feel like giving something back to the "
+"community,\n"
+"\tjoin us in making LMMS better!"
+msgstr ""
+"LMMS adalah perangkat lunak open source gratis yang seluruhnya dibangun \n"
+"oleh sejumlah kecil relawan di waktu senggang mereka. Tapi untuk menjaga \n"
+"agar proyek tetap berjalan, kami memerlukan jumlah ini untuk tumbuh.\n"
+"Jadi jika Anda merasa ingin memberikan sesuatu kepada komunitas ini, \n"
+"bergabunglah dengan kami untuk membuat LMMS menjadi lebih baik!"
+
+#: get-involved.twig:11
+msgid "What you can do"
+msgstr "Apa yang bisa Anda lakukan"
+
+#: get-involved.twig:12
+msgid "There are multiple ways of contributing:"
+msgstr "Ada banyak cara untuk berkontribusi:"
+
+#: get-involved.twig:18
+msgid "Join Development"
+msgstr "Bergabung dengan pengembangan"
+
+#: get-involved.twig:21
+msgid ""
+"We are in desperate need of new developers to join our team. LMMS is written "
+"in C++ using the Qt\n"
+"\t\t\t\t\t   Framework, so if you know a thing or two about these, don't "
+"hesitate to get yourself dirty with\n"
+"\t\t\t\t\t   coding!"
+msgstr ""
+"Kami sangat membutuhkan pengembang baru untuk bergabung dengan tim kami. "
+"LMMS ditulis dalam C ++ menggunakan Framework Qt\n"
+"\t\t\t\t , Jadi jika Anda tahu satu atau dua hal tentang ini, jangan ragu "
+"untuk membuat diri Anda kotor dengan \n"
+"\t\t\t\t coding!"
+
+#: get-involved.twig:24
+msgid ""
+"See our <a href=\"//github.com/LMMS/lmms/wiki\">GitHub Wiki</a> and our\n"
+"\t\t\t\t\t   <a href=\"//github.com/LMMS/lmms/issues\">bug tracker</a> to "
+"get started. Furthermore, the LMMS\n"
+"\t\t\t\t\t   <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
+"devel\">mailing list</a> is a great place\n"
+"\t\t\t\t\t   to introduce yourself."
+msgstr ""
+"Lihat <a href=\"//github.com/LMMS/lmms/wiki\">Wiki GitHub</a> kami dan\n"
+"\t\t\t\t\t<a href=\"//github.com/LMMS/lmms/issues\">pelacak bug</a> kami "
+"untuk memulai. Selanjutnya, \n"
+"\t\t\t\t\t<a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-devel"
+"\">Milis LMMS</a> adalah tempat terbaik\n"
+"\t\t\t\t\t untuk memperkenalkan diri Anda."
+
+#: get-involved.twig:35
+msgid "Website & Docs"
+msgstr "Situs & Dok"
+
+#: get-involved.twig:38
+msgid ""
+"You can help us by improving this website or documenting the software. The "
+"website sources are in our\n"
+"\t\t\t\t\t   GitHub repo <a href=\"//github.com/LMMS/lmms.io\">LMMS/lmms.io</"
+"a>, our documentation is hosted using a\n"
+"\t\t\t\t\t   <a href=\"//lmms.io/wiki\">MediaWiki instance</a>."
+msgstr ""
+"Anda dapat membantu kami dengan memperbaiki situs ini atau mendokumentasikan "
+"perangkat lunak. Sumber situs web kami berada di\n"
+"\t\t\t\t\t repo GitHub <a href=\"//github.com/LMMS/lmms.io\">LMMS/lmms.io</"
+"a>, dokumentasi kami dihosting menggunakan\n"
+"\t\t\t\t\t <a href=\"//lmms.io/wiki\">Contoh MediaWiki</a>."
+
+#: get-involved.twig:41
+msgid ""
+"Public registration on our Wiki is disabled due to spam issues. Please post "
+"to the\n"
+"\t\t\t\t\t   <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
+"devel\">mailing list</a> if you're\n"
+"\t\t\t\t\t   interested in helping out with the documentation!"
+msgstr ""
+"Pendaftaran publik pada Wiki kami dinonaktifkan untuk menghindari isu spam. "
+"Silakan posting ke \n"
+"\t\t\t\t\t    <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
+"devel\"> milis </a> jika Anda\n"
+"\t\t\t\t\t    tertarik untuk membantu bagian dokumentasi!"
+
+#: get-involved.twig:53
+msgid "Donate"
+msgstr "Donasi"
+
+#: get-involved.twig:56
+msgid ""
+"Even though donations are not the thing we need the most (that'd be "
+"developers), they help us pay\n"
+"\t\t\t\t\t   our bills, for our domain lmms.io for instance."
+msgstr ""
+"Walaupun donasi tersebut bukanlah hal yang sangat kami butuhkan (untuk "
+"developer), namun hal tersebut membantu kami membayar\n"
+"\t\t\t\t\t    tagihan kami, misalnya untuk domain kami lmms.io."
+
+#: get-involved.twig:59
+msgid "Donate via PayPal"
+msgstr "Donasi via PayPal"
+
+#: get-involved.twig:68
+msgid "Translations"
+msgstr "Terjemahan"
+
+#: get-involved.twig:71
+msgid ""
+"If your language is missing in LMMS, help the project and other users "
+"speaking the same language by\n"
+"\t\t\t\t\t   translating the software. You can find instructions on the "
+"page\n"
+"\t\t\t\t\t   \"<a href=\"//github.com/LMMS/lmms/wiki/Creating-a-localization"
+"\">Creating a localization</a>\" in our\n"
+"\t\t\t\t\t   GitHub Wiki."
+msgstr ""
+"Jika bahasa anda tidak ada di LMMS, bantulah proyek ini dan pengguna lain "
+"yang menggunakan bahasa yang sama dengan\n"
+"\t\t\t\t\t   menterjemahkan perangkat lunak ini. Anda bisa mencari instruksi "
+"di laman\n"
+"\t\t\t\t\t   \"<a href=\"//github.com/LMMS/lmms/wiki/Creating-a-localization"
+"\">Membuat lokalisasi</a>\" di \n"
+"\t\t\t\t\t   Wiki GitHub kami."
+
+#: get-involved.twig:80
+msgid "How to get in touch"
+msgstr "Cara menghubungi"
+
+#: get-involved.twig:86
+msgid "Mailing List"
+msgstr "Milis"
+
+#: get-involved.twig:89
+msgid ""
+"Posting to the mailing list is the best way to reach out to our developers:"
+msgstr ""
+"Mengeposkan ke milis adalah cara terbaik untuk menjangkau pengembang kami:"
+
+#: get-involved.twig:90
+msgid "Subscribe to LMMS-Devel mailing list"
+msgstr "Berlangganan milis Pengembang LMMS"
+
+#: get-involved.twig:101
+#, fuzzy
+msgid ""
+"Our IRC channel is <a href=\"http://webchat.freenode.net/?channels=%23lmms"
+"\">#lmms</a> on\n"
+"\t\t\t\t\t<a href=\"https://freenode.net\">Freenode</a>."
+msgstr ""
+"Saluran IRC kami adalah <a href=\"irc://chat.freenode.net/#lmms\">#lmms</a> "
+"di\n"
+"\t\t\t\t<a href=\"https://freenode.net/irc_servers.shtml\">Freenode</a>"
+
+#: get-involved.twig:103
+#, fuzzy
+msgid ""
+"<a href=\"https://discordapp.com/\">Discord</a>\n"
+"\t\t\t\t\tis a more modern alternative to IRC. Join our server \n"
+"\t\t\t\t\t<a href=\"/chat/\">by clicking here</a>."
+msgstr ""
+"<a href=\"https://discordapp.com/\" target=\"_blank\">Discord</a>\n"
+"\t\t\t\t adalah alternatif lebih modern dari IRC. Gabung server kami\n"
+"\t\t\t\t dengan <a href=\"https://discord.gg/5kSc32Z\">klik disini</a>"
+
+#: get-involved.twig:116 navbar.php:9
+msgid "Forum"
+msgstr "Forum"
+
+#: get-involved.twig:119
+msgid "We host a forum for our users here on this website:"
+msgstr "Kami menghosting forum untuk pengguna kami di situs ini:"
+
+#: get-involved.twig:131
+msgid ""
+"For reporting a bug or suggesting a new feature, please use the GitHub issue "
+"tracker:"
+msgstr ""
+"Untuk melaporkan bug atau menyarankan fitur baru, silakan gunakan pelacak "
+"isu GitHub:"
+
+#: /tmp/cache/twig/lmms.io/ca/caa7c0e6c169d8a008f589ef3c01ec1f68dc6cb191ac2e6ffd6a642334b27b0f.php:32
+msgid ""
+"We're sorry, something went wrong fetching the latest release info. You can "
+"still download releases on <a href=\"//github.com/LMMS/lmms/releases"
+"\">GitHub</a>."
+msgstr ""
+"Mohon maaf, ada yang salah ketika mengambil info rilis terbaru. Anda masih "
+"bisa mengunduh rilis di <a href=\"//github.com/LMMS/lmms/releases\">GitHub</"
+"a>."
+
+#: artwork.php:18
+msgid "Author:"
+msgstr "Pencipta:"
+
+#: artwork.php:24
+msgid "Modified/Themed By:"
+msgstr "Dimodifikasi/ Tema oleh:"
+
+#: artwork.php:56
+msgid "Scalable Vector Format"
+msgstr "Format Vector Scalable"
+
+#: artwork.php:57
+msgid "Gimp Image Editor Format"
+msgstr "Format Editor Gimp Image"
+
+#: artwork.php:58
+msgid "Portable Document Format"
+msgstr "Format Portable Document"
+
+#: artwork.php:59
+msgid "Adobe Photoshop Format"
+msgstr "Format Adobe Photoshop"
+
+#: artwork.php:60
+msgid "PNG Format"
+msgstr "Format PNG"
+
+#: artwork.php:62
+msgid "JPEG Format"
+msgstr "Format JPEG"
+
+#: artwork.php:63
+msgid "Bitmap Format"
+msgstr "Format Bitmap"
+
+#: artwork.php:64
+msgid "Windows Icon Format"
+msgstr "Format Ikon Windows"
+
+#: artwork.php:65
+msgid "Apple Icon Format"
+msgstr "Format Ikon Apple"
+
+#: artwork.php:66
+msgid "Unknown File"
+msgstr "Berkas Tak Diketahui"
+
+#: index.php:37
+msgid "You seem to have taken a wrong turn."
+msgstr ""
+
+#: index.php:40
+msgid "Oops, that is not supposed to happen."
+msgstr ""
+
+#: index.php:43
+msgid "Yuck, an error!"
+msgstr "Ih, ada kesalahan!"
+
+#: navbar.php:6
+msgid "Download"
+msgstr "Unduh"
+
+#: navbar.php:8
+msgid "Documentation"
+msgstr "Dokumentasi"
+
+#: navbar.php:8
+msgid "Docs"
+msgstr "Dok"
+
+#: navbar.php:10
+msgid "Sharing Platform"
+msgstr "Platform Berbagi"
+
+#: navbar.php:10
+msgid "Share"
+msgstr "Bagikan"
+
+#: navbar.php:11
+msgid "More"
+msgstr "Lainnya"
+
+#~ msgid "Install Now"
+#~ msgstr "Pasang Sekarang"
+
+#~ msgid "Free Download"
+#~ msgstr "Unduh Gratis"
+
+#~ msgid "Built-in 32-bit VST instrument support"
+#~ msgstr "Termasuk dukungan instrumen VST 32-bit"
+
+#~ msgid "Roland ® TB-303 style monophonic bass synthesizer"
+#~ msgstr "Sintesizer monofonik bass gaya Roland ® TB-303"
+
+#~ msgid "Native Commodore 64 ® SID microchip/instrument emulation"
+#~ msgstr "Emulasi instrumen Native Commodore 64 ® SID microchip"
+
+#~ msgid "Nintendo ®, GameBoy ® and game sound effect emulation"
+#~ msgstr "emulasi efek suara permainan Nintendo ®, GameBoy ®"
+
+#~ msgid "2 built-in oscillator-based synthesizers"
+#~ msgstr "2 built-in sintesizer berbasis osilator"
+
+#~ msgid "2 built-in wavetable-based synthesizers"
+#~ msgstr "2 built-in sintesizer berbasis wavetable"
+
+#~ msgid "Gravis UltraSound ® GUS Patch support"
+#~ msgstr "Dukungan patch Gravis UltraSound ® GUS"
+
+#~ msgid "Visit our Google+ page"
+#~ msgstr "Kunjungi halaman Google+ kami"
+
+#~ msgid "Visit our Soundcloud group"
+#~ msgstr "Kunjungi grup Soundcloud kami"
+
+#~ msgid "Baa Baa Black Sheep"
+#~ msgstr "Baa Baa Black Sheep"
+
+#~ msgid "That's a %code%"
+#~ msgstr "Itu adalah %code%"
+
+#~ msgid "Install LMMS on Apple OS&nbsp;X"
+#~ msgstr "Pasang LMMS di Apple OS &nbsp;X"
+
+#~ msgid "The requested page could not be found."
+#~ msgstr "Halaman yang diminta tidak ditemukan."
+
+#~ msgid "We are sorry, but something went terribly wrong."
+#~ msgstr "Kami mohon maaf, tapi telah terjadi sesuatu yang salah."

@@ -1,47 +1,42 @@
 {# Prints an FontAwesome icon #}
-{% macro icon(icon) %}
-	<span class='fa {{ icon }}'></span>
+{% macro icon(icon, brand = false, transform = '') %}
+	{# Check if we have a brand icon, different syntax #}
+	{% if brand %}
+		<span class="fab {{ icon }}" data-fa-transform="{{ transform }}"></span>
+	{% else %}
+		<span class="fas {{ icon }}" data-fa-transform="{{ transform }}"></span>
+	{% endif %}
+{% endmacro %}
+
+{# Creates a small Jumbo header #}
+{% macro jumbo(title, subtitle) %}
+<div class="jumbotron mini">
+	<div class="container">
+		<h2>{{title}}</h2>
+		<h5>{{subtitle}}</h5>
+	</div>
+</div>
 {% endmacro %}
 
 {# Prints an FontAwesome icon stack with two icons and a tooltip #}
-{% macro icon_stack(icon1, icon2, parentclass, tooltip) %}
+{% macro icon_stack(icon1, brand1, icon2, brand2, parentclass, tooltip) %}
 	{% import _self as macros %}
-	<span class='fa-stack {{ parentclass }}' data-toggle='tooltip' data-placement='bottom' title='{{ tooltip }}'>
-		{{ macros.icon(icon1) }}
-		{{ macros.icon(icon2) }}
+	<span class='fa-layers fa-fw {{ parentclass }}' data-toggle='tooltip' data-placement='top' title='{{ tooltip }}'>
+		{{ macros.icon(icon1, brand1) }}
+		{{ macros.icon(icon2, brand2, "shrink-6") }}
 	</span>
 {% endmacro %}
 
 {# Prints an icon stack with the lower one being a double sized circle
    and the upper one being inversed #}
-{% macro circle_stack(icon, class = '', tooltip = '') %}
+{% macro circle_stack(icon, class = '', brand, tooltip = '') %}
 	{% import _self as macros %}
-	{{ macros.icon_stack('fa-circle fa-stack-2x', "#{icon} fa-stack-1x fa-inverse", class , tooltip ) }}
+	{{ macros.icon_stack('fa-circle', false, "#{icon} fa-inverse", brand, class , tooltip ) }}
 {% endmacro %}
 
-{% macro make_reflection(image_path, thumbnail_path = null, blackorwhite = 'black', class = '') %}
-	{# If no thumbnail is supplied, try 'th_' . $image_path #}
-	{#
-	{% if not thumbnail_path %}
-		{% set pieces = image_path|split('/') %}
-		{% set newpieces = [] %}
-
-		{% for piece in pieces %}
-			{% if piece == pieces|last %}
-				{% set newpieces = newpieces|merge(['th_' ~ piece]) %}
-			{% else %}
-				{% set newpieces = newpieces|merge([piece]) %}
-			{% endif %}
-		{% endfor %}
-		{% set thumbnail_path = newpieces|join('/') %}
-	{% endif %}
-	#}
-
-	<div id="reflect-{{ blackorwhite }}" class="image-block {{ class }}">
-		<a href="{{ image_path }}" data-lightbox="image" data-title="&lt;a target=&quot;_blank&quot; href=&quot;{{ image_path}}&quot; title=&quot;Download full size image&quot; download&gt;&lt;i class=&quot;fa fa-arrow-circle-down &quot;/&gt;&lt;/a&gt;" ><img src="{{ thumbnail_path }}" alt="" /></a>
-	<div class="reflection visible-lg">
-		<img src="{{ thumbnail_path }}" alt="" />
-		<div class="overlay"></div>
-	</div>
-	</div>
+{# Prints an icon stack with the lower one being a double square
+   and the upper one being inversed #}
+{% macro square_stack(icon, class = '', brand, tooltip = '') %}
+	{% import _self as macros %}
+	{{ macros.icon_stack('fa-square', false, "#{icon} fa-inverse", brand, class , tooltip ) }}
 {% endmacro %}

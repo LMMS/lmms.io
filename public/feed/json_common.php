@@ -333,7 +333,7 @@ function create_row($service, $title, $href, $message, $author = NULL, $author_h
 
 	//Adds an overlaying play button
 	if ($service == 'youtube' || $service == 'soundcloud') {
-		echo '<div class="' . $service . '-thumb-overlay"><span class="fa-3x fa fa-play"></span></div>';
+		echo '<div class="' . $service . '-thumb-overlay"><span class="fa-3x fas fa-play"></span></div>';
 	}
 
 	echo get_icon($service) . ' ' . $title . '</strong></h4></a>';
@@ -376,7 +376,7 @@ function get_icon($service, $invert = false, $extra_class = '') {
 		default:
 			$class .= 'fa-book';
 	}
-	return '<span class="' . trim('fa ' . $class . ' ' .  $extra_class) . '"></span>';
+	return '<span class="' . trim('fab ' . $class . ' ' .  $extra_class) . '"></span>';
 }
 
 function get_alternate_title($service) {

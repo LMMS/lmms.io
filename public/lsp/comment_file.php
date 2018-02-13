@@ -17,8 +17,8 @@ if (!SESSION_EMPTY()) {
 		<label for="text">Add comment to "<?php echo get_file_name(GET('file')); ?>"</label>
 		<textarea id="comment" name="text" class="form-control"></textarea>
 		</div>
-		<button type="submit" class="btn btn-primary" name="addcomment" value="Comment"><span class="fa fa-check"></span>&nbsp;Comment</button>&nbsp;
-		<a href="<?php echo $LSP_URL . '?action=show&file=' . GET('file'); ?>" class="btn btn-warning"></span><span class="fa fa-close"></span>&nbsp;Cancel</a>
+		<button type="submit" class="btn btn-primary" name="addcomment" value="Comment"><span class="fas fa-check"></span>&nbsp;Comment</button>&nbsp;
+		<a href="<?php echo $LSP_URL . '?action=show&file=' . GET('file'); ?>" class="btn btn-warning"></span><span class="fas fa-times"></span>&nbsp;Cancel</a>
 		<?php $form->close(); echo '</div>';
 	} else {
 		add_visitor_comment(GET('file'), POST('text'), SESSION());

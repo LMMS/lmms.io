@@ -16,7 +16,7 @@ set_get_post('category');
 set_get_post('subcategory');
 set_get_post('commentsearch');
 
-require_once('../header.php');
+require_once('header.php');
 require_once('utils.php');
 require_once("sidebar.php");
 process_params();
@@ -71,5 +71,5 @@ function process_params() {
 }
 
 echo '</div>';
-include("../footer.php");
+include("footer.php");
 ?>

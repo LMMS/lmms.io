@@ -1,21 +1,17 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/../lib/Navbar.php');
+require_once('i18n.php');
 $navbar = new Navbar(
 	[
-		['Download', '/download/', [
-			['fa-download', 'Download LMMS', '/download/'],
-	//		['fa-music', 'Download Sample Packs', '/download/samples'],
-			['fa-picture-o', 'Download Artwork', '/download/artwork']]],
-		['Get Involved', '/get-involved/'],
-		['Showcase', '/showcase/'],
-		[['Documentation', 'Docs'], '/documentation/'],
-		['Community', '/chat/', [
-			['fa-comment','Discord Chat', '/chat/'],
-			['fa-trophy', 'Competitions', '/competitions/'],
-			['fa-list-alt', 'Forums', '/forum/'],
-			['fa-facebook', 'Facebook', 'https://facebook.com/makefreemusic'],
-			['fa-soundcloud', 'SoundCloud', 'https://soundcloud.com/search/sounds?q=%23lmms'],
-			['fa-github', 'GitHub', 'https://github.com/lmms/lmms']]],
-		['Share', '/lsp/'],
+		[_('Download'), '/download/'],
+		[_('Get Involved'), '/get-involved/'],
+		[[_('Documentation'), _('Docs')], '/documentation/'],
+		[_('Forum'), '/forum/'],
+		[[_('Sharing Platform'), _('Share')], '/lsp/'],
+		[_('More'), null, [
+			['fa-eye', _('Showcase'), '/showcase/'],
+			['fa-trophy', _('Competitions'), '/competitions/'],
+			['fa-tags', _('Branding'), '/branding/']]],
+		$i18n->langDropdown()
 	]
 );

@@ -19,7 +19,7 @@ function apply_settings($password, $password2, $realname) {
 if ((POST('settings') != "apply" ) || (!apply_settings(POST('password'), POST('password2'), POST('realname')))) {
 	echo '<div class="col-md-9">';
 	create_title('<a href="">User Settings</a>');
-	$form = new form("$LSP_URL?account=settings", 'User Settings', 'fa-gear'); ?>
+	$form = new form("$LSP_URL?account=settings", 'User Settings', 'fa-cog'); ?>
 	<div class="form-group">
 	<label for="username" class="text-muted">User Name:</label>
 	<input type="text" name="username" class="form-control" value="<?php echo SESSION(); ?>" disabled="disabled" />
@@ -38,9 +38,8 @@ if ((POST('settings') != "apply" ) || (!apply_settings(POST('password'), POST('p
 	<input type="password" class="form-control" maxlength="20" name="password2" />
 	</div>
 	<button class="btn btn-primary" type="submit" name="settings" value="apply">
-	<span class="fa fa-check"></span>&nbsp;Apply</button>
-	<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fa fa-close"></span>&nbsp;Cancel</a>
+	<span class="fas fa-check"></span>&nbsp;Apply</button>
+	<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
 	<?php $form->close(); echo '</div>';
 }
 ?>
-

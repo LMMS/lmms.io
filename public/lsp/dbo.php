@@ -4,12 +4,15 @@ require_once('utils.php');
 /*
  * Default database values.  Override with LSP_SECRETS below
  */
-$DB_TYPE = 'mysql';
-$DB_HOST = 'localhost';
-$DB_USER = 'someuser';
-$DB_PASS = 'P@SSWORD';
-$DB_DATABASE = 'somedatabase';
-
+ $DB_TYPE = 'mysql';
+ $DB_HOST = "localhost";
+ $DB_USER = "someuser";
+ $DB_PASS = "P@SSW0RD";
+ $DB_DATABASE = "somedatabase";
+ $PAGE_SIZE = 10;
+ $TMP_DIR = '../../../';	// "tmp" is added automatically
+ $DATA_DIR = '../../../';
+ $LSP_URL = 'http://lmms.io/lsp/index.php';
 /*
  * Query preferences
  * Note:  MySQL defaults to latin1 charset
@@ -759,7 +762,7 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 			$rs['filename'] . '">' . $rs['filename'] . '</a></div>';
 		echo '<a href="' . htmlentities($LSP_URL . '?action=browse&category=' . 
 			$rs['category']) . '">' . $rs['category'] . 
-			'</a>&nbsp;<span class="fa fa-caret-right lsp-caret-right-small"></span>&nbsp;<a href="' . 
+			'</a>&nbsp;<span class="fas fa-caret-right lsp-caret-right-small"></span>&nbsp;<a href="' . 
 			htmlentities($LSP_URL . '?action=browse&category=' . $rs['category'] . '&subcategory=' . 
 			$rs['subcategory']) . '&sort=' . $sort . '">' . $rs['subcategory'] . '</a><br>';
 	}
@@ -800,18 +803,18 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	$rs['downloads'] = isset($rs['downloads']) ? $rs['downloads'] : get_file_downloads($rs['id']);
 	
 	$downloads = $rs['downloads'];
-	echo "<b>Popularity: </b><span class=\"\"><span class=\"fa fa-download\"></span>&nbsp;" . $downloads . "</span>&nbsp; ";
-	echo "<span class=\"\"><span class=\"fa fa-comments\"></span>&nbsp;" . $rs['comments'] . "</span><br>";
+	echo "<b>Popularity: </b><span class=\"\"><span class=\"fas fa-download\"></span>&nbsp;" . $downloads . "</span>&nbsp; ";
+	echo "<span class=\"\"><span class=\"fas fa-comments\"></span>&nbsp;" . $rs['comments'] . "</span><br>";
 	echo "<b>Rating:</b> ";
 	
 	$rating = isset($rs['rating']) ? $rs['rating'] : get_file_rating($rs['id']);
 	for ($i = 1; $i <= $rating ; ++$i) {
-		echo '<span class="fa fa-star"></span>';
+		echo '<span class="fas fa-star"></span>';
 	}
 	for ($i = $rating+1; floor( $i )<=5 ; ++$i) {
-		echo '<span class="fa fa-star-o"></span>';
+		echo '<span class="far fa-star"></span>';
 	}
-	echo '&nbsp;&nbsp;<span class=""><span class="fa fa-check-square-o"></span>&nbsp;'. $rs['rating_count'].'</span>';
+	echo '&nbsp;&nbsp;<span class=""><span class="fas fa-check-circle"></span>&nbsp;'. $rs['rating_count'].'</span>';
 	echo '</small></td></tr>';
 }
 
@@ -864,7 +867,7 @@ function show_file($file_id, $user, $success = null) {
 			echo '</td><td class="lsp-file-info">';
 			
 			echo '<a href="' . $url . '" id="downloadbtn" class="lsp-dl-btn btn btn-primary">';
-			echo '<span class="fa fa-download lsp-download"></span>&nbsp;Download</a>';
+			echo '<span class="fas fa-download lsp-download"></span>&nbsp;Download</a>';
 			echo '</td></tr>';
 			
 			echo '<tr><td colspan="2"><div class="well"><strong>Description:</strong><p>';
@@ -879,7 +882,7 @@ function show_file($file_id, $user, $success = null) {
 			
 			global $LSP_URL;
 			create_toolbar_item('Comment', "$LSP_URL?comment=add&file=$file_id", 'fa-comment', $can_rate);
-			create_toolbar_item('Edit', "$LSP_URL?content=update&file=$file_id", 'fa-pencil', $can_edit);
+			create_toolbar_item('Edit', "$LSP_URL?content=update&file=$file_id", 'fa-pencil-alt', $can_edit);
 			create_toolbar_item('Delete', "$LSP_URL?content=delete&file=$file_id", 'fa-trash', $can_edit);
 			$star_url = $LSP_URL . '?' . file_show_query_string().'&rate=';
 			create_toolbar_item(get_stars($file_id, $star_url, $rate_self ? false : $can_rate), '', null, $can_rate, $rate_self);
