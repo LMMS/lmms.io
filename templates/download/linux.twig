@@ -48,7 +48,11 @@
 		<p>{% trans %}For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.{% endtrans %}<br></p>
 		<!-- <p><a class="btn btn-primary" target="new" href="apt://lmms"><span class="fas fa-download"></span> Install LMMS</a></p> -->
 		<p>
-		<a class="btn btn-md btn-dl btn-primary" href="apt://lmms" title="apt://lmms"><span id="button-title">LMMS</span><br><span class="fas fa-download download-icon"></span><big>{% trans %}Install Now{% endtrans %}</big><br><small>{% trans %}(From Package Manager){% endtrans %}</small></a>
+		<a class="btn btn-md btn-dl btn-primary" href="apt://lmms" title="apt://lmms">
+			<span class="fas fa-cloud-download-alt fa-3x download-icon"></span>
+			<span class="big">{% trans %}Install LMMS now{% endtrans %}</span><br>
+			<span class="small">{% trans %}From your package manager{% endtrans %}</span>
+		</a>
 		</p>
 		<p>{% trans %}If this doesn't work for you, run this command in a terminal.{% endtrans %}</p>
 		<div class="code-block"><pre>$ sudo apt-get install lmms</pre></div>
@@ -75,7 +79,7 @@
 		<p>{% trans %}Run the following command in a terminal:{% endtrans %}</p>
 		<div class="code-block"><pre>$ sudo pacman -S lmms</pre></div>
 		<h3>{% trans %}VST Support{% endtrans %}</h3>
-		<p>{% trans %}For VST support, please see the <a href="https://wiki.archlinux.org/index.php/LMMS" target="_blank">Arch LMMS wiki page</a>{% endtrans %}</p>
+		<p>{% trans %}For VST support, please see the <a href="https://wiki.archlinux.org/index.php/LMMS">Arch LMMS wiki page</a>{% endtrans %}</p>
 	</div>
 
 	<div id="linux-slackware" class="tab-pane">
