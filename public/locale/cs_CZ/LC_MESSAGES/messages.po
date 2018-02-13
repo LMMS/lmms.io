@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-26 15:14-0700\n"
+"POT-Creation-Date: 2018-02-12 17:20-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Miroslav Kučera <mkucera66@seznam.cz>, 2017\n"
 "Language-Team: Czech (https://www.transifex.com/lmms/teams/61632/cs/)\n"
@@ -330,11 +330,11 @@ msgstr ""
 "      o tom a <a href=\"//github.com/LMMS/lmms.io/issues/new\">nahlaste "
 "problém</a> na náš GitHub."
 
-#: download/index.twig:35
+#: download/index.twig:32
 msgid "Download LMMS"
 msgstr "Stáhnout LMMS"
 
-#: download/index.twig:35
+#: download/index.twig:32
 msgid ""
 "Downloading and using LMMS is free! Just choose the operating system you "
 "want to run LMMS on:"
@@ -342,22 +342,22 @@ msgstr ""
 "Stažení a používání LMMS je zdarma! Stačí vybrat váš operační systém na "
 "kterém chcete spustit LMMS:"
 
-#: download/index.twig:54
+#: download/index.twig:51
 msgid "Install LMMS on Linux"
 msgstr "Nainstalovat LMMS na systém Linux"
 
-#: download/index.twig:55
+#: download/index.twig:52
 #, fuzzy
 msgid "Click one of the buttons below to download LMMS for Linux."
 msgstr "Klikněte na jedno z tlačítek níže pro stažení LMMS pro systém macOS"
 
 #: /tmp/cache/twig/lmms.io/6e/6e6309adf8934d3c5fa1d4398627e7d5fabd487b92cb76ff77fcf4322cf33f32.php:73
-#: download/index.twig:83
+#: download/index.twig:80
 #: /tmp/cache/twig/lmms.io/6e/6e6309adf8934d3c5fa1d4398627e7d5fabd487b92cb76ff77fcf4322cf33f32.php:215
 msgid "Stable Versions"
 msgstr "Stabilní verze"
 
-#: download/index.twig:62
+#: download/index.twig:59
 msgid ""
 "Run <code>chmod +x ~/Downloads/*.AppImage</code> to set the <code>.AppImage</"
 "code> executable before running"
@@ -373,11 +373,11 @@ msgstr "Beta verze"
 msgid "Other options"
 msgstr ""
 
-#: download/index.twig:81
+#: download/index.twig:78
 msgid "Install LMMS on Windows"
 msgstr "Nainstalovat LMMS na systém Windows"
 
-#: download/index.twig:82
+#: download/index.twig:79
 msgid ""
 "Click one of the buttons below (either 32bit or 64bit) to download LMMS for "
 "Windows"
@@ -385,29 +385,25 @@ msgstr ""
 "Klikněte na jedno z tlačítek níže (buď 32bit nebo 64bit) pro stažení LMMS "
 "pro systém Windows."
 
-#: download/index.twig:99
+#: download/index.twig:96
 msgid "Install LMMS on macOS"
 msgstr "Nainstalovat LMMS na systém macOS"
 
-#: download/index.twig:100
+#: download/index.twig:97
 msgid "Click one of the buttons below to download LMMS for macOS"
 msgstr "Klikněte na jedno z tlačítek níže pro stažení LMMS pro systém macOS"
 
-#: download/index.twig:117
+#: download/index.twig:114
 msgid "Downloads labeled Beta are pre-release software, stability may suffer."
 msgstr ""
 "Soubory ke stažení odznačené jako Beta jsou v předběžném přístupu, stabilita "
 "může být narušena."
 
-#: download/index.twig:118
+#: download/index.twig:115
 msgid "Previous releases"
 msgstr "Předchozí verze"
 
-#: download/index.twig:12
-msgid "Free Download"
-msgstr "Stáhnout zdarma"
-
-#: download/index.twig:369
+#: download/index.twig:333
 msgid "Show release notes"
 msgstr "Zobrazit poznámky k verzi"
 
@@ -454,7 +450,8 @@ msgstr ""
 "prostředí."
 
 #: home.twig:42
-msgid "Bundled with ready-to-use stuff"
+#, fuzzy
+msgid "Bundled with ready-to-use content"
 msgstr "Zabaleno s hotovými funkcemi"
 
 #: home.twig:43
@@ -482,7 +479,8 @@ msgid "Download for macOS"
 msgstr "Stáhnout pro systém Apple OS&nbsp;X"
 
 #: home.twig:59
-msgid "Pick your flavour"
+#, fuzzy
+msgid "Pick your flavor."
 msgstr "Vyberte si"
 
 #: home.twig:60
@@ -490,11 +488,13 @@ msgid "Linux, Windows or macOS."
 msgstr "systém Linux, Windows nebo Apple OS&nbsp;X"
 
 #: home.twig:69
-msgid "Houston, we've had a problem."
+#, fuzzy
+msgid "Houston, we have a problem."
 msgstr "Houstone, měli jsme problém."
 
 #: home.twig:70
-msgid "Standby, we've got you covered."
+#, fuzzy
+msgid "Stand by, we got you covered."
 msgstr "Počkejte, jsme tu pro vás."
 
 #: home.twig:73
@@ -534,15 +534,18 @@ msgid "Visit the LMMS Sharing Platform (LSP)"
 msgstr "Navštivte LMMS místo pro sdílení (LSP)"
 
 #: home.twig:92
-msgid "Don't be modest,"
+#, fuzzy
+msgid "Don't be modest."
 msgstr "Nebuďte skromní,"
 
 #: home.twig:93
-msgid "show us your creations."
+#, fuzzy
+msgid "Show us your creations."
 msgstr "ukažte nám vaše výtvory."
 
 #: home.twig:101
-msgid "We <3 Open Source."
+#, fuzzy
+msgid "We <3 open source."
 msgstr "My <3 Open Source."
 
 #: home.twig:106
@@ -550,12 +553,13 @@ msgid "Fork us on Github"
 msgstr "Vytvořte odnož kódu na Githubu"
 
 #: home.twig:108
-#, php-format
-msgid "LMMS is a 100% free, open source, community driven project,"
+#, fuzzy, php-format
+msgid "LMMS is a 100% free, open source, community-driven project."
 msgstr "LMMS je 100% zdarma, open source, komunitou řízený projekt,"
 
 #: home.twig:109
-msgid "proudly hosted on Github"
+#, fuzzy
+msgid "Proudly hosted on Github."
 msgstr "hrdě hostováno na GitHub"
 
 #: home.twig:124
@@ -566,36 +570,41 @@ msgstr "Podívejte se."
 msgid "Watch our promo video."
 msgstr "Zhlédnout naše promo video."
 
-#: home.twig:149
+#: home.twig:139
+msgid "Click anywhere to close this dialog"
+msgstr ""
+
+#: home.twig:147
 msgid "Featuring:"
 msgstr "Charakteristiky:"
 
-#: home.twig:153
+#: home.twig:151
 msgid "Core Functionality"
 msgstr "Funkce jádra"
 
-#: home.twig:157
-msgid "Compose music on Windows, Linux and Apple OS&nbsp;X"
+#: home.twig:155
+#, fuzzy
+msgid "Compose music on Windows, Linux and macOS"
 msgstr "Skládejte hudbu v systémech Windows, Linux a Apple OS&nbsp;X"
 
-#: home.twig:158
+#: home.twig:156
 msgid "Sequence, compose, mix and automate songs in one simple interface"
 msgstr ""
 "Sekvence, skládání, míchání a automatizace skladeb v jednoduchém prostředí"
 
-#: home.twig:159
+#: home.twig:157
 msgid "Note playback via MIDI or typing keyboard"
 msgstr "Psaní not přes MIDI nebo klávesnici"
 
-#: home.twig:160
+#: home.twig:158
 msgid "Consolidate instrument tracks using Beat+Bassline Editor"
 msgstr "Posílení nástrojů pomocí editoru bicích/basů."
 
-#: home.twig:161
+#: home.twig:159
 msgid "Fine tune patterns, notes, chords and melodies using Piano Roll Editor"
 msgstr "Skvělé zvukové vzory, noty, akordy a melodie pomocí Piano Roll editoru"
 
-#: home.twig:162
+#: home.twig:160
 msgid ""
 "Full user-defined track-based automation and computer-controlled automation "
 "sources"
@@ -603,90 +612,73 @@ msgstr ""
 "Plně uživatelsky definovaná automatizace na základě stopy a počítačově "
 "ovládaná automatizace zdrojů"
 
-#: home.twig:163
+#: home.twig:161
 msgid "Import of MIDI files and Hydrogen project files"
 msgstr "Import souborů MIDI a projektů Hydrogen"
 
-#: home.twig:173
+#: home.twig:171
 msgid "Musical Instruments"
 msgstr "Hudební nástroje"
 
-#: home.twig:177
-msgid "Built-in 32-bit VST instrument support"
-msgstr "Vestavěná podpora 32-bit VST nástrojů"
-
-#: home.twig:178
+#: home.twig:175
 msgid ""
 "Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit "
 "Windows)"
 msgstr ""
 "Vestavěná podpora 64-bit VST nástrojů s 32-bit VST mostem (64-bit Windows)"
 
-#: home.twig:179
-msgid "Roland ® TB-303 style monophonic bass synthesizer"
-msgstr "Stylový monofonní basový syntetizér Roland ® TB-303"
-
-#: home.twig:180
+#: home.twig:176
 msgid ""
-"Embedded ZynAddSubFx:  Polyphonic, mutlitimbral, microtonal, multi-voice "
+"16 built in synthesizers, including emultations of Roland ® TB-303, "
+"Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip "
+"and more"
+msgstr ""
+
+#: home.twig:177
+#, fuzzy
+msgid ""
+"Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice "
 "additive, subtractive and pad synthesis all in one powerful plugin"
 msgstr ""
 "Vestavěný ZynAddSubFx: Polyfonní, multitimbrální, mikrotonální, vícehlasý, "
 "subtraktivní a padový syntetizér v jednom mocném pluginu"
 
-#: home.twig:181
-msgid "Native Commodore 64 ® SID microchip/instrument emulation"
-msgstr "Nativní emulace mikročipu/nástroje Commodore 64 ® SID"
-
-#: home.twig:182
+#: home.twig:178
+#, fuzzy
 msgid ""
-"Native SoundFont ® support (SF2), the industry standard for high quality "
-"instrument patches and banks"
+"Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis "
+"UltraSound ® (GUS) formats for high quality instrument patches and banks"
 msgstr ""
 "Nativní podpora SoundFont ® (SF2), průmyslového standardu pro vysoce "
 "kvalitní nástroje a zvukové banky"
 
-#: home.twig:183
-msgid "Nintendo ®, GameBoy ® and game sound effect emulation"
-msgstr "Nintendo ®, GameBoy ® a emulace herních zvuků"
-
-#: home.twig:184
-msgid "2 built-in oscillator-based synthesizers"
-msgstr "2 vestavěné oscilátor syntetizéry"
-
-#: home.twig:185
-msgid "2 built-in wavetable-based synthesizers"
-msgstr "2 vestavěné wavetable syntetizéry"
-
-#: home.twig:186
-msgid "Gravis UltraSound ® GUS Patch support"
-msgstr "Podpora Gravis UltraSound ® GUS Patch"
-
-#: home.twig:196
+#: home.twig:188
 msgid "Effects Mixing"
 msgstr "Mixování efektů"
 
-#: home.twig:200
+#: home.twig:192
 msgid "Drop-in LADSPA plug-in support"
 msgstr "Podpora pluginů LADSPA"
 
-#: home.twig:201
+#: home.twig:193
 msgid "Drop-in VST ® effect plug-in support (Linux and Windows)"
 msgstr "Podpora efektových pluginů VST ® (systém Linux a Windows)"
 
-#: home.twig:202
+#: home.twig:194
+#, fuzzy
 msgid ""
-"Built-in compressor, limiter, delay, reverb, distortion, EQ, bass-enhancer"
+"Built-in compressor, limiter, delay, reverb, distortion and bass enhancer"
 msgstr ""
 "Vestavěný kompresor, omezovač, zpoždění, reverb, zkreslení, ekvalizér, "
 "zesilovač basů"
 
-#: home.twig:203
+#: home.twig:195
 msgid "Bundled graphic and parametric equalizers"
 msgstr "Připravené s grafickými a parametrickými ekvalizéry"
 
-#: home.twig:204
-msgid "Built-in visualization/spectrum analyser"
+#: home.twig:196
+#, fuzzy
+msgid "Built-in visualization/spectrum analyzer"
 msgstr "Předpřipravený s vizualizačním / spektrálním analyzátorem"
 
 #: showcase.twig:6 navbar.php:12
@@ -698,14 +690,19 @@ msgid "Tracks made with LMMS"
 msgstr "Skladby vytvořené v LMMS"
 
 #: showcase.twig:12
-msgid "The Best of LMMS Vol.3 by LMMS Artists"
+#, fuzzy
+msgid "The Best of LMMS Vol. 4 by LMMS Artists"
 msgstr "Nejlepší z LMMS III od umělců LMMS"
 
 #: showcase.twig:20
+msgid "The Best of LMMS Vol.3 by LMMS Artists"
+msgstr "Nejlepší z LMMS III od umělců LMMS"
+
+#: showcase.twig:28
 msgid "The Best of LMMS Vol.2 by LMMS Artists"
 msgstr "Nejlepší z LMMS II od umělců LMMS"
 
-#: showcase.twig:28
+#: showcase.twig:36
 msgid "The Best of LMMS Vol.1 by LMMS Artists"
 msgstr "Nejlepší z LMMS I od umělců LMMS"
 
@@ -1238,3 +1235,27 @@ msgstr "Sdílet"
 #: navbar.php:11
 msgid "More"
 msgstr "Víc"
+
+#~ msgid "Free Download"
+#~ msgstr "Stáhnout zdarma"
+
+#~ msgid "Built-in 32-bit VST instrument support"
+#~ msgstr "Vestavěná podpora 32-bit VST nástrojů"
+
+#~ msgid "Roland ® TB-303 style monophonic bass synthesizer"
+#~ msgstr "Stylový monofonní basový syntetizér Roland ® TB-303"
+
+#~ msgid "Native Commodore 64 ® SID microchip/instrument emulation"
+#~ msgstr "Nativní emulace mikročipu/nástroje Commodore 64 ® SID"
+
+#~ msgid "Nintendo ®, GameBoy ® and game sound effect emulation"
+#~ msgstr "Nintendo ®, GameBoy ® a emulace herních zvuků"
+
+#~ msgid "2 built-in oscillator-based synthesizers"
+#~ msgstr "2 vestavěné oscilátor syntetizéry"
+
+#~ msgid "2 built-in wavetable-based synthesizers"
+#~ msgstr "2 vestavěné wavetable syntetizéry"
+
+#~ msgid "Gravis UltraSound ® GUS Patch support"
+#~ msgstr "Podpora Gravis UltraSound ® GUS Patch"

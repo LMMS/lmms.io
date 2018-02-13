@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-26 15:14-0700\n"
+"POT-Creation-Date: 2018-02-12 17:20-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ozancan Karataş <ozancankaratas96@outlook.com>, 2017\n"
 "Language-Team: Turkish (https://www.transifex.com/lmms/teams/61632/tr/)\n"
@@ -337,11 +337,11 @@ msgstr ""
 "      lütfen bize ulaşın ve GitHub'da <a href=\"//github.com/LMMS/lmms.io/"
 "issues/new\">bir sorun dosyalayın</a>."
 
-#: download/index.twig:35
+#: download/index.twig:32
 msgid "Download LMMS"
 msgstr "LMMS'yi İndirin"
 
-#: download/index.twig:35
+#: download/index.twig:32
 msgid ""
 "Downloading and using LMMS is free! Just choose the operating system you "
 "want to run LMMS on:"
@@ -349,22 +349,22 @@ msgstr ""
 "LMMS'yi indirmek ve kullanmak ücretsizdir! Yalnızca LMMS'yi üzerinde "
 "çalıştırmak istediğiniz işletim sistemini seçin:"
 
-#: download/index.twig:54
+#: download/index.twig:51
 msgid "Install LMMS on Linux"
 msgstr "LMMS'yi Linux'a Yükleyin"
 
-#: download/index.twig:55
+#: download/index.twig:52
 #, fuzzy
 msgid "Click one of the buttons below to download LMMS for Linux."
 msgstr "Apple için LMMS'yi indirmek için aşağıdaki düğmelerin birini tıklatın"
 
 #: /tmp/cache/twig/lmms.io/6e/6e6309adf8934d3c5fa1d4398627e7d5fabd487b92cb76ff77fcf4322cf33f32.php:73
-#: download/index.twig:83
+#: download/index.twig:80
 #: /tmp/cache/twig/lmms.io/6e/6e6309adf8934d3c5fa1d4398627e7d5fabd487b92cb76ff77fcf4322cf33f32.php:215
 msgid "Stable Versions"
 msgstr "Kararlı Sürümler"
 
-#: download/index.twig:62
+#: download/index.twig:59
 msgid ""
 "Run <code>chmod +x ~/Downloads/*.AppImage</code> to set the <code>.AppImage</"
 "code> executable before running"
@@ -380,11 +380,11 @@ msgstr "Beta Sürümler"
 msgid "Other options"
 msgstr ""
 
-#: download/index.twig:81
+#: download/index.twig:78
 msgid "Install LMMS on Windows"
 msgstr "LMMS'yi Windows'a Yükleyin"
 
-#: download/index.twig:82
+#: download/index.twig:79
 msgid ""
 "Click one of the buttons below (either 32bit or 64bit) to download LMMS for "
 "Windows"
@@ -392,30 +392,26 @@ msgstr ""
 "Windows için LMMS'yi indirmek için aşağıdaki düğmelerin birini (32bit ya da "
 "64bit) tıklatın"
 
-#: download/index.twig:99
+#: download/index.twig:96
 #, fuzzy
 msgid "Install LMMS on macOS"
 msgstr "LMMS'yi Linux'a Yükleyin"
 
-#: download/index.twig:100
+#: download/index.twig:97
 #, fuzzy
 msgid "Click one of the buttons below to download LMMS for macOS"
 msgstr "Apple için LMMS'yi indirmek için aşağıdaki düğmelerin birini tıklatın"
 
-#: download/index.twig:117
+#: download/index.twig:114
 msgid "Downloads labeled Beta are pre-release software, stability may suffer."
 msgstr ""
 "\"\"Beta etiketli indirmeler ön sürüm yazılımdır, kararlılık iyi olmayabilir."
 
-#: download/index.twig:118
+#: download/index.twig:115
 msgid "Previous releases"
 msgstr "Önceki sürümler"
 
-#: download/index.twig:12
-msgid "Free Download"
-msgstr "Ücretsiz İndirin"
-
-#: download/index.twig:369
+#: download/index.twig:333
 msgid "Show release notes"
 msgstr "Sürüm notlarını göster"
 
@@ -461,7 +457,8 @@ msgstr ""
 "kullanıcı dostu ve çağdaş bir arabirimde bir yazı ya da MIDI klavyesiyle."
 
 #: home.twig:42
-msgid "Bundled with ready-to-use stuff"
+#, fuzzy
+msgid "Bundled with ready-to-use content"
 msgstr "Kullanmak için hazır şeylerle paketlendi"
 
 #: home.twig:43
@@ -489,7 +486,8 @@ msgid "Download for macOS"
 msgstr "macOS için indirin"
 
 #: home.twig:59
-msgid "Pick your flavour"
+#, fuzzy
+msgid "Pick your flavor."
 msgstr "Sisteminizi seçin"
 
 #: home.twig:60
@@ -497,11 +495,13 @@ msgid "Linux, Windows or macOS."
 msgstr "Linux, Windows ya da macOS."
 
 #: home.twig:69
-msgid "Houston, we've had a problem."
+#, fuzzy
+msgid "Houston, we have a problem."
 msgstr "Houston, bir sorunumuz varmış."
 
 #: home.twig:70
-msgid "Standby, we've got you covered."
+#, fuzzy
+msgid "Stand by, we got you covered."
 msgstr "Yanınızdaydık, sizi sakladık."
 
 #: home.twig:73
@@ -541,15 +541,18 @@ msgid "Visit the LMMS Sharing Platform (LSP)"
 msgstr "LMMS Paylaşım Platformu'nu (LPP) ziyaret edin"
 
 #: home.twig:92
-msgid "Don't be modest,"
+#, fuzzy
+msgid "Don't be modest."
 msgstr "Mütevazi olmayın,"
 
 #: home.twig:93
-msgid "show us your creations."
+#, fuzzy
+msgid "Show us your creations."
 msgstr "oluşturduklarınızı bizimle paylaşın."
 
 #: home.twig:101
-msgid "We <3 Open Source."
+#, fuzzy
+msgid "We <3 open source."
 msgstr "Biz <3 Açık Kaynaklıyız."
 
 #: home.twig:106
@@ -558,11 +561,12 @@ msgstr "GitHub'da bizi yedekleyin"
 
 #: home.twig:108
 #, fuzzy, php-format
-msgid "LMMS is a 100% free, open source, community driven project,"
+msgid "LMMS is a 100% free, open source, community-driven project."
 msgstr "LMMS 100% özgür, açık kaynaklı, topluluk temelli bir projedir,"
 
 #: home.twig:109
-msgid "proudly hosted on Github"
+#, fuzzy
+msgid "Proudly hosted on Github."
 msgstr "GitHub'da gururla barındırılır"
 
 #: home.twig:124
@@ -574,40 +578,45 @@ msgstr "Bir göz atın"
 msgid "Watch our promo video."
 msgstr "Reklâm videomuzu izleyin."
 
-#: home.twig:149
+#: home.twig:139
+msgid "Click anywhere to close this dialog"
+msgstr ""
+
+#: home.twig:147
 #, fuzzy
 msgid "Featuring:"
 msgstr "Öne çıkarma"
 
-#: home.twig:153
+#: home.twig:151
 msgid "Core Functionality"
 msgstr "Çekirdek İşlevselliği"
 
-#: home.twig:157
-msgid "Compose music on Windows, Linux and Apple OS&nbsp;X"
+#: home.twig:155
+#, fuzzy
+msgid "Compose music on Windows, Linux and macOS"
 msgstr "Windows, Linux ve Apple OS&nbsp;X'te müzik oluşturun"
 
-#: home.twig:158
+#: home.twig:156
 msgid "Sequence, compose, mix and automate songs in one simple interface"
 msgstr ""
 "Kolay bir arabirimde şarkıları sıralayın, oluşturun, karıştırın ve "
 "özdevinleştirin"
 
-#: home.twig:159
+#: home.twig:157
 msgid "Note playback via MIDI or typing keyboard"
 msgstr "MIDI ya da yazı klavyesi aracılığıyla kayıttan yürütme notalayın"
 
-#: home.twig:160
+#: home.twig:158
 msgid "Consolidate instrument tracks using Beat+Bassline Editor"
 msgstr "Beat+Bassline Editor kullanarak enstrüman parçalarını pekiştirin"
 
-#: home.twig:161
+#: home.twig:159
 msgid "Fine tune patterns, notes, chords and melodies using Piano Roll Editor"
 msgstr ""
 "Piano Roll Editor kullanarak ayar kalıplarını, notaları, akortları ve "
 "melodileri bulun"
 
-#: home.twig:162
+#: home.twig:160
 msgid ""
 "Full user-defined track-based automation and computer-controlled automation "
 "sources"
@@ -615,90 +624,73 @@ msgstr ""
 "Tam kullanıcı tanımlı iz tabanlı özdevin ve bilgisayar denetimli özdevin "
 "kaynakları"
 
-#: home.twig:163
+#: home.twig:161
 msgid "Import of MIDI files and Hydrogen project files"
 msgstr "MIDI dosyalarını ve Hydrogen proje dosyalarını içe aktarın"
 
-#: home.twig:173
+#: home.twig:171
 msgid "Musical Instruments"
 msgstr "Müzik Enstrümanları"
 
-#: home.twig:177
-msgid "Built-in 32-bit VST instrument support"
-msgstr "Gömülü 32-bit VST enstrüman desteği"
-
-#: home.twig:178
+#: home.twig:175
 msgid ""
 "Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit "
 "Windows)"
 msgstr ""
 "32-bit VST köprüsü (64-bit Windows) ile gömülü 64-bit VST enstrüman desteği"
 
-#: home.twig:179
-msgid "Roland ® TB-303 style monophonic bass synthesizer"
-msgstr "Roland ® TB-303 stili tekli bass sentezleyicisi"
-
-#: home.twig:180
+#: home.twig:176
 msgid ""
-"Embedded ZynAddSubFx:  Polyphonic, mutlitimbral, microtonal, multi-voice "
+"16 built in synthesizers, including emultations of Roland ® TB-303, "
+"Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip "
+"and more"
+msgstr ""
+
+#: home.twig:177
+#, fuzzy
+msgid ""
+"Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice "
 "additive, subtractive and pad synthesis all in one powerful plugin"
 msgstr ""
 "Yerleşik ZynAddSubFx:  Güçlü bir tümü bir arada ilişikte polifonik, "
 "multitimbral, microtonal, çoklu ses katkısı, eksiltici ve pad sentezleyicisi"
 
-#: home.twig:181
-msgid "Native Commodore 64 ® SID microchip/instrument emulation"
-msgstr "Doğal Commodore 64 ® SID microchip/enstrüman öykünmesi"
-
-#: home.twig:182
+#: home.twig:178
+#, fuzzy
 msgid ""
-"Native SoundFont ® support (SF2), the industry standard for high quality "
-"instrument patches and banks"
+"Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis "
+"UltraSound ® (GUS) formats for high quality instrument patches and banks"
 msgstr ""
 "Doğal SoundFont ® desteği (SF2), yüksek kaliteli enstrüman yamaları ve "
 "bankaları için endüstri standardı"
 
-#: home.twig:183
-msgid "Nintendo ®, GameBoy ® and game sound effect emulation"
-msgstr "Nintendo ®, GameBoy ® ve oyun sesi etkisi öykünmesi"
-
-#: home.twig:184
-msgid "2 built-in oscillator-based synthesizers"
-msgstr "2 gömülü titreşimci tabanlı sentezleyici"
-
-#: home.twig:185
-msgid "2 built-in wavetable-based synthesizers"
-msgstr "2 gömülü dalga tablosu tabanlı sentezleyici"
-
-#: home.twig:186
-msgid "Gravis UltraSound ® GUS Patch support"
-msgstr "Gravis UltraSound ® GUS Patch desteği"
-
-#: home.twig:196
+#: home.twig:188
 msgid "Effects Mixing"
 msgstr "Etki Karıştırma"
 
-#: home.twig:200
+#: home.twig:192
 msgid "Drop-in LADSPA plug-in support"
 msgstr "Tutturulmuş LADSPA ilişiği desteği"
 
-#: home.twig:201
+#: home.twig:193
 msgid "Drop-in VST ® effect plug-in support (Linux and Windows)"
 msgstr "Tutturulmuş VST ® etki ilişiği desteği (Linux ve Windows)"
 
-#: home.twig:202
+#: home.twig:194
+#, fuzzy
 msgid ""
-"Built-in compressor, limiter, delay, reverb, distortion, EQ, bass-enhancer"
+"Built-in compressor, limiter, delay, reverb, distortion and bass enhancer"
 msgstr ""
 "Gömülü sıkıştırıcı, sınırlandırıcı, gecikme, yankı, çarpıtma, dengeleyici, "
 "bass geliştiricisi"
 
-#: home.twig:203
+#: home.twig:195
 msgid "Bundled graphic and parametric equalizers"
 msgstr "Paketlenmiş grafik ve parametrik dengeleyiciler"
 
-#: home.twig:204
-msgid "Built-in visualization/spectrum analyser"
+#: home.twig:196
+#, fuzzy
+msgid "Built-in visualization/spectrum analyzer"
 msgstr "Gömülü görselleştirme/spektrum analizcisi"
 
 #: showcase.twig:6 navbar.php:12
@@ -710,14 +702,19 @@ msgid "Tracks made with LMMS"
 msgstr "Parçalar LMMS ile yapıldı"
 
 #: showcase.twig:12
-msgid "The Best of LMMS Vol.3 by LMMS Artists"
+#, fuzzy
+msgid "The Best of LMMS Vol. 4 by LMMS Artists"
 msgstr "LMMS Sanatçılarından LMMS'nin En İyileri Cilt 3"
 
 #: showcase.twig:20
+msgid "The Best of LMMS Vol.3 by LMMS Artists"
+msgstr "LMMS Sanatçılarından LMMS'nin En İyileri Cilt 3"
+
+#: showcase.twig:28
 msgid "The Best of LMMS Vol.2 by LMMS Artists"
 msgstr "LMMS Sanatçılarından LMMS'nin En İyileri Cilt 2"
 
-#: showcase.twig:28
+#: showcase.twig:36
 msgid "The Best of LMMS Vol.1 by LMMS Artists"
 msgstr "LMMS Sanatçılarından LMMS'nin En İyileri Cilt 1"
 
@@ -1265,6 +1262,30 @@ msgstr "Paylaş"
 #: navbar.php:11
 msgid "More"
 msgstr "Dahası"
+
+#~ msgid "Free Download"
+#~ msgstr "Ücretsiz İndirin"
+
+#~ msgid "Built-in 32-bit VST instrument support"
+#~ msgstr "Gömülü 32-bit VST enstrüman desteği"
+
+#~ msgid "Roland ® TB-303 style monophonic bass synthesizer"
+#~ msgstr "Roland ® TB-303 stili tekli bass sentezleyicisi"
+
+#~ msgid "Native Commodore 64 ® SID microchip/instrument emulation"
+#~ msgstr "Doğal Commodore 64 ® SID microchip/enstrüman öykünmesi"
+
+#~ msgid "Nintendo ®, GameBoy ® and game sound effect emulation"
+#~ msgstr "Nintendo ®, GameBoy ® ve oyun sesi etkisi öykünmesi"
+
+#~ msgid "2 built-in oscillator-based synthesizers"
+#~ msgstr "2 gömülü titreşimci tabanlı sentezleyici"
+
+#~ msgid "2 built-in wavetable-based synthesizers"
+#~ msgstr "2 gömülü dalga tablosu tabanlı sentezleyici"
+
+#~ msgid "Gravis UltraSound ® GUS Patch support"
+#~ msgstr "Gravis UltraSound ® GUS Patch desteği"
 
 #~ msgid "Visit our Google+ page"
 #~ msgstr "Google+ sayfamızı ziyaret edin"
