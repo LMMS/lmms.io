@@ -27,6 +27,7 @@ class GitHubMarkdownEngine implements MarkdownEngineInterface
 				$this->cache->set($content, $response);
 				return $response;
 			} catch (Exception $e) {
+				error_log($e);
 				return transform($content);
 			}
 		}

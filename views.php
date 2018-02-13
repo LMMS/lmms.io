@@ -7,14 +7,21 @@ require_once('../lib/Releases.php');
 function documentationPage($page=null)
 {
 	global $app;
-	$wiki = new RemWiki\RemWiki(get_protocol() . 'lmms.io/wiki/');
+	try {
+		$wiki = new RemWiki\RemWiki(get_protocol() . 'lmms.io/wiki/');
 
-	if ($page === null or $page === '') {
-		$page = 'Main_Page';
+		if ($page === null or $page === '') {
+			$page = 'Main_Page';
+		}
+
+		$json = $wiki->parse($page);
+	} catch (Exception $e) {
+		error_log($e);
+		return $app['twig']->render('errorpage.twig', [
+			'message' => 'Something went wrong while fetching wiki data',
+			'code' => '500'
+		]);
 	}
-
-	$json = $wiki->parse($page);
-
 	return $app['twig']->render('documentation.twig', [
 		'json' => $json,
 		'text' => $json['text']['*']
