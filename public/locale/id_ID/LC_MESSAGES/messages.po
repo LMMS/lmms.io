@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 17:20-0700\n"
+"POT-Creation-Date: 2018-02-13 21:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: G-RiNe Project <aden.aziz948@gmail.com>, 2017\n"
 "Language-Team: Indonesian (https://www.transifex.com/lmms/teams/61632/id/)\n"
@@ -17,402 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-#: get-involved.twig:6 navbar.php:7
-msgid "Get Involved"
-msgstr "Ikut terlibat"
-
-#: get-involved.twig:6
-msgid ""
-"LMMS is a free, open-source software built entirely by a small number of\n"
-"\tvolunteers in their free time. But to keep the project going, we need "
-"this\n"
-"\tnumber to grow. So if you feel like giving something back to the "
-"community,\n"
-"\tjoin us in making LMMS better!"
-msgstr ""
-"LMMS adalah perangkat lunak open source gratis yang seluruhnya dibangun \n"
-"oleh sejumlah kecil relawan di waktu senggang mereka. Tapi untuk menjaga \n"
-"agar proyek tetap berjalan, kami memerlukan jumlah ini untuk tumbuh.\n"
-"Jadi jika Anda merasa ingin memberikan sesuatu kepada komunitas ini, \n"
-"bergabunglah dengan kami untuk membuat LMMS menjadi lebih baik!"
-
-#: get-involved.twig:11
-msgid "What you can do"
-msgstr "Apa yang bisa Anda lakukan"
-
-#: get-involved.twig:12
-msgid "There are multiple ways of contributing:"
-msgstr "Ada banyak cara untuk berkontribusi:"
-
-#: get-involved.twig:18
-msgid "Join Development"
-msgstr "Bergabung dengan pengembangan"
-
-#: get-involved.twig:21
-msgid ""
-"We are in desperate need of new developers to join our team. LMMS is written "
-"in C++ using the Qt\n"
-"\t\t\t\t\t   Framework, so if you know a thing or two about these, don't "
-"hesitate to get yourself dirty with\n"
-"\t\t\t\t\t   coding!"
-msgstr ""
-"Kami sangat membutuhkan pengembang baru untuk bergabung dengan tim kami. "
-"LMMS ditulis dalam C ++ menggunakan Framework Qt\n"
-"\t\t\t\t , Jadi jika Anda tahu satu atau dua hal tentang ini, jangan ragu "
-"untuk membuat diri Anda kotor dengan \n"
-"\t\t\t\t coding!"
-
-#: get-involved.twig:24
-msgid ""
-"See our <a href=\"//github.com/LMMS/lmms/wiki\">GitHub Wiki</a> and our\n"
-"\t\t\t\t\t   <a href=\"//github.com/LMMS/lmms/issues\">bug tracker</a> to "
-"get started. Furthermore, the LMMS\n"
-"\t\t\t\t\t   <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
-"devel\">mailing list</a> is a great place\n"
-"\t\t\t\t\t   to introduce yourself."
-msgstr ""
-"Lihat <a href=\"//github.com/LMMS/lmms/wiki\">Wiki GitHub</a> kami dan\n"
-"\t\t\t\t\t<a href=\"//github.com/LMMS/lmms/issues\">pelacak bug</a> kami "
-"untuk memulai. Selanjutnya, \n"
-"\t\t\t\t\t<a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-devel"
-"\">Milis LMMS</a> adalah tempat terbaik\n"
-"\t\t\t\t\t untuk memperkenalkan diri Anda."
-
-#: get-involved.twig:35
-msgid "Website & Docs"
-msgstr "Situs & Dok"
-
-#: get-involved.twig:38
-msgid ""
-"You can help us by improving this website or documenting the software. The "
-"website sources are in our\n"
-"\t\t\t\t\t   GitHub repo <a href=\"//github.com/LMMS/lmms.io\">LMMS/lmms.io</"
-"a>, our documentation is hosted using a\n"
-"\t\t\t\t\t   <a href=\"//lmms.io/wiki\">MediaWiki instance</a>."
-msgstr ""
-"Anda dapat membantu kami dengan memperbaiki situs ini atau mendokumentasikan "
-"perangkat lunak. Sumber situs web kami berada di\n"
-"\t\t\t\t\t repo GitHub <a href=\"//github.com/LMMS/lmms.io\">LMMS/lmms.io</"
-"a>, dokumentasi kami dihosting menggunakan\n"
-"\t\t\t\t\t <a href=\"//lmms.io/wiki\">Contoh MediaWiki</a>."
-
-#: get-involved.twig:41
-msgid ""
-"Public registration on our Wiki is disabled due to spam issues. Please post "
-"to the\n"
-"\t\t\t\t\t   <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
-"devel\">mailing list</a> if you're\n"
-"\t\t\t\t\t   interested in helping out with the documentation!"
-msgstr ""
-"Pendaftaran publik pada Wiki kami dinonaktifkan untuk menghindari isu spam. "
-"Silakan posting ke \n"
-"\t\t\t\t\t    <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
-"devel\"> milis </a> jika Anda\n"
-"\t\t\t\t\t    tertarik untuk membantu bagian dokumentasi!"
-
-#: get-involved.twig:53
-msgid "Donate"
-msgstr "Donasi"
-
-#: get-involved.twig:56
-msgid ""
-"Even though donations are not the thing we need the most (that'd be "
-"developers), they help us pay\n"
-"\t\t\t\t\t   our bills, for our domain lmms.io for instance."
-msgstr ""
-"Walaupun donasi tersebut bukanlah hal yang sangat kami butuhkan (untuk "
-"developer), namun hal tersebut membantu kami membayar\n"
-"\t\t\t\t\t    tagihan kami, misalnya untuk domain kami lmms.io."
-
-#: get-involved.twig:59
-msgid "Donate via PayPal"
-msgstr "Donasi via PayPal"
-
-#: get-involved.twig:68
-msgid "Translations"
-msgstr "Terjemahan"
-
-#: get-involved.twig:71
-msgid ""
-"If your language is missing in LMMS, help the project and other users "
-"speaking the same language by\n"
-"\t\t\t\t\t   translating the software. You can find instructions on the "
-"page\n"
-"\t\t\t\t\t   \"<a href=\"//github.com/LMMS/lmms/wiki/Creating-a-localization"
-"\">Creating a localization</a>\" in our\n"
-"\t\t\t\t\t   GitHub Wiki."
-msgstr ""
-"Jika bahasa anda tidak ada di LMMS, bantulah proyek ini dan pengguna lain "
-"yang menggunakan bahasa yang sama dengan\n"
-"\t\t\t\t\t   menterjemahkan perangkat lunak ini. Anda bisa mencari instruksi "
-"di laman\n"
-"\t\t\t\t\t   \"<a href=\"//github.com/LMMS/lmms/wiki/Creating-a-localization"
-"\">Membuat lokalisasi</a>\" di \n"
-"\t\t\t\t\t   Wiki GitHub kami."
-
-#: get-involved.twig:80
-msgid "How to get in touch"
-msgstr "Cara menghubungi"
-
-#: get-involved.twig:86
-msgid "Mailing List"
-msgstr "Milis"
-
-#: get-involved.twig:89
-msgid ""
-"Posting to the mailing list is the best way to reach out to our developers:"
-msgstr ""
-"Mengeposkan ke milis adalah cara terbaik untuk menjangkau pengembang kami:"
-
-#: get-involved.twig:90
-msgid "Subscribe to LMMS-Devel mailing list"
-msgstr "Berlangganan milis Pengembang LMMS"
-
-#: get-involved.twig:101
-#, fuzzy
-msgid ""
-"Our IRC channel is <a href=\"irc://chat.freenode.net/#lmms\">#lmms</a> on\n"
-"\t\t\t\t\t<a href=\"https://freenode.net/irc_servers.shtml\">Freenode</a>."
-msgstr ""
-"Saluran IRC kami adalah <a href=\"irc://chat.freenode.net/#lmms\">#lmms</a> "
-"di\n"
-"\t\t\t\t<a href=\"https://freenode.net/irc_servers.shtml\">Freenode</a>"
-
-#: get-involved.twig:103
-#, fuzzy
-msgid ""
-"<a href=\"https://discordapp.com/\" target=\"_blank\">Discord</a>\n"
-"\t\t\t\t\tis a more modern alternative to IRC. Join our server \n"
-"\t\t\t\t\t<a href=\"/chat/\">by clicking here</a>."
-msgstr ""
-"<a href=\"https://discordapp.com/\" target=\"_blank\">Discord</a>\n"
-"\t\t\t\t adalah alternatif lebih modern dari IRC. Gabung server kami\n"
-"\t\t\t\t dengan <a href=\"https://discord.gg/5kSc32Z\">klik disini</a>"
-
-#: get-involved.twig:116 navbar.php:9
-msgid "Forum"
-msgstr "Forum"
-
-#: get-involved.twig:119
-msgid "We host a forum for our users here on this website:"
-msgstr "Kami menghosting forum untuk pengguna kami di situs ini:"
-
-#: get-involved.twig:131
-msgid ""
-"For reporting a bug or suggesting a new feature, please use the GitHub issue "
-"tracker:"
-msgstr ""
-"Untuk melaporkan bug atau menyarankan fitur baru, silakan gunakan pelacak "
-"isu GitHub:"
-
-#: download/linux.twig:6
-#, fuzzy
-msgid ""
-"LMMS is included in most major Linux distribution's package repositories."
-"<br>\n"
-"\tPlease <a href=\"get-involved/#contact\">contact us</a> if your "
-"distribution is not listed here."
-msgstr ""
-"LMMS termasuk pada kebanyakan paket distribusi distro Linux.<br>\n"
-"\tMohon<a href=\"/community/\">Hubungi Kami</a> jika distribusi anda tidak "
-"tercantum disini."
-
-#: download/linux.twig:48
-msgid ""
-"For installing LMMS on Debian based distributions such as Debian itself, "
-"Ubuntu or Linux Mint, just click the button below."
-msgstr ""
-"Untuk memasang LMMS pada distro berbasis Debian seperti Debian itu sendiri, "
-"Ubuntu atau Linux Mint, tinggal klik tombol dibawah."
-
-#: download/linux.twig:51
-msgid "Install Now"
-msgstr "Pasang Sekarang"
-
-#: /tmp/cache/twig/lmms.io/56/56f4a49785d491b107d2061e6f69b783bd63eb2955e6b83608a668105e728b66.php:80
-msgid "(From Package Manager)"
-msgstr "(Dari Manajer Paket)"
-
-#: download/linux.twig:53
-msgid "If this doesn't work for you, run this command in a terminal."
-msgstr "Jika ini tidak bekerja, jalankan perintah ini di terminal."
-
-#: download/linux.twig:55
-msgid ""
-"If the traditional repositories lag behind on versions, try the <a href="
-"\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio repository</"
-"a>."
-msgstr ""
-"Jika repositori tradisional terasa lag, cobalah <a href=\"http://kxstudio."
-"sourceforge.net/Repositories#Ubuntu\">repositori KXStudio</a>."
-
-#: download/linux.twig:56 download/linux.twig:77
-msgid "VST Support"
-msgstr "Dukungan VST"
-
-#: download/linux.twig:57
-msgid ""
-"If your distribution offers VST support (requires the installation of Wine) "
-"it is generally offered in a separate package.  For example, using the <a "
-"href=\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio "
-"repository</a>, run this command in a terminal."
-msgstr ""
-"JIka distro Anda menawarkan dukungan VST (membutuhkan pemasangan Wine) "
-"Biasanya ditawarkan dalam paket terpisah. Sebagai contoh, menggunakan <a "
-"href=\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\"> repositori "
-"KXStudio</a>, jalankan perintah ini didalam terminal."
-
-#: download/linux.twig:63 download/linux.twig:69
-msgid "Run the following command as root in a terminal:"
-msgstr "Jalankan perintah berikut sebagai root di terminal:"
-
-#: download/linux.twig:75 download/linux.twig:89
-msgid "Run the following command in a terminal:"
-msgstr "Jalankan perintah berikut di terminal:"
-
-#: download/linux.twig:78
-msgid ""
-"For VST support, please see the <a href=\"https://wiki.archlinux.org/index."
-"php/LMMS\" target=\"_blank\">Arch LMMS wiki page</a>"
-msgstr ""
-"Untuk dukungan VST, silakan lihat <a href=\"https://wiki.archlinux.org/index."
-"php/LMMS\" target=\"_blank\">Laman wiki Arch LMMS</a>"
-
-#: download/linux.twig:95
-msgid ""
-"AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and "
-"more to come in the future), with VST support enabled by default on AMD64."
-msgstr ""
-"OS AOSC memiliki LMMS di berbagai port arsitektur (AMD64/x86_64, ARMv7, dan "
-"lebih banyak lagi di masa depan), dengan dukungan VST sebagai bawaan di "
-"AMD64."
-
-#: download/linux.twig:96
-msgid "To install LMMS on AOSC OS with PackageKit (recommended):"
-msgstr "Untuk memasang LMMS di OS AOSC dengan PackageKit (direkomendasikan):"
-
-#: download/linux.twig:98
-msgid "To install LMMS on AOSC OS with DPKG:"
-msgstr "Untuk memasang LMMS di OS AOSC dengan DPKG:"
-
-#: download/linux.twig:100
-msgid "To install LMMS on AOSC OS with RPM:"
-msgstr "Untuk memasang LMMS di OS AOSC dengan RPM:"
-
-#: download/linux.twig:106
-msgid "Build LMMS from source"
-msgstr "Bangun LMMS dari sumber"
-
-#: download/linux.twig:107
-#, fuzzy
-msgid ""
-"If your Linux distribution does not provide a lmms package (or only an "
-"outdated one), you can still build LMMS from source. Visit the <a href="
-"\"https://github.com/LMMS/lmms/wiki/Compiling\">LMMS development wiki on "
-"GitHub</a> for instructions on how to compile LMMS for Linux."
-msgstr ""
-"Jika distro Linux Anda tidak menyediakan paket lmms (atau hanya yang sudah "
-"usang), Anda masih bisa membangun LMMS dari sumber. Kunjungi <a href="
-"\"https://github.com/LMMS/lmms/wiki/Compiling-lmms\"> Wiki pengembangan LMMS "
-"di GitHub</a> untuk instruksi bagaimana cara mengkompile LMMS untuk Linux."
-
-#: foot.twig:24
-msgid "Powered by"
-msgstr "Dipersembahkan oleh"
-
-#: errorpage.twig:6
-msgid "Error <b>%code%</b>"
-msgstr ""
-
-#: errorpage.twig:8
-msgid ""
-"If you followed a valid link on this site, please contact us\n"
-"      about it and <a href=\"//github.com/LMMS/lmms.io/issues/new\">file an "
-"issue</a> on GitHub."
-msgstr ""
-"Jika anda mengikuti link yang valid pada situs ini, mohon hubungi kami\n"
-"tentang hal tersebut dan <a href=\"//github.com/LMMS/lmms.io/issues/new"
-"\">tambahkan isu</a> di GitHub."
-
-#: download/index.twig:32
-msgid "Download LMMS"
-msgstr "Unduh LMMS"
-
-#: download/index.twig:32
-msgid ""
-"Downloading and using LMMS is free! Just choose the operating system you "
-"want to run LMMS on:"
-msgstr ""
-"Mengunduh dan menggunakan LMMS itu gratis! Tinggal pilih sistem operasi "
-"dimana LMMS akan dijalankan:"
-
-#: download/index.twig:51
-msgid "Install LMMS on Linux"
-msgstr "Pasang LMMS di Linux"
-
-#: download/index.twig:52
-#, fuzzy
-msgid "Click one of the buttons below to download LMMS for Linux."
-msgstr "Klik salah satu tombol dibawah untuk mengunduh LMMS untuk Apple"
-
-#: /tmp/cache/twig/lmms.io/6e/6e6309adf8934d3c5fa1d4398627e7d5fabd487b92cb76ff77fcf4322cf33f32.php:73
-#: download/index.twig:80
-#: /tmp/cache/twig/lmms.io/6e/6e6309adf8934d3c5fa1d4398627e7d5fabd487b92cb76ff77fcf4322cf33f32.php:215
-msgid "Stable Versions"
-msgstr "Versi Stabil"
-
-#: download/index.twig:59
-msgid ""
-"Run <code>chmod +x ~/Downloads/*.AppImage</code> to set the <code>.AppImage</"
-"code> executable before running"
-msgstr ""
-
-#: /tmp/cache/twig/lmms.io/6e/6e6309adf8934d3c5fa1d4398627e7d5fabd487b92cb76ff77fcf4322cf33f32.php:106
-#: /tmp/cache/twig/lmms.io/6e/6e6309adf8934d3c5fa1d4398627e7d5fabd487b92cb76ff77fcf4322cf33f32.php:181
-#: /tmp/cache/twig/lmms.io/6e/6e6309adf8934d3c5fa1d4398627e7d5fabd487b92cb76ff77fcf4322cf33f32.php:242
-msgid "Beta Versions"
-msgstr "Versi Beta"
-
-#: /tmp/cache/twig/lmms.io/6e/6e6309adf8934d3c5fa1d4398627e7d5fabd487b92cb76ff77fcf4322cf33f32.php:136
-msgid "Other options"
-msgstr ""
-
-#: download/index.twig:78
-msgid "Install LMMS on Windows"
-msgstr "Pasang LMMS di Windows"
-
-#: download/index.twig:79
-msgid ""
-"Click one of the buttons below (either 32bit or 64bit) to download LMMS for "
-"Windows"
-msgstr ""
-"Klik salah satu tombol dibawah (32bit atau 64bit) untuk mengunduh LMMS untuk "
-"Windows"
-
-#: download/index.twig:96
-#, fuzzy
-msgid "Install LMMS on macOS"
-msgstr "Pasang LMMS di Linux"
-
-#: download/index.twig:97
-#, fuzzy
-msgid "Click one of the buttons below to download LMMS for macOS"
-msgstr "Klik salah satu tombol dibawah untuk mengunduh LMMS untuk Apple"
-
-#: download/index.twig:114
-msgid "Downloads labeled Beta are pre-release software, stability may suffer."
-msgstr ""
-"Unduhan berlabel Beta adalah perangkat lunak pra-rilis, stabilitas mungkin "
-"akan terganggu."
-
-#: download/index.twig:115
-msgid "Previous releases"
-msgstr "Rilis sebelumnya"
-
-#: download/index.twig:333
-msgid "Show release notes"
-msgstr "Tampilkan catatan rilis"
 
 #: home.twig:11
 msgid "Let's make music"
@@ -690,6 +294,120 @@ msgstr "Dilengkapi equalizer grafis dan parametrik"
 msgid "Built-in visualization/spectrum analyzer"
 msgstr "Termasuk penganalisa spektrum/visualisasi"
 
+#: download/linux.twig:6
+#, fuzzy
+msgid ""
+"LMMS is included in most major Linux distribution's package repositories."
+"<br>\n"
+"\tPlease <a href=\"get-involved/#contact\">contact us</a> if your "
+"distribution is not listed here."
+msgstr ""
+"LMMS termasuk pada kebanyakan paket distribusi distro Linux.<br>\n"
+"\tMohon<a href=\"/community/\">Hubungi Kami</a> jika distribusi anda tidak "
+"tercantum disini."
+
+#: download/linux.twig:48
+msgid ""
+"For installing LMMS on Debian based distributions such as Debian itself, "
+"Ubuntu or Linux Mint, just click the button below."
+msgstr ""
+"Untuk memasang LMMS pada distro berbasis Debian seperti Debian itu sendiri, "
+"Ubuntu atau Linux Mint, tinggal klik tombol dibawah."
+
+#: download/linux.twig:53
+#, fuzzy
+msgid "Install LMMS now"
+msgstr "Pasang LMMS di Windows"
+
+#: download/linux.twig:54
+#, fuzzy
+msgid "From your package manager"
+msgstr "(Dari Manajer Paket)"
+
+#: download/linux.twig:57
+msgid "If this doesn't work for you, run this command in a terminal."
+msgstr "Jika ini tidak bekerja, jalankan perintah ini di terminal."
+
+#: download/linux.twig:59
+msgid ""
+"If the traditional repositories lag behind on versions, try the <a href="
+"\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio repository</"
+"a>."
+msgstr ""
+"Jika repositori tradisional terasa lag, cobalah <a href=\"http://kxstudio."
+"sourceforge.net/Repositories#Ubuntu\">repositori KXStudio</a>."
+
+#: download/linux.twig:60 download/linux.twig:81
+msgid "VST Support"
+msgstr "Dukungan VST"
+
+#: download/linux.twig:61
+msgid ""
+"If your distribution offers VST support (requires the installation of Wine) "
+"it is generally offered in a separate package.  For example, using the <a "
+"href=\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio "
+"repository</a>, run this command in a terminal."
+msgstr ""
+"JIka distro Anda menawarkan dukungan VST (membutuhkan pemasangan Wine) "
+"Biasanya ditawarkan dalam paket terpisah. Sebagai contoh, menggunakan <a "
+"href=\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\"> repositori "
+"KXStudio</a>, jalankan perintah ini didalam terminal."
+
+#: download/linux.twig:67 download/linux.twig:73
+msgid "Run the following command as root in a terminal:"
+msgstr "Jalankan perintah berikut sebagai root di terminal:"
+
+#: download/linux.twig:79 download/linux.twig:93
+msgid "Run the following command in a terminal:"
+msgstr "Jalankan perintah berikut di terminal:"
+
+#: download/linux.twig:82
+#, fuzzy
+msgid ""
+"For VST support, please see the <a href=\"https://wiki.archlinux.org/index."
+"php/LMMS\">Arch LMMS wiki page</a>"
+msgstr ""
+"Untuk dukungan VST, silakan lihat <a href=\"https://wiki.archlinux.org/index."
+"php/LMMS\" target=\"_blank\">Laman wiki Arch LMMS</a>"
+
+#: download/linux.twig:99
+msgid ""
+"AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and "
+"more to come in the future), with VST support enabled by default on AMD64."
+msgstr ""
+"OS AOSC memiliki LMMS di berbagai port arsitektur (AMD64/x86_64, ARMv7, dan "
+"lebih banyak lagi di masa depan), dengan dukungan VST sebagai bawaan di "
+"AMD64."
+
+#: download/linux.twig:100
+msgid "To install LMMS on AOSC OS with PackageKit (recommended):"
+msgstr "Untuk memasang LMMS di OS AOSC dengan PackageKit (direkomendasikan):"
+
+#: download/linux.twig:102
+msgid "To install LMMS on AOSC OS with DPKG:"
+msgstr "Untuk memasang LMMS di OS AOSC dengan DPKG:"
+
+#: download/linux.twig:104
+msgid "To install LMMS on AOSC OS with RPM:"
+msgstr "Untuk memasang LMMS di OS AOSC dengan RPM:"
+
+#: download/linux.twig:110
+msgid "Build LMMS from source"
+msgstr "Bangun LMMS dari sumber"
+
+#: download/linux.twig:111
+#, fuzzy
+msgid ""
+"If your Linux distribution does not provide a lmms package (or only an "
+"outdated one), you can still build LMMS from source. Visit the <a href="
+"\"https://github.com/LMMS/lmms/wiki/Compiling\">LMMS development wiki on "
+"GitHub</a> for instructions on how to compile LMMS for Linux."
+msgstr ""
+"Jika distro Linux Anda tidak menyediakan paket lmms (atau hanya yang sudah "
+"usang), Anda masih bisa membangun LMMS dari sumber. Kunjungi <a href="
+"\"https://github.com/LMMS/lmms/wiki/Compiling-lmms\"> Wiki pengembangan LMMS "
+"di GitHub</a> untuk instruksi bagaimana cara mengkompile LMMS untuk Linux."
+
 #: showcase.twig:6 navbar.php:12
 msgid "Showcase"
 msgstr "Tempat Pamer"
@@ -737,7 +455,7 @@ msgstr "Kompetisi masa lalu:"
 msgid "The Best of LMMS vol. IV"
 msgstr "Yang Terbaik dari LMMS vol. IV"
 
-#: /tmp/cache/twig/lmms.io/d5/d55d667225ee25468415ad593623f61e87e7cb5ccdde62dedf7c06bfb24ad054.php:79
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:79
 msgid ""
 "#### The competition has ended on **April 16th, 2017**.\n"
 "\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
@@ -857,7 +575,7 @@ msgstr ""
 msgid "The Best of LMMS vol. III"
 msgstr "Yang terbaik dari LMMS vol. III"
 
-#: /tmp/cache/twig/lmms.io/d5/d55d667225ee25468415ad593623f61e87e7cb5ccdde62dedf7c06bfb24ad054.php:140
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:140
 msgid ""
 "#### The competition has ended on **March 16th, 2016.**\n"
 "\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
@@ -956,7 +674,7 @@ msgstr ""
 msgid "The Best of LMMS vol. II"
 msgstr "Yang terbaik dari LMMS vol. II"
 
-#: /tmp/cache/twig/lmms.io/d5/d55d667225ee25468415ad593623f61e87e7cb5ccdde62dedf7c06bfb24ad054.php:189
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:189
 msgid ""
 "#### The competition has ended on **April 1st, 2015.**\n"
 "\n"
@@ -1053,7 +771,7 @@ msgstr ""
 msgid "The Best of LMMS vol. I"
 msgstr "Yang Terbaik dari LMMS vol. I"
 
-#: /tmp/cache/twig/lmms.io/d5/d55d667225ee25468415ad593623f61e87e7cb5ccdde62dedf7c06bfb24ad054.php:237
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:237
 msgid ""
 "#### The competition has ended on **February 15th, 2014.**\n"
 "\n"
@@ -1151,6 +869,85 @@ msgstr ""
 "\t\t\t\tAkan disumbangkan untuk pengembangan lebih lanjut dari LMMS, program "
 "yang kita cintai."
 
+#: download/index.twig:32
+msgid "Download LMMS"
+msgstr "Unduh LMMS"
+
+#: download/index.twig:32
+msgid ""
+"Downloading and using LMMS is free! Just choose the operating system you "
+"want to run LMMS on:"
+msgstr ""
+"Mengunduh dan menggunakan LMMS itu gratis! Tinggal pilih sistem operasi "
+"dimana LMMS akan dijalankan:"
+
+#: download/index.twig:51
+msgid "Install LMMS on Linux"
+msgstr "Pasang LMMS di Linux"
+
+#: download/index.twig:52
+#, fuzzy
+msgid "Click one of the buttons below to download LMMS for Linux."
+msgstr "Klik salah satu tombol dibawah untuk mengunduh LMMS untuk Apple"
+
+#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:73
+#: download/index.twig:80
+#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:215
+msgid "Stable Versions"
+msgstr "Versi Stabil"
+
+#: download/index.twig:59
+msgid ""
+"Run <code>chmod +x ~/Downloads/*.AppImage</code> to set the <code>.AppImage</"
+"code> executable before running"
+msgstr ""
+
+#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:106
+#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:181
+#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:242
+msgid "Beta Versions"
+msgstr "Versi Beta"
+
+#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:136
+msgid "Other options"
+msgstr ""
+
+#: download/index.twig:78
+msgid "Install LMMS on Windows"
+msgstr "Pasang LMMS di Windows"
+
+#: download/index.twig:79
+msgid ""
+"Click one of the buttons below (either 32bit or 64bit) to download LMMS for "
+"Windows"
+msgstr ""
+"Klik salah satu tombol dibawah (32bit atau 64bit) untuk mengunduh LMMS untuk "
+"Windows"
+
+#: download/index.twig:96
+#, fuzzy
+msgid "Install LMMS on macOS"
+msgstr "Pasang LMMS di Linux"
+
+#: download/index.twig:97
+#, fuzzy
+msgid "Click one of the buttons below to download LMMS for macOS"
+msgstr "Klik salah satu tombol dibawah untuk mengunduh LMMS untuk Apple"
+
+#: download/index.twig:114
+msgid "Downloads labeled Beta are pre-release software, stability may suffer."
+msgstr ""
+"Unduhan berlabel Beta adalah perangkat lunak pra-rilis, stabilitas mungkin "
+"akan terganggu."
+
+#: download/index.twig:115
+msgid "Previous releases"
+msgstr "Rilis sebelumnya"
+
+#: download/index.twig:333
+msgid "Show release notes"
+msgstr "Tampilkan catatan rilis"
+
 #: branding.twig:6 navbar.php:14
 msgid "Branding"
 msgstr "Branding"
@@ -1171,7 +968,214 @@ msgstr "Tim Pengembang LMMS"
 msgid "LMMS Project Icon"
 msgstr "Ikon Proyek LMMS"
 
-#: /tmp/cache/twig/lmms.io/e5/e5237389410ebe2e340604d332fb7ae484a2596c760fda5c2cebf05a16412bd5.php:32
+#: errorpage.twig:6
+msgid "Error <b>%code%</b>"
+msgstr ""
+
+#: errorpage.twig:8
+msgid ""
+"If you followed a valid link on this site, please contact us\n"
+"      about it and <a href=\"//github.com/LMMS/lmms.io/issues/new\">file an "
+"issue</a> on GitHub."
+msgstr ""
+"Jika anda mengikuti link yang valid pada situs ini, mohon hubungi kami\n"
+"tentang hal tersebut dan <a href=\"//github.com/LMMS/lmms.io/issues/new"
+"\">tambahkan isu</a> di GitHub."
+
+#: foot.twig:24
+msgid "Powered by"
+msgstr "Dipersembahkan oleh"
+
+#: get-involved.twig:6 navbar.php:7
+msgid "Get Involved"
+msgstr "Ikut terlibat"
+
+#: get-involved.twig:6
+msgid ""
+"LMMS is a free, open-source software built entirely by a small number of\n"
+"\tvolunteers in their free time. But to keep the project going, we need "
+"this\n"
+"\tnumber to grow. So if you feel like giving something back to the "
+"community,\n"
+"\tjoin us in making LMMS better!"
+msgstr ""
+"LMMS adalah perangkat lunak open source gratis yang seluruhnya dibangun \n"
+"oleh sejumlah kecil relawan di waktu senggang mereka. Tapi untuk menjaga \n"
+"agar proyek tetap berjalan, kami memerlukan jumlah ini untuk tumbuh.\n"
+"Jadi jika Anda merasa ingin memberikan sesuatu kepada komunitas ini, \n"
+"bergabunglah dengan kami untuk membuat LMMS menjadi lebih baik!"
+
+#: get-involved.twig:11
+msgid "What you can do"
+msgstr "Apa yang bisa Anda lakukan"
+
+#: get-involved.twig:12
+msgid "There are multiple ways of contributing:"
+msgstr "Ada banyak cara untuk berkontribusi:"
+
+#: get-involved.twig:18
+msgid "Join Development"
+msgstr "Bergabung dengan pengembangan"
+
+#: get-involved.twig:21
+msgid ""
+"We are in desperate need of new developers to join our team. LMMS is written "
+"in C++ using the Qt\n"
+"\t\t\t\t\t   Framework, so if you know a thing or two about these, don't "
+"hesitate to get yourself dirty with\n"
+"\t\t\t\t\t   coding!"
+msgstr ""
+"Kami sangat membutuhkan pengembang baru untuk bergabung dengan tim kami. "
+"LMMS ditulis dalam C ++ menggunakan Framework Qt\n"
+"\t\t\t\t , Jadi jika Anda tahu satu atau dua hal tentang ini, jangan ragu "
+"untuk membuat diri Anda kotor dengan \n"
+"\t\t\t\t coding!"
+
+#: get-involved.twig:24
+msgid ""
+"See our <a href=\"//github.com/LMMS/lmms/wiki\">GitHub Wiki</a> and our\n"
+"\t\t\t\t\t   <a href=\"//github.com/LMMS/lmms/issues\">bug tracker</a> to "
+"get started. Furthermore, the LMMS\n"
+"\t\t\t\t\t   <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
+"devel\">mailing list</a> is a great place\n"
+"\t\t\t\t\t   to introduce yourself."
+msgstr ""
+"Lihat <a href=\"//github.com/LMMS/lmms/wiki\">Wiki GitHub</a> kami dan\n"
+"\t\t\t\t\t<a href=\"//github.com/LMMS/lmms/issues\">pelacak bug</a> kami "
+"untuk memulai. Selanjutnya, \n"
+"\t\t\t\t\t<a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-devel"
+"\">Milis LMMS</a> adalah tempat terbaik\n"
+"\t\t\t\t\t untuk memperkenalkan diri Anda."
+
+#: get-involved.twig:35
+msgid "Website & Docs"
+msgstr "Situs & Dok"
+
+#: get-involved.twig:38
+msgid ""
+"You can help us by improving this website or documenting the software. The "
+"website sources are in our\n"
+"\t\t\t\t\t   GitHub repo <a href=\"//github.com/LMMS/lmms.io\">LMMS/lmms.io</"
+"a>, our documentation is hosted using a\n"
+"\t\t\t\t\t   <a href=\"//lmms.io/wiki\">MediaWiki instance</a>."
+msgstr ""
+"Anda dapat membantu kami dengan memperbaiki situs ini atau mendokumentasikan "
+"perangkat lunak. Sumber situs web kami berada di\n"
+"\t\t\t\t\t repo GitHub <a href=\"//github.com/LMMS/lmms.io\">LMMS/lmms.io</"
+"a>, dokumentasi kami dihosting menggunakan\n"
+"\t\t\t\t\t <a href=\"//lmms.io/wiki\">Contoh MediaWiki</a>."
+
+#: get-involved.twig:41
+msgid ""
+"Public registration on our Wiki is disabled due to spam issues. Please post "
+"to the\n"
+"\t\t\t\t\t   <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
+"devel\">mailing list</a> if you're\n"
+"\t\t\t\t\t   interested in helping out with the documentation!"
+msgstr ""
+"Pendaftaran publik pada Wiki kami dinonaktifkan untuk menghindari isu spam. "
+"Silakan posting ke \n"
+"\t\t\t\t\t    <a href=\"https://lists.sourceforge.net/lists/listinfo/lmms-"
+"devel\"> milis </a> jika Anda\n"
+"\t\t\t\t\t    tertarik untuk membantu bagian dokumentasi!"
+
+#: get-involved.twig:53
+msgid "Donate"
+msgstr "Donasi"
+
+#: get-involved.twig:56
+msgid ""
+"Even though donations are not the thing we need the most (that'd be "
+"developers), they help us pay\n"
+"\t\t\t\t\t   our bills, for our domain lmms.io for instance."
+msgstr ""
+"Walaupun donasi tersebut bukanlah hal yang sangat kami butuhkan (untuk "
+"developer), namun hal tersebut membantu kami membayar\n"
+"\t\t\t\t\t    tagihan kami, misalnya untuk domain kami lmms.io."
+
+#: get-involved.twig:59
+msgid "Donate via PayPal"
+msgstr "Donasi via PayPal"
+
+#: get-involved.twig:68
+msgid "Translations"
+msgstr "Terjemahan"
+
+#: get-involved.twig:71
+msgid ""
+"If your language is missing in LMMS, help the project and other users "
+"speaking the same language by\n"
+"\t\t\t\t\t   translating the software. You can find instructions on the "
+"page\n"
+"\t\t\t\t\t   \"<a href=\"//github.com/LMMS/lmms/wiki/Creating-a-localization"
+"\">Creating a localization</a>\" in our\n"
+"\t\t\t\t\t   GitHub Wiki."
+msgstr ""
+"Jika bahasa anda tidak ada di LMMS, bantulah proyek ini dan pengguna lain "
+"yang menggunakan bahasa yang sama dengan\n"
+"\t\t\t\t\t   menterjemahkan perangkat lunak ini. Anda bisa mencari instruksi "
+"di laman\n"
+"\t\t\t\t\t   \"<a href=\"//github.com/LMMS/lmms/wiki/Creating-a-localization"
+"\">Membuat lokalisasi</a>\" di \n"
+"\t\t\t\t\t   Wiki GitHub kami."
+
+#: get-involved.twig:80
+msgid "How to get in touch"
+msgstr "Cara menghubungi"
+
+#: get-involved.twig:86
+msgid "Mailing List"
+msgstr "Milis"
+
+#: get-involved.twig:89
+msgid ""
+"Posting to the mailing list is the best way to reach out to our developers:"
+msgstr ""
+"Mengeposkan ke milis adalah cara terbaik untuk menjangkau pengembang kami:"
+
+#: get-involved.twig:90
+msgid "Subscribe to LMMS-Devel mailing list"
+msgstr "Berlangganan milis Pengembang LMMS"
+
+#: get-involved.twig:101
+#, fuzzy
+msgid ""
+"Our IRC channel is <a href=\"http://webchat.freenode.net/?channels=%23lmms"
+"\">#lmms</a> on\n"
+"\t\t\t\t\t<a href=\"https://freenode.net\">Freenode</a>."
+msgstr ""
+"Saluran IRC kami adalah <a href=\"irc://chat.freenode.net/#lmms\">#lmms</a> "
+"di\n"
+"\t\t\t\t<a href=\"https://freenode.net/irc_servers.shtml\">Freenode</a>"
+
+#: get-involved.twig:103
+#, fuzzy
+msgid ""
+"<a href=\"https://discordapp.com/\">Discord</a>\n"
+"\t\t\t\t\tis a more modern alternative to IRC. Join our server \n"
+"\t\t\t\t\t<a href=\"/chat/\">by clicking here</a>."
+msgstr ""
+"<a href=\"https://discordapp.com/\" target=\"_blank\">Discord</a>\n"
+"\t\t\t\t adalah alternatif lebih modern dari IRC. Gabung server kami\n"
+"\t\t\t\t dengan <a href=\"https://discord.gg/5kSc32Z\">klik disini</a>"
+
+#: get-involved.twig:116 navbar.php:9
+msgid "Forum"
+msgstr "Forum"
+
+#: get-involved.twig:119
+msgid "We host a forum for our users here on this website:"
+msgstr "Kami menghosting forum untuk pengguna kami di situs ini:"
+
+#: get-involved.twig:131
+msgid ""
+"For reporting a bug or suggesting a new feature, please use the GitHub issue "
+"tracker:"
+msgstr ""
+"Untuk melaporkan bug atau menyarankan fitur baru, silakan gunakan pelacak "
+"isu GitHub:"
+
+#: /tmp/cache/twig/lmms.io/ca/caa7c0e6c169d8a008f589ef3c01ec1f68dc6cb191ac2e6ffd6a642334b27b0f.php:32
 msgid ""
 "We're sorry, something went wrong fetching the latest release info. You can "
 "still download releases on <a href=\"//github.com/LMMS/lmms/releases"
@@ -1264,6 +1268,9 @@ msgstr "Bagikan"
 #: navbar.php:11
 msgid "More"
 msgstr "Lainnya"
+
+#~ msgid "Install Now"
+#~ msgstr "Pasang Sekarang"
 
 #~ msgid "Free Download"
 #~ msgstr "Unduh Gratis"
