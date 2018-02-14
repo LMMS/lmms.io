@@ -24,7 +24,7 @@ class GitHubMarkdownEngine implements MarkdownEngineInterface
 			$content = substr($content, 4, strlen($content));
 			try {
 				$response = $this->client->api('markdown')->render($content, 'gfm', 'LMMS/lmms');
-				$this->cache->set($content, $response);
+				$this->cache->set('|GH|' . $content, $response);
 				return $response;
 			} catch (Exception $e) {
 				error_log($e);
