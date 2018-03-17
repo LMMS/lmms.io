@@ -311,7 +311,7 @@ msgid ""
 "\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio repository</"
 "a>."
 msgstr ""
-"如果系统自带的软件源当中的 LMMS 版本太旧，您可以试试 <a href=\"http：//"
+"如果系统自带的软件源当中的 LMMS 版本太旧，您可以试试 <a href=\"http://"
 "kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio 软件源</a>。"
 
 #: download/linux.twig:60 download/linux.twig:81
@@ -326,7 +326,7 @@ msgid ""
 "repository</a>, run this command in a terminal."
 msgstr ""
 "如果您的发行版提供 VST 支持 （需要安装 Wine），一般来讲，此支持会在另外一个软"
-"件包中提供。比如，如果您使用的是 <a href=\"http：//kxstudio.sourceforge.net/"
+"件包中提供。比如，如果您使用的是 <a href=\"http://kxstudio.sourceforge.net/"
 "Repositories#Ubuntu\">KXStudio 软件源</a>，请在终端中运行以下命令。"
 
 #: download/linux.twig:67 download/linux.twig:73
