@@ -969,6 +969,14 @@ ul.nav-center {
 	background-size: auto, cover;
 }
 
+#bol5 {
+	background: linear-gradient(
+		$bolOverlay, $bolOverlay
+	), url("/img/tbolv5.jpg");
+	background-position: center, center center;
+	background-size: auto, cover;
+}
+
 .competition {
 	padding: 2em 0 2em 0;
 	a {
