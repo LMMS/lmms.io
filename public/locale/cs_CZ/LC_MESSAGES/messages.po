@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 21:45+0100\n"
+"POT-Creation-Date: 2018-03-18 14:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Miroslav Kučera <mkucera66@seznam.cz>, 2017\n"
 "Language-Team: Czech (https://www.transifex.com/lmms/teams/61632/cs/)\n"
@@ -429,7 +429,7 @@ msgstr "Nejlepší z LMMS II od umělců LMMS"
 msgid "The Best of LMMS Vol.1 by LMMS Artists"
 msgstr "Nejlepší z LMMS I od umělců LMMS"
 
-#: competitions.twig:10 competitions.twig:12 navbar.php:13
+#: competitions.twig:10 navbar.php:13
 msgid "Competitions"
 msgstr "Soutěže"
 
@@ -437,19 +437,129 @@ msgstr "Soutěže"
 msgid "Official competitions organised by LMMS and its community members"
 msgstr "Oficiální soutěže pořádané LMMS a její komunitou"
 
-#: competitions.twig:14
-msgid "Current competitions"
+#: competitions.twig:13
+#, fuzzy
+msgid "Current competitions:"
 msgstr "Aktuální soutěže:"
 
-#: competitions.twig:15
+#: competitions.twig:16
+#, fuzzy
+msgid "The Best of LMMS vol. V"
+msgstr "Nejlepší z LMMS IV"
+
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:71
+#, fuzzy
+msgid ""
+"We are proud to present to you The Best of LMMS contest volume 5!\n"
+"\t\t\tThe contest aims to inspire the community to create and share their "
+"music. Submit your track at the link below before midnight\n"
+"  \t\t(23:59.59) on April 16th (UTC time) for a chance to be featured on the "
+"BoL v5 album. The compilation will be uploaded to Bandcamp, with all\n"
+"\t\t\tprofits going towards LMMS' further development.\n"
+"\t\t\t\n"
+"\t\t\t[Submit here](https://goo.gl/47ZXq1)\n"
+"\t\t\t#### Competition rules:\n"
+"\t\t\t1. **The Deadline:**\n"
+"\t\t\t  - Track must be submitted by April 16th 2018 at 23:59.59 UTC using "
+"[this form](https://goo.gl/47ZXq1).\n"
+"\t\t\t2. **The Track:**\n"
+"\t\t\t\t- Must be produced in LMMS.\n"
+"\t\t\t\t- You may use other programs for mastering and post processing.\n"
+"\t\t\t\t- Must be under 10 minutes long.\n"
+"\t\t\t\t- No winning tracks from previous Best of LMMS albums allowed.\n"
+"\t\t\t\t- No remixes allowed.\n"
+"\t\t\t3. **The Submissions:**\n"
+"\t\t\t\t- You must submit using this form only.\n"
+"\t\t\t\t- No more than ONE entry per artist is allowed.*\n"
+"\t\t\t\t- Collaborations count as ONE entry for each artist involved.*\n"
+"\t\t\t\t- No collaborating with judges on entries.\n"
+"\t\t\t\t- Only submissions hosted on Soundcloud, YouTube, or Clyp are "
+"allowed.\n"
+"\t\t\t\t- Your entry must be available for listening until the end of the "
+"judging process. If not, your entry will be disqualified.\n"
+"\t\t\t4. **The Judges:**\n"
+"\t\t\t\t-The jury consists of: Dull Machine, Etorna_Z, Jernemies, Poleroyd, "
+"Umcaruje and Unfa.\n"
+"\t\t\t5. **The Judging:**\n"
+"\t\t\t\t- After the deadline, the judges will score each track and release "
+"the results within 14 days.\n"
+"\t\t\t6. **Release:**\n"
+"\t\t\t\t- The 25 highest scoring songs will be released as an album on "
+"Bandcamp with the price of “Pay what you want”. All the received funds will "
+"be donated for further development of LMMS, the program that we love.\n"
+"\n"
+"\t\t\t\\* *This year the judging process has changed, to ensure fairer "
+"handling of entries. The change to one submission only is to allow each and "
+"every entry to be fully scored by the panel of judges. This was previously "
+"handled by a preliminary screening round to help cut down the large amount "
+"of entries received. By lowering the amount of up-front entries allowed, the "
+"judges will have the time to fully score each track entered.*"
+msgstr ""
+"#### Soutěž skončila **16. dubna 2017**.\n"
+"\t\t\tPodpořte LMMS a kupte si sbírku od nás [stránka na bandcamp](https://"
+"lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)\n"
+"\n"
+"\t\t\tPoslechněte si všechny skladby [zde]. (https://docs.google.com/"
+"spreadsheets/d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?"
+"gid=975440614&single=true)\n"
+"\n"
+"\t\t\tVýherci:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Originální popis:\n"
+"\t\t\tJsme hrdí na to, že vám představujeme soutěž Nejlepší z LMMS IV!\n"
+"\t\t\tCíl této soutěže je inspirovat komunitu k vytvoření a sdílení jejich "
+"hudby. Pošlete vaši skladbu na odkaz níže do půlnoci\n"
+"  \t\t(23:59:59) 16. dubna (UTC) pro šanci, aby byla vaše skladba zahrnuta "
+"do alba Nejlepší z LMMS IV. Tato sbírka bude nahrána na Bandcamp, všechny\n"
+"\t\t\tzisky půjdou na rozvoj LMMS.\n"
+"\t\t\tLetošní příspěvky jsou zpracovány pomocí formuláře Google. Přijímáme "
+"příspěvky nahrané na YouTube, Soundcloud nebo Clyp. Pro úplná pravidla se "
+"podívejte na odesílací formulář:\n"
+"\t\t\thttps://goo.gl/forms/cifEliOViOXTSc8H2\n"
+"\t\t\t#### Pravidla soutěže:\n"
+"\t\t\t1. **Termín**\n"
+"\t\t\t  - Skladby musí být nahrány do 16. dubna 23:59:59 UTC pomocí [tohoto "
+"formuláře](https://goo.gl/forms/cifEliOViOXTSc8H2).\n"
+"\t\t\t2. **Skladby**\n"
+"\t\t\t  - Musí být vytvořeny v LMMS.\n"
+"\t\t\t\t- Můžete použít jiný program pro úpravy.\n"
+"\t\t\t\t- Skladba musí být kratší než 10 minut.\n"
+"\t\t\t\t- Nepovolujeme žádné skladby, které vyhrály v předchozích soutěžích "
+"Nejlepší z LMMS.\n"
+"\t\t\t\t- Nepovolujeme remixy.\n"
+"\t\t\t3. **Přihlášení**\n"
+"\t\t\t  - Musíte se přihlásit pouze přes tento formulář.\n"
+"\t\t\t\t- Nepovolujeme více jak **dva** příspěvky od jednoho autora. \n"
+"\t\t\t\t- Spolupráce se počítá jako **jedna** položka za každého "
+"zúčastněného umělce.\n"
+"\t\t\t\t- Pouze příspěvky nahrané na Soundcloud, YouTube nebo Clyp.\n"
+"\t\t\t\t- Skladba musí být dostupná do konce posuzování, jinak je tato "
+"skladba diskvalifikovaná.\n"
+"\t\t\t4. **Hodnotitelé**\n"
+"\t\t\t  - Porota se skládá z: Greippi, Jacoby Davis, Spekular, Stakeout "
+"Punch a Squatro.\n"
+"\t\t\t5. **Hodnocení**\n"
+"\t\t\t  - Po skončení termínu se hodnotitelé rozhodnou a zveřejní rozhodnutí "
+"do 14 dní.\n"
+"\t\t\t6. **Zveřejnění**\n"
+"\t\t\t  - 25 nejlépe hodnocených skladeb bude zveřejněno v albu na Bandcamp "
+"s cenou \"zaplať, kolik chceš\".\n"
+"\t\t\t\t\tVšechny získané prostředky budou věnované rozvoji LMMS, programu, "
+"který milujete."
+
+#: competitions.twig:58
 msgid "Past competitions:"
 msgstr "Předchozí soutěže:"
 
-#: competitions.twig:18
+#: competitions.twig:61
 msgid "The Best of LMMS vol. IV"
 msgstr "Nejlepší z LMMS IV"
 
-#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:79
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:130
 msgid ""
 "#### The competition has ended on **April 16th, 2017**.\n"
 "\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
@@ -562,11 +672,11 @@ msgstr ""
 "\t\t\t\t\tVšechny získané prostředky budou věnované rozvoji LMMS, programu, "
 "který milujete."
 
-#: competitions.twig:66
+#: competitions.twig:109
 msgid "The Best of LMMS vol. III"
 msgstr "Nejlepší z LMMS III"
 
-#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:140
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:191
 msgid ""
 "#### The competition has ended on **March 16th, 2016.**\n"
 "\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
@@ -658,11 +768,11 @@ msgstr ""
 "LMMS s cenou “zaplať, kolik chceš”. Všechny získané prostředky\n"
 "\t\t\t\tbudou věnované rozvoji LMMS, programu, který milujete."
 
-#: competitions.twig:102
+#: competitions.twig:145
 msgid "The Best of LMMS vol. II"
 msgstr "Nejlepší z LMMS II"
 
-#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:189
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:240
 msgid ""
 "#### The competition has ended on **April 1st, 2015.**\n"
 "\n"
@@ -748,11 +858,11 @@ msgstr ""
 "\t\t\tVšimněte si, že hodnotitelé jsou normální umělci LMMS a bez ohledu na "
 "odpověď, rozhodnutí hodnotitelů pro skladby alba je konečné."
 
-#: competitions.twig:137
+#: competitions.twig:180
 msgid "The Best of LMMS vol. I"
 msgstr "Nejlepší z LMMS I"
 
-#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:237
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:288
 msgid ""
 "#### The competition has ended on **February 15th, 2014.**\n"
 "\n"
@@ -946,7 +1056,7 @@ msgstr "Ikona projektu LMMS"
 msgid "Error <b>%code%</b>"
 msgstr "Chyba <b>%code%</b>"
 
-#: errorpage.twig:8
+#: errorpage.twig:9
 msgid ""
 "If you followed a valid link on this site, please contact us\n"
 "      about it and <a href=\"//github.com/LMMS/lmms.io/issues/new\">file an "

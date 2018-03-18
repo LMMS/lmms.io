@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-13 21:45+0100\n"
+"POT-Creation-Date: 2018-03-18 14:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: liushuyu011 <liushuyu011@gmail.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/lmms/teams/61632/"
@@ -405,7 +405,7 @@ msgstr "LMMS 精选集 II，来自 LMMS 艺术家"
 msgid "The Best of LMMS Vol.1 by LMMS Artists"
 msgstr "LMMS 精选集 I，来自 LMMS 艺术家"
 
-#: competitions.twig:10 competitions.twig:12 navbar.php:13
+#: competitions.twig:10 navbar.php:13
 msgid "Competitions"
 msgstr "竞赛"
 
@@ -413,19 +413,122 @@ msgstr "竞赛"
 msgid "Official competitions organised by LMMS and its community members"
 msgstr "LMMS 社区官方举办的竞赛"
 
-#: competitions.twig:14
-msgid "Current competitions"
+#: competitions.twig:13
+#, fuzzy
+msgid "Current competitions:"
 msgstr "当前竞赛"
 
-#: competitions.twig:15
+#: competitions.twig:16
+#, fuzzy
+msgid "The Best of LMMS vol. V"
+msgstr "LMMS 精选集 IV"
+
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:71
+#, fuzzy
+msgid ""
+"We are proud to present to you The Best of LMMS contest volume 5!\n"
+"\t\t\tThe contest aims to inspire the community to create and share their "
+"music. Submit your track at the link below before midnight\n"
+"  \t\t(23:59.59) on April 16th (UTC time) for a chance to be featured on the "
+"BoL v5 album. The compilation will be uploaded to Bandcamp, with all\n"
+"\t\t\tprofits going towards LMMS' further development.\n"
+"\t\t\t\n"
+"\t\t\t[Submit here](https://goo.gl/47ZXq1)\n"
+"\t\t\t#### Competition rules:\n"
+"\t\t\t1. **The Deadline:**\n"
+"\t\t\t  - Track must be submitted by April 16th 2018 at 23:59.59 UTC using "
+"[this form](https://goo.gl/47ZXq1).\n"
+"\t\t\t2. **The Track:**\n"
+"\t\t\t\t- Must be produced in LMMS.\n"
+"\t\t\t\t- You may use other programs for mastering and post processing.\n"
+"\t\t\t\t- Must be under 10 minutes long.\n"
+"\t\t\t\t- No winning tracks from previous Best of LMMS albums allowed.\n"
+"\t\t\t\t- No remixes allowed.\n"
+"\t\t\t3. **The Submissions:**\n"
+"\t\t\t\t- You must submit using this form only.\n"
+"\t\t\t\t- No more than ONE entry per artist is allowed.*\n"
+"\t\t\t\t- Collaborations count as ONE entry for each artist involved.*\n"
+"\t\t\t\t- No collaborating with judges on entries.\n"
+"\t\t\t\t- Only submissions hosted on Soundcloud, YouTube, or Clyp are "
+"allowed.\n"
+"\t\t\t\t- Your entry must be available for listening until the end of the "
+"judging process. If not, your entry will be disqualified.\n"
+"\t\t\t4. **The Judges:**\n"
+"\t\t\t\t-The jury consists of: Dull Machine, Etorna_Z, Jernemies, Poleroyd, "
+"Umcaruje and Unfa.\n"
+"\t\t\t5. **The Judging:**\n"
+"\t\t\t\t- After the deadline, the judges will score each track and release "
+"the results within 14 days.\n"
+"\t\t\t6. **Release:**\n"
+"\t\t\t\t- The 25 highest scoring songs will be released as an album on "
+"Bandcamp with the price of “Pay what you want”. All the received funds will "
+"be donated for further development of LMMS, the program that we love.\n"
+"\n"
+"\t\t\t\\* *This year the judging process has changed, to ensure fairer "
+"handling of entries. The change to one submission only is to allow each and "
+"every entry to be fully scored by the panel of judges. This was previously "
+"handled by a preliminary screening round to help cut down the large amount "
+"of entries received. By lowering the amount of up-front entries allowed, the "
+"judges will have the time to fully score each track entered.*"
+msgstr ""
+"#### 此竞赛已于 **2017 年 4 月 16 日** 结束。\n"
+"\t\t\t请在 [Bandcamp 页面](https://lmmsartists.bandcamp.com/album/the-best-"
+"of-lmms-vol-4) 上购买精选集以帮助 LMMS。\n"
+"\t\t\t您也可以 [在此](https://docs.google.com/spreadsheets/"
+"d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?"
+"gid=975440614&single=true) 欣赏所有的获奖曲目。\n"
+"\t\t\t获奖者：\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### 原竞赛简介：\n"
+"\t\t\t我们在此非常自豪地向您展示 LMMS 竞赛精选集 IV！\n"
+"\t\t\t该竞赛目的在于鼓励社区成员创作并分享音乐。请在 2017 年 4 月 16 日 23 "
+"时 59 分 59 秒前（UTC 时间）在下方链接提交您的作品，\n"
+"\t\t\t您提交的作品将有机会被刊登在 LMMS 竞赛精选集 IV 上。该精选集将被上传到 "
+"Bandcamp，所有在 Bandcamp 上获取\n"
+"\t\t\t的利润将赞助 LMMS 未来的开发。\n"
+"\t\t\t本年度的投稿将通过 Google 表单处理。我们也将接受上传到 YouTube，"
+"Soundcloud 或 Clyp 上的作品。欲知竞赛\n"
+"\t\t\t规则详情请参阅提交表单：\n"
+"\t\t\thttps://goo.gl/forms/cifEliOViOXTSc8H2\n"
+"\t\t\t#### 竞赛规则：\n"
+"\t\t\t1. **提交期限**\n"
+"\t\t\t  - 所有作品必须在 2017 年 4 月 16 日 23:59.59 前（UTC 时间）通过 [该表"
+"单](https://goo.gl/forms/cifEliOViOXTSc8H2) 提交。\n"
+"\t\t\t2. **作品要求**\n"
+"\t\t\t  - 必须使用 LMMS 创作。\n"
+"\t\t\t\t- 您可以使用其他软件进行母带处理和后期处理。\n"
+"\t\t\t\t- 作品长度必须在 10 分钟以下。\n"
+"\t\t\t\t- 不得使用之前在 LMMS 精选集上的获奖作品。\n"
+"\t\t\t\t- 不得使用重混音作品。\n"
+"\t\t\t3. **投稿**\n"
+"\t\t\t  - 您必须使用此表单进行投稿。\n"
+"\t\t\t\t- 每个作者仅限**两份**投稿。\n"
+"\t\t\t\t- 合作作品中每个参与艺术家作为**一份**投稿。\n"
+"\t\t\t\t- 只接受 Soundcloud，YouTube 或 Clyp 上上传的投稿。\n"
+"\t\t\t\t- 您的作品必须在裁判过程结束前可供欣赏，否则您的作品将被自动淘汰。\n"
+"\t\t\t4. **裁判**\n"
+"\t\t\t  - 裁判团成员有：Greippi，Jacoby Davis，Spekular，Stakeout Punch 及 "
+"Squatro。\n"
+"\t\t\t5. **裁判过程**\n"
+"\t\t\t  - 裁判团将在提交期限后 14 天内作出裁判并公布结果。\n"
+"\t\t\t6. **作品公布**\n"
+"\t\t\t  - 前 25 位高分作品将被整理成专辑并发布在 Bandcamp 上，并由买家自定价"
+"格。\n"
+"\t\t\t\t\t所有从中获得的利润将用于支持 LMMS 的未来开发。"
+
+#: competitions.twig:58
 msgid "Past competitions:"
 msgstr "往期竞赛："
 
-#: competitions.twig:18
+#: competitions.twig:61
 msgid "The Best of LMMS vol. IV"
 msgstr "LMMS 精选集 IV"
 
-#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:79
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:130
 msgid ""
 "#### The competition has ended on **April 16th, 2017**.\n"
 "\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
@@ -531,11 +634,11 @@ msgstr ""
 "格。\n"
 "\t\t\t\t\t所有从中获得的利润将用于支持 LMMS 的未来开发。"
 
-#: competitions.twig:66
+#: competitions.twig:109
 msgid "The Best of LMMS vol. III"
 msgstr "LMMS 精选集 III"
 
-#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:140
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:191
 msgid ""
 "#### The competition has ended on **March 16th, 2016.**\n"
 "\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
@@ -622,11 +725,11 @@ msgstr ""
 "\t\t\t5. 作品公布：精选集将于一个 LMMS 艺术家专用的 Bandcamp 上公布，价格由买"
 "家自定。所有从中获得的利润将用于支持 LMMS 的未来开发。"
 
-#: competitions.twig:102
+#: competitions.twig:145
 msgid "The Best of LMMS vol. II"
 msgstr "LMMS 精选集 II"
 
-#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:189
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:240
 msgid ""
 "#### The competition has ended on **April 1st, 2015.**\n"
 "\n"
@@ -707,11 +810,11 @@ msgstr ""
 "\t\t\t另外还请理解，我们的裁判员是和您一样使用 LMMS 的艺术家，并且无论他们的"
 "反馈如何，针对您的作品的裁判结果不容争论。"
 
-#: competitions.twig:137
+#: competitions.twig:180
 msgid "The Best of LMMS vol. I"
 msgstr "LMMS 精选集 I"
 
-#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:237
+#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:288
 msgid ""
 "#### The competition has ended on **February 15th, 2014.**\n"
 "\n"
@@ -897,7 +1000,7 @@ msgstr "LMMS 项目图标"
 msgid "Error <b>%code%</b>"
 msgstr "错误 <b>%code%</b>"
 
-#: errorpage.twig:8
+#: errorpage.twig:9
 msgid ""
 "If you followed a valid link on this site, please contact us\n"
 "      about it and <a href=\"//github.com/LMMS/lmms.io/issues/new\">file an "
