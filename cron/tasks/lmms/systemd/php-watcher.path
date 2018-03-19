@@ -1,0 +1,6 @@
+[Path]
+PathModified=/home/deploy/lmms.io/public/locale
+
+[Install]
+WantedBy=multi-user.target
+

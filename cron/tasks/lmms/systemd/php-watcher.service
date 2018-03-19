@@ -1,0 +1,7 @@
+[Unit]
+Description=PHP FPM Restart Service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/systemctl restart php7.0-fpm.service
+
