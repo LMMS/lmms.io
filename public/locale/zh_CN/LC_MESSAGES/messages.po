@@ -46,16 +46,16 @@ msgstr "在您的电脑上"
 msgid ""
 "by creating melodies and beats, synthesizing and mixing sounds, arranging "
 "samples and much more."
-msgstr "通过制作旋律和节拍，合成和混合音频，安排音频片段等创作音乐。"
+msgstr "通过制作旋律和节拍，合成和混合音频，安排音频片段等方法创作音乐。"
 
 #: home.twig:37
 msgid "Playback instruments, samples and plugins"
-msgstr "回放乐器，片段及插件"
+msgstr "乐器、采样、插件"
 
 #: home.twig:38
 msgid ""
 "with a typing or MIDI keyboard in a user-friendly and modern interface."
-msgstr "与键入或 MIDI 键盘配合组成一个用户友好和现代的界面。"
+msgstr "与电脑键盘或 MIDI 键盘配合组成一个用户友好和现代的界面。"
 
 #: home.twig:42
 msgid "Bundled with ready-to-use content"
@@ -65,7 +65,7 @@ msgstr "附带了一些简单实用的东西"
 msgid ""
 "from an assortment of instrument and effect plugins, presets and samples to "
 "VST and SoundFont support."
-msgstr "从各种乐器和音效插件，预设及音频采样到 VST 和 SoundFont 支持等组成的易用工具集。"
+msgstr "从各种乐器、音效插件、预设及音频采样到 VST 和 SoundFont 支持等组成的易用工具集。"
 
 #: home.twig:52
 msgid "Made by musicians, for musicians."
@@ -190,7 +190,7 @@ msgstr "在统一而简明的用户界面上编排，混音和自动化控制乐
 
 #: home.twig:157
 msgid "Note playback via MIDI or typing keyboard"
-msgstr "通过 MIDI 或输入键盘回放音符"
+msgstr "通过 MIDI 或电脑键盘回放音符"
 
 #: home.twig:158
 msgid "Consolidate instrument tracks using Beat+Bassline Editor"
@@ -443,7 +443,7 @@ msgid ""
 "\n"
 "\t\t\t\\* *This year the judging process has changed, to ensure fairer handling of entries. The change to one submission only is to allow each and every entry to be fully scored by the panel of judges. This was previously handled by a preliminary screening round to help cut down the large amount of entries received. By lowering the amount of up-front entries allowed, the judges will have the time to fully score each track entered.*"
 msgstr ""
-"我们在此非常自豪地向您展示 LMMS 竞赛精选集 IV！\n"
+"我们在此非常自豪地向您展示 LMMS 竞赛精选集 5！\n"
 "\t\t\t该竞赛目的在于鼓励社区成员创作并分享音乐。请在 2018 年 4 月 16 日 23 时 59 分 59 秒前（UTC 时间）在下方链接提交您的作品，\n"
 "\t\t\t您提交的作品将有机会被刊登在 LMMS 竞赛精选集 V 上。该精选集将被上传到 Bandcamp，所有在 Bandcamp 上获取\n"
 "\t\t\t的利润将赞助 LMMS 未来的开发。\n"
