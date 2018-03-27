@@ -384,15 +384,15 @@ msgstr "LMMS 精选集 4，来自 LMMS 艺术家"
 
 #: showcase.twig:20
 msgid "The Best of LMMS Vol.3 by LMMS Artists"
-msgstr "LMMS 精选集 III，来自 LMMS 艺术家"
+msgstr "LMMS 精选集 3，来自 LMMS 艺术家"
 
 #: showcase.twig:28
 msgid "The Best of LMMS Vol.2 by LMMS Artists"
-msgstr "LMMS 精选集 II，来自 LMMS 艺术家"
+msgstr "LMMS 精选集 2，来自 LMMS 艺术家"
 
 #: showcase.twig:36
 msgid "The Best of LMMS Vol.1 by LMMS Artists"
-msgstr "LMMS 精选集 I，来自 LMMS 艺术家"
+msgstr "LMMS 精选集 1，来自 LMMS 艺术家"
 
 #: competitions.twig:10 navbar.php:13
 msgid "Competitions"
