@@ -23,7 +23,7 @@ $pages = [
 	['/competitions/', twigrender('competitions.twig')],
 	['/branding/', twigrender('branding.twig')],
 	['/chat/', function () use ($app) {
-		return $app->redirect('https://discord.gg/3sc5su7');
+		return $app->redirect('https://discord.gg/PruNxpG');
 	}]
 ];
 
