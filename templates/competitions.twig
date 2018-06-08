@@ -10,24 +10,35 @@
 {{ macros.jumbo('Competitions'|trans, 'Official competitions organised by LMMS and its community members'|trans)}}
 <div class="container">
 	<!-- Preserve l10n content, please don't remove or comment out the h3 tag below -->
-	<h3>{% trans %}Current competitions:{% endtrans %}</h3>
+	<h3 class="hidden">{% trans %}Current competitions:{% endtrans %}</h3>
+
+	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol5" data-target="#bol5-desc">
 			<span>{% trans %}The Best of LMMS vol. V{% endtrans %}</span>
-			<i class="fas fa-angle-down carret rotate"></i>
+			<i class="fas fa-angle-down carret"></i>
 		</div>
-		<div class="comp-desc panel-collapse collapse in" role="tabpanel" id="bol5-desc">
+		<div class="comp-desc panel-collapse collapse" role="tabpanel" id="bol5-desc">
 			{% markdown %}
 			{% trans %}
+			#### The competition has ended on **April 16th, 2018**.
+			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-5)
+
+			Listen to all entries [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vQOjvIBp40ez-2QrPsGHt_LGY2XejaOFZrXWsgPVPXoH7w7QQriUV52_OeCQBL9tcOPlCxdUw2HC6Ud/pubhtml?gid=1958072675&single=true)
+
+			Winners:
+			<iframe width="100%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/519667455&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+
+			#### Original description:
 			We are proud to present to you The Best of LMMS contest volume 5!
 			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-  		(23:59.59) on April 16th (UTC time) for a chance to be featured on the BoL v5 album. The compilation will be uploaded to Bandcamp, with all
+			(23:59.59) on April 16th (UTC time) for a chance to be featured on the BoL v5 album. The compilation will be uploaded to Bandcamp, with all
 			profits going towards LMMS' further development.
 			
 			[Submit here](https://goo.gl/47ZXq1)
 			#### Competition rules:
 			1. **The Deadline:**
-			  - Track must be submitted by April 16th 2018 at 23:59.59 UTC using [this form](https://goo.gl/47ZXq1).
+				- Track must be submitted by April 16th 2018 at 23:59.59 UTC using [this form](https://goo.gl/47ZXq1).
 			2. **The Track:**
 				- Must be produced in LMMS.
 				- You may use other programs for mastering and post processing.
@@ -55,7 +66,6 @@
 			{% endmarkdown %}
 		</div>
 	</div>
-	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol4" data-target="#bol4-desc">
 			<span>{% trans %}The Best of LMMS vol. IV{% endtrans %}</span>
