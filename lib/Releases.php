@@ -20,6 +20,9 @@ class Releases
 	public function latestAssets($pattern, $stable = true)
 	{
 		foreach ($this->json as $index => $release) {
+			if ($release['draft']) {
+				continue;
+			}
 			if ($release['prerelease'] === $stable) {
 				continue;
 			}
