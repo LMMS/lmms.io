@@ -39,6 +39,9 @@ This repo contains the source for LMMS's website located at https://lmms.io.
 	```
    
 	You'll have to run this comand every time the dependencies in `composer.json` change.
+	
+	**Note**: For macOS, some dependencies must be [installed manually](https://superuser.com/a/1359317/443147).
+	
 1. Configure local server
 	
 	Apache:
