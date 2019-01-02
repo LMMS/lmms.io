@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-18 14:23+0100\n"
+"POT-Creation-Date: 2019-01-02 14:12-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Roberto Giaconia <derobyj@gmail.com>, 2017\n"
 "Language-Team: Italian (https://www.transifex.com/lmms/teams/61632/it/)\n"
@@ -17,1071 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: home.twig:11
-msgid "Let's make music"
-msgstr "Facciamo musica"
-
-#: home.twig:12
-msgid "with a free, cross-platform tool for your computer."
-msgstr "Con uno strumento gratuito e multipiattaforma per il tuo computer."
-
-#: home.twig:14
-msgid "Download now"
-msgstr "Scarica ora"
-
-#: home.twig:15 home.twig:107
-msgid "Get involved"
-msgstr "Partecipa"
-
-#: home.twig:27
-msgid "Making beats has never been easier."
-msgstr "Scrivere musica non è mai stato così facile."
-
-#: home.twig:32
-msgid "Produce music with your computer"
-msgstr "Produci musica con il tuo computer"
-
-#: home.twig:33
-msgid ""
-"by creating melodies and beats, synthesizing and mixing sounds, arranging "
-"samples and much more."
-msgstr ""
-"creando melodie e ritmi, sintetizzando e arrangiando i suoni, organizzando "
-"campioni e molto altro ancora."
-
-#: home.twig:37
-msgid "Playback instruments, samples and plugins"
-msgstr "Riproduci strumenti, campioni e plugin"
-
-#: home.twig:38
-msgid "with a typing or MIDI keyboard in a user-friendly and modern interface."
-msgstr ""
-"con la tastiera del computer o una tastiera musicale MIDI in un'interfaccia "
-"user friendly e moderna."
-
-#: home.twig:42
-msgid "Bundled with ready-to-use content"
-msgstr "Pieno di contenuti pronti all'uso"
-
-#: home.twig:43
-msgid ""
-"from an assortment of instrument and effect plugins, presets and samples to "
-"VST and SoundFont support."
-msgstr ""
-"da un assortimento di plugin di strumenti e effetti, preset e campioni al "
-"supporto VST e SoundFont."
-
-#: home.twig:52
-msgid "Made by musicians, for musicians."
-msgstr "Realizzato da musicisti, per musicisti."
-
-#: home.twig:56
-msgid "Download for Linux"
-msgstr "Scarica per Linux"
-
-#: home.twig:57
-msgid "Download for Windows"
-msgstr "Scarica per Windows"
-
-#: home.twig:58
-msgid "Download for macOS"
-msgstr "Scarica per macOS"
-
-#: home.twig:59
-msgid "Pick your flavor."
-msgstr "Scegli la tua versione."
-
-#: home.twig:60
-msgid "Linux, Windows or macOS."
-msgstr "Linux, Windows o macOS."
-
-#: home.twig:69
-msgid "Houston, we have a problem."
-msgstr "Houston, abbiamo un problema."
-
-#: home.twig:70
-msgid "Stand by, we got you covered."
-msgstr "Siamo qui per te."
-
-#: home.twig:73
-msgid "Visit our forum"
-msgstr "Visita il nostro forum"
-
-#: home.twig:74
-msgid "Visit our Facebook page"
-msgstr "Visita la nostra pagina Facebook"
-
-#: home.twig:75
-msgid "Chat now on Discord"
-msgstr "Scrivi su Discord"
-
-#: home.twig:76
-msgid "Visit our GitHub page"
-msgstr "Visita la nostra pagina GitHub"
-
-#: home.twig:77
-msgid "Ask your questions here"
-msgstr "Fai qui le tue domande"
-
-#: home.twig:78
-msgid "and answer a few questions while you're waiting."
-msgstr "e rispondi a qualche domanda mentre aspetti."
-
-#: home.twig:85
-msgid "Sharing means caring."
-msgstr "Condividere è volere."
-
-#: home.twig:90
-msgid "Find musicians"
-msgstr "Scopri musicisti"
-
-#: home.twig:91
-msgid "Visit the LMMS Sharing Platform (LSP)"
-msgstr "Visita la piattaforma di condivisione LMMS (LSP)"
-
-#: home.twig:92
-msgid "Don't be modest."
-msgstr "Non fare il modesto."
-
-#: home.twig:93
-msgid "Show us your creations."
-msgstr "Mostraci le tue creazioni."
-
-#: home.twig:101
-msgid "We <3 open source."
-msgstr "Noi <3 open source."
-
-#: home.twig:106
-msgid "Fork us on Github"
-msgstr "Crea il tuo Fork su Github"
-
-#: home.twig:108
-#, php-format
-msgid "LMMS is a 100% free, open source, community-driven project."
-msgstr ""
-"LMMS è un progetto gratuito al 100%, a sorgente aperto e animato dai suoi "
-"utenti."
-
-#: home.twig:109
-msgid "Proudly hosted on Github."
-msgstr "Ospitato con orgoglio su Github."
-
-#: home.twig:124
-msgid "Take a peek."
-msgstr "Dai un'occhiata."
-
-#: home.twig:127
-msgid "Watch our promo video."
-msgstr "Guarda il nostro video promozionale."
-
-#: home.twig:139
-msgid "Click anywhere to close this dialog"
-msgstr "Fai un click fuori dal riquadro per chiuderlo"
-
-#: home.twig:147
-msgid "Featuring:"
-msgstr "Funzionalità:"
-
-#: home.twig:151
-msgid "Core Functionality"
-msgstr "Principali Funzioni"
-
-#: home.twig:155
-msgid "Compose music on Windows, Linux and macOS"
-msgstr "Scrivi musica su Windows, Linux e macOS"
-
-#: home.twig:156
-msgid "Sequence, compose, mix and automate songs in one simple interface"
-msgstr "Ordina, componi, mixa e automatizza brani in una semplice interfaccia"
-
-#: home.twig:157
-msgid "Note playback via MIDI or typing keyboard"
-msgstr "Riproduzione di note tramite tastiera MIDI o usando quella del PC"
-
-#: home.twig:158
-msgid "Consolidate instrument tracks using Beat+Bassline Editor"
-msgstr "Fissa delle tracce strumentali usando il Beat + Bassline Editor"
-
-#: home.twig:159
-msgid "Fine tune patterns, notes, chords and melodies using Piano Roll Editor"
-msgstr ""
-"Ottimizza i pattern, le note, gli accordi e le melodie usando l'editor Piano "
-"Roll"
-
-#: home.twig:160
-msgid ""
-"Full user-defined track-based automation and computer-controlled automation "
-"sources"
-msgstr ""
-"Automazione completa basata su tracce definita dall'utente e funzioni di "
-"automazione controllate da computer"
-
-#: home.twig:161
-msgid "Import of MIDI files and Hydrogen project files"
-msgstr "Importazione di file MIDI e file di progetto Hydrogen"
-
-#: home.twig:171
-msgid "Musical Instruments"
-msgstr "Strumenti musicali"
-
-#: home.twig:175
-msgid ""
-"Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit "
-"Windows)"
-msgstr ""
-"Supporto di strumenti VST a 64 bit con bridge VST a 32 bit (Windows a 64 bit)"
-
-#: home.twig:176
-msgid ""
-"16 built in synthesizers, including emultations of Roland ® TB-303, "
-"Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip "
-"and more"
-msgstr ""
-"16 sintetizzatori integrati, tra cui imitazioni del Roland ® TB-303, "
-"Commodore 64 ® SID microchip, Nintendo ® NES e GameBoy, Yamaha ® OPL2 chip e "
-"altro ancora"
-
-#: home.twig:177
-msgid ""
-"Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice "
-"additive, subtractive and pad synthesis all in one powerful plugin"
-msgstr ""
-"ZynAddSubFx incorporato: sintesi multitimbrica, microtonale, additiva, "
-"sottrattiva e pad in un unico potente strumento polifonico"
-
-#: home.twig:178
-msgid ""
-"Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis "
-"UltraSound ® (GUS) formats for high quality instrument patches and banks"
-msgstr ""
-"Supporto nativo per i multicampione in formato SoundFont ® (SF2), Giga (GIG) "
-"e Gravis UltraSound ® (GUS) per strumenti ad alta qualità"
-
-#: home.twig:188
-msgid "Effects Mixing"
-msgstr "Mixing di effetti"
-
-#: home.twig:192
-msgid "Drop-in LADSPA plug-in support"
-msgstr "Supporto Drop-in di effetti LADSPA"
-
-#: home.twig:193
-msgid "Drop-in VST ® effect plug-in support (Linux and Windows)"
-msgstr "Supporto Drop-in di effetti VST ® (Linux e Windows)"
-
-#: home.twig:194
-msgid ""
-"Built-in compressor, limiter, delay, reverb, distortion and bass enhancer"
-msgstr ""
-"Compressore, limiter, delay, riverbero, distorsione e amplificatore di bassi "
-"nativi"
-
-#: home.twig:195
-msgid "Bundled graphic and parametric equalizers"
-msgstr "Equalizzatori grafici e parametrici incorporati"
-
-#: home.twig:196
-msgid "Built-in visualization/spectrum analyzer"
-msgstr "Visualizzatore di spettro nativo"
-
-#: download/linux.twig:6
-msgid ""
-"LMMS is included in most major Linux distribution's package repositories."
-"<br>\n"
-"\tPlease <a href=\"get-involved/#contact\">contact us</a> if your "
-"distribution is not listed here."
-msgstr ""
-"LMMS è incluso nei repository dei pacchetti di quasi tutte le maggiori "
-"distrubizioni Linux. <br>\n"
-"\tPer favore, <a href=\"get-involved/#contact\">contattaci</a> se la tua "
-"distribuzione non è tra quelle elencate."
-
-#: download/linux.twig:48
-msgid ""
-"For installing LMMS on Debian based distributions such as Debian itself, "
-"Ubuntu or Linux Mint, just click the button below."
-msgstr ""
-"Per installare LMMS su una distribuzione basata su Debian, come Ubuntu o "
-"Linux Mint, basta clicare il pulsante seguente."
-
-#: download/linux.twig:53
-msgid "Install LMMS now"
-msgstr "Installa LMMS ora"
-
-#: download/linux.twig:54
-msgid "From your package manager"
-msgstr "Dal tuo Gestore Pacchetti"
-
-#: download/linux.twig:57
-msgid "If this doesn't work for you, run this command in a terminal."
-msgstr ""
-"Se non funziona per la tua configurazione, usa questi comandi in un "
-"terminale."
-
-#: download/linux.twig:59
-msgid ""
-"If the traditional repositories lag behind on versions, try the <a href="
-"\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio repository</"
-"a>."
-msgstr ""
-"Se i repository tradizionali non offrono versioni aggiornate, prova il <a "
-"href=\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio "
-"repository</a>."
-
-#: download/linux.twig:60 download/linux.twig:81
-msgid "VST Support"
-msgstr "Supporto VST"
-
-#: download/linux.twig:61
-msgid ""
-"If your distribution offers VST support (requires the installation of Wine) "
-"it is generally offered in a separate package.  For example, using the <a "
-"href=\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio "
-"repository</a>, run this command in a terminal."
-msgstr ""
-"Se la tua distribuzione offre il supporto VST (per cui è richiesta "
-"l'installazione di Wine) solitamente viene offerta in un pacchetto separato. "
-"Per esempio, usando il <a href=\"http://kxstudio.sourceforge.net/"
-"Repositories#Ubuntu\">KXStudio repository</a>, puoi usare questi comandi su "
-"un terminale."
-
-#: download/linux.twig:67 download/linux.twig:73
-msgid "Run the following command as root in a terminal:"
-msgstr "Lancia il comando seguente come root su un terminale:"
-
-#: download/linux.twig:79 download/linux.twig:93
-msgid "Run the following command in a terminal:"
-msgstr "Lancia il comando seguente su un terminale:"
-
-#: download/linux.twig:82
-msgid ""
-"For VST support, please see the <a href=\"https://wiki.archlinux.org/index."
-"php/LMMS\">Arch LMMS wiki page</a>"
-msgstr ""
-"Per il supporto VST, visita la <a href=\"https://wiki.archlinux.org/index."
-"php/LMMS\" target=\"_blank\">pagina wiki Arch LMMS</a>"
-
-#: download/linux.twig:99
-msgid ""
-"AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and "
-"more to come in the future), with VST support enabled by default on AMD64."
-msgstr ""
-"AOSC OS offre i port di LMMS per varie architetture (AMD64/x86_64, ARMv7, e "
-"altri in futuro), e il supporto VST è abilitato di default su AMD64."
-
-#: download/linux.twig:100
-msgid "To install LMMS on AOSC OS with PackageKit (recommended):"
-msgstr "Per installare LMMS su AOSC OS con PackageKit (consigliato):"
-
-#: download/linux.twig:102
-msgid "To install LMMS on AOSC OS with DPKG:"
-msgstr "Per installare LMMS su AOSC OS con DPKG:"
-
-#: download/linux.twig:104
-msgid "To install LMMS on AOSC OS with RPM:"
-msgstr "Per installare LMMS su AOSC OS con RPM:"
-
-#: download/linux.twig:110
-msgid "Build LMMS from source"
-msgstr "Compila LMMS dal sorgente"
-
-#: download/linux.twig:111
-msgid ""
-"If your Linux distribution does not provide a lmms package (or only an "
-"outdated one), you can still build LMMS from source. Visit the <a href="
-"\"https://github.com/LMMS/lmms/wiki/Compiling\">LMMS development wiki on "
-"GitHub</a> for instructions on how to compile LMMS for Linux."
-msgstr ""
-"Se la tua distribuzione Linux non offre un pacchetto LMMS (o per avere "
-"l'ultima versione), puoi comunque compilare LMMS dal sorgente. Visita il <a "
-"href=\"https://github.com/LMMS/lmms/wiki/Compiling\">LMMS development wiki "
-"su GitHub</a> per istruzioni su come compilare LMMS per Linux."
-
-#: showcase.twig:6 navbar.php:12
-msgid "Showcase"
-msgstr "Vetrina"
-
-#: showcase.twig:6
-msgid "Tracks made with LMMS"
-msgstr "Tracce realizzate con LMMS"
-
-#: showcase.twig:12
-msgid "The Best of LMMS Vol. 4 by LMMS Artists"
-msgstr "Best of LMMS Vol.4 dagli Artisti di LMMS"
-
-#: showcase.twig:20
-msgid "The Best of LMMS Vol.3 by LMMS Artists"
-msgstr "Best of LMMS Vol.3 dagli Artisti di LMMS"
-
-#: showcase.twig:28
-msgid "The Best of LMMS Vol.2 by LMMS Artists"
-msgstr "Best of LMMS Vol.2 dagli Artisti di LMMS"
-
-#: showcase.twig:36
-msgid "The Best of LMMS Vol.1 by LMMS Artists"
-msgstr "Best of LMMS Vol.1 dagli Artisti di LMMS"
-
-#: competitions.twig:10 navbar.php:13
-msgid "Competitions"
-msgstr "Concorsi"
-
-#: competitions.twig:10
-msgid "Official competitions organised by LMMS and its community members"
-msgstr "Concorsi ufficiali organizzati da LMMS e dai membri della sua comunità"
-
-#: competitions.twig:13
-#, fuzzy
-msgid "Current competitions:"
-msgstr "Competizioni in corso"
-
-#: competitions.twig:16
-#, fuzzy
-msgid "The Best of LMMS vol. V"
-msgstr "Best of LMMS vol. IV"
-
-#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:71
-#, fuzzy
-msgid ""
-"We are proud to present to you The Best of LMMS contest volume 5!\n"
-"\t\t\tThe contest aims to inspire the community to create and share their "
-"music. Submit your track at the link below before midnight\n"
-"  \t\t(23:59.59) on April 16th (UTC time) for a chance to be featured on the "
-"BoL v5 album. The compilation will be uploaded to Bandcamp, with all\n"
-"\t\t\tprofits going towards LMMS' further development.\n"
-"\t\t\t\n"
-"\t\t\t[Submit here](https://goo.gl/47ZXq1)\n"
-"\t\t\t#### Competition rules:\n"
-"\t\t\t1. **The Deadline:**\n"
-"\t\t\t  - Track must be submitted by April 16th 2018 at 23:59.59 UTC using "
-"[this form](https://goo.gl/47ZXq1).\n"
-"\t\t\t2. **The Track:**\n"
-"\t\t\t\t- Must be produced in LMMS.\n"
-"\t\t\t\t- You may use other programs for mastering and post processing.\n"
-"\t\t\t\t- Must be under 10 minutes long.\n"
-"\t\t\t\t- No winning tracks from previous Best of LMMS albums allowed.\n"
-"\t\t\t\t- No remixes allowed.\n"
-"\t\t\t3. **The Submissions:**\n"
-"\t\t\t\t- You must submit using this form only.\n"
-"\t\t\t\t- No more than ONE entry per artist is allowed.*\n"
-"\t\t\t\t- Collaborations count as ONE entry for each artist involved.*\n"
-"\t\t\t\t- No collaborating with judges on entries.\n"
-"\t\t\t\t- Only submissions hosted on Soundcloud, YouTube, or Clyp are "
-"allowed.\n"
-"\t\t\t\t- Your entry must be available for listening until the end of the "
-"judging process. If not, your entry will be disqualified.\n"
-"\t\t\t4. **The Judges:**\n"
-"\t\t\t\t-The jury consists of: Dull Machine, Etorna_Z, Jernemies, Poleroyd, "
-"Umcaruje and Unfa.\n"
-"\t\t\t5. **The Judging:**\n"
-"\t\t\t\t- After the deadline, the judges will score each track and release "
-"the results within 14 days.\n"
-"\t\t\t6. **Release:**\n"
-"\t\t\t\t- The 25 highest scoring songs will be released as an album on "
-"Bandcamp with the price of “Pay what you want”. All the received funds will "
-"be donated for further development of LMMS, the program that we love.\n"
-"\n"
-"\t\t\t\\* *This year the judging process has changed, to ensure fairer "
-"handling of entries. The change to one submission only is to allow each and "
-"every entry to be fully scored by the panel of judges. This was previously "
-"handled by a preliminary screening round to help cut down the large amount "
-"of entries received. By lowering the amount of up-front entries allowed, the "
-"judges will have the time to fully score each track entered.*"
-msgstr ""
-"#### Concorso concluso il **16 Aprile 2017**.\n"
-"\t\t\tPuoi supportare LMMS comprando la compilation su [bandcamp](https://"
-"lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)\n"
-"\n"
-"\t\t\tAscolta tutti i partecipanti [qua.](https://docs.google.com/"
-"spreadsheets/d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?"
-"gid=975440614&single=true)\n"
-"\n"
-"\t\t\tVincitori:\n"
-"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
-"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
-"playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;"
-"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
-"show_reposts=false\"></iframe>\n"
-"\t\t\t#### Descrizione Originale:\n"
-"\t\t\tSiamo orgogliosi di presentarvi il volume 4 del concorso di Best of "
-"LMMS!\n"
-"\t\t\tIl concorso mira a ispirare la comunità a creare e condividere la "
-"propria musica. Invia la tua traccia al link qui sotto prima della "
-"mezzanotte\n"
-"  \t\t(23:59.59) del 16 Aprile (ora UTC) per avere la possibilità di essere "
-"pubblicato sull'album BoL v4. La compilation verrà caricata a Bandcamp, e "
-"tutti i\n"
-"\t\t\tguadagni saranno usati per lo sviluppo di LMMS.\n"
-"\t\t\tLe presentazioni di quest'anno vengono gestite tramite i moduli "
-"Google. Accettiamo i contributi ospitati su YouTube, Soundcloud e Clyp. "
-"Regolamento completo nel modulo di presentazione:\n"
-"\t\t\thttps://goo.gl/forms/cifEliOViOXTSc8H2\n"
-"\t\t\t#### Regole del Concorso:\n"
-"\t\t\t1. **Scadenza**\n"
-"\t\t\t  - Le tracce devono essere inviate entro il 16 aprile alle ore "
-"23.59.59 UTC utilizzando [questo modulo](https://goo.gl/forms/"
-"cifEliOViOXTSc8H2).\n"
-"\t\t\t2. **Tracce**\n"
-"\t\t\t  - Devono essere prodotte in LMMS\n"
-"\t\t\t\t- E' possibile usare altri programmi per mastering e post "
-"processing.\n"
-"\t\t\t\t- La durata deve essere inferiore ai 10 minuti.\n"
-"\t\t\t\t- Non sono ammesse tracce che hanno già vinto un precedente Best of "
-"LMMS.\n"
-"\t\t\t\t- Non sono ammessi remix.\n"
-"\t\t\t3. **Presentazione delle Tracce**\n"
-"\t\t\t  - Bisogna presentare solo usando questo modulo.\n"
-"\t\t\t\t- Sono accettate solo **DUE** tracce per artista.\n"
-"\t\t\t\t- Le collaborazioni contano come **UNA** opera per ogni artista "
-"coinvolto.\n"
-"\t\t\t\t- Sono consentite solo tracce ospitate su Soundcloud, YouTube o "
-"Clyp\n"
-"\t\t\t\t- Le tracce devono essere disponibili fino alla fine del processo di "
-"giudizio. Altrimenti verranno squalificate.\n"
-"\t\t\t4. **Giudici**\n"
-"\t\t\t  - La giuria è composta da: Greippi, Jacoby Davis, Spekular, Stakeout "
-"Punch e Squatro.\n"
-"\t\t\t5. **Processo di GIudizio**\n"
-"\t\t\t  - Dopo la scadenza per le presentazioni, i giudici prenderanno le "
-"loro decisioni e pubbicheranno i risultati entro 14 giorni.\n"
-"\t\t\t6. **Pubblicazione**\n"
-"\t\t\t  - Le 25 tracce  con il punteggio più alto verranno pubblicate in un "
-"album Bandcamp con prezzo \"Paga quanto vuoi\".\n"
-"\t\t\t\t\tTutti i fondi ricevuti saranno donati per lo sviluppo di LMMS, il "
-"programma che amiamo. "
-
-#: competitions.twig:58
-msgid "Past competitions:"
-msgstr "Concorsi passati:"
-
-#: competitions.twig:61
-msgid "The Best of LMMS vol. IV"
-msgstr "Best of LMMS vol. IV"
-
-#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:130
-msgid ""
-"#### The competition has ended on **April 16th, 2017**.\n"
-"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
-"(https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)\n"
-"\n"
-"\t\t\tListen to all entries [here.](https://docs.google.com/spreadsheets/"
-"d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?"
-"gid=975440614&single=true)\n"
-"\n"
-"\t\t\tWinners:\n"
-"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
-"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
-"playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;"
-"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
-"show_reposts=false\"></iframe>\n"
-"\t\t\t#### Original Description:\n"
-"\t\t\tWe are proud to present to you The Best of LMMS contest volume 4!\n"
-"\t\t\tThe contest aims to inspire the community to create and share their "
-"music. Submit your track at the link below before midnight\n"
-"  \t\t(23:59.59) on April 16th (UTC time) for a chance to be featured on the "
-"BoL v4 album. The compilation will be uploaded to Bandcamp, with all\n"
-"\t\t\tprofits going towards LMMS' further development.\n"
-"\t\t\tThis year's submissions are handled through Google forms. We accept "
-"submissions hosted on YouTube, Soundcloud and Clyp. For the full rules check "
-"out the submission form:\n"
-"\t\t\thttps://goo.gl/forms/cifEliOViOXTSc8H2\n"
-"\t\t\t#### Competition rules:\n"
-"\t\t\t1. **The Deadline**\n"
-"\t\t\t  - Tracks must be submitted by April 16th at 23:59.59 UTC using [this "
-"form](https://goo.gl/forms/cifEliOViOXTSc8H2).\n"
-"\t\t\t2. **The Tracks**\n"
-"\t\t\t  - Must be produced in LMMS.\n"
-"\t\t\t\t- You may use other programs for mastering and post processing.\n"
-"\t\t\t\t- Must be under 10 minutes long.\n"
-"\t\t\t\t- No winning tracks from previous Best of LMMS albums allowed.\n"
-"\t\t\t\t- No remixes allowed.\n"
-"\t\t\t3. **The Submissions**\n"
-"\t\t\t  - You must submit using this form only.\n"
-"\t\t\t\t- No more than **TWO** entries per artist are allowed.\n"
-"\t\t\t\t- Collaborations count as **ONE** entry for each artist involved.\n"
-"\t\t\t\t- Only submissions hosted on Soundcloud, YouTube or Clyp are "
-"allowed.\n"
-"\t\t\t\t- Your entry must be available for listening until the end of the "
-"judging process. If not, your entry will be disqualified.\n"
-"\t\t\t4. **The Judges**\n"
-"\t\t\t  - The jury consists of: Greippi, Jacoby Davis, Spekular, Stakeout "
-"Punch and Squatro.\n"
-"\t\t\t5. **The Judging Process**\n"
-"\t\t\t  - After the deadline, the judges will make their decisions and "
-"release the results within 14 days.\n"
-"\t\t\t6. **The Release**\n"
-"\t\t\t  - The 25 highest scoring songs will be released as an album on "
-"Bandcamp with the price of \"Pay what you want\".\n"
-"\t\t\t\t\tAll the received funds will be donated for further development of "
-"LMMS, the program that we love."
-msgstr ""
-"#### Concorso concluso il **16 Aprile 2017**.\n"
-"\t\t\tPuoi supportare LMMS comprando la compilation su [bandcamp](https://"
-"lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)\n"
-"\n"
-"\t\t\tAscolta tutti i partecipanti [qua.](https://docs.google.com/"
-"spreadsheets/d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?"
-"gid=975440614&single=true)\n"
-"\n"
-"\t\t\tVincitori:\n"
-"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
-"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
-"playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;"
-"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
-"show_reposts=false\"></iframe>\n"
-"\t\t\t#### Descrizione Originale:\n"
-"\t\t\tSiamo orgogliosi di presentarvi il volume 4 del concorso di Best of "
-"LMMS!\n"
-"\t\t\tIl concorso mira a ispirare la comunità a creare e condividere la "
-"propria musica. Invia la tua traccia al link qui sotto prima della "
-"mezzanotte\n"
-"  \t\t(23:59.59) del 16 Aprile (ora UTC) per avere la possibilità di essere "
-"pubblicato sull'album BoL v4. La compilation verrà caricata a Bandcamp, e "
-"tutti i\n"
-"\t\t\tguadagni saranno usati per lo sviluppo di LMMS.\n"
-"\t\t\tLe presentazioni di quest'anno vengono gestite tramite i moduli "
-"Google. Accettiamo i contributi ospitati su YouTube, Soundcloud e Clyp. "
-"Regolamento completo nel modulo di presentazione:\n"
-"\t\t\thttps://goo.gl/forms/cifEliOViOXTSc8H2\n"
-"\t\t\t#### Regole del Concorso:\n"
-"\t\t\t1. **Scadenza**\n"
-"\t\t\t  - Le tracce devono essere inviate entro il 16 aprile alle ore "
-"23.59.59 UTC utilizzando [questo modulo](https://goo.gl/forms/"
-"cifEliOViOXTSc8H2).\n"
-"\t\t\t2. **Tracce**\n"
-"\t\t\t  - Devono essere prodotte in LMMS\n"
-"\t\t\t\t- E' possibile usare altri programmi per mastering e post "
-"processing.\n"
-"\t\t\t\t- La durata deve essere inferiore ai 10 minuti.\n"
-"\t\t\t\t- Non sono ammesse tracce che hanno già vinto un precedente Best of "
-"LMMS.\n"
-"\t\t\t\t- Non sono ammessi remix.\n"
-"\t\t\t3. **Presentazione delle Tracce**\n"
-"\t\t\t  - Bisogna presentare solo usando questo modulo.\n"
-"\t\t\t\t- Sono accettate solo **DUE** tracce per artista.\n"
-"\t\t\t\t- Le collaborazioni contano come **UNA** opera per ogni artista "
-"coinvolto.\n"
-"\t\t\t\t- Sono consentite solo tracce ospitate su Soundcloud, YouTube o "
-"Clyp\n"
-"\t\t\t\t- Le tracce devono essere disponibili fino alla fine del processo di "
-"giudizio. Altrimenti verranno squalificate.\n"
-"\t\t\t4. **Giudici**\n"
-"\t\t\t  - La giuria è composta da: Greippi, Jacoby Davis, Spekular, Stakeout "
-"Punch e Squatro.\n"
-"\t\t\t5. **Processo di GIudizio**\n"
-"\t\t\t  - Dopo la scadenza per le presentazioni, i giudici prenderanno le "
-"loro decisioni e pubbicheranno i risultati entro 14 giorni.\n"
-"\t\t\t6. **Pubblicazione**\n"
-"\t\t\t  - Le 25 tracce  con il punteggio più alto verranno pubblicate in un "
-"album Bandcamp con prezzo \"Paga quanto vuoi\".\n"
-"\t\t\t\t\tTutti i fondi ricevuti saranno donati per lo sviluppo di LMMS, il "
-"programma che amiamo. "
-
-#: competitions.twig:109
-msgid "The Best of LMMS vol. III"
-msgstr "Best of LMMS vol. III"
-
-#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:191
-msgid ""
-"#### The competition has ended on **March 16th, 2016.**\n"
-"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
-"(https://lmmsartists.bandcamp.com/)\n"
-"\n"
-"\t\t\tListen to all entries [here.](https://soundcloud.com/groups/the-best-"
-"of-lmms-competition-v3)\n"
-"\n"
-"\t\t\tWinners:\n"
-"\t\t\t<iframe width=\"100%\" height=\"450\" scrolling=\"no\" frameborder=\"no"
-"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
-"playlists/211975750&amp;color=ff5500&amp;auto_play=false&amp;"
-"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
-"show_reposts=false\"></iframe>\n"
-"\t\t\t#### Original description:\n"
-"\n"
-"\t\t\tIt’s that time of the year again: If you have made amazing tracks with "
-"LMMS we have a contest for you!\n"
-"\t\t\tThe Best of LMMS contest is back!  The compilation aims to inspire new "
-"users and everyone to create music.\n"
-"\t\t\tThe compilation will be uploaded to Bandcamp and all profit will be "
-"donated for the further development of LMMS.\n"
-"\t\t\tSubmit your track before midnight on March 16th (UTC time), and find "
-"details about the contest on the [soundcloud group.](https://soundcloud.com/"
-"groups/the-best-of-lmms-competition-v3)\n"
-"\n"
-"\t\t\t#### Competition rules:\n"
-"\n"
-"\t\t\t1. The Deadline. The tracks must be submitted by March 16th 0:00 UTC. "
-"The tracks can be of any genre, preferably under 10 minutes.\n"
-"\t\t\t\tThe track must be produced in LMMS, but it is allowed to use some "
-"other software (Audacity, Ardour etc.) for post mixing/mastering.\n"
-"\t\t\t2. The tracks. All submissions will be handled via SoundCloud using "
-"the dedicated group. You can submit a maximum of two tracks.\n"
-"\t\t\t\tYou may submit previously released tracks, but not tracks that were "
-"in the previous Best of LMMS albums. Remixes are not allowed. A "
-"collaboration between a judge and yourself is not allowed.\n"
-"\t\t\t3. The Judges. The jury consists of: Zach Henderson, Second Flight, "
-"Umcaruje, Greippi, Tres Finnochiaro, Abludo.\n"
-"\t\t\t4. The Judging Process. After the deadline, the judges will make their "
-"decisions and release the results within next 14 days.\n"
-"\t\t\t5. Release. The compilation will be released on a dedicated LMMS "
-"artists Bandcamp with the price of “Pay what you want”. All the received "
-"funds\n"
-"\t\t\t\twill be donated for further development of LMMS, the program that we "
-"love."
-msgstr ""
-"#### Concorso concluso il **16 Marzo 2016.**\n"
-"\t\t\tPuoi supportare LMMS comprando la compilation su [bandcamp](https://"
-"lmmsartists.bandcamp.com/)\n"
-"\n"
-"\t\t\tAscolta tutti i partecipanti [qua.](https://soundcloud.com/groups/the-"
-"best-of-lmms-competition-v3)\n"
-"\n"
-"\t\t\tVincitori:\n"
-"\t\t\t<iframe width=\"100%\" height=\"450\" scrolling=\"no\" frameborder=\"no"
-"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
-"playlists/211975750&amp;color=ff5500&amp;auto_play=false&amp;"
-"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
-"show_reposts=false\"></iframe>\n"
-"\t\t\t#### Descrizione Originale:\n"
-"\n"
-"\t\t\tAnche quest'anno, se hai composto delle fantastiche tracce per LMMS, "
-"abbiamo un concorso per te!\n"
-"\t\t\tIl Best of LMMS è tornato!  Il concorso mira a ispirare la comunità a "
-"creare musica.\n"
-"\t\t\tLa compilation verrà caricata su Bandcamp e il ricavato sarà usato per "
-"lo svilluppo di LMMS.\n"
-"\t\t\tPresenta la tua traccia entro la mezzanotte del 16 marzo (ora UTC), e "
-"leggi tutti i dettagli nel [gruppo Soundcloud](https://soundcloud.com/groups/"
-"the-best-of-lmms-competition-v3)\n"
-"\n"
-"\t\t\t#### Regole del concorso:\n"
-"\n"
-"\t\t\t1. Scadenza. Le tracce vanno invitate  entro il 16 Marzo alle 0:00 "
-"UTC. Possono essere di qualsiasi genere, di durata preferibilmente inferiore "
-"a 10 minuti.\n"
-"\t\t\t\tVanno prodotte con LMMS, ma è permesso l'uso di altri programmi "
-"(Audacity, Ardour ecc.) per mixing e mastering.\n"
-"\t\t\t2. Le Tracce. Vanno inviate su SoundCloud usando il gruppo dedicato. "
-"Puoi presentare un massimo di due tracce.\n"
-"\t\t\t\tPuoi presentare vecchie tracce, a patto che non abbiano vinto "
-"precedenti Best of LMMS. Non sono ammessi Remix. Non sono ammesse tracce "
-"fatte in collaborazione con un giudice.\n"
-"\t\t\t3. Giudici. La giuria è composta da: Zach Henderson, Second Flight, "
-"Umcaruje, Greippi, Tres Finnochiaro, Abludo.\n"
-"\t\t\t4. Processo di Giudizio.  Dopo la scadenza per le presentazioni, i "
-"giudici prenderanno le loro decisioni e pubbicheranno i risultati entro 14 "
-"giorni.\n"
-"\t\t\t5. Pubblicazione. La compilation verrà pubblicata in un album Bandcamp "
-"con prezzo \"Paga quanto vuoi\". Tutto il ricavato verrà\n"
-"\t\t\t\tdonato per lo sviluppo di LMMS, il programma che amiamo. "
-
-#: competitions.twig:145
-msgid "The Best of LMMS vol. II"
-msgstr "Best of LMMS vol. II"
-
-#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:240
-msgid ""
-"#### The competition has ended on **April 1st, 2015.**\n"
-"\n"
-"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
-"(https://lmmsartists.bandcamp.com/)\n"
-"\n"
-"\t\t\tListen to all entries [here.](https://soundcloud.com/groups/the-best-"
-"of-lmms-competition-v2)\n"
-"\n"
-"\t\t\tWinners:\n"
-"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
-"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
-"playlists/103762698&amp;color=ff5500&amp;auto_play=false&amp;"
-"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
-"show_reposts=false\"></iframe>\n"
-"\t\t\t#### Original description:\n"
-"\t\t\t1. The Deadline. The songs must be submitted by April 1st 0:00 UTC. "
-"The songs can be of any genre, preferably under 10 minutes.\n"
-"\t\t\t\tThe song should be made mostly in LMMS, but it is allowed to use "
-"some other software (Audacity, Ardour etc.) for post mixing/mastering.\n"
-"\t\t\t2. The songs. All submissions will be handled via SoundCloud using the "
-"dedicated group. A user can submit a maximum of two songs.\n"
-"\t\t\t\tUsers CAN submit previously released songs, BUT not songs submitted "
-"for previous BoL competitions. Remixes are not allowed.\n"
-"\t\t\t\tA song cooperation between a judge and yourself is not allowed.\n"
-"\t\t\t3. The Judges and the Release. The judges consist of Stian Jørgensrud "
-"(Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix and "
-"Jernemies.\n"
-"\t\t\t\tThe compilation will be released on the dedicated LMMS artists "
-"Bandcamp with the price of “Pay what you want”. All the received funds will "
-"be donated\n"
-"\t\t\t\tfor further development of LMMS or to cover other program related "
-"costs.\n"
-"\n"
-"\t\t\tExtras:\n"
-"\n"
-"\t\t\tBy marking your song with the tag \"Want Feedback\" you can get "
-"feedback from the judges. Comments from different judges will be combined "
-"into one\n"
-"\t\t\ttext so you won't know from who or how many the feedback is. Note that "
-"you aren't guaranteed any feedback, it depends on how much time the judges "
-"have.\n"
-"\t\t\tAlso note that the judges are just regular LMMS artists and no matter "
-"what feedback you get the judges' decision for album songs is final."
-msgstr ""
-"#### Concorso concluso l'**1 Aprile 2015.**\n"
-"\n"
-"\t\t\tPuoi supportare LMMS comprando la compilation su [bandcamp](https://"
-"lmmsartists.bandcamp.com/)\n"
-"\n"
-"\t\t\tAscolta tutti i partecipanti [qua.](https://soundcloud.com/groups/the-"
-"best-of-lmms-competition-v2)\n"
-"\n"
-"\t\t\tVincitori:\n"
-"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
-"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
-"playlists/103762698&amp;color=ff5500&amp;auto_play=false&amp;"
-"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
-"show_reposts=false\"></iframe>\n"
-"\t\t\t#### Descrizione Originale:\n"
-"\t\t\t1. Scadenza. Le tracce vanno invitate entro il primo d'Aprile alle "
-"0:00 UTC. Possono essere di qualsiasi genere, di durata preferibilmente "
-"inferiore a 10 minuti.\n"
-"\t\t\t\tVanno prodotte con LMMS, ma è permesso l'uso di altri programmi "
-"(Audacity, Ardour ecc.) per mixing e mastering..\n"
-"\t\t\t2.  Le Tracce. Vanno inviate su SoundCloud usando il gruppo dedicato. "
-"Puoi presentare un massimo di due tracce.\n"
-"\t\t\t\tPuoi presentare vecchie tracce, a patto che non abbiano vinto "
-"precedenti Best of LMMS. Non sono ammessi Remix. \n"
-"\t\t\t\tNon sono ammesse tracce fatte in collaborazione con un giudice.\n"
-"\t\t\t3. Giudici e Pubblicazione. La giuria è composta da Stian Jørgensrud "
-"(Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix "
-"eJernemies.\n"
-"\t\t\t\tLa compilation verrà pubblicata in un album Bandcamp con prezzo "
-"\"Paga quanto vuoi\". Tutto il ricavato verrà\n"
-"\t\t\t\tdonato per lo sviluppo di LMMS o per coprire i costi associati al "
-"programma.\n"
-"\n"
-"\t\t\tExtra:\n"
-"\n"
-"\t\t\tInserendo il tag \"Want Feedback\" alla tua traccia, puoi ottenere un "
-"commento da parte dei giudici. I commenti verranno uniti in un unico testo\n"
-"\t\t\tin modo da non poter distinguere quali e quanti giudici hanno "
-"commentato. Non è assicurato che venga dato un commento a tutte le tracce, "
-"dipende dal tempo a disposizione dei Giudici.\n"
-"\t\t\tRicorda che i giudici sono normali artisti di LMMS e che, "
-"indipendentemente dal commento ricevuto, il risultato del concorso verrà "
-"dato alla fine e sarà definitivo."
-
-#: competitions.twig:180
-msgid "The Best of LMMS vol. I"
-msgstr "Best of LMMS vol. I"
-
-#: /tmp/cache/twig/lmms.io/22/22d3745e1f9035178ae137f26645406d1c18643f4963dc2a31dd93a70a4b06e2.php:288
-msgid ""
-"#### The competition has ended on **February 15th, 2014.**\n"
-"\n"
-"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
-"(https://lmmsartists.bandcamp.com/)\n"
-"\n"
-"\t\t\tListen to all entries [here.](https://soundcloud.com/groups/lmms-top-"
-"songs-compilation)\n"
-"\n"
-"\t\t\tWinners:\n"
-"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
-"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
-"playlists/27083727&amp;color=ff5500&amp;auto_play=false&amp;"
-"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
-"show_reposts=false\"></iframe>\n"
-"\t\t\t#### Original description:\n"
-"\n"
-"\t\t\tIf you have made amazing songs with LMMS we have a contest for you! A "
-"LMMS top songs contest.\n"
-"\t\t\tThe compilation aims to inspire new users and get new producers to use "
-"the program as well as to give a big thank you to LMMS developers.\n"
-"\t\t\tThe compilation will be uploaded to Bandcamp and all profit will be "
-"donated for the further development of LMMS. Submit your song before\n"
-"\t\t\tmidnight on February 15th, and find details about this contest on the "
-"Soundcloud site.\n"
-"\n"
-"\t\t\t#### Competition rules:\n"
-"\t\t\t1. The Deadline. The songs must be submitted by February 15th 12 PM "
-"GMT. A user can submit a maximum of two songs. The songs can be of any "
-"genre,\n"
-"\t\t\t\tpreferably under 10 minutes. All submissions will be handled via "
-"SoundCloud using the dedicated group. User CAN submit previously released "
-"songs.\n"
-"\t\t\t\tRemixes are not allowed. The song should be made mostly in LMMS, but "
-"it is allowed to use some other software (Audacity, Ardour etc.) for post "
-"mixing/mastering.\n"
-"\t\t\t2. The Judges. The judges consist of the group Avelocity: Brian Amin "
-"(Maniarib), Joshua Wade (Second Flight),\n"
-"\t\t\t\tUroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn "
-"(Raptor980), Jan Heemstra (Combustible Lemonade)\n"
-"\t\t\t3. The Judging Process. After the deadline, the judges will make their "
-"decisions and release the results within next 7 days.\n"
-"\t\t\t4. Release. The compilation will be released on a dedicated LMMS "
-"artists Bandcamp with the price of “Pay what you want”. All the received "
-"funds\n"
-"\t\t\t\twill be donated for further development of LMMS, the program that we "
-"love."
-msgstr ""
-"#### Concorso concluso il **15 Febbraio 2014.**\n"
-"\n"
-"\t\t\tPuoi supportare LMMS comprando la compilation su [bandcamp](https://"
-"lmmsartists.bandcamp.com/)\n"
-"\n"
-"\t\t\tAscolta tutti i partecipanti [qua.](https://soundcloud.com/groups/lmms-"
-"top-songs-compilation)\n"
-"\n"
-"\t\t\tVincitori:\n"
-"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
-"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
-"playlists/27083727&amp;color=ff5500&amp;auto_play=false&amp;"
-"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
-"show_reposts=false\"></iframe>\n"
-"\t\t\t#### Descrizione Originale:\n"
-"\n"
-"\t\t\tSe hai composto delle fantastiche tracce per LMMS, abbiamo un concorso "
-"per te!\n"
-"\t\t\tLa compilation mira a ispirare nuovi utenti e incoraggiare nuovi "
-"produttori a usare il programma, così come a ringraziare gli sviluppatori di "
-"LMMS.\n"
-"\t\t\t La compilation verrà pubblicata in un album Bandcamp e tutto il "
-"ricavato verrà donato per lo sviluppo di LMMS. Invia la tua traccia prima "
-"della\n"
-"\t\t\tmezza notte del 15 Febbraio, leggi i dettagli nella pagina "
-"Soundcloud.\n"
-"\n"
-"\t\t\t#### Regole del Concorso:\n"
-"\t\t\t1. Scadenza. Le tracce vanno invitate entro il 15 Febbraui a "
-"mezzanotte GMT. Un artista può pubblicare due tracce di qualsiasi genere,\n"
-"\t\t\t\tpreferibilmente sotto i 10 minuti. Le tracce verranno gestite "
-"nell'apposito gruppo Soundcloud. E' possibile presentare vecchie tracce.\n"
-"\t\t\t\tNon sono ammessi remix. Vanno prodotte con LMMS, ma è permesso l'uso "
-"di altri programmi (Audacity, Ardour ecc.) per mixing e mastering.\n"
-"\t\t\t2. Giudici. La giuria è il gruppo Avelocity: Brian Amin (Maniarib), "
-"Joshua Wade (Second Flight),\n"
-"\t\t\t\tUroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn "
-"(Raptor980), Jan Heemstra (Combustible Lemonade)\n"
-"\t\t\t3.  Processo di Giudizio. Dopo la scadenza per le presentazioni, i "
-"giudici prenderanno le loro decisioni e pubbicheranno i risultati entro 7 "
-"giorni.\n"
-"\t\t\t4. Pubblicazione. La compilation verrà pubblicata in un album Bandcamp "
-"con prezzo \"Paga quanto vuoi\". Tutto il ricavato verrà\n"
-"\t\t\t\tdonato per lo sviluppo di LMMS, il programma che amiamo."
-
-#: download/index.twig:32
-msgid "Download LMMS"
-msgstr "Scarica LMMS"
-
-#: download/index.twig:32
-msgid ""
-"Downloading and using LMMS is free! Just choose the operating system you "
-"want to run LMMS on:"
-msgstr ""
-"Scarica e usa LMMS gratuitamente! Seleziona il sistema operativo in cui vuoi "
-"installarlo:"
-
-#: download/index.twig:51
-msgid "Install LMMS on Linux"
-msgstr "Installa LMMS su Linux"
-
-#: download/index.twig:52
-msgid "Click one of the buttons below to download LMMS for Linux."
-msgstr "Clicca su uno dei pulsanti qua sotto per scaricare LMMS per Linux."
-
-#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:73
-#: download/index.twig:80
-#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:215
-msgid "Stable Versions"
-msgstr "Versioni Stabili"
-
-#: download/index.twig:59
-msgid ""
-"Run <code>chmod +x ~/Downloads/*.AppImage</code> to set the <code>.AppImage</"
-"code> executable before running"
-msgstr ""
-"Esegui <code>chmod +x ~/Downloads/*.AppImage</code> per impostare la <code>."
-"AppImage</code> come eseguibile, prima di avviarla."
-
-#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:106
-#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:181
-#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:242
-msgid "Beta Versions"
-msgstr "Versioni Beta"
-
-#: /tmp/cache/twig/lmms.io/39/393aa836a33126c7c9c27effc524b48152e666e10069bce18e2d35ae72a49453.php:136
-msgid "Other options"
-msgstr "Altre opzioni"
-
-#: download/index.twig:78
-msgid "Install LMMS on Windows"
-msgstr "Installa LMMS su Windows"
-
-#: download/index.twig:79
-msgid ""
-"Click one of the buttons below (either 32bit or 64bit) to download LMMS for "
-"Windows"
-msgstr ""
-"Seleziona uno dei pulsanti seguenti (32bit oppure 64bit) per scaricare LMMS "
-"per Windows"
-
-#: download/index.twig:96
-msgid "Install LMMS on macOS"
-msgstr "Installa LMMS su macOS"
-
-#: download/index.twig:97
-msgid "Click one of the buttons below to download LMMS for macOS"
-msgstr "Seleziona uno dei pulsanti seguenti per scaricare LMMS per macOS"
-
-#: download/index.twig:114
-msgid "Downloads labeled Beta are pre-release software, stability may suffer."
-msgstr ""
-"Le versioni chiamate \"Beta\" sono in fase di sviluppo, potrebbero non "
-"essere stabili."
-
-#: download/index.twig:115
-msgid "Previous releases"
-msgstr "Versioni precedenti"
-
-#: download/index.twig:333
-msgid "Show release notes"
-msgstr "Mostra note di rilascio"
-
-#: branding.twig:6 navbar.php:14
-msgid "Branding"
-msgstr "marchio"
-
-#: branding.twig:6
-msgid "Download LMMS Artwork"
-msgstr "Scarica gli Artwork LMMS"
-
-#: branding.twig:8
-msgid "LMMS Logo"
-msgstr "LMMS Logo"
-
-#: branding.twig:8 branding.twig:17
-msgid "LMMS Development Team"
-msgstr "Team di sviluppo LMMS"
-
-#: branding.twig:17
-msgid "LMMS Project Icon"
-msgstr "Icona del progetto LMMS"
-
-#: errorpage.twig:6
-msgid "Error <b>%code%</b>"
-msgstr "Error <b>%code%</b>"
-
-#: errorpage.twig:9
-msgid ""
-"If you followed a valid link on this site, please contact us\n"
-"      about it and <a href=\"//github.com/LMMS/lmms.io/issues/new\">file an "
-"issue</a> on GitHub."
-msgstr ""
-"Se hai seguito un link valido su questo sito, ti preghiamo di contattarci\n"
-"      e di <a href=\"//github.com/LMMS/lmms.io/issues/new\">riportare il "
-"problema</a> su GitHub."
-
-#: foot.twig:24
-msgid "Powered by"
-msgstr "Powered by"
 
 #: get-involved.twig:6 navbar.php:7
 msgid "Get Involved"
@@ -1270,7 +205,508 @@ msgstr ""
 "Per segnalare un bug o suggerire una nuova funzionalità, utilizza il tracker "
 "di richieste di GitHub:"
 
-#: /tmp/cache/twig/lmms.io/ca/caa7c0e6c169d8a008f589ef3c01ec1f68dc6cb191ac2e6ffd6a642334b27b0f.php:32
+#: download/linux.twig:6
+msgid ""
+"LMMS is included in most major Linux distribution's package repositories."
+"<br>\n"
+"\tPlease <a href=\"get-involved/#contact\">contact us</a> if your "
+"distribution is not listed here."
+msgstr ""
+"LMMS è incluso nei repository dei pacchetti di quasi tutte le maggiori "
+"distrubizioni Linux. <br>\n"
+"\tPer favore, <a href=\"get-involved/#contact\">contattaci</a> se la tua "
+"distribuzione non è tra quelle elencate."
+
+#: download/linux.twig:48
+msgid ""
+"For installing LMMS on Debian based distributions such as Debian itself, "
+"Ubuntu or Linux Mint, just click the button below."
+msgstr ""
+"Per installare LMMS su una distribuzione basata su Debian, come Ubuntu o "
+"Linux Mint, basta clicare il pulsante seguente."
+
+#: download/linux.twig:53
+msgid "Install LMMS now"
+msgstr "Installa LMMS ora"
+
+#: download/linux.twig:54
+msgid "From your package manager"
+msgstr "Dal tuo Gestore Pacchetti"
+
+#: download/linux.twig:57
+msgid "If this doesn't work for you, run this command in a terminal."
+msgstr ""
+"Se non funziona per la tua configurazione, usa questi comandi in un "
+"terminale."
+
+#: download/linux.twig:59
+msgid ""
+"If the traditional repositories lag behind on versions, try the <a href="
+"\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio repository</"
+"a>."
+msgstr ""
+"Se i repository tradizionali non offrono versioni aggiornate, prova il <a "
+"href=\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio "
+"repository</a>."
+
+#: download/linux.twig:60 download/linux.twig:81
+msgid "VST Support"
+msgstr "Supporto VST"
+
+#: download/linux.twig:61
+msgid ""
+"If your distribution offers VST support (requires the installation of Wine) "
+"it is generally offered in a separate package.  For example, using the <a "
+"href=\"http://kxstudio.sourceforge.net/Repositories#Ubuntu\">KXStudio "
+"repository</a>, run this command in a terminal."
+msgstr ""
+"Se la tua distribuzione offre il supporto VST (per cui è richiesta "
+"l'installazione di Wine) solitamente viene offerta in un pacchetto separato. "
+"Per esempio, usando il <a href=\"http://kxstudio.sourceforge.net/"
+"Repositories#Ubuntu\">KXStudio repository</a>, puoi usare questi comandi su "
+"un terminale."
+
+#: download/linux.twig:67 download/linux.twig:73
+msgid "Run the following command as root in a terminal:"
+msgstr "Lancia il comando seguente come root su un terminale:"
+
+#: download/linux.twig:79 download/linux.twig:93
+msgid "Run the following command in a terminal:"
+msgstr "Lancia il comando seguente su un terminale:"
+
+#: download/linux.twig:82
+msgid ""
+"For VST support, please see the <a href=\"https://wiki.archlinux.org/index."
+"php/LMMS\">Arch LMMS wiki page</a>"
+msgstr ""
+"Per il supporto VST, visita la <a href=\"https://wiki.archlinux.org/index."
+"php/LMMS\" target=\"_blank\">pagina wiki Arch LMMS</a>"
+
+#: download/linux.twig:99
+msgid ""
+"AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and "
+"more to come in the future), with VST support enabled by default on AMD64."
+msgstr ""
+"AOSC OS offre i port di LMMS per varie architetture (AMD64/x86_64, ARMv7, e "
+"altri in futuro), e il supporto VST è abilitato di default su AMD64."
+
+#: download/linux.twig:100
+msgid "To install LMMS on AOSC OS with PackageKit (recommended):"
+msgstr "Per installare LMMS su AOSC OS con PackageKit (consigliato):"
+
+#: download/linux.twig:102
+msgid "To install LMMS on AOSC OS with DPKG:"
+msgstr "Per installare LMMS su AOSC OS con DPKG:"
+
+#: download/linux.twig:104
+msgid "To install LMMS on AOSC OS with RPM:"
+msgstr "Per installare LMMS su AOSC OS con RPM:"
+
+#: download/linux.twig:110
+msgid "Build LMMS from source"
+msgstr "Compila LMMS dal sorgente"
+
+#: download/linux.twig:111
+msgid ""
+"If your Linux distribution does not provide a lmms package (or only an "
+"outdated one), you can still build LMMS from source. Visit the <a href="
+"\"https://github.com/LMMS/lmms/wiki/Compiling\">LMMS development wiki on "
+"GitHub</a> for instructions on how to compile LMMS for Linux."
+msgstr ""
+"Se la tua distribuzione Linux non offre un pacchetto LMMS (o per avere "
+"l'ultima versione), puoi comunque compilare LMMS dal sorgente. Visita il <a "
+"href=\"https://github.com/LMMS/lmms/wiki/Compiling\">LMMS development wiki "
+"su GitHub</a> per istruzioni su come compilare LMMS per Linux."
+
+#: home.twig:11
+msgid "Let's make music"
+msgstr "Facciamo musica"
+
+#: home.twig:12
+msgid "with a free, cross-platform tool for your computer."
+msgstr "Con uno strumento gratuito e multipiattaforma per il tuo computer."
+
+#: home.twig:14
+msgid "Download now"
+msgstr "Scarica ora"
+
+#: home.twig:15 home.twig:107
+msgid "Get involved"
+msgstr "Partecipa"
+
+#: home.twig:27
+msgid "Making beats has never been easier."
+msgstr "Scrivere musica non è mai stato così facile."
+
+#: home.twig:32
+msgid "Produce music with your computer"
+msgstr "Produci musica con il tuo computer"
+
+#: home.twig:33
+msgid ""
+"by creating melodies and beats, synthesizing and mixing sounds, arranging "
+"samples and much more."
+msgstr ""
+"creando melodie e ritmi, sintetizzando e arrangiando i suoni, organizzando "
+"campioni e molto altro ancora."
+
+#: home.twig:37
+msgid "Playback instruments, samples and plugins"
+msgstr "Riproduci strumenti, campioni e plugin"
+
+#: home.twig:38
+msgid "with a typing or MIDI keyboard in a user-friendly and modern interface."
+msgstr ""
+"con la tastiera del computer o una tastiera musicale MIDI in un'interfaccia "
+"user friendly e moderna."
+
+#: home.twig:42
+msgid "Bundled with ready-to-use content"
+msgstr "Pieno di contenuti pronti all'uso"
+
+#: home.twig:43
+msgid ""
+"from an assortment of instrument and effect plugins, presets and samples to "
+"VST and SoundFont support."
+msgstr ""
+"da un assortimento di plugin di strumenti e effetti, preset e campioni al "
+"supporto VST e SoundFont."
+
+#: home.twig:52
+msgid "Made by musicians, for musicians."
+msgstr "Realizzato da musicisti, per musicisti."
+
+#: home.twig:56
+msgid "Download for Linux"
+msgstr "Scarica per Linux"
+
+#: home.twig:57
+msgid "Download for Windows"
+msgstr "Scarica per Windows"
+
+#: home.twig:58
+msgid "Download for macOS"
+msgstr "Scarica per macOS"
+
+#: home.twig:59
+msgid "Pick your flavor."
+msgstr "Scegli la tua versione."
+
+#: home.twig:60
+msgid "Linux, Windows or macOS."
+msgstr "Linux, Windows o macOS."
+
+#: home.twig:69
+msgid "Houston, we have a problem."
+msgstr "Houston, abbiamo un problema."
+
+#: home.twig:70
+msgid "Stand by, we got you covered."
+msgstr "Siamo qui per te."
+
+#: home.twig:73
+msgid "Visit our forum"
+msgstr "Visita il nostro forum"
+
+#: home.twig:74
+msgid "Visit our Facebook page"
+msgstr "Visita la nostra pagina Facebook"
+
+#: home.twig:75
+msgid "Chat now on Discord"
+msgstr "Scrivi su Discord"
+
+#: home.twig:76
+msgid "Visit our GitHub page"
+msgstr "Visita la nostra pagina GitHub"
+
+#: home.twig:77
+msgid "Ask your questions here"
+msgstr "Fai qui le tue domande"
+
+#: home.twig:78
+msgid "and answer a few questions while you're waiting."
+msgstr "e rispondi a qualche domanda mentre aspetti."
+
+#: home.twig:85
+msgid "Sharing means caring."
+msgstr "Condividere è volere."
+
+#: home.twig:90
+msgid "Find musicians"
+msgstr "Scopri musicisti"
+
+#: home.twig:91
+msgid "Visit the LMMS Sharing Platform (LSP)"
+msgstr "Visita la piattaforma di condivisione LMMS (LSP)"
+
+#: home.twig:92
+msgid "Don't be modest."
+msgstr "Non fare il modesto."
+
+#: home.twig:93
+msgid "Show us your creations."
+msgstr "Mostraci le tue creazioni."
+
+#: home.twig:101
+msgid "We <3 open source."
+msgstr "Noi <3 open source."
+
+#: home.twig:106
+msgid "Fork us on Github"
+msgstr "Crea il tuo Fork su Github"
+
+#: home.twig:108
+#, fuzzy, php-format
+msgid "LMMS is a 100% free, open source, community-driven project."
+msgstr ""
+"LMMS è un progetto gratuito al 100%, a sorgente aperto e animato dai suoi "
+"utenti."
+
+#: home.twig:109
+msgid "Proudly hosted on Github."
+msgstr "Ospitato con orgoglio su Github."
+
+#: home.twig:124
+msgid "Take a peek."
+msgstr "Dai un'occhiata."
+
+#: home.twig:127
+msgid "Watch our promo video."
+msgstr "Guarda il nostro video promozionale."
+
+#: home.twig:139
+msgid "Click anywhere to close this dialog"
+msgstr "Fai un click fuori dal riquadro per chiuderlo"
+
+#: home.twig:147
+msgid "Featuring:"
+msgstr "Funzionalità:"
+
+#: home.twig:151
+msgid "Core Functionality"
+msgstr "Principali Funzioni"
+
+#: home.twig:155
+msgid "Compose music on Windows, Linux and macOS"
+msgstr "Scrivi musica su Windows, Linux e macOS"
+
+#: home.twig:156
+msgid "Sequence, compose, mix and automate songs in one simple interface"
+msgstr "Ordina, componi, mixa e automatizza brani in una semplice interfaccia"
+
+#: home.twig:157
+msgid "Note playback via MIDI or typing keyboard"
+msgstr "Riproduzione di note tramite tastiera MIDI o usando quella del PC"
+
+#: home.twig:158
+msgid "Consolidate instrument tracks using Beat+Bassline Editor"
+msgstr "Fissa delle tracce strumentali usando il Beat + Bassline Editor"
+
+#: home.twig:159
+msgid "Fine tune patterns, notes, chords and melodies using Piano Roll Editor"
+msgstr ""
+"Ottimizza i pattern, le note, gli accordi e le melodie usando l'editor Piano "
+"Roll"
+
+#: home.twig:160
+msgid ""
+"Full user-defined track-based automation and computer-controlled automation "
+"sources"
+msgstr ""
+"Automazione completa basata su tracce definita dall'utente e funzioni di "
+"automazione controllate da computer"
+
+#: home.twig:161
+msgid "Import of MIDI files and Hydrogen project files"
+msgstr "Importazione di file MIDI e file di progetto Hydrogen"
+
+#: home.twig:171
+msgid "Musical Instruments"
+msgstr "Strumenti musicali"
+
+#: home.twig:175
+msgid ""
+"Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit "
+"Windows)"
+msgstr ""
+"Supporto di strumenti VST a 64 bit con bridge VST a 32 bit (Windows a 64 bit)"
+
+#: home.twig:176
+msgid ""
+"16 built in synthesizers, including emultations of Roland ® TB-303, "
+"Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip "
+"and more"
+msgstr ""
+"16 sintetizzatori integrati, tra cui imitazioni del Roland ® TB-303, "
+"Commodore 64 ® SID microchip, Nintendo ® NES e GameBoy, Yamaha ® OPL2 chip e "
+"altro ancora"
+
+#: home.twig:177
+msgid ""
+"Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice "
+"additive, subtractive and pad synthesis all in one powerful plugin"
+msgstr ""
+"ZynAddSubFx incorporato: sintesi multitimbrica, microtonale, additiva, "
+"sottrattiva e pad in un unico potente strumento polifonico"
+
+#: home.twig:178
+msgid ""
+"Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis "
+"UltraSound ® (GUS) formats for high quality instrument patches and banks"
+msgstr ""
+"Supporto nativo per i multicampione in formato SoundFont ® (SF2), Giga (GIG) "
+"e Gravis UltraSound ® (GUS) per strumenti ad alta qualità"
+
+#: home.twig:188
+msgid "Effects Mixing"
+msgstr "Mixing di effetti"
+
+#: home.twig:192
+msgid "Drop-in LADSPA plug-in support"
+msgstr "Supporto Drop-in di effetti LADSPA"
+
+#: home.twig:193
+msgid "Drop-in VST ® effect plug-in support (Linux and Windows)"
+msgstr "Supporto Drop-in di effetti VST ® (Linux e Windows)"
+
+#: home.twig:194
+msgid ""
+"Built-in compressor, limiter, delay, reverb, distortion and bass enhancer"
+msgstr ""
+"Compressore, limiter, delay, riverbero, distorsione e amplificatore di bassi "
+"nativi"
+
+#: home.twig:195
+msgid "Bundled graphic and parametric equalizers"
+msgstr "Equalizzatori grafici e parametrici incorporati"
+
+#: home.twig:196
+msgid "Built-in visualization/spectrum analyzer"
+msgstr "Visualizzatore di spettro nativo"
+
+#: download/index.twig:32
+msgid "Download LMMS"
+msgstr "Scarica LMMS"
+
+#: download/index.twig:32
+msgid ""
+"Downloading and using LMMS is free! Just choose the operating system you "
+"want to run LMMS on:"
+msgstr ""
+"Scarica e usa LMMS gratuitamente! Seleziona il sistema operativo in cui vuoi "
+"installarlo:"
+
+#: download/index.twig:51
+msgid "Install LMMS on Linux"
+msgstr "Installa LMMS su Linux"
+
+#: download/index.twig:52
+msgid "Click one of the buttons below to download LMMS for Linux."
+msgstr "Clicca su uno dei pulsanti qua sotto per scaricare LMMS per Linux."
+
+#: /tmp/cache/twig/lmms.io/4d/4d3e356a7b63edc9b1c9c0baccfdac84a086195da92dcf3e9632422e96e742f1.php:77
+#: download/index.twig:80
+#: /tmp/cache/twig/lmms.io/4d/4d3e356a7b63edc9b1c9c0baccfdac84a086195da92dcf3e9632422e96e742f1.php:219
+msgid "Stable Versions"
+msgstr "Versioni Stabili"
+
+#: download/index.twig:59
+msgid ""
+"Run <code>chmod +x ~/Downloads/*.AppImage</code> to set the <code>.AppImage</"
+"code> executable before running"
+msgstr ""
+"Esegui <code>chmod +x ~/Downloads/*.AppImage</code> per impostare la <code>."
+"AppImage</code> come eseguibile, prima di avviarla."
+
+#: /tmp/cache/twig/lmms.io/4d/4d3e356a7b63edc9b1c9c0baccfdac84a086195da92dcf3e9632422e96e742f1.php:110
+#: /tmp/cache/twig/lmms.io/4d/4d3e356a7b63edc9b1c9c0baccfdac84a086195da92dcf3e9632422e96e742f1.php:185
+#: /tmp/cache/twig/lmms.io/4d/4d3e356a7b63edc9b1c9c0baccfdac84a086195da92dcf3e9632422e96e742f1.php:246
+msgid "Beta Versions"
+msgstr "Versioni Beta"
+
+#: /tmp/cache/twig/lmms.io/4d/4d3e356a7b63edc9b1c9c0baccfdac84a086195da92dcf3e9632422e96e742f1.php:140
+msgid "Other options"
+msgstr "Altre opzioni"
+
+#: download/index.twig:78
+msgid "Install LMMS on Windows"
+msgstr "Installa LMMS su Windows"
+
+#: download/index.twig:79
+msgid ""
+"Click one of the buttons below (either 32bit or 64bit) to download LMMS for "
+"Windows"
+msgstr ""
+"Seleziona uno dei pulsanti seguenti (32bit oppure 64bit) per scaricare LMMS "
+"per Windows"
+
+#: download/index.twig:96
+msgid "Install LMMS on macOS"
+msgstr "Installa LMMS su macOS"
+
+#: download/index.twig:97
+msgid "Click one of the buttons below to download LMMS for macOS"
+msgstr "Seleziona uno dei pulsanti seguenti per scaricare LMMS per macOS"
+
+#: download/index.twig:114
+msgid "Downloads labeled Beta are pre-release software, stability may suffer."
+msgstr ""
+"Le versioni chiamate \"Beta\" sono in fase di sviluppo, potrebbero non "
+"essere stabili."
+
+#: download/index.twig:115
+msgid "Previous releases"
+msgstr "Versioni precedenti"
+
+#: /tmp/cache/twig/lmms.io/4d/4d3e356a7b63edc9b1c9c0baccfdac84a086195da92dcf3e9632422e96e742f1.php:427
+msgid "Show release notes"
+msgstr "Mostra note di rilascio"
+
+#: showcase.twig:6 navbar.php:12
+msgid "Showcase"
+msgstr "Vetrina"
+
+#: showcase.twig:6
+msgid "Tracks made with LMMS"
+msgstr "Tracce realizzate con LMMS"
+
+#: showcase.twig:12
+#, fuzzy
+msgid "The Best of LMMS Vol. 5 by LMMS Artists"
+msgstr "Best of LMMS Vol.4 dagli Artisti di LMMS"
+
+#: showcase.twig:20
+msgid "The Best of LMMS Vol. 4 by LMMS Artists"
+msgstr "Best of LMMS Vol.4 dagli Artisti di LMMS"
+
+#: showcase.twig:28
+msgid "The Best of LMMS Vol.3 by LMMS Artists"
+msgstr "Best of LMMS Vol.3 dagli Artisti di LMMS"
+
+#: showcase.twig:36
+msgid "The Best of LMMS Vol.2 by LMMS Artists"
+msgstr "Best of LMMS Vol.2 dagli Artisti di LMMS"
+
+#: showcase.twig:44
+msgid "The Best of LMMS Vol.1 by LMMS Artists"
+msgstr "Best of LMMS Vol.1 dagli Artisti di LMMS"
+
+#: errorpage.twig:6
+msgid "Error <b>%code%</b>"
+msgstr "Error <b>%code%</b>"
+
+#: errorpage.twig:9
+msgid ""
+"If you followed a valid link on this site, please contact us\n"
+"      about it and <a href=\"//github.com/LMMS/lmms.io/issues/new\">file an "
+"issue</a> on GitHub."
+msgstr ""
+"Se hai seguito un link valido su questo sito, ti preghiamo di contattarci\n"
+"      e di <a href=\"//github.com/LMMS/lmms.io/issues/new\">riportare il "
+"problema</a> su GitHub."
+
+#: /tmp/cache/twig/lmms.io/b3/b3e63410a9484bebba0a59631095bc2c1361dd9d140eaaafc3915982d597681d.php:36
 msgid ""
 "We're sorry, something went wrong fetching the latest release info. You can "
 "still download releases on <a href=\"//github.com/LMMS/lmms/releases"
@@ -1279,6 +715,591 @@ msgstr ""
 "Ci dispiace, ma qualcosa è andato storto nel tentativo di ottenere le "
 "informazioni sull'ultima versione. Puoi comunque scaricare il programma su "
 "<a href=\"//github.com/LMMS/lmms/releases\">GitHub</a>."
+
+#: foot.twig:24
+msgid "Powered by"
+msgstr "Powered by"
+
+#: branding.twig:6 navbar.php:14
+msgid "Branding"
+msgstr "marchio"
+
+#: branding.twig:6
+msgid "Download LMMS Artwork"
+msgstr "Scarica gli Artwork LMMS"
+
+#: branding.twig:8
+msgid "LMMS Logo"
+msgstr "LMMS Logo"
+
+#: branding.twig:8 branding.twig:17
+msgid "LMMS Development Team"
+msgstr "Team di sviluppo LMMS"
+
+#: branding.twig:17
+msgid "LMMS Project Icon"
+msgstr "Icona del progetto LMMS"
+
+#: competitions.twig:10 navbar.php:13
+msgid "Competitions"
+msgstr "Concorsi"
+
+#: competitions.twig:10
+msgid "Official competitions organised by LMMS and its community members"
+msgstr "Concorsi ufficiali organizzati da LMMS e dai membri della sua comunità"
+
+#: competitions.twig:13
+#, fuzzy
+msgid "Current competitions:"
+msgstr "Competizioni in corso"
+
+#: competitions.twig:15
+msgid "Past competitions:"
+msgstr "Concorsi passati:"
+
+#: competitions.twig:18
+#, fuzzy
+msgid "The Best of LMMS vol. V"
+msgstr "Best of LMMS vol. IV"
+
+#: /tmp/cache/twig/lmms.io/e3/e337b6f0418e80cd2cd1a416643b7d123d0daaf28cb3110db14bc449374f29f5.php:80
+#, fuzzy
+msgid ""
+"#### The competition has ended on **April 16th, 2018**.\n"
+"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
+"(https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-5)\n"
+"\n"
+"\t\t\tListen to all entries [here.](https://docs.google.com/spreadsheets/d/"
+"e/2PACX-1vQOjvIBp40ez-2QrPsGHt_LGY2XejaOFZrXWsgPVPXoH7w7QQriUV52_OeCQBL9tcOPlCxdUw2HC6Ud/"
+"pubhtml?gid=1958072675&single=true)\n"
+"\n"
+"\t\t\tWinners:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" allow=\"autoplay\" src=\"https://w.soundcloud.com/player/?url=https%3A//"
+"api.soundcloud.com/playlists/519667455&color="
+"%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+"\"></iframe>\n"
+"\n"
+"\t\t\t#### Original description:\n"
+"\t\t\tWe are proud to present to you The Best of LMMS contest volume 5!\n"
+"\t\t\tThe contest aims to inspire the community to create and share their "
+"music. Submit your track at the link below before midnight\n"
+"\t\t\t(23:59.59) on April 16th (UTC time) for a chance to be featured on the "
+"BoL v5 album. The compilation will be uploaded to Bandcamp, with all\n"
+"\t\t\tprofits going towards LMMS' further development.\n"
+"\t\t\t\n"
+"\t\t\t[Submit here](https://goo.gl/47ZXq1)\n"
+"\t\t\t#### Competition rules:\n"
+"\t\t\t1. **The Deadline:**\n"
+"\t\t\t\t- Track must be submitted by April 16th 2018 at 23:59.59 UTC using "
+"[this form](https://goo.gl/47ZXq1).\n"
+"\t\t\t2. **The Track:**\n"
+"\t\t\t\t- Must be produced in LMMS.\n"
+"\t\t\t\t- You may use other programs for mastering and post processing.\n"
+"\t\t\t\t- Must be under 10 minutes long.\n"
+"\t\t\t\t- No winning tracks from previous Best of LMMS albums allowed.\n"
+"\t\t\t\t- No remixes allowed.\n"
+"\t\t\t3. **The Submissions:**\n"
+"\t\t\t\t- You must submit using this form only.\n"
+"\t\t\t\t- No more than ONE entry per artist is allowed.*\n"
+"\t\t\t\t- Collaborations count as ONE entry for each artist involved.*\n"
+"\t\t\t\t- No collaborating with judges on entries.\n"
+"\t\t\t\t- Only submissions hosted on Soundcloud, YouTube, or Clyp are "
+"allowed.\n"
+"\t\t\t\t- Your entry must be available for listening until the end of the "
+"judging process. If not, your entry will be disqualified.\n"
+"\t\t\t4. **The Judges:**\n"
+"\t\t\t\t-The jury consists of: Dull Machine, Etorna_Z, Jernemies, Poleroyd, "
+"Umcaruje and Unfa.\n"
+"\t\t\t5. **The Judging:**\n"
+"\t\t\t\t- After the deadline, the judges will score each track and release "
+"the results within 14 days.\n"
+"\t\t\t6. **Release:**\n"
+"\t\t\t\t- The 25 highest scoring songs will be released as an album on "
+"Bandcamp with the price of “Pay what you want”. All the received funds will "
+"be donated for further development of LMMS, the program that we love.\n"
+"\n"
+"\t\t\t\\* *This year the judging process has changed, to ensure fairer "
+"handling of entries. The change to one submission only is to allow each and "
+"every entry to be fully scored by the panel of judges. This was previously "
+"handled by a preliminary screening round to help cut down the large amount "
+"of entries received. By lowering the amount of up-front entries allowed, the "
+"judges will have the time to fully score each track entered.*"
+msgstr ""
+"#### Concorso concluso il **16 Aprile 2017**.\n"
+"\t\t\tPuoi supportare LMMS comprando la compilation su [bandcamp](https://"
+"lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)\n"
+"\n"
+"\t\t\tAscolta tutti i partecipanti [qua.](https://docs.google.com/"
+"spreadsheets/d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?"
+"gid=975440614&single=true)\n"
+"\n"
+"\t\t\tVincitori:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Descrizione Originale:\n"
+"\t\t\tSiamo orgogliosi di presentarvi il volume 4 del concorso di Best of "
+"LMMS!\n"
+"\t\t\tIl concorso mira a ispirare la comunità a creare e condividere la "
+"propria musica. Invia la tua traccia al link qui sotto prima della "
+"mezzanotte\n"
+"  \t\t(23:59.59) del 16 Aprile (ora UTC) per avere la possibilità di essere "
+"pubblicato sull'album BoL v4. La compilation verrà caricata a Bandcamp, e "
+"tutti i\n"
+"\t\t\tguadagni saranno usati per lo sviluppo di LMMS.\n"
+"\t\t\tLe presentazioni di quest'anno vengono gestite tramite i moduli "
+"Google. Accettiamo i contributi ospitati su YouTube, Soundcloud e Clyp. "
+"Regolamento completo nel modulo di presentazione:\n"
+"\t\t\thttps://goo.gl/forms/cifEliOViOXTSc8H2\n"
+"\t\t\t#### Regole del Concorso:\n"
+"\t\t\t1. **Scadenza**\n"
+"\t\t\t  - Le tracce devono essere inviate entro il 16 aprile alle ore "
+"23.59.59 UTC utilizzando [questo modulo](https://goo.gl/forms/"
+"cifEliOViOXTSc8H2).\n"
+"\t\t\t2. **Tracce**\n"
+"\t\t\t  - Devono essere prodotte in LMMS\n"
+"\t\t\t\t- E' possibile usare altri programmi per mastering e post "
+"processing.\n"
+"\t\t\t\t- La durata deve essere inferiore ai 10 minuti.\n"
+"\t\t\t\t- Non sono ammesse tracce che hanno già vinto un precedente Best of "
+"LMMS.\n"
+"\t\t\t\t- Non sono ammessi remix.\n"
+"\t\t\t3. **Presentazione delle Tracce**\n"
+"\t\t\t  - Bisogna presentare solo usando questo modulo.\n"
+"\t\t\t\t- Sono accettate solo **DUE** tracce per artista.\n"
+"\t\t\t\t- Le collaborazioni contano come **UNA** opera per ogni artista "
+"coinvolto.\n"
+"\t\t\t\t- Sono consentite solo tracce ospitate su Soundcloud, YouTube o "
+"Clyp\n"
+"\t\t\t\t- Le tracce devono essere disponibili fino alla fine del processo di "
+"giudizio. Altrimenti verranno squalificate.\n"
+"\t\t\t4. **Giudici**\n"
+"\t\t\t  - La giuria è composta da: Greippi, Jacoby Davis, Spekular, Stakeout "
+"Punch e Squatro.\n"
+"\t\t\t5. **Processo di GIudizio**\n"
+"\t\t\t  - Dopo la scadenza per le presentazioni, i giudici prenderanno le "
+"loro decisioni e pubbicheranno i risultati entro 14 giorni.\n"
+"\t\t\t6. **Pubblicazione**\n"
+"\t\t\t  - Le 25 tracce  con il punteggio più alto verranno pubblicate in un "
+"album Bandcamp con prezzo \"Paga quanto vuoi\".\n"
+"\t\t\t\t\tTutti i fondi ricevuti saranno donati per lo sviluppo di LMMS, il "
+"programma che amiamo. "
+
+#: competitions.twig:71
+msgid "The Best of LMMS vol. IV"
+msgstr "Best of LMMS vol. IV"
+
+#: /tmp/cache/twig/lmms.io/e3/e337b6f0418e80cd2cd1a416643b7d123d0daaf28cb3110db14bc449374f29f5.php:144
+msgid ""
+"#### The competition has ended on **April 16th, 2017**.\n"
+"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
+"(https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)\n"
+"\n"
+"\t\t\tListen to all entries [here.](https://docs.google.com/spreadsheets/"
+"d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?"
+"gid=975440614&single=true)\n"
+"\n"
+"\t\t\tWinners:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Original Description:\n"
+"\t\t\tWe are proud to present to you The Best of LMMS contest volume 4!\n"
+"\t\t\tThe contest aims to inspire the community to create and share their "
+"music. Submit your track at the link below before midnight\n"
+"  \t\t(23:59.59) on April 16th (UTC time) for a chance to be featured on the "
+"BoL v4 album. The compilation will be uploaded to Bandcamp, with all\n"
+"\t\t\tprofits going towards LMMS' further development.\n"
+"\t\t\tThis year's submissions are handled through Google forms. We accept "
+"submissions hosted on YouTube, Soundcloud and Clyp. For the full rules check "
+"out the submission form:\n"
+"\t\t\thttps://goo.gl/forms/cifEliOViOXTSc8H2\n"
+"\t\t\t#### Competition rules:\n"
+"\t\t\t1. **The Deadline**\n"
+"\t\t\t  - Tracks must be submitted by April 16th at 23:59.59 UTC using [this "
+"form](https://goo.gl/forms/cifEliOViOXTSc8H2).\n"
+"\t\t\t2. **The Tracks**\n"
+"\t\t\t  - Must be produced in LMMS.\n"
+"\t\t\t\t- You may use other programs for mastering and post processing.\n"
+"\t\t\t\t- Must be under 10 minutes long.\n"
+"\t\t\t\t- No winning tracks from previous Best of LMMS albums allowed.\n"
+"\t\t\t\t- No remixes allowed.\n"
+"\t\t\t3. **The Submissions**\n"
+"\t\t\t  - You must submit using this form only.\n"
+"\t\t\t\t- No more than **TWO** entries per artist are allowed.\n"
+"\t\t\t\t- Collaborations count as **ONE** entry for each artist involved.\n"
+"\t\t\t\t- Only submissions hosted on Soundcloud, YouTube or Clyp are "
+"allowed.\n"
+"\t\t\t\t- Your entry must be available for listening until the end of the "
+"judging process. If not, your entry will be disqualified.\n"
+"\t\t\t4. **The Judges**\n"
+"\t\t\t  - The jury consists of: Greippi, Jacoby Davis, Spekular, Stakeout "
+"Punch and Squatro.\n"
+"\t\t\t5. **The Judging Process**\n"
+"\t\t\t  - After the deadline, the judges will make their decisions and "
+"release the results within 14 days.\n"
+"\t\t\t6. **The Release**\n"
+"\t\t\t  - The 25 highest scoring songs will be released as an album on "
+"Bandcamp with the price of \"Pay what you want\".\n"
+"\t\t\t\t\tAll the received funds will be donated for further development of "
+"LMMS, the program that we love."
+msgstr ""
+"#### Concorso concluso il **16 Aprile 2017**.\n"
+"\t\t\tPuoi supportare LMMS comprando la compilation su [bandcamp](https://"
+"lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)\n"
+"\n"
+"\t\t\tAscolta tutti i partecipanti [qua.](https://docs.google.com/"
+"spreadsheets/d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?"
+"gid=975440614&single=true)\n"
+"\n"
+"\t\t\tVincitori:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Descrizione Originale:\n"
+"\t\t\tSiamo orgogliosi di presentarvi il volume 4 del concorso di Best of "
+"LMMS!\n"
+"\t\t\tIl concorso mira a ispirare la comunità a creare e condividere la "
+"propria musica. Invia la tua traccia al link qui sotto prima della "
+"mezzanotte\n"
+"  \t\t(23:59.59) del 16 Aprile (ora UTC) per avere la possibilità di essere "
+"pubblicato sull'album BoL v4. La compilation verrà caricata a Bandcamp, e "
+"tutti i\n"
+"\t\t\tguadagni saranno usati per lo sviluppo di LMMS.\n"
+"\t\t\tLe presentazioni di quest'anno vengono gestite tramite i moduli "
+"Google. Accettiamo i contributi ospitati su YouTube, Soundcloud e Clyp. "
+"Regolamento completo nel modulo di presentazione:\n"
+"\t\t\thttps://goo.gl/forms/cifEliOViOXTSc8H2\n"
+"\t\t\t#### Regole del Concorso:\n"
+"\t\t\t1. **Scadenza**\n"
+"\t\t\t  - Le tracce devono essere inviate entro il 16 aprile alle ore "
+"23.59.59 UTC utilizzando [questo modulo](https://goo.gl/forms/"
+"cifEliOViOXTSc8H2).\n"
+"\t\t\t2. **Tracce**\n"
+"\t\t\t  - Devono essere prodotte in LMMS\n"
+"\t\t\t\t- E' possibile usare altri programmi per mastering e post "
+"processing.\n"
+"\t\t\t\t- La durata deve essere inferiore ai 10 minuti.\n"
+"\t\t\t\t- Non sono ammesse tracce che hanno già vinto un precedente Best of "
+"LMMS.\n"
+"\t\t\t\t- Non sono ammessi remix.\n"
+"\t\t\t3. **Presentazione delle Tracce**\n"
+"\t\t\t  - Bisogna presentare solo usando questo modulo.\n"
+"\t\t\t\t- Sono accettate solo **DUE** tracce per artista.\n"
+"\t\t\t\t- Le collaborazioni contano come **UNA** opera per ogni artista "
+"coinvolto.\n"
+"\t\t\t\t- Sono consentite solo tracce ospitate su Soundcloud, YouTube o "
+"Clyp\n"
+"\t\t\t\t- Le tracce devono essere disponibili fino alla fine del processo di "
+"giudizio. Altrimenti verranno squalificate.\n"
+"\t\t\t4. **Giudici**\n"
+"\t\t\t  - La giuria è composta da: Greippi, Jacoby Davis, Spekular, Stakeout "
+"Punch e Squatro.\n"
+"\t\t\t5. **Processo di GIudizio**\n"
+"\t\t\t  - Dopo la scadenza per le presentazioni, i giudici prenderanno le "
+"loro decisioni e pubbicheranno i risultati entro 14 giorni.\n"
+"\t\t\t6. **Pubblicazione**\n"
+"\t\t\t  - Le 25 tracce  con il punteggio più alto verranno pubblicate in un "
+"album Bandcamp con prezzo \"Paga quanto vuoi\".\n"
+"\t\t\t\t\tTutti i fondi ricevuti saranno donati per lo sviluppo di LMMS, il "
+"programma che amiamo. "
+
+#: competitions.twig:119
+msgid "The Best of LMMS vol. III"
+msgstr "Best of LMMS vol. III"
+
+#: /tmp/cache/twig/lmms.io/e3/e337b6f0418e80cd2cd1a416643b7d123d0daaf28cb3110db14bc449374f29f5.php:205
+msgid ""
+"#### The competition has ended on **March 16th, 2016.**\n"
+"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
+"(https://lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tListen to all entries [here.](https://soundcloud.com/groups/the-best-"
+"of-lmms-competition-v3)\n"
+"\n"
+"\t\t\tWinners:\n"
+"\t\t\t<iframe width=\"100%\" height=\"450\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/211975750&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Original description:\n"
+"\n"
+"\t\t\tIt’s that time of the year again: If you have made amazing tracks with "
+"LMMS we have a contest for you!\n"
+"\t\t\tThe Best of LMMS contest is back!  The compilation aims to inspire new "
+"users and everyone to create music.\n"
+"\t\t\tThe compilation will be uploaded to Bandcamp and all profit will be "
+"donated for the further development of LMMS.\n"
+"\t\t\tSubmit your track before midnight on March 16th (UTC time), and find "
+"details about the contest on the [soundcloud group.](https://soundcloud.com/"
+"groups/the-best-of-lmms-competition-v3)\n"
+"\n"
+"\t\t\t#### Competition rules:\n"
+"\n"
+"\t\t\t1. The Deadline. The tracks must be submitted by March 16th 0:00 UTC. "
+"The tracks can be of any genre, preferably under 10 minutes.\n"
+"\t\t\t\tThe track must be produced in LMMS, but it is allowed to use some "
+"other software (Audacity, Ardour etc.) for post mixing/mastering.\n"
+"\t\t\t2. The tracks. All submissions will be handled via SoundCloud using "
+"the dedicated group. You can submit a maximum of two tracks.\n"
+"\t\t\t\tYou may submit previously released tracks, but not tracks that were "
+"in the previous Best of LMMS albums. Remixes are not allowed. A "
+"collaboration between a judge and yourself is not allowed.\n"
+"\t\t\t3. The Judges. The jury consists of: Zach Henderson, Second Flight, "
+"Umcaruje, Greippi, Tres Finnochiaro, Abludo.\n"
+"\t\t\t4. The Judging Process. After the deadline, the judges will make their "
+"decisions and release the results within next 14 days.\n"
+"\t\t\t5. Release. The compilation will be released on a dedicated LMMS "
+"artists Bandcamp with the price of “Pay what you want”. All the received "
+"funds\n"
+"\t\t\t\twill be donated for further development of LMMS, the program that we "
+"love."
+msgstr ""
+"#### Concorso concluso il **16 Marzo 2016.**\n"
+"\t\t\tPuoi supportare LMMS comprando la compilation su [bandcamp](https://"
+"lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tAscolta tutti i partecipanti [qua.](https://soundcloud.com/groups/the-"
+"best-of-lmms-competition-v3)\n"
+"\n"
+"\t\t\tVincitori:\n"
+"\t\t\t<iframe width=\"100%\" height=\"450\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/211975750&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Descrizione Originale:\n"
+"\n"
+"\t\t\tAnche quest'anno, se hai composto delle fantastiche tracce per LMMS, "
+"abbiamo un concorso per te!\n"
+"\t\t\tIl Best of LMMS è tornato!  Il concorso mira a ispirare la comunità a "
+"creare musica.\n"
+"\t\t\tLa compilation verrà caricata su Bandcamp e il ricavato sarà usato per "
+"lo svilluppo di LMMS.\n"
+"\t\t\tPresenta la tua traccia entro la mezzanotte del 16 marzo (ora UTC), e "
+"leggi tutti i dettagli nel [gruppo Soundcloud](https://soundcloud.com/groups/"
+"the-best-of-lmms-competition-v3)\n"
+"\n"
+"\t\t\t#### Regole del concorso:\n"
+"\n"
+"\t\t\t1. Scadenza. Le tracce vanno invitate  entro il 16 Marzo alle 0:00 "
+"UTC. Possono essere di qualsiasi genere, di durata preferibilmente inferiore "
+"a 10 minuti.\n"
+"\t\t\t\tVanno prodotte con LMMS, ma è permesso l'uso di altri programmi "
+"(Audacity, Ardour ecc.) per mixing e mastering.\n"
+"\t\t\t2. Le Tracce. Vanno inviate su SoundCloud usando il gruppo dedicato. "
+"Puoi presentare un massimo di due tracce.\n"
+"\t\t\t\tPuoi presentare vecchie tracce, a patto che non abbiano vinto "
+"precedenti Best of LMMS. Non sono ammessi Remix. Non sono ammesse tracce "
+"fatte in collaborazione con un giudice.\n"
+"\t\t\t3. Giudici. La giuria è composta da: Zach Henderson, Second Flight, "
+"Umcaruje, Greippi, Tres Finnochiaro, Abludo.\n"
+"\t\t\t4. Processo di Giudizio.  Dopo la scadenza per le presentazioni, i "
+"giudici prenderanno le loro decisioni e pubbicheranno i risultati entro 14 "
+"giorni.\n"
+"\t\t\t5. Pubblicazione. La compilation verrà pubblicata in un album Bandcamp "
+"con prezzo \"Paga quanto vuoi\". Tutto il ricavato verrà\n"
+"\t\t\t\tdonato per lo sviluppo di LMMS, il programma che amiamo. "
+
+#: competitions.twig:155
+msgid "The Best of LMMS vol. II"
+msgstr "Best of LMMS vol. II"
+
+#: /tmp/cache/twig/lmms.io/e3/e337b6f0418e80cd2cd1a416643b7d123d0daaf28cb3110db14bc449374f29f5.php:254
+msgid ""
+"#### The competition has ended on **April 1st, 2015.**\n"
+"\n"
+"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
+"(https://lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tListen to all entries [here.](https://soundcloud.com/groups/the-best-"
+"of-lmms-competition-v2)\n"
+"\n"
+"\t\t\tWinners:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/103762698&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Original description:\n"
+"\t\t\t1. The Deadline. The songs must be submitted by April 1st 0:00 UTC. "
+"The songs can be of any genre, preferably under 10 minutes.\n"
+"\t\t\t\tThe song should be made mostly in LMMS, but it is allowed to use "
+"some other software (Audacity, Ardour etc.) for post mixing/mastering.\n"
+"\t\t\t2. The songs. All submissions will be handled via SoundCloud using the "
+"dedicated group. A user can submit a maximum of two songs.\n"
+"\t\t\t\tUsers CAN submit previously released songs, BUT not songs submitted "
+"for previous BoL competitions. Remixes are not allowed.\n"
+"\t\t\t\tA song cooperation between a judge and yourself is not allowed.\n"
+"\t\t\t3. The Judges and the Release. The judges consist of Stian Jørgensrud "
+"(Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix and "
+"Jernemies.\n"
+"\t\t\t\tThe compilation will be released on the dedicated LMMS artists "
+"Bandcamp with the price of “Pay what you want”. All the received funds will "
+"be donated\n"
+"\t\t\t\tfor further development of LMMS or to cover other program related "
+"costs.\n"
+"\n"
+"\t\t\tExtras:\n"
+"\n"
+"\t\t\tBy marking your song with the tag \"Want Feedback\" you can get "
+"feedback from the judges. Comments from different judges will be combined "
+"into one\n"
+"\t\t\ttext so you won't know from who or how many the feedback is. Note that "
+"you aren't guaranteed any feedback, it depends on how much time the judges "
+"have.\n"
+"\t\t\tAlso note that the judges are just regular LMMS artists and no matter "
+"what feedback you get the judges' decision for album songs is final."
+msgstr ""
+"#### Concorso concluso l'**1 Aprile 2015.**\n"
+"\n"
+"\t\t\tPuoi supportare LMMS comprando la compilation su [bandcamp](https://"
+"lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tAscolta tutti i partecipanti [qua.](https://soundcloud.com/groups/the-"
+"best-of-lmms-competition-v2)\n"
+"\n"
+"\t\t\tVincitori:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/103762698&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Descrizione Originale:\n"
+"\t\t\t1. Scadenza. Le tracce vanno invitate entro il primo d'Aprile alle "
+"0:00 UTC. Possono essere di qualsiasi genere, di durata preferibilmente "
+"inferiore a 10 minuti.\n"
+"\t\t\t\tVanno prodotte con LMMS, ma è permesso l'uso di altri programmi "
+"(Audacity, Ardour ecc.) per mixing e mastering..\n"
+"\t\t\t2.  Le Tracce. Vanno inviate su SoundCloud usando il gruppo dedicato. "
+"Puoi presentare un massimo di due tracce.\n"
+"\t\t\t\tPuoi presentare vecchie tracce, a patto che non abbiano vinto "
+"precedenti Best of LMMS. Non sono ammessi Remix. \n"
+"\t\t\t\tNon sono ammesse tracce fatte in collaborazione con un giudice.\n"
+"\t\t\t3. Giudici e Pubblicazione. La giuria è composta da Stian Jørgensrud "
+"(Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix "
+"eJernemies.\n"
+"\t\t\t\tLa compilation verrà pubblicata in un album Bandcamp con prezzo "
+"\"Paga quanto vuoi\". Tutto il ricavato verrà\n"
+"\t\t\t\tdonato per lo sviluppo di LMMS o per coprire i costi associati al "
+"programma.\n"
+"\n"
+"\t\t\tExtra:\n"
+"\n"
+"\t\t\tInserendo il tag \"Want Feedback\" alla tua traccia, puoi ottenere un "
+"commento da parte dei giudici. I commenti verranno uniti in un unico testo\n"
+"\t\t\tin modo da non poter distinguere quali e quanti giudici hanno "
+"commentato. Non è assicurato che venga dato un commento a tutte le tracce, "
+"dipende dal tempo a disposizione dei Giudici.\n"
+"\t\t\tRicorda che i giudici sono normali artisti di LMMS e che, "
+"indipendentemente dal commento ricevuto, il risultato del concorso verrà "
+"dato alla fine e sarà definitivo."
+
+#: competitions.twig:190
+msgid "The Best of LMMS vol. I"
+msgstr "Best of LMMS vol. I"
+
+#: /tmp/cache/twig/lmms.io/e3/e337b6f0418e80cd2cd1a416643b7d123d0daaf28cb3110db14bc449374f29f5.php:302
+msgid ""
+"#### The competition has ended on **February 15th, 2014.**\n"
+"\n"
+"\t\t\tSupport LMMS and buy the compilation over at our [bandcamp page.]"
+"(https://lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tListen to all entries [here.](https://soundcloud.com/groups/lmms-top-"
+"songs-compilation)\n"
+"\n"
+"\t\t\tWinners:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/27083727&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Original description:\n"
+"\n"
+"\t\t\tIf you have made amazing songs with LMMS we have a contest for you! A "
+"LMMS top songs contest.\n"
+"\t\t\tThe compilation aims to inspire new users and get new producers to use "
+"the program as well as to give a big thank you to LMMS developers.\n"
+"\t\t\tThe compilation will be uploaded to Bandcamp and all profit will be "
+"donated for the further development of LMMS. Submit your song before\n"
+"\t\t\tmidnight on February 15th, and find details about this contest on the "
+"Soundcloud site.\n"
+"\n"
+"\t\t\t#### Competition rules:\n"
+"\t\t\t1. The Deadline. The songs must be submitted by February 15th 12 PM "
+"GMT. A user can submit a maximum of two songs. The songs can be of any "
+"genre,\n"
+"\t\t\t\tpreferably under 10 minutes. All submissions will be handled via "
+"SoundCloud using the dedicated group. User CAN submit previously released "
+"songs.\n"
+"\t\t\t\tRemixes are not allowed. The song should be made mostly in LMMS, but "
+"it is allowed to use some other software (Audacity, Ardour etc.) for post "
+"mixing/mastering.\n"
+"\t\t\t2. The Judges. The judges consist of the group Avelocity: Brian Amin "
+"(Maniarib), Joshua Wade (Second Flight),\n"
+"\t\t\t\tUroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn "
+"(Raptor980), Jan Heemstra (Combustible Lemonade)\n"
+"\t\t\t3. The Judging Process. After the deadline, the judges will make their "
+"decisions and release the results within next 7 days.\n"
+"\t\t\t4. Release. The compilation will be released on a dedicated LMMS "
+"artists Bandcamp with the price of “Pay what you want”. All the received "
+"funds\n"
+"\t\t\t\twill be donated for further development of LMMS, the program that we "
+"love."
+msgstr ""
+"#### Concorso concluso il **15 Febbraio 2014.**\n"
+"\n"
+"\t\t\tPuoi supportare LMMS comprando la compilation su [bandcamp](https://"
+"lmmsartists.bandcamp.com/)\n"
+"\n"
+"\t\t\tAscolta tutti i partecipanti [qua.](https://soundcloud.com/groups/lmms-"
+"top-songs-compilation)\n"
+"\n"
+"\t\t\tVincitori:\n"
+"\t\t\t<iframe width=\"100%\" height=\"350\" scrolling=\"no\" frameborder=\"no"
+"\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/"
+"playlists/27083727&amp;color=ff5500&amp;auto_play=false&amp;"
+"hide_related=false&amp;show_comments=true&amp;show_user=true&amp;"
+"show_reposts=false\"></iframe>\n"
+"\t\t\t#### Descrizione Originale:\n"
+"\n"
+"\t\t\tSe hai composto delle fantastiche tracce per LMMS, abbiamo un concorso "
+"per te!\n"
+"\t\t\tLa compilation mira a ispirare nuovi utenti e incoraggiare nuovi "
+"produttori a usare il programma, così come a ringraziare gli sviluppatori di "
+"LMMS.\n"
+"\t\t\t La compilation verrà pubblicata in un album Bandcamp e tutto il "
+"ricavato verrà donato per lo sviluppo di LMMS. Invia la tua traccia prima "
+"della\n"
+"\t\t\tmezza notte del 15 Febbraio, leggi i dettagli nella pagina "
+"Soundcloud.\n"
+"\n"
+"\t\t\t#### Regole del Concorso:\n"
+"\t\t\t1. Scadenza. Le tracce vanno invitate entro il 15 Febbraui a "
+"mezzanotte GMT. Un artista può pubblicare due tracce di qualsiasi genere,\n"
+"\t\t\t\tpreferibilmente sotto i 10 minuti. Le tracce verranno gestite "
+"nell'apposito gruppo Soundcloud. E' possibile presentare vecchie tracce.\n"
+"\t\t\t\tNon sono ammessi remix. Vanno prodotte con LMMS, ma è permesso l'uso "
+"di altri programmi (Audacity, Ardour ecc.) per mixing e mastering.\n"
+"\t\t\t2. Giudici. La giuria è il gruppo Avelocity: Brian Amin (Maniarib), "
+"Joshua Wade (Second Flight),\n"
+"\t\t\t\tUroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn "
+"(Raptor980), Jan Heemstra (Combustible Lemonade)\n"
+"\t\t\t3.  Processo di Giudizio. Dopo la scadenza per le presentazioni, i "
+"giudici prenderanno le loro decisioni e pubbicheranno i risultati entro 7 "
+"giorni.\n"
+"\t\t\t4. Pubblicazione. La compilation verrà pubblicata in un album Bandcamp "
+"con prezzo \"Paga quanto vuoi\". Tutto il ricavato verrà\n"
+"\t\t\t\tdonato per lo sviluppo di LMMS, il programma che amiamo."
 
 #: artwork.php:18
 msgid "Author:"
