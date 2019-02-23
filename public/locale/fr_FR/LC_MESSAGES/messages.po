@@ -3,13 +3,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-02 14:12-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-02-23 13:31+0100\n"
 "Last-Translator: Julien Chaumont <transifex@julienc.io>, 2017\n"
 "Language-Team: French (https://www.transifex.com/lmms/teams/61632/fr/)\n"
 "Language: fr\n"
@@ -17,6 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: get-involved.twig:6 navbar.php:7
 msgid "Get Involved"
@@ -61,7 +61,7 @@ msgid ""
 msgstr ""
 "Nous avons vraiment besoin de nouveaux développeurs qui rejoignent notre "
 "équipe. LMMS est écrit en C++ et utilise le\n"
-"\t\t\t\t\t   cadre de travail Qt. Si vous les connaissez un tant soit peu, "
+"\t\t\t\t\t   Framework Qt. Si vous les connaissez un tant soit peu, "
 "n'hésitez pas à vous salir avec\n"
 "\t\t\t\t\t   le code !"
 
@@ -241,7 +241,7 @@ msgstr "Avec votre gestionnaire de paquet"
 #: download/linux.twig:57
 msgid "If this doesn't work for you, run this command in a terminal."
 msgstr ""
-"Si cela ne fonctionnait pas pour vous, lancez cette commande dans un "
+"Si cela ne fonctionnait pas pour vous, entrez cette commande dans un "
 "terminal."
 
 #: download/linux.twig:59
@@ -267,17 +267,17 @@ msgstr ""
 "Si votre distribution offre un support VST (qui nécessite l'installation de "
 "Wine), il est généralement fourni en tant que paquet séparé.  Par exemple, "
 "si vous utilisez le <a href=\"http://kxstudio.sourceforge.net/"
-"Repositories#Ubuntu\">dépôt KXStudio</a>, lancez cette commande depuis un "
+"Repositories#Ubuntu\">dépôt KXStudio</a>, entrez cette commande dans un "
 "terminal."
 
 #: download/linux.twig:67 download/linux.twig:73
 msgid "Run the following command as root in a terminal:"
 msgstr ""
-"Lancez la commande suivante en tant qu'administrateur dans un terminal :"
+"Entrez la commande suivante dans un terminal en tant qu'administrateur :"
 
 #: download/linux.twig:79 download/linux.twig:93
 msgid "Run the following command in a terminal:"
-msgstr "Lancez la commande suivante dans un terminal :"
+msgstr "Entrez la commande suivante dans un terminal :"
 
 #: download/linux.twig:82
 msgid ""
@@ -310,7 +310,7 @@ msgstr "Pour installer LMMS sur AOSC OS avec RPM :"
 
 #: download/linux.twig:110
 msgid "Build LMMS from source"
-msgstr "Construire LMMS à partir des sources"
+msgstr "Build LMMS à partir des sources"
 
 #: download/linux.twig:111
 msgid ""
@@ -320,7 +320,7 @@ msgid ""
 "GitHub</a> for instructions on how to compile LMMS for Linux."
 msgstr ""
 "Si votre distribution Linux ne fournit pas de paquet lmms (ou seulement un "
-"vieu paquet), vous pouvez toujours construire LMMS depuis les sources. "
+"vieux paquet), vous pouvez toujours construire LMMS depuis les sources. "
 "Visitez le <a href=\"https://github.com/LMMS/lmms/wiki/Compiling\">wiki de "
 "développement de LMMS sur GitHub</a> pour des instructions concernant la "
 "compilation de LMMS pour Linux."
@@ -1365,7 +1365,7 @@ msgstr "Fichier inconnu"
 
 #: index.php:37
 msgid "You seem to have taken a wrong turn."
-msgstr "Il semblerait que vous vous soyez égarés"
+msgstr "Il semblerait que vous vous soyez égarés."
 
 #: index.php:40
 msgid "Oops, that is not supposed to happen."
