@@ -669,7 +669,7 @@ a.social {
 		background-repeat: repeat;
 		background-position: 0px 0px;
 	}
-	
+
 	&#home2 {
 		background: linear-gradient(
 			$grayOverlay, $grayOverlay
@@ -693,7 +693,7 @@ a.social {
 			$grayOverlay, $grayOverlay
 		), url("/img/promoshot3.jpg");
 	}
-	
+
 	&#home2,
 	&#home4,
 	&#home6,
@@ -911,7 +911,7 @@ ul.nav-center {
 	font-size: 3.3em;
 	background-position: center, center center;
 	background-size: auto, cover;
-	color: #f5f2f2;
+	color: #fcfcfc;
 	&:hover {
 		cursor: pointer;
 		cursor: hand;
@@ -973,6 +973,14 @@ ul.nav-center {
 	background: linear-gradient(
 		$bolOverlay, $bolOverlay
 	), url("/img/tbolv5.jpg");
+	background-position: center, center center;
+	background-size: auto, cover;
+}
+
+#bol6 {
+	background: linear-gradient(
+		$bolOverlay, $bolOverlay
+	), url("/img/tbolv6.jpg");
 	background-position: center, center center;
 	background-size: auto, cover;
 }
