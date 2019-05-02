@@ -10,7 +10,8 @@
 {{ macros.jumbo('Competitions'|trans, 'Official competitions organised by LMMS and its community members'|trans)}}
 <div class="container">
 	<!-- Preserve l10n content, please don't remove or comment out the h3 tag below -->
-	<h3>{% trans %}Current competitions:{% endtrans %}</h3>
+	<h3 class="hidden">{% trans %}Current competitions:{% endtrans %}</h3>
+	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol6" data-target="#bol6-desc">
 			<span>{% trans %}The Best of LMMS vol. VI{% endtrans %}</span>
@@ -19,6 +20,15 @@
 		<div class="comp-desc panel-collapse collapse" role="tabpanel" id="bol6-desc">
 			{% markdown %}
 			{% trans %}
+			#### The competition has ended on **April 2nd, 2019**.
+			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-6)
+
+			Listen to all entries [here.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQm-kulIpC2Na8ol7brGGmmK3aK4kz9AaUi0KIy1FrHUj6snVwCpdcDZqJ7unf_oIbGTmC4cWnP1tLW/pubhtml?gid=1466576535&single=true)
+
+			Winners:
+			<iframe width="100%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/768817671&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+
+			#### Original description:
 			We are proud to present to you The Best of LMMS contest volume 6!
 			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
 			(23:59.59 UTC Time) on April 2nd for a chance to be featured on the BoL v6 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
@@ -52,7 +62,6 @@
 			{% endmarkdown %}
 		</div>
 	</div>
-	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol5" data-target="#bol5-desc">
 			<span>{% trans %}The Best of LMMS vol. V{% endtrans %}</span>
