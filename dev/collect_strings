@@ -17,7 +17,7 @@ function convert_filenames() {
 <?php
 require_once(__DIR__ . '/../vendor/autoload.php');
 $targetFile = '__FILE__';
-$classNamePat = '/class (\w+) extends Twig_Template/';
+$classNamePat = '/class (\w+) extends \\\\Twig\\\\Template/';
 $fileContent = file_get_contents($targetFile);
 if ($fileContent === FALSE) {
   die();
