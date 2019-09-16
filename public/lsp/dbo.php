@@ -859,7 +859,7 @@ function show_file($file_id, $user, $success = null) {
 			show_basic_file_info($object, false);
 			
 			// Bump the download button under details block
-			$url = htmlentities('download_file.php?file=' . $object['id'] . '&name=' . $object['filename']);
+			$url = 'download_file.php?file=' . $object['id'] . '&name=' . urlencode($object['filename']);
 			echo '<tr><td><strong>Name:</strong>&nbsp;' . $object['filename'];
 			if (is_image($url)) {
 				echo '<br><br><a href="' . $url . '"><img class="thumbnail" src="' . scale_image($DATA_DIR . $file_id, 300, parse_extension($url)) . '" alt=""></a>';
