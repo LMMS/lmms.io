@@ -9,7 +9,8 @@ require_once('dbo.php');
  * the file as a new page
  */
 function download_file($file_id, $file_name) {
-    global $DATA_DIR;
+	global $DATA_DIR;
+	$file_name = html_entity_decode($file_name);
 	$file_path = $DATA_DIR . $file_id;
 	if (file_exists($file_path)) {
 		increment_file_downloads($file_id);
