@@ -16,7 +16,7 @@ require_once('utils.php');
  $EMAIL_COOLDOWN = 180; // in seconds
  $LSP_URL_ROOT = 'http://127.0.0.1:8100/lsp/';
  
- /*
+/*
  * Query preferences
  * Note:  MySQL defaults to latin1 charset
  */
@@ -25,24 +25,24 @@ $PAGE_SIZE = 25;
 $MAX_LOGIN_ATTEMPTS = 6;
 
 /*
-* Global paths
-*/
+ * Global paths
+ */
 $TMP_DIR = $_SERVER['DOCUMENT_ROOT'] . '/../tmp/';
 $DATA_DIR = $_SERVER['DOCUMENT_ROOT'] . '/../tmp/';
 $LSP_URL = '/lsp/';
 
 /*
-* By default, the LSP will use the default database values defined above
-* however, for production environments, the defaults must be overridden.  This
-* is done in a separate config file defined as $LSP_CONFIG which should be out
-* of the document root and inaccessible from a webpage.
-*/
+ * By default, the LSP will use the default database values defined above
+ * however, for production environments, the defaults must be overridden.  This
+ * is done in a separate config file defined as $LSP_CONFIG which should be out
+ * of the document root and inaccessible from a webpage.
+ */
 $LSP_SECRET = '/home/deploy/secrets/LSP_SECRETS';
 if (file_exists($LSP_SECRET)) { include($LSP_SECRET); }
 
 /*
-* Override constants with those from $LSP_SECRET, if available
-*/
+ * Override constants with those from $LSP_SECRET, if available
+ */
 $DB_TYPE = defined('DB_TYPE') ? DB_TYPE : $DB_TYPE;
 $DB_HOST = defined('DB_HOST') ? DB_HOST : $DB_HOST;
 $DB_USER = defined('DB_USER') ? DB_USER : $DB_USER;
