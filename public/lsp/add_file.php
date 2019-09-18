@@ -37,6 +37,10 @@ if (!SESSION_EMPTY()) {
 				display_error("Copyrighted content is forbidden", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
 				return;
 			}
+			if (get_if_user_email_verified(SESSION()) == 0) {
+				display_error("User email verification is required to upload file onto LSP", array('<a href="">Add File</a>', 'Error'), $LSP_URL . '?content=add');
+				return;
+			}
 			$file_extension = parse_extension($file_path);
 			$categories = get_categories_for_ext($file_extension);
 			if ($categories != false) {
