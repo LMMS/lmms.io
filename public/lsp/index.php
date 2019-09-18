@@ -1,6 +1,7 @@
 <?php
 require_once("../force-https.php");
 include_once("dbo.php");
+include_once('smtp_handler.php');
 
 ini_set('session.use_trans_sid', false);
 ini_set('session.save_handler', 'files');

@@ -14,7 +14,9 @@ require_once('utils.php');
  $DATA_DIR = '../../../';
  $LSP_URL = 'http://lmms.io/lsp/index.php';
  $EMAIL_COOLDOWN = 180; // in seconds
-/*
+ $LSP_URL_ROOT = 'http://127.0.0.1:8100/lsp/';
+ 
+ /*
  * Query preferences
  * Note:  MySQL defaults to latin1 charset
  */
@@ -23,24 +25,24 @@ $PAGE_SIZE = 25;
 $MAX_LOGIN_ATTEMPTS = 6;
 
 /*
- * Global paths
- */
+* Global paths
+*/
 $TMP_DIR = $_SERVER['DOCUMENT_ROOT'] . '/../tmp/';
 $DATA_DIR = $_SERVER['DOCUMENT_ROOT'] . '/../tmp/';
 $LSP_URL = '/lsp/';
 
 /*
- * By default, the LSP will use the default database values defined above
- * however, for production environments, the defaults must be overridden.  This
- * is done in a separate config file defined as $LSP_CONFIG which should be out
- * of the document root and inaccessible from a webpage.
- */
+* By default, the LSP will use the default database values defined above
+* however, for production environments, the defaults must be overridden.  This
+* is done in a separate config file defined as $LSP_CONFIG which should be out
+* of the document root and inaccessible from a webpage.
+*/
 $LSP_SECRET = '/home/deploy/secrets/LSP_SECRETS';
 if (file_exists($LSP_SECRET)) { include($LSP_SECRET); }
 
 /*
- * Override constants with those from $LSP_SECRET, if available
- */
+* Override constants with those from $LSP_SECRET, if available
+*/
 $DB_TYPE = defined('DB_TYPE') ? DB_TYPE : $DB_TYPE;
 $DB_HOST = defined('DB_HOST') ? DB_HOST : $DB_HOST;
 $DB_USER = defined('DB_USER') ? DB_USER : $DB_USER;
@@ -49,6 +51,7 @@ $DB_DATABASE = defined('DB_DATABASE') ? DB_DATABASE : $DB_DATABASE;
 $TMP_DIR = defined('TMP_DIR') ? TMP_DIR : $TMP_DIR;
 $DATA_DIR = defined('DB_PASS') ? DATA_DIR : $DATA_DIR;
 $LSP_URL = defined('LSP_URL') ? LSP_URL : $LSP_URL;
+$LSP_URL_ROOT = defined('LSP_URL_ROOT') ? LSP_URL_ROOT : $LSP_URL_ROOT;
 
 /*
  * DANGER! When set to true will attempt to echo database statements and values to screen
@@ -1198,7 +1201,9 @@ function try_verify_email(string $token, string $login, string $email)
 		echo "FROM email_verifications WHERE hash=$token AND email=$email AND login=$login";
 		echo "</pre>";
 	}
-	$stmt = $dbh->prepare("SELECT COUNT(*) >= 1 AS verified FROM email_verifications WHERE hash=:token AND email=:email AND login=:login");
+	$stmt = $dbh->prepare(
+		"SELECT COUNT(*) >= 1 AS verified FROM email_verifications WHERE " . 
+		"hash=:token AND email=:email AND login=:login AND expires > NOW()");
 	$stmt->bindParam(':login', $login);
 	$stmt->bindParam(':email', $email);
 	$stmt->bindParam(':token', $token);
