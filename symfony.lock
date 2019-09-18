@@ -5,6 +5,9 @@
     "clue/stream-filter": {
         "version": "v1.4.1"
     },
+    "container-interop/container-interop": {
+        "version": "1.2.0"
+    },
     "guzzlehttp/guzzle": {
         "version": "5.3.4"
     },
@@ -230,6 +233,9 @@
     "symfony/yaml": {
         "version": "v4.4.1"
     },
+    "true/punycode": {
+        "version": "v2.1.1"
+    },
     "twig/extensions": {
         "version": "1.0",
         "recipe": {
@@ -244,5 +250,23 @@
     },
     "twig/twig": {
         "version": "v2.12.2"
+    },
+    "zendframework/zend-loader": {
+        "version": "2.6.1"
+    },
+    "zendframework/zend-mail": {
+        "version": "2.10.0"
+    },
+    "zendframework/zend-mime": {
+        "version": "2.7.2"
+    },
+    "zendframework/zend-servicemanager": {
+        "version": "3.4.0"
+    },
+    "zendframework/zend-stdlib": {
+        "version": "3.2.1"
+    },
+    "zendframework/zend-validator": {
+        "version": "2.12.2"
     }
 }

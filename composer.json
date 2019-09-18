@@ -23,7 +23,9 @@
         "symfony/translation": "4.4.*",
         "symfony/twig-bundle": "4.4.*",
         "symfony/yaml": "4.4.*",
-        "twig/extensions": "^1.4"
+		"twig/extensions": "^1.4",
+		"zendframework/zend-mail": "^2.10",
+		"zendframework/zend-servicemanager": "^3.4"
     },
     "require-dev": {
     },
