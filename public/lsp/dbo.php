@@ -13,6 +13,7 @@ require_once('utils.php');
  $TMP_DIR = '../../../';	// "tmp" is added automatically
  $DATA_DIR = '../../../';
  $LSP_URL = 'http://lmms.io/lsp/index.php';
+ $EMAIL_COOLDOWN = 180; // in seconds
 /*
  * Query preferences
  * Note:  MySQL defaults to latin1 charset
@@ -63,7 +64,7 @@ define('DBO_TABLES', 'categories,comments,files,filetypes,licenses,ratings,subca
  * Valid root functions to be looped over and processed by index.php. This order is important
  * as a user could potentially key in many functions, but we only want to process one.
  */
-define('POST_FUNCS', 'rate,comment,content,action,search,q,account');
+define('POST_FUNCS', 'rate,comment,content,action,search,q,account,email');
 
 /*
  * MySQL functions allowed to be called around non-specific columns
@@ -281,15 +282,16 @@ function is_admin($uid) {
  * Adds a user to the database with LSP add/edit access identified by 
  * $login, $realname, $password, $is_admin
  */
-function add_user($login, $realname, $pass, $is_admin = false) {
+function add_user($login, $email, $realname, $pass, $is_admin = false) {
 	$dbh = &get_db();
 	$admin = $is_admin ? 1 : 0;
-	$stmt = $dbh->prepare('INSERT INTO users(login, realname, password, is_admin, loginFailureCount) VALUES(:login, :realname, SHA1(:password), :is_admin, 0)');
-	debug_out("INSERT INTO users(login, realname, password, is_admin, loginFailureCount) VALUES($login, $realname, SHA1($pass), $is_admin, 0)");
+	$stmt = $dbh->prepare('INSERT INTO users(login, realname, password, is_admin, loginFailureCount, email, is_email_verified) VALUES(:login, :realname, SHA1(:password), :is_admin, 0, :email, 0)');
+	debug_out("INSERT INTO users(login, realname, password, is_admin, loginFailureCount, email, is_email_verified) VALUES($login, $realname, SHA1($pass), $is_admin, 0, $email, 0)");
 	$stmt->bindParam(':login', $login);
 	$stmt->bindParam(':realname', $realname);
 	$stmt->bindParam(':password', $pass);
 	$stmt->bindParam(':is_admin', $admin);
+	$stmt->bindParam(':email', $email);
 	$stmt->execute();
 	$stmt = null;
 	$dbh = null;
@@ -298,19 +300,28 @@ function add_user($login, $realname, $pass, $is_admin = false) {
  /*
   * Update the realname and/or password of the specified user
   */
- function change_user($login, $realname, $password) {
+ function change_user($login, $realname, $password, $email) {
 	$dbh = &get_db();
+	if ($email != get_user_email($login)) {
+		$stmt = $dbh->prepare('UPDATE users SET is_email_verified=0 WHERE LOWER(login)=LOWER(:login)');
+		debug_out("UPDATE users SET is_email_verified=0 WHERE LOWER(login)=LOWER($login)");
+		$stmt->bindParam(':login', $login);
+		$stmt->execute();
+	}
+	$stmt = null;
 	if ($password != '') {
-		$stmt = $dbh->prepare('UPDATE users SET realname=:realname, password=SHA1(:password) WHERE LOWER(login)=LOWER(:login)');
-		debug_out("UPDATE users SET realname=$realname, password=SHA1($password) WHERE LOWER(login)=LOWER($login)");
+		$stmt = $dbh->prepare('UPDATE users SET realname=:realname, password=SHA1(:password), email=:email WHERE LOWER(login)=LOWER(:login)');
+		debug_out("UPDATE users SET realname=$realname, password=SHA1($password), email=$mail WHERE LOWER(login)=LOWER($login)");
 		$stmt->bindParam(':realname', $realname);
 		$stmt->bindParam(':password', $password);
 		$stmt->bindParam(':login', $login);
+		$stmt->bindParam(':email', $email);
 	} else {
-		$stmt = $dbh->prepare('UPDATE users SET realname=:realname WHERE LOWER(login)=LOWER(:login)');
+		$stmt = $dbh->prepare('UPDATE users SET realname=:realname, email=:email WHERE LOWER(login)=LOWER(:login)');
 		debug_out("UPDATE users SET realname=$realname WHERE LOWER(login)=LOWER($login)");
 		$stmt->bindParam(':realname', $realname);
 		$stmt->bindParam(':login', $login);
+		$stmt->bindParam(':email', $email);
 	}
 	$stmt->execute();
 	$stmt = null;
@@ -1105,7 +1116,106 @@ function add_visitor_comment($file_id, $comment, $user) {
 	}
 	return $return_val;
 }
+/**
+ * Add email verification record to database
+ * @param string $login username
+ * @param string $email email address
+ * @param string $hash verification hash
+ * @param string $ttl time to live, in seconds
+ * 
+ * @return bool if operation was successful
+ */
 
+function add_email_verification(string $login, string $email, string $hash, int $ttl = 7200) {
+	$dbh = &get_db();
+	$return_val = false;
+	if (DBO_DEBUG) {
+		echo "<pre>INSERT INTO email_verifications (login, email, hash, expires) ";
+		echo "VALUES($login, $email, $hash, DATE_ADD(NOW(), INTERVAL $ttl SECOND))";
+		echo "</pre>";
+	}
+	$stmt = $dbh->prepare(
+		'INSERT INTO email_verifications (login, email, hash, expires) ' .
+		'VALUES (:login, :email, :hash, DATE_ADD(NOW(), INTERVAL :expires SECOND))'
+	);
+	$stmt->bindParam(':login', $login);
+	$stmt->bindParam(':email', $email);
+	$stmt->bindParam(':hash', $hash);
+	$stmt->bindParam(':expires', $ttl);
+	if ($stmt->execute()) {
+		$return_val = true;
+	}
+	$stmt = null;
+	$dbh = null;
+	return $return_val;
+}
+
+/**
+ * Check if we can send another email to the user
+ * @param string $login username
+ * 
+ * @return int 0 for false, 1 for true
+ */
+function can_send_email_again(string $login)
+{
+	global $EMAIL_COOLDOWN;
+	$dbh = &get_db();
+	$return_val = null;
+	if (DBO_DEBUG) {
+		echo "<pre>";
+		echo "SELECT DATE_ADD(last_sent, INTERVAL $EMAIL_COOLDOWN SECOND) < NOW() ";
+		echo "FROM email_verifications WHERE LOGIN=$login ORDER BY last_sent DESC LIMIT 1";
+		echo "</pre>";
+	}
+	$stmt = $dbh->prepare('SELECT DATE_ADD(last_sent, INTERVAL :cooldown SECOND) < NOW() '.
+		'AS can_send_email_again FROM email_verifications ' .
+		'WHERE LOGIN=:login ORDER BY last_sent DESC LIMIT 1'
+	);
+	$stmt->bindParam(':login', $login);
+	$stmt->bindParam(':cooldown', $EMAIL_COOLDOWN);
+	if ($stmt->execute()) {
+		$return_val = $stmt->fetch(PDO::FETCH_ASSOC)["can_send_email_again"];
+	}
+	if ($return_val == null) {
+		$return_val = 1; // first time send
+	}
+	if (DBO_DEBUG) {
+		echo "<pre>";
+		echo "can_send_email_again = $return_val";
+		echo "</pre>";
+	}
+	$stmt = null;
+	$dbh = null;
+	return $return_val;
+}
+
+function try_verify_email(string $token, string $login, string $email)
+{
+	$dbh = &get_db();
+	$return_val = 0;
+	if (DBO_DEBUG) {
+		echo "<pre>";
+		echo "FROM email_verifications WHERE hash=$token AND email=$email AND login=$login";
+		echo "</pre>";
+	}
+	$stmt = $dbh->prepare("SELECT COUNT(*) >= 1 AS verified FROM email_verifications WHERE hash=:token AND email=:email AND login=:login");
+	$stmt->bindParam(':login', $login);
+	$stmt->bindParam(':email', $email);
+	$stmt->bindParam(':token', $token);
+	if ($stmt->execute()) {
+		$return_val = $stmt->fetch(PDO::FETCH_ASSOC)["verified"];
+	}
+	if ($return_val != TRUE) {
+		return $return_val;
+	}
+	$stmt = null;
+	$stmt = $dbh->prepare("UPDATE users SET is_email_verified=1 WHERE login=:login");
+	$stmt->bindParam(':login', $login);
+	if (!$stmt->execute()) {
+		$return_val = 0;
+	}
+	return $return_val;
+}
 /*
  * Build DOM content for optional XML API.  An application can call upon 
  * this using $LSP_URL/web_resources.php.  At the time of the LSP upgrade (2014) no 
@@ -1170,6 +1280,8 @@ function get_subcategory_id($category_id, $subcategory) {
  */
 function get_user_id($login) { return get_id_by_object('users', 'login', $login); }
 function get_user_realname($login) { return get_object_by_id('users', get_user_id($login), 'realname'); }
+function get_user_email($login) { return get_object_by_id('users', get_user_id($login), 'email'); }
+function get_if_user_email_verified($login) { return get_object_by_id('users', get_user_id($login), 'is_email_verified'); }
 function get_file_name($file_id){ return get_object_by_id('files', $file_id, 'filename'); }
 function get_file_owner($file_id) {	return get_object_by_id('files', $file_id, 'user_id'); }
 function get_file_description($file_id) { return get_object_by_id('files', $file_id, 'description'); }

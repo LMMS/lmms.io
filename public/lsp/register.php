@@ -8,7 +8,7 @@ global $LSP_URL;
 /*
  * Adds the specified user to the database
  */
-function try_add_user($login , $pass, $pass2, $realname, $session, $is_admin, $antispam) {
+function try_add_user($login, $email, $pass, $pass2, $realname, $session, $is_admin, $antispam) {
 	$return_val = false;
 	// Help prevent robot registrations
 	if (!check_antispam($antispam)) {
@@ -17,12 +17,12 @@ function try_add_user($login , $pass, $pass2, $realname, $session, $is_admin, $a
 		display_error("Invalid session.");
 	} else if ($pass != $pass2) {
 		display_warning("Password mismatch");
-	} else if($realname == '' || $pass == '' || $pass2 == '' || $login == '') {
+	} else if($realname == '' || $pass == '' || $pass2 == '' || $login == '' || $email == '') {
 		display_warning("Please fill out all fields");
 	} else if(get_user_id($login) > 0) {
 		display_error("The user <strong>$login</strong> already exists.");
 	} else {
-		add_user($login, $realname, $pass, $is_admin);
+		add_user($login, $email, $realname, $pass, $is_admin);
 		$return_val = display_success("<strong>$login</strong> has been successfully created");
 	}
 	return $return_val;
@@ -48,7 +48,7 @@ $control = POST("control", false);
 /*
  * Create the HTML form used for registration
  */
-if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), POST("session"), $control, POST("antispam")))) {
+if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("email"), POST("password"), POST("password2"), POST("realname"), POST("session"), $control, POST("antispam")))) {
 	echo '<div class="col-md-9">';
 	$form = new form($LSP_URL . '?action=register', 'Register', 'fa-list-alt'); ?>
 	<div class="form-group">
@@ -57,6 +57,9 @@ if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("passw
 	</div><div class="form-group">
 	<label for="login">Username</label>
 	<input type="text" name="login" class="form-control" maxlength="16" placeholder="username" />
+	</div><div class="form-group">
+	<label for="realname">Email address</label>
+	<input type="email" name="email" class="form-control" maxlength="64" placeholder="email address" />
 	</div><div class="form-group">
 	<label for="password">Password</label>
 	<input type="password" name="password" class="form-control" maxlength="20" placeholder="password" />

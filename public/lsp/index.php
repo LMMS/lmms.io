@@ -46,6 +46,8 @@ function process_params() {
 			// Process built-in functions
 			switch ($func . ":" . GET($func)) {
 				case 'comment:add' : require ("./comment_file.php"); return;
+				case 'email:send' : require ("./send_email.php"); return;
+				case 'email:verify' : require ("./verify_email.php"); return;
 				case 'content:add' : require ("./add_file.php"); return;
 				case 'content:update' : require ("./edit_file.php"); return;
 				case 'content:delete' : require ("./delete_file.php"); return;
