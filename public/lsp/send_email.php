@@ -54,7 +54,7 @@ function generate_email(string $login) {
         $hash = generate_email(SESSION());
         try {
             send_message(get_user_email(SESSION()), "LMMS Sharing Platform Email Verify Message", $hash);
-        } catch (Error $e) {
+        } catch (Throwable $e) {
             $hash = null;
             $error_log = $e->getMessage();
         }

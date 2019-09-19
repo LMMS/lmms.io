@@ -3,7 +3,7 @@
 	"description": "New website for LMMS",
 	"type": "project",
 	"require": {
-		"php": ">=5.6.0",
+		"php": ">=7.0.0",
 		"ext-gd": "*",
 		"ext-intl": "*",
 		"ext-gettext": "*",
