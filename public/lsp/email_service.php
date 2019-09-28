@@ -15,7 +15,7 @@ function generate_token(string $login, string $email) {
     return null;
 }
 
-function generate_link(string $login)
+function generate_link(string $login, string $action = "email=verify")
 {
     global $LSP_URL, $LSP_URL_ROOT;
     $email = get_user_email($login);
@@ -23,14 +23,15 @@ function generate_link(string $login)
     if ($token === null) {
         return null;
     }
-    return "$LSP_URL_ROOT?email=verify&t=$token&u=" . urlencode($login) . "&m=" . urlencode($email);
+    return "$LSP_URL_ROOT?" . $action . "&t=$token&u=" . urlencode($login) . "&m=" . urlencode($email);
 }
 
-function generate_email(string $login) {
+function generate_email(string $login, bool $register = true) {
     global $app;
     return $app['twig']->render('email-template.twig', [
         'name' => $login,
-        'link' => generate_link($login)
+        'link' => generate_link($login, $register ? "email=verify" : "account=forget"),
+        'register' => $register
     ]);
 }
 
