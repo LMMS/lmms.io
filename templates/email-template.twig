@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="{{locale}}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LMMS | LMMS Sharing Platform</title>
+
+        <meta name="description" content="LMMS is a free, open source, multiplatform digital audio workstation.">
+        <link rel="icon" type="image/png" href="/img/logo_sm.png">
+        {{ head|raw }}
+    </head>
+    <body role="document">
+        <style>
+        .btn:hover {
+            color: #706d6d !important;
+            background-color: #fff !important;
+        }
+        </style>
+        <div style="color: #fff;background: url('https://lmms.io/img/hexagon.png'),#10b146;background-position: right bottom,0px -50px;background-size: auto 80%, auto;background-repeat: repeat;min-height: 50vh;">
+            <div style="padding-right: 15px;padding-left: 15px;margin-right: auto;margin-left: auto;width: 680px;">
+                <p>Hi {{ name }}:</p>
+                Welcome to LMMS Sharing Platform! Please press the button below to verify your email address and complete your registration.
+                <p>&nbsp;</p>
+                <a href="{{ link | raw }}" class="btn"style="cursor: pointer;padding: 6px 12px;background: none;border: 2px solid #fff;color: #fff;border-radius: 8px;transition: all .15s linear">Verify Now</a>
+                <br><br>
+                <p>Thanks,<br>
+                    LMMS Team</p>
+            </div>
+        </div>
+    </body>
+</html>

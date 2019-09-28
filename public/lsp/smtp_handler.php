@@ -3,6 +3,8 @@ require_once('utils.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/../vendor/autoload.php');
 use Zend\Mail\Transport\Smtp as SmtpTransport;
 use Zend\Mail\Transport\SmtpOptions;
+use Zend\Mime\Message as MimeMessage;
+use Zend\Mime\Part as MimePart;
 use Zend\Mail\Message;
 
 /*
@@ -54,11 +56,15 @@ $transport->setOptions($options);
 function send_message(string $email, string $subject, string $message)
 {
     global $transport, $SMTP_FROM;
+    $html = new MimePart($message);
+    $html->type = "text/html";
+    $body = new MimeMessage();
+    $body->setParts(array($html));
     $packet = new Message();
     $packet->addFrom($SMTP_FROM);
     $packet->addTo($email);
     $packet->setSubject($subject);
-    $packet->setBody($message);
+    $packet->setBody($body);
     $transport->send($packet);
 }
 ?>

@@ -3,6 +3,7 @@ require_once('utils.php');
 require_once('dbo.php');
 require_once('xhtml.php');
 require_once('smtp_handler.php');
+require_once('../app.php');
 global $transport, $SMTP_FROM, $LSP_URL_ROOT;
 global $LSP_URL;
 
@@ -28,7 +29,11 @@ function generate_link(string $login)
 }
 
 function generate_email(string $login) {
-    return "Hi, ${login}!\nYour verification link is " . generate_link($login) . "\nThanks,\nLMMS Team";
+    global $app;
+    return $app['twig']->render('email-template.twig', [
+        'name' => $login,
+        'link' => generate_link($login)
+    ]);
 }
 ?>
 
