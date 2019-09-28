@@ -41,6 +41,13 @@ function generate_email(string $login) {
     <?php
         $settings_url = $LSP_URL . "?account=settings";
         $error_log = "Unknown error";
+        if (SESSION() == null) {
+            display_error("Please login first.",
+            array("<a href=\"#\">User Settings</a>"),
+            $LSP_URL
+            );
+            return;
+        }
         if (get_if_user_email_verified(SESSION()) == 1) {
             display_success("You have already verified your email address, no need to do anything.",
             array("<a href=\"$settings_url\">User Settings</a>"),
