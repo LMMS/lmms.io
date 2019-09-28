@@ -2,6 +2,7 @@
 require_once('utils.php');
 require_once('dbo.php');
 require_once('xhtml.php');
+require_once('email_service.php');
 
 global $LSP_URL;
 
@@ -23,7 +24,9 @@ function try_add_user($login, $email, $pass, $pass2, $realname, $session, $is_ad
 		display_error("The user <strong>$login</strong> already exists.");
 	} else {
 		add_user($login, $email, $realname, $pass, $is_admin);
-		$return_val = display_success("<strong>$login</strong> has been successfully created");
+		if(send_email($login) === true) {
+			$return_val = display_success("<strong>$login</strong> has been successfully created.<br />An email with activation link has been sent to your email address.");
+		}
 	}
 	return $return_val;
 }
