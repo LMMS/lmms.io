@@ -16,6 +16,14 @@ function apply_settings($password, $password2, $realname, $email) {
 	}
 }
 
+if (SESSION() == null) {
+	display_error("Please login first.",
+	array("<a href=\"#\">User Settings</a>"),
+	$LSP_URL, 5
+	);
+	return;
+}
+
 if ((POST('settings') != "apply" ) || (!apply_settings(POST('password'), POST('password2'), POST('realname'), POST('email')))) {
 	echo '<div class="col-md-9">';
 	create_title('<a href="">User Settings</a>');
