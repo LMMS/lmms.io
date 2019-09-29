@@ -35,7 +35,7 @@ function reset_password(string $token, string $login, string $email, $pass, $pas
         change_user($login, get_user_realname($login), $pass, $email);
         display_success('Password changed successfully!');
     } else {
-        display_error('Invalid or expired verification link.');
+        display_error('Invalid or expired password reset link.');
     }
 }
 ?>
