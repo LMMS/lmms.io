@@ -44,16 +44,5 @@ function send_email(string $login) {
         $hash = null;
         $error_log = $e->getMessage();
     }
-    if ($hash !== null) {
-        display_success("An email with activation link has been sent to your email address.",
-        array("<a href=\"$settings_url\">User Settings</a>"),
-        $settings_url);
-    } else {
-        display_error("Server internal error. Please contact <a href=\"mailto:webmaster@lmms.io" . 
-        "?subject=LSP Email Service&body=FYI: Email System Problem: $error_log\">webmaster@lmms.io</a>.",
-        array("<a href=\"$settings_url\">User Settings</a>"),
-        $settings_url
-        );
-    }
 }
 ?>

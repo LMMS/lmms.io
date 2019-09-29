@@ -31,6 +31,16 @@ require_once('email_service.php');
             $settings_url);
             return;
         }
-        send_email(SESSION());
+        if (send_email(SESSION()) == true) {
+            display_success("An email with activation link has been sent to your email address.",
+            array("<a href=\"$settings_url\">User Settings</a>"),
+            $settings_url);
+        } else {
+            display_error("Server internal error. Please contact <a href=\"mailto:webmaster@lmms.io" . 
+            "?subject=LSP Email Service&body=FYI: Email System Problem: $error_log\">webmaster@lmms.io</a>.",
+            array("<a href=\"$settings_url\">User Settings</a>"),
+            $settings_url
+            );
+        }
     ?>
 </div>
