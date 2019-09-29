@@ -26,13 +26,14 @@
                 You have requested a password reset. Please press the button below to reset your password.
                 {% endif %}
                 <p>&nbsp;</p>
-                <a href="{{ link | raw }}" class="btn"style="cursor: pointer;padding: 6px 12px;background: none;border: 2px solid #fff;color: #fff;border-radius: 8px;transition: all .15s linear">
+                <a href="{{ link | raw }}" class="btn" style="cursor: pointer;padding: 6px 12px;background: none;border: 2px solid #fff;color: #fff;border-radius: 8px;transition: all .15s linear;text-decoration: none;">
                 {% if register %}
                 Verify Now
                 {% else %}
                 Reset Password
                 {% endif %}
                 </a>
+                <p>If you can't find or press the button above, please copy and paste this link: <code>{{ link | raw}}</code> into your browser.</p>
                 <br><br>
                 <p>Thanks,<br>
                     LMMS Team</p>
