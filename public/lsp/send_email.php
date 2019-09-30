@@ -16,6 +16,13 @@ require_once('email_service.php');
             );
             return;
         }
+        if (!get_user_email(SESSION())) {
+            display_error("Your email address is empty, please enter a valid email address.",
+            array("<a href=\"$settings_url\">User Settings</a>"),
+            $settings_url
+            );
+            return;
+        }
         if (get_if_user_email_verified(SESSION()) == 1) {
             display_success("You have already verified your email address, no need to do anything.",
             array("<a href=\"$settings_url\">User Settings</a>"),
@@ -38,8 +45,7 @@ require_once('email_service.php');
         } else {
             display_error("Server internal error. Please contact <a href=\"mailto:webmaster@lmms.io" . 
             "?subject=LSP Email Service&body=FYI: Email System Problem: $error_log\">webmaster@lmms.io</a>.",
-            array("<a href=\"$settings_url\">User Settings</a>"),
-            $settings_url
+            array("<a href=\"$settings_url\">User Settings</a>")
             );
         }
     ?>

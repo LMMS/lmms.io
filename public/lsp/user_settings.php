@@ -39,11 +39,15 @@ if ((POST('settings') != "apply" ) || (!apply_settings(POST('password'), POST('p
 	</div>
 	<div class="form-group">
 	<label for="realname">Email address:</label>
-	<input type="email" name="email" class="form-control" value="<?php echo get_user_email(SESSION()); ?>" />
+	<input type="email" name="email" class="form-control" value="<?php echo get_user_email(SESSION()); ?>" required />
 	<p class="help-block">
 		<?php
 			echo '<div class="alert alert-';
-			if (get_if_user_email_verified(SESSION()) < 1) {
+			if (!get_user_email(SESSION())) {
+				echo 'danger">';
+				echo '<span class="fas fa-exclamation-circle"></span>&nbsp;Email address not provided.&nbsp;';
+			}
+			else if (get_if_user_email_verified(SESSION()) < 1) {
 				echo 'danger">';
 				echo '<span class="fas fa-exclamation-circle"></span>&nbsp;Email address not yet verified.&nbsp;';
 				echo '<a href="' . $LSP_URL . '/?email=send">Verify email</a>';
