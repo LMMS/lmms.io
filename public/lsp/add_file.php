@@ -38,9 +38,8 @@ if (!SESSION_EMPTY()) {
 				return;
 			}
 			if (get_if_user_email_verified(SESSION()) == 0) {
-				display_error("User email verification is required to upload file onto LSP. <a href=\"$LSP_URL?email=send\">Click here to verify your email address.</a>",
-					array('<a href="">Add File</a>', 'Error'),
-					$LSP_URL . '?content=add');
+				display_error("User email verification is required to upload file onto LSP. <a href=\"$LSP_URL?account=settings\">Click here to verify your email address.</a>",
+					array('<a href="">Add File</a>', 'Error'));
 				return;
 			}
 			$file_extension = parse_extension($file_path);
