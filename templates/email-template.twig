@@ -1,43 +1,90 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="{{locale}}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>LMMS | LMMS Sharing Platform</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LMMS | LMMS Sharing Platform</title>
+    <meta name="description" content="LMMS is a free, open source, multiplatform digital audio workstation.">
+    {{ head|raw }}
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css?family=Orbitron|Roboto:400,700&display=swap');
+      /* Resets for email clients */
+      #outlook a { padding:0; }
+      body{ width:100% !important; -webkit-text; size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0; }
+      .ReadMsgBody { width: 100%; }
+      .ExternalClass {width:100%;}
+      .backgroundTable {margin:0 auto; padding:0; width:100%;!important;}
+      table td {border-collapse: collapse;}
+      .ExternalClass * {line-height: 115%;}
 
-        <meta name="description" content="LMMS is a free, open source, multiplatform digital audio workstation.">
-        <link rel="icon" type="image/png" href="/img/logo_sm.png">
-        {{ head|raw }}
-    </head>
-    <body role="document">
-        <style>
-        .btn:hover {
-            color: #706d6d !important;
-            background-color: #fff !important;
-        }
-        </style>
-        <div style="color: #fff;background: url('https://lmms.io/img/hexagon.png'),#10b146;background-position: right bottom,0px -50px;background-size: auto 80%, auto;background-repeat: repeat;min-height: 50vh;">
-            <div style="padding-right: 15px;padding-left: 15px;margin-right: auto;margin-left: auto;width: 680px;">
-                <p>Hi {{ name }}:</p>
+      @media screen and (max-width: 520px){
+        *[class="center"] {text-align:center !important; width:100% !important; height:auto !important;}
+        /* 100percent width section with 20px padding left & right */
+        *[class="100padlr"] {width:100% !important; padding:0 10px 0 10px;}
+      }
+      .btn:hover {background-color: #0ed851 !important;}
+
+    </style>
+  </head>
+  <body role="document" style="padding:0; margin:0">
+  <table border="0" cellpadding="0" cellspacing="0" bgcolor="#f7f7f7" style="margin: 0; padding: 20px 0; background: #f7f7f7;" width="100%">
+    <tr>
+      <td align="center" valign="top">
+        <table width="500px" cellspacing="0" cellpadding="0" bgcolor="#f7f7f7" class="100padlr">
+          <tr>
+            <td bgcolor="#10b146" style="color:#fff; margin:0; width:100%; background:url('https://lmms.io/img/hexagon.png'),#10b146; background-position:left bottom,0px -50px; background-repeat:repeat; border-radius:8px 8px 0 0;">
+              <table>
+                <tr>
+                  <td><img src="https://lmms.io/img/clear-lmms-logo-64@2.png" alt="Logo" style="width:64px;"></td>
+                  <td style="font-family: 'Orbitron', Verdana, sans-serif; font-size: 30px; letter-spacing: 1px; line-height: 64px;"><font face="'Orbitron', Verdana, sans-serif">LSP</font></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#ffffff" style="font-family: 'Roboto', Verdana, sans-serif; font-size: 18px; padding: 10px 20px 0px 20px;">
+              <font face="'Roboto', Verdana, sans-serif">
+                <p>Hi {{ name }},</p>
                 {% if register %}
-                Welcome to LMMS Sharing Platform! Please press the button below to verify your email address and complete your registration.
+                <p>Welcome to LMMS Sharing Platform! </p>
+                <p>Please press the button below to verify your email address and complete your registration.</p>
                 {% else %}
-                You have requested a password reset. Please press the button below to reset your password.
+                <p>You have requested a password reset.</p>
+                <p>Please press the button below to reset your password.</p>
                 {% endif %}
-                <p>&nbsp;</p>
-                <a href="{{ link | raw }}" class="btn" style="cursor: pointer;padding: 6px 12px;background: none;border: 2px solid #fff;color: #fff;border-radius: 8px;transition: all .15s linear;text-decoration: none;">
-                {% if register %}
-                Verify Now
-                {% else %}
-                Reset Password
-                {% endif %}
-                </a>
-                <p>If you can't find or press the button above, please copy and paste this link: <code>{{ link | raw}}</code> into your browser.</p>
-                <br><br>
-                <p>Thanks,<br>
-                    LMMS Team</p>
-            </div>
-        </div>
-    </body>
+                <p class="center" style="text-align:center; padding: 10px 0;">
+                  <a href="{{ link | raw }}" class="btn" style="cursor: pointer; padding: 10px 20px; margin: 0 auto; background: #10b146;color: #fff;border-radius: 4px; font-size: 20px; text-decoration: none;">
+                  {% if register %}
+                  Verify Now
+                  {% else %}
+                  Reset Password
+                  {% endif %}
+                  </a>
+                </p>
+              </font>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#d6f5e0" style="font-family: 'Roboto', Verdana, sans-serif; font-size: 20px; padding: 0 20px;">
+              <font face="'Roboto', Verdana, sans-serif">
+                <p style="font-size: 16px;">If you can't find or press the button above, please copy and paste this link: <code>{{ link | raw }}</code> into your browser.</p>
+              </font>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#b3e6c3" style="font-size: 12px; text-align:center;font-weight: bold; border-radius:0 0 8px 8px; color: #1f212b">
+              <font face="'Roboto', Verdana, sans-serif">
+                <p>LMMS team • <a style="color:#2e3592; text-decoration:none;" href="https://lmms.io">lmms.io</a></p>
+              </font>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  </body>
 </html>
