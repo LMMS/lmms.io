@@ -11,12 +11,13 @@ function send_reset_email(string $email, string $login) {
     array("<a href=\"#\">User Settings</a>"),
     $LSP_URL);
     if(get_user_email($login) === $email) {
-        $hash = generate_email($login, false);
+        $html_mail = generate_email($login, false);
+        $plain_mail = generate_email_plain($login, false);
         try {
-            send_message(get_user_email($login), "LMMS Sharing Platform Password Recovery", $hash);
+            send_message(get_user_email($login), "LMMS Sharing Platform Password Recovery", $html_mail, $plain_mail);
             return true;
         } catch (Throwable $e) {
-            $hash = null;
+            $html_mail = null;
             $error_log = $e->getMessage();
         }
     } else {

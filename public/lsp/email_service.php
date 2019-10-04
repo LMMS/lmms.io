@@ -35,10 +35,25 @@ function generate_email(string $login, bool $register = true) {
     ]);
 }
 
+function generate_email_plain(string $login, bool $register = true) {
+    $message = "Hi $login,\r\n\r\n";
+    if ($register) {
+        $message .= "Welcome to LMMS Sharing Platform!\r\n";
+        $message .= "Please visit the link below to verify your email address and complete your registration.";
+    } else {
+        $message .= "You have requested a password reset.\r\n";
+        $message .= "Please visit the link below to reset your password.";
+    }
+    $message .= "\r\n\r\n" . generate_link($login, $register ? "email=verify" : "account=forget");
+    $message .= "\r\n\r\nThanks,\r\nLMMS Team";
+    return $message;
+}
+
 function send_email(string $login) {
-    $hash = generate_email($login);
+    $html_mail = generate_email($login);
+    $plain_mail = generate_plain_email($login);
     try {
-        send_message(get_user_email($login), "LMMS Sharing Platform Email Verify Message", $hash);
+        send_message(get_user_email($login), "LMMS Sharing Platform Email Verify Message", $html_mail, $plain_mail);
         return true;
     } catch (Throwable $e) {
         $hash = null;

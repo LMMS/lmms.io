@@ -53,13 +53,18 @@ $options   = new SmtpOptions([
 $transport->setOptions($options);
 
 
-function send_message(string $email, string $subject, string $message)
+function send_message(string $email, string $subject, string $message, string $fallback = null)
 {
     global $transport, $SMTP_FROM;
     $html = new MimePart($message);
     $html->type = "text/html";
     $body = new MimeMessage();
     $body->setParts(array($html));
+    if (fallback) {
+        $txt = new MimePart($fallback);
+        $txt->type = "text/plain";
+        $body->setParts(array($txt));
+    }
     $packet = new Message();
     $packet->addFrom($SMTP_FROM);
     $packet->addTo($email);
