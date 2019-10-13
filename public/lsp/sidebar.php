@@ -77,7 +77,7 @@ switch (GET('action')) {
 					<input type="hidden" name="oldaction" value="<?php echo GET('action');?>" />
 					</form>
 					<a href="?action=register"><span class="fas fa-chevron-circle-right"></span>&nbsp;Not registered yet?</a><br />
-					<a href="?account=forget"><span class="fas fa-chevron-circle-right"></span>&nbsp;Forget password?</a>
+					<a href="?account=forget"><span class="fas fa-chevron-circle-right"></span>&nbsp;Forgot password?</a>
 				</div>
 			<?php
 			} else {
