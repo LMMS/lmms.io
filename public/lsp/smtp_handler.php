@@ -60,7 +60,7 @@ function send_message(string $email, string $subject, string $message, string $f
     $html->type = "text/html";
     $body = new MimeMessage();
     $body->setParts(array($html));
-    if (fallback) {
+    if ($fallback) {
         $txt = new MimePart($fallback);
         $txt->type = "text/plain";
         $body->setParts(array($txt));
