@@ -51,7 +51,7 @@ function generate_email_plain(string $login, bool $register = true) {
 
 function send_email(string $login) {
     $html_mail = generate_email($login);
-    $plain_mail = generate_plain_email($login);
+    $plain_mail = generate_email_plain($login);
     try {
         send_message(get_user_email($login), "LMMS Sharing Platform Email Verify Message", $html_mail, $plain_mail);
         return true;

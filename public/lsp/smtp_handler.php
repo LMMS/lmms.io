@@ -59,17 +59,23 @@ function send_message(string $email, string $subject, string $message, string $f
     $html = new MimePart($message);
     $html->type = "text/html";
     $body = new MimeMessage();
-    $body->setParts(array($html));
+    $fragments = array($html);
     if ($fallback) {
         $txt = new MimePart($fallback);
         $txt->type = "text/plain";
-        $body->setParts(array($txt));
+        // place the fallback message in front of the html message
+        array_unshift($fragments, $txt);
     }
+    $body->setParts($fragments);
     $packet = new Message();
     $packet->addFrom($SMTP_FROM);
     $packet->addTo($email);
     $packet->setSubject($subject);
     $packet->setBody($body);
+    if ($fallback) {
+        $contentTypeHeader = $packet->getHeaders()->get('Content-Type');
+        $contentTypeHeader->setType('multipart/alternative');
+    }
     $transport->send($packet);
 }
 ?>
