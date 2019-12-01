@@ -1,32 +1,6 @@
 <?php
 require_once('../vendor/autoload.php');
-require_once('../lib/RemWiki/RemWiki.php');
 require_once('../lib/Releases.php');
-
-/* Documentation page */
-function documentationPage($page=null)
-{
-	global $app;
-	try {
-		$wiki = new RemWiki\RemWiki(get_protocol() . 'lmms.io/wiki/');
-
-		if ($page === null or $page === '') {
-			$page = 'Main_Page';
-		}
-
-		$json = $wiki->parse($page);
-	} catch (Exception $e) {
-		error_log($e);
-		return $app['twig']->render('errorpage.twig', [
-			'message' => 'Something went wrong while fetching wiki data',
-			'code' => '500'
-		]);
-	}
-	return $app['twig']->render('documentation.twig', [
-		'json' => $json,
-		'text' => $json['text']['*']
-	]);
-}
 
 /* Downloads page */
 function downloadPage()
