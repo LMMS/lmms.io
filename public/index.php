@@ -14,9 +14,6 @@ function twigrender($file)
 require_once('../views.php');
 $pages = [
 	['/', 'homePage'],
-	['/documentation/', function () use ($app) {
-		return $app->redirect('https://lmms.gitbook.io/user-manual/');
-	}],
 	['/download/', 'downloadPage'],
 //	['/download/samples/', twigrender('download/samples.twig')],
 	['/get-involved/', twigrender('get-involved.twig')],
