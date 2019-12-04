@@ -40,3 +40,48 @@
 	{% import _self as macros %}
 	{{ macros.icon_stack('fa-square', false, "#{icon} fa-inverse", brand, class , tooltip ) }}
 {% endmacro %}
+
+{% macro create_artwork_item(artwork_name, img_path, raw_path, rendered_path, author_name = '', author_link = '', modified_by = '') %}
+	{% import _self as macros %}
+	<img class="art-thumb" src="{{img_path}}">
+	<h3>{{artwork_name}}</h3>
+	{% set buttons = [raw_path, rendered_path] %}
+	{% if author_name %}
+		<p><strong>{% trans %}Author:{% endtrans %} </strong><a href="{{author_link}}">{{author_name}}</a><br>
+	{% else %}
+		<p>
+	{% endif %}
+	{% if modified_by %}
+		<strong>{% trans %}Modified/Themed By:{% endtrans %} </strong>{{modified_by}}</p>
+	{% else %}
+		</p>
+	{% endif %}
+	{% for button in buttons %}
+		{% if button %}
+			{% set file_name = button|split('/')|last %}
+			{% set extension = file_name|split('.')|last %}
+			<a target="_blank" class="btn btn-default" href="{{button}}" download>
+				<span class="fas fa-image"></span> {{file_name}} <br><small>({{macros.get_file_description(extension)|trim}})</small>
+			</a>&nbsp; 
+		{% endif %}
+	{% endfor %}
+	<br><br><hr><br><br>
+{% endmacro %}
+
+{% macro get_file_description(extension) %}
+	{% set descriptions = {
+		'svg' : 'Scalable Vector Format'|trans,
+		'png' : 'PNG Format'|trans,
+		'xcf' : 'Gimp Image Editor Format'|trans,
+		'pdf' : 'Portable Document Format'|trans,
+		'psd' : 'Adobe Photoshop Format'|trans,
+		'png' : 'PNG Format'|trans,
+		'jpg' : 'JPEG Format'|trans,
+		'jpeg': 'JPEG Format'|trans,
+		'bmp' : 'Bitmap Format'|trans,
+		'ico' : 'Windows Icon Format'|trans,
+		'icns': 'Apple Icon Format'|trans,
+		} 
+	%}
+	{{descriptions[extension]|default("Unknown File")}}
+{% endmacro %}

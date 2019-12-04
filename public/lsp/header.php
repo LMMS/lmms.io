@@ -1,6 +1,6 @@
 <?php
-require_once('../app.php');
-echo $app['twig']->render('head.twig');
+// require_once('../app.php');
+// echo $app['twig']->render('head.twig');
 ?>
 <div class="jumbotron mini">
 	<div class="container">

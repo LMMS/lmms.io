@@ -5,7 +5,7 @@
 {% block content %}
 {{ macros.jumbo('Branding'|trans, 'Download LMMS Artwork'|trans)}}
 <div class="container">
-	{{ create_artwork_item(
+	{{ macros.create_artwork_item(
 		'LMMS Logo'|trans,
 		'../../img/logo_md.png',
 		'http://raw.githubusercontent.com/LMMS/artwork/master/src/icon.svg',
@@ -14,7 +14,7 @@
 		'http://hdche.tumblr.com',
 		'LMMS Development Team'|trans) }}
 
-	{{ create_artwork_item(
+	{{ macros.create_artwork_item(
 		'LMMS Project Icon'|trans,
 		'../../img/project_md.png',
 		'http://raw.githubusercontent.com/LMMS/artwork/master/src/mmpz_file_icon.svg',
