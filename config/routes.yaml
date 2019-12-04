@@ -9,7 +9,7 @@ chat:
       path: 'https://discord.gg/PruNxpG'
       permanent: true
 
-doc:
+documentation:
    path: /documentation
    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
    defaults:
