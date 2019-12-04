@@ -10,7 +10,9 @@ class Releases
 	{
 		$this->cache = new FilesystemAdapter();
 		$this->client = new \Github\Client();
-		$this->client->addCache($this->cache);
+		$this->client->addCache($this->cache, [
+			'default_ttl' => 1800
+		]);
 		$this->json = $this->client->api('repo')->releases()->all($owner, $repo);
 		usort($this->json, function ($a, $b) {
 			return version_compare($b['tag_name'], $a['tag_name']);
