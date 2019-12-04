@@ -1,6 +1,6 @@
 <?php
 namespace LMMS;
-require_once('../public/utils.php');
+require_once($_SERVER["DOCUMENT_ROOT"] . '/../public/utils.php');
 /**
  * Class representing an item in the navbar. This class is not intended to be
  * used directly
