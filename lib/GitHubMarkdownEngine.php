@@ -13,7 +13,9 @@ class GitHubMarkdownEngine implements MarkdownEngineInterface
 	{
 		$this->cache = new FilesystemAdapter();
 		$this->client = new \Github\Client();
-		$this->client->addCache($this->cache);
+		$this->client->addCache($this->cache, [
+			'default_ttl' => 7200
+		]);
 	}
 
 	public function transform($content)
