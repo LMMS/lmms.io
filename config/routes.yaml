@@ -1,0 +1,25 @@
+index:
+   path: /
+   controller: App\Controller\IndexController::homepage
+
+chat:
+   path: /chat
+   controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+   defaults:
+      path: 'https://discord.gg/PruNxpG'
+      permanent: true
+
+doc:
+   path: /documentation
+   controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+   defaults:
+      path: 'https://docs.lmms.io/user-manual/'
+      permanent: true
+
+download:
+   path: /download
+   controller: App\Controller\DownloadController::page
+
+portal_pages:
+   path: /{page}
+   controller: App\Controller\PortalController::page

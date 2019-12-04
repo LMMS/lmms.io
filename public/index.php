@@ -1,50 +1,27 @@
 <?php
-require_once('force-https.php');
-require_once('app.php');
-use Symfony\Component\HttpFoundation\Response;
 
-function twigrender($file)
-{
-	global $app;
-	return function() use ($app, $file) {
-		return $app['twig']->render($file);
-	};
+use App\Kernel;
+use Symfony\Component\ErrorHandler\Debug;
+use Symfony\Component\HttpFoundation\Request;
+
+require dirname(__DIR__).'/config/bootstrap.php';
+
+if ($_SERVER['APP_DEBUG']) {
+    umask(0000);
+
+    Debug::enable();
 }
 
-require_once('../views.php');
-$pages = [
-	['/', 'homePage'],
-	['/documentation/', 'documentationPage'],
-	['/documentation/{page}', 'documentationPage'],
-	['/download/', 'downloadPage'],
-//	['/download/samples/', twigrender('download/samples.twig')],
-	['/get-involved/', twigrender('get-involved.twig')],
-	['/showcase/', twigrender('showcase.twig')],
-	['/competitions/', twigrender('competitions.twig')],
-	['/branding/', twigrender('branding.twig')],
-	['/chat/', function () use ($app) {
-		return $app->redirect('https://discord.gg/PruNxpG');
-	}]
-];
-
-foreach ($pages as $page) {
-	$app->get($page[0], $page[1]);
+if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? $_ENV['TRUSTED_PROXIES'] ?? false) {
+    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
 }
 
-$app->error(function (\Exception $e, $code) use($app) {
-	switch ($code) {
-		case 404:
-			$message = _('You seem to have taken a wrong turn.');
-			break;
-		default:
-			$message = _('Oops, that is not supposed to happen.');
-	}
+if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false) {
+    Request::setTrustedHosts([$trustedHosts]);
+}
 
-	$GLOBALS['pagetitle'] = _('Yuck, an error!');
-	return $app['twig']->render('errorpage.twig', [
-		'message' => $message,
-		'code' => $code
-	]);
-});
-
-$app->run();
+$kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
+$request = Request::createFromGlobals();
+$response = $kernel->handle($request);
+$response->send();
+$kernel->terminate($request, $response);

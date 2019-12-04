@@ -1,12 +1,10 @@
 <?php
 namespace LMMS;
 
-require_once($_SERVER['DOCUMENT_ROOT'].'/../vendor/autoload.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/feed/json_common.php');
-
-use Cache\Adapter\Apcu\ApcuCachePool;
-use Github\HttpClient\HttpClientInterface;
-use Github\HttpClient\CachedHttpClient;
+// require_once($_SERVER['DOCUMENT_ROOT'].'/../vendor/autoload.php');
+// require_once($_SERVER['DOCUMENT_ROOT'].'/feed/json_common.php');
+// use Github\HttpClient\HttpClientInterface;
+// use Github\HttpClient\CachedHttpClient;
 
 // This CachedHttpClient subclass catches exceptions of requests and tries to return a cache object in case of failure.
 class SafeCachedHttpClient extends \Github\HttpClient\CachedHttpClient

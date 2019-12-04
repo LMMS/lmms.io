@@ -1,0 +1,4 @@
+twig:
+    globals:
+        navbar: '@App\TopNav'
+    default_path: '%kernel.project_dir%/templates'
