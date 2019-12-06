@@ -27,7 +27,7 @@ class MenuItem
 		$this->text = $text;
 		$this->url = $url;
 		$this->children = $children;
-		$this->active = $this->isActive() ? 'active' : '';
+		$this->active = '';
 		$this->rightAlign = $rightAlign;
 	}
 
@@ -37,18 +37,19 @@ class MenuItem
 	 *
 	 * @return bool
 	 */
-	public function isActive()
+	public function isActive(string $req_uri)
 	{
-		$req_uri = $_SERVER["REQUEST_URI"];
 		if ($this->url == '/') {
 			return $this->url == $req_uri;
 		}
 
 		if (str_startswith($req_uri, $this->url)) {
+			$this->active = 'active';
 			return true;
 		} elseif ($this->children) {
 			foreach ($this->children as $child) {
 				if (str_startswith($req_uri, $child[2])) {
+					$this->active = 'active';
 					return true;
 				}
 			}
