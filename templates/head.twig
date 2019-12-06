@@ -33,10 +33,11 @@
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
+			{% import 'navbar.twig' as nav %}
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 				{# flush #}
-					{{ navbar.get().flush() }}
+					{{ nav.build_navbar(uri) }}
 				</ul>
 			</div>
 		</div>
