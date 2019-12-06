@@ -23,18 +23,19 @@ class Navbar
 	/**
 	 * Returns the currently viewed page's title.
 	 */
-	public function activePageTitle()
+	public function activePageTitle(string $pageURI = null)
 	{
 		if (array_key_exists('pagetitle', $GLOBALS))
 		{
 			return $GLOBALS['pagetitle'];
 		}
 
-		$pageURI = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+		if ($pageURI === null)
+			$pageURI = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 		if ($pageURI === '/' or $pageURI === '/index.php') return _('Home');
 
 		foreach ($this->items as $item) {
-			if ($item->isActive()) {
+			if ($item->isActive($pageURI)) {
 				return $item->getTitle();
 			}
 		}
@@ -45,24 +46,6 @@ class Navbar
 	 */
 	public function flush()
 	{
-		?>
-		<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="/"><img class="logo-sm pull-left" height="22px" width="22px" src="/img/brand-icon.png"></img>LMMS</a>
-				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-		<?php
 		foreach ($this->items as $item) {
 			if (!$item->rightAlign) {
 				$item->flush();
@@ -77,12 +60,6 @@ class Navbar
 				$item->flush();
 			}
 		}
-		?>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<?php
 	}
 
 	private $items;
