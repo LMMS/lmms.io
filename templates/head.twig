@@ -1,3 +1,4 @@
+{% import 'navbar.twig' as nav %}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -5,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{% set uri = app.request.pathinfo %}
-	<title>LMMS | {{ navbar.get().activePageTitle(uri) }} </title>
+	<title>LMMS | {{nav.get_active_title(uri)}} </title>
 
 	<meta name="description" content="LMMS is a free, open source, multiplatform digital audio workstation.">
 	<link rel="icon" type="image/png" href="/img/logo_sm.png">
@@ -33,7 +34,6 @@
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			{% import 'navbar.twig' as nav %}
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 				{# flush #}
