@@ -1,16 +1,30 @@
 {% macro build_navbar(current_uri) %}
     {% import 'macros.twig' as macros %}
-    {% set items = [
-        ['Download', '/download'],
-        ['Get Involved', '/get-involved'],
-        [['Documentation', 'Docs'], '/documentation'],
-        ['Forum', '/forum'],
-        [['Sharing Platform', 'Share'], '/lsp'],
-        ['More', null, [
-            ['fa-eye', 'Showcase', '/showcase'],
-            ['fa-trophy', 'Competitions', '/competitions'],
-            ['fa-tags', 'Branding', '/branding']]],
-    ]
-    %}
-    {{ macros.create_navbar(items, current_uri) }}
+    {{ macros.create_navbar(navbar.get(), current_uri) }}
+{% endmacro %}
+
+{% macro get_item_title(item) %}
+    {% if item is iterable %}
+        {{item[0]}}
+    {% else %}
+        {{item}}
+    {% endif %}
+{% endmacro %}
+
+{% macro get_active_title(current_uri) %}
+    {% import _self as nav %}
+    {% if current_uri == '/' or current_uri == '/index.php' %}
+        {% trans %}Home{% endtrans %}
+    {% endif %}
+    {% for item in navbar.get() %}
+        {% if item[1] and current_uri starts with item[1] %}
+            {{nav.get_item_title(item[0])}}
+        {% elseif item[2] is iterable %}
+            {% for child in item[2] %}
+                {% if child[2] and current_uri starts with child[2] %}
+                    {{nav.get_item_title(child[1])}}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
 {% endmacro %}
