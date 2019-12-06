@@ -85,3 +85,61 @@
 	%}
 	{{descriptions[extension]|default("Unknown File")}}
 {% endmacro %}
+
+{% macro print_menu_item(class, text, url, icon = null) %}
+	<li class='{{class}}'><a href='{{url}}'>
+	{% if icon %}
+		<i class='fas {{icon}} fa-fw'></i>
+	{% endif %}
+	{{text}}
+	</a></li>
+{% endmacro %}
+
+{% macro create_navbar_menu_item(text, url, children = null, rightAlign = false, active = '') %}
+	{% import _self as macros %}
+	{% if children is null %}
+	{# Simple menu item. If $text is an array, $text[0] is the title displayed
+		on big screens, $text[1] is the one displayed on smaller screens #}
+		{% if text is iterable %}
+			<li class="{{active}} visible-lg"> <a href="{{url}}">{{text[0]}}</a></li>
+			<li class="{{active}} hidden-lg"> <a href="{{url}}">{{text[1]}}</a></li>
+		{% else %}
+			<li class="{{active}}"> <a href="{{url}}">{{text}}</a></li>
+		{% endif %}
+	{% else %}
+	{# Drop-down items #}
+		<li tabindex='0' class='dropdown hidden-xs'>
+			<a href='#'>{{text}} <span class='caret'></span></a>
+			<ul tabindex='0' class='dropdown-menu pull-right'>
+				{% for key, child in children %}
+					{{macros.print_menu_item('', child[1], child[2], child[0])}}
+				{% endfor %}
+			</ul>
+		</li>
+		<li class='{{active}} visible-xs'>
+			<a href='#' class='dropdown-toggle' data-toggle='dropdown'>{{text}}&nbsp;<i class='caret'></i></a>
+			<ul class="dropdown-menu" role="menu">
+				{% for child in children %}
+					{{macros.print_menu_item('', child[1], child[2], child[0])}}
+				{% endfor %}
+			</ul>
+		</li>
+	{% endif %}
+{% endmacro %}
+
+{% macro create_navbar(items, current_uri = '/') %}
+	{% import _self as macros %}
+	{% for item in items %}
+		{% if not item[3] %}
+			{% set active = item[1] == current_uri ? 'active' : '' %}
+			{{macros.create_navbar_menu_item(item[0], item[1], item[2], false, active)}}
+		{% endif %}
+	{% endfor %}
+	</ul>
+	<ul class="nav navbar-nav navbar-right">
+	{% for item in items %}
+		{% if item[3] %}
+			{{macros.create_navbar_menu_item(item[0], item[1], item[2], true)}}
+		{% endif %}
+	{% endfor %}
+{% endmacro %}

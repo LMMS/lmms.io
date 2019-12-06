@@ -1,0 +1,16 @@
+{% macro build_navbar(current_uri) %}
+    {% import 'macros.twig' as macros %}
+    {% set items = [
+        ['Download', '/download'],
+        ['Get Involved', '/get-involved'],
+        [['Documentation', 'Docs'], '/documentation'],
+        ['Forum', '/forum'],
+        [['Sharing Platform', 'Share'], '/lsp'],
+        ['More', null, [
+            ['fa-eye', 'Showcase', '/showcase'],
+            ['fa-trophy', 'Competitions', '/competitions'],
+            ['fa-tags', 'Branding', '/branding']]],
+    ]
+    %}
+    {{ macros.create_navbar(items, current_uri) }}
+{% endmacro %}
