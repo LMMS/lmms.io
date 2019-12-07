@@ -7,5 +7,4 @@ minimum_perc = 100
 file_filter = public/locale/<lang>/LC_MESSAGES/messages.po
 source_file = public/locale/messages.pot
 source_lang = en
-lang_map = fr:fr_FR, de:de_DE, ja:ja_JP, it:it_IT, cs: cs_CZ, es: es_ES, uk: uk_UA, ar: ar_SA, nl: nl_NL, pl:pl_PL, pt:pt_PT, ru:ru_RU, id:id_ID, sv:sv_SE, ko:ko_KR, gl:gl_ES, eu:eu_ES, ca:ca_ES, nb:nb_NO, da:da_DK, tr:tr_TR, fa:fa_IR, sl:sl_SL
 type = PO
