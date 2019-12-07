@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-bash $(dirname $0)/../dev/compile_locale
 pushd $(dirname $0)/../public
 
 pushd forum/cache

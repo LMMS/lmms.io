@@ -14,12 +14,6 @@
     "guzzlehttp/psr7": {
         "version": "1.6.1"
     },
-    "kellan/magpierss": {
-        "version": "dev-master"
-    },
-    "knplabs/gaufrette": {
-        "version": "v0.1.9"
-    },
     "knplabs/github-api": {
         "version": "1.7.1"
     },
@@ -30,7 +24,7 @@
         "version": "1.9.0"
     },
     "php": {
-        "version": "7.4"
+        "version": "7.3"
     },
     "php-http/cache-plugin": {
         "version": "1.6.0"
