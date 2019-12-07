@@ -1,7 +1,0 @@
-#!/bin/bash
-srctop=$(realpath "$(dirname "$0")"/../public/locale)
-for dir in ${srctop}/*/
-do
-    echo "Compiling locale for $(basename ${dir})..."
-    msgfmt "${dir}"/LC_MESSAGES/messages.po -o "${dir}"/LC_MESSAGES/messages.mo
-done

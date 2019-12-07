@@ -1,0 +1,25 @@
+#!/bin/bash
+if ! (which po2xliff > /dev/null 2>&1); then
+    echo "Please install translate-toolkit before you can continue!"
+    exit 1
+fi
+
+# $1 - original po file
+# $2 - converted xliff file
+function convert_one() {
+    po2xliff -i "$1" "$2"
+    # Hacks: remove all the properties that Symfony cannot recognize
+    sed -i 's|<context-group name="po-reference.*</context-group>||g' "$2"
+    sed -i 's|<xliff xmlns="urn:oasis:names:tc:xliff:document:1.1" version="1.1">|<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">|'  "$2"
+    # Test if PHP/Symfony can load the translation
+    # ./bin/console translation:update  --force --prefix=''
+}
+
+srctop=$(realpath "$(dirname "$0")"/../public)
+for dir in ${srctop}/locale/*/
+do
+    dir=${srctop}/${dir%*/}
+    tr_file=${srctop}/locale/${dir##*/}/LC_MESSAGES/messages.po
+    echo "Converting ${tr_file}..."
+    convert_one "${tr_file}" "${srctop}/../translations/messages.${dir##*/}.xlf"
+done
