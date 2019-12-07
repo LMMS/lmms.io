@@ -5,6 +5,4 @@ User-agent: *
 Disallow: /feed/
 Disallow: /header.php
 Disallow: /footer.php
-Disallow: /navbar.php
 Disallow: /utils.php
-Disallow: /i18n.php

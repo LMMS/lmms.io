@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+export APP_ENV=prod 
+export APP_DEBUG=0
+php bin/console cache:clear
+php bin/console cache:warmup
 pushd $(dirname $0)/../public
 
 pushd forum/cache
