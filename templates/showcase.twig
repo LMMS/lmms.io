@@ -56,7 +56,7 @@
 
 {% block foot %}
 <script>
-$('.bandcamp-iframe').load(function() {
+$('.bandcamp-iframe').on("load", function() {
 	$('.wait-div').hide();
 });
 </script>
