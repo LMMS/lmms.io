@@ -1,7 +1,7 @@
 </div>
 <?php
-require_once('../app.php');
-echo $app['twig']->render('foot.twig');
+require_once('polyfill.php');
+echo $twig->render('foot.twig');
 ?>
 <script>
 $(function () {
