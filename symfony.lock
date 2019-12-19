@@ -24,7 +24,7 @@
         "version": "1.9.0"
     },
     "php": {
-        "version": "7.3"
+        "version": "7.4"
     },
     "php-http/cache-plugin": {
         "version": "1.6.0"
