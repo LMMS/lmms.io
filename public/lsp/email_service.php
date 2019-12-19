@@ -2,7 +2,7 @@
 require_once('utils.php');
 require_once('dbo.php');
 require_once('smtp_handler.php');
-require_once('../app.php');
+require_once('polyfill.php');
 global $SMTP_FROM, $LSP_URL_ROOT, $LSP_URL;
 
 function generate_token(string $login, string $email) {
@@ -27,8 +27,8 @@ function generate_link(string $login, string $action = "email=verify")
 }
 
 function generate_email(string $login, bool $register = true) {
-    global $app;
-    return $app['twig']->render('email-template.twig', [
+    global $twig;
+    return $twig->render('email-template.twig', [
         'name' => $login,
         'link' => generate_link($login, $register ? "email=verify" : "account=forget"),
         'register' => $register
