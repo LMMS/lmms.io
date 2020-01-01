@@ -1,0 +1,21 @@
+{% extends 'lsp/base.twig' %}
+
+{% import 'lsp/macros.twig' as macros %}
+
+{% block main_content %}
+    {{macros.make_title([file_name, 'Delete'])}}
+    <div class="alert alert-warning text-center"><strong><span class="fas fa-exclamation-circle"></span>&nbsp;
+            Warning:
+        </strong> This will also delete all the comments and ratings.
+    </div>
+    <div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title"><span class="fa fa-trash"></span>&nbsp;Confirm Delete</h3></div>
+    <div class="panel-body">
+    <p class="lead">Confirm deletion of <strong>{{file_name}}</strong>?</p>
+		<div class="form-group">
+		<a class="btn btn-danger" href="/lsp/?content=delete&amp;confirmation=true&amp;file={{file_id}}">
+		<span class="fas fa-check"></span>&nbsp;Delete</a>
+		<a class="btn btn-warning" href="/lsp/?action=show&amp;file={{file_id}}">
+		<span class="fas fa-times"></span>&nbsp;Cancel</a>
+		</div></div>
+    </div>
+{% endblock %}

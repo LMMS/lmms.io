@@ -1,0 +1,47 @@
+{% extends 'lsp/base.twig' %}
+
+{% import 'lsp/macros.twig' as macros %}
+
+{% block main_content %}
+    {{macros.make_title(titles)}}
+    <div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title"><span class="fa fa-pencil-alt"></span>&nbsp;Edit File</h3></div>
+    <div class="panel-body">
+    {% if tmpname %}
+    <form enctype="multipart/form-data" action="/lsp/?content=add" method="post">
+    {% else %}
+    <form enctype="multipart/form-data" action="/lsp/?content=update&amp;file={{file_id}}" method="post">
+    {% endif %}
+    <div class="form-group">
+        <label for="category">Category</label>
+        <select name="category" class="form-control">
+        {{categories|raw}}
+        </select>
+		</div>
+    <div class="form-group">
+        <label for="license">License</label>
+        <select name="license" class="form-control">
+        {{licenses|raw}}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea rows="20" name="description" class="form-control">{{description}}</textarea>
+    </div>
+    {% if tmpname %}
+    <button class="btn btn-primary" type="submit" name="addfinalok" value="Add File"><span class="fas fa-check"></span>&nbsp;Add File</button>
+    <a href="/lsp" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
+    {% else %}
+    <button class="btn btn-primary" type="submit" name="updateok" value="OK"><span class="fas fa-check"></span>&nbsp;Update File</button>
+    <a href="/lsp/?action=show&amp;file={{file_id}}" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
+    {% endif %}
+    <input type="hidden" name="fn" value="{{fn}}">
+    {% if tmpname %}
+    <input type="hidden" name="tmpname" value="{{tmpname}}" />
+    <input type="hidden" name="fsize" value="{{fsize}}" />
+    <input type="hidden" name="nocopyright" value="{{nocopyright}}" />
+    {% else %}
+    <input type="hidden" name="action" value="update">
+    {% endif %}
+    </form></div></div>
+{% endblock %}
