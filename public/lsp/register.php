@@ -1,7 +1,7 @@
 <?php
 require_once('utils.php');
 require_once('dbo.php');
-require_once('xhtml.php');
+require_once('polyfill.php');
 
 global $LSP_URL;
 
@@ -49,38 +49,8 @@ $control = POST("control", false);
  * Create the HTML form used for registration
  */
 if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), POST("session"), $control, POST("antispam")))) {
-	echo '<div class="col-md-9">';
-	$form = new form($LSP_URL . '?action=register', 'Register', 'fa-list-alt'); ?>
-	<div class="form-group">
-	<label for="realname">Real name</label>
-	<input type="text" name="realname" class="form-control" maxlength="50" placeholder="real name" />
-	</div><div class="form-group">
-	<label for="login">Username</label>
-	<input type="text" name="login" class="form-control" maxlength="16" placeholder="username" />
-	</div><div class="form-group">
-	<label for="password">Password</label>
-	<input type="password" name="password" class="form-control" maxlength="20" placeholder="password" />
-	</div><div class="form-group">
-	<label for="password2">Confirm password</label>
-	<input type="password" name="password2" class="form-control" maxlength="20" placeholder="confirm password" />
-	</div>
-	<div class="form-group">
-	<label for="password2">Security code</label>
-	<img class="thumbnail" style="zoom: 200%" src="get_image.php" />
-	<input type="text" name="antispam" class="form-control" maxlength="6" placeholder="type the security code above" />
-	</div>
-	<input type="hidden" name="session" value="<?php echo md5(session_id() . $_SERVER['REMOTE_ADDR']); ?>"/><?php
-	/* // Admin user creation
-	 * print_r ($_SERVER);
-	 * if (is_admin(get_user_id(SESSION()))) {
-	 *	echo '<div class="checkbox"><label><input type="checkbox" name="control" />Is administrator</label></div>';
-	 * }
-	 */
-	?>
-	<button type="submit" class="btn btn-primary" name="adduser" value="Register"><span class="fas fa-check"></span>&nbsp;Register</button>&nbsp;
-	<a href="<?php echo $LSP_URL; ?>" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
-	<?php $form->close(); ?>
-	<a href="javascript:loginFocus();"><span class="fas fa-chevron-circle-left"></span>&nbsp;Already registered?  Login here.</a>
-	</div><?php
+	echo twig_render('lsp/register.twig', [
+		'session_id' => md5(session_id() . $_SERVER['REMOTE_ADDR'])
+	]);
 }
 ?>

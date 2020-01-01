@@ -1,0 +1,64 @@
+{% macro make_title(titles) %}
+    <h3 class="lsp-title">
+        <a href="/lsp">All Content</a>
+        {% if titles is not iterable %}
+            {% set titles = [titles] %}
+        {% endif %}
+        {% for title in titles %}
+            {% if title %}
+            &nbsp;&nbsp;<span class="fas fa-caret-right lsp-caret-right"></span>&nbsp;&nbsp;
+            {{title|raw}}
+            {% endif %}
+        {% endfor %}
+    </h3>
+{% endmacro %}
+
+{% macro make_infobar(rs, extended = false) %}
+<td class="lsp-file-info"><small>
+    {% if extended %}
+    <b>Submitted:</b>&nbsp;{{rs['insert_date']}}<br>
+    <b>Updated:</b>&nbsp;{{rs['update_date']}}<br>
+    {% else %}
+    <b>Date:</b>&nbsp;{{rs['insert_date']}}<br>
+    {% endif %}
+    <b>Popularity: </b><span><span class="fas fa-download"></span>&nbsp;{{rs['downloads']}}</span>&nbsp; 
+    <span><span class="fas fa-comments"></span>&nbsp;{{rs['comments']}}</span><br>
+    <b>Rating:</b> 
+    {% set rating = rs['rating']|round(0, 'floor') %}
+    {% if rating > 0 %}
+    {% for i in 1..rating %}
+        <span class="fas fa-star"></span>
+    {% endfor %}
+    {% endif %}
+    {% set blanks = 5-rating %}
+    {% if blanks > 0 %}
+    {% for i in 0..4-rating %}
+        <span class="far fa-star"></span>
+    {% endfor %}
+    {% endif %}
+    &nbsp;&nbsp;<span class=""><span class="fas fa-check-circle"></span>&nbsp;{{rs['rating_count']}}</span>
+</small></td>
+{% endmacro %}
+
+{% macro make_item(rs, sort='date') %}
+    {% import _self as macros %}
+    <tr class="file"><td><div class="overflow-hidden">
+        <div><a href="/lsp?action=show&file={{rs['id']}}" style="font-weight:bold; font-size:1.15em" title="{{rs['filename']}}">
+        {{rs['filename']}}</a></div>
+        <a href="?action=browse&category={{rs['category']}}">
+            {{rs['category']}}
+        </a>&nbsp;<span class="fas fa-caret-right lsp-caret-right-small"></span>&nbsp;
+        <a href="?action=browse&category={{rs['category']}}&subcategory={{rs['subcategory']}}&sort={{sort}}">
+            {{rs['subcategory']}}
+        </a><br>
+        <small>by <a href="/lsp?action=browse&user={{rs['login']}}">
+        {% if rs['realname'] %}
+            {{rs['realname']}} ({{rs['login']}})
+        {% else %}
+            {{rs['login']}}
+        {% endif %}
+        </a></small><br>
+        </div></td>
+        {{macros.make_infobar(rs)}}
+    </tr>
+{% endmacro %}

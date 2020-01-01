@@ -1,0 +1,33 @@
+{% extends 'lsp/base.twig' %}
+
+{% import 'lsp/macros.twig' as macros %}
+
+{% block main_content %}
+    <h3 class="lsp-title">
+        <a href="/lsp">All Content</a>
+        &nbsp;&nbsp;<span class="fas fa-caret-right lsp-caret-right"></span>&nbsp;&nbsp;
+        <a href="#">Add File</a>
+    </h3>
+    <div data-redirect="" class="alert alert-warning text-center">
+    <strong><span class="fas fa-exclamation-circle"></span>&nbsp;
+    Warning:</strong> Do not submit offending, pornographic, racist or violent content.
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title"><span class="fa fa-upload"></span>&nbsp;Add File</h3></div><div class="panel-body">
+        <form enctype="multipart/form-data" action="/lsp/?content=add" method="post">
+        <label for="filename">File to add</label>
+		<div class="form-group">
+		<span class="pull-left btn btn-default btn-file">
+		<span class="fas fa-folder-open"></span>&nbsp;Select file<input type="file" name="filename">
+		</span><strong><span class="text-center"><pre class="text-warning" id="file-selected">No file selected</pre></span></strong>
+		<small>Maximum file size: 2 MB</small>
+		</div>
+		<div class="form-group">
+		<input type="checkbox" id="nocopyright" name="nocopyright">
+		<label for="nocopyright">Does not violate any existing copyright, law or trademark</label>
+		</div>
+		<button type="submit" name="ok" value="OK" class="btn btn-primary"><span class="fas fa-upload"></span>&nbsp;Upload</button>
+		<a href="/lsp/" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
+		</form></div>
+    </div>
+{% endblock %}

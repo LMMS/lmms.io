@@ -1,0 +1,18 @@
+{% extends 'lsp/base.twig' %}
+
+{% import 'lsp/macros.twig' as macros %}
+
+{% block main_content %}
+    {{macros.make_title(titles)}}
+    <table class="table table-striped">
+    {# TODO: sort #}
+        {% for rs in rows %}
+            {{macros.make_item(rs, sort)}}
+            {# TODO: pagination #}
+        {% else %}
+            <div class="alert alert-info text-center">
+            <strong><span class="fas fa-info-circle"></span>&nbsp;</strong> No results found
+            </div>
+        {% endfor %}
+    </table>
+{% endblock %}

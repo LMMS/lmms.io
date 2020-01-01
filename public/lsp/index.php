@@ -16,11 +16,10 @@ set_get_post('category');
 set_get_post('subcategory');
 set_get_post('commentsearch');
 
-require_once('header.php');
+require_once('polyfill.php');
 require_once('utils.php');
-require_once("sidebar.php");
-process_params();
 
+process_params();
 /*
  * Process the URL parameters in a natural order
  * Note:  Most of these perform a function and return, but some, such as
@@ -38,7 +37,12 @@ function process_params() {
 					break;  // break for file/rate, return for all others
 				case 'search': //move down
 				case 'q':
-					get_results(GET('category'), GET('subcategory'), GET('sort'), GET('q', GET('search', '')), '', GET('order'), GET('commentsearch'));
+					$search = GET('q', GET('search', ''));
+					$results = get_results(GET('category'), GET('subcategory'), GET('sort'), $search, '', GET('order'), GET('commentsearch'));
+					echo twig_render('lsp/results_list.twig', [
+						'rows' => $results,
+						'titles' => [GET('category'), GET('subcategory'), $search ? "\"$search\"": null]
+					]);
 					return;
 					// default: // do nothing
 			}
@@ -50,15 +54,29 @@ function process_params() {
 				case 'content:update' : require ("./edit_file.php"); return;
 				case 'content:delete' : require ("./delete_file.php"); return;
 				case 'account:settings' : require("./user_settings.php"); return;
-				case 'action:show' : show_file(GET("file"), SESSION()); return;
+				case 'action:show' : 
+					$results = show_file(GET("file"), SESSION());
+					echo twig_render('lsp/show_file.twig', [
+						'titles' => [GET('category'), GET('subcategory')],
+						'rows' => $results
+					]);
+					return;
 				case 'action:register' : require ("./register.php"); return;
 				case 'action:browse' :
 					// Browsing by category seems is currently only supported "browse" option
 					if (!GET_EMPTY('category')) {
-						get_results(GET('category'), GET('subcategory'), GET('sort'), '', '', GET('order'));
+						$results = get_results(GET('category'), GET('subcategory'), GET('sort'), '', '', GET('order'));
+						echo twig_render('lsp/results_list.twig', [
+							'titles' => [GET('category'), GET('subcategory')],
+							'rows' => $results
+						]);
 						return;
 					} else if(!GET_EMPTY('user')) {
-						get_results(GET('category'), GET('subcategory'), GET('sort'), '', GET('user'), GET('order'));
+						$results = get_results(GET('category'), GET('subcategory'), GET('sort'), '', GET('user'), GET('order'));
+						echo twig_render('lsp/results_list.twig', [
+							'titles' => '(' . GET('user') . ')',
+							'rows' => $results
+						]);
 						return;
 					}
 					// default: // do nothing
@@ -67,9 +85,10 @@ function process_params() {
 	}
 	
 	// All else fails, show the "Latest Uploads" page
-	get_latest();
+	echo twig_render('lsp/index.twig', [
+		'rows' => get_latest()
+	]);
 }
 
 echo '</div>';
-include("footer.php");
 ?>

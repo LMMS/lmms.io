@@ -1,0 +1,33 @@
+{% extends 'lsp/base.twig' %}
+
+{% block main_content %}
+    <div class="panel panel-default"><div class="panel-heading">
+    <h3 class="panel-title"><span class="fa fa-list-alt"></span>&nbsp;Register</h3></div>
+    <div class="panel-body">
+    <form enctype="multipart/form-data" action="/lsp?action=register" method="post">
+        <div class="form-group">
+        <label for="realname">Real name</label>
+        <input type="text" name="realname" class="form-control" maxlength="50" placeholder="real name" />
+        </div><div class="form-group">
+        <label for="login">Username</label>
+        <input type="text" name="login" class="form-control" maxlength="16" placeholder="username" />
+        </div><div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" maxlength="20" placeholder="password" />
+        </div><div class="form-group">
+        <label for="password2">Confirm password</label>
+        <input type="password" name="password2" class="form-control" maxlength="20" placeholder="confirm password" />
+        </div>
+        <div class="form-group">
+        <label for="password2">Security code</label>
+        <img class="thumbnail" style="zoom: 200%" src="/lsp/get_image.php" />
+        <input type="text" name="antispam" class="form-control" maxlength="6" placeholder="type the security code above" />
+        </div>
+        <input type="hidden" name="session" value="{{session_id}}" />
+        <button type="submit" class="btn btn-primary" name="adduser" value="Register"><span class="fas fa-check"></span>&nbsp;Register</button>&nbsp;
+        <a href="/lsp" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
+    </form>
+    </div></div>
+    <a href="javascript:loginFocus();"><span class="fas fa-chevron-circle-left"></span>&nbsp;Already registered?  Login here.</a>
+    </div>
+{% endblock %}
