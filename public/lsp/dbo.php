@@ -85,9 +85,7 @@ function &get_db() {
  */
 function debug_out($object) {
 	if (DBO_DEBUG) {
-		echo '<pre>';
-		print_r($object);
-		echo '</pre>';
+		error_log($object, 0);
 	}
 }
 
@@ -195,29 +193,30 @@ function get_id_by_object($table, $field, $value) {
 function get_latest() {
 	global $PAGE_SIZE;
 	$dbh = &get_db();
-	$stmt = $dbh->prepare('
-		SELECT files.id, licenses.name AS license,size,realname,filename,users.login,
+	$stmt = $dbh->prepare(
+		'SELECT files.id, licenses.name AS license,size,realname,filename,users.login,
 		categories.name AS category,subcategories.name AS subcategory,
-		insert_date,update_date,description,files.downloads AS downloads FROM files 
+		insert_date,update_date,description,files.downloads AS downloads,
+		COUNT(comments.file_id) AS comments,
+		COALESCE(AVG(ratings.stars), 0) AS rating,
+		COUNT(ratings.id) AS rating_count FROM files 
 		INNER JOIN categories ON categories.id=files.category 
 		INNER JOIN subcategories ON subcategories.id=files.subcategory 
 		INNER JOIN users ON users.id=files.user_id 
 		INNER JOIN licenses ON licenses.id=files.license_id 
-	 	ORDER BY files.insert_date DESC LIMIT ' . sanitize($PAGE_SIZE));
-		$object = null;
+		LEFT JOIN comments ON comments.file_id=files.id 
+		LEFT JOIN ratings ON files.id=ratings.file_id 
+		GROUP BY files.id ORDER BY files.insert_date DESC 
+	 	LIMIT ' . sanitize($PAGE_SIZE));
+		$ret = array();
 		if ($stmt->execute()) {
-			echo '<div class="col-md-9">';
-			echo create_title('Latest Uploads');
-			echo '<table class="table table-striped">';
 			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-				show_basic_file_info($object, true);
-				debug_out($object);
+				$ret[] = $object;
 			}
-			echo '</table></div>';
 		}
 		$stmt = null;
 		$dbh = null;
-		return $object;
+		return $ret;
 }
 
 /*
@@ -321,8 +320,8 @@ function add_user($login, $realname, $pass, $is_admin = false) {
  * Get list of top level categories
  */
 function get_categories() {
-	global $LSP_URL;
 	$dbh = &get_db();
+	$ret = array();
 	
 	$stmt = $dbh->prepare(
 		'SELECT categories.name AS name, COUNT(files.id) AS file_count, categories.id AS id ' .
@@ -331,24 +330,22 @@ function get_categories() {
 		'ORDER BY categories.name '
 	);
 	
-	echo '<ul class="lsp-categories">';
 	$sort = GET('sort', 'date');
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			echo '<li class="lsp-category"><a href="' . 
-				htmlentities($LSP_URL . "?action=browse&category=" . rawurlencode($object['name']) . "&sort=$sort" ) . '">' .
-				$object['name'] . '&nbsp;<span class="count">(' . $object['file_count'] . ")</span></a>";
-					
-				if (!GET_EMPTY('category') && GET('category') == $object['name']) {
-					get_subcategories($object['name'], $object['id']);
-				}
-	
-				echo '</li>';
+			$name = $object['name'] . ' (' . $object['file_count'] . ')';
+			$url = htmlentities("/lsp/?action=browse&category=" . rawurlencode($object['name']) . "&sort=$sort" );
+			if (!GET_EMPTY('category') && GET('category') == $object['name']) {
+				$subcategory = get_subcategories($object['name'], $object['id']);
+				$ret[] = array($name, $url, $subcategory);
+				continue;
+			}
+			$ret[] = array($name, $url);
 		}
 	}
-	echo "</ul>";
 	$stmt = null;
 	$dbh = null;
+	return $ret;
 }
 
 /*
@@ -357,6 +354,7 @@ function get_categories() {
 function get_subcategories($category, $id) {
 	global $LSP_URL;
 	$dbh = &get_db();
+	$ret = array();
 	
 	$stmt = $dbh->prepare(
 		'SELECT subcategories.name AS name, COUNT(files.id) AS file_count ' .
@@ -366,19 +364,18 @@ function get_subcategories($category, $id) {
 	);
 	$stmt->bindParam(':id', $id);
 	
-	echo '<ul class="lsp-subcategory">';
 	$sort = rawurlencode(GET('sort', 'date'));
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			echo '<li class="lsp-subcategory"><a href="' . 
-				htmlentities($LSP_URL . "?action=browse&category=" . $category . 
-				"&subcategory=" . rawurlencode($object['name']) . "&sort=$sort" ) . '">' .
-				$object['name'] . '&nbsp;<span class="count">(' . $object['file_count'] . ")</span></a></li>";
+			$name = $object['name'] . ' (' . $object['file_count'] . ')';
+			$ret[$name] = 
+				htmlentities("/lsp/?action=browse&category=" . $category . 
+				"&subcategory=" . rawurlencode($object['name']) . "&sort=$sort" );
 		}
 	}
-	echo "</ul>";
 	$stmt = null;
 	$dbh = null;
+	return $ret;
 }
 
 /*
@@ -485,6 +482,7 @@ function search_comments($search) {
 function get_comments($file_id) {
 	global $LSP_URL;
 	$dbh = &get_db();
+	$ret = array();
 	$stmt = $dbh->prepare(
 		'SELECT users.realname, users.login, comments.user_id as commentuser, ' . 
 		'files.user_id as fileuser, date,text FROM comments ' . 
@@ -498,19 +496,13 @@ function get_comments($file_id) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			$comment = $object['text'];
 			// Bold comments made by the original author
-			$comment = ($object['commentuser'] == $object['fileuser']) ? "<strong>$comment</strong>" : $comment;
-			$comment = newline_to_br($comment, true);
-			$html .= '<tr><td colspan="2">';
-			$html .= "<blockquote>$comment" .
-				'<small class="lsp-small">Posted by: ' . '<a href="' . $LSP_URL . '?action=browse&amp;user=' . 
-				$object['login'] . '">' . $object['login'] . '</a>' . ' on ' . $object['date'] . '</small></blockquote></tr></td>';
+			$ret[] = $object;
 		}
 	}
-	
-	echo strlen($html) ? $html : '<tr><td colspan="2"><p class="text-muted">No comments yet</p></td></tr>';
-	
+		
 	$stmt = null;
 	$dbh = null;
+	return $ret;
 }
 
 /*
@@ -603,63 +595,59 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 	}
 	
 	$user_id = $user_id == -1 ? '' : $user_id;
-	$count = get_results_count($category, $subcategory, $search, $user_id, $additional_items);
-	
-	
-	if ($count > 0) {
-		echo '<div class="col-md-9">';
-		create_title(array(GET('category'), GET('subcategory'), "\"$search\"", "($user_name)"));
-		list_sort_options();
-			
-		$order_by = 'files.insert_date';
-		switch ($sort) {
-			case 'downloads' : $order_by = 'downloads_per_day'; break;
-			case 'rating' : $order_by = "rating $order, COUNT(ratings.file_id)"; break;
-			case 'comments' : break; //FIXME: TODO: Add support for sorting by comments
-		}
+
+	// list_sort_options();
 		
-		$start = intval(GET('page', 0) * $PAGE_SIZE);
-		
-		$dbh = &get_db();
-		$stmt = $dbh->prepare(
-			'SELECT files.id, licenses.name AS license, size,realname, filename, ' .
-				'users.login, categories.name AS category, subcategories.name AS subcategory, ' .
-				'files.downloads*files.downloads/(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day, ' .
-				'files.downloads AS downloads, insert_date, update_date, description, AVG(ratings.stars) as rating FROM files ' .
-			'INNER JOIN categories ON categories.id=files.category ' .
-			'INNER JOIN subcategories ON subcategories.id=files.subcategory ' .
-			'INNER JOIN users ON users.id=files.user_id ' .
-			'INNER JOIN licenses ON licenses.id=files.license_id ' .
-			'LEFT JOIN ratings ON ratings.file_id=files.id ' .
-			'WHERE ' .
-			(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
-			(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
-			(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
-			(strlen($search) ? "(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search $additional_items)" : 'true') . ' ' .
-			'GROUP BY files.id ' . 
-			'ORDER BY ' . $order_by . " $order " .
-			"LIMIT $start, $PAGE_SIZE"
-		);
-		
-		if (strlen($user_name)) { $stmt->bindParam(':user_id', $user_id); }
-		if (strlen($category)) { $stmt->bindParam(':category', $category); }
-		if (strlen($subcategory)) { $stmt->bindParam(':subcategory', $subcategory); }
-		if (strlen($search)) { $search = "%{$search}%"; $stmt->bindParam(':search', $search); }
-		
-		if ($stmt->execute()) {
-			echo '<table class="table table-striped">';			
-			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
-				show_basic_file_info($object, true);
-			}
-		}
-		echo'</table></div>';
-		echo '<div class="text-center">' . get_pagination($count) . '</div>';
-	} else {
-		display_info('No results found', array(GET('category'), GET('subcategory'), "\"$search\"", "($user_name)"));
+	$order_by = 'files.insert_date';
+	switch ($sort) {
+		case 'downloads' : $order_by = 'downloads_per_day'; break;
+		case 'rating' : $order_by = "rating $order, COUNT(ratings.file_id)"; break;
+		case 'comments' : break; //FIXME: TODO: Add support for sorting by comments
 	}
 	
+	$start = intval(GET('page', 0) * $PAGE_SIZE);
+	
+	$dbh = &get_db();
+	$ret = array();
+	$stmt = $dbh->prepare(
+		'SELECT files.id, licenses.name AS license, size,realname, filename,
+			users.login, categories.name AS category, subcategories.name AS subcategory,
+			files.downloads*files.downloads/(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day,
+			files.downloads AS downloads, insert_date, update_date, description,
+			COUNT(comments.file_id) AS comments,
+			COUNT(ratings.id) AS rating_count,
+			AVG(ratings.stars) as rating FROM files
+		INNER JOIN categories ON categories.id=files.category
+		INNER JOIN subcategories ON subcategories.id=files.subcategory
+		INNER JOIN users ON users.id=files.user_id
+		INNER JOIN licenses ON licenses.id=files.license_id
+		LEFT JOIN ratings ON ratings.file_id=files.id
+		LEFT JOIN comments ON comments.file_id=files.id
+		WHERE ' .
+		(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
+		(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
+		(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
+		(strlen($search) ? "(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search $additional_items)" : 'true') . ' ' .
+		'GROUP BY files.id
+		ORDER BY ' . $order_by . " $order " .
+		"LIMIT $start, $PAGE_SIZE"
+	);
+	
+	if (strlen($user_name)) { $stmt->bindParam(':user_id', $user_id); }
+	if (strlen($category)) { $stmt->bindParam(':category', $category); }
+	if (strlen($subcategory)) { $stmt->bindParam(':subcategory', $subcategory); }
+	if (strlen($search)) { $search = "%{$search}%"; $stmt->bindParam(':search', $search); }
+	
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$ret[] = $object;
+		}
+	}
+	debug_out(var_export($ret, true));
+	// echo '<div class="text-center">' . get_pagination($count) . '</div>';
 	$stmt = null;
 	$dbh = null;
+	return $ret;
 }
 
 /*
@@ -749,149 +737,59 @@ function insert_category($category) {
 }
 
 /*
- * File information displayed in a table row, used on most pages which show file information
- */
-function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) {
-	global $LSP_URL;
-	$sort = GET('sort', 'date');
-	echo '<tr class="file"><td><div class="overflow-hidden">';
-	
-	if ($browsing_mode) {
-		echo '<div><a href="' . htmlentities($LSP_URL . '?action=show&file=' . 
-			$rs['id']) . '" style="font-weight:bold; font-size:1.15em" title="' . 
-			$rs['filename'] . '">' . $rs['filename'] . '</a></div>';
-		echo '<a href="' . htmlentities($LSP_URL . '?action=browse&category=' . 
-			$rs['category']) . '">' . $rs['category'] . 
-			'</a>&nbsp;<span class="fas fa-caret-right lsp-caret-right-small"></span>&nbsp;<a href="' . 
-			htmlentities($LSP_URL . '?action=browse&category=' . $rs['category'] . '&subcategory=' . 
-			$rs['subcategory']) . '&sort=' . $sort . '">' . $rs['subcategory'] . '</a><br>';
-	}
-	
-	if ($show_author) {
-		if (empty($rs['realname'])) {
-			echo '<small>by <a href="' . $LSP_URL . '?action=browse&amp;user=' .
-			$rs['login'] . '">' . $rs['login'] . "</a></small><br>";
-		} else {
-			echo '<small>by <a href="' . $LSP_URL . '?action=browse&amp;user=' .
-			$rs['login'] . '">' . $rs['realname'] . " (" . $rs['login'] . ")</a></small><br>";
-		}
-	}
-
-	if(!$browsing_mode) {
-		$hr_size = round($rs['size']/1024) . " KB";
-		echo "<b>Size:</b>&nbsp;$hr_size<br>";
-		echo "<b>License:</b>&nbsp;$rs[license]<br>";
-		if (($project_data = read_project($rs['id'])) != null) {
-			echo "<b>LMMS Version:</b>&nbsp;" . $project_data->attributes()['creatorversion'];
-		}
-	}
-	echo "</div></td><td class=\"lsp-file-info\"><small>";
-	if($browsing_mode) {
-		echo "<b>Date:</b>&nbsp;$rs[insert_date]<br>";
-	} else {
-		echo "<div><b>Submitted:</b>&nbsp;$rs[insert_date]</div>";
-		echo "<b>Updated:</b>&nbsp;$rs[update_date]<br>";
-	}
-	
-	/*
-	 * Fill any missing fields.
-	 * TODO:  If the queries were prepared properly, we wouldn't have to do this!
-	 */
-	$rs['comments'] = isset($rs['comments']) ? $rs['comments'] : get_file_comment_count($rs['id']);
-	$rs['rating_count'] = isset($rs['rating_count']) ? $rs['rating_count'] : get_file_rating_count($rs['id']);
-	$rs['rating'] = isset($rs['rating']) ? $rs['rating'] : get_file_rating($rs['id']);
-	$rs['downloads'] = isset($rs['downloads']) ? $rs['downloads'] : get_file_downloads($rs['id']);
-	
-	$downloads = $rs['downloads'];
-	echo "<b>Popularity: </b><span class=\"\"><span class=\"fas fa-download\"></span>&nbsp;" . $downloads . "</span>&nbsp; ";
-	echo "<span class=\"\"><span class=\"fas fa-comments\"></span>&nbsp;" . $rs['comments'] . "</span><br>";
-	echo "<b>Rating:</b> ";
-	
-	$rating = isset($rs['rating']) ? $rs['rating'] : get_file_rating($rs['id']);
-	for ($i = 1; $i <= $rating ; ++$i) {
-		echo '<span class="fas fa-star"></span>';
-	}
-	for ($i = $rating+1; floor( $i )<=5 ; ++$i) {
-		echo '<span class="far fa-star"></span>';
-	}
-	echo '&nbsp;&nbsp;<span class=""><span class="fas fa-check-circle"></span>&nbsp;'. $rs['rating_count'].'</span>';
-	echo '</small></td></tr>';
-}
-
-/*
  * The page which displays the file details, i.e. ?action=show&file=1234
  * This page must include a download button, links to edit, comment, delete, rate
  * as well as all information that's already displayed in the original search results.
  */
-function show_file($file_id, $user, $success = null) {
+function show_file($file_id, $user, $success = null): array {
 	global $LSP_URL, $DATA_DIR;
+	$ret = array();
 	$dbh = &get_db();
 	$stmt = $dbh->prepare(
-		'SELECT licenses.name AS license, size, realname, filename, users.login, ' .
-		'categories.name AS category, subcategories.name AS subcategory,' .
-		'insert_date, update_date, description, downloads, files.id FROM files ' .
-		'INNER JOIN categories ON categories.id=files.category ' .
-		'INNER JOIN subcategories ON subcategories.id=files.subcategory ' .
-		'INNER JOIN users ON users.id=files.user_id ' .
-		'INNER JOIN licenses ON licenses.id=files.license_id ' .
-		'WHERE files.id=:file_id'
+		'SELECT licenses.name AS license, size, realname, filename, users.login, 
+		categories.name AS category, subcategories.name AS subcategory, 
+		insert_date, update_date, description, downloads, files.id, filename, 
+		COUNT(comments.file_id) AS comments,
+		COALESCE(AVG(ratings.stars), 0) AS rating,
+		COUNT(ratings.id) AS rating_count FROM files 
+		INNER JOIN categories ON categories.id=files.category 
+		INNER JOIN subcategories ON subcategories.id=files.subcategory 
+		INNER JOIN users ON users.id=files.user_id 
+		INNER JOIN licenses ON licenses.id=files.license_id 
+		LEFT JOIN comments ON comments.file_id=files.id 
+		LEFT JOIN ratings ON files.id=ratings.file_id 
+		WHERE files.id=:file_id 
+		GROUP BY files.id'
 	);
 	$stmt->bindParam(':file_id', $file_id);
 	
 	$found = false;
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$object['url'] = get_file_url($file_id);
+			$url = 'download_file.php?file=' . $object['id'] . '&name=' . urlencode(html_entity_decode($object['filename']));
+			$object['download'] = $url;
+			$object['comment_section'] = get_comments($file_id);
+			$object['description'] = ($object['description'] != '') ? parse_links(newline_to_br($object['description'], true)) : null;
+			if (($project_data = read_project($object['id'])) != null) {
+				$object['lmms_version'] = $project_data->attributes()['creatorversion'];
+			}
+			$object['session_rating'] = get_user_rating($file_id, $user);
+			$ret[] = $object;
 			$title = array($object['category'], $object['subcategory'], get_file_url($file_id));
 			if ($success == null) {
-				echo '<div class="col-md-9">';
-				create_title($title);
+				// Do nothing
 			} else if ($success === true) {
 				display_success("Updated successfully", $title);
-				echo '<div class="col-md-9">';
 			} else if ($success === false) {
 				display_error("Update failed.", $title);
-				echo '<div class="col-md-9">';
 			} else {
 				display_success("$success", $title);
 			}
 			
-			echo '<table class="table table-striped">';
-			show_basic_file_info($object, false);
-			
-			// Bump the download button under details block
-			$url = 'download_file.php?file=' . $object['id'] . '&name=' . urlencode(html_entity_decode($object['filename']));
-			echo '<tr><td><strong>Name:</strong>&nbsp;' . $object['filename'];
 			if (is_image($url)) {
 				echo '<br><br><a href="' . $url . '"><img class="thumbnail" src="' . scale_image($DATA_DIR . $file_id, 300, parse_extension($url)) . '" alt=""></a>';
 			}
-			echo '</td><td class="lsp-file-info">';
-			
-			echo '<a href="' . $url . '" id="downloadbtn" class="lsp-dl-btn btn btn-primary">';
-			echo '<span class="fas fa-download lsp-download"></span>&nbsp;Download</a>';
-			echo '</td></tr>';
-			
-			echo '<tr><td colspan="2"><div class="well"><strong>Description:</strong><p>';
-			echo ($object['description'] != '' ? parse_links(newline_to_br($object['description'], true)) : 'No description available.');
-			echo '</p></div></td></tr>';
-			
-			echo '<tr><td colspan="2">';
-			echo '<nav id="lspnav" class="navbar navbar-default"><ul class="nav navbar-nav">';
-			$can_edit = (strtolower($object['login']) == strtolower($user) || is_admin(get_user_id($user)));
-			$can_rate = !SESSION_EMPTY();
-			$rate_self =  strtolower($object['login']) == strtolower($user);
-			
-			global $LSP_URL;
-			create_toolbar_item('Comment', "$LSP_URL?comment=add&file=$file_id", 'fa-comment', $can_rate);
-			create_toolbar_item('Edit', "$LSP_URL?content=update&file=$file_id", 'fa-pencil-alt', $can_edit);
-			create_toolbar_item('Delete', "$LSP_URL?content=delete&file=$file_id", 'fa-trash', $can_edit);
-			$star_url = $LSP_URL . '?' . file_show_query_string().'&rate=';
-			create_toolbar_item(get_stars($file_id, $star_url, $rate_self ? false : $can_rate), '', null, $can_rate, $rate_self);
-			
-			echo '</ul></nav>';
-			echo '<strong>Comments:</strong>';
-			echo '</td></tr>';
-			get_comments($file_id);
-			echo'</table></div>';
 			$found = true;
 			break;
 		}
@@ -901,6 +799,7 @@ function show_file($file_id, $user, $success = null) {
 	}
 	$stmt = null;
 	$dbh = null;
+	return $ret;
 }
 
 /*

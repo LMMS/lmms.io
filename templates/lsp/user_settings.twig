@@ -1,0 +1,31 @@
+{% extends 'lsp/base.twig' %}
+
+{% block main_content %}
+    <div class="panel panel-default"><div class="panel-heading">
+    <h3 class="panel-title"><span class="fa fa-cog"></span>&nbsp;User Settings</h3></div>
+    <div class="panel-body">
+    <form enctype="multipart/form-data" action="/lsp?account=settings" method="post">
+        <div class="form-group">
+        <label for="username" class="text-muted">User Name:</label>
+        <input type="text" name="username" class="form-control" value="{{username}}" disabled="disabled" />
+        <p class="help-block">User name cannot be changed</p>
+        </div>
+        <div class="form-group">
+        <label for="realname">Full Name:</label>
+        <input type="text" name="realname" class="form-control" value="{{realname}}" />
+        </div>
+        <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" name="password" maxlength="20" class="form-control"/>
+        </div>
+        <div class="form-group">
+        <label for="password2">Confirm Password:</label>
+        <input type="password" class="form-control" maxlength="20" name="password2" />
+        </div>
+        <button class="btn btn-primary" type="submit" name="settings" value="apply">
+        <span class="fas fa-check"></span>&nbsp;Apply</button>
+        <a href="/lsp" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
+    </form>
+    </div></div>
+    </div>
+{% endblock %}
