@@ -282,19 +282,16 @@ function display_message($message, $severity = 'danger', $title = 'Error', $titl
 		case 'warning': // move down
 		default: $icon = 'fa-exclamation-circle';
 	}
-	
-	$icon = '<span class="fas ' . $icon . '"></span>&nbsp;';
 
-	echo '<div class="col-md-9">';
-	create_title(isset($title_array) ? $title_array : $title);
-	echo '<div data-redirect="' . (isset($redirect) ? htmlentities($redirect) : '') . '" ' .
-		'class="alert alert-' . $severity . ' text-center"><strong>' . $icon .
-		($title == '' ? '' : "$title:") . '</strong> ' . $message . '</div>';
-	if (isset($redirect)) {
-		echo '<p class="text-center">You will automatically be redirected in <strong>' . 
-			'<span class="redirect-counter">' . $counter . '</span> seconds</strong></p>';
-	}
-	echo '</div>';
+	echo twig_render('lsp/message.twig', [
+		'titles' => isset($title_array) ? $title_array : $title,
+		'title' => $title,
+		'icon' => $icon,
+		'severity' => $severity,
+		'redirect' => (isset($redirect) ? htmlentities($redirect) : ''),
+		'message' => $message,
+		'counter' => $counter
+	]);
 }
 
 function display_error($message, $title_array = null, $redirect = null, $counter = 15) {
@@ -378,7 +375,7 @@ function login() {
 /*
  * Attempts to build a file hyperlink from the GET('file') value
  */
-function get_file_url($file_id = null) {
+function get_file_url(string $file_id = null): string {
 	global $LSP_URL;
 	$url = $LSP_URL . '?action=show&file=' . (isset($file_id) ? $file_id : GET('file'));
 	$name = get_file_name((isset($file_id) ? $file_id : GET('file')));
@@ -585,5 +582,10 @@ function clyp_iframe($url, $width, $height) {
 		src="https://clyp.it/' . $url . '/widget" frameborder="0"></iframe>';
 
 	return $html;
+}
+
+function redirect(string $url, int $statusCode = 303) {
+   header('Location: ' . $url, true, $statusCode);
+   die();
 }
 ?>

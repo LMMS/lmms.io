@@ -1,0 +1,28 @@
+{% extends 'lsp/base.twig' %}
+
+{% import 'lsp/macros.twig' as macros %}
+
+{% block main_content %}
+    {{macros.make_title(titles)}}
+    {% if error %}
+    <div class="alert alert-danger text-center">
+    <strong><span class="fas fa-exclamation-circle"></span>&nbsp;
+    Error:</strong> {{error}}
+    </div>
+    {% else %}
+    <div class="alert alert-warning text-center">
+    <strong><span class="fas fa-exclamation-circle"></span>&nbsp;
+    Warning:</strong> Do not submit offending, pornographic, racist or violent content.
+    </div>
+    {% endif %}
+    <div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title"><span class="fa fa-comment"></span>&nbsp;Comment</h3></div><div class="panel-body">
+        <form enctype="multipart/form-data" action="/lsp/?comment=add&amp;action=show&amp;file={{file_id}}" method="post">
+        <div class="form-group">
+		<label for="text">Add comment to "{{file_name}}"</label>
+		<textarea id="comment" name="text" class="form-control"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary" name="addcomment" value="Comment"><span class="fas fa-check"></span>&nbsp;Comment</button>&nbsp;
+		<a href="/lsp/?action=show&amp;file={{file_id}}" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
+		</form></div>
+    </div>
+{% endblock %}

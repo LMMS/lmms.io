@@ -1,0 +1,109 @@
+{% extends 'lsp/base.twig' %}
+
+{% import 'lsp/macros.twig' as macros %}
+
+{% block main_content %}
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/js/star-rating.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/css/star-rating.min.css" />
+    {% for rs in rows %}
+        {{macros.make_title([rs['category'], rs['subcategory'], rs['filename']])}}
+        <table class="table table-striped">
+            <td><div class="overflow-hidden">
+            <small>by <a href="/lsp?action=browse&user={{rs['login']}}">
+            {% if rs['realname'] %}
+                {{rs['realname']}} ({{rs['login']}})
+            {% else %}
+                {{rs['login']}}
+            {% endif %}
+            </a></small><br>
+            <b>Size:</b>&nbsp;{{(rs['size']/1024)|round(0)}} KB<br>
+            <b>License:</b>&nbsp;{{rs['license']}}<br>
+            {% if rs['lmms_version'] %}
+                <b>LMMS Version:</b>&nbsp;{{rs['lmms_version']}}</div></td>
+            {% endif %}
+            {{macros.make_infobar(rs, true)}}
+            <tr><td><strong>Name:</strong>&nbsp;{{rs['filename']}}
+            {# TODO: Parse image link #}
+            </td><td class="lsp-file-info">
+            <a href="/lsp/{{rs['download']}}" id="downloadbtn" class="lsp-dl-btn btn btn-primary">
+            <span class="fas fa-download lsp-download"></span>&nbsp;Download</a>
+            </td></tr><tr><td colspan="2"><div class="well"><strong>Description:</strong><p>
+            {% if rs['description'] %}
+                {{rs['description']|raw}}
+            {% else %}
+                No description available.
+            {% endif %}
+            </p></div></td></tr>
+            <tr><td colspan="2">
+            <div id="lspnav" class="navbar navbar-default"><ul class="nav navbar-nav">
+            {# Toolbar #}
+                {% if username %}
+                <li>
+                    <a class="pull-left" href="/lsp/?comment=add&amp;file={{rs['id']}}">
+                {% else %}
+                <li class="disabled">
+                    <a class="pull-left" href="#" title="Login to comment">
+                {% endif %}
+                    <span class="fas fa-comment"></span>&nbsp;Comment</a>
+                </li>
+                {% set can_edit = is_admin or (username == rs['login']) %}
+                {% if can_edit %}
+                    {% set button_class = "" %}
+                {% else %}
+                    {% set button_class = "disabled" %}
+                {% endif %}
+                <li class="{{button_class}}"><a class="pull-left" href="/lsp/?content=update&amp;file={{rs['id']}}"><span class="fas fa-pencil-alt"></span>&nbsp;Edit</a></li>
+                <li class="{{button_class}}"><a class="pull-left" href="/lsp/?content=delete&amp;file={{rs['id']}}"><span class="fas fa-trash"></span>&nbsp;Delete</a></li>
+                {% if username and username != rs['login'] %}
+                    {% set rate_disabled = "0" %}
+                {% else %}
+                    {% set rate_disabled = "1" %}
+                {% endif %}
+                <li>
+                    <a class="clearfix">
+                        <input name="rate" type="hidden" id="rating" class="rating" value="{{rs['session_rating']}}" data-disabled="{{rate_disabled}}" data-action-url="/lsp/?action=show&amp;file={{rs['id']}}&amp;rate=" data-empty-star='<i class="far fa-star lsp-star"></i>' data-filled-star='<i class="fas fa-star lsp-star"></i>' data-show-clear="0" data-min="0" data-max="5" data-step="1" data-size="xs"></input>
+                    </a>
+                </li>
+            </div>
+            <strong>Comments:</strong>
+            </td></tr>
+            {% for comment in rs['comment_section'] %}
+                <tr><td colspan="2">
+                <blockquote>
+                {# Bold comments made by the original author #}
+                {% if comment['commentuser'] == comment['fileuser'] %}
+                    <strong>
+                    {{comment['text']|raw}}
+                    </strong>
+                {% else %}
+                    {{comment['text']|raw}}
+                {% endif %}
+                <small class="lsp-small">Posted by: 
+                <a href="/lsp?action=browse&amp;user={{comment['login']}}">{{comment['login']}}</a>
+                &nbsp;on {{comment['date']}}
+                </small>
+                </blockquote>
+                </tr></td>
+            {% else %}
+                <td colspan="2"><p class="text-muted">No comments yet</p></td>
+            {% endfor %}
+        </table>
+    {% else %}
+        {{macros.make_title(['Error'])}}
+        <div class="alert alert-danger text-center">
+        <strong><span class="fas fa-exclamation-circle"></span>&nbsp;Error:
+        </strong> File not found!
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block foot %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#rating').on('rating:change', function(event, value, caption) {
+            var page = event.target.getAttribute('data-action-url') + value;
+            window.location.href = page;
+        });
+    });
+</script>
+{% endblock %}

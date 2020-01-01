@@ -1,0 +1,18 @@
+{% extends 'lsp/base.twig' %}
+
+{% import 'lsp/macros.twig' as macros %}
+
+{% block main_content %}
+    {{macros.make_title(titles)}}
+    <div data-redirect="{{redirect}}" class="alert alert-{{severity}} text-center"><strong>
+    <span class="fas {{icon}}"></span>&nbsp;
+    {% if title %}
+        {{title}}:
+    {% endif %}
+    </strong> {{message|raw}}</div>
+    {% if redirect %}
+        <p class="text-center">You will automatically be redirected in <strong>
+        <span class="redirect-counter">{{counter}}</span> seconds</strong></p>
+    {% endif %}
+    </div>
+{% endblock %}
