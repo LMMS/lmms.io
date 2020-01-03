@@ -1287,6 +1287,14 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
         <source>Home</source>
         <target>Home</target>
       </trans-unit>
+      <trans-unit id="XaEX_Ha" resname="LMMS Sharing Platform">
+        <source>LMMS Sharing Platform</source>
+        <target>LMMS Sharing Platform</target>
+      </trans-unit>
+      <trans-unit id="CxpKTzu" resname="Share your work with the LMMS community.">
+        <source>Share your work with the LMMS community.</source>
+        <target>Share your work with the LMMS community.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -48,7 +48,7 @@ Jonatan Nyberg, 2019
       </trans-unit>
       <trans-unit id="ly35agX" resname="Official competitions organised by LMMS and its community members">
         <source>Official competitions organised by LMMS and its community members</source>
-        <target state="translated">Officiella tävlingar organiserade av LMMS-communityn och dess medlemmar</target>
+        <target state="translated">Officiella tävlingar organiserade av LMMS-gemenskapen och dess medlemmar</target>
       </trans-unit>
       <trans-unit id="hzCq1ff" resname="Current competitions:">
         <source>Current competitions:</source>
@@ -198,7 +198,7 @@ Jonatan Nyberg, 2019
 			<iframe width="100%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 			#### Originalbeskrivning:
 			Vi är stolta att presentera The Best of LMMS contest volume 4!
-			Tävlingen går ut på att inspirera communityn att skapa och dela sin musik. Skicka in din låt på länken nedan innan midnatt
+			Tävlingen går ut på att inspirera gemenskapen att skapa och dela sin musik. Skicka in din låt på länken nedan innan midnatt
   		(23:59.59) den 16:de April (UTC tid) för en chans att vara med på BoL v4 albumet. Vinnande bidrag kommer laddas upp till Bandcamp och samtliga förtjänster vid försäljning
 			kommer användas till LMMS' framtida utveckling.
 			Detta år hanteras bidrag med hjälp av Google forms. Vi accepterar bidrag som är tillgängliga på YouTube, Soundcloud och Clyp. För fullständiga regler, se formuläret för bidrag:
@@ -366,7 +366,8 @@ Jonatan Nyberg, 2019
       <trans-unit id="f.UFHnN" resname="LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;&#10;&#9;Please &lt;a href=&quot;/get-involved/#contact&quot;&gt;contact us&lt;/a&gt; if your distribution is not listed here.">
         <source>LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;
 	Please &lt;a href="/get-involved/#contact"&gt;contact us&lt;/a&gt; if your distribution is not listed here.</source>
-        <target></target>
+        <target state="translated"><![CDATA[LMMS ingår i de flesta stora Linux-distributionens paketförråd.<br>
+	Vänligen <a href="/get-involved/#contact">kontakta oss</a> om din distribution inte är listad här.]]></target>
       </trans-unit>
       <trans-unit id="LO1QDjg" resname="For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.">
         <source>For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.</source>
@@ -386,7 +387,7 @@ Jonatan Nyberg, 2019
       </trans-unit>
       <trans-unit id="unby17C" resname="If the traditional repositories lag behind on versions, try the &lt;a href=&quot;https://kx.studio/Repositories#Ubuntu&quot;&gt;KXStudio repository&lt;/a&gt;.">
         <source>If the traditional repositories lag behind on versions, try the &lt;a href="https://kx.studio/Repositories#Ubuntu"&gt;KXStudio repository&lt;/a&gt;.</source>
-        <target></target>
+        <target state="translated"><![CDATA[Om de traditionella förråd släpar efter på versioner, prova <a href="https://kx.studio/Repositories#Ubuntu">KXStudio-förrådet</a>.]]></target>
       </trans-unit>
       <trans-unit id="jHa21vl" resname="VST Support">
         <source>VST Support</source>
@@ -394,7 +395,7 @@ Jonatan Nyberg, 2019
       </trans-unit>
       <trans-unit id="PN0uK90" resname="If your distribution offers VST support (requires the installation of Wine) it is generally offered in a separate package.  For example, using the &lt;a href=&quot;https://kx.studio/Repositories#Ubuntu&quot;&gt;KXStudio repository&lt;/a&gt;, run this command in a terminal.">
         <source>If your distribution offers VST support (requires the installation of Wine) it is generally offered in a separate package.  For example, using the &lt;a href="https://kx.studio/Repositories#Ubuntu"&gt;KXStudio repository&lt;/a&gt;, run this command in a terminal.</source>
-        <target></target>
+        <target state="translated"><![CDATA[Om din distribution erbjuder VST-stöd (kräver installation av wine) erbjuds det i allmänhet i ett separat paket. Till exempel med hjälp av <a href="https://kx.studio/Repositories#Ubuntu">KXStudio-förrådet</a>, kör detta kommando i en terminal.]]></target>
       </trans-unit>
       <trans-unit id="f.eEeY2" resname="Run the following command as root in a terminal:">
         <source>Run the following command as root in a terminal:</source>
@@ -406,7 +407,7 @@ Jonatan Nyberg, 2019
       </trans-unit>
       <trans-unit id="eJUdOr0" resname="For VST support, please install wine or wine-staging from the repository">
         <source>For VST support, please install wine or wine-staging from the repository</source>
-        <target></target>
+        <target state="translated">För VST-stöd, installera wine eller wine-staging från förrådet</target>
       </trans-unit>
       <trans-unit id=".uMu3cY" resname="AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and more to come in the future), with VST support enabled by default on AMD64.">
         <source>AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and more to come in the future), with VST support enabled by default on AMD64.</source>
@@ -426,7 +427,7 @@ Jonatan Nyberg, 2019
       </trans-unit>
       <trans-unit id="D9BgqO1" resname="If your Linux distribution does not provide a lmms package (or only an outdated one), you can still build LMMS from source. Visit the &lt;a href=&quot;https://github.com/LMMS/lmms/wiki/Compiling&quot;&gt;LMMS development wiki on GitHub&lt;/a&gt; for instructions on how to compile LMMS for Linux.">
         <source>If your Linux distribution does not provide a lmms package (or only an outdated one), you can still build LMMS from source. Visit the &lt;a href="https://github.com/LMMS/lmms/wiki/Compiling"&gt;LMMS development wiki on GitHub&lt;/a&gt; for instructions on how to compile LMMS for Linux.</source>
-        <target state="translated"><![CDATA[Om din Linux-distribution inte tillhandahåller ett LMMS-paket (eller erbjuder en föråldrad version) kan du bygga LMMS själ. Besök <a href="https://github.com/LMMS/lmms/wiki/Compiling">LMMS utvecklingswiki på GitHub</a> för instruktioner om hur man kompilerar LMMS för Linux.]]></target>
+        <target state="translated"><![CDATA[Om din Linux-distribution inte tillhandahåller ett LMMS-paket (eller erbjuder en föråldrad version) kan du bygga LMMS själ. Besök <a href="https://github.com/LMMS/lmms/wiki/Compiling">LMMS-utvecklingswiki på GitHub</a> för instruktioner om hur man kompilerar LMMS för Linux.]]></target>
       </trans-unit>
       <trans-unit id="IAenq0c" resname="Download LMMS">
         <source>Download LMMS</source>
@@ -434,7 +435,7 @@ Jonatan Nyberg, 2019
       </trans-unit>
       <trans-unit id="618mGB6" resname="Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:">
         <source>Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:</source>
-        <target state="translated">Nedladdning och användning av LMMS är gratis! Välj bara operativsystemet du vill köra LMMS på:</target>
+        <target state="translated">Hämta och använda LMMS är gratis! Välj bara operativsystemet du vill köra LMMS på:</target>
       </trans-unit>
       <trans-unit id="PmTQgHE" resname="Install LMMS on Linux">
         <source>Install LMMS on Linux</source>
@@ -478,7 +479,7 @@ Jonatan Nyberg, 2019
       </trans-unit>
       <trans-unit id="QNAnU4Y" resname="Downloads labeled Beta are pre-release software, stability may suffer.">
         <source>Downloads labeled Beta are pre-release software, stability may suffer.</source>
-        <target state="translated">Nedladdningar märkta med Beta är test-utgåvor av mjukvaran, stabilitetsproblem kan förekomma.</target>
+        <target state="translated">Hämtningar märkta med Beta är test-utgåvor av mjukvaran, stabilitetsproblem kan förekomma.</target>
       </trans-unit>
       <trans-unit id="VA2zwSI" resname="Previous releases">
         <source>Previous releases</source>
@@ -530,7 +531,7 @@ Jonatan Nyberg, 2019
       </trans-unit>
       <trans-unit id="lBGEdiH" resname="from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.">
         <source>from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.</source>
-        <target state="translated">från ett urval av instrument- och effekt-tillägg, presets och samplingar, till VST- och SoundFont-stöd.</target>
+        <target state="translated">från ett urval av instruments- och effektstillägg, förinställningar och samplingar till VST- och SoundFont-stöd.</target>
       </trans-unit>
       <trans-unit id="rELUYJ6" resname="Made by musicians, for musicians.">
         <source>Made by musicians, for musicians.</source>
@@ -622,7 +623,7 @@ Jonatan Nyberg, 2019
       </trans-unit>
       <trans-unit id="B_SpjYT" resname="Proudly hosted on GitHub.">
         <source>Proudly hosted on GitHub.</source>
-        <target></target>
+        <target state="translated">Stolt inhyst på Github.</target>
       </trans-unit>
       <trans-unit id="cjwuqX6" resname="Take a peek.">
         <source>Take a peek.</source>
@@ -698,7 +699,7 @@ Jonatan Nyberg, 2019
       </trans-unit>
       <trans-unit id="SNZn7PZ" resname="Drop-in LADSPA plug-in support">
         <source>Drop-in LADSPA plug-in support</source>
-        <target state="translated">Stöd för LADSPA plug-in</target>
+        <target state="translated">Stöd för LADSPA-tillägg</target>
       </trans-unit>
       <trans-unit id="b1z.R0m" resname="Drop-in VST ® effect plug-in support (Linux and Windows)">
         <source>Drop-in VST ® effect plug-in support (Linux and Windows)</source>
@@ -714,7 +715,7 @@ Jonatan Nyberg, 2019
       </trans-unit>
       <trans-unit id="PoXBpT3" resname="Built-in visualization/spectrum analyzer">
         <source>Built-in visualization/spectrum analyzer</source>
-        <target state="translated">Inbyggd visualisering/spektrum-analysator</target>
+        <target state="translated">Inbyggd visualisering/spektrumanalysator</target>
       </trans-unit>
       <trans-unit id="1BeqFto" resname="Branding">
         <source>Branding</source>
@@ -746,7 +747,7 @@ Jonatan Nyberg, 2019
       </trans-unit>
       <trans-unit id="mhXcnGL" resname="Showcase">
         <source>Showcase</source>
-        <target state="translated">Showcase</target>
+        <target state="translated">Uppvisning</target>
       </trans-unit>
       <trans-unit id="R0s_HGS" resname="Tracks made with LMMS">
         <source>Tracks made with LMMS</source>
@@ -818,20 +819,20 @@ Jonatan Nyberg, 2019
 					   &lt;a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel"&gt;mailing list&lt;/a&gt; is a great place
 					   to introduce yourself.</source>
         <target state="translated"><![CDATA[Se vår <a href="//github.com/LMMS/lmms/wiki">GitHub Wiki</a> och vår
-					   <a href="//github.com/LMMS/lmms/issues">bug tracker</a> till att börja med. Dessutom är LMMS
-					   <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">epost-lista</a> ett perfekt ställe
+					   <a href="//github.com/LMMS/lmms/issues">ärendehanterare</a> till att börja med. Dessutom är LMMS
+					   <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">e-postlista</a> ett perfekt ställe
 					   att introducera dig själv.]]></target>
       </trans-unit>
       <trans-unit id="FSzxUcg" resname="Website &amp; Docs">
         <source>Website &amp; Docs</source>
-        <target state="translated">Webbsida och dokumentation</target>
+        <target state="translated">Webbplats och dokumentation</target>
       </trans-unit>
       <trans-unit id="5DVpnpU" resname="You can help us by improving this website or documenting the software. The website sources are in our&#10;&#9;&#9;&#9;&#9;&#9;   GitHub repo &lt;a href=&quot;//github.com/LMMS/lmms.io&quot;&gt;LMMS/lmms.io&lt;/a&gt;, our documentation is hosted using a&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//lmms.io/wiki&quot;&gt;MediaWiki instance&lt;/a&gt;.">
         <source>You can help us by improving this website or documenting the software. The website sources are in our
 					   GitHub repo &lt;a href="//github.com/LMMS/lmms.io"&gt;LMMS/lmms.io&lt;/a&gt;, our documentation is hosted using a
 					   &lt;a href="//lmms.io/wiki"&gt;MediaWiki instance&lt;/a&gt;.</source>
-        <target state="translated"><![CDATA[Du kan hjälpa oss att förbättra denna webbsida eller att dokumentera vår mjukvara. Källkoden till webbsidan finns tillgänglig i vår
-					   GitHub repo <a href="//github.com/LMMS/lmms.io">LMMS/lmms.io</a>, och vår dokumentation ligger på
+        <target state="translated"><![CDATA[Du kan hjälpa oss att förbättra denna webbplats eller att dokumentera vår mjukvara. Källkoden till webbplatsen finns tillgänglig i vårt
+					   GitHub-förråd <a href="//github.com/LMMS/lmms.io">LMMS/lmms.io</a>, och vår dokumentation ligger på
 					   <a href="//lmms.io/wiki">MediaWiki</a>.]]></target>
       </trans-unit>
       <trans-unit id="mxP7dw_" resname="Public registration on our Wiki is disabled due to spam issues. Please post to the&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;https://lists.sourceforge.net/lists/listinfo/lmms-devel&quot;&gt;mailing list&lt;/a&gt; if you're&#10;&#9;&#9;&#9;&#9;&#9;   interested in helping out with the documentation!">
@@ -839,7 +840,7 @@ Jonatan Nyberg, 2019
 					   &lt;a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel"&gt;mailing list&lt;/a&gt; if you're
 					   interested in helping out with the documentation!</source>
         <target state="translated"><![CDATA[Publik registrering på vår Wiki är avstängt för att förebygga spam. Vänligen posta till vår 
-					   <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">epost-lista</a> om du är
+					   <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">e-postlista</a> om du är
 					   intresserad av att hjälpa till med dokumentation!]]></target>
       </trans-unit>
       <trans-unit id="yR7g8nm" resname="Donate">
@@ -880,11 +881,11 @@ Jonatan Nyberg, 2019
       </trans-unit>
       <trans-unit id="6PT.eyE" resname="Posting to the mailing list is the best way to reach out to our developers:">
         <source>Posting to the mailing list is the best way to reach out to our developers:</source>
-        <target state="translated">Att skicka till epost-listan är det bästa sättet att nå ut till våra utvecklare:</target>
+        <target state="translated">Att skicka till e-postlistan är det bästa sättet att nå ut till våra utvecklare:</target>
       </trans-unit>
       <trans-unit id="vTqq2U0" resname="Subscribe to LMMS-Devel mailing list">
         <source>Subscribe to LMMS-Devel mailing list</source>
-        <target state="translated">Prenumerera på LMMS-Devel e-post-lista</target>
+        <target state="translated">Prenumerera på LMMS-Devel e-postlista</target>
       </trans-unit>
       <trans-unit id="iSQeC4T" resname="Our IRC channel is &lt;a href=&quot;http://webchat.freenode.net/?channels=%23lmms&quot;&gt;#lmms&lt;/a&gt; on&#10;&#9;&#9;&#9;&#9;&#9;&lt;a href=&quot;https://freenode.net&quot;&gt;Freenode&lt;/a&gt;.">
         <source>Our IRC channel is &lt;a href="http://webchat.freenode.net/?channels=%23lmms"&gt;#lmms&lt;/a&gt; on
@@ -1377,6 +1378,14 @@ Jonatan Nyberg, 2019
       <trans-unit id="OnhpU4i" resname="Home">
         <source>Home</source>
         <target>Home</target>
+      </trans-unit>
+      <trans-unit id="XaEX_Ha" resname="LMMS Sharing Platform">
+        <source>LMMS Sharing Platform</source>
+        <target>LMMS Sharing Platform</target>
+      </trans-unit>
+      <trans-unit id="CxpKTzu" resname="Share your work with the LMMS community.">
+        <source>Share your work with the LMMS community.</source>
+        <target>Share your work with the LMMS community.</target>
       </trans-unit>
     </body>
   </file>

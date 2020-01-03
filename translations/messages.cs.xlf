@@ -388,7 +388,8 @@ GamingasCZ &lt;gamingforyou875@gmail.com&gt;, 2019
       <trans-unit id="f.UFHnN" resname="LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;&#10;&#9;Please &lt;a href=&quot;/get-involved/#contact&quot;&gt;contact us&lt;/a&gt; if your distribution is not listed here.">
         <source>LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;
 	Please &lt;a href="/get-involved/#contact"&gt;contact us&lt;/a&gt; if your distribution is not listed here.</source>
-        <target></target>
+        <target state="translated"><![CDATA[LMMS je v repositářích nejpoužívanějších Linuxových distribucí.<br>
+	Prosím <a href="get-involved/#contact">kontaktujte nás</a>, pokud vaše distribuce není v tomto seznamu.]]></target>
       </trans-unit>
       <trans-unit id="LO1QDjg" resname="For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.">
         <source>For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.</source>
@@ -408,7 +409,7 @@ GamingasCZ &lt;gamingforyou875@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="unby17C" resname="If the traditional repositories lag behind on versions, try the &lt;a href=&quot;https://kx.studio/Repositories#Ubuntu&quot;&gt;KXStudio repository&lt;/a&gt;.">
         <source>If the traditional repositories lag behind on versions, try the &lt;a href="https://kx.studio/Repositories#Ubuntu"&gt;KXStudio repository&lt;/a&gt;.</source>
-        <target></target>
+        <target state="translated"><![CDATA[Pokud jsou tradiční repositáře zastaralé, zkuste <a href="https://kx.studio/Repositories#Ubuntu">KXStudio repositář</a>.]]></target>
       </trans-unit>
       <trans-unit id="jHa21vl" resname="VST Support">
         <source>VST Support</source>
@@ -416,7 +417,7 @@ GamingasCZ &lt;gamingforyou875@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="PN0uK90" resname="If your distribution offers VST support (requires the installation of Wine) it is generally offered in a separate package.  For example, using the &lt;a href=&quot;https://kx.studio/Repositories#Ubuntu&quot;&gt;KXStudio repository&lt;/a&gt;, run this command in a terminal.">
         <source>If your distribution offers VST support (requires the installation of Wine) it is generally offered in a separate package.  For example, using the &lt;a href="https://kx.studio/Repositories#Ubuntu"&gt;KXStudio repository&lt;/a&gt;, run this command in a terminal.</source>
-        <target></target>
+        <target state="translated"><![CDATA[Pokud vaše distribuce podporuje VST (je potřeba mít nainstalovaný Wine), je obvykle nabízena v samostatném balíku. Například použijte <a href="https://kx.studio/Repositories#Ubuntu">KXStudio repositář</a> a spusťte tento příkaz v terminálu.]]></target>
       </trans-unit>
       <trans-unit id="f.eEeY2" resname="Run the following command as root in a terminal:">
         <source>Run the following command as root in a terminal:</source>
@@ -428,7 +429,7 @@ GamingasCZ &lt;gamingforyou875@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="eJUdOr0" resname="For VST support, please install wine or wine-staging from the repository">
         <source>For VST support, please install wine or wine-staging from the repository</source>
-        <target></target>
+        <target state="translated">Pro podporu VST si prosím nainstaluj wine, nebo wine-staging z repozitáře</target>
       </trans-unit>
       <trans-unit id=".uMu3cY" resname="AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and more to come in the future), with VST support enabled by default on AMD64.">
         <source>AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and more to come in the future), with VST support enabled by default on AMD64.</source>
@@ -636,7 +637,7 @@ GamingasCZ &lt;gamingforyou875@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="opjPraT" resname="Fork us on GitHub">
         <source>Fork us on GitHub</source>
-        <target></target>
+        <target state="translated">Forkněte nás na GitHubu</target>
       </trans-unit>
       <trans-unit id="4m3F_E2" resname="LMMS is a 100% free, open source, community-driven project.">
         <source>LMMS is a 100% free, open source, community-driven project.</source>
@@ -644,7 +645,7 @@ GamingasCZ &lt;gamingforyou875@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="B_SpjYT" resname="Proudly hosted on GitHub.">
         <source>Proudly hosted on GitHub.</source>
-        <target></target>
+        <target state="translated">Hrdě hostováno na GitHubu.</target>
       </trans-unit>
       <trans-unit id="cjwuqX6" resname="Take a peek.">
         <source>Take a peek.</source>
@@ -776,7 +777,7 @@ GamingasCZ &lt;gamingforyou875@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="U7C6Upb" resname="The Best of LMMS Vol. 5 by LMMS Artists">
         <source>The Best of LMMS Vol. 5 by LMMS Artists</source>
-        <target></target>
+        <target state="translated">Nejlepší z LMMS Vol.5 od umělců LMMS</target>
       </trans-unit>
       <trans-unit id="VlSWT7Z" resname="The Best of LMMS Vol. 4 by LMMS Artists">
         <source>The Best of LMMS Vol. 4 by LMMS Artists</source>
@@ -1403,6 +1404,14 @@ GamingasCZ &lt;gamingforyou875@gmail.com&gt;, 2019
       <trans-unit id="OnhpU4i" resname="Home">
         <source>Home</source>
         <target>Home</target>
+      </trans-unit>
+      <trans-unit id="XaEX_Ha" resname="LMMS Sharing Platform">
+        <source>LMMS Sharing Platform</source>
+        <target>LMMS Sharing Platform</target>
+      </trans-unit>
+      <trans-unit id="CxpKTzu" resname="Share your work with the LMMS community.">
+        <source>Share your work with the LMMS community.</source>
+        <target>Share your work with the LMMS community.</target>
       </trans-unit>
     </body>
   </file>
