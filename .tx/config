@@ -4,7 +4,7 @@ minimum_perc = 100
 #Need to completely finished before merging back
 
 [lmms.lmmsio]
-file_filter = public/locale/<lang>/LC_MESSAGES/messages.po
-source_file = public/locale/messages.pot
+file_filter = translations/messages.<lang>.xlf
+source_file = translations/messages.en.xlf
 source_lang = en
-type = PO
+type = XLIFF
