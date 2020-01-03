@@ -1,26 +1,15 @@
 #!/bin/bash
-if ! (which xgettext > /dev/null 2>&1); then
-    echo "Please install GNU gettext tools before you continue!"
-    exit 1
-fi
-
 echo "This device currently defined the following locales:"
 locale -a
 
 echo "Updating translation template..."
-srctop=$(realpath "$(dirname "$0")"/../public)
-rm "${srctop}"/locale/messages.pot || true
+srctop=$(realpath "$(dirname "$0")"/../)
 
-tmpfile=$(mktemp)
-bash "$(dirname "$0")"/collect_strings "${tmpfile}"
-xgettext -L php --from-code=utf-8 -j -o "${tmpfile}" "${srctop}"/*.php
-sed -i "s|${srctop}/||g" "${tmpfile}"
-mv "${tmpfile}" "${srctop}"/locale/messages.pot
-
-for dir in ${srctop}/locale/*/
+for f in ${srctop}/translations/messages.*.xlf
 do
-    dir=${srctop}/${dir%*/}
-    tr_file=${srctop}/locale/${dir##*/}/LC_MESSAGES/messages.po
-    echo "Updating ${tr_file}..."
-    msgmerge -U --backup=off "${tr_file}" "${srctop}"/locale/messages.pot
+    # Test if PHP/Symfony can load the translation
+    locale="$(basename "$f")"
+    locale="${locale/.xlf/}"
+    locale="${locale/messages./}"
+    ./bin/console translation:update "$locale" --force --prefix=''
 done
