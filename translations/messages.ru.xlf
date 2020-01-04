@@ -562,7 +562,7 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="j6_axfx" resname="Core Functionality">
         <source>Core Functionality</source>
-        <target state="translated">Основная функциональнрость</target>
+        <target state="translated">Основная функциональность</target>
       </trans-unit>
       <trans-unit id="HLWVAGp" resname="Compose music on Windows, Linux and macOS">
         <source>Compose music on Windows, Linux and macOS</source>
