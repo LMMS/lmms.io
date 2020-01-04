@@ -430,19 +430,19 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="HXvrE6h" resname="Produce music with your computer">
         <source>Produce music with your computer</source>
-        <target state="translated">Создавайте музыку на вашем компьютере</target>
+        <target state="translated">Сочиняйте музыку на вашем компьютере,</target>
       </trans-unit>
       <trans-unit id="8k_3.h_" resname="by creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.">
         <source>by creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.</source>
-        <target state="translated">создавая молодии и биты, синтезируя и смешивая звуки, арранжируя семплы и многое другое</target>
+        <target state="translated">создавая мелодии и биты, синтезируя и смешивая звуки, арранжируя семплы и многое другое</target>
       </trans-unit>
       <trans-unit id="1ANtx56" resname="Playback instruments, samples and plugins">
         <source>Playback instruments, samples and plugins</source>
-        <target state="translated">Инструменты воспроизведения, семплы и плагины.</target>
+        <target state="translated">Играйте на инструментах, воспроизводите семплы и плагины</target>
       </trans-unit>
       <trans-unit id="c_9n6oH" resname="with a typing or MIDI keyboard in a user-friendly and modern interface.">
         <source>with a typing or MIDI keyboard in a user-friendly and modern interface.</source>
-        <target state="translated">с набором или работой через MIDI клавиатуру в дружественном пользователю, современном интерфейсе.</target>
+        <target state="translated">через набор на обычной или MIDI клавиатуре в дружественном пользователю, современном интерфейсе.</target>
       </trans-unit>
       <trans-unit id="h73sjrb" resname="Bundled with ready-to-use content">
         <source>Bundled with ready-to-use content</source>
@@ -450,7 +450,7 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="lBGEdiH" resname="from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.">
         <source>from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.</source>
-        <target state="translated">от ассортимента инструментов и эффект-плагина, пресетов и семплов до поддержки VST и SoundFont.</target>
+        <target state="translated">От ассортимента инструментов и плагинов-эффектов, пресетов и семплов до поддержки VST и SoundFont.</target>
       </trans-unit>
       <trans-unit id="rELUYJ6" resname="Made by musicians, for musicians.">
         <source>Made by musicians, for musicians.</source>
@@ -470,7 +470,7 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="QBixtUo" resname="Pick your flavor.">
         <source>Pick your flavor.</source>
-        <target state="translated">Выберите пакадж для своей любимой платформы.</target>
+        <target state="translated">Выберите пакет для своей любимой платформы.</target>
       </trans-unit>
       <trans-unit id="CaD6ze3" resname="Linux, Windows or macOS.">
         <source>Linux, Windows or macOS.</source>
@@ -538,15 +538,15 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="4m3F_E2" resname="LMMS is a 100% free, open source, community-driven project.">
         <source>LMMS is a 100% free, open source, community-driven project.</source>
-        <target state="translated">LMMS на 100% бесплатный проект с открытым исходным кодом (Open Source), движимый усилиями сообщества.</target>
+        <target state="translated">LMMS на 100% свободный проект с открытым исходным кодом (Open Source), движимый усилиями сообщества.</target>
       </trans-unit>
       <trans-unit id="B_SpjYT" resname="Proudly hosted on GitHub.">
         <source>Proudly hosted on GitHub.</source>
-        <target state="translated">С гордостью поддерживается в GitHub.</target>
+        <target state="translated">С гордостью хостится GitHub.</target>
       </trans-unit>
       <trans-unit id="cjwuqX6" resname="Take a peek.">
         <source>Take a peek.</source>
-        <target state="translated">Бросьте взгляд.</target>
+        <target state="translated">Взгляните!</target>
       </trans-unit>
       <trans-unit id="73lMPDq" resname="Watch our promo video.">
         <source>Watch our promo video.</source>
@@ -570,7 +570,7 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="JmUgjfR" resname="Sequence, compose, mix and automate songs in one simple interface">
         <source>Sequence, compose, mix and automate songs in one simple interface</source>
-        <target state="translated">Составляйте последовательность, занимайтесь композицией микшируйте  и автоматизируйте мелодии в едином простом интерфейсе.</target>
+        <target state="translated">Составляйте последовательность, композируйте, микшируйте и автоматизируйте мелодии в едином простом интерфейсе.</target>
       </trans-unit>
       <trans-unit id="q85N8NQ" resname="Note playback via MIDI or typing keyboard">
         <source>Note playback via MIDI or typing keyboard</source>
@@ -622,7 +622,7 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="b1z.R0m" resname="Drop-in VST ® effect plug-in support (Linux and Windows)">
         <source>Drop-in VST ® effect plug-in support (Linux and Windows)</source>
-        <target state="translated">Поддержка плагина эффектов VST для Linux и Windows.</target>
+        <target state="translated">Поддержка VST-плагинов для Linux и Windows.</target>
       </trans-unit>
       <trans-unit id="_c4RPsG" resname="Built-in compressor, limiter, delay, reverb, distortion and bass enhancer">
         <source>Built-in compressor, limiter, delay, reverb, distortion and bass enhancer</source>
@@ -634,7 +634,7 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="PoXBpT3" resname="Built-in visualization/spectrum analyzer">
         <source>Built-in visualization/spectrum analyzer</source>
-        <target state="translated">Встроенный анализатор спектра\визуализации</target>
+        <target state="translated">Встроенный инструмент визуализации/анализа спектра</target>
       </trans-unit>
       <trans-unit id="1BeqFto" resname="Branding">
         <source>Branding</source>
@@ -710,7 +710,7 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
 	volunteers in their free time. But to keep the project going, we need this
 	number to grow. So if you feel like giving something back to the community,
 	join us in making LMMS better!</source>
-        <target state="translated">LMMS это бесплатная и, что не менее важно, свободная программа, созданная целиком небольшой группой из - волонтёров, которые работают над ней в свободное время. Но также требуется большее количество людей, чтобы сообщество программы росло. Присоединяйтесь к нам, сделайте LMMS лечше!</target>
+        <target state="translated">LMMS это бесплатная и, что не менее важно, свободная программа, созданная целиком небольшой группой волонтёров, которые работают над ней в свободное время. Но также требуется большее количество людей, чтобы сообщество программы росло. Присоединяйтесь к нам, сделайте LMMS лучше!</target>
       </trans-unit>
       <trans-unit id="9CFIxXY" resname="What you can do">
         <source>What you can do</source>
@@ -728,31 +728,31 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
         <source>We are in desperate need of new developers to join our team. LMMS is written in C++ using the Qt
 					   Framework, so if you know a thing or two about these, don't hesitate to get yourself dirty with
 					   coding!</source>
-        <target state="translated">Мы отчаянно ищем новых разработчиков, которые могли бы писать на C++ с использованием библиотеки Qt для нашей команды. Поэтому, если вы знаете что-либо о кодинге, присоединяйтесь!</target>
+        <target state="translated">Мы крайне нуждаемся в новых разработчиках для нашей команды, которые могли бы писать на C++ с использованием библиотеки Qt. Поэтому, если вы знаете что-либо о кодинге, присоединяйтесь!</target>
       </trans-unit>
       <trans-unit id="YIACglk" resname="See our &lt;a href=&quot;//github.com/LMMS/lmms/wiki&quot;&gt;GitHub Wiki&lt;/a&gt; and our&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//github.com/LMMS/lmms/issues&quot;&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;https://lists.sourceforge.net/lists/listinfo/lmms-devel&quot;&gt;mailing list&lt;/a&gt; is a great place&#10;&#9;&#9;&#9;&#9;&#9;   to introduce yourself.">
         <source>See our &lt;a href="//github.com/LMMS/lmms/wiki"&gt;GitHub Wiki&lt;/a&gt; and our
 					   &lt;a href="//github.com/LMMS/lmms/issues"&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS
 					   &lt;a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel"&gt;mailing list&lt;/a&gt; is a great place
 					   to introduce yourself.</source>
-        <target state="translated"><![CDATA[Посмотрите наши: <a href="//github.com/LMMS/lmms/wiki"> Вики на GitHub, <a href="//github.com/LMMS/lmms/issues"> Трекер ошибок для начала
-<a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel"> Список E-Mail рассылки. </a> хорошее место, чтобы представить себя.]]></target>
+        <target state="translated"><![CDATA[Для начала ознакомьтесь с нашими: <a href="//github.com/LMMS/lmms/wiki"> Вики на GitHub, <a href="//github.com/LMMS/lmms/issues"> багтрекером
+. Кроме того, <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">Список E-Mail рассылки</a> LMMS - хорошее место, чтобы представить себя.]]></target>
       </trans-unit>
       <trans-unit id="FSzxUcg" resname="Website &amp; Docs">
         <source>Website &amp; Docs</source>
-        <target state="translated">Веб-сайт и документы</target>
+        <target state="translated">Веб-сайт и документация</target>
       </trans-unit>
       <trans-unit id="5DVpnpU" resname="You can help us by improving this website or documenting the software. The website sources are in our&#10;&#9;&#9;&#9;&#9;&#9;   GitHub repo &lt;a href=&quot;//github.com/LMMS/lmms.io&quot;&gt;LMMS/lmms.io&lt;/a&gt;, our documentation is hosted using a&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//lmms.io/wiki&quot;&gt;MediaWiki instance&lt;/a&gt;.">
         <source>You can help us by improving this website or documenting the software. The website sources are in our
 					   GitHub repo &lt;a href="//github.com/LMMS/lmms.io"&gt;LMMS/lmms.io&lt;/a&gt;, our documentation is hosted using a
 					   &lt;a href="//lmms.io/wiki"&gt;MediaWiki instance&lt;/a&gt;.</source>
-        <target state="translated"><![CDATA[Вы можете помочь нам, переводя этот сайт или документируя работу с программой. Источники вебсайта раположены в нашем 					 GitHub репозитории  <a href="//github.com/LMMS/lmms.io">LMMS/lmms.io</a>, а документация на 					 <a href="//lmms.io/wiki">MediaWiki</a>.]]></target>
+        <target state="translated"><![CDATA[Вы можете помочь нам, переводя этот сайт или документируя работу с программой. Исходный код вебсайта раположен в нашем 					 GitHub репозитории  <a href="//github.com/LMMS/lmms.io">LMMS/lmms.io</a>, а документация на 					 <a href="//lmms.io/wiki">MediaWiki</a>.]]></target>
       </trans-unit>
       <trans-unit id="mxP7dw_" resname="Public registration on our Wiki is disabled due to spam issues. Please post to the&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;https://lists.sourceforge.net/lists/listinfo/lmms-devel&quot;&gt;mailing list&lt;/a&gt; if you're&#10;&#9;&#9;&#9;&#9;&#9;   interested in helping out with the documentation!">
         <source>Public registration on our Wiki is disabled due to spam issues. Please post to the
 					   &lt;a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel"&gt;mailing list&lt;/a&gt; if you're
 					   interested in helping out with the documentation!</source>
-        <target state="translated"><![CDATA[Регистрация на нашей вики отключена из-за случаев спама. Пожалуйста, напишите нам 					 <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">на почту</a>, если вы заинтересованы помогать нам с документацией!]]></target>
+        <target state="translated"><![CDATA[Регистрация на нашей вики отключена из-за проблем со спамом. Пожалуйста, напишите нам 					 <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">на почту</a>, если вы заинтересованы помогать нам с документацией!]]></target>
       </trans-unit>
       <trans-unit id="yR7g8nm" resname="Donate">
         <source>Donate</source>
@@ -761,7 +761,7 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
       <trans-unit id="LUNpyrn" resname="Even though donations are not the thing we need the most (that'd be developers), they help us pay&#10;&#9;&#9;&#9;&#9;&#9;   our bills, for our domain lmms.io for instance.">
         <source>Even though donations are not the thing we need the most (that'd be developers), they help us pay
 					   our bills, for our domain lmms.io for instance.</source>
-        <target state="translated">Несмотря на то, что в денежных пожертвованиях мы нуждаемся меньше, чем в разработчиках, деньги помогают нам оплачивать, например домен lmms.io.</target>
+        <target state="translated">Несмотря на то, что в денежных пожертвованиях мы нуждаемся меньше, чем в разработчиках, они помогают нам оплачивать, например, домен lmms.io.</target>
       </trans-unit>
       <trans-unit id="7yTl1LS" resname="Donate via PayPal">
         <source>Donate via PayPal</source>
@@ -776,7 +776,7 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
 					   translating the software. You can find instructions on the page
 					   "&lt;a href="//github.com/LMMS/lmms/wiki/Creating-a-localization"&gt;Creating a localization&lt;/a&gt;" in our
 					   GitHub Wiki.</source>
-        <target state="translated"><![CDATA[Если Ваш язык отсутствует в LMMS, помогите проекту и другим пользователям, говорящим на одном с Вами языке
+        <target state="translated"><![CDATA[Если Ваш язык отсутствует в LMMS, помогите проекту и другим пользователям, говорящим на одном с Вами языке,
 				 	переводя программу. Вы можете найти инструкции на странице
 					 "<a href="//github.com/LMMS/lmms/wiki/Creating-a-localization">Создание локализаций</a>" в нашей вики на GitHub.]]></target>
       </trans-unit>
@@ -790,7 +790,7 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="6PT.eyE" resname="Posting to the mailing list is the best way to reach out to our developers:">
         <source>Posting to the mailing list is the best way to reach out to our developers:</source>
-        <target state="translated">Сообщения для списка почтовой рассылки — лучший способ связаться с нашими разработчиками:</target>
+        <target state="translated">Отправка сообщений в список рассылки — лучший способ связаться с нашими разработчиками:</target>
       </trans-unit>
       <trans-unit id="vTqq2U0" resname="Subscribe to LMMS-Devel mailing list">
         <source>Subscribe to LMMS-Devel mailing list</source>
@@ -805,9 +805,9 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
         <source>&lt;a href="https://discordapp.com/"&gt;Discord&lt;/a&gt;
 					is a more modern alternative to IRC. Join our server 
 					&lt;a href="/chat/"&gt;by clicking here&lt;/a&gt;.</source>
-        <target state="translated"><![CDATA[<a href="https://discordapp.com/">Discord</a> 
+        <target state="translated"><![CDATA[<a href="https://discordapp.com/">Discord</a> -
 					 более современная альтернатива IRC. Присоединяйтесь к нашему серверу
-					 <a href="/chat/">По этой ссылке</a>.]]></target>
+					 <a href="/chat/">по этой ссылке</a>.]]></target>
       </trans-unit>
       <trans-unit id="Tae9Qqu" resname="Forum">
         <source>Forum</source>
@@ -815,11 +815,11 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="vgrQxiN" resname="We host a forum for our users here on this website:">
         <source>We host a forum for our users here on this website:</source>
-        <target state="translated">Мы также предлагаем пользователям собраться на нашем форуме здесь, на этом вебсайте:</target>
+        <target state="translated">Для наших пользователей мы создали форум, расположенный по ссылке:</target>
       </trans-unit>
       <trans-unit id="P3vlK3." resname="For reporting a bug or suggesting a new feature, please use the GitHub issue tracker:">
         <source>For reporting a bug or suggesting a new feature, please use the GitHub issue tracker:</source>
-        <target state="translated">Чтобы сообщить об ошибке, или предложить новую функцию, пожалуйста, используйте страницу для вопросов GitHub:</target>
+        <target state="translated">Чтобы сообщить об ошибке или предложить новую функцию, пожалуйста, используйте страницу на GitHub:</target>
       </trans-unit>
       <trans-unit id="laP8ZYf" resname="Author:">
         <source>Author:</source>
@@ -895,7 +895,7 @@ Andrei Stepanov &lt;adem4ik@gmail.com&gt;, 2019
       </trans-unit>
       <trans-unit id="yHBYjoP" resname="Sharing Platform">
         <source>Sharing Platform</source>
-        <target state="translated">Поделиться на</target>
+        <target state="translated">Поделиться</target>
       </trans-unit>
       <trans-unit id="KYh6X.m" resname="Share">
         <source>Share</source>
