@@ -510,6 +510,8 @@ function parse_url_ext ($url) {
  *  Turns links such as http://example.com into the proper a tag
  */
 function create_link ($url) {
+	// sanitize the link
+	$url = htmlspecialchars($url, ENT_QUOTES);
 	// if the url has no protocol, use a protocol relative link
 	if(strpos($url, 'http') === false) {
 		$html = '<a href="//' . $url . '" target=_blank >' . $url . '</a>';
@@ -522,6 +524,8 @@ function create_link ($url) {
  *  Turns links such as http://example.com/pic.jpg into the proper img tag
  */
 function create_img ($url) {
+	// sanitize the link
+	$url = htmlspecialchars($url, ENT_QUOTES);
 	// if the url has no protocol, use a protocol relative link
 	if(strpos($url, 'http') === false) {
 		$html = '<img src="//' . $url . '" class="lsp-image" alt="' .$url . '">';
