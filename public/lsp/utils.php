@@ -393,7 +393,18 @@ function parse_links($message, $width = "100%", $height = 160) {
 	preg_match_all($pattern, $message, $matched, PREG_SET_ORDER);
 
 	if ($matched) {
+		$replaced = array();
+		$link_has_replaced = function (string $link) use (&$replaced): bool {
+			for ($i = 0; $i < count($replaced); $i++) {
+				if ($replaced[$i] === $link) {
+					return true;
+				}
+			}
+			$replaced[] = $link;
+			return false;
+		};
 		for ($i = 0; $i < count($matched); $i++) {
+			if ($link_has_replaced($matched[$i][0])) continue;
 			// Soundcloud links
 			if ($matched[$i][2]) {
 				if (strpos($matched[$i][0], 'src="') !== false) {
