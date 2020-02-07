@@ -8,7 +8,7 @@ require_once('dbo.php');
  * necessary header content to ensure the browser doesn't accidentally display
  * the file as a new page
  */
-function download_file($file_id, $file_name) {
+function download_file(int $file_id, string $file_name) {
 	global $DATA_DIR;
 	$file_path = $DATA_DIR . $file_id;
 	if (file_exists($file_path)) {
@@ -38,7 +38,11 @@ function download_file($file_id, $file_name) {
 	exit;
 }
 
-if (!GET_EMPTY('file') && !GET_EMPTY('name')) {
+if (!GET_EMPTY('file') && !GET_EMPTY('name') && is_numeric(GET('file'))) {
 	download_file(GET('file'), html_entity_decode(GET('name')));
+} else {
+	require_once('dbo.php');
+	header("HTTP/1.0 400 Bad Request");
+	echo "<h1>HTTP/1.0 400 Bad Request</h1>";
 }
 ?>
