@@ -38,10 +38,11 @@ function process_params() {
 				case 'search': //move down
 				case 'q':
 					$search = GET('q', GET('search', ''));
-					$results = get_results(GET('category'), GET('subcategory'), GET('sort'), $search, '', GET('order'), GET('commentsearch'));
+					list($count, $results) = get_results(GET('category'), GET('subcategory'), GET('sort'), $search, '', GET('order'), GET('commentsearch'));
 					echo twig_render('lsp/results_list.twig', [
 						'rows' => $results,
-						'titles' => [GET('category'), GET('subcategory'), $search ? "\"$search\"": null]
+						'titles' => [GET('category'), GET('subcategory'), $search ? "\"$search\"": null],
+						'count' => $count
 					]);
 					return;
 					// default: // do nothing
@@ -58,24 +59,27 @@ function process_params() {
 					$results = show_file(GET("file"), SESSION());
 					echo twig_render('lsp/show_file.twig', [
 						'titles' => [GET('category'), GET('subcategory')],
-						'rows' => $results
+						'rows' => $results,
+						'count' => $count
 					]);
 					return;
 				case 'action:register' : require ("./register.php"); return;
 				case 'action:browse' :
 					// Browsing by category seems is currently only supported "browse" option
 					if (!GET_EMPTY('category')) {
-						$results = get_results(GET('category'), GET('subcategory'), GET('sort'), '', '', GET('order'));
+						list($count, $results) = get_results(GET('category'), GET('subcategory'), GET('sort'), '', '', GET('order'));
 						echo twig_render('lsp/results_list.twig', [
 							'titles' => [GET('category'), GET('subcategory')],
-							'rows' => $results
+							'rows' => $results,
+							'count' => $count
 						]);
 						return;
 					} else if(!GET_EMPTY('user')) {
-						$results = get_results(GET('category'), GET('subcategory'), GET('sort'), '', GET('user'), GET('order'));
+						list($count, $results) = get_results(GET('category'), GET('subcategory'), GET('sort'), '', GET('user'), GET('order'));
 						echo twig_render('lsp/results_list.twig', [
 							'titles' => '(' . GET('user') . ')',
-							'rows' => $results
+							'rows' => $results,
+							'count' => $count
 						]);
 						return;
 					}

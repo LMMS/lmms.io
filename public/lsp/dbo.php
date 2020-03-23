@@ -594,9 +594,8 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 		$additional_items = strlen($additional_items) ? "OR files.id IN ($additional_items)" : '';
 	}
 	
+	$count = get_results_count($category, $subcategory, $search, $user_id, $additional_items);
 	$user_id = $user_id == -1 ? '' : $user_id;
-
-	// list_sort_options();
 		
 	$order_by = 'files.insert_date';
 	switch ($sort) {
@@ -644,10 +643,9 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 		}
 	}
 	debug_out(var_export($ret, true));
-	// echo '<div class="text-center">' . get_pagination($count) . '</div>';
 	$stmt = null;
 	$dbh = null;
-	return $ret;
+	return array($count, $ret);
 }
 
 /*

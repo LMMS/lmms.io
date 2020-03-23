@@ -29,6 +29,11 @@
     /lsp?{{ queries|map((v, k) => "#{k}=#{v|escape('url')}")|join("&") }}
 {% endmacro %}
 
+{% macro paginate_url(page) %}
+    {% set queries = app.request.query|merge({'page': page - 1}) %}
+    /lsp?{{ queries|map((v, k) => "#{k}=#{v|escape('url')}")|join("&") }}
+{% endmacro %}
+
 {% block main_content %}
     {% import _self as r_macros %}
     {{macros.make_title(titles)}}
@@ -46,11 +51,21 @@
     </ul>
         {% for rs in rows %}
             {{macros.make_item(rs, sort)}}
-            {# TODO: pagination #}
         {% else %}
             <div class="alert alert-info text-center">
             <strong><span class="fas fa-info-circle"></span>&nbsp;</strong> No results found
             </div>
         {% endfor %}
     </table>
+    {% set pages = count / 25.0 %}
+    {% set current_page = app.request.query['page'] + 1 %}
+    <div class="text-center">
+        <div class="lsp-pagination center">
+            <ul class="pagination">
+                {% for i in 1..pages|round(0, 'ceil') %}
+                <li class="{{ i == current_page ? 'active' : '' }}"><a href="{{r_macros.paginate_url(i)}}">{{i}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}
