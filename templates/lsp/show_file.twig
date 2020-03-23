@@ -23,7 +23,9 @@
             {% endif %}
             {{macros.make_infobar(rs, true)}}
             <tr><td><strong>Name:</strong>&nbsp;{{rs['filename']}}
-            {# TODO: Parse image link #}
+            {% if rs['thumb'] %}
+                <br><br><a href="/lsp/{{rs['download']}}"><img class="thumbnail" src="{{rs['thumb']}}" alt=""></a>
+            {% endif %}
             </td><td class="lsp-file-info">
             <a href="/lsp/{{rs['download']}}" id="downloadbtn" class="lsp-dl-btn btn btn-primary">
             <span class="fas fa-download lsp-download"></span>&nbsp;Download</a>
