@@ -121,7 +121,7 @@ function scale_image($url, $width, $extension = null) {
 	imagedestroy($new_image);
 	$i = ob_get_clean();
 
-	return 'data:image/png;base64,' . base64_encode($i). '"';
+	return 'data:image/png;base64,' . base64_encode($i);
 }
 
 /*

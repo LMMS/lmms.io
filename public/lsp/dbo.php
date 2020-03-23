@@ -776,6 +776,9 @@ function show_file($file_id, $user, $success = null): array {
 				$object['lmms_version'] = $project_data->attributes()['creatorversion'];
 			}
 			$object['session_rating'] = get_user_rating($file_id, $user);
+			if (is_image($url)) {
+				$object['thumb'] = scale_image($DATA_DIR . $file_id, 300, parse_extension($url));
+			}
 			$ret[] = $object;
 			$title = array($object['category'], $object['subcategory'], get_file_url($file_id));
 			if ($success == null) {
@@ -788,9 +791,6 @@ function show_file($file_id, $user, $success = null): array {
 				display_success("$success", $title);
 			}
 			
-			if (is_image($url)) {
-				echo '<br><br><a href="' . $url . '"><img class="thumbnail" src="' . scale_image($DATA_DIR . $file_id, 300, parse_extension($url)) . '" alt=""></a>';
-			}
 			$found = true;
 			break;
 		}
