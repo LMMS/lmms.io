@@ -57,6 +57,7 @@
             </div>
         {% endfor %}
     </table>
+    {% if count > 25 %}
     {% set pages = count / 25.0 %}
     {% set current_page = app.request.query['page'] + 1 %}
     <div class="text-center">
@@ -68,4 +69,5 @@
             </ul>
         </div>
     </div>
+    {% endif %}
 {% endblock %}

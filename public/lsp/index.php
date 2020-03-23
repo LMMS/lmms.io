@@ -59,8 +59,7 @@ function process_params() {
 					$results = show_file(GET("file"), SESSION());
 					echo twig_render('lsp/show_file.twig', [
 						'titles' => [GET('category'), GET('subcategory')],
-						'rows' => $results,
-						'count' => $count
+						'rows' => $results
 					]);
 					return;
 				case 'action:register' : require ("./register.php"); return;

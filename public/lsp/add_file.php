@@ -68,13 +68,13 @@ if (!SESSION_EMPTY()) {
 
 				$user_id = get_user_id(SESSION());
 				$file_id = insert_file(
-					$file_name, 
-					$user_id, 
-					$category_id, 
-					$subcategory_id, 
-					$license_id, 
-					POST('description'), 
-					POST('fsize'), 
+					$file_name,
+					$user_id,
+					$category_id,
+					$subcategory_id,
+					$license_id,
+					htmlspecialchars_decode(POST('description')),
+					POST('fsize'),
 					sha1_file($tmp_path)
 				);
 				if ($file_id > 0) {
