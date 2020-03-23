@@ -2,10 +2,48 @@
 
 {% import 'lsp/macros.twig' as macros %}
 
+{% macro is_sort_active(column) %}
+    {{ app.request.query['sort'] == column ? 'active' : '' }}
+{% endmacro %}
+
+{% macro sort_order(column) %}
+    {% if app.request.query['sort'] == column %}
+        {% if app.request.query['order'] == 'asc' %}
+            (<span class="fas fa-long-arrow-alt-up"></span>)
+        {% else %}
+            (<span class="fas fa-long-arrow-alt-down"></span>)
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+
+{% macro sort_url(column) %}
+    {% set queries = app.request.query %}
+    {% if app.request.query['sort'] == column %}
+        {% if app.request.query['order'] == 'asc' %}
+            {% set queries = queries|merge({'order': ''}) %}
+        {% else %}
+            {% set queries = queries|merge({'order': 'asc'}) %}
+        {% endif %}
+    {% endif %}
+    {% set queries = queries|merge({'sort': column}) %}
+    /lsp?{{ queries|map((v, k) => "#{k}=#{v|escape('url')}")|join("&") }}
+{% endmacro %}
+
 {% block main_content %}
+    {% import _self as r_macros %}
     {{macros.make_title(titles)}}
     <table class="table table-striped">
-    {# TODO: sort #}
+    <ul class="nav nav-pills lsp-sort">
+        <li id="sort-date" class="{{ r_macros.is_sort_active('date') }}">
+            <a href="{{ r_macros.sort_url('date') }}"><span class="fas fa-calendar"></span>&nbsp;DATE {{ r_macros.sort_order('date') }}</a>
+        </li>
+        <li id="sort-downloads" class="{{ r_macros.is_sort_active('downloads') }}">
+            <a href="{{ r_macros.sort_url('downloads') }}"><span class="fas fa-download"></span>&nbsp;DOWNLOADS / AGE {{ r_macros.sort_order('downloads') }}</a>
+        </li>
+        <li id="sort-rating" class="{{ r_macros.is_sort_active('rating') }}">
+            <a href="{{ r_macros.sort_url('rating') }}"><span class="fas fa-star"></span>&nbsp;RATING {{ r_macros.sort_order('rating') }}</a>
+        </li>
+    </ul>
         {% for rs in rows %}
             {{macros.make_item(rs, sort)}}
             {# TODO: pagination #}

@@ -795,9 +795,7 @@ function show_file($file_id, $user, $success = null): array {
 			break;
 		}
 	}
-	if (!$found) {
-		display_error('Invalid file: "' . sanitize($file_id) . '"');
-	}
+
 	$stmt = null;
 	$dbh = null;
 	return $ret;
