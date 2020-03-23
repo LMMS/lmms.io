@@ -15,9 +15,9 @@ require_once('utils.php');
  $LSP_URL = 'http://lmms.io/lsp/index.php';
 /*
  * Query preferences
- * Note:  MySQL defaults to latin1 charset
+ * Note:  MySQL defaults to utf8mb4 charset since 5.5
  */
-$DB_CHARSET = 'latin1';
+$DB_CHARSET = 'utf8mb4';
 $PAGE_SIZE = 25;
 $MAX_LOGIN_ATTEMPTS = 6;
 
@@ -765,10 +765,10 @@ function show_file($file_id, $user, $success = null): array {
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			$object['url'] = get_file_url($file_id);
-			$url = 'download_file.php?file=' . $object['id'] . '&name=' . urlencode(html_entity_decode($object['filename']));
+			$url = 'download_file.php?file=' . $object['id'] . '&name=' . urlencode($object['filename']);
 			$object['download'] = $url;
 			$object['comment_section'] = get_comments($file_id);
-			$object['description'] = ($object['description'] != '') ? parse_links(newline_to_br($object['description'], true)) : null;
+			$object['description'] = ($object['description'] != '') ? $object['description'] : null;
 			if (($project_data = read_project($object['id'])) != null) {
 				$object['lmms_version'] = $project_data->attributes()['creatorversion'];
 			}
@@ -881,7 +881,7 @@ function update_rating($file_id, $stars, $user) {
  */
 function insert_file($filename, $user_id, $category_id, $subcategory_id, $license_id, $description, $size, $hash) {
 	if (DBO_DEBUG) {
-		echo "<code>insert_file($filename, $user_id, $category_id, $subcategory_id, $license_id, $description, $size, $hash)</code>";
+		debug_out("<code>insert_file($filename, $user_id, $category_id, $subcategory_id, $license_id, $description, $size, $hash)</code>");
 	}
 	$dbh = &get_db();
 	$return_val = -1;
@@ -894,13 +894,12 @@ function insert_file($filename, $user_id, $category_id, $subcategory_id, $licens
 			':subcategory_id, :license_id, :description, :size, :hash' .
 		')'
 	);
-	$html_description = htmlspecialchars($description);
 	$stmt->bindParam(':filename', $filename);
 	$stmt->bindParam(':user_id', $user_id);
 	$stmt->bindParam(':category_id', $category_id);
 	$stmt->bindParam(':subcategory_id', $subcategory_id);
 	$stmt->bindParam(':license_id', $license_id);
-	$stmt->bindParam(':description', $html_description);
+	$stmt->bindParam(':description', $description);
 	$stmt->bindParam(':size', $size);
 	$stmt->bindParam(':hash', $hash);
 	if ($stmt->execute()) {
@@ -924,12 +923,11 @@ function update_file($file_id, $category_id, $subcategory_id, $license_id, $desc
 			'description=:description ' . 
 		'WHERE id=:file_id'
 	);
-	$html_description = htmlspecialchars($description);
 	$stmt->bindParam(':file_id', $file_id);
 	$stmt->bindParam(':category_id', $category_id);
 	$stmt->bindParam(':subcategory_id', $subcategory_id);
 	$stmt->bindParam(':license_id', $license_id);
-	$stmt->bindParam(':description', $html_description);
+	$stmt->bindParam(':description', $description);
 	if ($stmt->execute()) {
 		$return_val = true;
 	}
@@ -983,7 +981,6 @@ function delete_file($file_id) {
  */
 function add_visitor_comment($file_id, $comment, $user) {
 	$user_id = get_user_id($user);
-	$text = htmlspecialchars($comment, ENT_COMPAT, 'UTF-8');
 	$return_val = false;
 	
 	if ($file_id >= 0 && $user_id >= 0) {
@@ -991,7 +988,7 @@ function add_visitor_comment($file_id, $comment, $user) {
 		$stmt = $dbh->prepare('INSERT INTO comments (user_id, file_id, text) VALUES(:user_id, :file_id, :text)');
 		$stmt->bindParam(':user_id', $user_id);
 		$stmt->bindParam(':file_id', $file_id);
-		$stmt->bindParam(':text', $text);
+		$stmt->bindParam(':text', $comment);
 		if ($stmt->execute()) {
 			$return_val = true;
 		}

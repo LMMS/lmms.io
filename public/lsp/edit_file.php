@@ -25,7 +25,7 @@ if (get_user_id(SESSION()) == get_object_by_id("files", GET('file'), 'user_id') 
 		$license_id = get_license_id(POST('license'));
 
 		$success = false;
-		if (update_file(GET('file'), $category_id, $subcategory_id, $license_id, POST('description'))) {
+		if (update_file(GET('file'), $category_id, $subcategory_id, $license_id, htmlspecialchars_decode(POST('description')))) {
 			$success = true;
 		}
 		

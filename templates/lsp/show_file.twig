@@ -31,7 +31,7 @@
             <span class="fas fa-download lsp-download"></span>&nbsp;Download</a>
             </td></tr><tr><td colspan="2"><div class="well"><strong>Description:</strong><p>
             {% if rs['description'] %}
-                {{rs['description']|raw}}
+                {{rs['description']|nl2br}}
             {% else %}
                 No description available.
             {% endif %}
