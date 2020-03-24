@@ -11,7 +11,7 @@ if (!SESSION_EMPTY()) {
 			$error = 'Please type a message';
 		}
 	} else {
-		add_visitor_comment(GET('file'), POST('text'), SESSION());
+		add_visitor_comment(GET('file'), html_entity_decode(POST('text')), SESSION());
 		redirect($LSP_URL . '?action=show&file=' . GET('file') . '#footer');
 	}
 } else {

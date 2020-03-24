@@ -109,12 +109,11 @@ function blink(item_id) {
  */
 $(document).on('change', '.btn-file :file', function () {
     var input = $(this),
-        numFiles = input.get(0).files ? input.get(0).files.length : 1,
         label = input
             .val()
             .replace(/\\/g, '/')
             .replace(/.*\//, '');
-    $('#file-selected').html(label ? label : 'No file selected');
+    $('#file-selected').text(label ? label : 'No file selected').html();
     $('#file-selected')
         .removeClass()
         .addClass(label ? 'text-primary' : 'text-danger');

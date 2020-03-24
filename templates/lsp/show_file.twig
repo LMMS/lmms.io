@@ -8,7 +8,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.9/linkify-jquery.min.js" integrity="sha256-F70q7AGz3CYOo2UIkomPSg5xAnO52dJ646kytZ7lSEQ=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/css/star-rating.min.css" />
     {% for rs in rows %}
-        {{macros.make_title([rs['category'], rs['subcategory'], rs['filename']])}}
+        {{macros.make_title([rs['category'], rs['subcategory'], rs['filename']|escape])}}
         <table class="table table-striped">
             <td><div class="overflow-hidden">
             <small>by <a href="/lsp?action=browse&user={{rs['login']}}">
@@ -77,10 +77,10 @@
                 {# Bold comments made by the original author #}
                 {% if comment['commentuser'] == comment['fileuser'] %}
                     <strong>
-                    {{comment['text']|raw}}
+                    {{comment['text']}}
                     </strong>
                 {% else %}
-                    {{comment['text']|raw}}
+                    {{comment['text']}}
                 {% endif %}
                 <small class="lsp-small">Posted by: 
                 <a href="/lsp?action=browse&amp;user={{comment['login']}}">{{comment['login']}}</a>

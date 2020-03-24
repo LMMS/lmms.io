@@ -63,7 +63,7 @@ if (!SESSION_EMPTY()) {
 
 				$user_id = get_user_id(SESSION());
 				$file_id = insert_file(
-					$file_name,
+					htmlspecialchars_decode($file_name),
 					$user_id,
 					$category_id,
 					$subcategory_id,
