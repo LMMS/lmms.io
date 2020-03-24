@@ -31,7 +31,7 @@ if (!SESSION_EMPTY()) {
 					move_uploaded_file($tmp_path, $TMP_DIR . $tmp_name_only);
 					//echo "<code>moving $tmp_path to $TMP_DIR$tmp_name_only</code>";
 					echo twig_render('lsp/edit_file.twig', [
-						'titles' => array('<a href="">Add File</a>', $file_path),
+						'titles' => array('<a href="">Add File</a>', htmlentities($file_path)),
 						'categories' => $categories,
 						'file_id' => GET('file'),
 						'licenses' => get_licenses(),

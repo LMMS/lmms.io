@@ -30,7 +30,7 @@ function twig_render(string $template, array $params) {
     }
     $common = [
         'category_list' => get_categories(),
-        'username' => SESSION(),
+        'username' => html_entity_decode(SESSION()),
         'is_admin' => is_admin(get_user_id(SESSION())),
         'auth_failure' => $auth_failure,
         'commentsearch' => GET('commentsearch', false) ? 'checked' : '',
