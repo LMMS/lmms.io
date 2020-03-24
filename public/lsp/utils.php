@@ -84,72 +84,6 @@ function set_get_post($param, $default = null) {
 
 
 /*
- * Creates a sort-by tool-bar at the top of the file listing
- * i.e. DATE, DOWNLOADS, RATING
- */
-function list_sort_options($additional_html = '') {
-	global $LSP_URL;
-	$sortings = array(
-		'date' => '<span class="fas fa-calendar"></span>&nbsp;DATE',
-		'downloads' => '<span class="fas fa-download"></span>&nbsp;DOWNLOADS / AGE',
-		'rating' => '<span class="fas fa-star"></span>&nbsp;RATING',
-		'comments' => '<span class="fas fa-comment"></span>&nbsp;COMMENTS'
-	);
-	
-	// Catch singular/plural
-	switch (sanitize(GET('sort'), true)) {
-		case 'download' : $_GET['sort'] = 'download'; break;
-		case 'ratings' : $_GET['sort'] = 'rating'; break;
-		case 'comment' : $_GET['sort'] = 'comments'; break;
-	}
-	
-	// Get the active sort, or use 'date' if none is defined
-	if (array_key_exists(sanitize(GET('sort'), true), $sortings)) {
-		$_GET['sort'] = sanitize(GET('sort'), true);
-	}
-	
-	// Get the order (asc/desc) 'desc' if none is defined
-	if (!GET_EMPTY('order')) {
-		$order = sanitize(GET('order'), true);
-	} else {
-		$order = null;
-	}
-	
-	if (GET_EMPTY('sort') || !array_key_exists(GET('sort'), $sortings)) {
-		$_GET['sort'] = 'date';
-	}
-
-	// List all sort options
-	echo '<ul class="nav nav-pills lsp-sort">';
-	foreach ($sortings as $s => $v) {
-		if (GET('sort') == $s) {
-			switch ($order) {
-				case 'asc':
-					unset($_GET['order']);
-					$v .= '&nbsp;(<span class="fas fa-long-arrow-alt-up"></span>)';
-					break;
-				case 'desc':
-					// move down
-				default:
-					$_GET['order'] = 'asc';
-					$v .= '&nbsp;(<span class="fas fa-long-arrow-alt-down"></span>)';
-			}
-		} else {
-			// Don't allow order to be defined for other buttons
-			unset($_GET['order']);
-		}
-		echo '<li id="sort-' . strtolower(sanitize($s)) . '" class="' . (GET('sort') == $s ? 'active' : '') . '">';
-		echo '<a href="' . $LSP_URL . '?' . rebuild_url_query('sort', $s) . '">' . $v . '</a></li>';
-	}
-	
-	if ($additional_html != '') {
-		echo '<li style="margin-left: 2em; margin-top:-1em;">' . $additional_html . '</li>';
-	}
-	
-	echo '</ul>';
-}
-
-/*
  * Rebuilds the current URL into a new URL to be used in a link
  * replacing the specified key with a new key.
  */
@@ -221,30 +155,6 @@ function get_stars($fid = -1, $href = '#', $enabled = true) {
 	return $ret_val;
 }
 
-/*
- * Creates a bread-crumb style title for the table content
- * i.e All Content > Projects > Tutorials
- */
-function create_title($array) {
-	global $LSP_URL;
-	if (!is_array($array)) {
-		$array = array($array);
-	} else {
-		$one_element = one_element($array);
-		if ($one_element) {
-			$array = array($one_element);
-		}
-	}
-	
-	$title = "<a href=\"$LSP_URL\">All Content</a>";
-	foreach ($array as $element) {
-		if (isset($element) && trim($element) != '' && trim($element) != '""' && trim($element) != "()") {
-			$title .= '&nbsp;&nbsp;<span class="fas fa-caret-right lsp-caret-right"></span>&nbsp;&nbsp;';
-			$title .= trim($element);
-		}
-	}
-	echo '<h3 class="lsp-title">' . $title . '</h3>';
-}
 
 /*
  * Returns the single element of an array
@@ -310,39 +220,6 @@ function display_success($message, $title_array = null, $redirect = null, $count
 	return display_message($message, 'success', '', $title_array, $redirect, $counter);
 }
 
-/*
- * Return a basic "pagination" area for paging between search results
- */
-function get_pagination($count) {
-	global $PAGE_SIZE, $LSP_URL;
-	$commentsearch=GET('commentsearch', false) ? '&amp;commentsearch=true' : '';
-	$user=!GET_EMPTY('user') ? '&amp;user=' . rawurlencode(GET('user')) : '';
-	$category=!GET_EMPTY('category') ? '&amp;category=' . rawurlencode(GET('category')) : '';
-	$subcategory=!GET_EMPTY('subcategory') ? '&amp;subcategory=' . rawurlencode(GET('subcategory')) : '';
-	$browse = strlen("$user$category$subcategory") ? "?action=browse$user$category$subcategory" : '';
-	$search = !GET_EMPTY('search') ? '?search=' . rawurlencode(GET('search')) : '';
-	$sort=!GET_EMPTY('sort') ? '&amp;sort=' . rawurlencode(GET('sort')) : '';
-	$pagination = '';
-	$pagination .= '<div class="lsp-pagination center"><ul class="pagination pagination-sm">';
-	$pages = $count / $PAGE_SIZE;
-	$page = GET('page', 0);
-	if ($pages > 1) {
-		for($j=0; $j < $count / $PAGE_SIZE; ++$j ) {
-			if ($j==0 || (($j-5)<$page && ($j+5)>$page) || $j>($count / $PAGE_SIZE)-1) {
-				$class = $j==$page ? 'active' : '';	
-				if ($j>($count / $PAGE_SIZE)-1 && ($j-5)>$page) {
-					$pagination .= '<li><a>...</a></li>';
-				}
-				$pagination .= '<li class="' . $class . '"><a href=' . $LSP_URL . "$search$browse&amp;page=$j$sort$commentsearch>" . ($j+1) . '</a></li>';
-				if ($j==0 && ($j+5)<$page) {
-					$pagination .= '<li><a>...</a></li>';
-				}
-			}
-		}
-	}
-	$pagination .= '</ul></div>';
-	return $pagination;
-}
 
 /*
  * Clears session data and performs a user logout
@@ -380,86 +257,6 @@ function get_file_url(string $file_id = null): string {
 	$url = $LSP_URL . '?action=show&file=' . (isset($file_id) ? $file_id : GET('file'));
 	$name = get_file_name((isset($file_id) ? $file_id : GET('file')));
 	return '<a href="' . $url . '">' . $name . '</a>';
-}
-
-/*
- * Scrapes a message for a link to a service such as YouTube or SoundCloud and
- * embeds a player. Also turns links into appropriate hyperlinks.
- */
-function parse_links($message, $width = "100%", $height = 160) {
-	// Global pattern to find distinctive links
-	$pattern = "%[a-zA-Z\/\/:\.\"\=]*(                                 # group 1, contains all the other groups
-				(soundcloud.com\/[\w\*\-\?\&\%\=\.]+\/[\w\*\-\?\&\%\=\.]+)|  # group 2, match links like soundcloud.com/user/sound
-				(youtube.com\/watch\?v\=)|                                   # group 3, match links like youtube-com/watch?v=videocode
-				(youtu.be)|                                                  # group 4, match links like youtu.be/videocode
-				(clyp.it(?!\/user)\/\S+)|                                    # group 5, match links like clyp.it/somehash, do not capture user links
-				(https?:\/\/\S*\/\S*\.(jpe?g|png|gif)\b)|                    # groups 6 & 7, match links like http://mylink.domain/image.png
-				(https?:\/\/)                                                # group 8, match links like http://example.com/page
-				)+\S*%xi";
-	preg_match_all($pattern, $message, $matched, PREG_SET_ORDER);
-
-	if ($matched) {
-		$replaced = array();
-		$link_has_replaced = function (string $link) use (&$replaced): bool {
-			for ($i = 0; $i < count($replaced); $i++) {
-				if ($replaced[$i] === $link) {
-					return true;
-				}
-			}
-			$replaced[] = $link;
-			return false;
-		};
-		for ($i = 0; $i < count($matched); $i++) {
-			if ($link_has_replaced($matched[$i][0])) continue;
-			// Soundcloud links
-			if ($matched[$i][2]) {
-				if (strpos($matched[$i][0], 'src="') !== false) {
-				// If there is old iframe code, skip
- 				}
-				// If the link is not a playlist, embed
-				elseif (strpos($matched[$i][0], '/sets/') === false) {
-					$sc = parse_url_ext($matched[$i][0]);
-					$message = str_replace($matched[$i][0], '<sc>'. substr($sc["path"], 1) .'</sc>', $message);
-					$message = soundcloud_iframe($message, $width, $height);
-				}
-				// If the link is a playlist, create a normal link
-				else {
-					$message = str_replace($matched[$i][0], create_link($matched[$i][0]) , $message);
-				}
-			}
-			// Youtube links
-			elseif ($matched[$i][3]) {
-				$yt = parse_url_ext($matched[$i][0]);
-				// Get a clean embed code, without garbage like "&feature=youtu.be"
-				if (strpos($yt["query"], "&") === false) {
-					$length = strlen($yt["query"]) - 2;
-				 } else {
-					$length = strpos($yt["query"], "&") - 2;
-				}
-				$message = str_replace($matched[$i][0], youtube_iframe(substr($yt["query"], 2, $length), $width, $height), $message);
-			}
-			// Youtu.be links
-			elseif ($matched[$i][4]) {
-				$ytbe = parse_url_ext($matched[$i][0]);
-				$message = str_replace($matched[$i][0], youtube_iframe(substr($ytbe["path"], 1), $width, $height), $message);
-			}
-			// clyp.it links
-			elseif ($matched[$i][5]) {
-				$clyp = parse_url_ext($matched[$i][0]);
-				$message = str_replace($matched[$i][0], clyp_iframe(substr($clyp["path"], 1), $width, $height), $message);
-			}
-			// Image links
-			elseif ($matched[$i][6]) {
-				$message = str_replace($matched[$i][0], create_img($matched[$i][0]) , $message);
-			}
-			// Regular links
-			elseif ($matched[$i][8]) {
-				$message = str_replace($matched[$i][0], create_link($matched[$i][0]) , $message);
-			}
-		}
-	}
-
-	return $message;
 }
 
 /*
@@ -541,48 +338,6 @@ function create_img ($url) {
 	return $html;
 }
 
-/*
- * Replaces soundcloud links such as <sc>soundcloud.com/artist1/track1</sc> with the proper iframe tags
- */
-function soundcloud_iframe($message, $width, $height) {
-	$parts = explode('<sc>', $message);
-	$html = '';
-	
-	foreach ($parts as $part) {
-		if (strpos($part, '</sc>') !== false) {
-			$url_parts = explode('</sc>', $part);
-			if (sizeof($url_parts) > 0) {
-				$object = get_json_data('soundcloud', '../resolve', "?url=https://soundcloud.com/$url_parts[0]", '.');
-				if (is_object($object) && property_exists($object, 'id')) {
-					$html .= '<iframe width="' . $width.'" height="' . $height.'" scrolling="no" frameborder="no" ' . 
-						'src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' . 
-						$object->id . '&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;' . 
-						'show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>';
-					$html .= $url_parts[1];
-				} else {
-					$html .= 'https://soundcloud.com/' . $url_parts[0] . ' <i class="fas fa-exclamation-circle" title="Link is no longer valid"></i>';
-					$html .= $url_parts[1];
-				}
-			} else {
-				continue;
-			}
-		} else {
-			$html .= $part;
-		}
-	}
-
-	return $html;
-}
-
-/*
- * Converts clyp.it links to the appropriate iframe
- */
-function clyp_iframe($url, $width, $height) {
-	$html = '<iframe width="' . $width . '" height="' . $height . '" 
-		src="https://clyp.it/' . $url . '/widget" frameborder="0"></iframe>';
-
-	return $html;
-}
 
 function redirect(string $url, int $statusCode = 303) {
    header('Location: ' . $url, true, $statusCode);

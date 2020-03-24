@@ -4,6 +4,8 @@
 
 {% block main_content %}
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/js/star-rating.min.js" type="text/javascript"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.9/linkify.min.js" integrity="sha256-b8aRDYEOoOLGpyaXMI3N2nWUbjSeQ2QxzKjmPnCa4yA=" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.9/linkify-jquery.min.js" integrity="sha256-F70q7AGz3CYOo2UIkomPSg5xAnO52dJ646kytZ7lSEQ=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/css/star-rating.min.css" />
     {% for rs in rows %}
         {{macros.make_title([rs['category'], rs['subcategory'], rs['filename']])}}
@@ -29,7 +31,7 @@
             </td><td class="lsp-file-info">
             <a href="/lsp/{{rs['download']}}" id="downloadbtn" class="lsp-dl-btn btn btn-primary">
             <span class="fas fa-download lsp-download"></span>&nbsp;Download</a>
-            </td></tr><tr><td colspan="2"><div class="well"><strong>Description:</strong><p>
+            </td></tr><tr><td colspan="2"><div class="well"><strong>Description:</strong><p id="desc">
             {% if rs['description'] %}
                 {{rs['description']|nl2br}}
             {% else %}
@@ -101,11 +103,58 @@
 
 {% block foot %}
 <script type="text/javascript">
+    function get_search_params(search) {
+        var params = search.substr(1).split('&');
+        var kv = {};
+        for (var i = 0; i < params.length; i++) {
+            var pair = params[i].split('=');
+            kv[decodeURIComponent(pair[0])] = pair[1];
+        }
+        return kv;
+    }
+    function replace_frames(element) {
+        var url = element.getAttribute('href');
+        var hostname = element.hostname;
+        var frame = document.createElement('iframe');
+        var params = get_search_params(element.search);
+        if (hostname.includes('youtube.com') && element.pathname == '/watch' && params['v'] && params['v'].length > 4) {
+            frame.setAttribute('src', 'https://www.youtube.com/embed/' + params['v']);
+        } else if (hostname.includes('youtu.be') && element.pathname && element.pathname.length > 4) {
+            frame.setAttribute('src', 'https://www.youtube.com/embed/' + element.pathname.substr(1));
+        } else if (hostname.includes('soundcloud.com')) {
+            frame = null; // don't create element this early
+            // Fetch Soundcloud embed code
+            $.getJSON('https://soundcloud.com/oembed', {format: 'json', url: url}, function(data) {
+                if (data.html) {
+                    var frame = document.createElement('div');
+                    frame.innerHTML = data.html;
+                    frame.setAttribute('height', '160');
+                    element.parentNode.replaceChild(frame, element);
+                }
+            }, 'json');
+        } else if (hostname.includes('clyp.it')) {
+            frame.setAttribute('src', 'https://clyp.it' + element.pathname + '/widget');
+        } else {
+            frame = null;
+        }
+        if (frame) {
+            frame.setAttribute('frameborder', 0);
+            frame.setAttribute('width', '100%');
+            frame.setAttribute('height', '160');
+            element.parentNode.replaceChild(frame, element);
+        }
+    }
     $(document).ready(function () {
         $('#rating').on('rating:change', function(event, value, caption) {
             var page = event.target.getAttribute('data-action-url') + value;
             window.location.href = page;
         });
+        $('#desc').linkify({className: 'linkified'});
+        var links = $('.linkified');
+        for (var i = 0; i < links.length; i++) {
+            var element = links[i];
+            replace_frames(element);
+        }
     });
 </script>
 {% endblock %}
