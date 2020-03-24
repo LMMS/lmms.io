@@ -202,6 +202,8 @@ function display_message($message, $severity = 'danger', $title = 'Error', $titl
 		'message' => $message,
 		'counter' => $counter
 	]);
+
+	return true;
 }
 
 function display_error($message, $title_array = null, $redirect = null, $counter = 15) {
@@ -238,8 +240,8 @@ function logout() {
  */
 function login() {
 	if (SESSION_EMPTY() && GET('action') == 'login') {
-		if (password_match(POST('password'), POST('login'))) {
-			$_SESSION["remote_user"] = POST('login');
+		if (password_match(POST('password'), htmlspecialchars_decode(POST('login')))) {
+			$_SESSION["remote_user"] = htmlspecialchars_decode(POST('login'));
 			$_GET["action"] = POST('oldaction');
 			set_get_post('category');
 			set_get_post('subcategory');

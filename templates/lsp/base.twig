@@ -59,7 +59,7 @@
                             {% if is_admin %}
                                 <span class="fas fa-shield-alt"></span>&nbsp;
                             {% endif %}
-                            {{username|raw}}
+                            {{username}}
                             </span>
                         {% endif %}
                             {# Show auth-fail alert in title for smaller screens #}
@@ -96,7 +96,7 @@
                     <a class="list-group-item" href="?content=add">
                         <span class="fas fa-fw fa-upload"></span>&nbsp;&nbsp;Add file
                     </a>
-                    <a class="list-group-item" href="?action=browse&user={{username|raw}}">
+                    <a class="list-group-item" href="?action=browse&user={{username|escape('url')}}">
                         <span class="far fa-fw fa-copy"></span>&nbsp;&nbsp;My files
                     </a>
                     <a class="list-group-item" href="?account=settings">
