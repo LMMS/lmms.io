@@ -22,8 +22,12 @@ function try_add_user($login , $pass, $pass2, $realname, $session, $is_admin, $a
 	} else if(get_user_id($login) > 0) {
 		display_error("The user <strong>$login</strong> already exists.");
 	} else {
-		add_user($login, $realname, $pass, $is_admin);
-		$return_val = display_success("<strong>$login</strong> has been successfully created");
+		if (add_user($login, $realname, $pass, $is_admin)) {
+			$return_val = display_success("<strong>$login</strong> has been successfully created");
+		} else {
+			// Will proboly not show very often
+			display_error("Unknown error, please try again later.");
+		}
 	}
 	return $return_val;
 }

@@ -178,8 +178,8 @@ function file_show_query_string() {
 /*
  * Basic column/field-name sanitization by removing non alpha-numeric characters from the input string
  */
-function sanitize($string, $tolower = false) {
-	$return_val = preg_replace('/[^A-Za-z0-9_]+/', '', $string);
+function sanitize($string, $tolower = false, $replacewith='') {
+	$return_val = preg_replace('/[^A-Za-z0-9_]+/', $replacewith, $string);
 	return $tolower ? $return_val : strtolower($return_val);
 }
 

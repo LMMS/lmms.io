@@ -290,9 +290,10 @@ function add_user($login, $realname, $pass, $is_admin = false) {
 	$stmt->bindParam(':realname', $realname);
 	$stmt->bindParam(':password', $pass);
 	$stmt->bindParam(':is_admin', $admin);
-	$stmt->execute();
+	$success = $stmt->execute();
 	$stmt = null;
 	$dbh = null;
+	return $success;
 }
 
  /*
@@ -782,7 +783,8 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 		echo "<b>Size:</b>&nbsp;$hr_size<br>";
 		echo "<b>License:</b>&nbsp;$rs[license]<br>";
 		if (($project_data = read_project($rs['id'])) != null) {
-			echo "<b>LMMS Version:</b>&nbsp;" . $project_data->attributes()['creatorversion'];
+			// Since the version will normaly only have "." anyways this sanitize should work fine with replacing all dangerous charactes with "."
+			echo "<b>LMMS Version:</b>&nbsp;" . sanitize($project_data->attributes()['creatorversion'], false, '.');
 		}
 	}
 	echo "</div></td><td class=\"lsp-file-info\"><small>";
