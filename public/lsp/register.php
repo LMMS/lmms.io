@@ -52,7 +52,7 @@ $control = POST("control", false);
 /*
  * Create the HTML form used for registration
  */
-if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), POST("session"), $control, POST("antispam")))) {
+if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), POST("session"), false/*$control*/, POST("antispam")))) {
 	echo '<div class="col-md-9">';
 	$form = new form($LSP_URL . '?action=register', 'Register', 'fa-list-alt'); ?>
 	<div class="form-group">
