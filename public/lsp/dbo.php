@@ -290,9 +290,10 @@ function add_user($login, $realname, $pass, $is_admin = false) {
 	$stmt->bindParam(':realname', $realname);
 	$stmt->bindParam(':password', $pass);
 	$stmt->bindParam(':is_admin', $admin);
-	$stmt->execute();
+	$success = $stmt->execute();
 	$stmt = null;
 	$dbh = null;
+	return $success;
 }
 
  /*
@@ -782,7 +783,8 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 		echo "<b>Size:</b>&nbsp;$hr_size<br>";
 		echo "<b>License:</b>&nbsp;$rs[license]<br>";
 		if (($project_data = read_project($rs['id'])) != null) {
-			echo "<b>LMMS Version:</b>&nbsp;" . $project_data->attributes()['creatorversion'];
+			// Since the version will normaly only have "." anyways this sanitize should work fine with replacing all dangerous charactes with "."
+			echo "<b>LMMS Version:</b>&nbsp;" . sanitize($project_data->attributes()['creatorversion'], false, '.');
 		}
 	}
 	echo "</div></td><td class=\"lsp-file-info\"><small>";
@@ -965,6 +967,11 @@ function update_rating($file_id, $stars, $user) {
 	
 	$dbh = &get_db();
 	if ($user_id >= 0) {
+		// Makes sure that the user who is rating is not the owner of the file
+		if (get_file_owner($file_id) == get_user_id(SESSION())) {
+			echo '<h3 class="text-danger">You cannot rate your own file.<h3>';
+			return;
+		}
 		$stmt = null;
 		if (get_user_rating($file_id, $user) > 0) {
 			$stmt = $dbh->prepare('UPDATE ratings SET stars=:stars WHERE file_id=:file_id AND user_id=:user_id');
