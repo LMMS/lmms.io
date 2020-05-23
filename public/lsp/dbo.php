@@ -646,15 +646,15 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 		if (strlen($category)) { $stmt->bindParam(':category', $category); }
 		if (strlen($subcategory)) { $stmt->bindParam(':subcategory', $subcategory); }
 		if (strlen($search)) { $search = "%{$search}%"; $stmt->bindParam(':search', $search); }
-		
+		$pagination = '<div class="text-center">' . get_pagination($count) . '</div>';
+		echo $pagination;
 		if ($stmt->execute()) {
 			echo '<table class="table table-striped">';			
 			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				show_basic_file_info($object, true);
 			}
 		}
-		echo'</table></div>';
-		echo '<div class="text-center">' . get_pagination($count) . '</div>';
+		echo '</table>'.$pagination.'</div>';
 	} else {
 		display_info('No results found', array(GET('category'), GET('subcategory'), "\"$search\"", "($user_name)"));
 	}
