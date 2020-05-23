@@ -19,6 +19,10 @@ function try_add_user($login , $pass, $pass2, $realname, $session, $is_admin, $a
 		display_warning("Password mismatch");
 	} else if($pass == '' || $pass2 == '' || $login == '') {
 		display_warning("Please fill out all fields");
+	} else if(strlen($login) > 16) {
+		display_error("Username cannot be more than 16 characters long");
+	} else if(strlen($realname) > 50) {
+		display_error("Real name cannot be more than 50 characters long");
 	} else if(get_user_id($login) > 0) {
 		display_error("The user <strong>$login</strong> already exists.");
 	} else if(htmlentities($login) != $login) {
