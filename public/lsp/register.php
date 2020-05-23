@@ -21,6 +21,9 @@ function try_add_user($login , $pass, $pass2, $realname, $session, $is_admin, $a
 		display_warning("Please fill out all fields");
 	} else if(get_user_id($login) > 0) {
 		display_error("The user <strong>$login</strong> already exists.");
+	} else if(htmlentities($login) != $login) {
+		// Makes sure that the username does not contain html encodable characters
+		display_error("The username <strong>$login</strong> has dangerous characters and cannot be used.");
 	} else {
 		if (add_user($login, $realname, $pass, $is_admin)) {
 			$return_val = display_success("<strong>$login</strong> has been successfully created");
