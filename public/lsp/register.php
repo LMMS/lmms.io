@@ -17,7 +17,7 @@ function try_add_user($login , $pass, $pass2, $realname, $session, $is_admin, $a
 		display_error("Invalid session.");
 	} else if ($pass != $pass2) {
 		display_warning("Password mismatch");
-	} else if($realname == '' || $pass == '' || $pass2 == '' || $login == '') {
+	} else if($pass == '' || $pass2 == '' || $login == '') {
 		display_warning("Please fill out all fields");
 	} else if(get_user_id($login) > 0) {
 		display_error("The user <strong>$login</strong> already exists.");
@@ -59,7 +59,7 @@ if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("passw
 	echo '<div class="col-md-9">';
 	$form = new form($LSP_URL . '?action=register', 'Register', 'fa-list-alt'); ?>
 	<div class="form-group">
-	<label for="realname">Real name</label>
+	<label for="realname">Real name (Optional)</label>
 	<input type="text" name="realname" class="form-control" maxlength="50" placeholder="real name" />
 	</div><div class="form-group">
 	<label for="login">Username</label>
