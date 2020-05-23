@@ -65,7 +65,7 @@ if (!SESSION_EMPTY()) {
 					<button type="submit" class="btn btn-primary" name="addfinalok" value="Add File"><span class="fas fa-check"></span>&nbsp;Add File</button>&nbsp;
 					<a href="" class="btn btn-warning"></span><span class="fas fa-times"></span>&nbsp;Cancel</a>
 					<input type="hidden" name="fn" value="<?php echo $file_path; ?>" />
-					<input type="hidden" name="tmpname" value="<?php echo "$TMP_DIR$tmp_name_only"; ?>" />
+					<input type="hidden" name="tmpname" value="<?php echo "$tmp_name_only"; ?>" />
 					<input type="hidden" name="fsize" value="<?php echo $file_size; ?>" />
 					<input type="hidden" name="nocopyright" value="<?php echo $no_copyright; ?>" />
 					<?php $form->close(); echo '</div>';
@@ -83,6 +83,11 @@ if (!SESSION_EMPTY()) {
 			$tmp_path = POST("tmpname");
 			$file_name = POST("fn");
 			$file_extension = '.' . pathinfo($file_name, PATHINFO_EXTENSION);
+			if (strpos($tmp_path,'..')!==false) {
+				display_error('Invalid filename');
+				return;
+			}
+			$tmp_path = $TMP_DIR.$tmp_path;
 			if (file_exists($tmp_path)) {
 				$category = explode(' - ', POST('category'))[0];
 				$subcategory = explode(' - ', POST('category'))[1];
