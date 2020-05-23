@@ -92,16 +92,15 @@ function list_sort_options($additional_html = '') {
 	$sortings = array(
 		'date' => '<span class="fas fa-calendar"></span>&nbsp;DATE',
 		'downloads' => '<span class="fas fa-download"></span>&nbsp;DOWNLOADS / AGE',
-		'rating' => '<span class="fas fa-star"></span>&nbsp;RATING' //,
-		// TODO:  Add comment sorting support
-		//'comments' => '<span class="fas fa-comment"></span>&nbsp;COMMENTS'
+		'rating' => '<span class="fas fa-star"></span>&nbsp;RATING',
+		'comments' => '<span class="fas fa-comment"></span>&nbsp;COMMENTS'
 	);
 	
 	// Catch singular/plural
 	switch (sanitize(GET('sort'), true)) {
 		case 'download' : $_GET['sort'] = 'download'; break;
 		case 'ratings' : $_GET['sort'] = 'rating'; break;
-		//case 'comment' : $_GET['sort'] = 'comments'; break;
+		case 'comment' : $_GET['sort'] = 'comments'; break;
 	}
 	
 	// Get the active sort, or use 'date' if none is defined
