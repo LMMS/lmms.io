@@ -616,7 +616,7 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 		switch ($sort) {
 			case 'downloads' : $order_by = 'downloads_per_day'; break;
 			case 'rating' : $order_by = "rating $order, COUNT(ratings.file_id)"; break;
-			case 'comments' : break; //FIXME: TODO: Add support for sorting by comments
+			case 'comments' : $order_by = "comments $order, COUNT(comments.file_id)"; break;
 		}
 		
 		$start = intval(GET('page', 0) * $PAGE_SIZE);
@@ -626,12 +626,15 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 			'SELECT files.id, licenses.name AS license, size,realname, filename, ' .
 				'users.login, categories.name AS category, subcategories.name AS subcategory, ' .
 				'files.downloads*files.downloads/(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day, ' .
-				'files.downloads AS downloads, insert_date, update_date, description, AVG(ratings.stars) as rating FROM files ' .
+				'files.downloads AS downloads, ' .
+				'COUNT(comments.file_id) AS comments, ' .
+				'insert_date, update_date, description, AVG(ratings.stars) AS rating FROM files ' .
 			'INNER JOIN categories ON categories.id=files.category ' .
 			'INNER JOIN subcategories ON subcategories.id=files.subcategory ' .
 			'INNER JOIN users ON users.id=files.user_id ' .
 			'INNER JOIN licenses ON licenses.id=files.license_id ' .
 			'LEFT JOIN ratings ON ratings.file_id=files.id ' .
+			'LEFT JOIN comments ON comments.file_id=files.id ' .
 			'WHERE ' .
 			(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
 			(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
@@ -646,15 +649,15 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 		if (strlen($category)) { $stmt->bindParam(':category', $category); }
 		if (strlen($subcategory)) { $stmt->bindParam(':subcategory', $subcategory); }
 		if (strlen($search)) { $search = "%{$search}%"; $stmt->bindParam(':search', $search); }
-		
+		$pagination = '<div class="text-center">' . get_pagination($count) . '</div>';
+		echo $pagination;
 		if ($stmt->execute()) {
 			echo '<table class="table table-striped">';			
 			while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				show_basic_file_info($object, true);
 			}
 		}
-		echo'</table></div>';
-		echo '<div class="text-center">' . get_pagination($count) . '</div>';
+		echo '</table>'.$pagination.'</div>';
 	} else {
 		display_info('No results found', array(GET('category'), GET('subcategory'), "\"$search\"", "($user_name)"));
 	}

@@ -17,10 +17,17 @@ function try_add_user($login , $pass, $pass2, $realname, $session, $is_admin, $a
 		display_error("Invalid session.");
 	} else if ($pass != $pass2) {
 		display_warning("Password mismatch");
-	} else if($realname == '' || $pass == '' || $pass2 == '' || $login == '') {
+	} else if($pass == '' || $pass2 == '' || $login == '') {
 		display_warning("Please fill out all fields");
+	} else if(strlen($login) > 16) {
+		display_error("Username cannot be more than 16 characters long");
+	} else if(strlen($realname) > 50) {
+		display_error("Full name cannot be more than 50 characters long");
 	} else if(get_user_id($login) > 0) {
 		display_error("The user <strong>$login</strong> already exists.");
+	} else if(htmlentities($login) != $login) {
+		// Makes sure that the username does not contain html encodable characters
+		display_error("The username <strong>$login</strong> has dangerous characters and cannot be used.");
 	} else {
 		if (add_user($login, $realname, $pass, $is_admin)) {
 			$return_val = display_success("<strong>$login</strong> has been successfully created");
@@ -56,8 +63,8 @@ if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("passw
 	echo '<div class="col-md-9">';
 	$form = new form($LSP_URL . '?action=register', 'Register', 'fa-list-alt'); ?>
 	<div class="form-group">
-	<label for="realname">Real name</label>
-	<input type="text" name="realname" class="form-control" maxlength="50" placeholder="real name" />
+	<label for="realname">Full name (Optional)</label>
+	<input type="text" name="realname" class="form-control" maxlength="50" placeholder="full name" />
 	</div><div class="form-group">
 	<label for="login">Username</label>
 	<input type="text" name="login" class="form-control" maxlength="16" placeholder="username" />

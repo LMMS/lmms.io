@@ -92,16 +92,15 @@ function list_sort_options($additional_html = '') {
 	$sortings = array(
 		'date' => '<span class="fas fa-calendar"></span>&nbsp;DATE',
 		'downloads' => '<span class="fas fa-download"></span>&nbsp;DOWNLOADS / AGE',
-		'rating' => '<span class="fas fa-star"></span>&nbsp;RATING' //,
-		// TODO:  Add comment sorting support
-		//'comments' => '<span class="fas fa-comment"></span>&nbsp;COMMENTS'
+		'rating' => '<span class="fas fa-star"></span>&nbsp;RATING',
+		'comments' => '<span class="fas fa-comment"></span>&nbsp;COMMENTS'
 	);
 	
 	// Catch singular/plural
 	switch (sanitize(GET('sort'), true)) {
 		case 'download' : $_GET['sort'] = 'download'; break;
 		case 'ratings' : $_GET['sort'] = 'rating'; break;
-		//case 'comment' : $_GET['sort'] = 'comments'; break;
+		case 'comment' : $_GET['sort'] = 'comments'; break;
 	}
 	
 	// Get the active sort, or use 'date' if none is defined
@@ -315,8 +314,7 @@ function display_success($message, $title_array = null, $redirect = null, $count
 }
 
 /*
- * Return a very basic "pagination" area for paging between search results
- * TODO:  Add <, 1, 2, ... 44, 45, 46, > support rather than listing all 46 pages.
+ * Return a basic "pagination" area for paging between search results
  */
 function get_pagination($count) {
 	global $PAGE_SIZE, $LSP_URL;
@@ -333,8 +331,16 @@ function get_pagination($count) {
 	$page = GET('page', 0);
 	if ($pages > 1) {
 		for($j=0; $j < $count / $PAGE_SIZE; ++$j ) {
-			$class = $j==$page ? 'active' : '';	
-			$pagination .= '<li class="' . $class . '"><a href=' . $LSP_URL . "$search$browse&amp;page=$j$sort$commentsearch>" . ($j+1) . '</a></li>';
+			if ($j==0 || (($j-5)<$page && ($j+5)>$page) || $j>($count / $PAGE_SIZE)-1) {
+				$class = $j==$page ? 'active' : '';	
+				if ($j>($count / $PAGE_SIZE)-1 && ($j-5)>$page) {
+					$pagination .= '<li><a>...</a></li>';
+				}
+				$pagination .= '<li class="' . $class . '"><a href=' . $LSP_URL . "$search$browse&amp;page=$j$sort$commentsearch>" . ($j+1) . '</a></li>';
+				if ($j==0 && ($j+5)<$page) {
+					$pagination .= '<li><a>...</a></li>';
+				}
+			}
 		}
 	}
 	$pagination .= '</ul></div>';
