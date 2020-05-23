@@ -22,7 +22,7 @@ function try_add_user($login , $pass, $pass2, $realname, $session, $is_admin, $a
 	} else if(strlen($login) > 16) {
 		display_error("Username cannot be more than 16 characters long");
 	} else if(strlen($realname) > 50) {
-		display_error("Real name cannot be more than 50 characters long");
+		display_error("Full name cannot be more than 50 characters long");
 	} else if(get_user_id($login) > 0) {
 		display_error("The user <strong>$login</strong> already exists.");
 	} else if(htmlentities($login) != $login) {
@@ -63,8 +63,8 @@ if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("passw
 	echo '<div class="col-md-9">';
 	$form = new form($LSP_URL . '?action=register', 'Register', 'fa-list-alt'); ?>
 	<div class="form-group">
-	<label for="realname">Real name (Optional)</label>
-	<input type="text" name="realname" class="form-control" maxlength="50" placeholder="real name" />
+	<label for="realname">Full name (Optional)</label>
+	<input type="text" name="realname" class="form-control" maxlength="50" placeholder="full name" />
 	</div><div class="form-group">
 	<label for="login">Username</label>
 	<input type="text" name="login" class="form-control" maxlength="16" placeholder="username" />
