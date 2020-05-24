@@ -195,15 +195,33 @@ function get_id_by_object($table, $field, $value) {
 function get_latest() {
 	global $PAGE_SIZE;
 	$dbh = &get_db();
-	$stmt = $dbh->prepare('
-		SELECT files.id, licenses.name AS license,size,realname,filename,users.login,
-		categories.name AS category,subcategories.name AS subcategory,
-		insert_date,update_date,description,files.downloads AS downloads FROM files 
-		INNER JOIN categories ON categories.id=files.category 
-		INNER JOIN subcategories ON subcategories.id=files.subcategory 
-		INNER JOIN users ON users.id=files.user_id 
-		INNER JOIN licenses ON licenses.id=files.license_id 
-	 	ORDER BY files.insert_date DESC LIMIT ' . sanitize($PAGE_SIZE));
+	$stmt = $dbh->prepare('SELECT
+			files.id,
+			licenses.name AS license,
+			size,
+			realname,
+			filename,
+			users.login,
+			categories.name AS category,
+			subcategories.name AS subcategory,
+			insert_date,
+			update_date,
+			description,
+			files.downloads AS downloads,
+			COUNT(comments.file_id) AS comments, 
+			COUNT(ratings.file_id) AS rating_count,
+			AVG(ratings.stars) AS rating
+		FROM files
+			INNER JOIN categories ON categories.id = files.category
+			INNER JOIN subcategories ON subcategories.id = files.subcategory
+			INNER JOIN users ON users.id = files.user_id
+			INNER JOIN licenses ON licenses.id = files.license_id
+			LEFT JOIN ratings ON ratings.file_id=files.id 
+			LEFT JOIN comments ON comments.file_id=files.id 
+		GROUP BY files.id 
+		ORDER BY files.insert_date DESC
+		LIMIT ' . sanitize($PAGE_SIZE)
+	);
 		$object = null;
 		if ($stmt->execute()) {
 			echo '<div class="col-md-9">';
@@ -227,7 +245,13 @@ function get_latest() {
 function password_match($pass, $user) {
 	global $MAX_LOGIN_ATTEMPTS;
 	$dbh = &get_db();
-	$stmt = $dbh->prepare('SELECT login FROM users WHERE LOWER(password) = LOWER(SHA1(:pass)) AND LOWER(login) = LOWER(:user) AND loginFailureCount < :max_login_attempts');
+	$stmt = $dbh->prepare('SELECT login
+		FROM users
+		WHERE
+			LOWER(password) = LOWER(SHA1(:pass))
+			AND LOWER(login) = LOWER(:user)
+			AND loginFailureCount < :max_login_attempts
+	');
 	debug_out("SELECT login FROM users WHERE LOWER(password) = LOWER(SHA1($pass)) AND LOWER(login) = LOWER($user) AND loginFailureCount < $MAX_LOGIN_ATTEMPTS");
 	$stmt->bindParam(':pass', $pass);
 	$stmt->bindParam(':user', $user);
@@ -325,12 +349,15 @@ function get_categories() {
 	global $LSP_URL;
 	$dbh = &get_db();
 	
-	$stmt = $dbh->prepare(
-		'SELECT categories.name AS name, COUNT(files.id) AS file_count, categories.id AS id ' .
-		'FROM categories LEFT JOIN files ON files.category = categories.id ' .
-		'GROUP BY categories.name ' .
-		'ORDER BY categories.name '
-	);
+	$stmt = $dbh->prepare('SELECT
+			categories.name AS name,
+			COUNT(files.id) AS file_count,
+			categories.id AS id
+		FROM categories
+			LEFT JOIN files ON files.category = categories.id
+		GROUP BY categories.name
+		ORDER BY categories.name
+  ');
 	
 	echo '<ul class="lsp-categories">';
 	$sort = GET('sort', 'date');
@@ -359,12 +386,16 @@ function get_subcategories($category, $id) {
 	global $LSP_URL;
 	$dbh = &get_db();
 	
-	$stmt = $dbh->prepare(
-		'SELECT subcategories.name AS name, COUNT(files.id) AS file_count ' .
-		'FROM subcategories ' .
-		'LEFT JOIN files ON files.subcategory = subcategories.id AND files.category=:id ' .
-		'WHERE subcategories.category=:id GROUP BY subcategories.name ORDER BY subcategories.name'
-	);
+	$stmt = $dbh->prepare('SELECT
+			subcategories.name AS name,
+			COUNT(files.id) AS file_count
+		FROM subcategories
+			LEFT JOIN files ON files.subcategory = subcategories.id
+			AND files.category = :id
+		WHERE subcategories.category = :id
+		GROUP BY subcategories.name
+		ORDER BY subcategories.name
+	');
 	$stmt->bindParam(':id', $id);
 	
 	echo '<ul class="lsp-subcategory">';
@@ -398,8 +429,8 @@ function get_categories_for_ext($extension, $default = '') {
 		'INNER JOIN categories ON categories.id=filetypes.category ' .
 		'INNER JOIN subcategories ON subcategories.category=categories.id ' . 
 		'WHERE LOWER(extension) = LOWER(:extension) ' .
-		'ORDER BY categories.name, subcategories.name'
-	);
+		'ORDER BY categories.name, subcategories.name
+	');
 	
 	$stmt->bindParam(':extension', $extension);
 	$html = '';
@@ -464,10 +495,7 @@ function get_licenses($default = 'Creative Commons (by)') {
  */
 function search_comments($search) {
 	$dbh = &get_db();
-	$stmt = $dbh->prepare(
-		'SELECT DISTINCT(file_id) FROM comments ' . 
-		'WHERE text LIKE :search'
-	);
+	$stmt = $dbh->prepare('SELECT DISTINCT(file_id) FROM comments WHERE text LIKE :search');
 	$search = "%{$search}%";
 	$stmt->bindParam(':search', $search);
 	$file_array = array();
@@ -486,13 +514,19 @@ function search_comments($search) {
 function get_comments($file_id) {
 	global $LSP_URL;
 	$dbh = &get_db();
-	$stmt = $dbh->prepare(
-		'SELECT users.realname, users.login, comments.user_id as commentuser, ' . 
-		'files.user_id as fileuser, date,text FROM comments ' . 
-		'INNER JOIN users ON users.id=comments.user_id ' . 
-		'INNER JOIN files ON files.id=comments.file_id ' . 
-		'WHERE file_id=:file_id ORDER BY date'
-	);
+	$stmt = $dbh->prepare('SELECT
+			users.realname,
+			users.login,
+			comments.user_id as commentuser,
+			files.user_id as fileuser,
+			date,
+			text
+		FROM comments
+			INNER JOIN users ON users.id = comments.user_id
+			INNER JOIN files ON files.id = comments.file_id
+		WHERE file_id = :file_id
+		ORDER BY date
+	');
 	$stmt->bindParam(':file_id', $file_id);
 	$html = '';
 	if ($stmt->execute()) {
@@ -557,11 +591,13 @@ function get_file_subcategory($file_id) {
 function get_results_count($category, $subcategory = '', $search = '', $user_id = '', $additional_items = '') {
 	$dbh = &get_db();
 	$return_val = 0;
-	$stmt = $dbh->prepare(
-		'SELECT COUNT(files.id) as file_count FROM files ' .
-		'INNER JOIN categories ON categories.id=files.category ' .
-		'INNER JOIN subcategories ON subcategories.id=files.subcategory ' .
-		'INNER JOIN users ON users.id=files.user_id WHERE ' .
+	$stmt = $dbh->prepare('SELECT
+			COUNT(files.id) as file_count
+		FROM files
+			INNER JOIN categories ON categories.id = files.category
+			INNER JOIN subcategories ON subcategories.id = files.subcategory
+			INNER JOIN users ON users.id = files.user_id
+		WHERE '.
 		(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
 		(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
 		(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
@@ -622,27 +658,42 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 		$start = intval(GET('page', 0) * $PAGE_SIZE);
 		
 		$dbh = &get_db();
-		$stmt = $dbh->prepare(
-			'SELECT files.id, licenses.name AS license, size,realname, filename, ' .
-				'users.login, categories.name AS category, subcategories.name AS subcategory, ' .
-				'files.downloads*files.downloads/(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day, ' .
-				'files.downloads AS downloads, ' .
-				'COUNT(comments.file_id) AS comments, ' .
-				'insert_date, update_date, description, AVG(ratings.stars) AS rating FROM files ' .
-			'INNER JOIN categories ON categories.id=files.category ' .
-			'INNER JOIN subcategories ON subcategories.id=files.subcategory ' .
-			'INNER JOIN users ON users.id=files.user_id ' .
-			'INNER JOIN licenses ON licenses.id=files.license_id ' .
-			'LEFT JOIN ratings ON ratings.file_id=files.id ' .
-			'LEFT JOIN comments ON comments.file_id=files.id ' .
-			'WHERE ' .
-			(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
-			(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
-			(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
-			(strlen($search) ? "(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search $additional_items)" : 'true') . ' ' .
-			'GROUP BY files.id ' . 
-			'ORDER BY ' . $order_by . " $order " .
-			"LIMIT $start, $PAGE_SIZE"
+		$stmt = $dbh->prepare('SELECT
+				files.id,
+				licenses.name AS license,
+				size,
+				realname,
+				filename,
+				users.login,
+				categories.name AS category,
+				subcategories.name AS subcategory,
+				files.downloads * files.downloads /(UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day,
+				files.downloads AS downloads,
+				COUNT(comments.file_id) AS comments,
+				COUNT(ratings.file_id) AS rating_count,
+				insert_date,
+				update_date,
+				description,
+				AVG(ratings.stars) AS rating
+			FROM files
+				INNER JOIN categories ON categories.id = files.category
+				INNER JOIN subcategories ON subcategories.id = files.subcategory
+				INNER JOIN users ON users.id = files.user_id
+				INNER JOIN licenses ON licenses.id = files.license_id
+				LEFT JOIN ratings ON ratings.file_id = files.id
+				LEFT JOIN comments ON comments.file_id = files.id
+			WHERE ' .
+				(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
+				(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
+				(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
+				(strlen($search) ? "(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search $additional_items)" : 'true') . ' ' .
+			"GROUP BY files.id 
+			ORDER BY  
+				$order_by  
+				$order 
+			LIMIT 
+				$start, 
+				$PAGE_SIZE"
 		);
 		
 		if (strlen($user_name)) { $stmt->bindParam(':user_id', $user_id); }
@@ -676,10 +727,7 @@ function get_filetype_id($extension, $category) {
 	$category_id = get_category_id($category);
 	
 	$dbh = &get_db();
-	$stmt = $dbh->prepare(
-		'SELECT id FROM filetypes ' .
-		'WHERE category = :category_id and LOWER(extension) = LOWER(:extension)'
-	);
+	$stmt = $dbh->prepare('SELECT id FROM filetypes WHERE category = :category_id and LOWER(extension) = LOWER(:extension)');
 	$fixed_extension = fix_extension($extension);
 	$stmt->bindParam(':category_id', $category_id);
 	$stmt->bindParam(':extension', $fixed_extension);
@@ -713,9 +761,7 @@ function insert_filetype($extension, $category) {
 	// Extension/category pair doesn't exist yet, insert our row
 	if ($filetype_id < 0) {
 		$dbh = &get_db();
-		$stmt = $dbh->prepare(
-			'INSERT INTO filetypes (extension, category) VALUES(LOWER(:extension), :category_id)'
-		);
+		$stmt = $dbh->prepare('INSERT INTO filetypes (extension, category) VALUES(LOWER(:extension), :category_id)');
 
 		$fixed_extension = fix_extension($extension);
 		$stmt->bindParam(':extension', $fixed_extension);
@@ -800,19 +846,19 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	
 	/*
 	 * Fill any missing fields.
-	 * TODO:  If the queries were prepared properly, we wouldn't have to do this!
+	 * If there are any errors related to loading some file's data try uncommenting this.
 	 */
-	$rs['comments'] = isset($rs['comments']) ? $rs['comments'] : get_file_comment_count($rs['id']);
-	$rs['rating_count'] = isset($rs['rating_count']) ? $rs['rating_count'] : get_file_rating_count($rs['id']);
-	$rs['rating'] = isset($rs['rating']) ? $rs['rating'] : get_file_rating($rs['id']);
-	$rs['downloads'] = isset($rs['downloads']) ? $rs['downloads'] : get_file_downloads($rs['id']);
+	//$rs['comments'] = isset($rs['comments']) ? $rs['comments'] : get_file_comment_count($rs['id']);
+	//$rs['rating_count'] = isset($rs['rating_count']) ? $rs['rating_count'] : get_file_rating_count($rs['id']);
+	//$rs['rating'] = isset($rs['rating']) ? $rs['rating'] : get_file_rating($rs['id']);
+	//$rs['downloads'] = isset($rs['downloads']) ? $rs['downloads'] : get_file_downloads($rs['id']);
 	
-	$downloads = $rs['downloads'];
-	echo "<b>Popularity: </b><span class=\"\"><span class=\"fas fa-download\"></span>&nbsp;" . $downloads . "</span>&nbsp; ";
+	echo "<b>Popularity: </b><span class=\"\"><span class=\"fas fa-download\"></span>&nbsp;" . $rs['downloads'] . "</span>&nbsp; ";
 	echo "<span class=\"\"><span class=\"fas fa-comments\"></span>&nbsp;" . $rs['comments'] . "</span><br>";
 	echo "<b>Rating:</b> ";
 	
-	$rating = isset($rs['rating']) ? $rs['rating'] : get_file_rating($rs['id']);
+	//$rating = isset($rs['rating']) ? $rs['rating'] : get_file_rating($rs['id']);
+	$rating = $rs['rating'];
 	for ($i = 1; $i <= $rating ; ++$i) {
 		echo '<span class="fas fa-star"></span>';
 	}
@@ -831,16 +877,32 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 function show_file($file_id, $user, $success = null) {
 	global $LSP_URL, $DATA_DIR;
 	$dbh = &get_db();
-	$stmt = $dbh->prepare(
-		'SELECT licenses.name AS license, size, realname, filename, users.login, ' .
-		'categories.name AS category, subcategories.name AS subcategory,' .
-		'insert_date, update_date, description, downloads, files.id FROM files ' .
-		'INNER JOIN categories ON categories.id=files.category ' .
-		'INNER JOIN subcategories ON subcategories.id=files.subcategory ' .
-		'INNER JOIN users ON users.id=files.user_id ' .
-		'INNER JOIN licenses ON licenses.id=files.license_id ' .
-		'WHERE files.id=:file_id'
-	);
+	$stmt = $dbh->prepare('SELECT
+			COUNT(comments.file_id) AS comments,
+			COUNT(ratings.file_id) AS rating_count,
+			AVG(ratings.stars) AS rating,
+			licenses.name AS license,
+			categories.name AS category,
+			subcategories.name AS subcategory,
+			size,
+			realname,
+			filename,
+			insert_date,
+			update_date,
+			description,
+			downloads,
+			users.login,
+			files.id
+		FROM files
+			INNER JOIN categories ON categories.id = files.category
+			INNER JOIN subcategories ON subcategories.id = files.subcategory
+			INNER JOIN users ON users.id = files.user_id
+			INNER JOIN licenses ON licenses.id = files.license_id
+			LEFT JOIN ratings ON ratings.file_id = files.id
+			LEFT JOIN comments ON comments.file_id = files.id
+		WHERE
+			files.id = :file_id
+	');
 	$stmt->bindParam(':file_id', $file_id);
 	
 	$found = false;
@@ -1000,15 +1062,30 @@ function insert_file($filename, $user_id, $category_id, $subcategory_id, $licens
 	}
 	$dbh = &get_db();
 	$return_val = -1;
-	$stmt = $dbh->prepare(
-		'INSERT INTO files (' . 
-			'filename, user_id, insert_date, update_date, category, ' . 
-			'subcategory, license_id, description, size, hash' . 
-		') VALUES (' .
-			':filename, :user_id, NOW(), NOW(), :category_id, ' .
-			':subcategory_id, :license_id, :description, :size, :hash' .
-		')'
-	);
+	$stmt = $dbh->prepare('INSERT INTO files (
+			filename,
+			user_id,
+			insert_date,
+			update_date,
+			category,
+			subcategory,
+			license_id,
+			description,
+			size,
+			hash
+		  ) VALUES (
+			:filename,
+			:user_id,
+			NOW(),
+			NOW(),
+			:category_id,
+			:subcategory_id,
+			:license_id,
+			:description,
+			:size,
+			:hash
+		  )
+	');
 	$html_description = htmlspecialchars($description);
 	$stmt->bindParam(':filename', $filename);
 	$stmt->bindParam(':user_id', $user_id);
@@ -1032,13 +1109,15 @@ function insert_file($filename, $user_id, $category_id, $subcategory_id, $licens
 function update_file($file_id, $category_id, $subcategory_id, $license_id, $description) {
 	$dbh = &get_db();
 	$return_val = false;
-	$stmt = $dbh->prepare(
-		'UPDATE files SET ' .
-			'update_date=NOW(), category=:category_id, ' . 
-			'subcategory=:subcategory_id, license_id=:license_id, ' . 
-			'description=:description ' . 
-		'WHERE id=:file_id'
-	);
+	$stmt = $dbh->prepare('UPDATE files
+		SET
+			update_date = NOW(),
+			category = :category_id,
+			subcategory = :subcategory_id,
+			license_id = :license_id,
+			description = :description
+		WHERE id = :file_id
+	');
 	$html_description = htmlspecialchars($description);
 	$stmt->bindParam(':file_id', $file_id);
 	$stmt->bindParam(':category_id', $category_id);
@@ -1123,16 +1202,20 @@ function add_visitor_comment($file_id, $comment, $user) {
  */
 function get_web_resources() {
 	$dbh = &get_db();
-	$stmt = $dbh->prepare(
-		'SELECT files.filename AS fname, files.hash AS hash, ' . 
-		'categories.name AS catname, subcategories.name AS subcatname, ' . 
-		'files.size AS size, files.update_date AS date, ' .
-		'users.login AS author FROM files ' .
-		'INNER JOIN categories ON categories.id=files.category ' .
-		'INNER JOIN subcategories ON subcategories.id=files.subcategory ' .
-		'INNER JOIN users ON users.id=files.user_id ' . 
-		'ORDER BY files.id'
-	);
+	$stmt = $dbh->prepare('SELECT
+			files.filename AS fname,
+			files.hash AS hash,
+			categories.name AS catname,
+			subcategories.name AS subcatname,
+			files.size AS size,
+			files.update_date AS date,
+			users.login AS author
+		FROM files
+			INNER JOIN categories ON categories.id = files.category
+			INNER JOIN subcategories ON subcategories.id = files.subcategory
+			INNER JOIN users ON users.id = files.user_id
+		ORDER BY files.id
+	');
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			echo "<file><name>" . htmlspecialchars($object['fname'], ENT_COMPAT, 'UTF-8') . "</name>" .
@@ -1157,10 +1240,7 @@ function get_subcategory_id($category_id, $subcategory) {
 		return $subcategory_id;
 	}
 	$dbh = &get_db();
-	$stmt = $dbh->prepare(
-		'SELECT id FROM subcategories ' .
-		'WHERE category = :category_id and LOWER(name) = LOWER(:subcategory)'
-	);
+	$stmt = $dbh->prepare('SELECT id FROM subcategories WHERE category = :category_id and LOWER(name) = LOWER(:subcategory)');
 	$stmt->bindParam(':category_id', $category_id);
 	$stmt->bindParam(':subcategory', $subcategory);
 	
