@@ -900,14 +900,16 @@ function show_file($file_id, $user, $success = null) {
 			INNER JOIN licenses ON licenses.id = files.license_id
 			LEFT JOIN ratings ON ratings.file_id = files.id
 			LEFT JOIN comments ON comments.file_id = files.id
-		WHERE
-			files.id = :file_id
+		WHERE files.id = :file_id
 	');
 	$stmt->bindParam(':file_id', $file_id);
 	
 	$found = false;
 	if ($stmt->execute()) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			if (!$object['id']) {
+				break;
+			}
 			$title = array($object['category'], $object['subcategory'], get_file_url($file_id));
 			if ($success == null) {
 				echo '<div class="col-md-9">';
