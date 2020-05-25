@@ -323,23 +323,37 @@ function add_user($login, $realname, $pass, $is_admin = false) {
  /*
   * Update the realname and/or password of the specified user
   */
- function change_user($login, $realname, $password) {
+ function change_user($login, $realname, $password, $aboutme) {
 	$dbh = &get_db();
 	if ($password != '') {
-		$stmt = $dbh->prepare('UPDATE users SET realname=:realname, password=SHA1(:password) WHERE LOWER(login)=LOWER(:login)');
+		$stmt = $dbh->prepare('UPDATE users SET realname=:realname, password=SHA1(:password), about_me=:aboutme WHERE LOWER(login)=LOWER(:login)');
 		debug_out("UPDATE users SET realname=$realname, password=SHA1($password) WHERE LOWER(login)=LOWER($login)");
 		$stmt->bindParam(':realname', $realname);
+		$stmt->bindParam(':aboutme', $aboutme);
 		$stmt->bindParam(':password', $password);
 		$stmt->bindParam(':login', $login);
 	} else {
-		$stmt = $dbh->prepare('UPDATE users SET realname=:realname WHERE LOWER(login)=LOWER(:login)');
+		$stmt = $dbh->prepare('UPDATE users SET realname=:realname, about_me=:aboutme WHERE LOWER(login)=LOWER(:login)');
 		debug_out("UPDATE users SET realname=$realname WHERE LOWER(login)=LOWER($login)");
 		$stmt->bindParam(':realname', $realname);
+		$stmt->bindParam(':aboutme', $aboutme);
 		$stmt->bindParam(':login', $login);
+	}
+	if (GET('pfp',false)!==false &&$_FILES["pfp"]["tmp_name"]) {
+		if (getimagesize($_FILES["pfp"]["tmp_name"])) {
+			$tmp_path = $_FILES["pfp"]["tmp_name"];
+			$tmp_ext = trim(pathinfo($tmp_path, PATHINFO_EXTENSION));
+			$tmp_name_only = pathinfo($tmp_path, PATHINFO_FILENAME) . ($tmp_ext == "" ? '' : '.' . $tmp_ext);
+			move_uploaded_file($tmp_path, '../../tmp/' . get_user_id($login));
+		} else {
+			display_error('Profile picture must be an image.',null,null,null,true);
+			return false;
+		}
 	}
 	$stmt->execute();
 	$stmt = null;
 	$dbh = null;
+	return true;
  }
 
 /*
@@ -819,11 +833,11 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	
 	if ($show_author) {
 		if (empty($rs['realname'])) {
-			echo '<small>by <a href="' . $LSP_URL . '?action=browse&amp;user=' .
+			echo '<small>by <a href="' . $LSP_URL . '?account=show&amp;user=' .
 			$rs['login'] . '">' . $rs['login'] . "</a></small><br>";
 		} else {
-			echo '<small>by <a href="' . $LSP_URL . '?action=browse&amp;user=' .
-			$rs['login'] . '">' . $rs['realname'] . " (" . $rs['login'] . ")</a></small><br>";
+			echo '<small>by <a href="' . $LSP_URL . '?account=show&amp;user=' .
+			$rs['login'] . '">' . $rs['login'] . " (" . $rs['realname'] . ")</a></small><br>";
 		}
 	}
 
@@ -867,6 +881,89 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	}
 	echo '&nbsp;&nbsp;<span class=""><span class="fas fa-check-circle"></span>&nbsp;'. $rs['rating_count'].'</span>';
 	echo '</small></td></tr>';
+}
+
+function show_profile($username, $user, $success = null) {
+	global $LSP_URL, $DATA_DIR;
+	$dbh = &get_db();
+	$stmt = $dbh->prepare('SELECT
+			login,
+			realname,
+			is_admin,
+			about_me,
+			users.id,
+			AVG(ratings.stars) AS rating,
+			COUNT(ratings.user_id) AS rating_count
+		FROM users
+			INNER JOIN ratings ON ratings.user_id = users.id
+		WHERE login = :username
+	');
+	$stmt->bindParam(':username', $username);
+	
+	$found = false;
+	if ($stmt->execute()) {
+		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			if (!$object['id']) {
+				break;
+			}
+
+			if (empty($object['realname'])) {
+				$title = $object['login'];
+			} else {
+				$title = $object['login'].' ('.$object['realname'].')';
+			}
+
+			echo '<div class="col-md-9">';
+			create_title($object['login'],'Users','IdkWhatUrlToUse D;');
+			
+			echo '<table class="table table-striped">';
+			
+			
+			echo '<tr><td width="100"><img width="100" height="100" src="download_file.php?file='.$object['id'].'&name=pfp&type=pfp" style="border:1px solid #ddd;"></img></td>';
+			echo '<td><strong>Name:</strong>&nbsp;' . $title;
+			echo '<br><strong>Files:</strong>&nbsp;' . get_results_count('', '', '', '', $object['id']);
+			echo '<br><strong>Average rating:</strong>&nbsp;';
+			$rating = $object['rating'];
+			for ($i = 1; $i <= $rating ; ++$i) {
+				echo '<span class="fas fa-star"></span>';
+			}
+			for ($i = $rating+1; floor( $i )<=5 ; ++$i) {
+				echo '<span class="far fa-star"></span>';
+			}
+			echo '&nbsp;&nbsp;<span class=""><span class="fas fa-check-circle"></span>&nbsp;'. $object['rating_count'].'</span>';
+			if ($object['is_admin']) {
+				echo '<br><span class="fas fa-shield-alt"></span><strong>Admin account</strong>';
+			}
+			
+			echo '<td><tr><td colspan="2"><div class="well"><strong>About Me:</strong><p>';
+			echo ($object['about_me'] != '' ? parse_links(htmlentities(newline_to_br($object['about_me'], true))) : 'No about available.');
+			echo '</p></div></td></tr>';
+			
+			echo '<tr><td colspan="2">';
+			echo '<nav id="lspnav" class="navbar navbar-default"><ul class="nav navbar-nav">';
+			
+			create_toolbar_item('Show files','?action=browse&user=' . urlencode(html_entity_decode($object['login'])),'far fa-fw fa-copy');
+			if (strtolower($object['login']) == strtolower($user)) {
+				create_toolbar_item('Edit Profile', "?account=settings", 'fa-pencil-alt');
+			}
+			
+			// Currently unused, could make this work at some point.
+			//echo '</ul></nav>';
+			//echo '<strong>Comments:</strong>';
+			//echo '</td></tr>';
+			//get_results('', '', '', '', GET('user'), $object['login']);
+			//get_comments($username);
+			echo'</table></div>';
+			
+			$found = true;
+			break;
+		}
+	}
+	if (!$found) {
+		display_error('Invalid user: "' . sanitize($file_id) . '"');
+	}
+	$stmt = null;
+	$dbh = null;
 }
 
 /*
@@ -1262,6 +1359,7 @@ function get_subcategory_id($category_id, $subcategory) {
  */
 function get_user_id($login) { return get_id_by_object('users', 'login', $login); }
 function get_user_realname($login) { return get_object_by_id('users', get_user_id($login), 'realname'); }
+function get_user_about($login) { return get_object_by_id('users', get_user_id($login), 'about_me'); }
 function get_file_name($file_id){ return get_object_by_id('files', $file_id, 'filename'); }
 function get_file_owner($file_id) {	return get_object_by_id('files', $file_id, 'user_id'); }
 function get_file_description($file_id) { return get_object_by_id('files', $file_id, 'description'); }

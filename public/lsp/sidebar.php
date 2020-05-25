@@ -85,6 +85,9 @@ switch (GET('action')) {
 				<a class="list-group-item" href="?content=add">
 					<span class="fas fa-fw fa-upload"></span>&nbsp;&nbsp;Add file
 				</a>
+				<a class="list-group-item" href="?account=show&user=<?php echo SESSION(); ?>">
+					<span class="fas fa-fw fa-user"></span>&nbsp;&nbsp;My profile
+				</a>
 				<a class="list-group-item" href="?action=browse&user=<?php echo SESSION(); ?>">
 					<span class="far fa-fw fa-copy"></span>&nbsp;&nbsp;My files
 				</a>

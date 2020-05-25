@@ -225,7 +225,7 @@ function get_stars($fid = -1, $href = '#', $enabled = true) {
  * Creates a bread-crumb style title for the table content
  * i.e All Content > Projects > Tutorials
  */
-function create_title($array) {
+function create_title($array,$pTitle='All Content',$url='') {
 	global $LSP_URL;
 	if (!is_array($array)) {
 		$array = array($array);
@@ -236,7 +236,7 @@ function create_title($array) {
 		}
 	}
 	
-	$title = "<a href=\"$LSP_URL\">All Content</a>";
+	$title = "<a href=\"$LSP_URL$url\">$pTitle</a>";
 	foreach ($array as $element) {
 		if (isset($element) && trim($element) != '' && trim($element) != '""' && trim($element) != "()") {
 			$title .= '&nbsp;&nbsp;<span class="fas fa-caret-right lsp-caret-right"></span>&nbsp;&nbsp;';
@@ -274,7 +274,7 @@ function one_element($array) {
 /*
  * Displays a formatted error message in a small dialogue to the right of the sidebar
  */
-function display_message($message, $severity = 'danger', $title = 'Error', $title_array = null, $redirect = null, $counter = 5) {
+function display_message($message, $severity = 'danger', $title = 'Error', $title_array = null, $redirect = null, $counter = 5, $ignoreTitle=false) {
 	
 	switch ($severity) {
 		case 'info': $icon = 'fa-info-circle'; break;
@@ -286,7 +286,9 @@ function display_message($message, $severity = 'danger', $title = 'Error', $titl
 	$icon = '<span class="fas ' . $icon . '"></span>&nbsp;';
 
 	echo '<div class="col-md-9">';
-	create_title(isset($title_array) ? $title_array : $title);
+	if (!$ignoreTitle) {
+		create_title(isset($title_array) ? $title_array : $title);
+	}
 	echo '<div data-redirect="' . (isset($redirect) ? htmlentities($redirect) : '') . '" ' .
 		'class="alert alert-' . $severity . ' text-center"><strong>' . $icon .
 		($title == '' ? '' : "$title:") . '</strong> ' . $message . '</div>';
@@ -297,20 +299,20 @@ function display_message($message, $severity = 'danger', $title = 'Error', $titl
 	echo '</div>';
 }
 
-function display_error($message, $title_array = null, $redirect = null, $counter = 15) {
-	return display_message($message, 'danger', 'Error', $title_array, $redirect, $counter);
+function display_error($message, $title_array = null, $redirect = null, $counter = 15, $ignoreTitle=false) {
+	return display_message($message, 'danger', 'Error', $title_array, $redirect, $counter, $ignoreTitle);
 }
 
-function display_warning($message, $title_array = null, $redirect = null, $counter = 15) {
-	return display_message($message, 'warning', 'Warning', $title_array, $redirect, $counter);
+function display_warning($message, $title_array = null, $redirect = null, $counter = 15, $ignoreTitle=false) {
+	return display_message($message, 'warning', 'Warning', $title_array, $redirect, $counter, $ignoreTitle);
 }
 
-function display_info($message, $title_array = null, $redirect = null, $counter = 5) {
-	return display_message($message, 'info', '', $title_array, $redirect, $counter);
+function display_info($message, $title_array = null, $redirect = null, $counter = 5, $ignoreTitle=false) {
+	return display_message($message, 'info', '', $title_array, $redirect, $counter, $ignoreTitle);
 }
 
-function display_success($message, $title_array = null, $redirect = null, $counter = 5) {
-	return display_message($message, 'success', '', $title_array, $redirect, $counter);
+function display_success($message, $title_array = null, $redirect = null, $counter = 5, $ignoreTitle=false) {
+	return display_message($message, 'success', '', $title_array, $redirect, $counter, $ignoreTitle);
 }
 
 /*

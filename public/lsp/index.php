@@ -49,7 +49,8 @@ function process_params() {
 				case 'content:add' : require ("./add_file.php"); return;
 				case 'content:update' : require ("./edit_file.php"); return;
 				case 'content:delete' : require ("./delete_file.php"); return;
-				case 'account:settings' : require("./user_settings.php"); return;
+				case 'account:settings' : require ("./user_settings.php"); return;
+				case 'account:show' : show_profile(GET("user"), SESSION()); return;
 				case 'action:show' : show_file(GET("file"), SESSION()); return;
 				case 'action:register' : require ("./register.php"); return;
 				case 'action:browse' :
