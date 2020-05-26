@@ -12,6 +12,7 @@ require_once('../utils.php');
 // Set $_GET[...] variables to their $_POST equivalents
 set_get_post('file');
 set_get_post('search');
+set_get_post('usersearch');
 set_get_post('category');
 set_get_post('subcategory');
 set_get_post('commentsearch');
@@ -30,17 +31,21 @@ process_params();
 function process_params() {
 	$post_funcs = explode(',', POST_FUNCS);
 	foreach ($post_funcs as $func) {
+
 		if (!GET_EMPTY($func)) {
 			// Process parametrized functions
 			switch($func) {
 				case 'rate':
 					update_rating(GET('file'), GET('rate'), SESSION());
 					break;  // break for file/rate, return for all others
-				case 'search': //move down
-				case 'q':
+				//case 'q': //move down
+				case 'search':
 					get_results(GET('category'), GET('subcategory'), GET('sort'), GET('q', GET('search', '')), '', GET('order'), GET('commentsearch'));
 					return;
-					// default: // do nothing
+				case 'usersearch':
+					get_user_results(false,GET('sort'),GET('usersearch'),GET('order'));
+					return;
+				// default: // do nothing
 			}
 		
 			// Process built-in functions
@@ -51,15 +56,16 @@ function process_params() {
 				case 'content:delete' : require ("./delete_file.php"); return;
 				case 'account:settings' : require ("./user_settings.php"); return;
 				case 'account:show' : show_profile(GET("user"), SESSION()); return;
+				case 'account:browse' : get_user_results(!GET_EMPTY('admins'),GET('sort'),'',GET('order')); return;
 				case 'action:show' : show_file(GET("file"), SESSION()); return;
 				case 'action:register' : require ("./register.php"); return;
 				case 'action:browse' :
 					// Browsing by category seems is currently only supported "browse" option
 					if (!GET_EMPTY('category')) {
-						get_results(GET('category'), GET('subcategory'), GET('sort'), '', '', GET('order'));
+						get_results(GET('category'), GET('subcategory'), GET('sort'), GET('q', GET('search', '')), '', GET('order'));
 						return;
 					} else if(!GET_EMPTY('user')) {
-						get_results(GET('category'), GET('subcategory'), GET('sort'), '', GET('user'), GET('order'));
+						get_results(GET('category'), GET('subcategory'), GET('sort'), GET('q', GET('search', '')), GET('user'), GET('order'));
 						return;
 					}
 					// default: // do nothing

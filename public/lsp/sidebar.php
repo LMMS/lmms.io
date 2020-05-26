@@ -37,6 +37,24 @@ switch (GET('action')) {
 	<?php get_categories(); ?>
 	</div>
 
+	<div class="panel panel-custom">
+	<div class="panel-heading">
+	<form action="<?php echo $LSP_URL; ?>" method="post" role="search">
+		<div class="input-group">
+      </span>
+			<input type="text" id="search" name="usersearch" class="form-control" maxlength="64" placeholder="Search Users" />
+			<span class="input-group-btn">
+				<button type="submit" id="ok" name="ok" class="btn btn-default"><span class="fas fa-search"></span></button>
+			</span>
+		</div>
+	</form>
+	</div>
+	<ul class="lsp-categories">
+		<li class="lsp-category"><a href="?account=browse">All users</a></li>
+		<li class="lsp-category"><a href="?account=browse&admins=1">Admins</a></li>
+	</ul>
+	</div>
+
 	<div id="login-panel" class="panel panel-custom">
 		<div class="panel-heading">
 			<h3 class="panel-title">
