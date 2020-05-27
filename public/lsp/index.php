@@ -43,7 +43,7 @@ function process_params() {
 					get_results(GET('category'), GET('subcategory'), GET('sort'), GET('q', GET('search', '')), '', GET('order'), GET('commentsearch'));
 					return;
 				case 'usersearch':
-					get_user_results(false,GET('sort'),GET('usersearch'),GET('order'));
+					get_user_results(false,false,GET('sort'),GET('usersearch'),GET('order'));
 					return;
 				// default: // do nothing
 			}
@@ -56,7 +56,7 @@ function process_params() {
 				case 'content:delete' : require ("./delete_file.php"); return;
 				case 'account:settings' : require ("./user_settings.php"); return;
 				case 'account:show' : show_profile(GET("user"), SESSION()); return;
-				case 'account:browse' : get_user_results(!GET_EMPTY('admins'),GET('sort'),'',GET('order')); return;
+				case 'account:browse' : get_user_results(!GET_EMPTY('admins'),!GET_EMPTY('verified'),GET('sort'),'',GET('order')); return;
 				case 'action:show' : show_file(GET("file"), SESSION()); return;
 				case 'action:register' : require ("./register.php"); return;
 				case 'action:browse' :

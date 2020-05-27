@@ -7,6 +7,7 @@ CREATE TABLE `users` (
   `about_me` varchar(1000) DEFAULT NULL,
   `realname` varchar(255) DEFAULT NULL,
   `is_admin` tinyint(1) DEFAULT NULL,
+  `is_verified` tinyint(1) DEFAULT NULL,
   `loginFailureCount` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7308 DEFAULT CHARSET=latin1;

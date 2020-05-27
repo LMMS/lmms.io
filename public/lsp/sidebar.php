@@ -50,8 +50,9 @@ switch (GET('action')) {
 	</form>
 	</div>
 	<ul class="lsp-categories">
-		<li class="lsp-category"><a href="?account=browse">All users</a></li>
-		<li class="lsp-category"><a href="?account=browse&admins=1">Admins</a></li>
+		<li class="lsp-category"><a href="?account=browse">All users (<?php echo get_user_results_count();?>)</a></li>
+		<li class="lsp-category"><a href="?account=browse&verified=1">Verified (<?php echo get_user_results_count(false,true);?>)</a></li>
+		<li class="lsp-category"><a href="?account=browse&admins=1">Admins (<?php echo get_user_results_count(true);?>)</a></li>
 	</ul>
 	</div>
 

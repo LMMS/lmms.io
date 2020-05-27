@@ -202,6 +202,7 @@ function get_latest() {
 			realname,
 			filename,
 			users.login,
+			users.is_verified,
 			categories.name AS category,
 			subcategories.name AS subcategory,
 			insert_date,
@@ -602,7 +603,7 @@ function get_file_subcategory($file_id) {
  * Forecasts the total size of the database result set returned
  * by get_results for proper pagination
  */
-function get_user_results_count($adminonly, $search = '', $additional_items = '') {
+function get_user_results_count($adminonly = false, $verifiedonly = false, $search = '', $additional_items = '') {
 	$dbh = &get_db();
 	$return_val = 0;
 	$stmt = $dbh->prepare('SELECT
@@ -610,6 +611,7 @@ function get_user_results_count($adminonly, $search = '', $additional_items = ''
 		FROM users
 		WHERE '.
 		($adminonly ? 'users.is_admin=1 AND ' : '') . 
+		($verifiedonly ? 'users.is_verified=1 AND ' : '') . 
 		/*(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
 		(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
 		(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .*/
@@ -634,7 +636,7 @@ function get_user_results_count($adminonly, $search = '', $additional_items = ''
  * Displays a table of search results, usually based on category, subcategory or search
  * filters
  */
-function get_user_results($adminonly = false, $sort = '', $search = '', $order = 'DESC') {
+function get_user_results($adminonly = false, $verifiedonly = false, $sort = '', $search = '', $order = 'DESC') {
 	global $PAGE_SIZE;
 	global $LSP_URL;
 	$user_id = '';
@@ -642,18 +644,23 @@ function get_user_results($adminonly = false, $sort = '', $search = '', $order =
 
 	$additional_items = '';
 	
-	$count = get_user_results_count($adminonly, $search, $additional_items);
+	$count = get_user_results_count($adminonly, $verifiedonly, $search, $additional_items);
+	$usersMsg = 'All Users';
+	if ($adminonly) {
+		$usersMsg = 'Admins';
+	} elseif ($verifiedonly) {
+		$usersMsg = 'Verified';
+	}
 	
 	if ($count > 0) {
 		echo '<div class="col-md-9">';
-		create_title(array($adminonly ? 'Admins' : 'All Users',"\"$search\""),'Users','?account=browse');
+		create_title($usersMsg,'Users','?account=browse');
 		list_profile_sort_options();
 			
-		$order_by = 'users.id';
+		$order_by = 'users.id';// Will order by newest and oldest
 		switch ($sort) {
 			case 'files' : $order_by = 'file_count'; break;
 		}
-		echo $order_by;
 		
 		$start = intval(GET('page', 0) * $PAGE_SIZE);
 		
@@ -662,6 +669,7 @@ function get_user_results($adminonly = false, $sort = '', $search = '', $order =
 				login,
 				realname,
 				is_admin,
+				is_verified,
 				about_me,
 				users.id,
 				COUNT(files.user_id) AS file_count
@@ -669,6 +677,7 @@ function get_user_results($adminonly = false, $sort = '', $search = '', $order =
 				LEFT JOIN files ON files.user_id = users.id
 			WHERE ' .
 				($adminonly ? 'users.is_admin=1 AND ' : '') . 
+				($verifiedonly ? 'users.is_verified=1 AND ' : '') . 
 				(strlen($search) ? "(users.login LIKE :search OR users.realname LIKE :search $additional_items)" : 'true') . ' ' .
 			"GROUP BY users.id 
 			ORDER BY  
@@ -690,7 +699,8 @@ function get_user_results($adminonly = false, $sort = '', $search = '', $order =
 		}
 		echo '</table>'.$pagination.'</div>';
 	} else {
-		display_info('No results found', array(GET('category'), GET('subcategory'), "\"$search\"", "($user_name)"));
+		create_title($usersMsg,'Users','?account=browse');
+		display_info('No results found',array(),null,'x','x');
 	}
 	
 	$stmt = null;
@@ -778,6 +788,7 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 				realname,
 				filename,
 				users.login,
+				users.is_verified,
 				categories.name AS category,
 				subcategories.name AS subcategory,
 				files.downloads * files.downloads /(UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day,
@@ -922,6 +933,9 @@ function show_basic_user_info($rs, $browsing_mode = false) {
 	} else {
 		$title = $rs['login'].' ('.$rs['realname'].')';
 	}
+	if ($rs['is_verified']) {
+		$title .= ' <span class="fas fa-check"></span>';
+	} 
 	//$browsing_mode should make the image and name clickable
 	if ($browsing_mode) {
 		$href = '<a href="?account=show&user=' . $rs['login'] . '">';
@@ -957,6 +971,7 @@ function show_profile($username, $user, $success = null) {
 			login,
 			realname,
 			is_admin,
+			is_verified,
 			about_me,
 			users.id,
 			COUNT(files.user_id) AS file_count
@@ -1033,10 +1048,10 @@ function show_basic_file_info($rs, $browsing_mode = false, $show_author = true) 
 	if ($show_author) {
 		if (empty($rs['realname'])) {
 			echo '<small>by <a href="' . $LSP_URL . '?account=show&amp;user=' .
-			$rs['login'] . '">' . $rs['login'] . "</a></small><br>";
+			$rs['login'] . '">' . $rs['login'] . ($rs['is_verified'] ? ' <span class="fas fa-check"></span>' : ''). "</a></small><br>";
 		} else {
 			echo '<small>by <a href="' . $LSP_URL . '?account=show&amp;user=' .
-			$rs['login'] . '">' . $rs['login'] . " (" . $rs['realname'] . ")</a></small><br>";
+			$rs['login'] . '">' . $rs['login'] . " (" . $rs['realname'] . ")".($rs['is_verified'] ? ' <span class="fas fa-check"></span>' : '')."</a></small><br>";
 		}
 	}
 
@@ -1105,6 +1120,7 @@ function show_file($file_id, $user, $success = null) {
 			description,
 			downloads,
 			users.login,
+			users.is_verified,
 			files.id
 		FROM files
 			INNER JOIN categories ON categories.id = files.category
