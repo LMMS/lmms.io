@@ -130,16 +130,16 @@
 {% macro create_navbar(items, current_uri = '/') %}
 	{% import _self as macros %}
 	{% for item in items %}
-		{% if not item[3] %}
+		{% if not item[3] is defined %}
 			{% set active = item[1] == current_uri ? 'active' : '' %}
-			{{macros.create_navbar_menu_item(item[0], item[1], item[2], false, active)}}
+			{{macros.create_navbar_menu_item(item[0], item[1], item[2]|default(null), false, active)}}
 		{% endif %}
 	{% endfor %}
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
 	{% for item in items %}
-		{% if item[3] %}
-			{{macros.create_navbar_menu_item(item[0], item[1], item[2], true)}}
+		{% if item[3] is defined %}
+			{{macros.create_navbar_menu_item(item[0], item[1], item[2]|default(null), true)}}
 		{% endif %}
 	{% endfor %}
 {% endmacro %}

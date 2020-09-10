@@ -68,8 +68,8 @@
 		{{ download.releasenotes(linpre[0]['release']['body'], 'linpre') }}
 	{% endif %}
 	<hr>
-	<a data-toggle="collapse" href="#collapse_{{ divid }}">{% trans %}Other options{% endtrans %}<br><i class="fas fa-angle-down"></i></a>
-	<div id="collapse_{{ divid }}" class="panel-collapse collapse">
+	<a data-toggle="collapse" href="#collapse_lin_other">{% trans %}Other options{% endtrans %}<br><i class="fas fa-angle-down"></i></a>
+	<div id="collapse_lin_other" class="panel-collapse collapse">
 		{% include 'download/linux.twig' %}
 	</div>
 </div>
