@@ -1,4 +1,3 @@
 framework:
     router:
         strict_requirements: null
-    error_controller: App\Controller\ExceptionController::showError

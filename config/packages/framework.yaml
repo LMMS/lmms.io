@@ -10,6 +10,8 @@ framework:
         cookie_secure: auto
         cookie_samesite: lax
 
+    error_controller: App\Controller\ExceptionController::showError
+
     #esi: true
     #fragments: true
     php_errors:
