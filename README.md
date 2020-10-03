@@ -1,4 +1,4 @@
-lmms.io
+Amazing website lmms.io
 ======
 
 This repo contains the source for LMMS's website located at https://lmms.io.
