@@ -20,7 +20,7 @@ class DownloadController extends AbstractController
             $linstable = $releases->latestLinuxAssets();
             $linpre = $releases->latestLinuxAssets(false);
     
-            if ($winstable && $winpre && ($winpre[0]['created_at'] < $winstable[0]['created_at']))
+            if ($winstable[0] && $winpre[0] && ($winpre[0]['created_at'] < $winstable[0]['created_at']))
                 $winpre = null;
             if ($osxstable && $osxpre && ($osxpre[0]['created_at'] < $osxstable[0]['created_at']))
                 $osxpre = null;
