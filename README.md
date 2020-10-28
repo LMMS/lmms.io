@@ -15,6 +15,11 @@ This repo contains the source for LMMS's website located at https://lmms.io.
 
 	This project uses [Composer](http://getcomposer.org) for dependency management. You'll have to fetch those dependencies using composer. For this, you must have Composer installed on your system. For quickly installing Composer locally on *nix, run:
 	
+	If not already, install php and required components (example is for Ubuntu/Debian, adjust as needed):
+	```bash
+	sudo apt install curl php php-xml php-gd php-intl php-symfony
+	```
+	
 	```bash
 	$ cd lmms.io
 	$ curl -sS https://getcomposer.org/installer | php
@@ -41,8 +46,15 @@ This repo contains the source for LMMS's website located at https://lmms.io.
 	You'll have to run this comand every time the dependencies in `composer.json` change.
 	
 	**Note**: For macOS, some dependencies must be [installed manually](https://superuser.com/a/1359317/443147).
+1. Start local server
+
+	```bash
+	$ php -S localhost:8000 -t ./public/
+	```
 	
-1. Configure local server
+	You can then open http://localhost:8000/ in a browser.
+	
+1. Optionally, configure the local apache, nginx instance
 	
 	Apache:
 	```xml
@@ -60,10 +72,4 @@ This repo contains the source for LMMS's website located at https://lmms.io.
 	}
 	```
 	
-1. Start local server
 
-	```bash
-	$ php -S localhost:8000 -t ./public/
-	```
-	
-	You can then open http://localhost:8000/ in a browser.
