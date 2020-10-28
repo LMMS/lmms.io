@@ -81,9 +81,11 @@
 	{{ download.printrelbutton(winstable[0]) }}
 	{{ download.printrelbutton(winstable[1]) }}
 
-	{{ download.releasenotes(winstable[0]['release']['body'], 'winstable') }}
+	{% if winstable and winstable[0] %}
+		{{ download.releasenotes(winstable[0]['release']['body'], 'winstable') }}
+	{% endif %}
 
-	{% if winpre %}
+	{% if winpre and winpre[0] %}
 		<h3>{% trans %}Beta Versions{% endtrans %}</h3>
 		{{ download.printrelbutton(winpre[0], 'btn-warning') }}
 		{{ download.printrelbutton(winpre[1], 'btn-warning') }}
