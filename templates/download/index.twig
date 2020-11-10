@@ -2,6 +2,10 @@
 
 {# Macro for printing oversized download buttons #}
 {% macro printrelbutton(rel, btnclass = 'btn-primary') %}
+	{# Alpha buttons will display as purple #}
+	{% if btnclass == 'btn-warning' and 'alpha' in rel.release.tag_name %}
+		{% set btnclass = 'btn-secondary' %}
+	{% endif %}
 	{% if rel != null %}
 		<a data-dl-count="{{ rel.download_count }}" class="btn btn-lg btn-dl {{ btnclass }}"
 		 href="{{ rel.browser_download_url }}">
@@ -60,7 +64,13 @@
 	{% endif %}
 
 	{% if linpre %}
-		<h3>{% trans %}Beta Versions{% endtrans %}</h3>
+		<h3>
+		{% if 'alpha' in linpre.release.tag_name %}
+			{% trans %}Nightly Versions{% endtrans %}
+		{% else %}
+			{% trans %}Beta Versions{% endtrans %}
+		{% endif %}
+		</h3>
 		{% for lin in linpre %}
 			{{ download.printrelbutton(lin, 'btn-warning') }}
 		{% endfor %}
@@ -86,7 +96,13 @@
 	{% endif %}
 
 	{% if winpre and winpre[0] %}
-		<h3>{% trans %}Beta Versions{% endtrans %}</h3>
+		<h3>
+		{% if 'alpha' in winpre[0].release.tag_name %}
+			{% trans %}Nightly Versions{% endtrans %}
+		{% else %}
+			{% trans %}Beta Versions{% endtrans %}
+		{% endif %}
+		</h3>
 		{{ download.printrelbutton(winpre[0], 'btn-warning') }}
 		{{ download.printrelbutton(winpre[1], 'btn-warning') }}
 
@@ -105,7 +121,13 @@
 		{{ download.releasenotes(osxstable[0]['release']['body'], 'osxstable') }}
 	{% endif %}
 	{% if osxpre %}
-		<h3>{% trans %}Beta Versions{% endtrans %}</h3>
+		<h3>
+		{% if 'alpha' in osxpre.release.tag_name %}
+			{% trans %}Nightly Versions{% endtrans %}
+		{% else %}
+			{% trans %}Beta Versions{% endtrans %}
+		{% endif %}
+		</h3>
 		{% for osx in osxpre %}
 			{{ download.printrelbutton(osx, 'btn-warning') }}
 		{% endfor %}
@@ -113,7 +135,7 @@
 	{% endif %}
 </div>
 
-<div id="prerelease" class="text-center"><small><span class="fas fa-exclamation-circle"></span> {% trans %}Downloads labeled Beta are pre-release software, stability may suffer.{% endtrans %}</small></div>
+<div id="prerelease" class="text-center"><small><span class="fas fa-exclamation-circle"></span> {% trans %}Downloads labeled Beta or Nightly are pre-release software, stability may suffer.{% endtrans %}</small></div>
 <hr><div class="text-center spacey"><a class="btn btn-default" href="https://github.com/LMMS/lmms/tags"><i class="fas fa-history"></i> {% trans %}Previous releases{% endtrans %}</a></div>
 
 <script>

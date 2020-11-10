@@ -806,6 +806,17 @@ a.social {
 	color: $fontColor;
 }
 
+/* Purple button (e.g. nightly) */
+.btn-secondary {
+	border: solid 1px;
+	border-color: #c9c9c9;
+	background-color: #7871c5;
+	&:hover {
+		background-color: #645cbc;
+		color: #ffffff;
+	};
+}
+
 .btn-file {
 	position: relative;
 	overflow: hidden;
