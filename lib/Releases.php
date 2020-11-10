@@ -6,7 +6,7 @@ use Symfony\Contracts\Cache\ItemInterface;
 
 class Releases
 {
-	public function __construct($owner='tresf', $repo='lmms')
+	public function __construct($owner='LMMS', $repo='lmms')
 	{
 		$this->cache = new FilesystemAdapter();
 		$this->client = new \Github\Client();
