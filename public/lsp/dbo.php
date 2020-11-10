@@ -328,8 +328,8 @@ function get_categories() {
 	$stmt = $dbh->prepare(
 		'SELECT categories.name AS name, COUNT(files.id) AS file_count, categories.id AS id ' .
 		'FROM categories LEFT JOIN files ON files.category = categories.id ' .
-		'GROUP BY categories.name ' .
-		'ORDER BY categories.name '
+		'GROUP BY categories.name, categories.id ' .
+		'ORDER BY categories.id '
 	);
 	
 	echo '<ul class="lsp-categories">';
