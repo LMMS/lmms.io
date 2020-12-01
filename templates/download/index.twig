@@ -65,7 +65,7 @@
 
 	{% if linpre %}
 		<h3>
-		{% if 'alpha' in linpre.release.tag_name %}
+		{% if 'alpha' in linpre[0].release.tag_name %}
 			{% trans %}Nightly Versions{% endtrans %}
 		{% else %}
 			{% trans %}Beta Versions{% endtrans %}
@@ -122,7 +122,7 @@
 	{% endif %}
 	{% if osxpre %}
 		<h3>
-		{% if 'alpha' in osxpre.release.tag_name %}
+		{% if 'alpha' in osxpre[0].release.tag_name %}
 			{% trans %}Nightly Versions{% endtrans %}
 		{% else %}
 			{% trans %}Beta Versions{% endtrans %}
