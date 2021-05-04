@@ -62,7 +62,7 @@
 			{% set extension = file_name|split('.')|last %}
 			<a target="_blank" class="btn btn-default" href="{{button}}" download>
 				<span class="fas fa-image"></span> {{file_name}} <br><small>({{macros.get_file_description(extension)|trim}})</small>
-			</a>&nbsp; 
+			</a>&nbsp;
 		{% endif %}
 	{% endfor %}
 	<br><br><hr><br><br>
@@ -81,7 +81,7 @@
 		'bmp' : 'Bitmap Format'|trans,
 		'ico' : 'Windows Icon Format'|trans,
 		'icns': 'Apple Icon Format'|trans,
-		} 
+		}
 	%}
 	{{descriptions[extension]|default("Unknown File")}}
 {% endmacro %}
