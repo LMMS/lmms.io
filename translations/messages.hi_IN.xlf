@@ -5,1064 +5,546 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <trans-unit id="BcXn358" resname="Project-Id-Version: PACKAGE VERSION&#10;Report-Msgid-Bugs-To: &#10;POT-Creation-Date: 2019-11-24 08:09+0000&#10;PO-Revision-Date: 2017-06-13 14:13+0000&#10;Last-Translator: Abhi Prakash &lt;Apofficial18@gmail.com&gt;, 2019&#10;Language-Team: Hindi (India) (https://www.transifex.com/lmms/teams/61632/hi_IN/)&#10;MIME-Version: 1.0&#10;Content-Type: text/plain; charset=UTF-8&#10;Content-Transfer-Encoding: 8bit&#10;Language: hi_IN&#10;Plural-Forms: nplurals=2; plural=(n != 1);&#10;">
-        <source>Project-Id-Version: PACKAGE VERSION
-Report-Msgid-Bugs-To: 
-POT-Creation-Date: 2019-11-24 08:09+0000
-PO-Revision-Date: 2017-06-13 14:13+0000
-Last-Translator: Abhi Prakash &lt;Apofficial18@gmail.com&gt;, 2019
-Language-Team: Hindi (India) (https://www.transifex.com/lmms/teams/61632/hi_IN/)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-Language: hi_IN
-Plural-Forms: nplurals=2; plural=(n != 1);
-</source>
-        <target state="translated"><![CDATA[Project-Id-Version: PACKAGE VERSION
-Report-Msgid-Bugs-To: 
-POT-Creation-Date: 2019-11-24 08:09+0000
-PO-Revision-Date: 2017-06-13 14:13+0000
-Last-Translator: Abhi Prakash <Apofficial18@gmail.com>, 2019
-Language-Team: Hindi (India) (https://www.transifex.com/lmms/teams/61632/hi_IN/)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-Language: hi_IN
-Plural-Forms: nplurals=2; plural=(n != 1);
-]]></target>
-        <note from="po-translator">SOME DESCRIPTIVE TITLE.
-Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-This file is distributed under the same license as the PACKAGE package.
-FIRST AUTHOR &lt;EMAIL@ADDRESS&gt;, YEAR.
-
-Translators:
-Mr.Right Thinker &lt;mr.right.thinker@gmail.com&gt;, 2019
-Abhi Prakash &lt;Apofficial18@gmail.com&gt;, 2019
-</note>
+      <trans-unit id="1ur_gjW" resname="Download">
+        <source>Download</source>
+        <target>डाउनलोड</target>
+      </trans-unit>
+      <trans-unit id="Tdd9OuD" resname="Get Involved">
+        <source>Get Involved</source>
+        <target>शामील हो जाईऐ !</target>
+      </trans-unit>
+      <trans-unit id="wgWSTeD" resname="Documentation">
+        <source>Documentation</source>
+        <target>प्रलेखन</target>
+      </trans-unit>
+      <trans-unit id="evAjxDA" resname="Docs">
+        <source>Docs</source>
+        <target>दस्तावेज़</target>
+      </trans-unit>
+      <trans-unit id="Tae9Qqu" resname="Forum">
+        <source>Forum</source>
+        <target>फोरम</target>
+      </trans-unit>
+      <trans-unit id="yHBYjoP" resname="Sharing Platform">
+        <source>Sharing Platform</source>
+        <target>शेयरिंग प्लेटफार्म</target>
+      </trans-unit>
+      <trans-unit id="KYh6X.m" resname="Share">
+        <source>Share</source>
+        <target>शेयर करें</target>
+      </trans-unit>
+      <trans-unit id="1H18sOT" resname="More">
+        <source>More</source>
+        <target>और</target>
+      </trans-unit>
+      <trans-unit id="mhXcnGL" resname="Showcase">
+        <source>Showcase</source>
+        <target>शोकेस</target>
       </trans-unit>
       <trans-unit id="uCmXDvQ" resname="Competitions">
         <source>Competitions</source>
-        <target state="translated">प्रतियोगिताएं</target>
+        <target>प्रतियोगिताएं</target>
       </trans-unit>
-      <trans-unit id="ly35agX" resname="Official competitions organised by LMMS and its community members">
-        <source>Official competitions organised by LMMS and its community members</source>
-        <target state="translated">LMMS और उसके समुदाय के सदस्यों द्वारा आयोजित आधिकारिक प्रतियोगिताएँ</target>
+      <trans-unit id="1BeqFto" resname="Branding">
+        <source>Branding</source>
+        <target>ब्रांडिंग</target>
       </trans-unit>
-      <trans-unit id="hzCq1ff" resname="Current competitions:">
-        <source>Current competitions:</source>
-        <target state="translated">मौजूदा प्रतियोगिताएं:</target>
-      </trans-unit>
-      <trans-unit id="6hq9QpV" resname="Past competitions:">
-        <source>Past competitions:</source>
-        <target state="translated">पिछली प्रतियोगिताएं:</target>
-      </trans-unit>
-      <trans-unit id="mQLQ2B_" resname="The Best of LMMS vol. VI">
-        <source>The Best of LMMS vol. VI</source>
-        <target state="translated">The Best of LMMS vol. VI</target>
-      </trans-unit>
-      <trans-unit id="XO1sFhZ" resname="#### The competition has ended on **April 2nd, 2019**.&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-6)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQm-kulIpC2Na8ol7brGGmmK3aK4kz9AaUi0KIy1FrHUj6snVwCpdcDZqJ7unf_oIbGTmC4cWnP1tLW/pubhtml?gid=1466576535&amp;single=true)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/768817671&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;&#10;&#10;&#9;&#9;&#9;#### Original description:&#10;&#9;&#9;&#9;We are proud to present to you The Best of LMMS contest volume 6!&#10;&#9;&#9;&#9;The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight&#10;&#9;&#9;&#9;(23:59.59 UTC Time) on April 2nd for a chance to be featured on the BoL v6 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.&#10;&#10;&#9;&#9;&#9;[Submit here](https://goo.gl/forms/lNmexmoqWiwiKDUf1)&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#9;&#9;&#9;1. **The Deadline:**&#10;&#9;&#9;&#9;&#9;- Track must be submitted by April 2nd 2019 at 23:59.59 UTC using [this form](https://goo.gl/forms/lNmexmoqWiwiKDUf1).&#10;&#9;&#9;&#9;2. **The Track:**&#10;&#9;&#9;&#9;&#9;- Must be produced in LMMS.&#10;&#9;&#9;&#9;&#9;- You may use other programs for mastering and post processing.&#10;&#9;&#9;&#9;&#9;- Must be under 10 minutes long.&#10;&#9;&#9;&#9;&#9;- No winning tracks from previous Best of LMMS albums allowed.&#10;&#9;&#9;&#9;&#9;- No remixes allowed.&#10;&#9;&#9;&#9;3. **The Submissions:**&#10;&#9;&#9;&#9;&#9;- You must submit using this form only.&#10;&#9;&#9;&#9;&#9;- No more than ONE entry per artist is allowed.&#10;&#9;&#9;&#9;&#9;- Collaborations count as ONE entry for each artist involved.&#10;&#9;&#9;&#9;&#9;- No collaborating with judges on entries.&#10;&#9;&#9;&#9;&#9;- Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.&#10;&#9;&#9;&#9;&#9; - The full track should be available at the submission link provided&#10;&#9;&#9;&#9;&#9;- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.&#10;&#9;&#9;&#9;4. **The Judges:**&#10;&#9;&#9;&#9;&#9;-The jury consists of: Abludo, Dystany, Heavenity Princess, Jacoby Davis, Pyrif, and Spekular.&#10;&#9;&#9;&#9;5. **The Judging:**&#10;&#9;&#9;&#9;&#9;- After the deadline, the judges will make their decisions and release the results within 14 days.&#10;&#9;&#9;&#9;6. **Release:**&#10;&#9;&#9;&#9;&#9;- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.">
-        <source>#### The competition has ended on **April 2nd, 2019**.
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-6)
-
-			Listen to all entries [here.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQm-kulIpC2Na8ol7brGGmmK3aK4kz9AaUi0KIy1FrHUj6snVwCpdcDZqJ7unf_oIbGTmC4cWnP1tLW/pubhtml?gid=1466576535&amp;single=true)
-
-			Winners:
-			&lt;iframe width="100%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/768817671&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"&gt;&lt;/iframe&gt;
-
-			#### Original description:
-			We are proud to present to you The Best of LMMS contest volume 6!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-			(23:59.59 UTC Time) on April 2nd for a chance to be featured on the BoL v6 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
-
-			[Submit here](https://goo.gl/forms/lNmexmoqWiwiKDUf1)
-			#### Competition rules:
-			1. **The Deadline:**
-				- Track must be submitted by April 2nd 2019 at 23:59.59 UTC using [this form](https://goo.gl/forms/lNmexmoqWiwiKDUf1).
-			2. **The Track:**
-				- Must be produced in LMMS.
-				- You may use other programs for mastering and post processing.
-				- Must be under 10 minutes long.
-				- No winning tracks from previous Best of LMMS albums allowed.
-				- No remixes allowed.
-			3. **The Submissions:**
-				- You must submit using this form only.
-				- No more than ONE entry per artist is allowed.
-				- Collaborations count as ONE entry for each artist involved.
-				- No collaborating with judges on entries.
-				- Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.
-				 - The full track should be available at the submission link provided
-				- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
-			4. **The Judges:**
-				-The jury consists of: Abludo, Dystany, Heavenity Princess, Jacoby Davis, Pyrif, and Spekular.
-			5. **The Judging:**
-				- After the deadline, the judges will make their decisions and release the results within 14 days.
-			6. **Release:**
-				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.</source>
-        <target state="translated"><![CDATA[#### प्रतियोगिता **02 अप्रैल, 2019** को समाप्त हो गई है।
-			LMMS का समर्थन करें और हमारे [bandcamp पेज](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-6) पर संकलन खरीदें।
-
-			सभी प्रविष्टियों को [यहाँ](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQm-kulIpC2Na8ol7brGGmmK3aK4kz9AaUi0KIy1FrHUj6snVwCpdcDZqJ7unf_oIbGTmC4cWnP1tLW/pubhtml?gid=1466576535&single=true) सुनें।
-
-			विजेता:
-			<iframe width="100%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/768817671&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-
-			#### मूल विवरण:
-			हम गर्व से आप के लिए प्रस्तुत करते हैं The Best of LMMS प्रतियोगिता volume 6!
-			इस प्रतियोगिता का उद्देश्य समुदाय को अपने संगीत बनाने और साझा करने के लिए प्रेरित करना है। BoL v6 एल्बम में दिखाए जाने के अवसर के लिए 02 अप्रैल (UTC समय) को आधी रात (23: 59.59) से पहले नीचे दिए गए लिंक पर अपना ट्रैक सबमिट करें। संकलन को Bandcamp पर अपलोड किया जाएगा, जिसमें सभी लाभ LMMS के आगे के विकास की ओर जाएंगे।
-
-			[यहां सबमिट करें](https://goo.gl/forms/lNmexmoqWiwiKDUf1)
-			#### प्रतियोगिता के नियम:
-			1. **समयसीमा:**
-				- ट्रैक 02 अप्रैल 2019 23: 59.59 UTC तक [इस फॉर्म](https://goo.gl/47ZXq1) का उपयोग करके प्रस्तुत किया जाना चाहिए।
-			2. **ट्रैक:**
-				- LMMS में उत्पादित किया जाना चाहिए।
-				- आप मास्टरिंग और पोस्ट प्रोसेसिंग के लिए अन्य कार्यक्रमों का उपयोग कर सकते हैं।
-				- 10 मिनट से कम समय के लिए होना चाहिए।
-				- पिछले Best of LMMS एल्बम से कोई भी जीतने वाला ट्रैक अनुमति नहीं है।
-				- रीमिक्स की अनुमति नहीं है।
-			3. **प्रस्तुतियाँ:**
-				- आपको इस फॉर्म का उपयोग करके ही जमा करना होगा।
-				- प्रति कलाकार **एक** से अधिक प्रविष्टि की अनुमति नहीं है। *
-				- सभी सहभागीताएं प्रत्येक शामिल कलाकार की **एक** प्रविष्टि के रूप में गिनी जाएँगी।*
-				- प्रविष्टियों पर जजों के साथ सहभागिता की अनुमति नहीं है।
-				- केवल Soundcloud, YouTube या Clyp पर होस्ट किए गए सबमिशन की अनुमति है।
-				- जजिंग प्रक्रिया के अंत तक आपकी प्रविष्टि सुनने के लिए उपलब्ध होनी चाहिए। यदि नहीं, तो आपकी प्रविष्टि अयोग्य हो जाएगी।
-4. **जजेस:**
-				- जजों में शामिल है: Abludo, Dystany, Heavenity Princess, Jacoby Davis, Pyrif, और Spekular।
-			5. **चुनाव प्रक्रिया:**
-				- समयसीमा के बाद, जजेस अपने फैसले करेंगे और 14 दिनों के भीतर परिणाम जारी करेंगे।
-			6. **रिलीज़:**
-				25 उच्चतम स्कोरिंग गाने "जो चाहो, वो चुकाओ" की कीमत के साथ बैंडकैम्प पर एक एल्बम के रूप में जारी किए जाएंगे। सारा प्राप्त धन LMMS के आगे के विकास के लिए दान किया जाएगा, वह प्रोग्राम जिससे हम प्यार करते हैं।]]></target>
-      </trans-unit>
-      <trans-unit id="nY8I5YL" resname="The Best of LMMS vol. V">
-        <source>The Best of LMMS vol. V</source>
-        <target state="translated">The Best of LMMS vol. V</target>
-      </trans-unit>
-      <trans-unit id="W.KEiHF" resname="#### The competition has ended on **April 16th, 2018**.&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-5)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vQOjvIBp40ez-2QrPsGHt_LGY2XejaOFZrXWsgPVPXoH7w7QQriUV52_OeCQBL9tcOPlCxdUw2HC6Ud/pubhtml?gid=1958072675&amp;single=true)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/519667455&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;&#10;&#10;&#9;&#9;&#9;#### Original description:&#10;&#9;&#9;&#9;We are proud to present to you The Best of LMMS contest volume 5!&#10;&#9;&#9;&#9;The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight&#10;&#9;&#9;&#9;(23:59.59) on April 16th (UTC time) for a chance to be featured on the BoL v5 album. The compilation will be uploaded to Bandcamp, with all&#10;&#9;&#9;&#9;profits going towards LMMS' further development.&#10;&#10;&#9;&#9;&#9;[Submit here](https://goo.gl/47ZXq1)&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#9;&#9;&#9;1. **The Deadline:**&#10;&#9;&#9;&#9;&#9;- Track must be submitted by April 16th 2018 at 23:59.59 UTC using [this form](https://goo.gl/47ZXq1).&#10;&#9;&#9;&#9;2. **The Track:**&#10;&#9;&#9;&#9;&#9;- Must be produced in LMMS.&#10;&#9;&#9;&#9;&#9;- You may use other programs for mastering and post processing.&#10;&#9;&#9;&#9;&#9;- Must be under 10 minutes long.&#10;&#9;&#9;&#9;&#9;- No winning tracks from previous Best of LMMS albums allowed.&#10;&#9;&#9;&#9;&#9;- No remixes allowed.&#10;&#9;&#9;&#9;3. **The Submissions:**&#10;&#9;&#9;&#9;&#9;- You must submit using this form only.&#10;&#9;&#9;&#9;&#9;- No more than ONE entry per artist is allowed.*&#10;&#9;&#9;&#9;&#9;- Collaborations count as ONE entry for each artist involved.*&#10;&#9;&#9;&#9;&#9;- No collaborating with judges on entries.&#10;&#9;&#9;&#9;&#9;- Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.&#10;&#9;&#9;&#9;&#9;- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.&#10;&#9;&#9;&#9;4. **The Judges:**&#10;&#9;&#9;&#9;&#9;-The jury consists of: Dull Machine, Etorna_Z, Jernemies, Poleroyd, Umcaruje and Unfa.&#10;&#9;&#9;&#9;5. **The Judging:**&#10;&#9;&#9;&#9;&#9;- After the deadline, the judges will score each track and release the results within 14 days.&#10;&#9;&#9;&#9;6. **Release:**&#10;&#9;&#9;&#9;&#9;- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.&#10;&#10;&#9;&#9;&#9;\* *This year the judging process has changed, to ensure fairer handling of entries. The change to one submission only is to allow each and every entry to be fully scored by the panel of judges. This was previously handled by a preliminary screening round to help cut down the large amount of entries received. By lowering the amount of up-front entries allowed, the judges will have the time to fully score each track entered.*">
-        <source>#### The competition has ended on **April 16th, 2018**.
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-5)
-
-			Listen to all entries [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vQOjvIBp40ez-2QrPsGHt_LGY2XejaOFZrXWsgPVPXoH7w7QQriUV52_OeCQBL9tcOPlCxdUw2HC6Ud/pubhtml?gid=1958072675&amp;single=true)
-
-			Winners:
-			&lt;iframe width="100%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/519667455&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"&gt;&lt;/iframe&gt;
-
-			#### Original description:
-			We are proud to present to you The Best of LMMS contest volume 5!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-			(23:59.59) on April 16th (UTC time) for a chance to be featured on the BoL v5 album. The compilation will be uploaded to Bandcamp, with all
-			profits going towards LMMS' further development.
-
-			[Submit here](https://goo.gl/47ZXq1)
-			#### Competition rules:
-			1. **The Deadline:**
-				- Track must be submitted by April 16th 2018 at 23:59.59 UTC using [this form](https://goo.gl/47ZXq1).
-			2. **The Track:**
-				- Must be produced in LMMS.
-				- You may use other programs for mastering and post processing.
-				- Must be under 10 minutes long.
-				- No winning tracks from previous Best of LMMS albums allowed.
-				- No remixes allowed.
-			3. **The Submissions:**
-				- You must submit using this form only.
-				- No more than ONE entry per artist is allowed.*
-				- Collaborations count as ONE entry for each artist involved.*
-				- No collaborating with judges on entries.
-				- Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.
-				- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
-			4. **The Judges:**
-				-The jury consists of: Dull Machine, Etorna_Z, Jernemies, Poleroyd, Umcaruje and Unfa.
-			5. **The Judging:**
-				- After the deadline, the judges will score each track and release the results within 14 days.
-			6. **Release:**
-				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
-
-			\* *This year the judging process has changed, to ensure fairer handling of entries. The change to one submission only is to allow each and every entry to be fully scored by the panel of judges. This was previously handled by a preliminary screening round to help cut down the large amount of entries received. By lowering the amount of up-front entries allowed, the judges will have the time to fully score each track entered.*</source>
-        <target state="translated"><![CDATA[#### प्रतियोगिता **16 अप्रैल, 2018** को समाप्त हो गई है।
-			LMMS का समर्थन करें और हमारे [bandcamp पेज] पर संकलन खरीदें।(https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-5)
-
-			सभी प्रविष्टियों को [यहाँ] सुनें।(https://docs.google.com/spreadsheets/d/e/2PACX-1vQOjvIBp40ez-2QrPsGHt_LGY2XejaOFZrXWsgPVPXoH7w7QQriUV52_OeCQBL9tcOPlCxdUw2HC6Ud/pubhtml?gid=1958072675&single=true)
-
-			विजेता:
-			<iframe width="100%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/519667455&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-
-			#### मूल विवरण:
-			हम गर्व से आप के लिए प्रस्तुत करते हैं The Best of LMMS प्रतियोगिता volume 5!
-			इस प्रतियोगिता का उद्देश्य समुदाय को अपने संगीत बनाने और साझा करने के लिए प्रेरित करना है। BoL v5 एल्बम में दिखाए जाने के अवसर के लिए 16 अप्रैल (UTC समय) को आधी रात (23: 59.59) से पहले नीचे दिए गए लिंक पर अपना ट्रैक सबमिट करें। संकलन को Bandcamp पर अपलोड किया जाएगा, जिसमें सभी लाभ LMMS के आगे के विकास की ओर जाएंगे।
-
-			[यहां सबमिट करें](https://goo.gl/47ZXq1)
-			#### प्रतियोगिता के नियम:
-			1. **समयसीमा:**
-				- ट्रैक 16 अप्रैल 2018 23: 59.59 UTC तक [इस फॉर्म](https://goo.gl/47ZXq1) का उपयोग करके प्रस्तुत किया जाना चाहिए।
-			2. **ट्रैक:**
-				- LMMS में उत्पादित किया जाना चाहिए।
-				- आप मास्टरिंग और पोस्ट प्रोसेसिंग के लिए अन्य कार्यक्रमों का उपयोग कर सकते हैं।
-				- 10 मिनट से कम समय के लिए होना चाहिए।
-				- पिछले Best of LMMS एल्बम से कोई भी जीतने वाला ट्रैक अनुमति नहीं है।
-				- रीमिक्स की अनुमति नहीं है।
-			3. **प्रस्तुतियाँ:**
-				- आपको इस फॉर्म का उपयोग करके ही जमा करना होगा।
-				- प्रति कलाकार **एक** से अधिक प्रविष्टि की अनुमति नहीं है। *
-				- सभी सहभागीताएं प्रत्येक शामिल कलाकार की **एक** प्रविष्टि के रूप में गिनी जाएँगी।*
-				- प्रविष्टियों पर जजों के साथ सहभागिता की अनुमति नहीं है।
-				- केवल Soundcloud, YouTube या Clyp पर होस्ट किए गए सबमिशन की अनुमति है।
-				- जजिंग प्रक्रिया के अंत तक आपकी प्रविष्टि सुनने के लिए उपलब्ध होनी चाहिए। यदि नहीं, तो आपकी प्रविष्टि अयोग्य हो जाएगी।
-			4. **जजेस:**
-				- जजों में शामिल है: Dull Machine, Etorna_Z, Jernemies, Poleroyd, Umcaruje और Unfa।
-			5. **चुनाव प्रक्रिया:**
-				- समयसीमा के बाद, जजेस अपने फैसले करेंगे और 14 दिनों के भीतर परिणाम जारी करेंगे।
-			6. **रिलीज़:**
-				25 उच्चतम स्कोरिंग गाने "जो चाहो, वो चुकाओ" की कीमत के साथ बैंडकैम्प पर एक एल्बम के रूप में जारी किए जाएंगे। सारा प्राप्त धन LMMS के आगे के विकास के लिए दान किया जाएगा, वह प्रोग्राम जिससे हम प्यार करते हैं।
-
-			\* *इस वर्ष जजों की प्रक्रिया में बदलाव आया है, ताकि प्रविष्टियों की निष्पक्ष हैंडलिंग सुनिश्चित की जा सके। केवल एक सबमिशन में बदलाव जज के पैनल द्वारा प्रत्येक प्रविष्टि को पूरी तरह से स्कोर करने की अनुमति देने के लिए है। इससे पहले प्राप्त प्रविष्टियों की बड़ी मात्रा में कटौती करने में मदद करने के लिए प्रारंभिक स्क्रीनिंग दौर द्वारा नियंत्रित किया गया था। अनुमति दी गई अप-फ्रंट प्रविष्टियों की मात्रा को कम करके, न्यायाधीशों के पास प्रत्येक ट्रैक में प्रवेश करने के लिए पूरी तरह से स्कोर करने का समय होगा।*]]></target>
-      </trans-unit>
-      <trans-unit id="A2MFznp" resname="The Best of LMMS vol. IV">
-        <source>The Best of LMMS vol. IV</source>
-        <target state="translated">The Best of LMMS vol. IV</target>
-      </trans-unit>
-      <trans-unit id="kPfdwP4" resname="#### The competition has ended on **April 16th, 2017**.&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://docs.google.com/spreadsheets/d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?gid=975440614&amp;single=true)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/321234884&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;&#10;&#9;&#9;&#9;#### Original Description:&#10;&#9;&#9;&#9;We are proud to present to you The Best of LMMS contest volume 4!&#10;&#9;&#9;&#9;The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight&#10;  &#9;&#9;(23:59.59) on April 16th (UTC time) for a chance to be featured on the BoL v4 album. The compilation will be uploaded to Bandcamp, with all&#10;&#9;&#9;&#9;profits going towards LMMS' further development.&#10;&#9;&#9;&#9;This year's submissions are handled through Google forms. We accept submissions hosted on YouTube, Soundcloud and Clyp. For the full rules check out the submission form:&#10;&#9;&#9;&#9;https://goo.gl/forms/cifEliOViOXTSc8H2&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#9;&#9;&#9;1. **The Deadline**&#10;&#9;&#9;&#9;  - Tracks must be submitted by April 16th at 23:59.59 UTC using [this form](https://goo.gl/forms/cifEliOViOXTSc8H2).&#10;&#9;&#9;&#9;2. **The Tracks**&#10;&#9;&#9;&#9;  - Must be produced in LMMS.&#10;&#9;&#9;&#9;&#9;- You may use other programs for mastering and post processing.&#10;&#9;&#9;&#9;&#9;- Must be under 10 minutes long.&#10;&#9;&#9;&#9;&#9;- No winning tracks from previous Best of LMMS albums allowed.&#10;&#9;&#9;&#9;&#9;- No remixes allowed.&#10;&#9;&#9;&#9;3. **The Submissions**&#10;&#9;&#9;&#9;  - You must submit using this form only.&#10;&#9;&#9;&#9;&#9;- No more than **TWO** entries per artist are allowed.&#10;&#9;&#9;&#9;&#9;- Collaborations count as **ONE** entry for each artist involved.&#10;&#9;&#9;&#9;&#9;- Only submissions hosted on Soundcloud, YouTube or Clyp are allowed.&#10;&#9;&#9;&#9;&#9;- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.&#10;&#9;&#9;&#9;4. **The Judges**&#10;&#9;&#9;&#9;  - The jury consists of: Greippi, Jacoby Davis, Spekular, Stakeout Punch and Squatro.&#10;&#9;&#9;&#9;5. **The Judging Process**&#10;&#9;&#9;&#9;  - After the deadline, the judges will make their decisions and release the results within 14 days.&#10;&#9;&#9;&#9;6. **The Release**&#10;&#9;&#9;&#9;  - The 25 highest scoring songs will be released as an album on Bandcamp with the price of &quot;Pay what you want&quot;.&#10;&#9;&#9;&#9;&#9;&#9;All the received funds will be donated for further development of LMMS, the program that we love.">
-        <source>#### The competition has ended on **April 16th, 2017**.
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)
-
-			Listen to all entries [here.](https://docs.google.com/spreadsheets/d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?gid=975440614&amp;single=true)
-
-			Winners:
-			&lt;iframe width="100%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/321234884&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false"&gt;&lt;/iframe&gt;
-			#### Original Description:
-			We are proud to present to you The Best of LMMS contest volume 4!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-  		(23:59.59) on April 16th (UTC time) for a chance to be featured on the BoL v4 album. The compilation will be uploaded to Bandcamp, with all
-			profits going towards LMMS' further development.
-			This year's submissions are handled through Google forms. We accept submissions hosted on YouTube, Soundcloud and Clyp. For the full rules check out the submission form:
-			https://goo.gl/forms/cifEliOViOXTSc8H2
-			#### Competition rules:
-			1. **The Deadline**
-			  - Tracks must be submitted by April 16th at 23:59.59 UTC using [this form](https://goo.gl/forms/cifEliOViOXTSc8H2).
-			2. **The Tracks**
-			  - Must be produced in LMMS.
-				- You may use other programs for mastering and post processing.
-				- Must be under 10 minutes long.
-				- No winning tracks from previous Best of LMMS albums allowed.
-				- No remixes allowed.
-			3. **The Submissions**
-			  - You must submit using this form only.
-				- No more than **TWO** entries per artist are allowed.
-				- Collaborations count as **ONE** entry for each artist involved.
-				- Only submissions hosted on Soundcloud, YouTube or Clyp are allowed.
-				- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
-			4. **The Judges**
-			  - The jury consists of: Greippi, Jacoby Davis, Spekular, Stakeout Punch and Squatro.
-			5. **The Judging Process**
-			  - After the deadline, the judges will make their decisions and release the results within 14 days.
-			6. **The Release**
-			  - The 25 highest scoring songs will be released as an album on Bandcamp with the price of "Pay what you want".
-					All the received funds will be donated for further development of LMMS, the program that we love.</source>
-        <target state="translated"><![CDATA[#### प्रतियोगिता **16 अप्रैल, 2017** को समाप्त हो गई है।
-			LMMS का समर्थन करें और हमारे [bandcamp पेज] पर संकलन खरीदें।(https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)
-
-			सभी प्रविष्टियों को [यहाँ](https://docs.google.com/spreadsheets/d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?gid=975440614&single=true) सुनें।
-
-			विजेता:
-			<iframe width="100%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			#### मूल विवरण:
-			हम गर्व से आप के लिए प्रस्तुत करते हैं The Best of LMMS contest volume 4!
-			इस प्रतियोगिता का उद्देश्य समुदाय को अपने संगीत बनाने और साझा करने के लिए प्रेरित करना है। BoL v4 एल्बम में दिखाए जाने के अवसर के लिए 16 अप्रैल (UTC समय) को आधी रात (23: 59.59) से पहले नीचे दिए गए लिंक पर अपना ट्रैक सबमिट करें। संकलन को Bandcamp पर अपलोड किया जाएगा, जिसमें सभी लाभ LMMS के आगे के विकास की ओर जाएंगे।
-			इस वर्ष की प्रस्तुतियाँ Google फॉर्म्स के माध्यम से नियंत्रित की जाएँगी। हम YouTube, Soundcloud और Clyp पर होस्ट किए गए सबमिशन स्वीकार करते हैं। पूर्ण नियमों के लिए सबमिशन फॉर्म देखें:
-			https://goo.gl/forms/cifEliOViOXTSc8H2
-			#### प्रतियोगिता के नियम:
-			1. **समयसीमा**
-			- [इस फॉर्म](https://goo.gl/forms/cifEliOViOXTSc8H2) का उपयोग करके 16 अप्रैल को 23: 59.59 UTC तक ट्रैक प्रस्तुत किया जाना चाहिए।
-			2.  **ट्रैक्स**
-			- LMMS में उत्पादित किया जाना चाहिए।
-				- आप मास्टरिंग और पोस्ट प्रोसेसिंग के लिए अन्य कार्यक्रमों का उपयोग कर सकते हैं।
-				- 10 मिनट से कम समय के लिए होना चाहिए।
-				- पिछले Best of LMMS एल्बम से कोई भी जीतने वाला ट्रैक अनुमति नहीं है।
-				- रीमिक्स की अनुमति नहीं है।
-			3. **प्रस्तुतियाँ**
-			- आपको इस फॉर्म का उपयोग करके ही जमा करना होगा।
-				- प्रति कलाकार **दो** से अधिक प्रविष्टियों की अनुमति नहीं है।
-				- सभी सहभागीताएं प्रत्येक शामिल कलाकार की **एक** प्रविष्टि के रूप में गिनी जाएँगी।
-				- केवल Soundcloud, YouTube या Clyp पर होस्ट किए गए सबमिशन की अनुमति है।
-				- जजिंग प्रक्रिया के अंत तक आपकी प्रविष्टि सुनने के लिए उपलब्ध होनी चाहिए। यदि नहीं, तो आपका प्रवेश अयोग्य हो जाएगी।
-			4. **जजेस**
-			- जजों में शामिल है: Greippi, Jacoby Davis, Spekular, Stakeout Punch और Squatro।
-			5. **चुनाव प्रक्रिया**
-			- समयसीमा के बाद, जजेस अपने फैसले करेंगे और 14 दिनों के भीतर परिणाम जारी करेंगे।
-			6. **रिलीज़**
-			- 25 उच्चतम स्कोरिंग गाने "जो चाहो, वो चुकाओ" की कीमत के साथ बैंडकैम्प पर एक एल्बम के रूप में जारी किए जाएंगे।
-					सारा प्राप्त धन LMMS के आगे के विकास के लिए दान किया जाएगा, वह प्रोग्राम जिससे हम प्यार करते हैं।]]></target>
-      </trans-unit>
-      <trans-unit id="IKxeWHi" resname="The Best of LMMS vol. III">
-        <source>The Best of LMMS vol. III</source>
-        <target state="translated">The Best of LMMS vol. III</target>
-      </trans-unit>
-      <trans-unit id="6MGDGBZ" resname="#### The competition has ended on **March 16th, 2016.**&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://soundcloud.com/groups/the-best-of-lmms-competition-v3)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%&quot; height=&quot;450&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/211975750&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;&#10;&#9;&#9;&#9;#### Original description:&#10;&#10;&#9;&#9;&#9;It’s that time of the year again: If you have made amazing tracks with LMMS we have a contest for you!&#10;&#9;&#9;&#9;The Best of LMMS contest is back!  The compilation aims to inspire new users and everyone to create music.&#10;&#9;&#9;&#9;The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS.&#10;&#9;&#9;&#9;Submit your track before midnight on March 16th (UTC time), and find details about the contest on the [soundcloud group.](https://soundcloud.com/groups/the-best-of-lmms-competition-v3)&#10;&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#10;&#9;&#9;&#9;1. The Deadline. The tracks must be submitted by March 16th 0:00 UTC. The tracks can be of any genre, preferably under 10 minutes.&#10;&#9;&#9;&#9;&#9;The track must be produced in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.&#10;&#9;&#9;&#9;2. The tracks. All submissions will be handled via SoundCloud using the dedicated group. You can submit a maximum of two tracks.&#10;&#9;&#9;&#9;&#9;You may submit previously released tracks, but not tracks that were in the previous Best of LMMS albums. Remixes are not allowed. A collaboration between a judge and yourself is not allowed.&#10;&#9;&#9;&#9;3. The Judges. The jury consists of: Zach Henderson, Second Flight, Umcaruje, Greippi, Tres Finnochiaro, Abludo.&#10;&#9;&#9;&#9;4. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 14 days.&#10;&#9;&#9;&#9;5. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds&#10;&#9;&#9;&#9;&#9;will be donated for further development of LMMS, the program that we love.">
-        <source>#### The competition has ended on **March 16th, 2016.**
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)
-
-			Listen to all entries [here.](https://soundcloud.com/groups/the-best-of-lmms-competition-v3)
-
-			Winners:
-			&lt;iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/211975750&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false"&gt;&lt;/iframe&gt;
-			#### Original description:
-
-			It’s that time of the year again: If you have made amazing tracks with LMMS we have a contest for you!
-			The Best of LMMS contest is back!  The compilation aims to inspire new users and everyone to create music.
-			The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS.
-			Submit your track before midnight on March 16th (UTC time), and find details about the contest on the [soundcloud group.](https://soundcloud.com/groups/the-best-of-lmms-competition-v3)
-
-			#### Competition rules:
-
-			1. The Deadline. The tracks must be submitted by March 16th 0:00 UTC. The tracks can be of any genre, preferably under 10 minutes.
-				The track must be produced in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.
-			2. The tracks. All submissions will be handled via SoundCloud using the dedicated group. You can submit a maximum of two tracks.
-				You may submit previously released tracks, but not tracks that were in the previous Best of LMMS albums. Remixes are not allowed. A collaboration between a judge and yourself is not allowed.
-			3. The Judges. The jury consists of: Zach Henderson, Second Flight, Umcaruje, Greippi, Tres Finnochiaro, Abludo.
-			4. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 14 days.
-			5. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
-				will be donated for further development of LMMS, the program that we love.</source>
-        <target state="translated"><![CDATA[#### प्रतियोगिता **16 मार्च, 2016** को समाप्त हो गई है।
-			LMMS का समर्थन करें और हमारे [bandcamp पेज](https://lmmsartists.bandcamp.com/) पर संकलन खरीदें।
-
-			सभी प्रविष्टियों को [यहाँ](https://soundcloud.com/groups/the-best-of-lmms-competition-v3) सुनें।
-
-			विजेता:
-			<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/211975750&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			#### मूल विवरण:
-
-			फिर यह वर्ष का वही समय है: यदि आप LMMS के साथ अद्भुत गाने बना चुके हैं तो हमारे पास आपके लिए एक प्रतियोगिता है!
-			 The Best of LMMS प्रतियोगिता वापस आ गई है! इस संकलन का उद्देश्य नए उपयोगकर्ताओं और सभी को संगीत बनाने के लिए प्रेरित करना है।
-			संकलन को Bandcamp पर अपलोड किया जाएगा और सभी लाभ LMMS के विकास के लिए दान किए जाएंगे।
-			16 मार्च (UTC समय) को आधी रात से पहले अपना ट्रैक जमा करें, और [soundcloud group](https://soundcloud.com/groups/the-best-of-lmms-competition-v3) पर प्रतियोगिता के बारे में विवरण पाएं।
-
-			प्रतियोगिता के नियम:
-
-			1. समयसीमा. गाने 16 मार्च 0:00 UTC तक प्रस्तुत किए जा सकते हैं। गाने किसी भी शैली के हो सकते हैं,
-अधिमानतः 10 मिनट के भीतर।
-				गीत को ज्यादातर LMMS में बनाया जाना चाहिए, लेकिन पोस्ट मिक्सिंग/मास्टरिंग के लिए कुछ अन्य सॉफ्टवेयर (Audacity, Ardour आदि) का उपयोग करने की अनुमति है।
-			2. ट्रैक्स. सभी प्रस्तुतियाँ SoundCloud के माध्यम से समर्पित समूह के द्वारा नियंत्रित की जाएंगी। आप अधिकतम दो ट्रैक सबमिट कर सकते हैं। आप पहले रिलीज़ किए गए ट्रैक सबमिट कर सकते हैं, लेकिन वे ट्रैक नहीं जो पिछले बेस्ट ऑफ़ LMMS एल्बम में थे। Remixes की अनुमति नहीं है। एक जज और खुद के बीच गीत सहभागिता की अनुमति नहीं है।
-			3. जजेस. जजों में शामिल है: Zach Henderson, Second Flight, Umcaruje, Greippi, Tres Finnochiaro, Abludo.
-			4. चुनाव प्रक्रिया. समयसीमा के बाद, जजेस अपने फैसले करेंगे और अगले 14 दिनों के भीतर परिणाम जारी करेंगे।
-			5. रिलीज़. संकलन को एक समर्पित LMMS artists Bandcamp पर "जो चाहो, वो चुकाओ" की कीमत के साथ रिलीज़ किया जाएगा। सभी प्राप्त धन LMMS के विकास के लिए दान किया जाए, वह प्रोग्राम जिसे हम प्यार करते हैं।]]></target>
-      </trans-unit>
-      <trans-unit id="GkkeUeD" resname="The Best of LMMS vol. II">
-        <source>The Best of LMMS vol. II</source>
-        <target state="translated">The Best of LMMS vol. II</target>
-      </trans-unit>
-      <trans-unit id="047D..T" resname="#### The competition has ended on **April 1st, 2015.**&#10;&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://soundcloud.com/groups/the-best-of-lmms-competition-v2)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/103762698&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;&#10;&#9;&#9;&#9;#### Original description:&#10;&#9;&#9;&#9;1. The Deadline. The songs must be submitted by April 1st 0:00 UTC. The songs can be of any genre, preferably under 10 minutes.&#10;&#9;&#9;&#9;&#9;The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.&#10;&#9;&#9;&#9;2. The songs. All submissions will be handled via SoundCloud using the dedicated group. A user can submit a maximum of two songs.&#10;&#9;&#9;&#9;&#9;Users CAN submit previously released songs, BUT not songs submitted for previous BoL competitions. Remixes are not allowed.&#10;&#9;&#9;&#9;&#9;A song cooperation between a judge and yourself is not allowed.&#10;&#9;&#9;&#9;3. The Judges and the Release. The judges consist of Stian Jørgensrud (Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix and Jernemies.&#10;&#9;&#9;&#9;&#9;The compilation will be released on the dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds will be donated&#10;&#9;&#9;&#9;&#9;for further development of LMMS or to cover other program related costs.&#10;&#10;&#9;&#9;&#9;Extras:&#10;&#10;&#9;&#9;&#9;By marking your song with the tag &quot;Want Feedback&quot; you can get feedback from the judges. Comments from different judges will be combined into one&#10;&#9;&#9;&#9;text so you won't know from who or how many the feedback is. Note that you aren't guaranteed any feedback, it depends on how much time the judges have.&#10;&#9;&#9;&#9;Also note that the judges are just regular LMMS artists and no matter what feedback you get the judges' decision for album songs is final.">
-        <source>#### The competition has ended on **April 1st, 2015.**
-
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)
-
-			Listen to all entries [here.](https://soundcloud.com/groups/the-best-of-lmms-competition-v2)
-
-			Winners:
-			&lt;iframe width="100%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/103762698&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false"&gt;&lt;/iframe&gt;
-			#### Original description:
-			1. The Deadline. The songs must be submitted by April 1st 0:00 UTC. The songs can be of any genre, preferably under 10 minutes.
-				The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.
-			2. The songs. All submissions will be handled via SoundCloud using the dedicated group. A user can submit a maximum of two songs.
-				Users CAN submit previously released songs, BUT not songs submitted for previous BoL competitions. Remixes are not allowed.
-				A song cooperation between a judge and yourself is not allowed.
-			3. The Judges and the Release. The judges consist of Stian Jørgensrud (Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix and Jernemies.
-				The compilation will be released on the dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds will be donated
-				for further development of LMMS or to cover other program related costs.
-
-			Extras:
-
-			By marking your song with the tag "Want Feedback" you can get feedback from the judges. Comments from different judges will be combined into one
-			text so you won't know from who or how many the feedback is. Note that you aren't guaranteed any feedback, it depends on how much time the judges have.
-			Also note that the judges are just regular LMMS artists and no matter what feedback you get the judges' decision for album songs is final.</source>
-        <target state="translated"><![CDATA[#### प्रतियोगिता **1 अप्रैल, 2015** को समाप्त हो गई है।
-
-			LMMS का समर्थन करें और हमारे [bandcamp पेज](https://lmmsartists.bandcamp.com/) पर संकलन खरीदें।
-
-			सभी प्रविष्टियों को [यहाँ](https://soundcloud.com/groups/the-best-of-lmms-competition-v2) सुनें।
-
-			विजेता:
-			<iframe width="100%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/103762698&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			#### मूल विवरण:
-			1. समयसीमा. गाने 15 फरवरी 12 बजे GMT तक प्रस्तुत किए जा सकते हैं। एक उपयोगकर्ता अधिकतम दो गाने प्रस्तुत कर सकता है। गाने किसी भी शैली के हो सकते हैं, अधिमानतः 10 मिनट के भीतर।
-				गीत को ज्यादातर LMMS में बनाया जाना चाहिए, लेकिन पोस्ट मिक्सिंग/मास्टरिंग के लिए कुछ अन्य सॉफ्टवेयर (Audacity, Ardour आदि) का उपयोग करने की अनुमति है।
-			2. गाने. सभी प्रस्तुतियाँ SoundCloud के माध्यम से समर्पित समूह के द्वारा नियंत्रित की जाएंगी। एक उपयोगकर्ता अधिकतम दो गाने प्रस्तुत कर सकता है।
-				उपयोगकर्ता पहले रिलीज़ किए गए गाने सबमिट कर सकते हैं, लेकिन पिछले BoL प्रतियोगिताओं के लिए प्रस्तुत गाने नहीं। Remixes की अनुमति नहीं है।
-				एक जज और खुद के बीच गीत सहोद्योग की अनुमति नहीं है।
-			3. जजेस और रिलीज़. जजों में शामिल है Stian Jørgensrud (Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix और Jernemies।
-				संकलन को एक समर्पित LMMS artists Bandcamp पर "जो चाहो, वो चुकाओ" की कीमत के साथ रिलीज़ किया जाएगा। सभी प्राप्त धन LMMS के आगे के विकास के लिए या अन्य कार्यक्रम से संबंधित लागतों को कवर करने के लिए दान किया जाएगा।
-
-			अतिरिक्त:
-
-			"वांट फीडबैक" टैग के साथ अपने गीत को चिह्नित करके आप जजों से प्रतिक्रिया प्राप्त कर सकते हैं। विभिन्न जजों की टिप्पणियों को एक पाठ में संयोजित किया जाएगा ताकि आपको यह पता न चले कि किससे अथवा कितना फीडबैक है। ध्यान दें कि आपको किसी भी प्रतिक्रिया की गारंटी नहीं दी है, यह इस बात पर निर्भर करता है कि जजेस के पास कितना समय है।
-			यह भी ध्यान दें कि जजेस भी केवल सामान्य LMMS कलाकार हैं और चाहे आपको कैसा भी फीडबैक मिले, जजों का फैसला उनका आख़िरी फैसला हैं।]]></target>
-      </trans-unit>
-      <trans-unit id="pE7RK0F" resname="The Best of LMMS vol. I">
-        <source>The Best of LMMS vol. I</source>
-        <target state="translated">The Best of LMMS vol. I</target>
-      </trans-unit>
-      <trans-unit id="ElRgiEW" resname="#### The competition has ended on **February 15th, 2014.**&#10;&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://soundcloud.com/groups/lmms-top-songs-compilation)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/27083727&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;&#10;&#9;&#9;&#9;#### Original description:&#10;&#10;&#9;&#9;&#9;If you have made amazing songs with LMMS we have a contest for you! A LMMS top songs contest.&#10;&#9;&#9;&#9;The compilation aims to inspire new users and get new producers to use the program as well as to give a big thank you to LMMS developers.&#10;&#9;&#9;&#9;The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS. Submit your song before&#10;&#9;&#9;&#9;midnight on February 15th, and find details about this contest on the Soundcloud site.&#10;&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#9;&#9;&#9;1. The Deadline. The songs must be submitted by February 15th 12 PM GMT. A user can submit a maximum of two songs. The songs can be of any genre,&#10;&#9;&#9;&#9;&#9;preferably under 10 minutes. All submissions will be handled via SoundCloud using the dedicated group. User CAN submit previously released songs.&#10;&#9;&#9;&#9;&#9;Remixes are not allowed. The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.&#10;&#9;&#9;&#9;2. The Judges. The judges consist of the group Avelocity: Brian Amin (Maniarib), Joshua Wade (Second Flight),&#10;&#9;&#9;&#9;&#9;Uroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn (Raptor980), Jan Heemstra (Combustible Lemonade)&#10;&#9;&#9;&#9;3. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 7 days.&#10;&#9;&#9;&#9;4. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds&#10;&#9;&#9;&#9;&#9;will be donated for further development of LMMS, the program that we love.">
-        <source>#### The competition has ended on **February 15th, 2014.**
-
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)
-
-			Listen to all entries [here.](https://soundcloud.com/groups/lmms-top-songs-compilation)
-
-			Winners:
-			&lt;iframe width="100%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/27083727&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false"&gt;&lt;/iframe&gt;
-			#### Original description:
-
-			If you have made amazing songs with LMMS we have a contest for you! A LMMS top songs contest.
-			The compilation aims to inspire new users and get new producers to use the program as well as to give a big thank you to LMMS developers.
-			The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS. Submit your song before
-			midnight on February 15th, and find details about this contest on the Soundcloud site.
-
-			#### Competition rules:
-			1. The Deadline. The songs must be submitted by February 15th 12 PM GMT. A user can submit a maximum of two songs. The songs can be of any genre,
-				preferably under 10 minutes. All submissions will be handled via SoundCloud using the dedicated group. User CAN submit previously released songs.
-				Remixes are not allowed. The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.
-			2. The Judges. The judges consist of the group Avelocity: Brian Amin (Maniarib), Joshua Wade (Second Flight),
-				Uroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn (Raptor980), Jan Heemstra (Combustible Lemonade)
-			3. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 7 days.
-			4. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
-				will be donated for further development of LMMS, the program that we love.</source>
-        <target state="translated"><![CDATA[#### प्रतियोगिता **15 फरवरी, 2014** को समाप्त हो गई है।			LMMS का समर्थन करें और हमारे [bandcamp पेज](https://lmmsartists.bandcamp.com/)%MCEPASTEBIN% पर संकलन खरीदें।
-
-			सभी प्रविष्टियों को [यहाँ](https://soundcloud.com/groups/lmms-top-songs-compilation) सुनें।
-
-			विजेता:
-			<iframe width="100%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/27083727&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			#### मूल विवरण:
-
-			यदि आप LMMS के साथ अद्भुत गाने बना चुके हैं तो हमारे पास आपके लिए एक प्रतियोगिता है! एक LMMS top songs प्रतियोगिता।
-			यह संकलन नए उपयोगकर्ताओं को प्रेरित करने और नए उत्पादकों से सॉफ्टवेयर का उपयोग करवाने के साथ-साथ LMMS डेवलपर्स का शुक्रिया अदा करने की ओर उद्देश्यीत है।
-			इस संकलन को Bandcamp पर अपलोड किया जाएगा और सभी लाभ LMMS के आगामी विकास के लिए दान किए जाएंगे। अपना गीत
-			15 फरवरी की आधी रात से पहले प्रस्तुत करें, और साउंडक्लाउड साइट पर इस प्रतियोगिता के बारे में विवरण प्राप्त करें।
-
-			#### प्रतियोगिता के नियम:
-			1. समयसीमा. गाने 15 फरवरी 12 बजे GMT तक प्रस्तुत किए जा सकते हैं। एक उपयोगकर्ता अधिकतम दो गाने प्रस्तुत कर सकता है। गाने किसी भी शैली के हो सकते हैं,
-				अधिमानतः 10 मिनट के भीतर। सभी प्रस्तुतियाँ SoundCloud के माध्यम से समर्पित समूह के द्वारा नियंत्रित की जाएंगी। Remixes की अनुमति नहीं है। गीत को ज्यादातर LMMS में बनाया जाना चाहिए, लेकिन पोस्ट मिक्सिंग/मास्टरिंग के लिए कुछ अन्य सॉफ्टवेयर (Audacity, Ardour आदि) का उपयोग करने की अनुमति है।
-			2. जजेस. जजों के समूह में शामिल है Avelocity: Brian Amin (Maniarib), Joshua Wade (Second Flight),
-				Uroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn (Raptor980), Jan Heemstra (Combustible Lemonade)
-			3. चुनाव की प्रक्रिया. समयसीमा के बाद, जजेस अपने फैसले करेंगे और अगले 7 दिनों के भीतर परिणाम जारी करेंगे।
-			4. रिलीज़. संकलन को एक समर्पित LMMS artists Bandcamp पर "जो चाहो, वो चुकाओ" की कीमत के साथ रिलीज़ किया जाएगा। सभी प्राप्त धन
-				LMMS के विकास के लिए दान किया जाए, वह प्रोग्राम जिसे हम प्यार करते हैं।]]></target>
+      <trans-unit id="H2zLuBd" resname="We're sorry, something went wrong fetching the latest release info. You can still download releases on &lt;a href=&quot;//github.com/LMMS/lmms/releases&quot;&gt;GitHub&lt;/a&gt;.">
+        <source>We're sorry, something went wrong fetching the latest release info. You can still download releases on &lt;a href="//github.com/LMMS/lmms/releases"&gt;GitHub&lt;/a&gt;.</source>
+        <target><![CDATA[हमें खेद है, नवीनतम रिलीज़ जानकारी इकट्ठा करने में में कुछ गड़बड़ हो गई हैं। आप अभी भी रिलीज़ को <a href="//github.com/LMMS/lmms/releases">Github</a> से डाउनलोड कर सकते हैं।]]></target>
       </trans-unit>
       <trans-unit id="f.UFHnN" resname="LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;&#10;&#9;Please &lt;a href=&quot;/get-involved/#contact&quot;&gt;contact us&lt;/a&gt; if your distribution is not listed here.">
         <source>LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;
 	Please &lt;a href="/get-involved/#contact"&gt;contact us&lt;/a&gt; if your distribution is not listed here.</source>
-        <target></target>
+        <target><![CDATA[LMMS अधिकांश प्रमुख लिनक्स डिस्ट्रीब्यूशन के पैकेज रिपॉजिटरी में शामिल है।<br>
+	यदि आपका डिस्ट्रीब्यूशन यहाँ सूचीबद्ध नहीं है, तो कृपया हमसे <a href="/get-involved/#contact">संपर्क करें</a>।]]></target>
       </trans-unit>
       <trans-unit id="LO1QDjg" resname="For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.">
         <source>For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.</source>
-        <target state="translated">Debian आधारित डिस्ट्रीब्यूशंस जैसे कि Debian, Ubuntu या Linux Mint में LMMS इंस्टॉल करने के लिए नीचे दिए गए बटन पर क्लिक करें।</target>
+        <target>Debian आधारित डिस्ट्रीब्यूशंस जैसे कि Debian, Ubuntu या Linux Mint में LMMS इंस्टॉल करने के लिए नीचे दिए गए बटन पर क्लिक करें।</target>
       </trans-unit>
       <trans-unit id="G4TfEor" resname="Install LMMS now">
         <source>Install LMMS now</source>
-        <target state="translated">LMMS अभी इनस्टॉल करें</target>
+        <target>LMMS अभी इनस्टॉल करें</target>
       </trans-unit>
       <trans-unit id="UQygByz" resname="From your package manager">
         <source>From your package manager</source>
-        <target state="translated">अपने पैकेज मैनेजर से</target>
+        <target>अपने पैकेज मैनेजर से</target>
       </trans-unit>
       <trans-unit id="EOXdih0" resname="If this doesn't work for you, run this command in a terminal.">
         <source>If this doesn't work for you, run this command in a terminal.</source>
-        <target state="translated">यदि यह आपके लिए काम नहीं करता है, तो इस कमांड को टर्मिनल में चलाएँ।</target>
+        <target>यदि यह आपके लिए काम नहीं करता है, तो इस कमांड को टर्मिनल में चलाएँ।</target>
       </trans-unit>
       <trans-unit id="unby17C" resname="If the traditional repositories lag behind on versions, try the &lt;a href=&quot;https://kx.studio/Repositories#Ubuntu&quot;&gt;KXStudio repository&lt;/a&gt;.">
         <source>If the traditional repositories lag behind on versions, try the &lt;a href="https://kx.studio/Repositories#Ubuntu"&gt;KXStudio repository&lt;/a&gt;.</source>
-        <target></target>
+        <target><![CDATA[यदि पारंपरिक रिपॉजिटरी संस्करणों पर पिछड़ जाती है, तो <a href="https://kx.studio/Repositories#Ubuntu">KXStudio repository</a> आज़माएँ।]]></target>
       </trans-unit>
       <trans-unit id="jHa21vl" resname="VST Support">
         <source>VST Support</source>
-        <target state="translated">VST सपोर्ट</target>
+        <target>VST सपोर्ट</target>
       </trans-unit>
       <trans-unit id="PN0uK90" resname="If your distribution offers VST support (requires the installation of Wine) it is generally offered in a separate package.  For example, using the &lt;a href=&quot;https://kx.studio/Repositories#Ubuntu&quot;&gt;KXStudio repository&lt;/a&gt;, run this command in a terminal.">
         <source>If your distribution offers VST support (requires the installation of Wine) it is generally offered in a separate package.  For example, using the &lt;a href="https://kx.studio/Repositories#Ubuntu"&gt;KXStudio repository&lt;/a&gt;, run this command in a terminal.</source>
-        <target></target>
+        <target><![CDATA[यदि आपका डिस्ट्रीब्यूशन VST सपोर्ट प्रदान करता है (जिसके लिए Wine का इंस्टॉलेशन आवश्यक है), वह आम तौर पर एक अलग पैकेज में वितरित किया जाता है। उदाहरण के लिए, <a href="https://kx.studio/Repositories#Ubuntu">KXStudio repository</a>, का उपयोग करके इस कमांड को टर्मिनल में चलाएँ। ]]></target>
       </trans-unit>
       <trans-unit id="f.eEeY2" resname="Run the following command as root in a terminal:">
         <source>Run the following command as root in a terminal:</source>
-        <target state="translated">टर्मिनल में रूट के रूप में निम्नलिखित कमांड चलाएँ:</target>
+        <target>टर्मिनल में रूट के रूप में निम्नलिखित कमांड चलाएँ:</target>
       </trans-unit>
       <trans-unit id="z9xAq9s" resname="Run the following command in a terminal:">
         <source>Run the following command in a terminal:</source>
-        <target state="translated">टर्मिनल में निम्नलिखित कमांड चलाएँ:</target>
+        <target>टर्मिनल में निम्नलिखित कमांड चलाएँ:</target>
       </trans-unit>
       <trans-unit id="eJUdOr0" resname="For VST support, please install wine or wine-staging from the repository">
         <source>For VST support, please install wine or wine-staging from the repository</source>
-        <target></target>
+        <target>VST सपोर्ट के लिए रिपॉजिटरी से Wine या Wine-staging इंस्टॉल करें</target>
       </trans-unit>
       <trans-unit id=".uMu3cY" resname="AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and more to come in the future), with VST support enabled by default on AMD64.">
         <source>AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and more to come in the future), with VST support enabled by default on AMD64.</source>
-        <target state="translated">AOSC OS LMMS को विभिन्न आर्किटेक्चरल पोर्ट्स (AMD64/x86_64, ARMv7, और भविष्य में आने के लिए कई और) के लिए प्रदान करता है, जिसमें AMD64 के लिए VST सपोर्ट डिफ़ॉल्ट रूप से उपलब्ध है।</target>
+        <target>AOSC OS LMMS को विभिन्न आर्किटेक्चरल पोर्ट्स (AMD64/x86_64, ARMv7, और भविष्य में आने के लिए कई और) के लिए प्रदान करता है, जिसमें AMD64 के लिए VST सपोर्ट डिफ़ॉल्ट रूप से उपलब्ध है।</target>
       </trans-unit>
       <trans-unit id="H1vkGQS" resname="To install LMMS on AOSC OS with PackageKit (recommended):">
         <source>To install LMMS on AOSC OS with PackageKit (recommended):</source>
-        <target state="translated">PackageKit से AOSC OS में LMMS इनस्टॉल करने के लिए (अनुशंसित):</target>
+        <target>PackageKit से AOSC OS में LMMS इनस्टॉल करने के लिए (अनुशंसित):</target>
       </trans-unit>
       <trans-unit id="i6lvwc6" resname="To install LMMS on AOSC OS with DPKG:">
         <source>To install LMMS on AOSC OS with DPKG:</source>
-        <target state="translated">DPKG से AOSC OS में LMMS इनस्टॉल करने के लिए:</target>
+        <target>DPKG से AOSC OS में LMMS इनस्टॉल करने के लिए:</target>
       </trans-unit>
       <trans-unit id="4ya_6rI" resname="Build LMMS from source">
         <source>Build LMMS from source</source>
-        <target state="translated">LMMS को सोर्स से बनाएं</target>
+        <target>LMMS को सोर्स से बनाएं</target>
       </trans-unit>
       <trans-unit id="D9BgqO1" resname="If your Linux distribution does not provide a lmms package (or only an outdated one), you can still build LMMS from source. Visit the &lt;a href=&quot;https://github.com/LMMS/lmms/wiki/Compiling&quot;&gt;LMMS development wiki on GitHub&lt;/a&gt; for instructions on how to compile LMMS for Linux.">
         <source>If your Linux distribution does not provide a lmms package (or only an outdated one), you can still build LMMS from source. Visit the &lt;a href="https://github.com/LMMS/lmms/wiki/Compiling"&gt;LMMS development wiki on GitHub&lt;/a&gt; for instructions on how to compile LMMS for Linux.</source>
-        <target state="translated"><![CDATA[यदि आपका Linux डिस्ट्रीब्यूशन LMMS पैकेज प्रदान नहीं करता है (या केवल एक पुराना पैकेज), तो आप अभी भी सोर्स से LMMS का निर्माण कर सकते हैं। Linux के लिए LMMS को संकलित करने के निर्देशों के लिए <a href="https://github.com/LMMS/lmms/wiki/Compiling">GitHub में LMMS development wiki</a> पर जाएं।]]></target>
+        <target><![CDATA[यदि आपका Linux डिस्ट्रीब्यूशन LMMS पैकेज प्रदान नहीं करता है (या केवल एक पुराना पैकेज), तो आप अभी भी सोर्स से LMMS का निर्माण कर सकते हैं। Linux के लिए LMMS को संकलित करने के निर्देशों के लिए <a href="https://github.com/LMMS/lmms/wiki/Compiling">GitHub में LMMS development wiki</a> पर जाएं।]]></target>
       </trans-unit>
       <trans-unit id="IAenq0c" resname="Download LMMS">
         <source>Download LMMS</source>
-        <target state="translated">LMMS डाउनलोड करें</target>
+        <target>LMMS डाउनलोड करें</target>
       </trans-unit>
       <trans-unit id="618mGB6" resname="Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:">
         <source>Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:</source>
-        <target state="translated">LMMS डाउनलोड करना और उपयोग करना निःशुल्क है! बस उस ऑपरेटिंग सिस्टम को चुनें जिसमें आप LMMS चलाना चाहते हैं:</target>
+        <target>LMMS डाउनलोड करना और उपयोग करना निःशुल्क है! बस उस ऑपरेटिंग सिस्टम को चुनें जिसमें आप LMMS चलाना चाहते हैं:</target>
       </trans-unit>
       <trans-unit id="PmTQgHE" resname="Install LMMS on Linux">
         <source>Install LMMS on Linux</source>
-        <target state="translated">Linux में LMMS इंस्टॉल करें</target>
+        <target>Linux में LMMS इंस्टॉल करें</target>
       </trans-unit>
       <trans-unit id="I.sR1nc" resname="Click one of the buttons below to download LMMS for Linux.">
         <source>Click one of the buttons below to download LMMS for Linux.</source>
-        <target state="translated">Linux के लिए LMMS डाउनलोड करने के लिए नीचे दिए गए किसी एक बटन पर क्लिक करें।</target>
+        <target>Linux के लिए LMMS डाउनलोड करने के लिए नीचे दिए गए किसी एक बटन पर क्लिक करें।</target>
       </trans-unit>
       <trans-unit id="ovu1A1m" resname="Stable Versions">
         <source>Stable Versions</source>
-        <target state="translated">स्थिर संस्करणे</target>
+        <target>स्थिर संस्करणे</target>
       </trans-unit>
       <trans-unit id="GUjytCK" resname="Run &lt;code&gt;chmod +x ~/Downloads/*.AppImage&lt;/code&gt; to set the &lt;code&gt;.AppImage&lt;/code&gt; executable before running">
         <source>Run &lt;code&gt;chmod +x ~/Downloads/*.AppImage&lt;/code&gt; to set the &lt;code&gt;.AppImage&lt;/code&gt; executable before running</source>
-        <target state="translated"><![CDATA[रन करने से पहले <code>.AppImage</code> निष्पादित करने के लिए <code>chmod +x ~/Downloads/*.AppImage</code> चलाएँ।]]></target>
+        <target><![CDATA[रन करने से पहले <code>.AppImage</code> निष्पादित करने के लिए <code>chmod +x ~/Downloads/*.AppImage</code> चलाएँ।]]></target>
       </trans-unit>
       <trans-unit id="A8g9Yp6" resname="Beta Versions">
         <source>Beta Versions</source>
-        <target state="translated">बीटा संस्करणे</target>
+        <target>बीटा संस्करणे</target>
       </trans-unit>
       <trans-unit id="LL6EZV6" resname="Other options">
         <source>Other options</source>
-        <target state="translated">अन्य विकल्प</target>
+        <target>अन्य विकल्प</target>
       </trans-unit>
       <trans-unit id="0kZzFXf" resname="Install LMMS on Windows">
         <source>Install LMMS on Windows</source>
-        <target state="translated">Windows में LMMS इंस्टॉल करें</target>
+        <target>Windows में LMMS इंस्टॉल करें</target>
       </trans-unit>
       <trans-unit id="yAy2ARB" resname="Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows">
         <source>Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows</source>
-        <target state="translated">Windows के लिए LMMS डाउनलोड करने के लिए नीचे दिए गए किसी एक बटन (32बिट या 64बिट) पर क्लिक करें</target>
+        <target>Windows के लिए LMMS डाउनलोड करने के लिए नीचे दिए गए किसी एक बटन (32बिट या 64बिट) पर क्लिक करें</target>
       </trans-unit>
       <trans-unit id="in50er8" resname="Install LMMS on macOS">
         <source>Install LMMS on macOS</source>
-        <target state="translated">macOS में LMMS इंस्टॉल करें</target>
+        <target>macOS में LMMS इंस्टॉल करें</target>
       </trans-unit>
       <trans-unit id="6saYqj7" resname="Click one of the buttons below to download LMMS for macOS">
         <source>Click one of the buttons below to download LMMS for macOS</source>
-        <target state="translated">macOS के लिए LMMS डाउनलोड करने के लिए नीचे दिए गए किसी एक बटन पर क्लिक करें।</target>
+        <target>macOS के लिए LMMS डाउनलोड करने के लिए नीचे दिए गए किसी एक बटन पर क्लिक करें।</target>
       </trans-unit>
       <trans-unit id="QNAnU4Y" resname="Downloads labeled Beta are pre-release software, stability may suffer.">
         <source>Downloads labeled Beta are pre-release software, stability may suffer.</source>
-        <target state="translated">बीटा लेबल वाले डाउनलोड पूर्व-रिलीज़ सॉफ़्टवेयर हैं, स्थिरता को हानि हो सकती है।</target>
+        <target>बीटा लेबल वाले डाउनलोड पूर्व-रिलीज़ सॉफ़्टवेयर हैं, स्थिरता को हानि हो सकती है।</target>
       </trans-unit>
       <trans-unit id="VA2zwSI" resname="Previous releases">
         <source>Previous releases</source>
-        <target state="translated">पुरानी आवृत्ति</target>
+        <target>पुरानी आवृत्ति</target>
       </trans-unit>
       <trans-unit id="NkbaYUi" resname="Show release notes">
         <source>Show release notes</source>
-        <target state="translated">रिलीज़ नोट्स दिखाएं</target>
-      </trans-unit>
-      <trans-unit id="TWZRGVx" resname="Let's make music">
-        <source>Let's make music</source>
-        <target state="translated">चलो संगीत बनाएं</target>
-      </trans-unit>
-      <trans-unit id="Jo.VN3p" resname="with a free, cross-platform tool for your computer.">
-        <source>with a free, cross-platform tool for your computer.</source>
-        <target state="translated">आपके कंप्यूटर के लिए एक मुफ़्त, क्रॉस-प्लेटफ़ॉर्म टूल के साथ।</target>
-      </trans-unit>
-      <trans-unit id="ADl38LV" resname="Download now">
-        <source>Download now</source>
-        <target state="translated">अभी डाउनलोड करें</target>
-      </trans-unit>
-      <trans-unit id="LLpAwlQ" resname="Get involved">
-        <source>Get involved</source>
-        <target state="translated">शामिल हों</target>
-      </trans-unit>
-      <trans-unit id="zDYCQUA" resname="Making beats has never been easier.">
-        <source>Making beats has never been easier.</source>
-        <target state="translated">नग़्मे बनाना इतना आसान कभी ना था</target>
-      </trans-unit>
-      <trans-unit id="HXvrE6h" resname="Produce music with your computer">
-        <source>Produce music with your computer</source>
-        <target state="translated">संगीत बनाएं अपने कंप्यूटर से</target>
-      </trans-unit>
-      <trans-unit id="8k_3.h_" resname="by creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.">
-        <source>by creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.</source>
-        <target state="translated">धुन और बीट्स बनाकर, ध्वनियों का संश्लेषण और मिश्रण कर, सैम्पल्स की व्यवस्था, और बहुत कुछ कर।</target>
-      </trans-unit>
-      <trans-unit id="1ANtx56" resname="Playback instruments, samples and plugins">
-        <source>Playback instruments, samples and plugins</source>
-        <target state="translated">इंस्ट्रूमेंट्स, सैम्पल्स और प्लग-इन्स प्लेबैक करें</target>
-      </trans-unit>
-      <trans-unit id="c_9n6oH" resname="with a typing or MIDI keyboard in a user-friendly and modern interface.">
-        <source>with a typing or MIDI keyboard in a user-friendly and modern interface.</source>
-        <target state="translated">एक यूजर-फ्रेंडली और आधुनिक इंटरफ़ेस में टाइपिंग अथवा MIDI कीबोर्ड के साथ।</target>
-      </trans-unit>
-      <trans-unit id="h73sjrb" resname="Bundled with ready-to-use content">
-        <source>Bundled with ready-to-use content</source>
-        <target state="translated">रेडी-टू-यूज़ कंटेंट से भरपूर</target>
-      </trans-unit>
-      <trans-unit id="lBGEdiH" resname="from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.">
-        <source>from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.</source>
-        <target state="translated">विभिन्न इंस्ट्रूमेंट्स, इफेक्ट्स प्लग-इन्स, प्रीसेट्स से लेकर VST और SoundFont सपोर्ट के साथ</target>
-      </trans-unit>
-      <trans-unit id="rELUYJ6" resname="Made by musicians, for musicians.">
-        <source>Made by musicians, for musicians.</source>
-        <target state="translated">खास संगीतकारों ने बनाया, खास संगीतकारों के लिए.</target>
-      </trans-unit>
-      <trans-unit id="ZG2n1Jx" resname="Download for Linux">
-        <source>Download for Linux</source>
-        <target state="translated">Linux के लिए डाउनलोड करें</target>
-      </trans-unit>
-      <trans-unit id="Yur47Wq" resname="Download for Windows">
-        <source>Download for Windows</source>
-        <target state="translated">Windows के लिए डाउनलोड करें</target>
-      </trans-unit>
-      <trans-unit id="WRDAWeq" resname="Download for macOS">
-        <source>Download for macOS</source>
-        <target state="translated">macOS के लिए डाउनलोड करें</target>
-      </trans-unit>
-      <trans-unit id="QBixtUo" resname="Pick your flavor.">
-        <source>Pick your flavor.</source>
-        <target state="translated">अपनी पसंद चुनें</target>
-      </trans-unit>
-      <trans-unit id="CaD6ze3" resname="Linux, Windows or macOS.">
-        <source>Linux, Windows or macOS.</source>
-        <target state="translated">Linux, Windows या macOS।</target>
-      </trans-unit>
-      <trans-unit id="vEX6OG8" resname="Houston, we have a problem.">
-        <source>Houston, we have a problem.</source>
-        <target state="translated">क्या कुछ गड़बड़ है?</target>
-      </trans-unit>
-      <trans-unit id="J5pmILO" resname="Stand by, we got you covered.">
-        <source>Stand by, we got you covered.</source>
-        <target state="translated"> घबराएं नहीं, हम आपके साथ हैं।</target>
-      </trans-unit>
-      <trans-unit id="3vJMQyC" resname="Visit our forum">
-        <source>Visit our forum</source>
-        <target state="translated">हमारे forum पर जाएँ</target>
-      </trans-unit>
-      <trans-unit id="AgpMP6c" resname="Visit our Facebook page">
-        <source>Visit our Facebook page</source>
-        <target state="translated">हमारे Facebook पेज पर जाएँ</target>
-      </trans-unit>
-      <trans-unit id="60mvs3d" resname="Chat now on Discord">
-        <source>Chat now on Discord</source>
-        <target state="translated">Discord पर अभी चैट करें</target>
-      </trans-unit>
-      <trans-unit id="p1CbBjh" resname="Visit our GitHub page">
-        <source>Visit our GitHub page</source>
-        <target state="translated">हमारे GitHub पेज पर जाएँ</target>
-      </trans-unit>
-      <trans-unit id="Q.2pUhd" resname="Ask your questions here">
-        <source>Ask your questions here</source>
-        <target state="translated">अपने सवाल यहाँ पूछें</target>
-      </trans-unit>
-      <trans-unit id="G0SNPhL" resname="and answer a few questions while you're waiting.">
-        <source>and answer a few questions while you're waiting.</source>
-        <target state="translated">और प्रतीक्षा करते समय कुछ सवालों के हल का सुझाव दें।</target>
-      </trans-unit>
-      <trans-unit id="AZtpftd" resname="Sharing means caring.">
-        <source>Sharing means caring.</source>
-        <target state="translated">प्यार बांटने से बढ़ता है</target>
-      </trans-unit>
-      <trans-unit id="tYjliwJ" resname="Find musicians">
-        <source>Find musicians</source>
-        <target state="translated">संगीतकारों को ढूँढ़िये</target>
-      </trans-unit>
-      <trans-unit id="29NrAWW" resname="Visit the LMMS Sharing Platform (LSP)">
-        <source>Visit the LMMS Sharing Platform (LSP)</source>
-        <target state="translated">LMMS Sharing Platform (LSP) पर जाएँ</target>
-      </trans-unit>
-      <trans-unit id="vZEmrHQ" resname="Don't be modest.">
-        <source>Don't be modest.</source>
-        <target state="translated">विनम्र ना बने</target>
-      </trans-unit>
-      <trans-unit id="E6hLz_I" resname="Show us your creations.">
-        <source>Show us your creations.</source>
-        <target state="translated">हमें अपनी रचनाएँ दिखाएं</target>
-      </trans-unit>
-      <trans-unit id="e0XmaMu" resname="We &lt;3 open source.">
-        <source>We &lt;3 open source.</source>
-        <target state="translated"><![CDATA[हमें ओपन सोर्स से <3 है।]]></target>
-      </trans-unit>
-      <trans-unit id="opjPraT" resname="Fork us on GitHub">
-        <source>Fork us on GitHub</source>
-        <target></target>
-      </trans-unit>
-      <trans-unit id="4m3F_E2" resname="LMMS is a 100% free, open source, community-driven project.">
-        <source>LMMS is a 100% free, open source, community-driven project.</source>
-        <target state="translated">LMMS एक 100% मुक्त, ओपन सोर्स, समुदाय संचालित परियोजना है।</target>
-      </trans-unit>
-      <trans-unit id="B_SpjYT" resname="Proudly hosted on GitHub.">
-        <source>Proudly hosted on GitHub.</source>
-        <target></target>
-      </trans-unit>
-      <trans-unit id="cjwuqX6" resname="Take a peek.">
-        <source>Take a peek.</source>
-        <target state="translated">एक झलक पाएं।</target>
-      </trans-unit>
-      <trans-unit id="73lMPDq" resname="Watch our promo video.">
-        <source>Watch our promo video.</source>
-        <target state="translated">हमारा प्रोमो वीडियो देखें।</target>
-      </trans-unit>
-      <trans-unit id="VnDwhfQ" resname="Click anywhere to close this dialog">
-        <source>Click anywhere to close this dialog</source>
-        <target state="translated">इस संवाद को बंद करने के लिए कहीं भी क्लिक करें</target>
-      </trans-unit>
-      <trans-unit id="oJJM7AY" resname="Featuring:">
-        <source>Featuring:</source>
-        <target state="translated">LMMS की विशेषताएं:</target>
-      </trans-unit>
-      <trans-unit id="j6_axfx" resname="Core Functionality">
-        <source>Core Functionality</source>
-        <target state="translated">मूल कार्यक्षमता</target>
-      </trans-unit>
-      <trans-unit id="HLWVAGp" resname="Compose music on Windows, Linux and macOS">
-        <source>Compose music on Windows, Linux and macOS</source>
-        <target state="translated">संगीत बनाएँ Windows, Linux और macOS में</target>
-      </trans-unit>
-      <trans-unit id="JmUgjfR" resname="Sequence, compose, mix and automate songs in one simple interface">
-        <source>Sequence, compose, mix and automate songs in one simple interface</source>
-        <target state="translated">एक सरल इंटरफ़ेस में गीत की रचना, अनुक्रमण, मिश्रण और स्वचालन करें </target>
-      </trans-unit>
-      <trans-unit id="q85N8NQ" resname="Note playback via MIDI or typing keyboard">
-        <source>Note playback via MIDI or typing keyboard</source>
-        <target state="translated">MIDI अथवा टाइपिंग कीबोर्ड द्वारा नोट प्लेबैक</target>
-      </trans-unit>
-      <trans-unit id="UpGfL75" resname="Consolidate instrument tracks using Beat+Bassline Editor">
-        <source>Consolidate instrument tracks using Beat+Bassline Editor</source>
-        <target state="translated">Beat+Bassline Editor का उपयोग करके इंस्ट्रूमेंट ट्रैक्स को समेकित करें</target>
-      </trans-unit>
-      <trans-unit id="73.8zRG" resname="Fine tune patterns, notes, chords and melodies using Piano Roll Editor">
-        <source>Fine tune patterns, notes, chords and melodies using Piano Roll Editor</source>
-        <target state="translated">Piano Roll Editor का उपयोग कर नोट्स, कोर्ड्स और धुनों की फाइन ट्यूनिंग करें</target>
-      </trans-unit>
-      <trans-unit id="X4f.0Yt" resname="Full user-defined track-based automation and computer-controlled automation sources">
-        <source>Full user-defined track-based automation and computer-controlled automation sources</source>
-        <target state="translated">पूर्ण उपयोगकर्ता-परिभाषित ट्रैक-आधारित स्वचालन और कंप्यूटर-नियंत्रित स्वचालन स्रोत</target>
-      </trans-unit>
-      <trans-unit id=".oFCngq" resname="Import of MIDI files and Hydrogen project files">
-        <source>Import of MIDI files and Hydrogen project files</source>
-        <target state="translated">MIDI फ़ाइलों और Hydrogen परियोजना फ़ाइलों का आयात</target>
-      </trans-unit>
-      <trans-unit id="w1G_1Tb" resname="Musical Instruments">
-        <source>Musical Instruments</source>
-        <target state="translated">वाद्य-यंत्र</target>
-      </trans-unit>
-      <trans-unit id="6W6XaNr" resname="Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit Windows)">
-        <source>Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit Windows)</source>
-        <target state="translated">बिल्ट-इन 64-बिट VST इंस्ट्रूमेंट सपोर्ट 32-बिट VST bridge (64-बिट Windows) के साथ</target>
-      </trans-unit>
-      <trans-unit id="koI1Kzb" resname="16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more">
-        <source>16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more</source>
-        <target state="translated">16 बिल्ट-इन सिंथेसाइज़र्स, जैसे Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip के अनुकरण के साथ-साथ और भी बहुत कुछ</target>
-      </trans-unit>
-      <trans-unit id="OwdwPKG" resname="Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin">
-        <source>Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</source>
-        <target state="translated">एंबेडेड ZynAddSubFx: पॉलिफोनिक, मल्टीटीमब्रल, माइक्रो-टोनल, मल्टी-वॉइस, एडिटिव, सब्ट्रैक्टिव और पैड संश्लेषण सभी एक शक्तिशाली प्लगइन में</target>
-      </trans-unit>
-      <trans-unit id="UqEEpjy" resname="Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks">
-        <source>Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks</source>
-        <target state="translated">उच्च गुणवत्ता वाले इंस्ट्रूमेंट पैच और बैंकों के लिए SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) फोर्मट्स के लिए नेटिव मल्टीसैम्पल सपोर्ट</target>
-      </trans-unit>
-      <trans-unit id="CasBlNK" resname="Effects Mixing">
-        <source>Effects Mixing</source>
-        <target state="translated">इफेक्ट्स मिक्सिंग</target>
-      </trans-unit>
-      <trans-unit id="SNZn7PZ" resname="Drop-in LADSPA plug-in support">
-        <source>Drop-in LADSPA plug-in support</source>
-        <target state="translated">ड्रॉप-इन LADSPA प्लग-इन सपोर्ट</target>
-      </trans-unit>
-      <trans-unit id="b1z.R0m" resname="Drop-in VST ® effect plug-in support (Linux and Windows)">
-        <source>Drop-in VST ® effect plug-in support (Linux and Windows)</source>
-        <target state="translated">ड्रॉप-इन VST ® effect प्लग-इन सपोर्ट (Linux और Windows)</target>
-      </trans-unit>
-      <trans-unit id="_c4RPsG" resname="Built-in compressor, limiter, delay, reverb, distortion and bass enhancer">
-        <source>Built-in compressor, limiter, delay, reverb, distortion and bass enhancer</source>
-        <target state="translated">बिल्ट-इन कंप्रेसर, लिमिटर, डिले, रिवर्ब, डिस्टॉरशन और बेस एनहांसर</target>
-      </trans-unit>
-      <trans-unit id="tUrf1x9" resname="Bundled graphic and parametric equalizers">
-        <source>Bundled graphic and parametric equalizers</source>
-        <target state="translated">बंडल्ड ग्राफ़िक एवं पेरामेट्रिक इक्विलाइज़र</target>
-      </trans-unit>
-      <trans-unit id="PoXBpT3" resname="Built-in visualization/spectrum analyzer">
-        <source>Built-in visualization/spectrum analyzer</source>
-        <target state="translated">बिल्ट-इन विज़ुअलाइज़ेशन/स्पेक्ट्रम विश्लेषक</target>
-      </trans-unit>
-      <trans-unit id="1BeqFto" resname="Branding">
-        <source>Branding</source>
-        <target state="translated">ब्रांडिंग</target>
-      </trans-unit>
-      <trans-unit id="xhQMvx4" resname="Download LMMS Artwork">
-        <source>Download LMMS Artwork</source>
-        <target state="translated">LMMS आर्टवर्क डाउनलोड करें</target>
-      </trans-unit>
-      <trans-unit id="Hq18WDE" resname="LMMS Logo">
-        <source>LMMS Logo</source>
-        <target state="translated">LMMS लोगो</target>
-      </trans-unit>
-      <trans-unit id="Xe7IQc6" resname="LMMS Development Team">
-        <source>LMMS Development Team</source>
-        <target state="translated">LMMS डेवलपमेंट टीम</target>
-      </trans-unit>
-      <trans-unit id="aFA0PDs" resname="LMMS Project Icon">
-        <source>LMMS Project Icon</source>
-        <target state="translated">LMMS प्रोजेक्ट आइकन</target>
-      </trans-unit>
-      <trans-unit id="H2zLuBd" resname="We're sorry, something went wrong fetching the latest release info. You can still download releases on &lt;a href=&quot;//github.com/LMMS/lmms/releases&quot;&gt;GitHub&lt;/a&gt;.">
-        <source>We're sorry, something went wrong fetching the latest release info. You can still download releases on &lt;a href="//github.com/LMMS/lmms/releases"&gt;GitHub&lt;/a&gt;.</source>
-        <target state="translated"><![CDATA[हमें खेद है, नवीनतम रिलीज़ जानकारी इकट्ठा करने में में कुछ गड़बड़ हो गई हैं। आप अभी भी रिलीज़ को <a href="//github.com/LMMS/lmms/releases">Github</a> से डाउनलोड कर सकते हैं।]]></target>
-      </trans-unit>
-      <trans-unit id=".cXS6UE" resname="Powered by">
-        <source>Powered by</source>
-        <target state="translated">Powered by</target>
-      </trans-unit>
-      <trans-unit id="mhXcnGL" resname="Showcase">
-        <source>Showcase</source>
-        <target state="translated">शोकेस</target>
-      </trans-unit>
-      <trans-unit id="R0s_HGS" resname="Tracks made with LMMS">
-        <source>Tracks made with LMMS</source>
-        <target state="translated">LMMS से बनाये गए ट्रैक्स</target>
-      </trans-unit>
-      <trans-unit id="U7C6Upb" resname="The Best of LMMS Vol. 5 by LMMS Artists">
-        <source>The Best of LMMS Vol. 5 by LMMS Artists</source>
-        <target state="translated">The Best of LMMS Vol. 5 by LMMS Artists</target>
-      </trans-unit>
-      <trans-unit id="VlSWT7Z" resname="The Best of LMMS Vol. 4 by LMMS Artists">
-        <source>The Best of LMMS Vol. 4 by LMMS Artists</source>
-        <target state="translated">The Best of LMMS Vol. 4 by LMMS Artists</target>
-      </trans-unit>
-      <trans-unit id="SmxHy9V" resname="The Best of LMMS Vol.3 by LMMS Artists">
-        <source>The Best of LMMS Vol.3 by LMMS Artists</source>
-        <target state="translated">The Best of LMMS Vol.3 by LMMS Artists</target>
-      </trans-unit>
-      <trans-unit id="lSUTfcX" resname="The Best of LMMS Vol.2 by LMMS Artists">
-        <source>The Best of LMMS Vol.2 by LMMS Artists</source>
-        <target state="translated">The Best of LMMS Vol.2 by LMMS Artists</target>
-      </trans-unit>
-      <trans-unit id="dcu1CCI" resname="The Best of LMMS Vol.1 by LMMS Artists">
-        <source>The Best of LMMS Vol.1 by LMMS Artists</source>
-        <target state="translated">The Best of LMMS Vol.1 by LMMS Artists</target>
-      </trans-unit>
-      <trans-unit id="jHKJWvC" resname="Error &lt;b&gt;%code%&lt;/b&gt;">
-        <source>Error &lt;b&gt;%code%&lt;/b&gt;</source>
-        <target state="translated"><![CDATA[Error <b>%code%</b>]]></target>
-      </trans-unit>
-      <trans-unit id="eM.OOlw" resname="If you followed a valid link on this site, please contact us&#10;      about it and &lt;a href=&quot;//github.com/LMMS/lmms.io/issues/new&quot;&gt;file an issue&lt;/a&gt; on GitHub.">
-        <source>If you followed a valid link on this site, please contact us
-      about it and &lt;a href="//github.com/LMMS/lmms.io/issues/new"&gt;file an issue&lt;/a&gt; on GitHub.</source>
-        <target state="translated"><![CDATA[यदि आपने इस साइट पर एक वैध लिंक का अनुसरण किया है,
- तो कृपया इसके बारे में हमसे संपर्क करें और GitHub पर <a href="//github.com/LMMS/lmms.io/issues/new">समस्या दर्ज</a> करें।]]></target>
-      </trans-unit>
-      <trans-unit id="Tdd9OuD" resname="Get Involved">
-        <source>Get Involved</source>
-        <target state="translated">शामील हो जाईऐ !</target>
+        <target>रिलीज़ नोट्स दिखाएं</target>
       </trans-unit>
       <trans-unit id="qcNxvc6" resname="LMMS is a free, open-source software built entirely by a small number of&#10;&#9;volunteers in their free time. But to keep the project going, we need this&#10;&#9;number to grow. So if you feel like giving something back to the community,&#10;&#9;join us in making LMMS better!">
         <source>LMMS is a free, open-source software built entirely by a small number of
 	volunteers in their free time. But to keep the project going, we need this
 	number to grow. So if you feel like giving something back to the community,
 	join us in making LMMS better!</source>
-        <target state="translated">LMMS एक मुफ्त, ओपन-सोर्स सॉफ्टवेयर है जो पूरी तरह से स्वयंसेवकों के एक छोटे से समूह द्वारा उनके उनके खाली समय में बनाया गया है। परन्तु इस परियोजना को आगे बढ़ते रखने के लिए, इस संख्या में वृद्धि होना आवश्यक है। अतः यदि आप इस समुदाय को कुछ वापस देना चाहते है, तो LMMS को बेहतर बनाने में हमारा साथ दें।</target>
+        <target>LMMS एक मुफ्त, ओपन-सोर्स सॉफ्टवेयर है जो पूरी तरह से स्वयंसेवकों के एक छोटे से समूह द्वारा उनके उनके खाली समय में बनाया गया है। परन्तु इस परियोजना को आगे बढ़ते रखने के लिए, इस संख्या में वृद्धि होना आवश्यक है। अतः यदि आप इस समुदाय को कुछ वापस देना चाहते है, तो LMMS को बेहतर बनाने में हमारा साथ दें।</target>
       </trans-unit>
       <trans-unit id="9CFIxXY" resname="What you can do">
         <source>What you can do</source>
-        <target state="translated">आप क्या कर सकते है </target>
+        <target>आप क्या कर सकते है </target>
       </trans-unit>
       <trans-unit id="0Y_zD6N" resname="There are multiple ways of contributing:">
         <source>There are multiple ways of contributing:</source>
-        <target state="translated">योगदान करने के कई तरीके हैं:</target>
+        <target>योगदान करने के कई तरीके हैं:</target>
       </trans-unit>
       <trans-unit id="gnURxlL" resname="Join Development">
         <source>Join Development</source>
-        <target state="translated">निर्माणप्रकिया में शामील हों </target>
+        <target>निर्माणप्रकिया में शामील हों </target>
       </trans-unit>
       <trans-unit id="1Nlx.3k" resname="We are in desperate need of new developers to join our team. LMMS is written in C++ using the Qt&#10;&#9;&#9;&#9;&#9;&#9;   Framework, so if you know a thing or two about these, don't hesitate to get yourself dirty with&#10;&#9;&#9;&#9;&#9;&#9;   coding!">
         <source>We are in desperate need of new developers to join our team. LMMS is written in C++ using the Qt
 					   Framework, so if you know a thing or two about these, don't hesitate to get yourself dirty with
 					   coding!</source>
-        <target state="translated">हमें अपनी टीम में नए डेवलपर्स के शामिल होने की सख्त जरूरत है। LMMS को Qt Framework का उपयोग करते हुए C++ में लिखा गया है, अतः यदि आप इन दोनों के बारे में थोड़ा बहुत भी जानते हैं, तो कोडिंग में अपना हाथ आज़माने में ज़रा भी संकोच न करें!</target>
+        <target>हमें अपनी टीम में नए डेवलपर्स के शामिल होने की सख्त जरूरत है। LMMS को Qt Framework का उपयोग करते हुए C++ में लिखा गया है, अतः यदि आप इन दोनों के बारे में थोड़ा बहुत भी जानते हैं, तो कोडिंग में अपना हाथ आज़माने में ज़रा भी संकोच न करें!</target>
       </trans-unit>
       <trans-unit id="YIACglk" resname="See our &lt;a href=&quot;//github.com/LMMS/lmms/wiki&quot;&gt;GitHub Wiki&lt;/a&gt; and our&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//github.com/LMMS/lmms/issues&quot;&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;https://lists.sourceforge.net/lists/listinfo/lmms-devel&quot;&gt;mailing list&lt;/a&gt; is a great place&#10;&#9;&#9;&#9;&#9;&#9;   to introduce yourself.">
         <source>See our &lt;a href="//github.com/LMMS/lmms/wiki"&gt;GitHub Wiki&lt;/a&gt; and our
 					   &lt;a href="//github.com/LMMS/lmms/issues"&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS
 					   &lt;a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel"&gt;mailing list&lt;/a&gt; is a great place
 					   to introduce yourself.</source>
-        <target state="translated"><![CDATA[आरंभ करने के लिए हमारी <a href="//github.com/LMMS/lmms/wiki">GitHub Wiki</a> और हमारा <a href="//github.com/LMMS/lmms/issues">bug tracker</a>  देखें। इसके अलावा, LMMS <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">mailing list</a> खुद को परिचित करने के लिए एक शानदार जगह है।]]></target>
+        <target><![CDATA[आरंभ करने के लिए हमारी <a href="//github.com/LMMS/lmms/wiki">GitHub Wiki</a> और हमारा <a href="//github.com/LMMS/lmms/issues">bug tracker</a>  देखें। इसके अलावा, LMMS <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">mailing list</a> खुद को परिचित करने के लिए एक शानदार जगह है।]]></target>
       </trans-unit>
       <trans-unit id="FSzxUcg" resname="Website &amp; Docs">
         <source>Website &amp; Docs</source>
-        <target state="translated">वेबसाइट एवं दस्तावेज</target>
+        <target>वेबसाइट एवं दस्तावेज</target>
       </trans-unit>
       <trans-unit id="5DVpnpU" resname="You can help us by improving this website or documenting the software. The website sources are in our&#10;&#9;&#9;&#9;&#9;&#9;   GitHub repo &lt;a href=&quot;//github.com/LMMS/lmms.io&quot;&gt;LMMS/lmms.io&lt;/a&gt;, our documentation is hosted using a&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//lmms.io/wiki&quot;&gt;MediaWiki instance&lt;/a&gt;.">
         <source>You can help us by improving this website or documenting the software. The website sources are in our
 					   GitHub repo &lt;a href="//github.com/LMMS/lmms.io"&gt;LMMS/lmms.io&lt;/a&gt;, our documentation is hosted using a
 					   &lt;a href="//lmms.io/wiki"&gt;MediaWiki instance&lt;/a&gt;.</source>
-        <target state="translated"><![CDATA[आप इस वेबसाइट में सुधार करके या सॉफ्टवेयर का दस्तावेजीकरण करके हमारी मदद कर सकते हैं। वेबसाइट के स्रोत हमारे GitHub रेपो <a href="//github.com/LMMS/lmms.io">LMMS / lmms.io</a> में उपलब्ध हैं। हमारे प्रलेखन को <a href="//lmms.io/wiki">MediaWiki Instance</a> का उपयोग करके होस्ट किया गया है।]]></target>
+        <target><![CDATA[आप इस वेबसाइट में सुधार करके या सॉफ्टवेयर का दस्तावेजीकरण करके हमारी मदद कर सकते हैं। वेबसाइट के स्रोत हमारे GitHub रेपो <a href="//github.com/LMMS/lmms.io">LMMS / lmms.io</a> में उपलब्ध हैं। हमारे प्रलेखन को <a href="//lmms.io/wiki">MediaWiki Instance</a> का उपयोग करके होस्ट किया गया है।]]></target>
       </trans-unit>
       <trans-unit id="mxP7dw_" resname="Public registration on our Wiki is disabled due to spam issues. Please post to the&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;https://lists.sourceforge.net/lists/listinfo/lmms-devel&quot;&gt;mailing list&lt;/a&gt; if you're&#10;&#9;&#9;&#9;&#9;&#9;   interested in helping out with the documentation!">
         <source>Public registration on our Wiki is disabled due to spam issues. Please post to the
 					   &lt;a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel"&gt;mailing list&lt;/a&gt; if you're
 					   interested in helping out with the documentation!</source>
-        <target state="translated"><![CDATA[स्पैम संबंधित मुद्दों के कारण हमारे विकी पर सार्वजनिक पंजीकरण अक्षम है। यदि आप प्रलेखन के साथ मदद करने में रुचि रखते हैं कृपया <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">mailing list</a> में पोस्ट करें।]]></target>
+        <target><![CDATA[स्पैम संबंधित मुद्दों के कारण हमारे विकी पर सार्वजनिक पंजीकरण अक्षम है। यदि आप प्रलेखन के साथ मदद करने में रुचि रखते हैं कृपया <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">mailing list</a> में पोस्ट करें।]]></target>
       </trans-unit>
       <trans-unit id="yR7g8nm" resname="Donate">
         <source>Donate</source>
-        <target state="translated">डोनेट करें</target>
+        <target>डोनेट करें</target>
       </trans-unit>
       <trans-unit id="LUNpyrn" resname="Even though donations are not the thing we need the most (that'd be developers), they help us pay&#10;&#9;&#9;&#9;&#9;&#9;   our bills, for our domain lmms.io for instance.">
         <source>Even though donations are not the thing we need the most (that'd be developers), they help us pay
 					   our bills, for our domain lmms.io for instance.</source>
-        <target state="translated">हालांकि दान वे चीज नहीं हैं जिनकी हमें सबसे ज्यादा जरूरत है (वें डेवलपर्स हैं), वें हमारे बिलों का भुगतान करने में हमारी मदद करते हैं, उदाहरण के लिए हमारे डोमेन lmms.io के लिए।</target>
+        <target>हालांकि दान वे चीज नहीं हैं जिनकी हमें सबसे ज्यादा जरूरत है (वें डेवलपर्स हैं), वें हमारे बिलों का भुगतान करने में हमारी मदद करते हैं, उदाहरण के लिए हमारे डोमेन lmms.io के लिए।</target>
       </trans-unit>
       <trans-unit id="7yTl1LS" resname="Donate via PayPal">
         <source>Donate via PayPal</source>
-        <target state="translated">PayPal के माध्यम से डोनेट करें </target>
+        <target>PayPal के माध्यम से डोनेट करें </target>
       </trans-unit>
       <trans-unit id="JmpBuQ1" resname="Translations">
         <source>Translations</source>
-        <target state="translated">अनुवाद</target>
+        <target>अनुवाद</target>
       </trans-unit>
       <trans-unit id="ODMpVkq" resname="If your language is missing in LMMS, help the project and other users speaking the same language by&#10;&#9;&#9;&#9;&#9;&#9;   translating the software. You can find instructions on the page&#10;&#9;&#9;&#9;&#9;&#9;   &quot;&lt;a href=&quot;//github.com/LMMS/lmms/wiki/Creating-a-localization&quot;&gt;Creating a localization&lt;/a&gt;&quot; in our&#10;&#9;&#9;&#9;&#9;&#9;   GitHub Wiki.">
         <source>If your language is missing in LMMS, help the project and other users speaking the same language by
 					   translating the software. You can find instructions on the page
 					   "&lt;a href="//github.com/LMMS/lmms/wiki/Creating-a-localization"&gt;Creating a localization&lt;/a&gt;" in our
 					   GitHub Wiki.</source>
-        <target state="translated"><![CDATA[यदि आपकी भाषा LMMS में अनुपलब्ध है, तो सॉफ्टवेयर का अनुवाद करके परियोजना और समान भाषा बोलने वाले अन्य उपयोगकर्ताओं  की मदद करें। आप हमारी GitHub Wiki में "<a href="//github.com/LMMS/lmms/wiki/Creating-a-localization">Creating a localization</a>" पेज पर निर्देश पा सकते हैं।]]></target>
+        <target><![CDATA[यदि आपकी भाषा LMMS में अनुपलब्ध है, तो सॉफ्टवेयर का अनुवाद करके परियोजना और समान भाषा बोलने वाले अन्य उपयोगकर्ताओं  की मदद करें। आप हमारी GitHub Wiki में "<a href="//github.com/LMMS/lmms/wiki/Creating-a-localization">Creating a localization</a>" पेज पर निर्देश पा सकते हैं।]]></target>
       </trans-unit>
       <trans-unit id="u6Bz942" resname="How to get in touch">
         <source>How to get in touch</source>
-        <target state="translated">हमसे कैसे जुड़े</target>
+        <target>हमसे कैसे जुड़े</target>
       </trans-unit>
       <trans-unit id="nSgPM_a" resname="Mailing List">
         <source>Mailing List</source>
-        <target state="translated">मेलिंग लिस्ट</target>
+        <target>मेलिंग लिस्ट</target>
       </trans-unit>
       <trans-unit id="6PT.eyE" resname="Posting to the mailing list is the best way to reach out to our developers:">
         <source>Posting to the mailing list is the best way to reach out to our developers:</source>
-        <target state="translated">मेलिंग लिस्ट में पोस्ट करना हमारे डेवलपर्स तक पहुंचने का सबसे अच्छा तरीका है:</target>
+        <target>मेलिंग लिस्ट में पोस्ट करना हमारे डेवलपर्स तक पहुंचने का सबसे अच्छा तरीका है:</target>
       </trans-unit>
       <trans-unit id="vTqq2U0" resname="Subscribe to LMMS-Devel mailing list">
         <source>Subscribe to LMMS-Devel mailing list</source>
-        <target state="translated">LMMS-Devel mailing list को सब्सक्राइब करें</target>
+        <target>LMMS-Devel mailing list को सब्सक्राइब करें</target>
       </trans-unit>
       <trans-unit id="iSQeC4T" resname="Our IRC channel is &lt;a href=&quot;http://webchat.freenode.net/?channels=%23lmms&quot;&gt;#lmms&lt;/a&gt; on&#10;&#9;&#9;&#9;&#9;&#9;&lt;a href=&quot;https://freenode.net&quot;&gt;Freenode&lt;/a&gt;.">
         <source>Our IRC channel is &lt;a href="http://webchat.freenode.net/?channels=%23lmms"&gt;#lmms&lt;/a&gt; on
 					&lt;a href="https://freenode.net"&gt;Freenode&lt;/a&gt;.</source>
-        <target state="translated"><![CDATA[हमारा IRC चैनल <a href="https://freenode.net">Freenode</a> पर <a href="http://webchat.freenode.net/?channels=%23lmms">#lmms</a> है।]]></target>
+        <target><![CDATA[हमारा IRC चैनल <a href="https://freenode.net">Freenode</a> पर <a href="http://webchat.freenode.net/?channels=%23lmms">#lmms</a> है।]]></target>
       </trans-unit>
       <trans-unit id="nzuqhLv" resname="&lt;a href=&quot;https://discordapp.com/&quot;&gt;Discord&lt;/a&gt;&#10;&#9;&#9;&#9;&#9;&#9;is a more modern alternative to IRC. Join our server &#10;&#9;&#9;&#9;&#9;&#9;&lt;a href=&quot;/chat/&quot;&gt;by clicking here&lt;/a&gt;.">
         <source>&lt;a href="https://discordapp.com/"&gt;Discord&lt;/a&gt;
 					is a more modern alternative to IRC. Join our server 
 					&lt;a href="/chat/"&gt;by clicking here&lt;/a&gt;.</source>
-        <target state="translated"><![CDATA[<a href="https://discordapp.com/">Discord</a> IRC का एक अधिक आधुनिक विकल्प है। हमारे सर्वर से जुड़ने के लिए <a href="/chat/">यहाँ क्लिक करें</a>।]]></target>
-      </trans-unit>
-      <trans-unit id="Tae9Qqu" resname="Forum">
-        <source>Forum</source>
-        <target state="translated">फोरम</target>
+        <target><![CDATA[<a href="https://discordapp.com/">Discord</a> IRC का एक अधिक आधुनिक विकल्प है। हमारे सर्वर से जुड़ने के लिए <a href="/chat/">यहाँ क्लिक करें</a>।]]></target>
       </trans-unit>
       <trans-unit id="vgrQxiN" resname="We host a forum for our users here on this website:">
         <source>We host a forum for our users here on this website:</source>
-        <target state="translated">हम अपने उपयोगकर्ताओं के लिए एक मंच की मेजबानी इस वेबसाइट पर करते हैं:</target>
+        <target>हम अपने उपयोगकर्ताओं के लिए एक मंच की मेजबानी इस वेबसाइट पर करते हैं:</target>
       </trans-unit>
       <trans-unit id="P3vlK3." resname="For reporting a bug or suggesting a new feature, please use the GitHub issue tracker:">
         <source>For reporting a bug or suggesting a new feature, please use the GitHub issue tracker:</source>
-        <target state="translated">किसी Bug को रिपोर्ट करने या कोई नए फीचर का सुझाव देने के लिए, कृपया GitHub Issue tracker का उपयोग करें:</target>
+        <target>किसी Bug को रिपोर्ट करने या कोई नए फीचर का सुझाव देने के लिए, कृपया GitHub Issue tracker का उपयोग करें:</target>
       </trans-unit>
-      <trans-unit id="laP8ZYf" resname="Author:">
-        <source>Author:</source>
-        <target state="translated">प्रणेता:</target>
+      <trans-unit id="TWZRGVx" resname="Let's make music">
+        <source>Let's make music</source>
+        <target>चलो संगीत बनाएं</target>
       </trans-unit>
-      <trans-unit id="DDaBYVH" resname="Modified/Themed By:">
-        <source>Modified/Themed By:</source>
-        <target state="translated">परिवर्तित/थीम्ड द्वारा:</target>
+      <trans-unit id="Jo.VN3p" resname="with a free, cross-platform tool for your computer.">
+        <source>with a free, cross-platform tool for your computer.</source>
+        <target>आपके कंप्यूटर के लिए एक मुफ़्त, क्रॉस-प्लेटफ़ॉर्म टूल के साथ।</target>
       </trans-unit>
-      <trans-unit id="VqvyA1L" resname="Scalable Vector Format">
-        <source>Scalable Vector Format</source>
-        <target state="translated">स्केलेबल वेक्टर फॉर्मेट</target>
+      <trans-unit id="ADl38LV" resname="Download now">
+        <source>Download now</source>
+        <target>अभी डाउनलोड करें</target>
       </trans-unit>
-      <trans-unit id="9pbDeQ2" resname="Gimp Image Editor Format">
-        <source>Gimp Image Editor Format</source>
-        <target state="translated">Gimp इमेज एडिटर फॉर्मेट</target>
+      <trans-unit id="LLpAwlQ" resname="Get involved">
+        <source>Get involved</source>
+        <target>शामिल हों</target>
       </trans-unit>
-      <trans-unit id="zPnNJNw" resname="Portable Document Format">
-        <source>Portable Document Format</source>
-        <target state="translated">पोर्टेबल डॉक्यूमेंट फोर्मेट</target>
+      <trans-unit id="zDYCQUA" resname="Making beats has never been easier.">
+        <source>Making beats has never been easier.</source>
+        <target>नग़्मे बनाना इतना आसान कभी ना था</target>
       </trans-unit>
-      <trans-unit id="Fa8w_Q9" resname="Adobe Photoshop Format">
-        <source>Adobe Photoshop Format</source>
-        <target state="translated">Adobe फोटोशॉप फोर्मेट</target>
+      <trans-unit id="HXvrE6h" resname="Produce music with your computer">
+        <source>Produce music with your computer</source>
+        <target>संगीत बनाएं अपने कंप्यूटर से</target>
       </trans-unit>
-      <trans-unit id="5izmwVw" resname="PNG Format">
-        <source>PNG Format</source>
-        <target state="translated">PNG फोर्मेट</target>
+      <trans-unit id="8k_3.h_" resname="by creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.">
+        <source>by creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.</source>
+        <target>धुन और बीट्स बनाकर, ध्वनियों का संश्लेषण और मिश्रण कर, सैम्पल्स की व्यवस्था, और बहुत कुछ कर।</target>
       </trans-unit>
-      <trans-unit id="CBjpoqc" resname="JPEG Format">
-        <source>JPEG Format</source>
-        <target state="translated">JPEG फोर्मेट</target>
+      <trans-unit id="1ANtx56" resname="Playback instruments, samples and plugins">
+        <source>Playback instruments, samples and plugins</source>
+        <target>इंस्ट्रूमेंट्स, सैम्पल्स और प्लग-इन्स प्लेबैक करें</target>
       </trans-unit>
-      <trans-unit id="FneECEa" resname="Bitmap Format">
-        <source>Bitmap Format</source>
-        <target state="translated">बिटमैप फोर्मेट</target>
+      <trans-unit id="c_9n6oH" resname="with a typing or MIDI keyboard in a user-friendly and modern interface.">
+        <source>with a typing or MIDI keyboard in a user-friendly and modern interface.</source>
+        <target>एक यूजर-फ्रेंडली और आधुनिक इंटरफ़ेस में टाइपिंग अथवा MIDI कीबोर्ड के साथ।</target>
       </trans-unit>
-      <trans-unit id="HjfR4tA" resname="Windows Icon Format">
-        <source>Windows Icon Format</source>
-        <target state="translated">Windows आइकन फोर्मेट</target>
+      <trans-unit id="h73sjrb" resname="Bundled with ready-to-use content">
+        <source>Bundled with ready-to-use content</source>
+        <target>रेडी-टू-यूज़ कंटेंट से भरपूर</target>
       </trans-unit>
-      <trans-unit id="lzCF.IZ" resname="Apple Icon Format">
-        <source>Apple Icon Format</source>
-        <target state="translated">Apple आइकन फोर्मेट</target>
+      <trans-unit id="lBGEdiH" resname="from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.">
+        <source>from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.</source>
+        <target>विभिन्न इंस्ट्रूमेंट्स, इफेक्ट्स प्लग-इन्स, प्रीसेट्स से लेकर VST और SoundFont सपोर्ट के साथ</target>
       </trans-unit>
-      <trans-unit id="Xxnbn8u" resname="Unknown File">
-        <source>Unknown File</source>
-        <target state="translated">अज्ञात फ़ाइल</target>
+      <trans-unit id="rELUYJ6" resname="Made by musicians, for musicians.">
+        <source>Made by musicians, for musicians.</source>
+        <target>खास संगीतकारों ने बनाया, खास संगीतकारों के लिए.</target>
       </trans-unit>
-      <trans-unit id="dMUjKl5" resname="You seem to have taken a wrong turn.">
-        <source>You seem to have taken a wrong turn.</source>
-        <target state="translated">लगता है आपने गलत मोड़ ले लिया है।</target>
+      <trans-unit id="ZG2n1Jx" resname="Download for Linux">
+        <source>Download for Linux</source>
+        <target>Linux के लिए डाउनलोड करें</target>
       </trans-unit>
-      <trans-unit id="5y..cYr" resname="Oops, that is not supposed to happen.">
-        <source>Oops, that is not supposed to happen.</source>
-        <target state="translated">उफ़, ऐसा नहीं होना चाहिए था।</target>
+      <trans-unit id="Yur47Wq" resname="Download for Windows">
+        <source>Download for Windows</source>
+        <target>Windows के लिए डाउनलोड करें</target>
       </trans-unit>
-      <trans-unit id="etIe15e" resname="Yuck, an error!">
-        <source>Yuck, an error!</source>
-        <target state="translated">अरे नहीं! एक गड़बड़!</target>
+      <trans-unit id="WRDAWeq" resname="Download for macOS">
+        <source>Download for macOS</source>
+        <target>macOS के लिए डाउनलोड करें</target>
       </trans-unit>
-      <trans-unit id="1ur_gjW" resname="Download">
-        <source>Download</source>
-        <target state="translated">डाउनलोड</target>
+      <trans-unit id="QBixtUo" resname="Pick your flavor.">
+        <source>Pick your flavor.</source>
+        <target>अपनी पसंद चुनें</target>
       </trans-unit>
-      <trans-unit id="wgWSTeD" resname="Documentation">
-        <source>Documentation</source>
-        <target state="translated">प्रलेखन</target>
+      <trans-unit id="CaD6ze3" resname="Linux, Windows or macOS.">
+        <source>Linux, Windows or macOS.</source>
+        <target>Linux, Windows या macOS।</target>
       </trans-unit>
-      <trans-unit id="evAjxDA" resname="Docs">
-        <source>Docs</source>
-        <target state="translated">दस्तावेज़</target>
+      <trans-unit id="vEX6OG8" resname="Houston, we have a problem.">
+        <source>Houston, we have a problem.</source>
+        <target>क्या कुछ गड़बड़ है?</target>
       </trans-unit>
-      <trans-unit id="yHBYjoP" resname="Sharing Platform">
-        <source>Sharing Platform</source>
-        <target state="translated">शेयरिंग प्लेटफार्म</target>
+      <trans-unit id="J5pmILO" resname="Stand by, we got you covered.">
+        <source>Stand by, we got you covered.</source>
+        <target> घबराएं नहीं, हम आपके साथ हैं।</target>
       </trans-unit>
-      <trans-unit id="KYh6X.m" resname="Share">
-        <source>Share</source>
-        <target state="translated">शेयर करें</target>
+      <trans-unit id="3vJMQyC" resname="Visit our forum">
+        <source>Visit our forum</source>
+        <target>हमारे forum पर जाएँ</target>
       </trans-unit>
-      <trans-unit id="1H18sOT" resname="More">
-        <source>More</source>
-        <target state="translated">और</target>
+      <trans-unit id="AgpMP6c" resname="Visit our Facebook page">
+        <source>Visit our Facebook page</source>
+        <target>हमारे Facebook पेज पर जाएँ</target>
+      </trans-unit>
+      <trans-unit id="60mvs3d" resname="Chat now on Discord">
+        <source>Chat now on Discord</source>
+        <target>Discord पर अभी चैट करें</target>
+      </trans-unit>
+      <trans-unit id="p1CbBjh" resname="Visit our GitHub page">
+        <source>Visit our GitHub page</source>
+        <target>हमारे GitHub पेज पर जाएँ</target>
+      </trans-unit>
+      <trans-unit id="Q.2pUhd" resname="Ask your questions here">
+        <source>Ask your questions here</source>
+        <target>अपने सवाल यहाँ पूछें</target>
+      </trans-unit>
+      <trans-unit id="G0SNPhL" resname="and answer a few questions while you're waiting.">
+        <source>and answer a few questions while you're waiting.</source>
+        <target>और प्रतीक्षा करते समय कुछ सवालों के हल का सुझाव दें।</target>
+      </trans-unit>
+      <trans-unit id="AZtpftd" resname="Sharing means caring.">
+        <source>Sharing means caring.</source>
+        <target>प्यार बांटने से बढ़ता है</target>
+      </trans-unit>
+      <trans-unit id="tYjliwJ" resname="Find musicians">
+        <source>Find musicians</source>
+        <target>संगीतकारों को ढूँढ़िये</target>
+      </trans-unit>
+      <trans-unit id="29NrAWW" resname="Visit the LMMS Sharing Platform (LSP)">
+        <source>Visit the LMMS Sharing Platform (LSP)</source>
+        <target>LMMS Sharing Platform (LSP) पर जाएँ</target>
+      </trans-unit>
+      <trans-unit id="vZEmrHQ" resname="Don't be modest.">
+        <source>Don't be modest.</source>
+        <target>विनम्र ना बने</target>
+      </trans-unit>
+      <trans-unit id="E6hLz_I" resname="Show us your creations.">
+        <source>Show us your creations.</source>
+        <target>हमें अपनी रचनाएँ दिखाएं</target>
+      </trans-unit>
+      <trans-unit id="e0XmaMu" resname="We &lt;3 open source.">
+        <source>We &lt;3 open source.</source>
+        <target><![CDATA[हमें ओपन सोर्स से <3 है।]]></target>
+      </trans-unit>
+      <trans-unit id="opjPraT" resname="Fork us on GitHub">
+        <source>Fork us on GitHub</source>
+        <target>GitHub पर हमें फोर्क करें</target>
+      </trans-unit>
+      <trans-unit id="4m3F_E2" resname="LMMS is a 100% free, open source, community-driven project.">
+        <source>LMMS is a 100% free, open source, community-driven project.</source>
+        <target>LMMS एक 100% मुक्त, ओपन सोर्स, समुदाय संचालित परियोजना है।</target>
+      </trans-unit>
+      <trans-unit id="B_SpjYT" resname="Proudly hosted on GitHub.">
+        <source>Proudly hosted on GitHub.</source>
+        <target>GitHub पर गर्व से होस्टेड</target>
+      </trans-unit>
+      <trans-unit id="cjwuqX6" resname="Take a peek.">
+        <source>Take a peek.</source>
+        <target>एक झलक पाएं।</target>
+      </trans-unit>
+      <trans-unit id="73lMPDq" resname="Watch our promo video.">
+        <source>Watch our promo video.</source>
+        <target>हमारा प्रोमो वीडियो देखें।</target>
+      </trans-unit>
+      <trans-unit id="VnDwhfQ" resname="Click anywhere to close this dialog">
+        <source>Click anywhere to close this dialog</source>
+        <target>इस संवाद को बंद करने के लिए कहीं भी क्लिक करें</target>
+      </trans-unit>
+      <trans-unit id="oJJM7AY" resname="Featuring:">
+        <source>Featuring:</source>
+        <target>LMMS की विशेषताएं:</target>
+      </trans-unit>
+      <trans-unit id="j6_axfx" resname="Core Functionality">
+        <source>Core Functionality</source>
+        <target>मूल कार्यक्षमता</target>
+      </trans-unit>
+      <trans-unit id="HLWVAGp" resname="Compose music on Windows, Linux and macOS">
+        <source>Compose music on Windows, Linux and macOS</source>
+        <target>संगीत बनाएँ Windows, Linux और macOS में</target>
+      </trans-unit>
+      <trans-unit id="JmUgjfR" resname="Sequence, compose, mix and automate songs in one simple interface">
+        <source>Sequence, compose, mix and automate songs in one simple interface</source>
+        <target>एक सरल इंटरफ़ेस में गीत की रचना, अनुक्रमण, मिश्रण और स्वचालन करें </target>
+      </trans-unit>
+      <trans-unit id="q85N8NQ" resname="Note playback via MIDI or typing keyboard">
+        <source>Note playback via MIDI or typing keyboard</source>
+        <target>MIDI अथवा टाइपिंग कीबोर्ड द्वारा नोट प्लेबैक</target>
+      </trans-unit>
+      <trans-unit id="UpGfL75" resname="Consolidate instrument tracks using Beat+Bassline Editor">
+        <source>Consolidate instrument tracks using Beat+Bassline Editor</source>
+        <target>Beat+Bassline Editor का उपयोग करके इंस्ट्रूमेंट ट्रैक्स को समेकित करें</target>
+      </trans-unit>
+      <trans-unit id="73.8zRG" resname="Fine tune patterns, notes, chords and melodies using Piano Roll Editor">
+        <source>Fine tune patterns, notes, chords and melodies using Piano Roll Editor</source>
+        <target>Piano Roll Editor का उपयोग कर नोट्स, कोर्ड्स और धुनों की फाइन ट्यूनिंग करें</target>
+      </trans-unit>
+      <trans-unit id="X4f.0Yt" resname="Full user-defined track-based automation and computer-controlled automation sources">
+        <source>Full user-defined track-based automation and computer-controlled automation sources</source>
+        <target>पूर्ण उपयोगकर्ता-परिभाषित ट्रैक-आधारित स्वचालन और कंप्यूटर-नियंत्रित स्वचालन स्रोत</target>
+      </trans-unit>
+      <trans-unit id=".oFCngq" resname="Import of MIDI files and Hydrogen project files">
+        <source>Import of MIDI files and Hydrogen project files</source>
+        <target>MIDI फ़ाइलों और Hydrogen परियोजना फ़ाइलों का आयात</target>
+      </trans-unit>
+      <trans-unit id="w1G_1Tb" resname="Musical Instruments">
+        <source>Musical Instruments</source>
+        <target>वाद्य-यंत्र</target>
+      </trans-unit>
+      <trans-unit id="6W6XaNr" resname="Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit Windows)">
+        <source>Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit Windows)</source>
+        <target>बिल्ट-इन 64-बिट VST इंस्ट्रूमेंट सपोर्ट 32-बिट VST bridge (64-बिट Windows) के साथ</target>
+      </trans-unit>
+      <trans-unit id="koI1Kzb" resname="16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more">
+        <source>16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more</source>
+        <target>16 बिल्ट-इन सिंथेसाइज़र्स, जैसे Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip के अनुकरण के साथ-साथ और भी बहुत कुछ</target>
+      </trans-unit>
+      <trans-unit id="OwdwPKG" resname="Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin">
+        <source>Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</source>
+        <target>एंबेडेड ZynAddSubFx: पॉलिफोनिक, मल्टीटीमब्रल, माइक्रो-टोनल, मल्टी-वॉइस, एडिटिव, सब्ट्रैक्टिव और पैड संश्लेषण सभी एक शक्तिशाली प्लगइन में</target>
+      </trans-unit>
+      <trans-unit id="UqEEpjy" resname="Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks">
+        <source>Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks</source>
+        <target>उच्च गुणवत्ता वाले इंस्ट्रूमेंट पैच और बैंकों के लिए SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) फोर्मट्स के लिए नेटिव मल्टीसैम्पल सपोर्ट</target>
+      </trans-unit>
+      <trans-unit id="CasBlNK" resname="Effects Mixing">
+        <source>Effects Mixing</source>
+        <target>इफेक्ट्स मिक्सिंग</target>
+      </trans-unit>
+      <trans-unit id="SNZn7PZ" resname="Drop-in LADSPA plug-in support">
+        <source>Drop-in LADSPA plug-in support</source>
+        <target>ड्रॉप-इन LADSPA प्लग-इन सपोर्ट</target>
+      </trans-unit>
+      <trans-unit id="b1z.R0m" resname="Drop-in VST ® effect plug-in support (Linux and Windows)">
+        <source>Drop-in VST ® effect plug-in support (Linux and Windows)</source>
+        <target>ड्रॉप-इन VST ® effect प्लग-इन सपोर्ट (Linux और Windows)</target>
+      </trans-unit>
+      <trans-unit id="_c4RPsG" resname="Built-in compressor, limiter, delay, reverb, distortion and bass enhancer">
+        <source>Built-in compressor, limiter, delay, reverb, distortion and bass enhancer</source>
+        <target>बिल्ट-इन कंप्रेसर, लिमिटर, डिले, रिवर्ब, डिस्टॉरशन और बेस एनहांसर</target>
+      </trans-unit>
+      <trans-unit id="tUrf1x9" resname="Bundled graphic and parametric equalizers">
+        <source>Bundled graphic and parametric equalizers</source>
+        <target>बंडल्ड ग्राफ़िक एवं पेरामेट्रिक इक्विलाइज़र</target>
+      </trans-unit>
+      <trans-unit id="PoXBpT3" resname="Built-in visualization/spectrum analyzer">
+        <source>Built-in visualization/spectrum analyzer</source>
+        <target>बिल्ट-इन विज़ुअलाइज़ेशन/स्पेक्ट्रम विश्लेषक</target>
+      </trans-unit>
+      <trans-unit id="xhQMvx4" resname="Download LMMS Artwork">
+        <source>Download LMMS Artwork</source>
+        <target>LMMS आर्टवर्क डाउनलोड करें</target>
+      </trans-unit>
+      <trans-unit id="Hq18WDE" resname="LMMS Logo">
+        <source>LMMS Logo</source>
+        <target>LMMS लोगो</target>
+      </trans-unit>
+      <trans-unit id="Xe7IQc6" resname="LMMS Development Team">
+        <source>LMMS Development Team</source>
+        <target>LMMS डेवलपमेंट टीम</target>
+      </trans-unit>
+      <trans-unit id="aFA0PDs" resname="LMMS Project Icon">
+        <source>LMMS Project Icon</source>
+        <target>LMMS प्रोजेक्ट आइकन</target>
+      </trans-unit>
+      <trans-unit id="ly35agX" resname="Official competitions organised by LMMS and its community members">
+        <source>Official competitions organised by LMMS and its community members</source>
+        <target>LMMS और उसके समुदाय के सदस्यों द्वारा आयोजित आधिकारिक प्रतियोगिताएँ</target>
+      </trans-unit>
+      <trans-unit id="hzCq1ff" resname="Current competitions:">
+        <source>Current competitions:</source>
+        <target>मौजूदा प्रतियोगिताएं:</target>
+      </trans-unit>
+      <trans-unit id="6hq9QpV" resname="Past competitions:">
+        <source>Past competitions:</source>
+        <target>पिछली प्रतियोगिताएं:</target>
+      </trans-unit>
+      <trans-unit id="mQLQ2B_" resname="The Best of LMMS vol. VI">
+        <source>The Best of LMMS vol. VI</source>
+        <target>The Best of LMMS vol. VI</target>
       </trans-unit>
       <trans-unit id="X.IFEsq" resname="#### The competition has ended on **April 2nd, 2019**.&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-6)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQm-kulIpC2Na8ol7brGGmmK3aK4kz9AaUi0KIy1FrHUj6snVwCpdcDZqJ7unf_oIbGTmC4cWnP1tLW/pubhtml?gid=1466576535&amp;single=true)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/768817671&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;&#10;&#10;&#9;&#9;&#9;#### Original description:&#10;&#9;&#9;&#9;We are proud to present to you The Best of LMMS contest volume 6!&#10;&#9;&#9;&#9;The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight&#10;&#9;&#9;&#9;(23:59.59 UTC Time) on April 2nd for a chance to be featured on the BoL v6 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.&#10;&#10;&#9;&#9;&#9;[Submit here](https://goo.gl/forms/lNmexmoqWiwiKDUf1)&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#9;&#9;&#9;1. **The Deadline:**&#10;&#9;&#9;&#9;&#9;- Track must be submitted by April 2nd 2019 at 23:59.59 UTC using [this form](https://goo.gl/forms/lNmexmoqWiwiKDUf1).&#10;&#9;&#9;&#9;2. **The Track:**&#10;&#9;&#9;&#9;&#9;- Must be produced in LMMS.&#10;&#9;&#9;&#9;&#9;- You may use other programs for mastering and post processing.&#10;&#9;&#9;&#9;&#9;- Must be under 10 minutes long.&#10;&#9;&#9;&#9;&#9;- No winning tracks from previous Best of LMMS albums allowed.&#10;&#9;&#9;&#9;&#9;- No remixes allowed.&#10;&#9;&#9;&#9;3. **The Submissions:**&#10;&#9;&#9;&#9;&#9;- You must submit using this form only.&#10;&#9;&#9;&#9;&#9;- No more than ONE entry per artist is allowed.&#10;&#9;&#9;&#9;&#9;- Collaborations count as ONE entry for each artist involved.&#10;&#9;&#9;&#9;&#9;- No collaborating with judges on entries.&#10;&#9;&#9;&#9;&#9;- Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.&#10;&#9;&#9;&#9;&#9; - The full track should be available at the submission link provided&#10;&#9;&#9;&#9;&#9;- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.&#10;&#9;&#9;&#9;4. **The Judges:**&#10;&#9;&#9;&#9;&#9;-The jury consists of: Abludo, Dystany, Heavenity Princess, Jacoby Davis, Pyrif, and Spekular.&#10;&#9;&#9;&#9;5. **The Judging:**&#10;&#9;&#9;&#9;&#9;- After the deadline, the judges will make their decisions and release the results within 14 days.&#10;&#9;&#9;&#9;6. **Release:**&#10;&#9;&#9;&#9;&#9;- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.">
         <source>#### The competition has ended on **April 2nd, 2019**.
@@ -1102,43 +584,45 @@ Abhi Prakash &lt;Apofficial18@gmail.com&gt;, 2019
 				- After the deadline, the judges will make their decisions and release the results within 14 days.
 			6. **Release:**
 				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.</source>
-        <target><![CDATA[#### The competition has ended on **April 2nd, 2019**.
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-6)
+        <target><![CDATA[#### प्रतियोगिता **02 अप्रैल, 2019** को समाप्त हो गई है।
+			LMMS का समर्थन करें और हमारे [bandcamp पेज](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-6) पर संकलन खरीदें।
 
-			Listen to all entries [here.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQm-kulIpC2Na8ol7brGGmmK3aK4kz9AaUi0KIy1FrHUj6snVwCpdcDZqJ7unf_oIbGTmC4cWnP1tLW/pubhtml?gid=1466576535&single=true)
+			सभी प्रविष्टियों को [यहाँ](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQm-kulIpC2Na8ol7brGGmmK3aK4kz9AaUi0KIy1FrHUj6snVwCpdcDZqJ7unf_oIbGTmC4cWnP1tLW/pubhtml?gid=1466576535&single=true) सुनें।
 
-			Winners:
+			विजेता:
 			<iframe width="100%%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/768817671&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 
-			#### Original description:
-			We are proud to present to you The Best of LMMS contest volume 6!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-			(23:59.59 UTC Time) on April 2nd for a chance to be featured on the BoL v6 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+			#### मूल विवरण:
+			हम गर्व से आप के लिए प्रस्तुत करते हैं The Best of LMMS प्रतियोगिता volume 6!
+			इस प्रतियोगिता का उद्देश्य समुदाय को अपने संगीत बनाने और साझा करने के लिए प्रेरित करना है। BoL v6 एल्बम में दिखाए जाने के अवसर के लिए 02 अप्रैल (UTC समय) को आधी रात (23: 59.59) से पहले नीचे दिए गए लिंक पर अपना ट्रैक सबमिट करें। संकलन को Bandcamp पर अपलोड किया जाएगा, जिसमें सभी लाभ LMMS के आगे के विकास की ओर जाएंगे।
 
-			[Submit here](https://goo.gl/forms/lNmexmoqWiwiKDUf1)
-			#### Competition rules:
-			1. **The Deadline:**
-				- Track must be submitted by April 2nd 2019 at 23:59.59 UTC using [this form](https://goo.gl/forms/lNmexmoqWiwiKDUf1).
-			2. **The Track:**
-				- Must be produced in LMMS.
-				- You may use other programs for mastering and post processing.
-				- Must be under 10 minutes long.
-				- No winning tracks from previous Best of LMMS albums allowed.
-				- No remixes allowed.
-			3. **The Submissions:**
-				- You must submit using this form only.
-				- No more than ONE entry per artist is allowed.
-				- Collaborations count as ONE entry for each artist involved.
-				- No collaborating with judges on entries.
-				- Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.
-				 - The full track should be available at the submission link provided
-				- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
-			4. **The Judges:**
-				-The jury consists of: Abludo, Dystany, Heavenity Princess, Jacoby Davis, Pyrif, and Spekular.
-			5. **The Judging:**
-				- After the deadline, the judges will make their decisions and release the results within 14 days.
-			6. **Release:**
-				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.]]></target>
+			[यहां सबमिट करें](https://goo.gl/forms/lNmexmoqWiwiKDUf1)
+			#### प्रतियोगिता के नियम:
+			1. **समयसीमा:**
+				- ट्रैक 02 अप्रैल 2019 23: 59.59 UTC तक [इस फॉर्म](https://goo.gl/47ZXq1) का उपयोग करके प्रस्तुत किया जाना चाहिए।
+			2. **ट्रैक:**
+				- LMMS में उत्पादित किया जाना चाहिए।
+				- आप मास्टरिंग और पोस्ट प्रोसेसिंग के लिए अन्य कार्यक्रमों का उपयोग कर सकते हैं।
+				- 10 मिनट से कम समय के लिए होना चाहिए।
+				- पिछले Best of LMMS एल्बम से कोई भी जीतने वाला ट्रैक अनुमति नहीं है।
+				- रीमिक्स की अनुमति नहीं है।
+			3. **प्रस्तुतियाँ:**
+				- आपको इस फॉर्म का उपयोग करके ही जमा करना होगा।
+				- प्रति कलाकार **एक** से अधिक प्रविष्टि की अनुमति नहीं है। *
+				- सभी सहभागीताएं प्रत्येक शामिल कलाकार की **एक** प्रविष्टि के रूप में गिनी जाएँगी।*
+				- प्रविष्टियों पर जजों के साथ सहभागिता की अनुमति नहीं है।
+				- केवल Soundcloud, YouTube या Clyp पर होस्ट किए गए सबमिशन की अनुमति है।
+				- जजिंग प्रक्रिया के अंत तक आपकी प्रविष्टि सुनने के लिए उपलब्ध होनी चाहिए। यदि नहीं, तो आपकी प्रविष्टि अयोग्य हो जाएगी।
+4. **जजेस:**
+				- जजों में शामिल है: Abludo, Dystany, Heavenity Princess, Jacoby Davis, Pyrif, और Spekular।
+			5. **चुनाव प्रक्रिया:**
+				- समयसीमा के बाद, जजेस अपने फैसले करेंगे और 14 दिनों के भीतर परिणाम जारी करेंगे।
+			6. **रिलीज़:**
+				25 उच्चतम स्कोरिंग गाने "जो चाहो, वो चुकाओ" की कीमत के साथ बैंडकैम्प पर एक एल्बम के रूप में जारी किए जाएंगे। सारा प्राप्त धन LMMS के आगे के विकास के लिए दान किया जाएगा, वह प्रोग्राम जिससे हम प्यार करते हैं।]]></target>
+      </trans-unit>
+      <trans-unit id="nY8I5YL" resname="The Best of LMMS vol. V">
+        <source>The Best of LMMS vol. V</source>
+        <target>The Best of LMMS vol. V</target>
       </trans-unit>
       <trans-unit id="yBk2NAJ" resname="#### The competition has ended on **April 16th, 2018**.&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-5)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vQOjvIBp40ez-2QrPsGHt_LGY2XejaOFZrXWsgPVPXoH7w7QQriUV52_OeCQBL9tcOPlCxdUw2HC6Ud/pubhtml?gid=1958072675&amp;single=true)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/519667455&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;&#10;&#10;&#9;&#9;&#9;#### Original description:&#10;&#9;&#9;&#9;We are proud to present to you The Best of LMMS contest volume 5!&#10;&#9;&#9;&#9;The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight&#10;&#9;&#9;&#9;(23:59.59) on April 16th (UTC time) for a chance to be featured on the BoL v5 album. The compilation will be uploaded to Bandcamp, with all&#10;&#9;&#9;&#9;profits going towards LMMS' further development.&#10;&#10;&#9;&#9;&#9;[Submit here](https://goo.gl/47ZXq1)&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#9;&#9;&#9;1. **The Deadline:**&#10;&#9;&#9;&#9;&#9;- Track must be submitted by April 16th 2018 at 23:59.59 UTC using [this form](https://goo.gl/47ZXq1).&#10;&#9;&#9;&#9;2. **The Track:**&#10;&#9;&#9;&#9;&#9;- Must be produced in LMMS.&#10;&#9;&#9;&#9;&#9;- You may use other programs for mastering and post processing.&#10;&#9;&#9;&#9;&#9;- Must be under 10 minutes long.&#10;&#9;&#9;&#9;&#9;- No winning tracks from previous Best of LMMS albums allowed.&#10;&#9;&#9;&#9;&#9;- No remixes allowed.&#10;&#9;&#9;&#9;3. **The Submissions:**&#10;&#9;&#9;&#9;&#9;- You must submit using this form only.&#10;&#9;&#9;&#9;&#9;- No more than ONE entry per artist is allowed.*&#10;&#9;&#9;&#9;&#9;- Collaborations count as ONE entry for each artist involved.*&#10;&#9;&#9;&#9;&#9;- No collaborating with judges on entries.&#10;&#9;&#9;&#9;&#9;- Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.&#10;&#9;&#9;&#9;&#9;- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.&#10;&#9;&#9;&#9;4. **The Judges:**&#10;&#9;&#9;&#9;&#9;-The jury consists of: Dull Machine, Etorna_Z, Jernemies, Poleroyd, Umcaruje and Unfa.&#10;&#9;&#9;&#9;5. **The Judging:**&#10;&#9;&#9;&#9;&#9;- After the deadline, the judges will score each track and release the results within 14 days.&#10;&#9;&#9;&#9;6. **Release:**&#10;&#9;&#9;&#9;&#9;- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.&#10;&#10;&#9;&#9;&#9;\* *This year the judging process has changed, to ensure fairer handling of entries. The change to one submission only is to allow each and every entry to be fully scored by the panel of judges. This was previously handled by a preliminary screening round to help cut down the large amount of entries received. By lowering the amount of up-front entries allowed, the judges will have the time to fully score each track entered.*">
         <source>#### The competition has ended on **April 16th, 2018**.
@@ -1180,45 +664,47 @@ Abhi Prakash &lt;Apofficial18@gmail.com&gt;, 2019
 				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
 
 			\* *This year the judging process has changed, to ensure fairer handling of entries. The change to one submission only is to allow each and every entry to be fully scored by the panel of judges. This was previously handled by a preliminary screening round to help cut down the large amount of entries received. By lowering the amount of up-front entries allowed, the judges will have the time to fully score each track entered.*</source>
-        <target><![CDATA[#### The competition has ended on **April 16th, 2018**.
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-5)
+        <target><![CDATA[#### प्रतियोगिता **16 अप्रैल, 2018** को समाप्त हो गई है।
+			LMMS का समर्थन करें और हमारे [bandcamp पेज] पर संकलन खरीदें।(https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-5)
 
-			Listen to all entries [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vQOjvIBp40ez-2QrPsGHt_LGY2XejaOFZrXWsgPVPXoH7w7QQriUV52_OeCQBL9tcOPlCxdUw2HC6Ud/pubhtml?gid=1958072675&single=true)
+			सभी प्रविष्टियों को [यहाँ] सुनें।(https://docs.google.com/spreadsheets/d/e/2PACX-1vQOjvIBp40ez-2QrPsGHt_LGY2XejaOFZrXWsgPVPXoH7w7QQriUV52_OeCQBL9tcOPlCxdUw2HC6Ud/pubhtml?gid=1958072675&single=true)
 
-			Winners:
+			विजेता:
 			<iframe width="100%%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/519667455&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 
-			#### Original description:
-			We are proud to present to you The Best of LMMS contest volume 5!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-			(23:59.59) on April 16th (UTC time) for a chance to be featured on the BoL v5 album. The compilation will be uploaded to Bandcamp, with all
-			profits going towards LMMS' further development.
+			#### मूल विवरण:
+			हम गर्व से आप के लिए प्रस्तुत करते हैं The Best of LMMS प्रतियोगिता volume 5!
+			इस प्रतियोगिता का उद्देश्य समुदाय को अपने संगीत बनाने और साझा करने के लिए प्रेरित करना है। BoL v5 एल्बम में दिखाए जाने के अवसर के लिए 16 अप्रैल (UTC समय) को आधी रात (23: 59.59) से पहले नीचे दिए गए लिंक पर अपना ट्रैक सबमिट करें। संकलन को Bandcamp पर अपलोड किया जाएगा, जिसमें सभी लाभ LMMS के आगे के विकास की ओर जाएंगे।
 
-			[Submit here](https://goo.gl/47ZXq1)
-			#### Competition rules:
-			1. **The Deadline:**
-				- Track must be submitted by April 16th 2018 at 23:59.59 UTC using [this form](https://goo.gl/47ZXq1).
-			2. **The Track:**
-				- Must be produced in LMMS.
-				- You may use other programs for mastering and post processing.
-				- Must be under 10 minutes long.
-				- No winning tracks from previous Best of LMMS albums allowed.
-				- No remixes allowed.
-			3. **The Submissions:**
-				- You must submit using this form only.
-				- No more than ONE entry per artist is allowed.*
-				- Collaborations count as ONE entry for each artist involved.*
-				- No collaborating with judges on entries.
-				- Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.
-				- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
-			4. **The Judges:**
-				-The jury consists of: Dull Machine, Etorna_Z, Jernemies, Poleroyd, Umcaruje and Unfa.
-			5. **The Judging:**
-				- After the deadline, the judges will score each track and release the results within 14 days.
-			6. **Release:**
-				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
+			[यहां सबमिट करें](https://goo.gl/47ZXq1)
+			#### प्रतियोगिता के नियम:
+			1. **समयसीमा:**
+				- ट्रैक 16 अप्रैल 2018 23: 59.59 UTC तक [इस फॉर्म](https://goo.gl/47ZXq1) का उपयोग करके प्रस्तुत किया जाना चाहिए।
+			2. **ट्रैक:**
+				- LMMS में उत्पादित किया जाना चाहिए।
+				- आप मास्टरिंग और पोस्ट प्रोसेसिंग के लिए अन्य कार्यक्रमों का उपयोग कर सकते हैं।
+				- 10 मिनट से कम समय के लिए होना चाहिए।
+				- पिछले Best of LMMS एल्बम से कोई भी जीतने वाला ट्रैक अनुमति नहीं है।
+				- रीमिक्स की अनुमति नहीं है।
+			3. **प्रस्तुतियाँ:**
+				- आपको इस फॉर्म का उपयोग करके ही जमा करना होगा।
+				- प्रति कलाकार **एक** से अधिक प्रविष्टि की अनुमति नहीं है। *
+				- सभी सहभागीताएं प्रत्येक शामिल कलाकार की **एक** प्रविष्टि के रूप में गिनी जाएँगी।*
+				- प्रविष्टियों पर जजों के साथ सहभागिता की अनुमति नहीं है।
+				- केवल Soundcloud, YouTube या Clyp पर होस्ट किए गए सबमिशन की अनुमति है।
+				- जजिंग प्रक्रिया के अंत तक आपकी प्रविष्टि सुनने के लिए उपलब्ध होनी चाहिए। यदि नहीं, तो आपकी प्रविष्टि अयोग्य हो जाएगी।
+			4. **जजेस:**
+				- जजों में शामिल है: Dull Machine, Etorna_Z, Jernemies, Poleroyd, Umcaruje और Unfa।
+			5. **चुनाव प्रक्रिया:**
+				- समयसीमा के बाद, जजेस अपने फैसले करेंगे और 14 दिनों के भीतर परिणाम जारी करेंगे।
+			6. **रिलीज़:**
+				25 उच्चतम स्कोरिंग गाने "जो चाहो, वो चुकाओ" की कीमत के साथ बैंडकैम्प पर एक एल्बम के रूप में जारी किए जाएंगे। सारा प्राप्त धन LMMS के आगे के विकास के लिए दान किया जाएगा, वह प्रोग्राम जिससे हम प्यार करते हैं।
 
-			\* *This year the judging process has changed, to ensure fairer handling of entries. The change to one submission only is to allow each and every entry to be fully scored by the panel of judges. This was previously handled by a preliminary screening round to help cut down the large amount of entries received. By lowering the amount of up-front entries allowed, the judges will have the time to fully score each track entered.*]]></target>
+			\* *इस वर्ष जजों की प्रक्रिया में बदलाव आया है, ताकि प्रविष्टियों की निष्पक्ष हैंडलिंग सुनिश्चित की जा सके। केवल एक सबमिशन में बदलाव जज के पैनल द्वारा प्रत्येक प्रविष्टि को पूरी तरह से स्कोर करने की अनुमति देने के लिए है। इससे पहले प्राप्त प्रविष्टियों की बड़ी मात्रा में कटौती करने में मदद करने के लिए प्रारंभिक स्क्रीनिंग दौर द्वारा नियंत्रित किया गया था। अनुमति दी गई अप-फ्रंट प्रविष्टियों की मात्रा को कम करके, न्यायाधीशों के पास प्रत्येक ट्रैक में प्रवेश करने के लिए पूरी तरह से स्कोर करने का समय होगा।*]]></target>
+      </trans-unit>
+      <trans-unit id="A2MFznp" resname="The Best of LMMS vol. IV">
+        <source>The Best of LMMS vol. IV</source>
+        <target>The Best of LMMS vol. IV</target>
       </trans-unit>
       <trans-unit id="Nq2mv31" resname="#### The competition has ended on **April 16th, 2017**.&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://docs.google.com/spreadsheets/d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?gid=975440614&amp;single=true)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/321234884&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;&#10;&#9;&#9;&#9;#### Original Description:&#10;&#9;&#9;&#9;We are proud to present to you The Best of LMMS contest volume 4!&#10;&#9;&#9;&#9;The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight&#10;  &#9;&#9;(23:59.59) on April 16th (UTC time) for a chance to be featured on the BoL v4 album. The compilation will be uploaded to Bandcamp, with all&#10;&#9;&#9;&#9;profits going towards LMMS' further development.&#10;&#9;&#9;&#9;This year's submissions are handled through Google forms. We accept submissions hosted on YouTube, Soundcloud and Clyp. For the full rules check out the submission form:&#10;&#9;&#9;&#9;https://goo.gl/forms/cifEliOViOXTSc8H2&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#9;&#9;&#9;1. **The Deadline**&#10;&#9;&#9;&#9;  - Tracks must be submitted by April 16th at 23:59.59 UTC using [this form](https://goo.gl/forms/cifEliOViOXTSc8H2).&#10;&#9;&#9;&#9;2. **The Tracks**&#10;&#9;&#9;&#9;  - Must be produced in LMMS.&#10;&#9;&#9;&#9;&#9;- You may use other programs for mastering and post processing.&#10;&#9;&#9;&#9;&#9;- Must be under 10 minutes long.&#10;&#9;&#9;&#9;&#9;- No winning tracks from previous Best of LMMS albums allowed.&#10;&#9;&#9;&#9;&#9;- No remixes allowed.&#10;&#9;&#9;&#9;3. **The Submissions**&#10;&#9;&#9;&#9;  - You must submit using this form only.&#10;&#9;&#9;&#9;&#9;- No more than **TWO** entries per artist are allowed.&#10;&#9;&#9;&#9;&#9;- Collaborations count as **ONE** entry for each artist involved.&#10;&#9;&#9;&#9;&#9;- Only submissions hosted on Soundcloud, YouTube or Clyp are allowed.&#10;&#9;&#9;&#9;&#9;- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.&#10;&#9;&#9;&#9;4. **The Judges**&#10;&#9;&#9;&#9;  - The jury consists of: Greippi, Jacoby Davis, Spekular, Stakeout Punch and Squatro.&#10;&#9;&#9;&#9;5. **The Judging Process**&#10;&#9;&#9;&#9;  - After the deadline, the judges will make their decisions and release the results within 14 days.&#10;&#9;&#9;&#9;6. **The Release**&#10;&#9;&#9;&#9;  - The 25 highest scoring songs will be released as an album on Bandcamp with the price of &quot;Pay what you want&quot;.&#10;&#9;&#9;&#9;&#9;&#9;All the received funds will be donated for further development of LMMS, the program that we love.">
         <source>#### The competition has ended on **April 16th, 2017**.
@@ -1257,42 +743,44 @@ Abhi Prakash &lt;Apofficial18@gmail.com&gt;, 2019
 			6. **The Release**
 			  - The 25 highest scoring songs will be released as an album on Bandcamp with the price of "Pay what you want".
 					All the received funds will be donated for further development of LMMS, the program that we love.</source>
-        <target><![CDATA[#### The competition has ended on **April 16th, 2017**.
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)
+        <target><![CDATA[#### प्रतियोगिता **16 अप्रैल, 2017** को समाप्त हो गई है।
+			LMMS का समर्थन करें और हमारे [bandcamp पेज] पर संकलन खरीदें।(https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-4)
 
-			Listen to all entries [here.](https://docs.google.com/spreadsheets/d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?gid=975440614&single=true)
+			सभी प्रविष्टियों को [यहाँ](https://docs.google.com/spreadsheets/d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?gid=975440614&single=true) सुनें।
 
-			Winners:
+			विजेता:
 			<iframe width="100%%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/321234884&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			#### Original Description:
-			We are proud to present to you The Best of LMMS contest volume 4!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-  		(23:59.59) on April 16th (UTC time) for a chance to be featured on the BoL v4 album. The compilation will be uploaded to Bandcamp, with all
-			profits going towards LMMS' further development.
-			This year's submissions are handled through Google forms. We accept submissions hosted on YouTube, Soundcloud and Clyp. For the full rules check out the submission form:
+			#### मूल विवरण:
+			हम गर्व से आप के लिए प्रस्तुत करते हैं The Best of LMMS contest volume 4!
+			इस प्रतियोगिता का उद्देश्य समुदाय को अपने संगीत बनाने और साझा करने के लिए प्रेरित करना है। BoL v4 एल्बम में दिखाए जाने के अवसर के लिए 16 अप्रैल (UTC समय) को आधी रात (23: 59.59) से पहले नीचे दिए गए लिंक पर अपना ट्रैक सबमिट करें। संकलन को Bandcamp पर अपलोड किया जाएगा, जिसमें सभी लाभ LMMS के आगे के विकास की ओर जाएंगे।
+			इस वर्ष की प्रस्तुतियाँ Google फॉर्म्स के माध्यम से नियंत्रित की जाएँगी। हम YouTube, Soundcloud और Clyp पर होस्ट किए गए सबमिशन स्वीकार करते हैं। पूर्ण नियमों के लिए सबमिशन फॉर्म देखें:
 			https://goo.gl/forms/cifEliOViOXTSc8H2
-			#### Competition rules:
-			1. **The Deadline**
-			  - Tracks must be submitted by April 16th at 23:59.59 UTC using [this form](https://goo.gl/forms/cifEliOViOXTSc8H2).
-			2. **The Tracks**
-			  - Must be produced in LMMS.
-				- You may use other programs for mastering and post processing.
-				- Must be under 10 minutes long.
-				- No winning tracks from previous Best of LMMS albums allowed.
-				- No remixes allowed.
-			3. **The Submissions**
-			  - You must submit using this form only.
-				- No more than **TWO** entries per artist are allowed.
-				- Collaborations count as **ONE** entry for each artist involved.
-				- Only submissions hosted on Soundcloud, YouTube or Clyp are allowed.
-				- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
-			4. **The Judges**
-			  - The jury consists of: Greippi, Jacoby Davis, Spekular, Stakeout Punch and Squatro.
-			5. **The Judging Process**
-			  - After the deadline, the judges will make their decisions and release the results within 14 days.
-			6. **The Release**
-			  - The 25 highest scoring songs will be released as an album on Bandcamp with the price of "Pay what you want".
-					All the received funds will be donated for further development of LMMS, the program that we love.]]></target>
+			#### प्रतियोगिता के नियम:
+			1. **समयसीमा**
+			- [इस फॉर्म](https://goo.gl/forms/cifEliOViOXTSc8H2) का उपयोग करके 16 अप्रैल को 23: 59.59 UTC तक ट्रैक प्रस्तुत किया जाना चाहिए।
+			2.  **ट्रैक्स**
+			- LMMS में उत्पादित किया जाना चाहिए।
+				- आप मास्टरिंग और पोस्ट प्रोसेसिंग के लिए अन्य कार्यक्रमों का उपयोग कर सकते हैं।
+				- 10 मिनट से कम समय के लिए होना चाहिए।
+				- पिछले Best of LMMS एल्बम से कोई भी जीतने वाला ट्रैक अनुमति नहीं है।
+				- रीमिक्स की अनुमति नहीं है।
+			3. **प्रस्तुतियाँ**
+			- आपको इस फॉर्म का उपयोग करके ही जमा करना होगा।
+				- प्रति कलाकार **दो** से अधिक प्रविष्टियों की अनुमति नहीं है।
+				- सभी सहभागीताएं प्रत्येक शामिल कलाकार की **एक** प्रविष्टि के रूप में गिनी जाएँगी।
+				- केवल Soundcloud, YouTube या Clyp पर होस्ट किए गए सबमिशन की अनुमति है।
+				- जजिंग प्रक्रिया के अंत तक आपकी प्रविष्टि सुनने के लिए उपलब्ध होनी चाहिए। यदि नहीं, तो आपका प्रवेश अयोग्य हो जाएगी।
+			4. **जजेस**
+			- जजों में शामिल है: Greippi, Jacoby Davis, Spekular, Stakeout Punch और Squatro।
+			5. **चुनाव प्रक्रिया**
+			- समयसीमा के बाद, जजेस अपने फैसले करेंगे और 14 दिनों के भीतर परिणाम जारी करेंगे।
+			6. **रिलीज़**
+			- 25 उच्चतम स्कोरिंग गाने "जो चाहो, वो चुकाओ" की कीमत के साथ बैंडकैम्प पर एक एल्बम के रूप में जारी किए जाएंगे।
+					सारा प्राप्त धन LMMS के आगे के विकास के लिए दान किया जाएगा, वह प्रोग्राम जिससे हम प्यार करते हैं।]]></target>
+      </trans-unit>
+      <trans-unit id="IKxeWHi" resname="The Best of LMMS vol. III">
+        <source>The Best of LMMS vol. III</source>
+        <target>The Best of LMMS vol. III</target>
       </trans-unit>
       <trans-unit id="X8112Z5" resname="#### The competition has ended on **March 16th, 2016.**&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://soundcloud.com/groups/the-best-of-lmms-competition-v3)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%%&quot; height=&quot;450&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/211975750&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;&#10;&#9;&#9;&#9;#### Original description:&#10;&#10;&#9;&#9;&#9;It’s that time of the year again: If you have made amazing tracks with LMMS we have a contest for you!&#10;&#9;&#9;&#9;The Best of LMMS contest is back!  The compilation aims to inspire new users and everyone to create music.&#10;&#9;&#9;&#9;The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS.&#10;&#9;&#9;&#9;Submit your track before midnight on March 16th (UTC time), and find details about the contest on the [soundcloud group.](https://soundcloud.com/groups/the-best-of-lmms-competition-v3)&#10;&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#10;&#9;&#9;&#9;1. The Deadline. The tracks must be submitted by March 16th 0:00 UTC. The tracks can be of any genre, preferably under 10 minutes.&#10;&#9;&#9;&#9;&#9;The track must be produced in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.&#10;&#9;&#9;&#9;2. The tracks. All submissions will be handled via SoundCloud using the dedicated group. You can submit a maximum of two tracks.&#10;&#9;&#9;&#9;&#9;You may submit previously released tracks, but not tracks that were in the previous Best of LMMS albums. Remixes are not allowed. A collaboration between a judge and yourself is not allowed.&#10;&#9;&#9;&#9;3. The Judges. The jury consists of: Zach Henderson, Second Flight, Umcaruje, Greippi, Tres Finnochiaro, Abludo.&#10;&#9;&#9;&#9;4. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 14 days.&#10;&#9;&#9;&#9;5. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds&#10;&#9;&#9;&#9;&#9;will be donated for further development of LMMS, the program that we love.">
         <source>#### The competition has ended on **March 16th, 2016.**
@@ -1319,30 +807,33 @@ Abhi Prakash &lt;Apofficial18@gmail.com&gt;, 2019
 			4. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 14 days.
 			5. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
 				will be donated for further development of LMMS, the program that we love.</source>
-        <target><![CDATA[#### The competition has ended on **March 16th, 2016.**
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)
+        <target><![CDATA[#### प्रतियोगिता **16 मार्च, 2016** को समाप्त हो गई है।
+			LMMS का समर्थन करें और हमारे [bandcamp पेज](https://lmmsartists.bandcamp.com/) पर संकलन खरीदें।
 
-			Listen to all entries [here.](https://soundcloud.com/groups/the-best-of-lmms-competition-v3)
+			सभी प्रविष्टियों को [यहाँ](https://soundcloud.com/groups/the-best-of-lmms-competition-v3) सुनें।
 
-			Winners:
+			विजेता:
 			<iframe width="100%%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/211975750&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			#### Original description:
+			#### मूल विवरण:
 
-			It’s that time of the year again: If you have made amazing tracks with LMMS we have a contest for you!
-			The Best of LMMS contest is back!  The compilation aims to inspire new users and everyone to create music.
-			The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS.
-			Submit your track before midnight on March 16th (UTC time), and find details about the contest on the [soundcloud group.](https://soundcloud.com/groups/the-best-of-lmms-competition-v3)
+			फिर यह वर्ष का वही समय है: यदि आप LMMS के साथ अद्भुत गाने बना चुके हैं तो हमारे पास आपके लिए एक प्रतियोगिता है!
+			 The Best of LMMS प्रतियोगिता वापस आ गई है! इस संकलन का उद्देश्य नए उपयोगकर्ताओं और सभी को संगीत बनाने के लिए प्रेरित करना है।
+			संकलन को Bandcamp पर अपलोड किया जाएगा और सभी लाभ LMMS के विकास के लिए दान किए जाएंगे।
+			16 मार्च (UTC समय) को आधी रात से पहले अपना ट्रैक जमा करें, और [soundcloud group](https://soundcloud.com/groups/the-best-of-lmms-competition-v3) पर प्रतियोगिता के बारे में विवरण पाएं।
 
-			#### Competition rules:
+			प्रतियोगिता के नियम:
 
-			1. The Deadline. The tracks must be submitted by March 16th 0:00 UTC. The tracks can be of any genre, preferably under 10 minutes.
-				The track must be produced in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.
-			2. The tracks. All submissions will be handled via SoundCloud using the dedicated group. You can submit a maximum of two tracks.
-				You may submit previously released tracks, but not tracks that were in the previous Best of LMMS albums. Remixes are not allowed. A collaboration between a judge and yourself is not allowed.
-			3. The Judges. The jury consists of: Zach Henderson, Second Flight, Umcaruje, Greippi, Tres Finnochiaro, Abludo.
-			4. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 14 days.
-			5. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
-				will be donated for further development of LMMS, the program that we love.]]></target>
+			1. समयसीमा. गाने 16 मार्च 0:00 UTC तक प्रस्तुत किए जा सकते हैं। गाने किसी भी शैली के हो सकते हैं,
+अधिमानतः 10 मिनट के भीतर।
+				गीत को ज्यादातर LMMS में बनाया जाना चाहिए, लेकिन पोस्ट मिक्सिंग/मास्टरिंग के लिए कुछ अन्य सॉफ्टवेयर (Audacity, Ardour आदि) का उपयोग करने की अनुमति है।
+			2. ट्रैक्स. सभी प्रस्तुतियाँ SoundCloud के माध्यम से समर्पित समूह के द्वारा नियंत्रित की जाएंगी। आप अधिकतम दो ट्रैक सबमिट कर सकते हैं। आप पहले रिलीज़ किए गए ट्रैक सबमिट कर सकते हैं, लेकिन वे ट्रैक नहीं जो पिछले बेस्ट ऑफ़ LMMS एल्बम में थे। Remixes की अनुमति नहीं है। एक जज और खुद के बीच गीत सहभागिता की अनुमति नहीं है।
+			3. जजेस. जजों में शामिल है: Zach Henderson, Second Flight, Umcaruje, Greippi, Tres Finnochiaro, Abludo.
+			4. चुनाव प्रक्रिया. समयसीमा के बाद, जजेस अपने फैसले करेंगे और अगले 14 दिनों के भीतर परिणाम जारी करेंगे।
+			5. रिलीज़. संकलन को एक समर्पित LMMS artists Bandcamp पर "जो चाहो, वो चुकाओ" की कीमत के साथ रिलीज़ किया जाएगा। सभी प्राप्त धन LMMS के विकास के लिए दान किया जाए, वह प्रोग्राम जिसे हम प्यार करते हैं।]]></target>
+      </trans-unit>
+      <trans-unit id="GkkeUeD" resname="The Best of LMMS vol. II">
+        <source>The Best of LMMS vol. II</source>
+        <target>The Best of LMMS vol. II</target>
       </trans-unit>
       <trans-unit id="Ux4le5x" resname="#### The competition has ended on **April 1st, 2015.**&#10;&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://soundcloud.com/groups/the-best-of-lmms-competition-v2)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/103762698&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;&#10;&#9;&#9;&#9;#### Original description:&#10;&#9;&#9;&#9;1. The Deadline. The songs must be submitted by April 1st 0:00 UTC. The songs can be of any genre, preferably under 10 minutes.&#10;&#9;&#9;&#9;&#9;The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.&#10;&#9;&#9;&#9;2. The songs. All submissions will be handled via SoundCloud using the dedicated group. A user can submit a maximum of two songs.&#10;&#9;&#9;&#9;&#9;Users CAN submit previously released songs, BUT not songs submitted for previous BoL competitions. Remixes are not allowed.&#10;&#9;&#9;&#9;&#9;A song cooperation between a judge and yourself is not allowed.&#10;&#9;&#9;&#9;3. The Judges and the Release. The judges consist of Stian Jørgensrud (Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix and Jernemies.&#10;&#9;&#9;&#9;&#9;The compilation will be released on the dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds will be donated&#10;&#9;&#9;&#9;&#9;for further development of LMMS or to cover other program related costs.&#10;&#10;&#9;&#9;&#9;Extras:&#10;&#10;&#9;&#9;&#9;By marking your song with the tag &quot;Want Feedback&quot; you can get feedback from the judges. Comments from different judges will be combined into one&#10;&#9;&#9;&#9;text so you won't know from who or how many the feedback is. Note that you aren't guaranteed any feedback, it depends on how much time the judges have.&#10;&#9;&#9;&#9;Also note that the judges are just regular LMMS artists and no matter what feedback you get the judges' decision for album songs is final.">
         <source>#### The competition has ended on **April 1st, 2015.**
@@ -1368,29 +859,31 @@ Abhi Prakash &lt;Apofficial18@gmail.com&gt;, 2019
 			By marking your song with the tag "Want Feedback" you can get feedback from the judges. Comments from different judges will be combined into one
 			text so you won't know from who or how many the feedback is. Note that you aren't guaranteed any feedback, it depends on how much time the judges have.
 			Also note that the judges are just regular LMMS artists and no matter what feedback you get the judges' decision for album songs is final.</source>
-        <target><![CDATA[#### The competition has ended on **April 1st, 2015.**
+        <target><![CDATA[#### प्रतियोगिता **1 अप्रैल, 2015** को समाप्त हो गई है।
 
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)
+			LMMS का समर्थन करें और हमारे [bandcamp पेज](https://lmmsartists.bandcamp.com/) पर संकलन खरीदें।
 
-			Listen to all entries [here.](https://soundcloud.com/groups/the-best-of-lmms-competition-v2)
+			सभी प्रविष्टियों को [यहाँ](https://soundcloud.com/groups/the-best-of-lmms-competition-v2) सुनें।
 
-			Winners:
+			विजेता:
 			<iframe width="100%%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/103762698&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			#### Original description:
-			1. The Deadline. The songs must be submitted by April 1st 0:00 UTC. The songs can be of any genre, preferably under 10 minutes.
-				The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.
-			2. The songs. All submissions will be handled via SoundCloud using the dedicated group. A user can submit a maximum of two songs.
-				Users CAN submit previously released songs, BUT not songs submitted for previous BoL competitions. Remixes are not allowed.
-				A song cooperation between a judge and yourself is not allowed.
-			3. The Judges and the Release. The judges consist of Stian Jørgensrud (Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix and Jernemies.
-				The compilation will be released on the dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds will be donated
-				for further development of LMMS or to cover other program related costs.
+			#### मूल विवरण:
+			1. समयसीमा. गाने 15 फरवरी 12 बजे GMT तक प्रस्तुत किए जा सकते हैं। एक उपयोगकर्ता अधिकतम दो गाने प्रस्तुत कर सकता है। गाने किसी भी शैली के हो सकते हैं, अधिमानतः 10 मिनट के भीतर।
+				गीत को ज्यादातर LMMS में बनाया जाना चाहिए, लेकिन पोस्ट मिक्सिंग/मास्टरिंग के लिए कुछ अन्य सॉफ्टवेयर (Audacity, Ardour आदि) का उपयोग करने की अनुमति है।
+			2. गाने. सभी प्रस्तुतियाँ SoundCloud के माध्यम से समर्पित समूह के द्वारा नियंत्रित की जाएंगी। एक उपयोगकर्ता अधिकतम दो गाने प्रस्तुत कर सकता है।
+				उपयोगकर्ता पहले रिलीज़ किए गए गाने सबमिट कर सकते हैं, लेकिन पिछले BoL प्रतियोगिताओं के लिए प्रस्तुत गाने नहीं। Remixes की अनुमति नहीं है।
+				एक जज और खुद के बीच गीत सहोद्योग की अनुमति नहीं है।
+			3. जजेस और रिलीज़. जजों में शामिल है Stian Jørgensrud (Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix और Jernemies।
+				संकलन को एक समर्पित LMMS artists Bandcamp पर "जो चाहो, वो चुकाओ" की कीमत के साथ रिलीज़ किया जाएगा। सभी प्राप्त धन LMMS के आगे के विकास के लिए या अन्य कार्यक्रम से संबंधित लागतों को कवर करने के लिए दान किया जाएगा।
 
-			Extras:
+			अतिरिक्त:
 
-			By marking your song with the tag "Want Feedback" you can get feedback from the judges. Comments from different judges will be combined into one
-			text so you won't know from who or how many the feedback is. Note that you aren't guaranteed any feedback, it depends on how much time the judges have.
-			Also note that the judges are just regular LMMS artists and no matter what feedback you get the judges' decision for album songs is final.]]></target>
+			"वांट फीडबैक" टैग के साथ अपने गीत को चिह्नित करके आप जजों से प्रतिक्रिया प्राप्त कर सकते हैं। विभिन्न जजों की टिप्पणियों को एक पाठ में संयोजित किया जाएगा ताकि आपको यह पता न चले कि किससे अथवा कितना फीडबैक है। ध्यान दें कि आपको किसी भी प्रतिक्रिया की गारंटी नहीं दी है, यह इस बात पर निर्भर करता है कि जजेस के पास कितना समय है।
+			यह भी ध्यान दें कि जजेस भी केवल सामान्य LMMS कलाकार हैं और चाहे आपको कैसा भी फीडबैक मिले, जजों का फैसला उनका आख़िरी फैसला हैं।]]></target>
+      </trans-unit>
+      <trans-unit id="pE7RK0F" resname="The Best of LMMS vol. I">
+        <source>The Best of LMMS vol. I</source>
+        <target>The Best of LMMS vol. I</target>
       </trans-unit>
       <trans-unit id="mZajPTE" resname="#### The competition has ended on **February 15th, 2014.**&#10;&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://soundcloud.com/groups/lmms-top-songs-compilation)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/27083727&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;&#10;&#9;&#9;&#9;#### Original description:&#10;&#10;&#9;&#9;&#9;If you have made amazing songs with LMMS we have a contest for you! A LMMS top songs contest.&#10;&#9;&#9;&#9;The compilation aims to inspire new users and get new producers to use the program as well as to give a big thank you to LMMS developers.&#10;&#9;&#9;&#9;The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS. Submit your song before&#10;&#9;&#9;&#9;midnight on February 15th, and find details about this contest on the Soundcloud site.&#10;&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#9;&#9;&#9;1. The Deadline. The songs must be submitted by February 15th 12 PM GMT. A user can submit a maximum of two songs. The songs can be of any genre,&#10;&#9;&#9;&#9;&#9;preferably under 10 minutes. All submissions will be handled via SoundCloud using the dedicated group. User CAN submit previously released songs.&#10;&#9;&#9;&#9;&#9;Remixes are not allowed. The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.&#10;&#9;&#9;&#9;2. The Judges. The judges consist of the group Avelocity: Brian Amin (Maniarib), Joshua Wade (Second Flight),&#10;&#9;&#9;&#9;&#9;Uroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn (Raptor980), Jan Heemstra (Combustible Lemonade)&#10;&#9;&#9;&#9;3. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 7 days.&#10;&#9;&#9;&#9;4. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds&#10;&#9;&#9;&#9;&#9;will be donated for further development of LMMS, the program that we love.">
         <source>#### The competition has ended on **February 15th, 2014.**
@@ -1417,34 +910,291 @@ Abhi Prakash &lt;Apofficial18@gmail.com&gt;, 2019
 			3. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 7 days.
 			4. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
 				will be donated for further development of LMMS, the program that we love.</source>
-        <target><![CDATA[#### The competition has ended on **February 15th, 2014.**
+        <target><![CDATA[#### प्रतियोगिता **15 फरवरी, 2014** को समाप्त हो गई है।			LMMS का समर्थन करें और हमारे [bandcamp पेज](https://lmmsartists.bandcamp.com/)%MCEPASTEBIN% पर संकलन खरीदें।
 
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/)
+			सभी प्रविष्टियों को [यहाँ](https://soundcloud.com/groups/lmms-top-songs-compilation) सुनें।
 
-			Listen to all entries [here.](https://soundcloud.com/groups/lmms-top-songs-compilation)
-
-			Winners:
+			विजेता:
 			<iframe width="100%%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/27083727&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			#### Original description:
+			#### मूल विवरण:
 
-			If you have made amazing songs with LMMS we have a contest for you! A LMMS top songs contest.
-			The compilation aims to inspire new users and get new producers to use the program as well as to give a big thank you to LMMS developers.
-			The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS. Submit your song before
-			midnight on February 15th, and find details about this contest on the Soundcloud site.
+			यदि आप LMMS के साथ अद्भुत गाने बना चुके हैं तो हमारे पास आपके लिए एक प्रतियोगिता है! एक LMMS top songs प्रतियोगिता।
+			यह संकलन नए उपयोगकर्ताओं को प्रेरित करने और नए उत्पादकों से सॉफ्टवेयर का उपयोग करवाने के साथ-साथ LMMS डेवलपर्स का शुक्रिया अदा करने की ओर उद्देश्यीत है।
+			इस संकलन को Bandcamp पर अपलोड किया जाएगा और सभी लाभ LMMS के आगामी विकास के लिए दान किए जाएंगे। अपना गीत
+			15 फरवरी की आधी रात से पहले प्रस्तुत करें, और साउंडक्लाउड साइट पर इस प्रतियोगिता के बारे में विवरण प्राप्त करें।
 
-			#### Competition rules:
-			1. The Deadline. The songs must be submitted by February 15th 12 PM GMT. A user can submit a maximum of two songs. The songs can be of any genre,
-				preferably under 10 minutes. All submissions will be handled via SoundCloud using the dedicated group. User CAN submit previously released songs.
-				Remixes are not allowed. The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.
-			2. The Judges. The judges consist of the group Avelocity: Brian Amin (Maniarib), Joshua Wade (Second Flight),
+			#### प्रतियोगिता के नियम:
+			1. समयसीमा. गाने 15 फरवरी 12 बजे GMT तक प्रस्तुत किए जा सकते हैं। एक उपयोगकर्ता अधिकतम दो गाने प्रस्तुत कर सकता है। गाने किसी भी शैली के हो सकते हैं,
+				अधिमानतः 10 मिनट के भीतर। सभी प्रस्तुतियाँ SoundCloud के माध्यम से समर्पित समूह के द्वारा नियंत्रित की जाएंगी। Remixes की अनुमति नहीं है। गीत को ज्यादातर LMMS में बनाया जाना चाहिए, लेकिन पोस्ट मिक्सिंग/मास्टरिंग के लिए कुछ अन्य सॉफ्टवेयर (Audacity, Ardour आदि) का उपयोग करने की अनुमति है।
+			2. जजेस. जजों के समूह में शामिल है Avelocity: Brian Amin (Maniarib), Joshua Wade (Second Flight),
 				Uroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn (Raptor980), Jan Heemstra (Combustible Lemonade)
-			3. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 7 days.
-			4. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
-				will be donated for further development of LMMS, the program that we love.]]></target>
+			3. चुनाव की प्रक्रिया. समयसीमा के बाद, जजेस अपने फैसले करेंगे और अगले 7 दिनों के भीतर परिणाम जारी करेंगे।
+			4. रिलीज़. संकलन को एक समर्पित LMMS artists Bandcamp पर "जो चाहो, वो चुकाओ" की कीमत के साथ रिलीज़ किया जाएगा। सभी प्राप्त धन
+				LMMS के विकास के लिए दान किया जाए, वह प्रोग्राम जिसे हम प्यार करते हैं।]]></target>
+      </trans-unit>
+      <trans-unit id="jHKJWvC" resname="Error &lt;b&gt;%code%&lt;/b&gt;">
+        <source>Error &lt;b&gt;%code%&lt;/b&gt;</source>
+        <target><![CDATA[Error <b>%code%</b>]]></target>
+      </trans-unit>
+      <trans-unit id="eM.OOlw" resname="If you followed a valid link on this site, please contact us&#10;      about it and &lt;a href=&quot;//github.com/LMMS/lmms.io/issues/new&quot;&gt;file an issue&lt;/a&gt; on GitHub.">
+        <source>If you followed a valid link on this site, please contact us
+      about it and &lt;a href="//github.com/LMMS/lmms.io/issues/new"&gt;file an issue&lt;/a&gt; on GitHub.</source>
+        <target><![CDATA[यदि आपने इस साइट पर एक वैध लिंक का अनुसरण किया है,
+ तो कृपया इसके बारे में हमसे संपर्क करें और GitHub पर <a href="//github.com/LMMS/lmms.io/issues/new">समस्या दर्ज</a> करें।]]></target>
+      </trans-unit>
+      <trans-unit id=".cXS6UE" resname="Powered by">
+        <source>Powered by</source>
+        <target>Powered by</target>
+      </trans-unit>
+      <trans-unit id="laP8ZYf" resname="Author:">
+        <source>Author:</source>
+        <target>प्रणेता:</target>
+      </trans-unit>
+      <trans-unit id="DDaBYVH" resname="Modified/Themed By:">
+        <source>Modified/Themed By:</source>
+        <target>परिवर्तित/थीम्ड द्वारा:</target>
+      </trans-unit>
+      <trans-unit id="VqvyA1L" resname="Scalable Vector Format">
+        <source>Scalable Vector Format</source>
+        <target>स्केलेबल वेक्टर फॉर्मेट</target>
+      </trans-unit>
+      <trans-unit id="5izmwVw" resname="PNG Format">
+        <source>PNG Format</source>
+        <target>PNG फोर्मेट</target>
+      </trans-unit>
+      <trans-unit id="9pbDeQ2" resname="Gimp Image Editor Format">
+        <source>Gimp Image Editor Format</source>
+        <target>Gimp इमेज एडिटर फॉर्मेट</target>
+      </trans-unit>
+      <trans-unit id="zPnNJNw" resname="Portable Document Format">
+        <source>Portable Document Format</source>
+        <target>पोर्टेबल डॉक्यूमेंट फोर्मेट</target>
+      </trans-unit>
+      <trans-unit id="Fa8w_Q9" resname="Adobe Photoshop Format">
+        <source>Adobe Photoshop Format</source>
+        <target>Adobe फोटोशॉप फोर्मेट</target>
+      </trans-unit>
+      <trans-unit id="CBjpoqc" resname="JPEG Format">
+        <source>JPEG Format</source>
+        <target>JPEG फोर्मेट</target>
+      </trans-unit>
+      <trans-unit id="FneECEa" resname="Bitmap Format">
+        <source>Bitmap Format</source>
+        <target>बिटमैप फोर्मेट</target>
+      </trans-unit>
+      <trans-unit id="HjfR4tA" resname="Windows Icon Format">
+        <source>Windows Icon Format</source>
+        <target>Windows आइकन फोर्मेट</target>
+      </trans-unit>
+      <trans-unit id="lzCF.IZ" resname="Apple Icon Format">
+        <source>Apple Icon Format</source>
+        <target>Apple आइकन फोर्मेट</target>
       </trans-unit>
       <trans-unit id="OnhpU4i" resname="Home">
         <source>Home</source>
-        <target>Home</target>
+        <target>होम</target>
+      </trans-unit>
+      <trans-unit id="R0s_HGS" resname="Tracks made with LMMS">
+        <source>Tracks made with LMMS</source>
+        <target>LMMS से बनाये गए ट्रैक्स</target>
+      </trans-unit>
+      <trans-unit id="U7C6Upb" resname="The Best of LMMS Vol. 5 by LMMS Artists">
+        <source>The Best of LMMS Vol. 5 by LMMS Artists</source>
+        <target>The Best of LMMS Vol. 5 by LMMS Artists</target>
+      </trans-unit>
+      <trans-unit id="VlSWT7Z" resname="The Best of LMMS Vol. 4 by LMMS Artists">
+        <source>The Best of LMMS Vol. 4 by LMMS Artists</source>
+        <target>The Best of LMMS Vol. 4 by LMMS Artists</target>
+      </trans-unit>
+      <trans-unit id="SmxHy9V" resname="The Best of LMMS Vol.3 by LMMS Artists">
+        <source>The Best of LMMS Vol.3 by LMMS Artists</source>
+        <target>The Best of LMMS Vol.3 by LMMS Artists</target>
+      </trans-unit>
+      <trans-unit id="lSUTfcX" resname="The Best of LMMS Vol.2 by LMMS Artists">
+        <source>The Best of LMMS Vol.2 by LMMS Artists</source>
+        <target>The Best of LMMS Vol.2 by LMMS Artists</target>
+      </trans-unit>
+      <trans-unit id="dcu1CCI" resname="The Best of LMMS Vol.1 by LMMS Artists">
+        <source>The Best of LMMS Vol.1 by LMMS Artists</source>
+        <target>The Best of LMMS Vol.1 by LMMS Artists</target>
+      </trans-unit>
+      <trans-unit id="oEXz92z" resname="Nightly Versions">
+        <source>Nightly Versions</source>
+        <target>Nightly Versions</target>
+      </trans-unit>
+      <trans-unit id="paHvzJ5" resname="Downloads labeled Beta or Nightly are pre-release software, stability may suffer.">
+        <source>Downloads labeled Beta or Nightly are pre-release software, stability may suffer.</source>
+        <target>Downloads labeled Beta or Nightly are pre-release software, stability may suffer.</target>
+      </trans-unit>
+      <trans-unit id="z5uvwQy" resname="The Best of LMMS vol. VIII">
+        <source>The Best of LMMS vol. VIII</source>
+        <target>The Best of LMMS vol. VIII</target>
+      </trans-unit>
+      <trans-unit id="BQRlGdk" resname="We are proud to present to you The Best of LMMS contest volume 8!&#10;&#9;&#9;&#9;The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight&#10;&#9;&#9;&#9;(23:59.59 UTC Time) on April 5th 2021 for a chance to be featured on the BoL v8 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.&#10;&#10;&#9;&#9;&#9;&lt;p class=&quot;center&quot;&gt;&lt;a class=&quot;btn btn-success btn-lg center&quot; href=&quot;https://docs.google.com/forms/d/e/1FAIpQLScfJNvVtoCJ8SVQ8TWiPMjbIsl49RvwGiy1nODuvKdJ8Er_Bg/viewform&quot;&gt;Submit here&lt;/a&gt;&lt;/p&gt;&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#10;&#9;&#9;&#9;1. **The Deadline:**&#10;&#9;&#9;&#9; - Track must be submitted by April 5th 2021 at 23:59.59 UTC using this form.&#10;&#9;&#9;&#9;2. **The Track:**&#10;&#9;&#9;&#9; - Must be produced in LMMS.&#10;&#9;&#9;&#9; - You may use other programs for mastering and post processing.&#10;&#9;&#9;&#9; - Must be under 10 minutes long.&#10;&#9;&#9;&#9; - No winning tracks from previous Best of LMMS albums allowed.&#10;&#9;&#9; &#9; - No covers or remixes of other person(s) works are permitted.&#10;&#9;&#9;&#9; - Reworks of your own tracks are eligible with judge approval.&#10;&#9;&#9;&#9;3. **The Submissions:**&#10;&#9;&#9;&#9; - You must submit using this form only.&#10;&#9;&#9;&#9; - No more than ONE entry per artist is allowed.&#10;&#9;&#9;&#9; - Collaborations count as ONE entry for each artist involved.&#10;&#9;&#9;&#9; - No collaborating with judges on entries.&#10;&#9;&#9;&#9; - Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.&#10;&#9;&#9;&#9;  - The full track should be available at the submission link provided&#10;&#9;&#9;&#9; - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.&#10;&#9;&#9;&#9;4. **The Judges:**&#10;&#9;&#9;&#9; - The jury consists of: Woods Alive, Hotel Zero, Jousboxx, Blageez, Noeroti, and JVSTDARE&#10;&#9;&#9;&#9;5. **The Judging:**&#10;&#9;&#9;&#9; - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.&#10;&#9;&#9;&#9;6. **Release:**&#10;&#9;&#9;&#9; - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.&#10;&#10;&#9;&#9;&#9;**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**">
+        <source>We are proud to present to you The Best of LMMS contest volume 8!
+			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
+			(23:59.59 UTC Time) on April 5th 2021 for a chance to be featured on the BoL v8 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+
+			&lt;p class="center"&gt;&lt;a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScfJNvVtoCJ8SVQ8TWiPMjbIsl49RvwGiy1nODuvKdJ8Er_Bg/viewform"&gt;Submit here&lt;/a&gt;&lt;/p&gt;
+			#### Competition rules:
+
+			1. **The Deadline:**
+			 - Track must be submitted by April 5th 2021 at 23:59.59 UTC using this form.
+			2. **The Track:**
+			 - Must be produced in LMMS.
+			 - You may use other programs for mastering and post processing.
+			 - Must be under 10 minutes long.
+			 - No winning tracks from previous Best of LMMS albums allowed.
+		 	 - No covers or remixes of other person(s) works are permitted.
+			 - Reworks of your own tracks are eligible with judge approval.
+			3. **The Submissions:**
+			 - You must submit using this form only.
+			 - No more than ONE entry per artist is allowed.
+			 - Collaborations count as ONE entry for each artist involved.
+			 - No collaborating with judges on entries.
+			 - Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.
+			  - The full track should be available at the submission link provided
+			 - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
+			4. **The Judges:**
+			 - The jury consists of: Woods Alive, Hotel Zero, Jousboxx, Blageez, Noeroti, and JVSTDARE
+			5. **The Judging:**
+			 - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.
+			6. **Release:**
+			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
+
+			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**</source>
+        <target><![CDATA[We are proud to present to you The Best of LMMS contest volume 8!
+			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
+			(23:59.59 UTC Time) on April 5th 2021 for a chance to be featured on the BoL v8 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+
+			<p class="center"><a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScfJNvVtoCJ8SVQ8TWiPMjbIsl49RvwGiy1nODuvKdJ8Er_Bg/viewform">Submit here</a></p>
+			#### Competition rules:
+
+			1. **The Deadline:**
+			 - Track must be submitted by April 5th 2021 at 23:59.59 UTC using this form.
+			2. **The Track:**
+			 - Must be produced in LMMS.
+			 - You may use other programs for mastering and post processing.
+			 - Must be under 10 minutes long.
+			 - No winning tracks from previous Best of LMMS albums allowed.
+		 	 - No covers or remixes of other person(s) works are permitted.
+			 - Reworks of your own tracks are eligible with judge approval.
+			3. **The Submissions:**
+			 - You must submit using this form only.
+			 - No more than ONE entry per artist is allowed.
+			 - Collaborations count as ONE entry for each artist involved.
+			 - No collaborating with judges on entries.
+			 - Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.
+			  - The full track should be available at the submission link provided
+			 - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
+			4. **The Judges:**
+			 - The jury consists of: Woods Alive, Hotel Zero, Jousboxx, Blageez, Noeroti, and JVSTDARE
+			5. **The Judging:**
+			 - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.
+			6. **Release:**
+			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
+
+			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**]]></target>
+      </trans-unit>
+      <trans-unit id="yzGLm.Z" resname="The Best of LMMS vol. VII">
+        <source>The Best of LMMS vol. VII</source>
+        <target>The Best of LMMS vol. VII</target>
+      </trans-unit>
+      <trans-unit id="legSd3M" resname="#### The competition has ended on **April 16th, 2020**.&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-7)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vR6tbmbsWPReJdh2jnCixmKlisIiWTY2QPAz_y1OjSmuwGl0PjKuXgJQ7cXuKtlrYtLqBBEa_IYeVC0/pubhtml?gid=491403559&amp;single=true)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/1051302979&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;&#10;&#10;&#9;&#9;&#9;#### Original description:&#10;&#9;&#9;&#9;We are proud to present to you The Best of LMMS contest volume 7!&#10;&#9;&#9;&#9;The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight&#10;&#9;&#9;&#9;(23:59.59 UTC Time) on April 16th for a chance to be featured on the BoL v6 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.&#10;&#10;&#9;&#9;&#9;[Submit here](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform)&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#9;&#9;&#9;1. **The Deadline:**&#10;&#9;&#9;&#9;&#9;- Track must be submitted by April 16th 2020 at 23:59.59 UTC using [this form](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform).&#10;&#9;&#9;&#9;2. **The Track:**&#10;&#9;&#9;&#9;&#9;- Must be produced in LMMS.&#10;&#9;&#9;&#9;&#9;- You may use other programs for mastering and post processing.&#10;&#9;&#9;&#9;&#9;- Must be under 10 minutes long.&#10;&#9;&#9;&#9;&#9;- No winning tracks from previous Best of LMMS albums allowed.&#10;&#9;&#9;&#9;&#9;- No remixes allowed.&#10;&#9;&#9;&#9;3. **The Submissions:**&#10;&#9;&#9;&#9;&#9;- You must submit using this form only.&#10;&#9;&#9;&#9;&#9;- No more than ONE entry per artist is allowed.&#10;&#9;&#9;&#9;&#9;- Collaborations count as ONE entry for each artist involved.&#10;&#9;&#9;&#9;&#9;- No collaborating with judges on entries.&#10;&#9;&#9;&#9;&#9;- Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.&#10;&#9;&#9;&#9;&#9; - The full track should be available at the submission link provided&#10;&#9;&#9;&#9;&#9;- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.&#10;&#9;&#9;&#9;4. **The Judges:**&#10;&#9;&#9;&#9;&#9;- The jury consists of: Cubician, Etorna_Z, Noeroti, Leche, Satori and Umcaruje.&#10;&#9;&#9;&#9;5. **The Judging:**&#10;&#9;&#9;&#9;&#9;- After the deadline, the judges will make their decisions and release the results within 14 days.&#10;&#9;&#9;&#9;6. **Release:**&#10;&#9;&#9;&#9;&#9;- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.">
+        <source>#### The competition has ended on **April 16th, 2020**.
+			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-7)
+
+			Listen to all entries [here.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vR6tbmbsWPReJdh2jnCixmKlisIiWTY2QPAz_y1OjSmuwGl0PjKuXgJQ7cXuKtlrYtLqBBEa_IYeVC0/pubhtml?gid=491403559&amp;single=true)
+
+			Winners:
+			&lt;iframe width="100%%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/1051302979&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"&gt;&lt;/iframe&gt;
+
+			#### Original description:
+			We are proud to present to you The Best of LMMS contest volume 7!
+			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
+			(23:59.59 UTC Time) on April 16th for a chance to be featured on the BoL v6 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+
+			[Submit here](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform)
+			#### Competition rules:
+			1. **The Deadline:**
+				- Track must be submitted by April 16th 2020 at 23:59.59 UTC using [this form](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform).
+			2. **The Track:**
+				- Must be produced in LMMS.
+				- You may use other programs for mastering and post processing.
+				- Must be under 10 minutes long.
+				- No winning tracks from previous Best of LMMS albums allowed.
+				- No remixes allowed.
+			3. **The Submissions:**
+				- You must submit using this form only.
+				- No more than ONE entry per artist is allowed.
+				- Collaborations count as ONE entry for each artist involved.
+				- No collaborating with judges on entries.
+				- Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.
+				 - The full track should be available at the submission link provided
+				- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
+			4. **The Judges:**
+				- The jury consists of: Cubician, Etorna_Z, Noeroti, Leche, Satori and Umcaruje.
+			5. **The Judging:**
+				- After the deadline, the judges will make their decisions and release the results within 14 days.
+			6. **Release:**
+				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.</source>
+        <target><![CDATA[#### The competition has ended on **April 16th, 2020**.
+			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmmsartists.bandcamp.com/album/the-best-of-lmms-vol-7)
+
+			Listen to all entries [here.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vR6tbmbsWPReJdh2jnCixmKlisIiWTY2QPAz_y1OjSmuwGl0PjKuXgJQ7cXuKtlrYtLqBBEa_IYeVC0/pubhtml?gid=491403559&single=true)
+
+			Winners:
+			<iframe width="100%%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/1051302979&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+
+			#### Original description:
+			We are proud to present to you The Best of LMMS contest volume 7!
+			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
+			(23:59.59 UTC Time) on April 16th for a chance to be featured on the BoL v6 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+
+			[Submit here](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform)
+			#### Competition rules:
+			1. **The Deadline:**
+				- Track must be submitted by April 16th 2020 at 23:59.59 UTC using [this form](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform).
+			2. **The Track:**
+				- Must be produced in LMMS.
+				- You may use other programs for mastering and post processing.
+				- Must be under 10 minutes long.
+				- No winning tracks from previous Best of LMMS albums allowed.
+				- No remixes allowed.
+			3. **The Submissions:**
+				- You must submit using this form only.
+				- No more than ONE entry per artist is allowed.
+				- Collaborations count as ONE entry for each artist involved.
+				- No collaborating with judges on entries.
+				- Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.
+				 - The full track should be available at the submission link provided
+				- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
+			4. **The Judges:**
+				- The jury consists of: Cubician, Etorna_Z, Noeroti, Leche, Satori and Umcaruje.
+			5. **The Judging:**
+				- After the deadline, the judges will make their decisions and release the results within 14 days.
+			6. **Release:**
+				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.]]></target>
+      </trans-unit>
+      <trans-unit id="Ush5SF0" resname="The Best of LMMS Vol. 7 by LMMS Artists">
+        <source>The Best of LMMS Vol. 7 by LMMS Artists</source>
+        <target>The Best of LMMS Vol. 7 by LMMS Artists</target>
+      </trans-unit>
+      <trans-unit id="nk3f9aW" resname="The Best of LMMS Vol. 6 by LMMS Artists">
+        <source>The Best of LMMS Vol. 6 by LMMS Artists</source>
+        <target>The Best of LMMS Vol. 6 by LMMS Artists</target>
+      </trans-unit>
+      <trans-unit id="dMUjKl5" resname="You seem to have taken a wrong turn.">
+        <source>You seem to have taken a wrong turn.</source>
+        <target>You seem to have taken a wrong turn.</target>
+      </trans-unit>
+      <trans-unit id="5y..cYr" resname="Oops, that is not supposed to happen.">
+        <source>Oops, that is not supposed to happen.</source>
+        <target>Oops, that is not supposed to happen.</target>
+      </trans-unit>
+      <trans-unit id="MKppsp2" resname="An unknown error occurred.">
+        <source>An unknown error occurred.</source>
+        <target>An unknown error occurred.</target>
       </trans-unit>
     </body>
   </file>
