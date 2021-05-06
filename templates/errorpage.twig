@@ -4,7 +4,15 @@
 <div class="jumbotron error">
 	<div class="container text-center">
 		<h1>{% trans %}Error <b>%code%</b>{% endtrans %}</h1>
-		<h2>{{ message }}</h2>
+		<h2>
+		{% if code == 404 %}
+		{% trans %}You seem to have taken a wrong turn.{% endtrans %}
+		{% elseif code < 600 and code >= 500 %}
+		{% trans %}Oops, that is not supposed to happen.{% endtrans %}
+		{% else %}
+		{% trans %}An unknown error occurred.{% endtrans %}
+		{% endif %}
+		</h2>
 		<br>
     <div class="text-center"><p>{% trans %}If you followed a valid link on this site, please contact us
       about it and <a href="//github.com/LMMS/lmms.io/issues/new">file an issue</a> on GitHub.{% endtrans %}

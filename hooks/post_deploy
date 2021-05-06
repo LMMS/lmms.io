@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
+set -e
+pushd "$(dirname $0)/../"
 export APP_ENV=prod 
 export APP_DEBUG=0
 composer dump-env prod
 php bin/console cache:clear
 php bin/console cache:warmup
-pushd $(dirname $0)/../public
+pushd "$(dirname $0)/../public"
 
 pushd forum/cache
 rm -f tpl_proboot3_overall_header.html.php tpl_proboot3_overall_footer.html.php
-popd
+popd # !forum/cache
 
-popd
+popd # !"$(dirname $0)/../public"
+
+popd # !"$(dirname $0)/../"
