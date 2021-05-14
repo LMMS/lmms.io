@@ -1,0 +1,29 @@
+{% extends 'base.twig' %}
+
+{% import 'macros.twig' as macros %}
+
+{% block content %}
+<div class="jumbotron error">
+	<div class="container text-center">
+		<h1>{% trans %}The wiki has been moved.{% endtrans %}</h1>
+		<h2>{% trans %}All of our documentation is now hosted on <a href="https://docs.lmms.io/user-manual/">docs.lmms.io</a>{% endtrans %}</h2>
+		<h3>{% trans %}The Mediawiki instance has been shut down, but if you need a copy <a href="https://archive.org/download/lmms-mediawiki-dump">we have one on archive.org.</a>{% endtrans %}</h3>
+		<h3>{% trans %}You will be redirected to <a href="https://docs.lmms.io/user-manual/">docs.lmms.io</a> in <b><span id="counter">30</span></b> seconds.{% endtrans %}</h3>
+    </div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block foot %}
+<script>
+	setInterval(function() {
+		var span = document.querySelector("#counter");
+		var count = span.textContent * 1 - 1;
+    span.textContent = count;
+    if (count <= 0) {
+    	window.location.replace("https://docs.lmms.io/user-manual/");
+    }
+  }, 1000);
+</script>
+{% endblock %}
