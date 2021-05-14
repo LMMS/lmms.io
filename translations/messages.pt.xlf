@@ -450,7 +450,7 @@ Rui &lt;xymarior@yandex.com&gt;, 2019
       </trans-unit>
       <trans-unit id="lBGEdiH" resname="from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.">
         <source>from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.</source>
-        <target state="translated">de uma variedade de plugins de efeitos e instrumentos, presets e samples e suporte à VST e SoundFont.</target>
+        <target state="translated">de uma variedade de plugins de efeitos e instrumentos, presets e samples e suporte a VST e SoundFont.</target>
       </trans-unit>
       <trans-unit id="rELUYJ6" resname="Made by musicians, for musicians.">
         <source>Made by musicians, for musicians.</source>
@@ -598,7 +598,7 @@ Rui &lt;xymarior@yandex.com&gt;, 2019
       </trans-unit>
       <trans-unit id="6W6XaNr" resname="Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit Windows)">
         <source>Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit Windows)</source>
-        <target state="translated">Incluso suporte à instrumentos VST de 64 bits com VST bridge de 32 bits (Windows 64 bits)</target>
+        <target state="translated">Incluso suporte a instrumentos VST de 64 bits com VST bridge de 32 bits (Windows 64 bits)</target>
       </trans-unit>
       <trans-unit id="koI1Kzb" resname="16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more">
         <source>16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more</source>
