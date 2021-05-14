@@ -13,7 +13,8 @@ class PortalController extends AbstractController
             '/get-involved' => 'get-involved.twig',
             '/showcase' => 'showcase.twig',
             '/competitions' => 'competitions.twig',
-            '/branding' => 'branding.twig'
+            '/branding' => 'branding.twig',
+            '/wiki' => 'wiki.twig'
         ];
         $content = null;
         $path = $request->getPathInfo();
