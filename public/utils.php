@@ -1,12 +1,5 @@
 <?php
 
-function str_contains($haystack, $needle, $ignorecase = FALSE) {
-	if ($ignorecase) {
-		return strpos(strtolower($haystack), strtolower($needle)) !== FALSE;
-	}
-	return strpos($haystack, $needle) !== FALSE;
-}
-
 function str_startswith($haystack, $needle, $ignorecase = FALSE) {
 	if ($ignorecase) {
 		return $needle === "" || strpos(strtolower($haystack), strtolower($needle)) === 0;

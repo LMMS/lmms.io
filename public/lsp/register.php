@@ -45,7 +45,7 @@ function try_add_user($login , $pass, $pass2, $realname, $session, $is_admin, $a
 function check_antispam($antispam) {
 	if (isset($antispam)) {
 		for ($i = 0; $i < 25; $i++) {
-			$md5 = md5(session_id() + $i);
+			$md5 = md5(intval(session_id()) + $i);
 			if (strpos($antispam, substr($md5, strlen("$md5") - 4, strlen("$md5"))) !== false) {
 				return true;
 			}

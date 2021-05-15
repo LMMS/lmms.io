@@ -290,6 +290,9 @@ function read_project($file_id) {
 		case '.mmpz' :
 			// Open binary file for reading
 			$handle = fopen($DATA_DIR . $file_id, "rb");
+			if (!$handle) {
+				return null;
+			}
 			// Skip the first 4 bytes for compressed mmpz files
 			fseek($handle, 4);
 			$data = fread($handle, filesize($DATA_DIR . $file_id) - 4);
