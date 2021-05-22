@@ -18,8 +18,8 @@ UPDATE_COMMENTS = 'UPDATE comments SET text = %s WHERE id = %s'
 
 def update_file_record(record: tuple):
     new_record = tuple([record[0],
-                        html.unescape(record[1]),
-                        html.unescape(record[2])]
+                        html.unescape(record[1]) if record[1] else None,
+                        html.unescape(record[2]) if record[2] else None]
                        )
     return new_record
 
