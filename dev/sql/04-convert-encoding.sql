@@ -18,7 +18,7 @@ ALTER TABLE licenses CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 UPDATE users SET `login` = CONVERT(cast(CONVERT(`login` USING latin1) AS BINARY) USING utf8mb4);
 UPDATE users SET `realname` = CONVERT(cast(CONVERT(`realname` USING latin1) AS BINARY) USING utf8mb4);
 UPDATE files SET `description` = CONVERT(cast(CONVERT(`description` USING latin1) AS BINARY) USING utf8mb4);
-UPDATE comments SET `text` = CONVERT(cast(CONVERT(`text` USING latin1) AS BINARY) USING utf8mb4);
+UPDATE comments SET `text` = COALESCE(CONVERT(cast(CONVERT(`text` USING latin1) AS BINARY) USING utf8mb4), '');
 -- restore the text fields that were converted to binary to the original type
 ALTER TABLE users MODIFY `login` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ALTER TABLE users MODIFY `password` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
