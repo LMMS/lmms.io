@@ -6,6 +6,7 @@ export APP_DEBUG=0
 composer dump-env prod
 php bin/console cache:clear
 php bin/console cache:warmup
+mkdir -p var/cache/lsp/
 pushd "$(dirname $0)/../public"
 
 pushd forum/cache
