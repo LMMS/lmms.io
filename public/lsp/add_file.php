@@ -58,8 +58,8 @@ if (!SESSION_EMPTY()) {
 				display_error('Invalid filename');
 				return;
 			}
-			$tmp_path = $TMP_DIR.$tmp_path;
-			if (file_exists($tmp_path)) {
+			// exist and within the tmp directory
+			if (file_exists($tmp_path) && pathinfo($tmp_path, PATHINFO_DIRNAME) == rtrim($TMP_DIR, '/')) {
 				$category = explode(' - ', POST('category'))[0];
 				$subcategory = explode(' - ', POST('category'))[1];
 				$category_id = get_category_id($category);
