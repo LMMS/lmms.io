@@ -6,7 +6,7 @@
 {% import 'macros.twig' as macros %}
 {% block content %}
 
-{% spaceless %}
+{% apply spaceless %}
 {{ macros.jumbo('Competitions'|trans, 'Official competitions organised by LMMS and its community members'|trans)}}
 <div class="container">
 	<!-- Preserve l10n content, please don't remove or comment out the h3 tag below -->
@@ -368,7 +368,7 @@
 
 
 
-{% endspaceless %}
+{% endapply %}
 
 {% endblock %}
 

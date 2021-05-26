@@ -14,7 +14,6 @@ $nav = new App\TopNav($tr);
 $mock_app = ["request" => ["pathinfo" => $_SERVER["REQUEST_URI"], "query" => $_GET]];
 $twig->addGlobal('navbar', $nav);
 $twig->addGlobal('app', $mock_app);
-$twig->addExtension(new Twig_Extensions_Extension_I18n());
 
 function twig_render(string $template, array $params) {
     global $twig;
