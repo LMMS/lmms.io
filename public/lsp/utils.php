@@ -273,7 +273,7 @@ function get_content_type($file_path) {
 		case '.png' : return 'image/png';
 		case '.svg' : return 'image/svg+xml';
 		case '.tiff' : return 'image/tiff';
-		default: return 'application/force-download';
+		default: return 'application/octet-stream';
 	}
 }
 
