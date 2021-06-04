@@ -126,12 +126,14 @@
 		<a class="stack" data-toggle="modal" data-target="#videoModal" href="#">{{ macros.circle_stack('fa-play-circle', 'fa-6x', false, '') }}</a>
 		<h4>{% trans %}Watch our promo video.{% endtrans %}</h4>
 	</div>
-	<div id="videoModal" class="modal fade modal-custom" role="dialog">
+	<div id="videoModal" class="modal fade modal-custom" role="dialog" data-yt-url="https://www.youtube-nocookie.com/embed/W6tEolVz3_4">
 	  <div class="modal-dialog">
 	    <!-- Modal content-->
 	    <div class="modal-content">
-				<div class="embed-responsive embed-responsive-16by9">
-	      	<iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/W6tEolVz3_4" allowfullscreen></iframe>
+				<div id="videoEmbed" class="embed-responsive embed-responsive-16by9">
+					<div class="wait-div text-center">
+						<img src='/img/loading.gif' /><br>
+					</div>
 				</div>
 	    </div>
 	  </div>
@@ -214,11 +216,28 @@
 }).call(this);
 
 (function() {
-	// close video in modal when modal closes
 	$(document).ready(function(){
-		$("#videoModal").on("hide.bs.modal", function () {
-	    $("#videoModal iframe").attr("src", $("#videoModal iframe").attr("src"));
-		});
+		/* Dynamically loading the video iframe to speed up page loading.
+		Big thanks to https://medium.com/@ryanlebel/speed-up-page-load-time-c6b9148d0a2 */
+		var videoWrapper = $('#videoModal');
+		// Check if our modal exists
+		if(videoWrapper.length){
+			// When the user clicks the modal, dynamically load the video
+			videoWrapper.on("show.bs.modal", function () {
+				if(!$('#videoEmbed iframe').length){
+					// Pull the youtube url from the data attribute on the wrapper element.
+					$("#videoEmbed").append('<iframe allowfullscreen frameborder="0" class="embed-responsive-item" src="' + videoWrapper.data('yt-url') + '"></iframe>');
+					// Hide the loading div placeholder
+					$('#videoEmbed iframe').on("load", function() {
+						$('.wait-div').hide();
+					});
+				};
+			});
+			// Stop the video on modal close
+			videoWrapper.on("hide.bs.modal", function () {
+				$("#videoEmbed iframe").attr("src", $("#videoEmbed iframe").attr("src"))
+			});
+		};
 	});
 }).call(this);
 </script>
