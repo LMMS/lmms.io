@@ -3,6 +3,7 @@
 // Hacks start
 require_once('../../vendor/autoload.php');
 require_once('../../src/TopNav.php');
+use Symfony\Bridge\Twig\Extension\TranslationExtension;
 use Symfony\Component\Translation\Translator;
 global $twig;
 $loader = new \Twig\Loader\FilesystemLoader('../../templates/');
@@ -10,6 +11,7 @@ $twig = new \Twig\Environment($loader, [
     // 'cache' => $_SERVER["DOCUMENT_ROOT"] . '/../var/cache/lsp',
 ]);
 $tr = new Translator("en");
+$twig->addExtension(new TranslationExtension($tr));
 $nav = new App\TopNav($tr);
 $mock_app = ["request" => ["pathinfo" => $_SERVER["REQUEST_URI"], "query" => $_GET]];
 $twig->addGlobal('navbar', $nav);
