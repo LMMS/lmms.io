@@ -10,7 +10,8 @@
 {{ macros.jumbo('Competitions'|trans, 'Official competitions organised by LMMS and its community members'|trans)}}
 <div class="container">
 	<!-- Preserve l10n content, please don't remove or comment out the h3 tag below -->
-	<h3 class="">{% trans %}Current competitions:{% endtrans %}</h3>
+	<h3 class="hidden">{% trans %}Current competitions:{% endtrans %}</h3>
+	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol8" data-target="#bol8-desc">
 			<span>{% trans %}The Best of LMMS vol. VIII{% endtrans %}</span>
@@ -19,6 +20,15 @@
 		<div class="comp-desc panel-collapse collapse" role="tabpanel" id="bol8-desc">
 			{% markdown %}
 			{% trans %}
+			#### The competition has ended on **April 5th, 2021**.
+			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-8)
+
+			Listen to all entries [here.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTTL1tGpixnvTViAT6WW1eOaVe-21CVy_gcuDwOtqQabyqgl6idAkxP34O-wqQ3f83Hp-xGQzWDKafA/pubhtml?gid=491403559&single=true)
+
+			Winners:
+			<iframe width="100%%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/1284918016&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+			
+			#### Original description:
 			We are proud to present to you The Best of LMMS contest volume 8!
 			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
 			(23:59.59 UTC Time) on April 5th 2021 for a chance to be featured on the BoL v8 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
@@ -55,7 +65,6 @@
 			{% endmarkdown %}
 		</div>
 	</div>
-	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol7" data-target="#bol7-desc">
 			<span>{% trans %}The Best of LMMS vol. VII{% endtrans %}</span>
