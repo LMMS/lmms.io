@@ -11,10 +11,10 @@ global $LSP_URL;
 function try_add_user($login , $pass, $pass2, $realname, $session, $is_admin, $antispam) {
 	$return_val = false;
 	// Help prevent robot registrations
-	if (!check_antispam($antispam)) {
-		display_error("Invalid security code");
-	} else if ($session != md5(session_id() . $_SERVER['REMOTE_ADDR'])) {
+	if ($session != md5(session_id() . $_SERVER['REMOTE_ADDR'])) {
 		display_error("Invalid session.");
+	} else if (!check_antispam($antispam)) {
+		display_error("Invalid security code");
 	} else if ($pass != $pass2) {
 		display_warning("Password mismatch");
 	} else if($pass == '' || $pass2 == '' || $login == '') {
@@ -45,7 +45,7 @@ function try_add_user($login , $pass, $pass2, $realname, $session, $is_admin, $a
 function check_antispam($antispam) {
 	if (isset($antispam)) {
 		for ($i = 0; $i < 25; $i++) {
-			$md5 = md5(intval(session_id()) + $i);
+			$md5 = md5(session_id() . $i);
 			if (strpos($antispam, substr($md5, strlen("$md5") - 4, strlen("$md5"))) !== false) {
 				return true;
 			}
@@ -59,9 +59,11 @@ $control = POST("control", false);
 /*
  * Create the HTML form used for registration
  */
-if ((POST("adduser") != "Register") || (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), POST("session"), $control, POST("antispam")))) {
+if ((POST("adduser") != "Register")) {
 	echo twig_render('lsp/register.twig', [
 		'session_id' => md5(session_id() . $_SERVER['REMOTE_ADDR'])
 	]);
+} else if (!try_add_user(POST("login"), POST("password"), POST("password2"), POST("realname"), POST("session"), $control, POST("antispam"))) {
+	return;
 }
 ?>

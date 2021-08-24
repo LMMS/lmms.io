@@ -1,6 +1,7 @@
 <?php
 require_once('utils.php');
 header("Content-type: image/png");
+session_start();
 $md5 = md5(session_id() . rand(0,25));
 $default_string = substr($md5, strlen("$md5") - 4, strlen("$md5"));
 $string = GET('text', get_random_string() . $default_string);
