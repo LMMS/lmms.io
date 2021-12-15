@@ -916,10 +916,10 @@ Kisaragi Hiu &lt;flyingfeather1501@gmail.com&gt;, 2017
 					   &lt;a href="//github.com/LMMS/lmms/issues"&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS
 					   &lt;a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel"&gt;mailing list&lt;/a&gt; is a great place
 					   to introduce yourself.</source>
-        <target state="translated">See our &lt;a href="//github.com/LMMS/lmms/wiki"&gt;GitHub Wiki&lt;/a&gt; and our
-					   &lt;a href="//github.com/LMMS/lmms/issues"&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS
-					   &lt;a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel"&gt;mailing list&lt;/a&gt; is a great place
-					   to introduce yourself.</target>
+        <target state="translated">查看我們的 &lt;a href="//github.com/LMMS/lmms/wiki"&gt;GitHub Wiki&lt;/a&gt; 及
+					   &lt;a href="//github.com/LMMS/lmms/issues"&gt;問題追蹤器&lt;/a&gt; 來入門。此外，LMMS
+					   &lt;a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel"&gt;郵寄清單&lt;/a&gt; 是一個介紹
+					   自己的好地方。</target>
       </trans-unit>
       <trans-unit id="FSzxUcg" resname="Website &amp; Docs">
         <source>Website &amp; Docs</source>
@@ -948,8 +948,8 @@ Kisaragi Hiu &lt;flyingfeather1501@gmail.com&gt;, 2017
       <trans-unit id="LUNpyrn" resname="Even though donations are not the thing we need the most (that'd be developers), they help us pay&#10;&#09;&#09;&#09;&#09;&#09;   our bills, for our domain lmms.io for instance.">
         <source>Even though donations are not the thing we need the most (that'd be developers), they help us pay
 					   our bills, for our domain lmms.io for instance.</source>
-        <target state="translated">Even though donations are not the thing we need the most (that'd be developers), they help us pay
-					   our bills, for our domain lmms.io for instance.</target>
+        <target state="translated">儘管捐款不是我們目前最需要的東西 (我們較為需要開發者)，但仍可以幫助我們支付
+					   帳單，例如我們的網域 lmms.io 費用。</target>
       </trans-unit>
       <trans-unit id="7yTl1LS" resname="Donate via PayPal">
         <source>Donate via PayPal</source>
@@ -1523,14 +1523,14 @@ Kisaragi Hiu &lt;flyingfeather1501@gmail.com&gt;, 2017
 			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
 
 			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**</source>
-        <target state="translated"><![CDATA[We are proud to present to you The Best of LMMS contest volume 8!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-			(23:59.59 UTC Time) on April 5th 2021 for a chance to be featured on the BoL v8 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+        <target state="translated"><![CDATA[我們很榮幸地向您介紹 ── 第八屆 LMMS 之最！
+			本競賽旨在激勵社群創造和分享自己的音樂。在 2021 年 4 月 5 號午夜 (23:59.59) 前 (UTC 時間) 前透過
+			以下連結提交您的歌曲即有機會出現在 BoL v8 專輯中。合集將上傳至 Bandcamp，所有的收益將投入於 LMMS 的後續開發。
 
-			<p class="center"><a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScfJNvVtoCJ8SVQ8TWiPMjbIsl49RvwGiy1nODuvKdJ8Er_Bg/viewform">Submit here</a></p>
-			#### Competition rules:
+			<p class="center"><a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScfJNvVtoCJ8SVQ8TWiPMjbIsl49RvwGiy1nODuvKdJ8Er_Bg/viewform">點此提交</a></p>
+			#### 競賽規則：
 
-			1. **The Deadline:**
+			1. **截止日期：*
 			 - Track must be submitted by April 5th 2021 at 23:59.59 UTC using this form.
 			2. **歌曲：**
 				- 必須使用 LMMS 製作。
@@ -1548,11 +1548,11 @@ Kisaragi Hiu &lt;flyingfeather1501@gmail.com&gt;, 2017
 				 - 提交的連接應包含完整歌曲
 				- 您的參賽歌曲必須可供聆聽，直到審查流程結束。否則您的歌曲將失去參賽資格。
 			4. **評審：**
-			 - The jury consists of: Woods Alive, Hotel Zero, Jousboxx, Blageez, Noeroti, and JVSTDARE
-			5. **The Judging:**
-			 - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.
-			6. **Release:**
-			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
+			 - 評審團：Woods Alive、Hotel Zero、Jousboxx、Blageez、Noeroti，及 JVSTDARE
+			5. **審查：**
+			 - 評審將於截止日期後的 14 到 21 天內做出決定並宣布結果，依個人時間安排決定。
+			6. **發布：**
+			 - 得分最高的 25 首歌曲將於 Bandcamp 上以專輯形式發行，自由定價。所有的收益將投入於 LMMS ── 我們所愛的程式，的後續開發。
 
 			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**]]></target>
       </trans-unit>
@@ -1599,22 +1599,22 @@ Kisaragi Hiu &lt;flyingfeather1501@gmail.com&gt;, 2017
 			6. **Release:**
 				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.</source>
         <target state="translated"><![CDATA[#### 競賽已於 **2020 年 4 月 16 號**結束。
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-7)
+			在我們的 [Bandcamp 頁面](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-7)購買合輯以支持 LMMS。
 
-			Listen to all entries [here.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vR6tbmbsWPReJdh2jnCixmKlisIiWTY2QPAz_y1OjSmuwGl0PjKuXgJQ7cXuKtlrYtLqBBEa_IYeVC0/pubhtml?gid=491403559&single=true)
+		\在[此](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vR6tbmbsWPReJdh2jnCixmKlisIiWTY2QPAz_y1OjSmuwGl0PjKuXgJQ7cXuKtlrYtLqBBEa_IYeVC0/pubhtml?gid=491403559&single=true)聆聽所有參賽作品。
 
 			獲勝者：
 			<iframe width="100%%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/1051302979&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 
 			#### 原始說明：
-			We are proud to present to you The Best of LMMS contest volume 7!
-			本競賽旨在激勵社群創造和分享自己的音樂。Submit your track at the link below before midnight
-			(23:59.59 UTC Time) on April 16th for a chance to be featured on the BoL v6 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+			我們很榮幸地向您介紹 ── 第七屆 LMMS 之最！
+			本競賽旨在激勵社群創造和分享自己的音樂。在 4 月 16 號午夜 (23:59.59 UTC 時間) 前透過
+			以下連結提交您的歌曲即有機會出現在 BoL v7 專輯中。合集將上傳至 Bandcamp，所有的收益將投入於 LMMS 的後續開發。
 
-			[Submit here](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform)
-			#### Competition rules:
+			[點此提交](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform)
+			#### 競賽規則：
 			1. **截止日期：**
-				- 歌曲必須在 April 16th 2020 at 23:59.59 UTC 前透過[此表單](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform)提交。
+				- 歌曲必須在 2020 年 4 月 16 號的 23:59.59 UTC 前透過[此表單](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform)提交。
 			2. **歌曲：**
 				- 必須使用 LMMS 製作。
 				- 您可以使用其他程式進行後期處理/母帶製作。
@@ -1630,11 +1630,11 @@ Kisaragi Hiu &lt;flyingfeather1501@gmail.com&gt;, 2017
 				 - 提交的連接應包含完整歌曲
 				- 您的參賽歌曲必須可供聆聽，直到審查流程結束。否則您的歌曲將失去參賽資格。
 			4. **評審：**
-				- The jury consists of: Cubician, Etorna_Z, Noeroti, Leche, Satori and Umcaruje.
+				- 評審團：Cubician、Etorna_Z、Noeroti、Leche、Satori 和 Umcaruje。
 			5. **審查：**
 				- 評審將於截止日期後的 14 天內做出決定並宣布結果。
 			6. **發行：**
-				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.]]></target>
+				- 得分最高的 25 首歌曲將於 Bandcamp 上以專輯形式發行，自由定價。所有的收益將投入於 LMMS ── 我們所愛的程式，的後續開發。]]></target>
       </trans-unit>
       <trans-unit id="MKppsp2" resname="An unknown error occurred.">
         <source>An unknown error occurred.</source>
