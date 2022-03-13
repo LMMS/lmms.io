@@ -599,12 +599,12 @@
       </trans-unit>
       <trans-unit id="OwdwPKG" resname="Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin">
         <source>Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</source>
-        <target>내장형 ZynAddSubFx: 폴리포닉, 다중음색, 마이크로톤, 다중 음성 가감 및 패드 합성 모두 하나의 강력한 플러그인으로 구성</target>
+        <target>ZynAddSubFX 내장됨: 하나의 강력한 플러그인에서 화음, 멀티팀브랄, 마이크로톤, 다중 음성 가산, 감산 및 패드 합성 모두 가능</target>
         
       </trans-unit>
       <trans-unit id="UqEEpjy" resname="Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks">
         <source>Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks</source>
-        <target>SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) 등 고품질 멀티샘플 파일 지원</target>
+        <target>고품질 악기 패치 및 뱅크를 위한 SoundFont ®(SF2), Giga(GIG) 및 Gravis UltraSound ®(GUS) 형식에 대한 기본 멀티샘플 지원</target>
         
       </trans-unit>
       <trans-unit id="CasBlNK" resname="Effects Mixing">
@@ -718,10 +718,10 @@
         <target>#### 공모전은 **2019년 4월 2일**에 종료되었습니다.
 			 LMMS를 지원하고 [bandcamp 페이지](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-6)에서 편집본을 구입하세요.
 
-			모든 항목을 [여기]에서 들으세요.(https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQm-kulIpC2Na8ol7brGGmK3aK4kz96AaUi0KIy1FrHUj6snVwCpdcDocJ)
+			모든 항목 듣기 [여기](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vQm-kulIpC2Na8ol7brGGmmK3aK4kz9AaUi0KIy1FrHUj6snVwCpdcDZqJ7unf_oIbGTmC4cWnP1tLW/pubhtml?gid=1466576535&amp;single=true)
 
 			수상자:
-			11
+			&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/768817671&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
 
 			#### 원래 설명:
 			Best of LMMS 콘테스트 6권을 여러분께 선보이게 된 것을 자랑스럽게 생각합니다!
@@ -738,9 +738,9 @@
 				- 10분 미만이어야 합니다.
 				- 이전의 Best of LMMS 앨범에서 수상한 트랙은 허용되지 않습니다.
 				- 리믹스가 허용되지 않습니다.
-			3. **제출:**
+			3. **제출물:**
 				- 이 양식만 사용하여 제출해야 합니다.
-				- 아티스트당 1개까지만 응모 가능합니다.
+				- 아티스트당 1곡까지만 응모 가능합니다.
 				- 콜라보레이션은 관련된 각 아티스트에 대해 하나의 항목으로 간주됩니다.
 				- 출품작에 대해 심사위원과 협력하지 않습니다.
 				- Soundcloud, YouTube 또는 Clyp에서 호스팅되는 제출물만 허용됩니다.
@@ -748,10 +748,10 @@
 				- 심사가 끝날 때까지 출품작을 들을 수 있어야 합니다. 그렇지 않은 경우 참가 자격이 박탈됩니다.
 			4. **심사위원:**
 				- 심사위원은 Abludo, Dystany, Heavenity Princess, Jacoby Davis, Pyrif 및 Speckular로 구성됩니다.
-			5. **심판:**
+			5. **심사 과정:**
 				- 마감 후 심사위원은 14일 이내에 결정을 내리고 결과를 발표합니다.
-			6. **풀어 주다:**
-				- 가장 높은 점수를 받은 25곡의 곡이 &quot;자발적 지불&quot; 가격으로 밴드캠프에서 앨범으로 발매될 예정입니다. 받은 모든 기금은 우리가 좋아하는 프로그램인 LMMS의 발전을 위해 기부될 것입니다..</target>
+			6. **발표:**
+				- 가장 높은 점수를 받은 25곡의 곡이 &quot;원하는 금액 지불&quot;의 가격으로 Bandcamp에서 앨범으로 발매될 예정입니다. 받은 모든 기금은 우리가 좋아하는 프로그램인 LMMS의 발전을 위해 기부될 것입니다..</target>
         
       </trans-unit>
       <trans-unit id="nY8I5YL" resname="The Best of LMMS vol. V">
@@ -802,7 +802,7 @@
         <target>#### 공모전은 **2018년 4월 16일**에 종료되었습니다.
 			 LMMS를 지원하고 [bandcamp 페이지](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-5)에서 편집본을 구입하세요.
 
-			모든 항목 듣기 [여기](https://docs.google.com/spreadsheets/d/e/2PACX-1vQOjvIBp40ez-2QrPsGHt_LGY2XejaOFZrXWsgPVPXoH7w7QriUV52_OeCQBL9)
+			모든 항목 듣기 [여기](https://docs.google.com/spreadsheets/d/e/2PACX-1vQOjvIBp40ez-2QrPsGHt_LGY2XejaOFZrXWsgPVPXoH7w7QQriUV52_OeCQBL9tcOPlCxdUw2HC6Ud/pubhtml?gid=1958072675&amp;single=true)
 
 			수상자:
 			&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/519667455&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
@@ -810,8 +810,8 @@
 			#### 원래 설명:
 			Best of LMMS 콘테스트 5권을 여러분께 선보이게 된 것을 자랑스럽게 생각합니다!
 			콘테스트는 커뮤니티가 음악을 만들고 공유하도록 영감을 주는 것을 목표로 합니다. 자정 전에 아래 링크에서 트랙을 제출하세요.
-			(23:59.59) 4월 16일(UTC 시간) BoL v5 앨범에 피처링할 수 있는 기회. 컴파일은 Bandcamp에 업로드됩니다.
-			이윤은 LMMS의 추가 개발로 향합니다.
+			(23:59.59) 4월 16일(UTC 시간) BoL v5 앨범에 수록될 기회를 잡으세요.. 편집은 Bandcamp에 업로드되며 
+			모든 수익은 LMMS의 추가 개발에 사용됩니다.
 
 			[여기로 제출](https://goo.gl/47ZXq1)
 			#### 대회 규칙:
@@ -823,7 +823,7 @@
 				- 10분 미만이어야 합니다.
 				- 이전의 Best of LMMS 앨범에서 수상한 트랙은 허용되지 않습니다.
 				- 리믹스가 허용되지 않습니다.
-			3. **제출:**
+			3. **제출물:**
 				- 이 양식만 사용하여 제출해야 합니다.
 				- 아티스트당 1개까지만 응모 가능합니다.*
 				- 콜라보레이션은 관련된 각 아티스트에 대해 하나의 항목으로 간주됩니다.*
@@ -832,9 +832,9 @@
 				- 심사가 끝날 때까지 출품작을 들을 수 있어야 합니다. 그렇지 않은 경우 참가 자격이 박탈됩니다.
 			4. **심사위원:**
 				-심사위원은 Dull Machine, Etorna_Z, Jernemies, Poleroyd, Umcaruje 및 Unfa로 구성됩니다.
-			5. **심판:**
+			5. **심사:**
 				- 마감 후 심사위원단은 각 트랙의 점수를 매기고 14일 이내에 결과를 발표합니다.
-			6. **풀어 주다:**
+			6. **발표:**
 				- 최고 득점 25곡은 &quot;Pay what you want&quot; 가격으로 Bandcamp에서 앨범으로 출시됩니다. 수신된 모든 자금은 우리가 사랑하는 프로그램인 LMMS의 추가 개발을 위해 기부됩니다.
 
 			\* *올해는 보다 공정한 응모를 위해 심사 절차가 변경되었습니다. 하나의 제출물만 변경하면 심사위원단이 모든 출품작에 대해 완전한 점수를 매길 수 있습니다. 이는 이전에 접수된 많은 양의 출품작을 줄이기 위해 예비 심사를 통해 처리되었습니다. 허용되는 사전 출품의 양을 줄임으로써 심사위원은 입력된 각 트랙을 완전히 채점할 시간을 갖게 됩니다.*</target>
@@ -888,7 +888,7 @@
 			모든 항목 듣기 [여기](https://docs.google.com/spreadsheets/d/1pPoM7CQIg5C4uzgOrlRnytJiAsOD5K6jxitF-SIjXRQ/pubhtml?gid=975440614&amp;single=true)
 
 			수상자:
-			11
+			&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/321234884&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;
 			#### 원래 설명:
 			Best of LMMS 콘테스트 4권을 여러분께 선보이게 된 것을 자랑스럽게 생각합니다!
 			콘테스트는 커뮤니티가 음악을 만들고 공유하도록 영감을 주는 것을 목표로 합니다. 자정 전에 아래 링크에서 트랙을 제출하세요.
@@ -915,7 +915,7 @@
 			 - 심사위원은 Greippi, Jacoby Davis, Speckular, Stakeout Punch 및 Squatro로 구성됩니다.
 			5. **심사 과정**
 			 - 마감 후 심사위원은 14일 이내에 결정을 내리고 결과를 발표합니다.
-			6. **릴리스**
+			6. **발표**
 			 - 최고 득점 25곡은 &quot;Pay what you want&quot; 가격으로 Bandcamp에서 앨범으로 출시됩니다.
 					수령된 모든 기금은 우리가 사랑하는 프로그램인 LMMS의 발전을 위해 기부됩니다.</target>
         
@@ -950,10 +950,10 @@
 			4. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 14 days.
 			5. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
 				will be donated for further development of LMMS, the program that we love.</source>
-        <target>#### 대회는 **2016년 3월 16일에 종료되었습니다.**
-			LMMS를 지원하고 [bandcamp 페이지](https://lmms.bandcamp.com/)에서 편집본을 구입하세요.
+        <target>#### 공모전은 **2016년 3월 16일에 종료되었습니다.**
+			LMMS를 지원하고 [bandcamp 페이지](https://lmms.bandcamp.com/)에서 편집본을 구입하십시오.
 
-			[여기](https://soundcloud.com/groups/the-best-of-lmms-competition-v3)
+			모든 항목 듣기 [여기](https://soundcloud.com/groups/the-best-of-lmms-competition-v3)
 
 			수상자:
 			&lt;iframe width=&quot;100%%&quot; height=&quot;450&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/211975750&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;
@@ -961,18 +961,18 @@
 
 			올해가 돌아왔습니다. LMMS로 멋진 트랙을 만들었다면 콘테스트가 있습니다!
 			Best of LMMS 콘테스트가 돌아왔습니다! 편집은 새로운 사용자와 모든 사람이 음악을 만들도록 영감을 주는 것을 목표로 합니다.
-			컴파일은 Bandcamp에 업로드되며 모든 수익은 LMMS의 추가 개발을 위해 기부됩니다.
+			편집본은 Bandcamp에 업로드되며 모든 수익은 LMMS의 추가 개발을 위해 기부됩니다.
 			3월 16일 자정(UTC 시간) 이전에 트랙을 제출하고 [soundcloud group.](https://soundcloud.com/groups/the-best-of-lmms-competition- v3)
 
 			#### 대회 규칙:
 
 			1. 마감일. 트랙은 3월 16일 0:00 UTC까지 제출해야 합니다. 트랙은 모든 장르가 될 수 있으며 10분 미만이 바람직합니다.
 				트랙은 LMMS로 제작되어야 하지만 포스트 믹싱/마스터링을 위해 다른 소프트웨어(Audacity, Ardor 등)를 사용할 수 있습니다.
-			2. 트랙. 모든 제출은 전용 그룹을 사용하여 SoundCloud를 통해 처리됩니다. 최대 2개의 트랙을 제출할 수 있습니다.
+			2. 트랙. 모든 제출물은 전용 그룹을 사용하여 SoundCloud를 통해 처리됩니다. 최대 2개의 트랙을 제출할 수 있습니다.
 				이전에 발표된 트랙을 제출할 수 있지만 이전의 Best of LMMS 앨범에 있던 트랙은 제출할 수 없습니다. 리믹스는 허용되지 않습니다. 판사와 본인의 협력은 허용되지 않습니다.
 			3. 심사위원. 심사위원은 Zach Henderson, Second Flight, Umcaruje, Greippi, Tres Finnochiaro, Abludo로 구성됩니다.
 			4. 심사 과정. 기한이 지나면 심사위원들이 결정을 내리고 14일 이내에 결과를 발표합니다.
-			5. 릴리즈. 이번 편집본은 LMMS 아티스트 전용 밴드캠프를 통해 &quot;자발적 지불&quot;이라는 가격으로 공개될 예정입니다.
+			5. 발표. 이번 편집본은 LMMS 아티스트 전용 밴드캠프를 통해 &quot;자발적 지불&quot;이라는 가격으로 공개될 예정입니다.
 				받은 모든 기금은 우리가 좋아하는 프로그램인 LMMS의 발전을 위해 기부될 것입니다.</target>
         
       </trans-unit>
@@ -1005,6 +1005,29 @@
 			By marking your song with the tag &quot;Want Feedback&quot; you can get feedback from the judges. Comments from different judges will be combined into one
 			text so you won't know from who or how many the feedback is. Note that you aren't guaranteed any feedback, it depends on how much time the judges have.
 			Also note that the judges are just regular LMMS artists and no matter what feedback you get the judges' decision for album songs is final.</source>
+        <target>#### 공모전은 **2015년 4월 1일 **에 종료되었습니다
+
+			LMMS를 지원하고 [bandcamp 페이지](https://lmms.bandcamp.com/)에서 편집본을 구입하십시오.
+
+			모든 항목 듣기 [여기](https://soundcloud.com/groups/the-best-of-lmms-competition-v2)
+
+			수상자:
+			&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/103762698&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;
+			#### 원래 설명:
+			1. 마감일. 곡들은 4월 1일 0:00 UTC까지 제출해야 합니다. 곡들을 모든 장르가 가능하며 10분 미만이 좋습니다.
+				곡들을 대부분 LMMS로 만들어야 하지만 포스트 믹싱/마스터링을 위해 다른 소프트웨어(Audacity, Ardor 등)를 사용할 수 있습니다.
+			2. 곡들. 모든 제출물은 전용 그룹을 사용하여 SoundCloud를 통해 처리됩니다. 사용자는 최대 2곡의 노래를 제출할 수 있습니다.
+				사용자는 이전에 발표된 곡들을 제출할 수 있지만 이전 BoL 대회에 제출된 곡들을 제출할 수 없습니다. 리믹스는 허용되지 않습니다.
+				심사위원과 본인의 곡 협력은 허용되지 않습니다.
+			3. 심사위원과 발표. 심사 위원은 Stian Jørgensrud(Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, Tronix 및 Jernemies로 구성됩니다.
+				이 편집본은 &quot;원하는 금액 지불&quot;의 가격으로 LMMS 아티스트 Bandcamp를 통해 공개될 예정입니다. 받은 자금은 모두 LMMS의 추가 개발 또는 기타 프로그램 관련 비용을
+				충당하기 위해 기부될 것입니다.
+
+			추가사항:
+
+			당신의 곡들을 &quot;피드백 원함&quot; 태그로 표시하면 심사위원으로부터 피드백을 받을 수 있습니다. 다른 심사 위원의 의견이 하나의 텍스트로 합쳐져 
+			누가 몇 명의 의견을 냈는지 알 수 없게 됩니다. 참고로 당신은 어떤 피드백도 보장받지 못하며, 심판의 시간이 얼마나 되느냐에 따라 다릅니다.
+			또한 심사위원들은 단지 일반 LMMS 아티스트들이며 어떤 피드백을 받든 앨범 곡에 대한 심사위원들의 결정은 최종적인 것임을 유의하십시오.</target>
         
       </trans-unit>
       <trans-unit id="pE7RK0F" resname="The Best of LMMS vol. I">
@@ -1037,6 +1060,30 @@
 			3. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 7 days.
 			4. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
 				will be donated for further development of LMMS, the program that we love.</source>
+        <target>#### 공모전은 **2014년 2월 15일에 종료되었습니다.**
+
+			LMMS를 지원하고 [bandcamp 페이지](https://lmms.bandcamp.com/)에서 편집본을 구입하십시오.
+
+			모든 항목 듣기 [여기](https://soundcloud.com/groups/lmms-top-songs-compilation)
+
+			수상자:
+			&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/27083727&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;
+			#### 원래 설명:
+
+			LMMS로 멋진 곡들을 만드신 분들을 위한 콘테스트가 있습니다. LMMS 최고의 곡 콘테스트입니다
+			편집본은 새로운 사용자에게 영감을 주고 새로운 제작자가 프로그램을 사용하도록 하고 LMMS 개발자에게 큰 감사를 표하는 것을 목표로 합니다.
+			편집본은 Bandcamp에 업로드되고 모든 수익은 LMMS의 추가 개발을 위해 기부됩니다. 2월 15일 자정 이전에 곡을 제출하고 Soundcloud 사이트에서 
+			이 콘테스트에 대한 세부 정보를 찾으십시오.
+
+			#### 대회 규칙:
+			1. 마감. 곡들은 2월 15일 오후 12시까지 제출되어야 합니다. 사용자는 최대 2곡까지 제출할 수 있습니다. 곡들은 모든 장르가 될 수 있으며, 가급적이면 10분 미만입니다.
+				모든 제출물은 전용 그룹을 사용하여 SoundCloud를 통해 처리됩니다. 사용자가 이전에 공개한 곡들을 제출할 수 있습니다.
+				리믹스는 허용되지 않습니다. 곡들은 대부분 LMMS로 만들어야 하지만 포스트 믹싱/마스터링을 위해 다른 소프트웨어(Audacity, Ardor 등)를 사용할 수 있습니다.
+			2. 심사위원. 심사 위원은 Avelocity 그룹으로 구성됩니다: Brian Amin (Maniarib), Joshua Wade (Second Flight),
+				Uroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn (Raptor980), Jan Heemstra (Combustible Lemonade)
+			3. 심사 과정. 기한이 지나면 심사위원이 결정을 내리고 7일 이내에 결과를 발표합니다.
+			4. 발표. 편집본은 &quot;원하는 금액 지불&quot;의 가격으로 LMMS 아티스트 전용 Bandcamp를 통해 발매될 예정입니다.
+				받은 모든 기금은 우리가 사랑하는 프로그램인 LMMS의 발전을 위해 기부될 것입니다.</target>
         
       </trans-unit>
       <trans-unit id="jHKJWvC" resname="Error &lt;b&gt;%code%&lt;/b&gt;">
@@ -1193,6 +1240,37 @@
 			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
 
 			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**</source>
+        <target>Best of LMMS 콘테스트 8권을 여러분께 선보이게 된 것을 자랑스럽게 생각합니다!
+			콘테스트는 커뮤니티가 음악을 만들고 공유하도록 영감을 주는 것을 목표로 합니다. BoL v8 앨범에 실릴 기회를 얻으려면
+			2021년 4월 5일 자정(23:59.59 UTC Time) 전에 아래 링크에서 트랙을 제출하십시오. 편집은 Bandcamp에 업로드되며 모든 수익은 LMMS의 추가 개발에 사용됩니다.
+			&lt;p class=&quot;center&quot;&gt;&lt;a class=&quot;btn btn-success btn-lg center&quot; href=&quot;https://docs.google.com/forms/d/e/1FAIpQLScfJNvVtoCJ8SVQ8TWiPMjbIsl49RvwGiy1nODuvKdJ8Er_Bg/viewform&quot;&gt;여기로 제출&lt;/a&gt;&lt;/p&gt;
+			#### 대회 규칙:
+
+			1. **마감:**
+			 - 트랙은 이 양식을 사용하여 2021년 4월 5일 23:59.59 UTC까지 제출해야 합니다.
+			2. **트랙:**
+			 - LMMS로 제작해야 합니다.
+			 - 마스터링 및 후처리를 위해 다른 프로그램을 사용할 수 있습니다.
+			 - 10분 미만이어야 합니다.
+			 - 이전 Best of LMMS 앨범의 우승 트랙이 허용되지 않습니다.
+		 	 - 타인의 저작물을 도용하거나 리믹스하는 것을 허용하지 않습니다.
+			 - 자신의 트랙을 재작업한 경우 심사위원의 승인이 필요합니다.
+			3. **제출물:**
+			 - 이 양식만 사용하여 제출해야 합니다.
+			 - 아티스트당 1곡까지만 응모 가능합니다.
+			 - 콜라보레이션은 관련된 각 아티스트에 대해 하나의 항목으로 간주됩니다.
+			 - 출품작에 대해 심사위원과 협력하지 않습니다.
+			 - Soundcloud, YouTube 또는 Clyp에서 호스팅되는 제출만 허용됩니다.
+			  - 전체 트랙은 제공된 제출 링크에서 볼 수 있어야 합니다.
+			 - 심사가 끝날 때까지 출품작을 들을 수 있어야 합니다. 그렇지 않은 경우 참가 자격이 박탈됩니다.
+			4. **심사위원:**
+			 - 심사위원은 Woods Alive, Hotel Zero, Jousboxx, Blageez, Noeroti 및 JVSTDARE로 구성됩니다
+			5. **심사 과정:**
+			 - 마감일 이후, 심사위원들은 개인 일정이 허락하는 한 14-21일 이내에 결정을 내리고 결과를 발표합니다.
+			6. **발표:**
+			 - 가장 높은 점수를 받은 25곡은 &quot;Pay what you want&quot;라는 가격으로 Bandcamp에서 앨범으로 출시됩니다. 접수된 모든 자금은 우리가 사랑하는 프로그램인 LMMS의 추가 개발을 위해 기부됩니다.
+
+			**참고: 출품작은 제출 목록에 손으로 표시되도록 승인되었으므로 자신의 항목이 표시되지 않으면 가만히 앉아 있으십시오! 시간이 좀 걸릴 수 있습니다.**</target>
         
       </trans-unit>
       <trans-unit id="yzGLm.Z" resname="The Best of LMMS vol. VII">
@@ -1238,6 +1316,43 @@
 				- After the deadline, the judges will make their decisions and release the results within 14 days.
 			6. **Release:**
 				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.</source>
+        <target>#### 공모전은 **2020년 4월 16일**에 종료되었습니다**.
+			LMMS를 지원하고 [bandcamp 페이지]에서 편집본을 구입하세요.(https://lmms.bandcamp.com/album/the-best-of-lmms-vol-7)
+
+			모든 항목 듣기 [여기](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vR6tbmbsWPReJdh2jnCixmKlisIiWTY2QPAz_y1OjSmuwGl0PjKuXgJQ7cXuKtlrYtLqBBEa_IYeVC0/pubhtml?gid=491403559&amp;single=true)
+
+			수상자:
+			&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/1051302979&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+
+			#### 원본 설명:
+			Best of LMMS 콘테스트 7권을 여러분께 선보이게 된 것을 자랑스럽게 생각합니다!
+			이 콘테스트는 커뮤니티가 음악을 만들고 공유하도록 영감을 주는 것을 목표로 합니다. BoL v6 앨범에 실릴 기회를 얻으려면
+			4월 16일 자정(23:59.59 UTC Time) 전에 아래 링크에서 트랙을 제출하세요. 편집은 Bandcamp에 업로드되며 모든 수익은 LMMS의 추가 개발에 사용됩니다
+
+			[여기로 제출](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform)
+			#### 대회 규칙:
+			1. **마감:**
+				- 트랙은 [이 양식]을 사용하여 2020년 4월 16일 23:59.59 UTC까지 제출해야 합니다](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform).
+			2. **트랙:**
+				- LMMS로 제작해야 합니다.
+				- 마스터링 및 후처리를 위해 다른 프로그램을 사용할 수 있습니다.
+				- 10분 미만이어야 합니다.
+				- 이전의 Best of LMMS 앨범에서 수상한 트랙은 허용되지 않습니다.
+				- 리믹스가 허용되지 않습니다.
+			3. **제출물:**
+				- 이 양식만 사용하여 제출해야 합니다.
+				- 아티스트당 1곡까지만 응모 가능합니다.
+				- 콜라보레이션은 관련된 각 아티스트에 대해 하나의 항목으로 간주됩니다.
+				- 출품작에 대해 심사위원과 협력하지 않습니다.
+				- Soundcloud, YouTube 또는 Clyp에서 호스팅되는 제출물만 허용됩니다.
+				 - 전체 트랙은 제공된 제출 링크에서 볼 수 있어야 합니다.
+				- 심사가 끝날 때까지 출품작을 들을 수 있어야 합니다. 그렇지 않은 경우 참가 자격이 박탈됩니다.
+			4. **심사위원:**
+				- 심사위원 구성: Cubician, Etorna_Z, Noeroti, Leche, Satori and Umcaruje.
+			5. **심사 과정:**
+				- 기한이 지나면 심사위원이 결정을 내리고 14일 이내에 결과를 발표합니다.
+			6. **발표:**
+				- 가장 높은 점수를 받은 25곡은 &quot;Pay what you want&quot;라는 가격으로 Bandcamp에서 앨범으로 출시됩니다. 접수된 모든 자금은 우리가 사랑하는 프로그램인 LMMS의 추가 개발을 위해 기부됩니다.</target>
         
       </trans-unit>
       <trans-unit id="dMUjKl5" resname="You seem to have taken a wrong turn.">
@@ -1307,6 +1422,51 @@
 			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
 
 			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**</source>
+        <target>#### 공모전은 **2021년 4월 5일**에 종료되었습니다.
+			LMMS를 지원하고 [bandcamp 페이지]에서 편집본을 구입하세요.(https://lmms.bandcamp.com/album/the-best-of-lmms-vol-8)
+
+			오든 항목 듣기 [여기] (https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTTL1tGpixnvTViAT6WW1eOaVe-21CVy_gcuDwOtqQabyqgl6idAkxP34O-wqQ3f83Hp-xGQzWDKafA/pubhtml?gid=491403559&amp;single=true)
+
+			수상자:
+			&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/1284918016&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;
+			
+			#### 원본 설명:
+			Best of LMMS 콘테스트 8권을 여러분께 선보이게 된 것을 자랑스럽게 생각합니다!
+			콘테스트는 커뮤니티가 음악을 만들고 공유하도록 영감을 주는 것을 목표로 합니다. BoL v8 앨범에 실릴 기회를 얻으려면
+			2021년 4월 5일 자정(23:59.59 UTC Time) 전에 아래 링크에서 트랙을 제출하십시오. 편집은 Bandcamp에 업로드되며 모든 수익은 LMMS의 추가 개발에 사용됩니다.
+
+			&lt;p class=&quot;center&quot;&gt;&lt;a class=&quot;btn btn-success btn-lg center&quot; href=&quot;https://docs.google.com/forms/d/e/1FAIpQLScfJNvVtoCJ8SVQ8TWiPMjbIsl49RvwGiy1nODuvKdJ8Er_Bg/viewform&quot;&gt;여기로 제출&lt;/a&gt;&lt;/p&gt;
+			#### 대회 규칙:
+
+			1. **마감:**
+			 - 트랙은 이 양식을 사용하여 2021년 4월 5일 23:59.59 UTC까지 제출해야 합니다
+			2. **트랙:**
+			 - LMMS로 제작해야 합니다.
+			 - 마스터링 및 후처리를 위해 다른 프로그램을 사용할 수 있습니다.
+			 - 10분 미만이어야 합니다.
+			 - 이전 Best of LMMS 앨범의 우승 트랙이 허용되지 않습니다.
+		 	 - 타인의 저작물을 도용하거나 리믹스하는 것을 허용하지 않습니다.
+			 - 자신의 트랙을 재작업한 경우 심사위원의 승인이 필요합니다.
+			3. **제출물:**
+			 - 이 양식만 사용하여 제출해야 합니다.
+			 - 아티스트당 1곡까지만 응모 가능합니다.
+			 - 콜라보레이션은 관련된 각 아티스트에 대해 하나의 항목으로 간주됩니다.
+			 - 출품작에 대해 심사위원과 협력하지 않습니다.
+			 - Soundcloud, YouTube 또는 Clyp에서 호스팅되는 제출만 허용됩니다.
+			  - 전체 트랙은 제공된 제출 링크에서 볼 수 있어야 합니다.
+			 - Y심사가 끝날 때까지 출품작을 들을 수 있어야 합니다. 그렇지 않은 경우 참가 자격이 박탈됩니다.
+			4. **심사위원**
+			 - 심사위원 구성: Woods Alive, Hotel Zero, Jousboxx, Blageez, Noeroti, and JVSTDARE
+			5. **심사 과정:**
+			 - 마감일 이후, 심사위원들은 개인적인 일정이 허락하는 한 14-21일 이내에 결정을 내리고 결과를 발표합니다.
+			6. **발표:**
+			 - 가장 높은 점수를 받은 25곡은 &quot;Pay what you want&quot;라는 가격으로 Bandcamp에서 앨범으로 출시됩니다. 접수된 모든 자금은 우리가 사랑하는 프로그램인 LMMS의 추가 개발을 위해 기부됩니다.
+			**참고: 출품작은 제출 목록에 손으로 표시되도록 승인되었으므로 자신의 항목이 표시되지 않으면 가만히 앉아 있으십시오! 시간이 좀 걸릴 수 있습니다.**</target>
+        
+      </trans-unit>
+      <trans-unit id="iDhOz5m" resname="The Best of LMMS Vol. 8 by LMMS Artists">
+        <source>The Best of LMMS Vol. 8 by LMMS Artists</source>
+        <target>LMMS 아티스트의 LMMS 베스트 Vol. 8</target>
         
       </trans-unit>
       <trans-unit id="ziTqVa1" resname="See our &lt;a href=&quot;//github.com/LMMS/lmms/wiki&quot;&gt;GitHub Wiki&lt;/a&gt; and our&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//github.com/LMMS/lmms/issues&quot;&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;/chat/&quot;&gt;Discord server&lt;/a&gt; is a great place&#10;&#9;&#9;&#9;&#9;&#9;   to introduce yourself.">
@@ -1349,6 +1509,8 @@
       <trans-unit id="QDlEtxo" resname="Our IRC channel is &lt;a href=&quot;https://web.libera.chat/#lmms&quot;&gt;#lmms&lt;/a&gt; on&#10;&#9;&#9;&#9;&#9;&#9;&lt;a href=&quot;https://web.libera.chat&quot;&gt;Libera Chat&lt;/a&gt;.">
         <source>Our IRC channel is &lt;a href=&quot;https://web.libera.chat/#lmms&quot;&gt;#lmms&lt;/a&gt; on
 					&lt;a href=&quot;https://web.libera.chat&quot;&gt;Libera Chat&lt;/a&gt;.</source>
+        <target>IRC 채널은 &lt;a href=&quot;https://web.libera.chat&quot;&gt;Libera Chat&lt;/a&gt;의
+					&lt;a href=&quot;https://web.libera.chat/#lmms&quot;&gt;#lmms&lt;/a&gt;입니다.</target>
         
       </trans-unit>
       <trans-unit id="oz_V6mh" resname="Posting to the mailing list is another way to reach out to our developers:">
@@ -1384,11 +1546,6 @@
       <trans-unit id="u8PKUEQ" resname="You will be redirected to &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt; in &lt;b&gt;&lt;span id=&quot;counter&quot;&gt;30&lt;/span&gt;&lt;/b&gt; seconds.">
         <source>You will be redirected to &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt; in &lt;b&gt;&lt;span id=&quot;counter&quot;&gt;30&lt;/span&gt;&lt;/b&gt; seconds.</source>
         <target>&lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt;로 &lt;b&gt;&lt;span id=&quot;counter&quot;&gt;30&lt;/span&gt;&lt;/b&gt;초 후에 리디렉션됩니다.</target>
-        
-      </trans-unit>
-      <trans-unit id="iDhOz5m" resname="The Best of LMMS Vol. 8 by LMMS Artists">
-        <source>The Best of LMMS Vol. 8 by LMMS Artists</source>
-        <target>LMMS 아티스트의 LMMS 베스트 Vol. 8</target>
         
       </trans-unit>
     </body>

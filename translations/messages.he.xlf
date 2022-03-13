@@ -67,8 +67,8 @@
       <trans-unit id="f.UFHnN" resname="LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;&#10;&#9;Please &lt;a href=&quot;/get-involved/#contact&quot;&gt;contact us&lt;/a&gt; if your distribution is not listed here.">
         <source>LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;
 	Please &lt;a href=&quot;/get-involved/#contact&quot;&gt;contact us&lt;/a&gt; if your distribution is not listed here.</source>
-        <target>LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;
-	Please &lt;a href=&quot;/get-involved/#contact&quot;&gt;contact us&lt;/a&gt; if your distribution is not listed here.</target>
+        <target>‏LMMS נמצאת במאגרי החבילות של רוב הפצות הלינוקס הגדולות.&lt;br&gt;
+	נא &lt;a href=&quot;/get-involved/#contact&quot;&gt;ליצור איתנו קשר&lt;/a&gt; אם ההפצה שלך לא מופיעה בין האפשרויות שכאן.</target>
         
       </trans-unit>
       <trans-unit id="LO1QDjg" resname="For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.">
@@ -88,7 +88,7 @@
       </trans-unit>
       <trans-unit id="EOXdih0" resname="If this doesn't work for you, run this command in a terminal.">
         <source>If this doesn't work for you, run this command in a terminal.</source>
-        <target>If this doesn't work for you, run this command in a terminal.</target>
+        <target>אם השיטה הזו לא עובדת אצלך, אפשר להריץ את הפקודה הבאה במסוף.</target>
         
       </trans-unit>
       <trans-unit id="unby17C" resname="If the traditional repositories lag behind on versions, try the &lt;a href=&quot;https://kx.studio/Repositories#Ubuntu&quot;&gt;KXStudio repository&lt;/a&gt;.">
@@ -366,7 +366,7 @@
       </trans-unit>
       <trans-unit id="P3vlK3." resname="For reporting a bug or suggesting a new feature, please use the GitHub issue tracker:">
         <source>For reporting a bug or suggesting a new feature, please use the GitHub issue tracker:</source>
-        <target>For reporting a bug or suggesting a new feature, please use the GitHub issue tracker:</target>
+        <target>לדיווח על תקלה או להצעת תכונה חדשה, נא להשתמש בכלי מעקב התקלות שלנו ב־GitHub:</target>
         
       </trans-unit>
       <trans-unit id="TWZRGVx" resname="Let's make music">
@@ -376,7 +376,7 @@
       </trans-unit>
       <trans-unit id="Jo.VN3p" resname="with a free, cross-platform tool for your computer.">
         <source>with a free, cross-platform tool for your computer.</source>
-        <target>עם כלי חופשי וחוצה פלטפורמות למחשבך</target>
+        <target>עם כלי חופשי וחוצה פלטפורמות למחשב</target>
         
       </trans-unit>
       <trans-unit id="ADl38LV" resname="Download now">
@@ -406,7 +406,7 @@
       </trans-unit>
       <trans-unit id="1ANtx56" resname="Playback instruments, samples and plugins">
         <source>Playback instruments, samples and plugins</source>
-        <target>Playback instruments, samples and plugins</target>
+        <target>מגוון כלי נגינה להשמעה, דוגמאות ותוספים</target>
         
       </trans-unit>
       <trans-unit id="c_9n6oH" resname="with a typing or MIDI keyboard in a user-friendly and modern interface.">
@@ -446,7 +446,7 @@
       </trans-unit>
       <trans-unit id="QBixtUo" resname="Pick your flavor.">
         <source>Pick your flavor.</source>
-        <target>Pick your flavor.</target>
+        <target>מה מערכת ההפעלה שלך?</target>
         
       </trans-unit>
       <trans-unit id="CaD6ze3" resname="Linux, Windows or macOS.">
@@ -491,12 +491,12 @@
       </trans-unit>
       <trans-unit id="G0SNPhL" resname="and answer a few questions while you're waiting.">
         <source>and answer a few questions while you're waiting.</source>
-        <target>and answer a few questions while you're waiting.</target>
+        <target>אפשר גם לענות על כמה שאלות בזמן ההמתנה.</target>
         
       </trans-unit>
       <trans-unit id="AZtpftd" resname="Sharing means caring.">
         <source>Sharing means caring.</source>
-        <target>שיתוף משמעו הבעת דאגה.</target>
+        <target>שיתוף משמעו אהבה.</target>
         
       </trans-unit>
       <trans-unit id="tYjliwJ" resname="Find musicians">
@@ -506,12 +506,12 @@
       </trans-unit>
       <trans-unit id="29NrAWW" resname="Visit the LMMS Sharing Platform (LSP)">
         <source>Visit the LMMS Sharing Platform (LSP)</source>
-        <target>ביקור בפלטפורמת השיתוף של  LMMS‏ (LSP)</target>
+        <target>ביקור בפלטפורמת השיתוף של LMMS‏ (LSP)</target>
         
       </trans-unit>
       <trans-unit id="vZEmrHQ" resname="Don't be modest.">
         <source>Don't be modest.</source>
-        <target>Don't be modest.</target>
+        <target>לא להתבייש.</target>
         
       </trans-unit>
       <trans-unit id="E6hLz_I" resname="Show us your creations.">
@@ -556,12 +556,12 @@
       </trans-unit>
       <trans-unit id="oJJM7AY" resname="Featuring:">
         <source>Featuring:</source>
-        <target>Featuring:</target>
+        <target>תכונות:</target>
         
       </trans-unit>
       <trans-unit id="j6_axfx" resname="Core Functionality">
         <source>Core Functionality</source>
-        <target>Core Functionality</target>
+        <target>התכונות הבסיסיות</target>
         
       </trans-unit>
       <trans-unit id="HLWVAGp" resname="Compose music on Windows, Linux and macOS">
@@ -596,7 +596,7 @@
       </trans-unit>
       <trans-unit id=".oFCngq" resname="Import of MIDI files and Hydrogen project files">
         <source>Import of MIDI files and Hydrogen project files</source>
-        <target>Import of MIDI files and Hydrogen project files</target>
+        <target>ייבוא קובצי MIDI וקובצי מיזם של Hydrogen</target>
         
       </trans-unit>
       <trans-unit id="w1G_1Tb" resname="Musical Instruments">
@@ -1122,12 +1122,12 @@
       </trans-unit>
       <trans-unit id="laP8ZYf" resname="Author:">
         <source>Author:</source>
-        <target>יוצר/ת:</target>
+        <target>מאת:</target>
         
       </trans-unit>
       <trans-unit id="DDaBYVH" resname="Modified/Themed By:">
         <source>Modified/Themed By:</source>
-        <target>Modified/Themed By:</target>
+        <target>התאמות וסגנוּן:</target>
         
       </trans-unit>
       <trans-unit id="VqvyA1L" resname="Scalable Vector Format">
@@ -1484,6 +1484,11 @@
 			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**</target>
         
       </trans-unit>
+      <trans-unit id="iDhOz5m" resname="The Best of LMMS Vol. 8 by LMMS Artists">
+        <source>The Best of LMMS Vol. 8 by LMMS Artists</source>
+        <target>המיטב של LMMS, חלק 8, מאת אומני LMMS</target>
+        
+      </trans-unit>
       <trans-unit id="ziTqVa1" resname="See our &lt;a href=&quot;//github.com/LMMS/lmms/wiki&quot;&gt;GitHub Wiki&lt;/a&gt; and our&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//github.com/LMMS/lmms/issues&quot;&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;/chat/&quot;&gt;Discord server&lt;/a&gt; is a great place&#10;&#9;&#9;&#9;&#9;&#9;   to introduce yourself.">
         <source>See our &lt;a href=&quot;//github.com/LMMS/lmms/wiki&quot;&gt;GitHub Wiki&lt;/a&gt; and our
 					   &lt;a href=&quot;//github.com/LMMS/lmms/issues&quot;&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS
@@ -1562,11 +1567,6 @@
       <trans-unit id="u8PKUEQ" resname="You will be redirected to &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt; in &lt;b&gt;&lt;span id=&quot;counter&quot;&gt;30&lt;/span&gt;&lt;/b&gt; seconds.">
         <source>You will be redirected to &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt; in &lt;b&gt;&lt;span id=&quot;counter&quot;&gt;30&lt;/span&gt;&lt;/b&gt; seconds.</source>
         <target>You will be redirected to &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt; in &lt;b&gt;&lt;span id=&quot;counter&quot;&gt;30&lt;/span&gt;&lt;/b&gt; seconds.</target>
-        
-      </trans-unit>
-      <trans-unit id="iDhOz5m" resname="The Best of LMMS Vol. 8 by LMMS Artists">
-        <source>The Best of LMMS Vol. 8 by LMMS Artists</source>
-        <target>המיטב של LMMS, חלק 8, מאת אומני LMMS</target>
         
       </trans-unit>
     </body>
