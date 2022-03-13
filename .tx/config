@@ -1,10 +1,9 @@
 [main]
 host = https://www.transifex.com
-minimum_perc = 100
-#Need to completely finished before merging back
 
-[lmms.lmmsio]
+[o:lmms:p:lmms:r:lmmsio]
 file_filter = translations/messages.<lang>.xlf
 source_file = translations/messages.en.xlf
 source_lang = en
-type = XLIFF
+type        = XLIFF
+
