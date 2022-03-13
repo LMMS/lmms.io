@@ -187,6 +187,9 @@
     "symfony/polyfill-php80": {
         "version": "v1.22.1"
     },
+    "symfony/polyfill-php81": {
+        "version": "v1.25.0"
+    },
     "symfony/routing": {
         "version": "5.1",
         "recipe": {
