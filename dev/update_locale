@@ -11,5 +11,5 @@ do
     locale="$(basename "$f")"
     locale="${locale/.xlf/}"
     locale="${locale/messages./}"
-    ./bin/console translation:update "$locale" --force --prefix=''
+    ./bin/console translation:extract "$locale" --force --prefix=''
 done

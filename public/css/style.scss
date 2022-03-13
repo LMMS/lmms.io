@@ -51,11 +51,11 @@ a {
 	/*color: $linkBg;*/
 	font-weight: bold;
 	transition: all $animationTime ease-in-out;
-	&:hover,
+	/*&:hover,
 	&:focus {
-	/*color: $linkBgHover;
-	text-decoration: none;*/
-	}
+	color: $linkBgHover;
+	text-decoration: none;
+	}*/
 }
 
 .navbar {
@@ -347,7 +347,7 @@ a.btn {
 	.dropdown-split-right,
 	.navbar-nav > li > a,
 	.navbar-nav > li > a:visited,
-	.navbar-nav > li > a:focus, {
+	.navbar-nav > li > a:focus {
 		color: $navbarText;
 		background-color: transparent;
 		transition: all $animationTime linear;
