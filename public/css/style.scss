@@ -1012,6 +1012,14 @@ ul.nav-center {
 	background-size: auto, cover;
 }
 
+#bol9 {
+	background: linear-gradient(
+		$bolOverlay, $bolOverlay
+	), url("/img/tbolv9.jpg");
+	background-position: top, center top;
+	background-size: auto, cover;
+}
+
 .center {
 	text-align: center;
 }
