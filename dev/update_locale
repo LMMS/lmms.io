@@ -5,11 +5,11 @@ locale -a
 echo "Updating translation template..."
 srctop=$(realpath "$(dirname "$0")"/../)
 
-for f in ${srctop}/translations/messages.*.xlf
+for f in "${srctop}/translations/"messages.*.xlf
 do
     # Test if PHP/Symfony can load the translation
     locale="$(basename "$f")"
     locale="${locale/.xlf/}"
     locale="${locale/messages./}"
-    ./bin/console translation:extract "$locale" --force --prefix=''
+    ./bin/console translation:extract --force --prefix='' -- "$locale"
 done
