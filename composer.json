@@ -4,7 +4,7 @@
     "type": "project",
     "license": "GPL-2.0-only",
     "require": {
-        "php": "^7.4 || ^8",
+        "php": "^8",
         "ext-ctype": "*",
         "ext-gd": "*",
         "ext-iconv": "*",
