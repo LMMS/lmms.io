@@ -9,6 +9,13 @@ chat:
       path: 'https://discord.gg/PruNxpG'
       permanent: true
 
+bolresults:
+   path: /bolresults
+   controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+   defaults:
+      path: 'https://docs.google.com/spreadsheets/u/3/d/e/2PACX-1vQl77UmX-OKujL7bG6IZ1xbjNDB2szc3StzPU7STX8d2M1Q4uRQaPxLiDd4b4W9xlljijTfQtrZH5tC/pubhtml'
+      permanent: true
+
 documentation:
    path: /documentation
    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
