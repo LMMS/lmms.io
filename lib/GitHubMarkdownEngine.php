@@ -18,7 +18,7 @@ class GitHubMarkdownEngine implements MarkdownEngineInterface
 		]);
 	}
 
-	public function transform($content)
+	public function transform($content): string
 	{
 		$this->content = $content;
 		$response = $this->cache->get(hash('sha256', $content), function (ItemInterface $item) {
@@ -38,7 +38,7 @@ class GitHubMarkdownEngine implements MarkdownEngineInterface
 		return $response;
 	}
 
-	public function getName()
+	public function getName(): string
 	{
 		return 'LMMS\GitHubMarkdown';
 	}
