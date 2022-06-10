@@ -10,15 +10,26 @@
 {{ macros.jumbo('Competitions'|trans, 'Official competitions organised by LMMS and its community members'|trans)}}
 <div class="container">
 	<!-- Preserve l10n content, please don't remove or comment out the h3 tag below -->
-	<h3 class="">{% trans %}Current competitions:{% endtrans %}</h3>
+	<h3 class="hidden">{% trans %}Current competitions:{% endtrans %}</h3>
+	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol9" data-target="#bol9-desc">
 			<span>{% trans %}The Best of LMMS vol. IX{% endtrans %}</span>
-			<i class="fas fa-angle-up carret"></i>
+			<i class="fas fa-angle-down carret"></i>
 		</div>
-		<div class="comp-desc panel-collapse collapse in" role="tabpanel" id="bol9-desc">
+		<div class="comp-desc panel-collapse collapse" role="tabpanel" id="bol9-desc">
 			{% markdown %}
 			{% trans %}
+			#### The competition has ended on **April 16th, 2022**.
+			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9)
+
+			Listen to all entries [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vTbAi115g6ocLFF75ccNYzAk3Am0RsYZAyL6GX0LwxR-DGf6KBpbTLc7IZkO7LdSYNQQqWIW4QTRJML/pubhtml?gid=491403559&single=true)
+
+			Winners:
+			<!-- <iframe width="100%%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/1284918016&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe> -->
+			TBD
+
+			#### Original description:
 			We are proud to present to you The Best of LMMS contest volume 9!
 			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
 			(23:59.59 UTC Time) on April 16th 2022 for a chance to be featured on the BoL v9 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
@@ -56,7 +67,6 @@
 			{% endmarkdown %}
 		</div>
 	</div>
-	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
 		<div class="comp-header" id="bol8" data-target="#bol8-desc">
 			<span>{% trans %}The Best of LMMS vol. VIII{% endtrans %}</span>
