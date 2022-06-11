@@ -26,7 +26,9 @@
 			Listen to all entries [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vTbAi115g6ocLFF75ccNYzAk3Am0RsYZAyL6GX0LwxR-DGf6KBpbTLc7IZkO7LdSYNQQqWIW4QTRJML/pubhtml?gid=491403559&single=true)
 
 			Winners:
-			<iframe class="bandcamp-iframe" style="border: 0; width: 100%; height: 472px;" src="https://bandcamp.com/EmbeddedPlayer/album=1414817703/size=large/bgcol=ffffff/linkcol=2ebd35/artwork=small/transparent=false/" seamless><a href="https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9">The Best of LMMS Vol. 9 by LMMS Artists</a></iframe>
+			<div class="bandcamp-widget" data-href="https://bandcamp.com/EmbeddedPlayer/album=1414817703/size=large/bgcol=ffffff/linkcol=2ebd35/artwork=small/transparent=false/">
+				<iframe class="bandcamp-iframe" referrerpolicy="no-referrer" height="472" style="border: 0; height: 472px; width: 100%%;" src="" seamless><a href="https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9">The Best of LMMS Vol. 9 by LMMS Artists</a></iframe>
+			</div>
 
 			#### Original description:
 			We are proud to present to you The Best of LMMS contest volume 9!
@@ -442,6 +444,12 @@ $(document).ready(function(){
 		var target = $(this).attr('data-target');
 		$(target).collapse('toggle');
 		$(this).children('svg').toggleClass('rotate');
+		// only load the Bandcamp widget when it should be visible
+		var bc_widget = $(target).children('div');
+		var bc_iframe = $(bc_widget).children('iframe');
+		if (!$(bc_iframe).attr('src')) {
+			$(bc_iframe).attr('src', $(bc_widget).attr('data-href'));
+		}
 	});
 });
 </script>
