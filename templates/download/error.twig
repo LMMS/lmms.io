@@ -1,5 +1,16 @@
 {% extends 'base.twig' %}
 
+{% import 'macros.twig' as macros %}
+
 {% block content %}
-<p>{% trans %}We're sorry, something went wrong fetching the latest release info. You can still download releases on <a href="//github.com/LMMS/lmms/releases">GitHub</a>.{% endtrans %}</p>
+{{ macros.jumbo('Download LMMS'|trans,
+'Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:'|trans) }}
+<div class="container text-center">
+	<p>
+		{% trans %}We're sorry, something went wrong fetching the latest release info. You can still download releases on <a href="//github.com/LMMS/lmms/releases">GitHub</a>.{% endtrans %}
+	</p>
+</div>
+{% endblock %}
+
+{% block foot %}
 {% endblock %}
