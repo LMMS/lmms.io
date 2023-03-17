@@ -97,15 +97,15 @@
       </trans-unit>
       <trans-unit id="eJUdOr0" resname="For VST support, please install wine or wine-staging from the repository">
         <source>For VST support, please install wine or wine-staging from the repository</source>
-        <target>Для поддержки VST, пожалуйста установите wine-staging из репозиториев</target>
+        <target>Для поддержки VST, пожалуйста установите wine или wine-staging из репозитория</target>
       </trans-unit>
       <trans-unit id=".uMu3cY" resname="AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and more to come in the future), with VST support enabled by default on AMD64.">
         <source>AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and more to come in the future), with VST support enabled by default on AMD64.</source>
-        <target>AOSC OS имеет установочные пакеты LMMS для разной архитектуры (AMD64 / x86_64, ARMv7 и т. д. с расширением поддержки в будущем). VST поддержка по умолчанию уже включена на AMD64.</target>
+        <target>AOSC OS имеет установочные пакеты LMMS для разных архитектур (AMD64/x86_64, ARMv7 и прочие с расширением поддержки в будущем). VST поддержка по умолчанию уже включена на AMD64.</target>
       </trans-unit>
       <trans-unit id="H1vkGQS" resname="To install LMMS on AOSC OS with PackageKit (recommended):">
         <source>To install LMMS on AOSC OS with PackageKit (recommended):</source>
-        <target>Чтобы установить LMMS на AOSC OS с прилагающимсявстроенным контентом (ркомендуем):</target>
+        <target>Чтобы установить LMMS на AOSC OS с PackageKit контентом (рекомендуемый метод):</target>
       </trans-unit>
       <trans-unit id="i6lvwc6" resname="To install LMMS on AOSC OS with DPKG:">
         <source>To install LMMS on AOSC OS with DPKG:</source>
@@ -125,7 +125,7 @@
       </trans-unit>
       <trans-unit id="618mGB6" resname="Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:">
         <source>Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:</source>
-        <target>Загрузка и использование LMMS бесплатно! Просто выберите операционную систему, на которой вы хотите использовать LMMS:</target>
+        <target>Загрузите и пользуйтесь LMMS бесплатно! Просто выберите операционную систему, на которой вы хотите использовать LMMS:</target>
       </trans-unit>
       <trans-unit id="PmTQgHE" resname="Install LMMS on Linux">
         <source>Install LMMS on Linux</source>
@@ -157,7 +157,7 @@
       </trans-unit>
       <trans-unit id="yAy2ARB" resname="Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows">
         <source>Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows</source>
-        <target>Скачайте -32 либо -64 битную версию LMMS для Windows по кнопкам ниже</target>
+        <target>Скачайте 32- или 64-битную версию LMMS для Windows по кнопкам ниже</target>
       </trans-unit>
       <trans-unit id="in50er8" resname="Install LMMS on macOS">
         <source>Install LMMS on macOS</source>
@@ -256,7 +256,7 @@
       </trans-unit>
       <trans-unit id="u6Bz942" resname="How to get in touch">
         <source>How to get in touch</source>
-        <target>Как быть на связи</target>
+        <target>Как с нами связаться</target>
       </trans-unit>
       <trans-unit id="nSgPM_a" resname="Mailing List">
         <source>Mailing List</source>
@@ -317,23 +317,23 @@
       </trans-unit>
       <trans-unit id="8k_3.h_" resname="by creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.">
         <source>by creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.</source>
-        <target>создавая мелодии и биты, синтезируя и смешивая звуки, арранжируя семплы и многое другое</target>
+        <target>создавайте мелодии и биты, синтезируйте и смешивайте звуки, расставляйте семплы и многое что ещё.</target>
       </trans-unit>
       <trans-unit id="1ANtx56" resname="Playback instruments, samples and plugins">
         <source>Playback instruments, samples and plugins</source>
-        <target>Инструменты воспроизведения, семплы и плагины.</target>
+        <target>Играйте на инструментах, семплах и плагинах.</target>
       </trans-unit>
       <trans-unit id="c_9n6oH" resname="with a typing or MIDI keyboard in a user-friendly and modern interface.">
         <source>with a typing or MIDI keyboard in a user-friendly and modern interface.</source>
-        <target>с набором или работой через MIDI клавиатуру в дружественном пользователю, современном интерфейсе.</target>
+        <target>печатая или играя на MIDI-клавиатуре в дружественном пользователю, современном интерфейсе.</target>
       </trans-unit>
       <trans-unit id="h73sjrb" resname="Bundled with ready-to-use content">
         <source>Bundled with ready-to-use content</source>
-        <target>Идёт в комплекте с готовым для использования контентом.</target>
+        <target>Идёт в комплекте с готовым для использования контентом</target>
       </trans-unit>
       <trans-unit id="lBGEdiH" resname="from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.">
         <source>from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.</source>
-        <target>От ассортимента инструментов и плагинов-эффектов, пресетов и семплов до поддержки VST и SoundFont.</target>
+        <target>от ассортимента инструментов и плагинов-эффектов, пресетов и семплов до поддержки VST и SoundFont.</target>
       </trans-unit>
       <trans-unit id="rELUYJ6" resname="Made by musicians, for musicians.">
         <source>Made by musicians, for musicians.</source>
@@ -393,7 +393,7 @@
       </trans-unit>
       <trans-unit id="AZtpftd" resname="Sharing means caring.">
         <source>Sharing means caring.</source>
-        <target>Совместное использование, значит забота.</target>
+        <target>Делиться значит заботиться.</target>
       </trans-unit>
       <trans-unit id="tYjliwJ" resname="Find musicians">
         <source>Find musicians</source>
@@ -401,11 +401,11 @@
       </trans-unit>
       <trans-unit id="29NrAWW" resname="Visit the LMMS Sharing Platform (LSP)">
         <source>Visit the LMMS Sharing Platform (LSP)</source>
-        <target>Поделиться на</target>
+        <target>Посетите платформу обмена LMMS (LSP)</target>
       </trans-unit>
       <trans-unit id="vZEmrHQ" resname="Don't be modest.">
         <source>Don't be modest.</source>
-        <target>Не стесняйтесь</target>
+        <target>Не стесняйтесь.</target>
       </trans-unit>
       <trans-unit id="E6hLz_I" resname="Show us your creations.">
         <source>Show us your creations.</source>
@@ -453,11 +453,11 @@
       </trans-unit>
       <trans-unit id="JmUgjfR" resname="Sequence, compose, mix and automate songs in one simple interface">
         <source>Sequence, compose, mix and automate songs in one simple interface</source>
-        <target>Составляйте последовательность, композируйте, микшируйте и автоматизируйте мелодии в едином простом интерфейсе.</target>
+        <target>Составляйте последовательность, композируйте, микшируйте и автоматизируйте мелодии в простом интерфейсе</target>
       </trans-unit>
       <trans-unit id="q85N8NQ" resname="Note playback via MIDI or typing keyboard">
         <source>Note playback via MIDI or typing keyboard</source>
-        <target>Проигрывание нот через MIDI или при помощи набора на обычной клавиатуре</target>
+        <target>Играйте ноты через MIDI или набирайте их на клавиатуре</target>
       </trans-unit>
       <trans-unit id="UpGfL75" resname="Consolidate instrument tracks using Beat+Bassline Editor">
         <source>Consolidate instrument tracks using Beat+Bassline Editor</source>
@@ -465,7 +465,7 @@
       </trans-unit>
       <trans-unit id="73.8zRG" resname="Fine tune patterns, notes, chords and melodies using Piano Roll Editor">
         <source>Fine tune patterns, notes, chords and melodies using Piano Roll Editor</source>
-        <target>Точнейшим образом настраивайте шаблоны, ноты, аккорды и мелодии с помощью Piano Roll редактора </target>
+        <target>Точнейшим образом настраивайте шаблоны, ноты, аккорды и мелодии с помощью редактора Piano Roll</target>
       </trans-unit>
       <trans-unit id="X4f.0Yt" resname="Full user-defined track-based automation and computer-controlled automation sources">
         <source>Full user-defined track-based automation and computer-controlled automation sources</source>
@@ -473,7 +473,7 @@
       </trans-unit>
       <trans-unit id=".oFCngq" resname="Import of MIDI files and Hydrogen project files">
         <source>Import of MIDI files and Hydrogen project files</source>
-        <target>Импорт файлов проектов MIDI и Hydrogen.</target>
+        <target>Импортируйте файлы проектов MIDI и Hydrogen</target>
       </trans-unit>
       <trans-unit id="w1G_1Tb" resname="Musical Instruments">
         <source>Musical Instruments</source>
@@ -481,7 +481,7 @@
       </trans-unit>
       <trans-unit id="6W6XaNr" resname="Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit Windows)">
         <source>Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit Windows)</source>
-        <target>Встроенная 64-битная поддержка VST инструментов с возможностью перехода на 32 бита для Linux и Windows.</target>
+        <target>Поддержка 64-битных VST-инструментов с возможностью запуска 32-битных VST-плагинов (на 64-битной Windows)</target>
       </trans-unit>
       <trans-unit id="koI1Kzb" resname="16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more">
         <source>16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more</source>
@@ -489,11 +489,11 @@
       </trans-unit>
       <trans-unit id="OwdwPKG" resname="Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin">
         <source>Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</source>
-        <target>Встроенные эффекты ZynAddSubFx: полифонические, мультитембральные, микротональные, с добавлением многоголосности, субтрактивные, а также пэд-синтезаторы в одном мощном плагине.</target>
+        <target>Встроенные эффекты ZynAddSubFx: полифонические, мультитембральные, микротональные, с добавлением многоголосности, субтрактивные, а также пэд-синтезаторы в одном мощном плагине</target>
       </trans-unit>
       <trans-unit id="UqEEpjy" resname="Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks">
         <source>Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks</source>
-        <target>Поддержка множества мультисэмплов для таких форматов как SoundFont ® (SF2), Giga (GIG) и Gravis UltraSound® (GUS) для высококачественных  наборов и патчей</target>
+        <target>Поддержка мультисэмплов для таких форматов как SoundFont ® (SF2), Giga (GIG) и Gravis UltraSound® (GUS) для наборов звуков высокого качества</target>
       </trans-unit>
       <trans-unit id="CasBlNK" resname="Effects Mixing">
         <source>Effects Mixing</source>
@@ -505,7 +505,7 @@
       </trans-unit>
       <trans-unit id="b1z.R0m" resname="Drop-in VST ® effect plug-in support (Linux and Windows)">
         <source>Drop-in VST ® effect plug-in support (Linux and Windows)</source>
-        <target>Поддержка плагина эффектов VST для Linux и Windows.</target>
+        <target>Поддержка плагина эффектов VST для Linux и Windows</target>
       </trans-unit>
       <trans-unit id="_c4RPsG" resname="Built-in compressor, limiter, delay, reverb, distortion and bass enhancer">
         <source>Built-in compressor, limiter, delay, reverb, distortion and bass enhancer</source>
@@ -513,15 +513,15 @@
       </trans-unit>
       <trans-unit id="tUrf1x9" resname="Bundled graphic and parametric equalizers">
         <source>Bundled graphic and parametric equalizers</source>
-        <target>В комплекте с программой графический и параметрический эквалайзеры</target>
+        <target>Встроенные графический и параметрический эквалайзеры</target>
       </trans-unit>
       <trans-unit id="PoXBpT3" resname="Built-in visualization/spectrum analyzer">
         <source>Built-in visualization/spectrum analyzer</source>
-        <target>Встроенный инструмент визуализации/анализа спектра</target>
+        <target>Встроенный инструмент визуализации и анализа спектра</target>
       </trans-unit>
       <trans-unit id="xhQMvx4" resname="Download LMMS Artwork">
         <source>Download LMMS Artwork</source>
-        <target>Скачать LMMS арт </target>
+        <target>Скачать арты LMMS</target>
       </trans-unit>
       <trans-unit id="Hq18WDE" resname="LMMS Logo">
         <source>LMMS Logo</source>
@@ -537,7 +537,7 @@
       </trans-unit>
       <trans-unit id="ly35agX" resname="Official competitions organised by LMMS and its community members">
         <source>Official competitions organised by LMMS and its community members</source>
-        <target>Официальные соревнования, организованные LMMS и членами его сообщества.</target>
+        <target>Официальные соревнования, организованные LMMS и членами его сообщества</target>
       </trans-unit>
       <trans-unit id="hzCq1ff" resname="Current competitions:">
         <source>Current competitions:</source>
@@ -972,15 +972,15 @@
       </trans-unit>
       <trans-unit id="VqvyA1L" resname="Scalable Vector Format">
         <source>Scalable Vector Format</source>
-        <target>Масштабируемый векторный формат</target>
+        <target>Формат SVG</target>
       </trans-unit>
       <trans-unit id="5izmwVw" resname="PNG Format">
         <source>PNG Format</source>
-        <target>PNG формат</target>
+        <target>Формат PNG</target>
       </trans-unit>
       <trans-unit id="9pbDeQ2" resname="Gimp Image Editor Format">
         <source>Gimp Image Editor Format</source>
-        <target>Формат редактора фотографий Gimp</target>
+        <target>Формат редактора изображений Gimp</target>
       </trans-unit>
       <trans-unit id="zPnNJNw" resname="Portable Document Format">
         <source>Portable Document Format</source>
@@ -992,11 +992,11 @@
       </trans-unit>
       <trans-unit id="CBjpoqc" resname="JPEG Format">
         <source>JPEG Format</source>
-        <target>JPEG формат</target>
+        <target>Формат JPEG</target>
       </trans-unit>
       <trans-unit id="FneECEa" resname="Bitmap Format">
         <source>Bitmap Format</source>
-        <target>Bitmap формат</target>
+        <target>Формат Bitmap</target>
       </trans-unit>
       <trans-unit id="HjfR4tA" resname="Windows Icon Format">
         <source>Windows Icon Format</source>
@@ -1008,31 +1008,31 @@
       </trans-unit>
       <trans-unit id="OnhpU4i" resname="Home">
         <source>Home</source>
-        <target>Home</target>
+        <target>Главная</target>
       </trans-unit>
       <trans-unit id="R0s_HGS" resname="Tracks made with LMMS">
         <source>Tracks made with LMMS</source>
-        <target>Треки, созданные с помощью LMMS.</target>
+        <target>Треки, созданные с помощью LMMS</target>
       </trans-unit>
       <trans-unit id="U7C6Upb" resname="The Best of LMMS Vol. 5 by LMMS Artists">
         <source>The Best of LMMS Vol. 5 by LMMS Artists</source>
-        <target>Лучшее из созданного музыкантами в LMMS часть 5.</target>
+        <target>Лучшее из созданного музыкантами в LMMS часть 5</target>
       </trans-unit>
       <trans-unit id="VlSWT7Z" resname="The Best of LMMS Vol. 4 by LMMS Artists">
         <source>The Best of LMMS Vol. 4 by LMMS Artists</source>
-        <target>Лучшее из созданного музыкантами в LMMS часть 4.</target>
+        <target>Лучшее из созданного музыкантами в LMMS часть 4</target>
       </trans-unit>
       <trans-unit id="SmxHy9V" resname="The Best of LMMS Vol.3 by LMMS Artists">
         <source>The Best of LMMS Vol.3 by LMMS Artists</source>
-        <target>Лучшее из созданного музыкантами в LMMS часть 3.</target>
+        <target>Лучшее из созданного музыкантами в LMMS часть 3</target>
       </trans-unit>
       <trans-unit id="lSUTfcX" resname="The Best of LMMS Vol.2 by LMMS Artists">
         <source>The Best of LMMS Vol.2 by LMMS Artists</source>
-        <target>Лучшее из созданного музыкантами в LMMS часть 2.</target>
+        <target>Лучшее из созданного музыкантами в LMMS часть 2</target>
       </trans-unit>
       <trans-unit id="dcu1CCI" resname="The Best of LMMS Vol.1 by LMMS Artists">
         <source>The Best of LMMS Vol.1 by LMMS Artists</source>
-        <target>Лучшее из созданного музыкантами в LMMS.</target>
+        <target>Лучшее из созданного музыкантами в LMMS</target>
       </trans-unit>
       <trans-unit id="oEXz92z" resname="Nightly Versions">
         <source>Nightly Versions</source>
@@ -1298,7 +1298,7 @@
       </trans-unit>
       <trans-unit id="iDhOz5m" resname="The Best of LMMS Vol. 8 by LMMS Artists">
         <source>The Best of LMMS Vol. 8 by LMMS Artists</source>
-        <target>The Best of LMMS Vol. 8 by LMMS Artists</target>
+        <target>Лучшее из созданного музыкантами в LMMS часть 8</target>
       </trans-unit>
       <trans-unit id="ziTqVa1" resname="See our &lt;a href=&quot;//github.com/LMMS/lmms/wiki&quot;&gt;GitHub Wiki&lt;/a&gt; and our&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//github.com/LMMS/lmms/issues&quot;&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;/chat/&quot;&gt;Discord server&lt;/a&gt; is a great place&#10;&#9;&#9;&#9;&#9;&#9;   to introduce yourself.">
         <source>See our &lt;a href="//github.com/LMMS/lmms/wiki"&gt;GitHub Wiki&lt;/a&gt; and our
@@ -1532,7 +1532,7 @@
       </trans-unit>
       <trans-unit id="lEXM897" resname="The Best of LMMS Vol. 9 by LMMS Artists">
         <source>The Best of LMMS Vol. 9 by LMMS Artists</source>
-        <target>The Best of LMMS Vol. 9 by LMMS Artists</target>
+        <target>Лучшее из созданного музыкантами в LMMS часть 9</target>
       </trans-unit>
     </body>
   </file>
