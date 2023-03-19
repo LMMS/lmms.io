@@ -66,7 +66,7 @@
 	{% if linpre %}
 		<h3>
 		{% if 'alpha' in linpre[0].release.tag_name %}
-			{% trans %}Nightly Versions{% endtrans %}
+			{% trans %}Alpha Versions{% endtrans %}
 		{% else %}
 			{% trans %}Beta Versions{% endtrans %}
 		{% endif %}
@@ -98,7 +98,7 @@
 	{% if winpre and winpre[0] %}
 		<h3>
 		{% if 'alpha' in winpre[0].release.tag_name %}
-			{% trans %}Nightly Versions{% endtrans %}
+			{% trans %}Alpha Versions{% endtrans %}
 		{% else %}
 			{% trans %}Beta Versions{% endtrans %}
 		{% endif %}
@@ -123,7 +123,7 @@
 	{% if osxpre %}
 		<h3>
 		{% if 'alpha' in osxpre[0].release.tag_name %}
-			{% trans %}Nightly Versions{% endtrans %}
+			{% trans %}Alpha Versions{% endtrans %}
 		{% else %}
 			{% trans %}Beta Versions{% endtrans %}
 		{% endif %}
@@ -135,7 +135,7 @@
 	{% endif %}
 </div>
 
-<div id="prerelease" class="text-center"><small><span class="fas fa-exclamation-circle"></span> {% trans %}Downloads labeled Beta or Nightly are pre-release software, stability may suffer.{% endtrans %}</small></div>
+<div id="prerelease" class="text-center"><small><span class="fas fa-exclamation-circle"></span> {% trans %}Downloads labeled Alpha or Beta are pre-release software, stability may suffer.{% endtrans %}</small></div>
 <hr><div class="text-center spacey"><a class="btn btn-default" href="https://github.com/LMMS/lmms/tags"><i class="fas fa-history"></i> {% trans %}Previous releases{% endtrans %}</a></div>
 
 <script>
