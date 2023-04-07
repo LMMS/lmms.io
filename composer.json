@@ -9,6 +9,9 @@
         "ext-gd": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
+        "ext-simplexml": "*",
+        "ext-zlib": "*",
+        "ext-pdo": "*",
         "aptoma/twig-markdown": "^3.4",
         "guzzlehttp/guzzle": "^7.0.1",
         "guzzlehttp/psr7": "^2.1",
@@ -18,15 +21,15 @@
         "michelf/php-markdown": "^2.0",
         "php-http/guzzle7-adapter": "^1.0",
         "psr/cache": "^3.0",
-        "symfony/cache": "6.2.*",
-        "symfony/console": "6.2.*",
-        "symfony/dotenv": "6.2.*",
+        "symfony/cache": "6.3.*",
+        "symfony/console": "6.3.*",
+        "symfony/dotenv": "6.3.*",
         "symfony/flex": "^2.1",
-        "symfony/framework-bundle": "6.2.*",
-        "symfony/runtime": "6.2.*",
-        "symfony/translation": "6.2.*",
-        "symfony/twig-bundle": "6.2.*",
-        "symfony/yaml": "6.2.*"
+        "symfony/framework-bundle": "6.3.*",
+        "symfony/runtime": "6.3.*",
+        "symfony/translation": "6.3.*",
+        "symfony/twig-bundle": "6.3.*",
+        "symfony/yaml": "6.3.*"
     },
     "config": {
         "preferred-install": {
@@ -77,7 +80,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.2.*"
+            "require": "6.3.*"
         }
     }
 }
