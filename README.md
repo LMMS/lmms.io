@@ -49,7 +49,7 @@ This repo contains the source for LMMS's website located at https://lmms.io.
 1. Start local server
 
 	```bash
-	$ php -S localhost:8000 -t ./public/
+	$ sudo php -S localhost:8000 -t ./public/
 	```
 	
 	You can then open http://localhost:8000/ in a browser.
