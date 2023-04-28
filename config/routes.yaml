@@ -40,5 +40,7 @@ portal_pages:
    controller: App\Controller\PortalController::page
 
 controllers:
-    resource: ../src/Controller/
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
     type: attribute

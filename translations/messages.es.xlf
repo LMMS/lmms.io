@@ -1894,6 +1894,10 @@ y  <a href="//github.com/LMMS/lmms.io/issues/new">reporta el problema</a> en Git
 
 			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**]]></target>
       </trans-unit>
+      <trans-unit id="lEXM897" resname="The Best of LMMS Vol. 9 by LMMS Artists">
+        <source>The Best of LMMS Vol. 9 by LMMS Artists</source>
+        <target>The Best of LMMS Vol. 9 by LMMS Artists</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
