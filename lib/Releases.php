@@ -57,7 +57,7 @@ class Releases
 	 * Get "32-bit", "64-bit", etc based on Download URL
 	 */
 	private static function getArchitectureFromAssetName(string $assetName): string {
-		$arch64 = array('amd64', 'win64', 'x86-64', 'x86_64', 'x64', '64-bit', '.dmg');
+		$arch64 = array('aarch64', 'arm64', 'riscv64', 'amd64', 'win64', 'x86-64', 'x86_64', 'x64', '64-bit', '.dmg');
 		foreach ($arch64 as $x) {
 			if (strpos(strtolower($assetName), $x) !== false) {
 				return '64-bit';
