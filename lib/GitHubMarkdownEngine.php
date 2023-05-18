@@ -9,13 +9,9 @@ use Aptoma\Twig\Extension\MarkdownEngineInterface;
 
 class GitHubMarkdownEngine implements MarkdownEngineInterface
 {
-	public function __construct()
+	public function __construct(private \Github\Client $client)
 	{
 		$this->cache = new FilesystemAdapter();
-		$this->client = new \Github\Client();
-		$this->client->addCache($this->cache, [
-			'default_ttl' => 7200
-		]);
 	}
 
 	public function transform($content): string
@@ -26,9 +22,9 @@ class GitHubMarkdownEngine implements MarkdownEngineInterface
 			if (substr_compare('|GH|', $content, 0, 4) === 0) {
 				$content = substr($content, 4, strlen($content));
 				try {
-					$response = $this->client->api('markdown')->render($content, 'gfm', 'LMMS/lmms');
+					$response = $this->client->markdown()->render($content, 'gfm', 'LMMS/lmms');
 					return $response;
-				} catch (Exception $e) {
+				} catch (\Exception $e) {
 					error_log($e);
 					return MarkdownExtra::defaultTransform($content);
 				}
@@ -43,6 +39,5 @@ class GitHubMarkdownEngine implements MarkdownEngineInterface
 		return 'LMMS\GitHubMarkdown';
 	}
 
-	private $client;
 	private $cache;
 }

@@ -1,27 +1,31 @@
 <?php
 namespace LMMS;
 
-use Symfony\Component\Cache\Adapter\FilesystemAdapter;
-use Symfony\Contracts\Cache\ItemInterface;
+use Github\Client;
 
 class Releases
 {
-	public function __construct($owner='LMMS', $repo='lmms')
+	public function __construct(Client $client, string $owner, string $repo)
 	{
-		$this->cache = new FilesystemAdapter();
-		$this->client = new \Github\Client();
-		$this->client->addCache($this->cache, [
-			'default_ttl' => 1800
-		]);
-		$this->json = $this->client->api('repo')->releases()->all($owner, $repo);
+		$this->json = $client->repo()->releases()->all($owner, $repo);
 		usort($this->json, function ($a, $b) {
 			return version_compare($b['tag_name'], $a['tag_name']);
 		});
 	}
 
-	public function latestAssets($pattern, $stable = true)
+	public function latestStableAssets(): array
 	{
-		foreach ($this->json as $index => $release) {
+		return $this->latestAssets(true);
+	}
+
+	public function latestUnstableAssets(): array
+	{
+		return $this->latestAssets(false);
+	}
+
+	private function latestAssets(bool $stable = true): array
+	{
+		foreach ($this->json as $release) {
 			if ($release['draft']) {
 				continue;
 			}
@@ -29,54 +33,33 @@ class Releases
 				continue;
 			}
 
-			$assets = [];
-			foreach($release['assets'] as $asset)
-			{
-				if (preg_match($pattern, $asset['name']))
-				{
-					$asset['release'] = $release;
-					$asset['osname'] = $this->osName($asset['name']);
-					$asset['release']['index'] = $index;
-					array_push($assets, $asset);
-				}
-			}
-			return $assets;
+			return $this->mapAssetsFromJson($release);
 		}
+		return [];
 	}
 
-	public function latestAsset($pattern, $stable = true)
+	private function mapAssetsFromJson(array $json): array
 	{
-		$assets = $this->latestAssets($pattern, $stable);
-		return $assets ? array_pop($assets) : null;
-	}
-
-	public function latestWin32Asset($stable = true)
-	{
-		return $this->latestAsset('/.*-win32\.exe/i', $stable);
-	}
-
-	public function latestWin64Asset($stable = true)
-	{
-		return $this->latestAsset('/.*-win64\.exe/i', $stable);
-	}
-
-	public function latestOSXAssets($stable = true)
-	{
-		return $this->latestAssets('/.*\.dmg/', $stable);
-	}
-
-	public function latestLinuxAssets($stable = true)
-	{
-		return $this->latestAssets('/.*\.AppImage/', $stable);
+		return array_map(function (array $asset) use ($json) {
+			return new Asset(
+				platform: self::platformFromAssetName($asset['name']),
+				platformName: self::platformNameFromAssetName($asset['name']),
+				releaseName: $json['name'],
+				downloadUrl: $asset['browser_download_url'],
+				description: $json['body'],
+				gitRef: $json['tag_name'],
+				date: $asset['created_at']
+			);
+		}, $json['assets']);
 	}
 
 	/*
 	 * Get "32-bit", "64-bit", etc based on Download URL
 	 */
-	private function get_arch($text) {
-		$arch64 = array('amd64', 'win64', 'x86-64', 'x86_64', 'x64', '64-bit', '.dmg');
+	private static function getArchitectureFromAssetName(string $assetName): string {
+		$arch64 = array('aarch64', 'arm64', 'riscv64', 'amd64', 'win64', 'x86-64', 'x86_64', 'x64', '64-bit', '.dmg');
 		foreach ($arch64 as $x) {
-			if (strpos(strtolower($text), $x) !== false) {
+			if (strpos(strtolower($assetName), $x) !== false) {
 				return '64-bit';
 			}
 		}
@@ -86,35 +69,50 @@ class Releases
 	/*
 	 * Get "10.11", etc based on Download URL
 	 */
-	private function get_osver($text) {
-		if (strpos($text, '.dmg') !== false) {
-			$parts = explode('-', explode('.dmg', $text)[0]);
+	private static function getOsVersionFromAssetName(string $assetName): string {
+		if (strpos($assetName, '.dmg') !== false) {
+			$parts = explode('-', explode('.dmg', $assetName)[0]);
 			return filter_var(array_pop($parts), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 		}
 		return 'all';
 	}
 
+	private static function platformFromAssetName(string $assetName): Platform {
+		if (strpos($assetName, '.deb') !== false) {
+			return Platform::Linux;
+		} else if (strpos($assetName, '.rpm') !== false) {
+			return Platform::Linux;
+		} else if (strpos($assetName, '.dmg') !== false) {
+			return Platform::MacOS;
+		} else if (strpos($assetName, '.exe') !== false) {
+			return Platform::Windows;
+		} else if (strpos($assetName, '.AppImage') !== false) {
+			return Platform::Linux;
+		} else {
+			return Platform::Unknown;
+		}
+	}
+
 	/*
 	 * Get "Windows", "Apple", etc based on Download URL
 	 */
-	private function osName($text) {
-		if (strpos($text, '.tar.') !== false) {
+	private static function platformNameFromAssetName(string $assetName): string {
+		if (strpos($assetName, '.tar.') !== false) {
 			return 'Source Tarball';
-		} else if (strpos($text, '.deb') !== false) {
-			return 'Ubuntu ' . $this->get_arch($text);
-		} else if (strpos($text, '.rpm') !== false) {
-			return 'Fedora ' . $this->get_arch($text);
-		} else if (strpos($text, '.dmg') !== false) {
-			return 'macOS ' . $this->get_osver($text) . '+';
-		} else if (strpos($text, '.exe') !== false) {
-			return 'Windows ' . $this->get_arch($text);
-		} else if (strpos($text, '.AppImage') !== false) {
-			return 'Linux ' . $this->get_arch($text);
+		} else if (strpos($assetName, '.deb') !== false) {
+			return 'Ubuntu ' . self::getArchitectureFromAssetName($assetName);
+		} else if (strpos($assetName, '.rpm') !== false) {
+			return 'Fedora ' . self::getArchitectureFromAssetName($assetName);
+		} else if (strpos($assetName, '.dmg') !== false) {
+			return 'macOS ' . self::getOsVersionFromAssetName($assetName) . '+';
+		} else if (strpos($assetName, '.exe') !== false) {
+			return 'Windows ' . self::getArchitectureFromAssetName($assetName);
+		} else if (strpos($assetName, '.AppImage') !== false) {
+			return 'Linux ' . self::getArchitectureFromAssetName($assetName);
 		} else {
-			return $text;
+			return $assetName;
 		}
 	}
 
 	private $json;
-	private $client;
 }

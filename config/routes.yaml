@@ -27,6 +27,14 @@ download:
    path: /download
    controller: App\Controller\DownloadController::page
 
+download_pr:
+   path: /download/pull-request/{id}
+   controller: App\Controller\DownloadController::pull_request
+
+download_artifact:
+   path: /download/artifact/{id}
+   controller: App\Controller\DownloadController::artifact
+
 portal_pages:
    path: /{page}
    controller: App\Controller\PortalController::page
