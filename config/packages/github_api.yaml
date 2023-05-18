@@ -5,7 +5,7 @@ services:
             - '@Github\HttpClient\Builder'
         calls:
            - ['authenticate', ['%env(GITHUB_USERNAME)%', '%env(GITHUB_SECRET)%', '%env(GITHUB_AUTH_METHOD)%']]
-           - ['addCache', ['@github_api.cache', {default_ttl: 1800}]]
+           - ['addCache', ['@github_api.cache', {default_ttl: 30}]]
 
     Github\HttpClient\Builder:
         arguments:
