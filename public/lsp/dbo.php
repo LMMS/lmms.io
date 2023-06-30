@@ -197,7 +197,7 @@ function get_latest() {
 		'SELECT files.id, licenses.name AS license,size,realname,filename,users.login,
 		categories.name AS category,subcategories.name AS subcategory,
 		insert_date,update_date,description,files.downloads AS downloads,
-		COUNT(comments.file_id) AS comments,
+		(SELECT COUNT(file_id) FROM comments WHERE file_id=files.id) AS comments,
 		COALESCE(AVG(ratings.stars), 0) AS rating,
 		COUNT(ratings.id) AS rating_count FROM files 
 		INNER JOIN categories ON categories.id=files.category 
@@ -614,7 +614,7 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 			users.login, categories.name AS category, subcategories.name AS subcategory,
 			files.downloads*files.downloads/(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day,
 			files.downloads AS downloads, insert_date, update_date, description,
-			COUNT(comments.file_id) AS comments,
+			(SELECT COUNT(file_id) FROM comments WHERE file_id=files.id) AS comments,
 			COUNT(ratings.id) AS rating_count,
 			AVG(ratings.stars) as rating FROM files
 		INNER JOIN categories ON categories.id=files.category
@@ -748,7 +748,7 @@ function show_file($file_id, $user, $success = null): array {
 		'SELECT licenses.name AS license, size, realname, filename, users.login, 
 		categories.name AS category, subcategories.name AS subcategory, 
 		insert_date, update_date, description, downloads, files.id, filename, 
-		COUNT(comments.file_id) AS comments,
+		(SELECT COUNT(file_id) FROM comments WHERE file_id=files.id) AS comments,
 		COALESCE(AVG(ratings.stars), 0) AS rating,
 		COUNT(ratings.id) AS rating_count FROM files 
 		INNER JOIN categories ON categories.id=files.category 
