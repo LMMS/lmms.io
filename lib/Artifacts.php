@@ -68,16 +68,9 @@ class Artifacts
 		return $this->mapPullRequestAssetsFromJson($validArtifacts, $id, $description);
 	}
 
-	public function getArtifactBinary(int $artifactId): string
+	public function getArtifactDownloadUrl(int $artifactId): string
 	{
 		return (string) $this->client->repo()->artifacts()->download($this->owner, $this->repo, $artifactId);
-	}
-
-	public function getArtifactName(int $artifactId): string
-	{
-		$artifact = $this->client->repo()->artifacts()->show($this->owner, $this->repo, $artifactId);
-		$release = 'g' . substr($artifact['workflow_run']['head_sha'], 0, 9);
-		return $this->repo . "-" . $artifact['name'] . "-" . $release . ".zip";
 	}
 
 	private function mapBranchAssetsFromJson(array $json): array

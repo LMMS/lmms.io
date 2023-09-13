@@ -7,7 +7,6 @@ use LMMS\Platform;
 use LMMS\Releases;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\HeaderUtils;
 
 class DownloadController extends AbstractController
 {
@@ -81,13 +80,7 @@ class DownloadController extends AbstractController
     public function artifact(string $id, Artifacts $artifacts): Response
     {
         try {
-            $response = new Response($artifacts->getArtifactBinary($id));
-            $disposition = HeaderUtils::makeDisposition(
-                HeaderUtils::DISPOSITION_ATTACHMENT,
-                $artifacts->getArtifactName($id)
-            );
-            $response->headers->set('Content-Disposition', $disposition);
-            return $response;
+            return $this->redirect($artifacts->getArtifactDownloadUrl($id));
         } catch (\Exception $e) {
             if ($e->getCode() === 404) {
                 throw $this->createNotFoundException(previous: $e);
