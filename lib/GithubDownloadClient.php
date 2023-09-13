@@ -24,7 +24,7 @@ class GithubDownloadClient extends Client
 				return $next($request)->then(function(ResponseInterface $response): ResponseInterface {
 					if ($response->getStatusCode() === 302) {
 						$location = $response->getHeader('Location')[0];
-						if (str_starts_with($location, 'https://pipelines.actions.githubusercontent.com')) {
+						if (str_starts_with($location, 'https://pipelines') && str_contains($location, '.actions.githubusercontent.com')) {
 							$body = Psr17FactoryDiscovery::findStreamFactory()->createStream($location);
 							$body->rewind();
 							return $response
