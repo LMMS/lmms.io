@@ -28,11 +28,3 @@ services:
     # please note that last definitions always *replace* previous ones
     LMMS\:
         resource: '../lib/*'
-
-    markdown.engine:
-        class: LMMS\GitHubMarkdownEngine
-    twig.markdown:
-        class: Aptoma\Twig\Extension\MarkdownExtension
-        arguments: ['@markdown.engine']
-        tags:
-            - { name: twig.extension }

@@ -4,32 +4,33 @@
     "type": "project",
     "license": "GPL-2.0-only",
     "require": {
-        "php": "^8",
+        "php": "^8.1",
         "ext-ctype": "*",
         "ext-gd": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
+        "ext-pdo": "*",
         "ext-simplexml": "*",
         "ext-zlib": "*",
-        "ext-pdo": "*",
-        "aptoma/twig-markdown": "^3.4",
-        "guzzlehttp/guzzle": "^7.0.1",
-        "guzzlehttp/psr7": "^2.1",
-        "http-interop/http-factory-guzzle": "^1.0",
-        "knplabs/github-api": "^3.0",
+        "guzzlehttp/guzzle": "^7.8",
+        "guzzlehttp/psr7": "^2.6",
+        "http-interop/http-factory-guzzle": "^1.2",
+        "knplabs/github-api": "^3.14",
+        "league/commonmark": "^2.4",
         "mgargano/simplehtmldom": "^1.5",
-        "michelf/php-markdown": "^2.0",
         "php-http/guzzle7-adapter": "^1.0",
         "psr/cache": "^3.0",
         "symfony/cache": "6.3.*",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
-        "symfony/flex": "^2.1",
+        "symfony/flex": "^2.4",
         "symfony/framework-bundle": "6.3.*",
         "symfony/runtime": "6.3.*",
         "symfony/translation": "6.3.*",
         "symfony/twig-bundle": "6.3.*",
-        "symfony/yaml": "6.3.*"
+        "symfony/yaml": "6.3.*",
+        "twig/extra-bundle": "^3.8",
+        "twig/markdown-extra": "^3.8"
     },
     "config": {
         "preferred-install": {
@@ -82,5 +83,8 @@
             "allow-contrib": false,
             "require": "6.3.*"
         }
+    },
+    "require-dev": {
+        "symfony/maker-bundle": "^1.53"
     }
 }
