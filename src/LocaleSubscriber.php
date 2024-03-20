@@ -8,7 +8,8 @@ use Psr\Log\LoggerInterface;
 
 class LocaleSubscriber implements EventSubscriberInterface
 {
-    private $defaultLocale;
+    private string $defaultLocale;
+    private LoggerInterface $logger;
 
     public function __construct(LoggerInterface $logger, $defaultLocale = 'en')
     {
@@ -16,7 +17,7 @@ class LocaleSubscriber implements EventSubscriberInterface
         $this->logger = $logger;
     }
 
-    public function onKernelRequest(RequestEvent $event)
+    public function onKernelRequest(RequestEvent $event): void
     {
         $request = $event->getRequest();
         $header_locale = $request->getLanguages();
@@ -39,7 +40,7 @@ class LocaleSubscriber implements EventSubscriberInterface
         }
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             // must be registered before (i.e. with a higher priority than) the default Locale listener

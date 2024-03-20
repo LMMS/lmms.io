@@ -19,8 +19,10 @@ class TopNav
 			];
 	}
 
-	public function get()
-	{
+	public function get(): array
+    {
 		return $this->navbar;
 	}
+
+    private array $navbar;
 }
