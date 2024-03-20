@@ -1202,6 +1202,18 @@ w tej sprawie oraz  <a href="//github.com/LMMS/lmms.io/issues/new">zamieść rap
 			6. **Release:**
 				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.]]></target>
       </trans-unit>
+      <trans-unit id="dMUjKl5" resname="You seem to have taken a wrong turn.">
+        <source>You seem to have taken a wrong turn.</source>
+        <target>Wygląda na to, że źle skręciłeś.</target>
+      </trans-unit>
+      <trans-unit id="5y..cYr" resname="Oops, that is not supposed to happen.">
+        <source>Oops, that is not supposed to happen.</source>
+        <target>Ups, to nie powinno się zdarzyć.</target>
+      </trans-unit>
+      <trans-unit id="MKppsp2" resname="An unknown error occurred.">
+        <source>An unknown error occurred.</source>
+        <target>Wystąpił nieznany błąd.</target>
+      </trans-unit>
       <trans-unit id="Ush5SF0" resname="The Best of LMMS Vol. 7 by LMMS Artists">
         <source>The Best of LMMS Vol. 7 by LMMS Artists</source>
         <target>The Best of LMMS, edycja 7 w wykonaniu artystów LMMS.</target>
@@ -1210,37 +1222,25 @@ w tej sprawie oraz  <a href="//github.com/LMMS/lmms.io/issues/new">zamieść rap
         <source>The Best of LMMS Vol. 6 by LMMS Artists</source>
         <target>The Best of LMMS, edycja 6 w wykonaniu artystów LMMS.</target>
       </trans-unit>
-      <trans-unit id="dMUjKl5" resname="You seem to have taken a wrong turn.">
-        <source>You seem to have taken a wrong turn.</source>
-        <target>You seem to have taken a wrong turn.</target>
-      </trans-unit>
-      <trans-unit id="5y..cYr" resname="Oops, that is not supposed to happen.">
-        <source>Oops, that is not supposed to happen.</source>
-        <target>Oops, that is not supposed to happen.</target>
-      </trans-unit>
-      <trans-unit id="MKppsp2" resname="An unknown error occurred.">
-        <source>An unknown error occurred.</source>
-        <target>An unknown error occurred.</target>
-      </trans-unit>
       <trans-unit id="iDhOz5m" resname="The Best of LMMS Vol. 8 by LMMS Artists">
         <source>The Best of LMMS Vol. 8 by LMMS Artists</source>
-        <target>The Best of LMMS Vol. 8 by LMMS Artists</target>
+        <target>The Best of LMMS, edycja 8 w wykonaniu artystów LMMS.</target>
       </trans-unit>
       <trans-unit id="XaEX_Ha" resname="LMMS Sharing Platform">
         <source>LMMS Sharing Platform</source>
-        <target>LMMS Sharing Platform</target>
+        <target>Platforma udostępniania LMMS</target>
       </trans-unit>
       <trans-unit id="CxpKTzu" resname="Share your work with the LMMS community.">
         <source>Share your work with the LMMS community.</source>
-        <target>Share your work with the LMMS community.</target>
+        <target>Podziel się swoją pracą ze społecznością LMMS.</target>
       </trans-unit>
       <trans-unit id="ZevLxCN" resname="The wiki has been moved.">
         <source>The wiki has been moved.</source>
-        <target>The wiki has been moved.</target>
+        <target>Wiki została przeniesiona.</target>
       </trans-unit>
       <trans-unit id="k68J1Di" resname="All of our documentation is now hosted on &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt;">
         <source>All of our documentation is now hosted on &lt;a href="https://docs.lmms.io/user-manual/"&gt;docs.lmms.io&lt;/a&gt;</source>
-        <target><![CDATA[All of our documentation is now hosted on <a href="https://docs.lmms.io/user-manual/">docs.lmms.io</a>]]></target>
+        <target><![CDATA[Cała nasza dokumentacja znajduje się teraz pod adresem <a href="https://docs.lmms.io/user-manual/">docs.lmms.io</a>]]></target>
       </trans-unit>
       <trans-unit id="oHPoIyX" resname="The Mediawiki instance has been shut down, but if you need a copy &lt;a href=&quot;https://archive.org/download/lmms-mediawiki-dump&quot;&gt;we have one on archive.org.&lt;/a&gt;">
         <source>The Mediawiki instance has been shut down, but if you need a copy &lt;a href="https://archive.org/download/lmms-mediawiki-dump"&gt;we have one on archive.org.&lt;/a&gt;</source>
@@ -1272,9 +1272,9 @@ w tej sprawie oraz  <a href="//github.com/LMMS/lmms.io/issues/new">zamieść rap
         <source>Please post to the
 					   &lt;a href="//discord.gg/pZZaPZRZ35"&gt;#website&lt;/a&gt; channel on Discord if you're
 					   interested in helping out with the documentation!</source>
-        <target><![CDATA[Please post to the
-					   <a href="//discord.gg/pZZaPZRZ35">#website</a> channel on Discord if you're
-					   interested in helping out with the documentation!]]></target>
+        <target><![CDATA[Napisz na
+					<a href="//discord.gg/pZZaPZRZ35">#website</a>kanale Discord, jeśli jesteś
+ 					chcesz nam pomóc z dokumentacją!]]></target>
       </trans-unit>
       <trans-unit id="xk88gGP" resname="&lt;a href=&quot;https://discordapp.com/&quot;&gt;Discord&lt;/a&gt;&#10;&#9;&#9;&#9;&#9;&#9;is the most active forum for LMMS development. Join our server &#10;&#9;&#9;&#9;&#9;&#9;&lt;a href=&quot;/chat/&quot;&gt;by clicking here&lt;/a&gt;.">
         <source>&lt;a href="https://discordapp.com/"&gt;Discord&lt;/a&gt;
@@ -1292,7 +1292,7 @@ w tej sprawie oraz  <a href="//github.com/LMMS/lmms.io/issues/new">zamieść rap
       </trans-unit>
       <trans-unit id="oz_V6mh" resname="Posting to the mailing list is another way to reach out to our developers:">
         <source>Posting to the mailing list is another way to reach out to our developers:</source>
-        <target>Posting to the mailing list is another way to reach out to our developers:</target>
+        <target>Lista dyskusyjna jest kolejnym sposobem na dotarcie do naszych programistów:</target>
       </trans-unit>
       <trans-unit id="p_VY9oJ" resname="The Best of LMMS vol. IX">
         <source>The Best of LMMS vol. IX</source>
@@ -1543,6 +1543,36 @@ w tej sprawie oraz  <a href="//github.com/LMMS/lmms.io/issues/new">zamieść rap
       <trans-unit id="lEXM897" resname="The Best of LMMS Vol. 9 by LMMS Artists">
         <source>The Best of LMMS Vol. 9 by LMMS Artists</source>
         <target>The Best of LMMS Vol. 9 by LMMS Artists</target>
+      </trans-unit>
+      <trans-unit id="wVgk0cT" resname="Anyone can open a pull request against LMMS; we are not responsible for the builds on this page.&lt;br&gt;Unless you were directed here to test a pull request, please download an official build from the &lt;a href=&quot;%download%&quot;&gt;main download page&lt;/a&gt; instead.">
+        <source>Anyone can open a pull request against LMMS; we are not responsible for the builds on this page.&lt;br&gt;Unless you were directed here to test a pull request, please download an official build from the &lt;a href="%download%"&gt;main download page&lt;/a&gt; instead.</source>
+        <target><![CDATA[Anyone can open a pull request against LMMS; we are not responsible for the builds on this page.<br>Unless you were directed here to test a pull request, please download an official build from the <a href="%download%">main download page</a> instead.]]></target>
+      </trans-unit>
+      <trans-unit id="x19HYlO" resname="Pull Request #%id%">
+        <source>Pull Request #%id%</source>
+        <target>Pull Request #%id%</target>
+      </trans-unit>
+      <trans-unit id="aZvcwqp" resname="Pull request builds are experimental software; expect stability issues.">
+        <source>Pull request builds are experimental software; expect stability issues.</source>
+        <target>Pull request builds are experimental software; expect stability issues.</target>
+      </trans-unit>
+      <trans-unit id="KLF9W5d" resname="There are currently no builds available for this pull request. Building may have failed, or may not have completed yet.&lt;br&gt;If this is an old pull request, the builds may have expired.">
+        <source>There are currently no builds available for this pull request. Building may have failed, or may not have completed yet.&lt;br&gt;If this is an old pull request, the builds may have expired.</source>
+        <target><![CDATA[There are currently no builds available for this pull request. Building may have failed, or may not have completed yet.<br>If this is an old pull request, the builds may have expired.]]></target>
+      </trans-unit>
+      <trans-unit id="86sS5b_" resname="LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;&#10;&#9;&#9;Please &lt;a href=&quot;/get-involved/#contact&quot;&gt;contact us&lt;/a&gt; if your distribution is not listed here.">
+        <source>LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;
+		Please &lt;a href="/get-involved/#contact"&gt;contact us&lt;/a&gt; if your distribution is not listed here.</source>
+        <target><![CDATA[LMMS is included in most major Linux distribution's package repositories.<br>
+		Please <a href="/get-involved/#contact">contact us</a> if your distribution is not listed here.]]></target>
+      </trans-unit>
+      <trans-unit id="ed.Z2cG" resname="Alpha Versions">
+        <source>Alpha Versions</source>
+        <target>Wersje Alpha</target>
+      </trans-unit>
+      <trans-unit id="7wM4KTV" resname="Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.">
+        <source>Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.</source>
+        <target>Wersje Alpha, Beta, oraz Nightly są wersjami testowymi, i mogą wystąpić problemy ze stabilnością.</target>
       </trans-unit>
     </body>
   </file>

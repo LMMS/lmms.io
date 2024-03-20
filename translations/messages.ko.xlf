@@ -1528,6 +1528,36 @@
         <source>The Best of LMMS Vol. 9 by LMMS Artists</source>
         <target>The Best of LMMS Vol. 9 by LMMS Artists</target>
       </trans-unit>
+      <trans-unit id="86sS5b_" resname="LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;&#10;&#9;&#9;Please &lt;a href=&quot;/get-involved/#contact&quot;&gt;contact us&lt;/a&gt; if your distribution is not listed here.">
+        <source>LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;
+		Please &lt;a href="/get-involved/#contact"&gt;contact us&lt;/a&gt; if your distribution is not listed here.</source>
+        <target><![CDATA[LMMS is included in most major Linux distribution's package repositories.<br>
+		Please <a href="/get-involved/#contact">contact us</a> if your distribution is not listed here.]]></target>
+      </trans-unit>
+      <trans-unit id="wVgk0cT" resname="Anyone can open a pull request against LMMS; we are not responsible for the builds on this page.&lt;br&gt;Unless you were directed here to test a pull request, please download an official build from the &lt;a href=&quot;%download%&quot;&gt;main download page&lt;/a&gt; instead.">
+        <source>Anyone can open a pull request against LMMS; we are not responsible for the builds on this page.&lt;br&gt;Unless you were directed here to test a pull request, please download an official build from the &lt;a href="%download%"&gt;main download page&lt;/a&gt; instead.</source>
+        <target><![CDATA[Anyone can open a pull request against LMMS; we are not responsible for the builds on this page.<br>Unless you were directed here to test a pull request, please download an official build from the <a href="%download%">main download page</a> instead.]]></target>
+      </trans-unit>
+      <trans-unit id="x19HYlO" resname="Pull Request #%id%">
+        <source>Pull Request #%id%</source>
+        <target>Pull Request #%id%</target>
+      </trans-unit>
+      <trans-unit id="aZvcwqp" resname="Pull request builds are experimental software; expect stability issues.">
+        <source>Pull request builds are experimental software; expect stability issues.</source>
+        <target>Pull request builds are experimental software; expect stability issues.</target>
+      </trans-unit>
+      <trans-unit id="KLF9W5d" resname="There are currently no builds available for this pull request. Building may have failed, or may not have completed yet.&lt;br&gt;If this is an old pull request, the builds may have expired.">
+        <source>There are currently no builds available for this pull request. Building may have failed, or may not have completed yet.&lt;br&gt;If this is an old pull request, the builds may have expired.</source>
+        <target><![CDATA[There are currently no builds available for this pull request. Building may have failed, or may not have completed yet.<br>If this is an old pull request, the builds may have expired.]]></target>
+      </trans-unit>
+      <trans-unit id="ed.Z2cG" resname="Alpha Versions">
+        <source>Alpha Versions</source>
+        <target>Alpha Versions</target>
+      </trans-unit>
+      <trans-unit id="7wM4KTV" resname="Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.">
+        <source>Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.</source>
+        <target>Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

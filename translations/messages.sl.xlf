@@ -7,7 +7,7 @@
     <body>
       <trans-unit id="1ur_gjW" resname="Download">
         <source>Download</source>
-        <target>Prensi</target>
+        <target>Prenesi</target>
       </trans-unit>
       <trans-unit id="Tdd9OuD" resname="Get Involved">
         <source>Get Involved</source>
@@ -887,29 +887,29 @@
 			By marking your song with the tag "Want Feedback" you can get feedback from the judges. Comments from different judges will be combined into one
 			text so you won't know from who or how many the feedback is. Note that you aren't guaranteed any feedback, it depends on how much time the judges have.
 			Also note that the judges are just regular LMMS artists and no matter what feedback you get the judges' decision for album songs is final.</source>
-        <target><![CDATA[#### The competition has ended on **April 1st, 2015.**
+        <target><![CDATA[#### Tekmovanje se je zaključilo **1. aprila 2015***.
+			Podprite LMMS in kupite kompilacijo na naši [bandcamp strani.](https://lmms.bandcamp.com/)
 
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/)
-
-			Listen to all entries [here.](https://soundcloud.com/groups/the-best-of-lmms-competition-v2)
-
-			Winners:
+			Skladbe poslušajte [tukaj.](https://soundcloud.com/groups/the-best-of-lmms-competition-v2)
+			Zmagovalci:
 			<iframe width="100%%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/103762698&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			#### Original description:
-			1. The Deadline. The songs must be submitted by April 1st 0:00 UTC. The songs can be of any genre, preferably under 10 minutes.
-				The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.
-			2. The songs. All submissions will be handled via SoundCloud using the dedicated group. A user can submit a maximum of two songs.
-				Users CAN submit previously released songs, BUT not songs submitted for previous BoL competitions. Remixes are not allowed.
-				A song cooperation between a judge and yourself is not allowed.
-			3. The Judges and the Release. The judges consist of Stian Jørgensrud (Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix and Jernemies.
-				The compilation will be released on the dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds will be donated
-				for further development of LMMS or to cover other program related costs.
 
-			Extras:
+			#### Originalni opis:
+			1. Rok oddaje:
+				- Skladba mora biti oddana do 1. aprila 00:00 UTC. Zvrst je poljubna. Priporočeno je, da je skladba dolga do 10 minut.
+				- Mora biti ustvarjena v glavnem z LMMS. Druge programe lahko uporabite za masterizacijo ali dodatno obdelavo (Audacity, Ardour, ...).
+			1. Skladbe. Vsi prispevki bodo zbrani v namenski SoundCloud skupini. Vsak lahko prispeva največ dve skladbi.
+				- Dovoljeno je pošiljanje že objavljenih skladb, a ne tistih, ki so že tekomovale za BoL.
+				- Sodelovanje s sodniki ni dovoljeno.
+			3. Sodniki in izdaja:
+				-Žirijo sestavljajo: Zach Henderson, Second Flight, Umcaruje, Greippi, Tres Finnochiaro, Abludo. Stian Jørgensrud (Sti-Jay), Ian Letarte, Hashhakaj kamaluden, Fastigium, artlu, TRonix in Jernemies
+				- Kompilacija bo izdana kot album na Bandcamp-u s ceno "Plačaj kolikor želiš". Ves zaslužek bo doniran za nadaljni razvoj LMMS, programa, bi ga ljubimo.
 
-			By marking your song with the tag "Want Feedback" you can get feedback from the judges. Comments from different judges will be combined into one
-			text so you won't know from who or how many the feedback is. Note that you aren't guaranteed any feedback, it depends on how much time the judges have.
-			Also note that the judges are just regular LMMS artists and no matter what feedback you get the judges' decision for album songs is final.]]></target>
+			Dodatno
+
+			Oznaka "Želim povratno informacijo" omogoča povratno informaacijo s strani sodnikov. Opazke vseh sodnikov bodo združeni v eno 
+			zaradi anonimnosti. Povratna informacija ni zabotovljena, ker je odvisna od časa sodnikov.
+			Sodniki so LMMS umetniki in odločitev je končna ne glede na povratno informacijo.]]></target>
       </trans-unit>
       <trans-unit id="pE7RK0F" resname="The Best of LMMS vol. I">
         <source>The Best of LMMS vol. I</source>
@@ -940,30 +940,36 @@
 			3. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 7 days.
 			4. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
 				will be donated for further development of LMMS, the program that we love.</source>
-        <target><![CDATA[#### The competition has ended on **February 15th, 2014.**
+        <target><![CDATA[#### Tekmovanje se je zaključilo **15. februarja 2014***.
+			Podprite LMMS in kupite kompilacijo na naši [bandcamp strani.](https://lmms.bandcamp.com/)
 
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/)
-
-			Listen to all entries [here.](https://soundcloud.com/groups/lmms-top-songs-compilation)
-
-			Winners:
+			Skladbe poslušajte [tukaj.(https://soundcloud.com/groups/lmms-top-songs-compilation)
+			Zmagovalci:
 			<iframe width="100%%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/27083727&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-			#### Original description:
 
-			If you have made amazing songs with LMMS we have a contest for you! A LMMS top songs contest.
-			The compilation aims to inspire new users and get new producers to use the program as well as to give a big thank you to LMMS developers.
-			The compilation will be uploaded to Bandcamp and all profit will be donated for the further development of LMMS. Submit your song before
-			midnight on February 15th, and find details about this contest on the Soundcloud site.
-
-			#### Competition rules:
-			1. The Deadline. The songs must be submitted by February 15th 12 PM GMT. A user can submit a maximum of two songs. The songs can be of any genre,
-				preferably under 10 minutes. All submissions will be handled via SoundCloud using the dedicated group. User CAN submit previously released songs.
-				Remixes are not allowed. The song should be made mostly in LMMS, but it is allowed to use some other software (Audacity, Ardour etc.) for post mixing/mastering.
-			2. The Judges. The judges consist of the group Avelocity: Brian Amin (Maniarib), Joshua Wade (Second Flight),
+			#### Originalni opis:
+			Spet je ta čas leta: Če ste ustvarili sijajne skladbe z LMMS, imamo za vas tekomvanje!
+			Vrnil se je The Best of LMMS! Kompilacija je namenjena navdihu novih uporabnikov in vsakogra, ki ustvarja glasbo.
+			Pošljite svojo skladbo preko spodnje povezavo še pred polnočjo
+			(23:59.59 UTC čas) 16. marca, podrobnosti pa poiščite v [soundcloud group.](https://soundcloud.com/groups/the-best-of-lmms-competition-v3)
+			#### Pravila tekmovanja:
+			1. **Rok oddaje:**
+				- Skladba mora biti oddana do 15. februarja 2014 do 12PM GMT
+			2. **Skladba:**
+				 - Vse skladbe bodo morale biti v ustrezni skupini na Soundcloud-u. Lahko pošljete največ dve skladbi.
+				- Mora biti ustvarjena v LMMS.
+				- Druge programe lahko uporabite za masterizacijo ali dodatno obdelavo.
+				- Mora biti krajša od 10 minut.
+				- Prejšnje zmagovalne skladbe iz Best of LMMS albumov niso dovoljene.
+				- Priredb ne sprejemamo.
+				- Sodelovanje s sodniki ni dovoljeno.
+			3. **Sodniki:**
+				-Sodniki izhajajo iz skupine Avelocity: Brian Amin (Maniarib), Joshua Wade (Second Flight),
 				Uroš Maravić (Umcaruje), Evan Roberts (Stakeout Punch), Joshua Flynn (Raptor980), Jan Heemstra (Combustible Lemonade)
-			3. The Judging Process. After the deadline, the judges will make their decisions and release the results within next 7 days.
-			4. Release. The compilation will be released on a dedicated LMMS artists Bandcamp with the price of “Pay what you want”. All the received funds
-				will be donated for further development of LMMS, the program that we love.]]></target>
+			4. **Sojenje:**
+				- Po poteku roka, bodo sodniki sprejeli in objavili odločitev v roku 14 dni.
+			5. **Izdaja:**
+				- Kompilacija bo izdana kot album na Bandcamp-u s ceno "Plačaj kolikor želiš". Ves zaslužek bo doniran za nadaljni razvoj LMMS, programa, bi ga ljubimo.]]></target>
       </trans-unit>
       <trans-unit id="jHKJWvC" resname="Error &lt;b&gt;%code%&lt;/b&gt;">
         <source>Error &lt;b&gt;%code%&lt;/b&gt;</source>
@@ -1096,38 +1102,38 @@ in prijavite <a href="//github.com/LMMS/lmms.io/issues/new">težavo z datoteko</
 			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
 
 			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**</source>
-        <target><![CDATA[We are proud to present to you The Best of LMMS contest volume 8!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-			(23:59.59 UTC Time) on April 5th 2021 for a chance to be featured on the BoL v8 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+        <target><![CDATA[Ponosno vam predstavljamo natečaj The Best of LMMS, 8. izdaja!
+			Natečaj si prizadeva navdihniti skupnost, da ustvarja in deli svojo glasbo. Svojo skladbo oddajte na spodnji povezavi do polnoči
+			(23:59.59 UTC čas) 5. aprila 2021, da imate možnost, da se pojavite na albumu BoL v8. Zbirka bo naložena na Bandcamp, vsi dobički pa bodo namenjeni nadaljnjemu razvoju LMMS.
 
-			<p class="center"><a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScfJNvVtoCJ8SVQ8TWiPMjbIsl49RvwGiy1nODuvKdJ8Er_Bg/viewform">Submit here</a></p>
-			#### Competition rules:
+			<p class="center"><a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScfJNvVtoCJ8SVQ8TWiPMjbIsl49RvwGiy1nODuvKdJ8Er_Bg/viewform">Oddajte tukaj</a></p>
+			#### Pravila tekmovanja:
 
-			1. **The Deadline:**
-			 - Track must be submitted by April 5th 2021 at 23:59.59 UTC using this form.
-			2. **The Track:**
-			 - Must be produced in LMMS.
-			 - You may use other programs for mastering and post processing.
-			 - Must be under 10 minutes long.
-			 - No winning tracks from previous Best of LMMS albums allowed.
-		 	 - No covers or remixes of other person(s) works are permitted.
-			 - Reworks of your own tracks are eligible with judge approval.
-			3. **The Submissions:**
-			 - You must submit using this form only.
-			 - No more than ONE entry per artist is allowed.
-			 - Collaborations count as ONE entry for each artist involved.
-			 - No collaborating with judges on entries.
-			 - Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.
-			  - The full track should be available at the submission link provided
-			 - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
-			4. **The Judges:**
-			 - The jury consists of: Woods Alive, Hotel Zero, Jousboxx, Blageez, Noeroti, and JVSTDARE
-			5. **The Judging:**
-			 - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.
-			6. **Release:**
-			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
+			1. **Rok:**
+			   - Skladbo je treba oddati do 5. aprila 2021 ob 23:59.59 UTC s tem obrazcem.
+			2. **Skladba:**
+ 			  - Morala je biti ustvarjena v LMMS.
+  			 - Za mešanje in obdelavo lahko uporabite druge programe.
+  			 - Dolžina skladbe mora biti manjša od 10 minut.
+  			 - Ni dovoljeno uporabljati zmagovalnih skladb iz prejšnjih albumov Best of LMMS.
+  			 - Prepovedane so priredbe ali remiksi del drugih oseb.
+ 			  - Predelave lastnih skladb so dovoljene le z odobritvijo sodnikov.
+			3. **Oddajanje:**
+ 			  - Delo je mogoče oddati samo s tem obrazcem.
+ 			  - Dovoljen je samo en vnos na umetnika.
+			   - Sodelovanja se štejejo kot en vnos za vsakega vključenega umetnika.
+			   - S sodniki ni dovoljeno sodelovati pri vnosih.
+			   - Dovoljene so samo oddaje, gostovane na Soundcloudu, YouTubeu ali Clypu.
+			   - Celotna skladba naj bo na voljo na povezavi za oddajo.
+			   - Vaš vnos mora biti na voljo za poslušanje do konca postopka ocenjevanja. V nasprotnem primeru bo vaš vnos diskvalificiran.
+			4. **Sodniki:**
+			   - Žirija sestoji iz: Woods Alive, Hotel Zero, Jousboxx, Blageez, Noeroti in JVSTDARE
+			5. **Ocenjevanje:**
+			   - Po roku bodo sodniki sprejeli svoje odločitve in rezultate objavili v 14-21 dneh, če jim to dopuščajo osebni urniki.
+			6. **Objava:**
+			   - 25 najbolje ocenjenih pesmi bo izdanih kot album na Bandcampu po ceni "Plačaj, kolikor želiš". Vsi prejeti sredstva bodo namenjena za nadaljnji razvoj LMMS, programa, ki ga imamo radi.
 
-			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**]]></target>
+			**Opomba: Vnosi so ročno odobreni za prikaz na seznamu oddaj, zato, če ne vidite svojega, bodite potrpežljivi! Morda bo trajalo nekaj časa.**]]></target>
       </trans-unit>
       <trans-unit id="yzGLm.Z" resname="The Best of LMMS vol. VII">
         <source>The Best of LMMS vol. VII</source>
@@ -1171,43 +1177,43 @@ in prijavite <a href="//github.com/LMMS/lmms.io/issues/new">težavo z datoteko</
 				- After the deadline, the judges will make their decisions and release the results within 14 days.
 			6. **Release:**
 				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.</source>
-        <target><![CDATA[#### The competition has ended on **April 16th, 2020**.
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-7)
+        <target><![CDATA[#### Tekmovanje se je zaključilo **16. aprila 2020***.
+			Podprite LMS in kupite kompilacijo na naši [bandcamp strani.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-7)
 
-			Listen to all entries [here.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vR6tbmbsWPReJdh2jnCixmKlisIiWTY2QPAz_y1OjSmuwGl0PjKuXgJQ7cXuKtlrYtLqBBEa_IYeVC0/pubhtml?gid=491403559&single=true)
+			Skladbe poslušajte [tukaj.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vR6tbmbsWPReJdh2jnCixmKlisIiWTY2QPAz_y1OjSmuwGl0PjKuXgJQ7cXuKtlrYtLqBBEa_IYeVC0/pubhtml?gid=491403559&single=true)
 
-			Winners:
-			<iframe width="100%%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/1051302979&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+			Zmagovalci:
+			11
 
-			#### Original description:
-			We are proud to present to you The Best of LMMS contest volume 7!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-			(23:59.59 UTC Time) on April 16th for a chance to be featured on the BoL v6 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+			#### Originalni opis:
+			Ponosni smo, da vam lahko predstavimo The Best of LMMS contest volume 6!
+			Namen tekmovanja je navdihniti skupnost da ustvarja in deli svojo glasbo. Pošljite svojo skladbo preko spodnje povezavo še pred polnočjo
+			(23:59.59 UTC čas) 16. aprila in morda boste vključeni v BoL v6 album. Kompilacija bo naložena na Bandcamp, ves zaslužek pa bo šel v nadaljni razvoj LMMS.
 
-			[Submit here](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform)
-			#### Competition rules:
-			1. **The Deadline:**
-				- Track must be submitted by April 16th 2020 at 23:59.59 UTC using [this form](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform).
-			2. **The Track:**
-				- Must be produced in LMMS.
-				- You may use other programs for mastering and post processing.
-				- Must be under 10 minutes long.
-				- No winning tracks from previous Best of LMMS albums allowed.
-				- No remixes allowed.
-			3. **The Submissions:**
-				- You must submit using this form only.
-				- No more than ONE entry per artist is allowed.
-				- Collaborations count as ONE entry for each artist involved.
-				- No collaborating with judges on entries.
-				- Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.
-				 - The full track should be available at the submission link provided
-				- Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
-			4. **The Judges:**
-				- The jury consists of: Cubician, Etorna_Z, Noeroti, Leche, Satori and Umcaruje.
-			5. **The Judging:**
-				- After the deadline, the judges will make their decisions and release the results within 14 days.
-			6. **Release:**
-				- The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.]]></target>
+			[Pošlji tukaj](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform)
+			#### Pravila tekmovanja:
+			1. **Rok oddaje:**
+				- Skladba mora biti oddana do 2. aprila 2020 do 23:59.59 UTC z uporabo [tega obrazca](https://docs.google.com/forms/d/e/1FAIpQLSdpUGSa1JWK17_YQzc-cVQZ95toF0RQ7-c4yfdRjRtjaHAwzA/closedform).
+			2. **Skladba:**
+				- Mora biti ustvarjena v LMMS.
+				- Druge programe lahko uporabite za masterizacijo ali dodatno obdelavo.
+				- Mora biti krajša od 10 minut.
+				- Prejšnje zmagovalne skladbe iz Best of LMMS albumov niso dovoljene.
+				- Priredb ne sprejemamo.
+			3. **Posredovanje:**
+				- Skladbo je potrebno oddati z uporabo tega obrazca.
+				- Vsak avtor lahko odda le ENO skladbo.
+				- Sodelovanja se štejejo kot ENA skladba za vsakega sodelujočega.
+				- Sodelovanje s sodniki ni dovoljeno.
+				- Dovoljene so le skladbe, ki gostujejo na Soundcloud, YouTube, ali Clyp.
+				 - Celotna skladba naj bo na voljo na povezavi, ki je navedena v obrazcu.
+				- Prispevek mora biti sodnikom na voljo za poslušanje do konca ocenjevalnega postopka, sicer bo skladba diskvalificirana.
+			4. **Sodniki:**
+				-Žirijo sestavljajo: Cubician, Etorna_Z, Noeroti, Leche, Satori and Umcaruje.
+			5. **Sojenje:**
+				- Po poteku roka, bodo sodniki sprejeli in objavili odločitev v roku 14 dni.
+			6. **Izdaja:**
+				- 25 najbolje ocenjenih skladb bo izdanih kot album na Bandcamp-u s ceno "Plačaj kolikor želiš". Ves zaslužek bo doniran za nadaljni razvoj LMMS, programa, bi ga ljubimo.]]></target>
       </trans-unit>
       <trans-unit id="dMUjKl5" resname="You seem to have taken a wrong turn.">
         <source>You seem to have taken a wrong turn.</source>
@@ -1228,6 +1234,150 @@ in prijavite <a href="//github.com/LMMS/lmms.io/issues/new">težavo z datoteko</
       <trans-unit id="nk3f9aW" resname="The Best of LMMS Vol. 6 by LMMS Artists">
         <source>The Best of LMMS Vol. 6 by LMMS Artists</source>
         <target>Naj-LMMS 6. v izvedbi LMMS izvajalcev</target>
+      </trans-unit>
+      <trans-unit id="iDhOz5m" resname="The Best of LMMS Vol. 8 by LMMS Artists">
+        <source>The Best of LMMS Vol. 8 by LMMS Artists</source>
+        <target>Naj-LMMS 8. v izvedbi LMMS izvajalcev</target>
+      </trans-unit>
+      <trans-unit id="XaEX_Ha" resname="LMMS Sharing Platform">
+        <source>LMMS Sharing Platform</source>
+        <target>LMMS platforma za deljenje</target>
+      </trans-unit>
+      <trans-unit id="CxpKTzu" resname="Share your work with the LMMS community.">
+        <source>Share your work with the LMMS community.</source>
+        <target>Delite svoja dela z LMMS skupnostjo.</target>
+      </trans-unit>
+      <trans-unit id="ZevLxCN" resname="The wiki has been moved.">
+        <source>The wiki has been moved.</source>
+        <target>Wiki je bil premaknjen.</target>
+      </trans-unit>
+      <trans-unit id="k68J1Di" resname="All of our documentation is now hosted on &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt;">
+        <source>All of our documentation is now hosted on &lt;a href="https://docs.lmms.io/user-manual/"&gt;docs.lmms.io&lt;/a&gt;</source>
+        <target><![CDATA[Vsa naša dokumentacija se sedaj nahaja na <a href="https://docs.lmms.io/user-manual/">docs.lmms.io</a>]]></target>
+      </trans-unit>
+      <trans-unit id="oHPoIyX" resname="The Mediawiki instance has been shut down, but if you need a copy &lt;a href=&quot;https://archive.org/download/lmms-mediawiki-dump&quot;&gt;we have one on archive.org.&lt;/a&gt;">
+        <source>The Mediawiki instance has been shut down, but if you need a copy &lt;a href="https://archive.org/download/lmms-mediawiki-dump"&gt;we have one on archive.org.&lt;/a&gt;</source>
+        <target><![CDATA[Mediawiki instance so bile zaprte, če potrebujete kopijo <a href="https://archive.org/download/lmms-mediawiki-dump">so na voljo na archive.org.</a>]]></target>
+      </trans-unit>
+      <trans-unit id="u8PKUEQ" resname="You will be redirected to &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt; in &lt;b&gt;&lt;span id=&quot;counter&quot;&gt;30&lt;/span&gt;&lt;/b&gt; seconds.">
+        <source>You will be redirected to &lt;a href="https://docs.lmms.io/user-manual/"&gt;docs.lmms.io&lt;/a&gt; in &lt;b&gt;&lt;span id="counter"&gt;30&lt;/span&gt;&lt;/b&gt; seconds.</source>
+        <target><![CDATA[Preusmerjeni boste na <a href="https://docs.lmms.io/user-manual/">docs.lmms.io</a> v <b><span id="counter">30</span></b> sekundah.]]></target>
+      </trans-unit>
+      <trans-unit id="ziTqVa1" resname="See our &lt;a href=&quot;//github.com/LMMS/lmms/wiki&quot;&gt;GitHub Wiki&lt;/a&gt; and our&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//github.com/LMMS/lmms/issues&quot;&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;/chat/&quot;&gt;Discord server&lt;/a&gt; is a great place&#10;&#9;&#9;&#9;&#9;&#9;   to introduce yourself.">
+        <source>See our &lt;a href="//github.com/LMMS/lmms/wiki"&gt;GitHub Wiki&lt;/a&gt; and our
+					   &lt;a href="//github.com/LMMS/lmms/issues"&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS
+					   &lt;a href="/chat/"&gt;Discord server&lt;/a&gt; is a great place
+					   to introduce yourself.</source>
+        <target><![CDATA[Poglejte si naš <a href="//github.com/LMMS/lmms/wiki">GitHub Wiki</a> in
+					   sledilnik hroščem</a> da začnete. Nadalje je LMMS
+					   <a href="https://lists.sourceforge.net/lists/listinfo/lmms-devel">Discord strežnik</a> dober naslov,
+					   da se predstavite.]]></target>
+      </trans-unit>
+      <trans-unit id="qtXj59f" resname="You can help us by improving this website or documenting the software. The website sources are in our&#10;&#9;&#9;&#9;&#9;&#9;   GitHub repo &lt;a href=&quot;//github.com/LMMS/lmms.io&quot;&gt;LMMS/lmms.io&lt;/a&gt;, our documentation is hosted on&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//docs.lmms.io/&quot;&gt;GitBook&lt;/a&gt;.">
+        <source>You can help us by improving this website or documenting the software. The website sources are in our
+					   GitHub repo &lt;a href="//github.com/LMMS/lmms.io"&gt;LMMS/lmms.io&lt;/a&gt;, our documentation is hosted on
+					   &lt;a href="//docs.lmms.io/"&gt;GitBook&lt;/a&gt;.</source>
+        <target><![CDATA[Lahko nam pomagate izboljšati to spletno stran ali pri dokumentiranju programa. Viri spletnih strani se nahajajo v našem
+					   GitHub repozitoriju <a href="//github.com/LMMS/lmms.io">LMMS/lmms.io</a>, dokumentacija pa gostuje na
+					   <a href="//lmms.io/wiki">GitBooki</a>.]]></target>
+      </trans-unit>
+      <trans-unit id="A2g3qXB" resname="Please post to the&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//discord.gg/pZZaPZRZ35&quot;&gt;#website&lt;/a&gt; channel on Discord if you're&#10;&#9;&#9;&#9;&#9;&#9;   interested in helping out with the documentation!">
+        <source>Please post to the
+					   &lt;a href="//discord.gg/pZZaPZRZ35"&gt;#website&lt;/a&gt; channel on Discord if you're
+					   interested in helping out with the documentation!</source>
+        <target><![CDATA[Oglasite se na 
+					   <a href="//discord.gg/pZZaPZRZ35">#website</a> kanalu na Discord, če vas
+					   zanima pomoč pri oblikovanju dokumentacije!]]></target>
+      </trans-unit>
+      <trans-unit id="xk88gGP" resname="&lt;a href=&quot;https://discordapp.com/&quot;&gt;Discord&lt;/a&gt;&#10;&#9;&#9;&#9;&#9;&#9;is the most active forum for LMMS development. Join our server &#10;&#9;&#9;&#9;&#9;&#9;&lt;a href=&quot;/chat/&quot;&gt;by clicking here&lt;/a&gt;.">
+        <source>&lt;a href="https://discordapp.com/"&gt;Discord&lt;/a&gt;
+					is the most active forum for LMMS development. Join our server 
+					&lt;a href="/chat/"&gt;by clicking here&lt;/a&gt;.</source>
+        <target><![CDATA[<a href="https://discordapp.com/">Discord</a>
+					je najbolj aktiven forum za razvoj LMMS. Pridruži se strežniku 
+					s klikom sem</a>.]]></target>
+      </trans-unit>
+      <trans-unit id="QDlEtxo" resname="Our IRC channel is &lt;a href=&quot;https://web.libera.chat/#lmms&quot;&gt;#lmms&lt;/a&gt; on&#10;&#9;&#9;&#9;&#9;&#9;&lt;a href=&quot;https://web.libera.chat&quot;&gt;Libera Chat&lt;/a&gt;.">
+        <source>Our IRC channel is &lt;a href="https://web.libera.chat/#lmms"&gt;#lmms&lt;/a&gt; on
+					&lt;a href="https://web.libera.chat"&gt;Libera Chat&lt;/a&gt;.</source>
+        <target><![CDATA[Naš IRC kanal je <a href="http://webchat.freenode.net/?channels=%23lmms">#lmms</a> na
+					Libera Chat</a>.]]></target>
+      </trans-unit>
+      <trans-unit id="oz_V6mh" resname="Posting to the mailing list is another way to reach out to our developers:">
+        <source>Posting to the mailing list is another way to reach out to our developers:</source>
+        <target>Komuniciranje preko seznama elektronske pošte je še en način za dostop do naših razvijalcev:</target>
+      </trans-unit>
+      <trans-unit id="p_VY9oJ" resname="The Best of LMMS vol. IX">
+        <source>The Best of LMMS vol. IX</source>
+        <target>Naj-LMMS IX</target>
+      </trans-unit>
+      <trans-unit id="Rq_TJMi" resname="We are proud to present to you The Best of LMMS contest volume 9!&#10;&#9;&#9;&#9;The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight&#10;&#9;&#9;&#9;(23:59.59 UTC Time) on April 16th 2022 for a chance to be featured on the BoL v9 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.&#10;&#10;&#9;&#9;&#9;&lt;p class=&quot;center&quot;&gt;&lt;a class=&quot;btn btn-success btn-lg center&quot; href=&quot;https://docs.google.com/forms/d/e/1FAIpQLScWb8vuktPblEO1-7sTV5Es7nZRmsQOUS_PUYJh--VFbW-hAg/viewform&quot;&gt;Submit here&lt;/a&gt;&lt;/p&gt;&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#10;&#9;&#9;&#9;1. **The Deadline:**&#10;&#9;&#9;&#9; - Track must be submitted by April 16th 2022 at 23:59.59 UTC using this form.&#10;&#9;&#9;&#9;2. **The Track:**&#10;&#9;&#9;&#9; - Must be produced in LMMS.&#10;&#9;&#9;&#9; - You may use other programs for mastering and post processing.&#10;&#9;&#9;&#9; - Must be under 10 minutes long.&#10;&#9;&#9;&#9; - No winning tracks from previous Best of LMMS albums allowed.&#10;&#9;&#9; &#9; - No covers or remixes of other person(s) works are permitted.&#10;&#9;&#9;&#9; - Reworks of your own tracks are eligible with judge approval.&#10;&#9;&#9;&#9;3. **The Submissions:**&#10;&#9;&#9;&#9; - You must submit using this form only.&#10;&#9;&#9;&#9; - No more than ONE entry per artist is allowed.&#10;&#9;&#9;&#9; - Collaborations count as ONE entry for each artist involved.&#10;&#9;&#9;&#9; - No collaborating with judges on entries.&#10;&#9;&#9;&#9; - Only submissions hosted on Soundcloud or YouTube are allowed.&#10;&#9;&#9;&#9;  - The full track should be available at the submission link provided&#10;&#9;&#9;&#9; - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.&#10;&#9;&#9;&#9; - The entry must not contain any trademarked or copyrighted material which you do not own the rights to.&#10;&#9;&#9;&#9;4. **The Judges:**&#10;&#9;&#9;&#9; - The jury consists of: Etorna, Noeroti, Spekular, Squatro, Stakeout Punch and Umcaruje.&#10;&#9;&#9;&#9;5. **The Judging:**&#10;&#9;&#9;&#9; - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.&#10;&#9;&#9;&#9;6. **Release:**&#10;&#9;&#9;&#9; - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.&#10;&#10;&#9;&#9;&#9;**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**">
+        <source>We are proud to present to you The Best of LMMS contest volume 9!
+			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
+			(23:59.59 UTC Time) on April 16th 2022 for a chance to be featured on the BoL v9 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+
+			&lt;p class="center"&gt;&lt;a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScWb8vuktPblEO1-7sTV5Es7nZRmsQOUS_PUYJh--VFbW-hAg/viewform"&gt;Submit here&lt;/a&gt;&lt;/p&gt;
+			#### Competition rules:
+
+			1. **The Deadline:**
+			 - Track must be submitted by April 16th 2022 at 23:59.59 UTC using this form.
+			2. **The Track:**
+			 - Must be produced in LMMS.
+			 - You may use other programs for mastering and post processing.
+			 - Must be under 10 minutes long.
+			 - No winning tracks from previous Best of LMMS albums allowed.
+		 	 - No covers or remixes of other person(s) works are permitted.
+			 - Reworks of your own tracks are eligible with judge approval.
+			3. **The Submissions:**
+			 - You must submit using this form only.
+			 - No more than ONE entry per artist is allowed.
+			 - Collaborations count as ONE entry for each artist involved.
+			 - No collaborating with judges on entries.
+			 - Only submissions hosted on Soundcloud or YouTube are allowed.
+			  - The full track should be available at the submission link provided
+			 - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
+			 - The entry must not contain any trademarked or copyrighted material which you do not own the rights to.
+			4. **The Judges:**
+			 - The jury consists of: Etorna, Noeroti, Spekular, Squatro, Stakeout Punch and Umcaruje.
+			5. **The Judging:**
+			 - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.
+			6. **Release:**
+			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
+
+			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**</source>
+        <target><![CDATA[Ponosno vam predstavljamo natečaj The Best of LMMS, zvezek 9!
+			Natečaj si prizadeva navdihniti skupnost, da ustvarja in deli svojo glasbo. Predložite svojo skladbo preko povezave spodaj do polnoči
+			(23:59.59 UTC čas) 16. aprila 2022, za možnost, da se pojavi na albumu BoL v9. Zbirka bo naložena na Bandcamp, vsi dobički pa bodo namenjeni nadaljnjemu razvoju LMMS.
+
+			<p class="center"><a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScWb8vuktPblEO1-7sTV5Es7nZRmsQOUS_PUYJh--VFbW-hAg/viewform">Predložite tukaj</a></p>
+			#### Pravila tekmovanja:
+
+			1. **Rok:**
+			   - Skladbo je treba predložiti do 16. aprila 2022 ob 23:59.59 UTC preko tega obrazca.
+			2. **Skladba:**
+			   - Morala je biti ustvarjena v LMMS.
+			   - Za mešanje in obdelavo poštnega procesa lahko uporabite druge programe.
+			   - Dolžina skladbe mora biti manjša od 10 minut.
+			   - Ni dovoljeno uporabljati zmagovalnih skladb iz prejšnjih albumov Best of LMMS.
+			   - Prepovedani so priredbe ali remiksi del drugih oseb.
+			   - Preobdelave lastnih skladb so dovoljene z odobritvijo sodnikov.
+			3. **Predložitve:**
+			   - Predložiti morate samo preko tega obrazca.
+			   - Dovoljen je samo en vnos na umetnika.
+			   - Sodelovanja štejejo kot en vnos za vsakega vključenega umetnika.
+			   - Sodelovanje z sodniki pri vnosih ni dovoljeno.
+			   - Dovoljene so samo predložitve, ki so gostovane na Soundcloudu ali YouTubeu.
+			   - Celotna skladba mora biti na voljo na predloženi povezavi
+			   - Vaš vnos mora biti na voljo za poslušanje do konca postopka ocenjevanja. V nasprotnem primeru bo vaš vnos diskvalificiran.
+			   - Vnos ne sme vsebovati nobenega blagovnega ali avtorskega materiala, za katerega nimate pravic.
+			4. **Sodniki:**
+			   - Žirija sestoji iz: Etorna, Noeroti, Spekular, Squatro, Stakeout Punch in Umcaruje.
+			5. **Ocenjevanje:**
+			   - Po roku bodo sodniki sprejeli svoje odločitve in rezultate objavili v 14-21 dneh, če jim to dopuščajo osebni urniki.
+			6. **Objava:**
+			   - 25 najbolje ocenjenih pesmi bo izdanih kot album na Bandcampu po ceni "Plačaj, kolikor želiš". Vsi prejeti sredstva bodo namenjena za nadaljnji razvoj LMMS, programa, ki ga imamo radi.
+
+			**Opomba: Vnosi so ročno odobreni za prikaz na seznamu predložitev, zato, če ne vidite svojega, bodite potrpežljivi! Morda bo trajalo nekaj časa.**]]></target>
       </trans-unit>
       <trans-unit id="F_oH7z3" resname="#### The competition has ended on **April 5th, 2021**.&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-8)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTTL1tGpixnvTViAT6WW1eOaVe-21CVy_gcuDwOtqQabyqgl6idAkxP34O-wqQ3f83Hp-xGQzWDKafA/pubhtml?gid=491403559&amp;single=true)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;iframe width=&quot;100%%&quot; height=&quot;350&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/1284918016&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;#### Original description:&#10;&#9;&#9;&#9;We are proud to present to you The Best of LMMS contest volume 8!&#10;&#9;&#9;&#9;The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight&#10;&#9;&#9;&#9;(23:59.59 UTC Time) on April 5th 2021 for a chance to be featured on the BoL v8 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.&#10;&#10;&#9;&#9;&#9;&lt;p class=&quot;center&quot;&gt;&lt;a class=&quot;btn btn-success btn-lg center&quot; href=&quot;https://docs.google.com/forms/d/e/1FAIpQLScfJNvVtoCJ8SVQ8TWiPMjbIsl49RvwGiy1nODuvKdJ8Er_Bg/viewform&quot;&gt;Submit here&lt;/a&gt;&lt;/p&gt;&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#10;&#9;&#9;&#9;1. **The Deadline:**&#10;&#9;&#9;&#9; - Track must be submitted by April 5th 2021 at 23:59.59 UTC using this form.&#10;&#9;&#9;&#9;2. **The Track:**&#10;&#9;&#9;&#9; - Must be produced in LMMS.&#10;&#9;&#9;&#9; - You may use other programs for mastering and post processing.&#10;&#9;&#9;&#9; - Must be under 10 minutes long.&#10;&#9;&#9;&#9; - No winning tracks from previous Best of LMMS albums allowed.&#10;&#9;&#9; &#9; - No covers or remixes of other person(s) works are permitted.&#10;&#9;&#9;&#9; - Reworks of your own tracks are eligible with judge approval.&#10;&#9;&#9;&#9;3. **The Submissions:**&#10;&#9;&#9;&#9; - You must submit using this form only.&#10;&#9;&#9;&#9; - No more than ONE entry per artist is allowed.&#10;&#9;&#9;&#9; - Collaborations count as ONE entry for each artist involved.&#10;&#9;&#9;&#9; - No collaborating with judges on entries.&#10;&#9;&#9;&#9; - Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.&#10;&#9;&#9;&#9;  - The full track should be available at the submission link provided&#10;&#9;&#9;&#9; - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.&#10;&#9;&#9;&#9;4. **The Judges:**&#10;&#9;&#9;&#9; - The jury consists of: Woods Alive, Hotel Zero, Jousboxx, Blageez, Noeroti, and JVSTDARE&#10;&#9;&#9;&#9;5. **The Judging:**&#10;&#9;&#9;&#9; - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.&#10;&#9;&#9;&#9;6. **Release:**&#10;&#9;&#9;&#9; - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.&#10;&#10;&#9;&#9;&#9;**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**">
         <source>#### The competition has ended on **April 5th, 2021**.
@@ -1271,191 +1421,47 @@ in prijavite <a href="//github.com/LMMS/lmms.io/issues/new">težavo z datoteko</
 			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
 
 			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**</source>
-        <target><![CDATA[#### The competition has ended on **April 5th, 2021**.
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-8)
+        <target><![CDATA[#### Tekmovanje se je končalo **5. aprila 2021**.
+			Podprite LMMS in kupite kompilacijo na naši [bandcamp strani.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-8)
 
-			Listen to all entries [here.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTTL1tGpixnvTViAT6WW1eOaVe-21CVy_gcuDwOtqQabyqgl6idAkxP34O-wqQ3f83Hp-xGQzWDKafA/pubhtml?gid=491403559&single=true)
+			Poslušajte vse prispevke [tukaj.](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTTL1tGpixnvTViAT6WW1eOaVe-21CVy_gcuDwOtqQabyqgl6idAkxP34O-wqQ3f83Hp-xGQzWDKafA/pubhtml?gid=491403559&single=true)
 
-			Winners:
-			<iframe width="100%%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/1284918016&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-			
-			#### Original description:
-			We are proud to present to you The Best of LMMS contest volume 8!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-			(23:59.59 UTC Time) on April 5th 2021 for a chance to be featured on the BoL v8 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+			Zmagovalci:
+<iframe width="100%%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/1284918016&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 
-			<p class="center"><a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScfJNvVtoCJ8SVQ8TWiPMjbIsl49RvwGiy1nODuvKdJ8Er_Bg/viewform">Submit here</a></p>
-			#### Competition rules:
+			#### Izvirni opis:
+			Ponosno vam predstavljamo tekmovanje The Best of LMMS volume 8!
+			Tekmovanje si prizadeva navdihniti skupnost, da ustvarja in deli svojo glasbo. Predložite svoj posnetek na spodnji povezavi do polnoči
+			(23:59.59 UTC čas) 5. aprila 2021 za možnost, da se prikaže na albumu BoL v8. Kompilacija bo naložena na Bandcamp, vsi dobički pa bodo namenjeni nadaljnjemu razvoju LMMS.
 
-			1. **The Deadline:**
-			 - Track must be submitted by April 5th 2021 at 23:59.59 UTC using this form.
-			2. **The Track:**
-			 - Must be produced in LMMS.
-			 - You may use other programs for mastering and post processing.
-			 - Must be under 10 minutes long.
-			 - No winning tracks from previous Best of LMMS albums allowed.
-		 	 - No covers or remixes of other person(s) works are permitted.
-			 - Reworks of your own tracks are eligible with judge approval.
-			3. **The Submissions:**
-			 - You must submit using this form only.
-			 - No more than ONE entry per artist is allowed.
-			 - Collaborations count as ONE entry for each artist involved.
-			 - No collaborating with judges on entries.
-			 - Only submissions hosted on Soundcloud, YouTube, or Clyp are allowed.
-			  - The full track should be available at the submission link provided
-			 - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
-			4. **The Judges:**
-			 - The jury consists of: Woods Alive, Hotel Zero, Jousboxx, Blageez, Noeroti, and JVSTDARE
-			5. **The Judging:**
-			 - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.
-			6. **Release:**
-			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
+			<p class="center"><a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScfJNvVtoCJ8SVQ8TWiPMjbIsl49RvwGiy1nODuvKdJ8Er_Bg/viewform">Predložite tukaj</a></p>
+			#### Pravila tekmovanja:
 
-			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**]]></target>
-      </trans-unit>
-      <trans-unit id="ziTqVa1" resname="See our &lt;a href=&quot;//github.com/LMMS/lmms/wiki&quot;&gt;GitHub Wiki&lt;/a&gt; and our&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//github.com/LMMS/lmms/issues&quot;&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;/chat/&quot;&gt;Discord server&lt;/a&gt; is a great place&#10;&#9;&#9;&#9;&#9;&#9;   to introduce yourself.">
-        <source>See our &lt;a href="//github.com/LMMS/lmms/wiki"&gt;GitHub Wiki&lt;/a&gt; and our
-					   &lt;a href="//github.com/LMMS/lmms/issues"&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS
-					   &lt;a href="/chat/"&gt;Discord server&lt;/a&gt; is a great place
-					   to introduce yourself.</source>
-        <target><![CDATA[See our <a href="//github.com/LMMS/lmms/wiki">GitHub Wiki</a> and our
-					   <a href="//github.com/LMMS/lmms/issues">bug tracker</a> to get started. Furthermore, the LMMS
-					   <a href="/chat/">Discord server</a> is a great place
-					   to introduce yourself.]]></target>
-      </trans-unit>
-      <trans-unit id="qtXj59f" resname="You can help us by improving this website or documenting the software. The website sources are in our&#10;&#9;&#9;&#9;&#9;&#9;   GitHub repo &lt;a href=&quot;//github.com/LMMS/lmms.io&quot;&gt;LMMS/lmms.io&lt;/a&gt;, our documentation is hosted on&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//docs.lmms.io/&quot;&gt;GitBook&lt;/a&gt;.">
-        <source>You can help us by improving this website or documenting the software. The website sources are in our
-					   GitHub repo &lt;a href="//github.com/LMMS/lmms.io"&gt;LMMS/lmms.io&lt;/a&gt;, our documentation is hosted on
-					   &lt;a href="//docs.lmms.io/"&gt;GitBook&lt;/a&gt;.</source>
-        <target><![CDATA[You can help us by improving this website or documenting the software. The website sources are in our
-					   GitHub repo <a href="//github.com/LMMS/lmms.io">LMMS/lmms.io</a>, our documentation is hosted on
-					   <a href="//docs.lmms.io/">GitBook</a>.]]></target>
-      </trans-unit>
-      <trans-unit id="A2g3qXB" resname="Please post to the&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//discord.gg/pZZaPZRZ35&quot;&gt;#website&lt;/a&gt; channel on Discord if you're&#10;&#9;&#9;&#9;&#9;&#9;   interested in helping out with the documentation!">
-        <source>Please post to the
-					   &lt;a href="//discord.gg/pZZaPZRZ35"&gt;#website&lt;/a&gt; channel on Discord if you're
-					   interested in helping out with the documentation!</source>
-        <target><![CDATA[Oglasite se na 
-					   <a href="//discord.gg/pZZaPZRZ35">#website</a> kanalu na Discord, če vas
-					   zanima pomoč pri oblikovanju dokumentacije!]]></target>
-      </trans-unit>
-      <trans-unit id="xk88gGP" resname="&lt;a href=&quot;https://discordapp.com/&quot;&gt;Discord&lt;/a&gt;&#10;&#9;&#9;&#9;&#9;&#9;is the most active forum for LMMS development. Join our server &#10;&#9;&#9;&#9;&#9;&#9;&lt;a href=&quot;/chat/&quot;&gt;by clicking here&lt;/a&gt;.">
-        <source>&lt;a href="https://discordapp.com/"&gt;Discord&lt;/a&gt;
-					is the most active forum for LMMS development. Join our server 
-					&lt;a href="/chat/"&gt;by clicking here&lt;/a&gt;.</source>
-        <target><![CDATA[<a href="https://discordapp.com/">Discord</a>
-					is the most active forum for LMMS development. Join our server 
-					<a href="/chat/">by clicking here</a>.]]></target>
-      </trans-unit>
-      <trans-unit id="QDlEtxo" resname="Our IRC channel is &lt;a href=&quot;https://web.libera.chat/#lmms&quot;&gt;#lmms&lt;/a&gt; on&#10;&#9;&#9;&#9;&#9;&#9;&lt;a href=&quot;https://web.libera.chat&quot;&gt;Libera Chat&lt;/a&gt;.">
-        <source>Our IRC channel is &lt;a href="https://web.libera.chat/#lmms"&gt;#lmms&lt;/a&gt; on
-					&lt;a href="https://web.libera.chat"&gt;Libera Chat&lt;/a&gt;.</source>
-        <target><![CDATA[Our IRC channel is <a href="https://web.libera.chat/#lmms">#lmms</a> on
-					<a href="https://web.libera.chat">Libera Chat</a>.]]></target>
-      </trans-unit>
-      <trans-unit id="oz_V6mh" resname="Posting to the mailing list is another way to reach out to our developers:">
-        <source>Posting to the mailing list is another way to reach out to our developers:</source>
-        <target>Komuniciranje preko seznama elektronske pošte je še en način za dostop do naših razvijalcev:</target>
-      </trans-unit>
-      <trans-unit id="XaEX_Ha" resname="LMMS Sharing Platform">
-        <source>LMMS Sharing Platform</source>
-        <target>LMMS platforma za deljenje</target>
-      </trans-unit>
-      <trans-unit id="CxpKTzu" resname="Share your work with the LMMS community.">
-        <source>Share your work with the LMMS community.</source>
-        <target>Delite svoja dela z LMMS skupnostjo.</target>
-      </trans-unit>
-      <trans-unit id="ZevLxCN" resname="The wiki has been moved.">
-        <source>The wiki has been moved.</source>
-        <target>Wiki je bil premaknjen.</target>
-      </trans-unit>
-      <trans-unit id="k68J1Di" resname="All of our documentation is now hosted on &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt;">
-        <source>All of our documentation is now hosted on &lt;a href="https://docs.lmms.io/user-manual/"&gt;docs.lmms.io&lt;/a&gt;</source>
-        <target><![CDATA[Vsa naša dokumentacija se sedaj nahaja na <a href="https://docs.lmms.io/user-manual/">docs.lmms.io</a>]]></target>
-      </trans-unit>
-      <trans-unit id="oHPoIyX" resname="The Mediawiki instance has been shut down, but if you need a copy &lt;a href=&quot;https://archive.org/download/lmms-mediawiki-dump&quot;&gt;we have one on archive.org.&lt;/a&gt;">
-        <source>The Mediawiki instance has been shut down, but if you need a copy &lt;a href="https://archive.org/download/lmms-mediawiki-dump"&gt;we have one on archive.org.&lt;/a&gt;</source>
-        <target><![CDATA[Mediawiki instance so bile zaprte, če potrebujete kopijo <a href="https://archive.org/download/lmms-mediawiki-dump">so na voljo na archive.org.</a>]]></target>
-      </trans-unit>
-      <trans-unit id="u8PKUEQ" resname="You will be redirected to &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt; in &lt;b&gt;&lt;span id=&quot;counter&quot;&gt;30&lt;/span&gt;&lt;/b&gt; seconds.">
-        <source>You will be redirected to &lt;a href="https://docs.lmms.io/user-manual/"&gt;docs.lmms.io&lt;/a&gt; in &lt;b&gt;&lt;span id="counter"&gt;30&lt;/span&gt;&lt;/b&gt; seconds.</source>
-        <target><![CDATA[Preusmerjeni boste na <a href="https://docs.lmms.io/user-manual/">docs.lmms.io</a> v <b><span id="counter">30</span></b> sekundah.]]></target>
-      </trans-unit>
-      <trans-unit id="iDhOz5m" resname="The Best of LMMS Vol. 8 by LMMS Artists">
-        <source>The Best of LMMS Vol. 8 by LMMS Artists</source>
-        <target>Naj-LMMS 8. v izvedbi LMMS izvajalcev</target>
-      </trans-unit>
-      <trans-unit id="p_VY9oJ" resname="The Best of LMMS vol. IX">
-        <source>The Best of LMMS vol. IX</source>
-        <target>The Best of LMMS vol. IX</target>
-      </trans-unit>
-      <trans-unit id="Rq_TJMi" resname="We are proud to present to you The Best of LMMS contest volume 9!&#10;&#9;&#9;&#9;The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight&#10;&#9;&#9;&#9;(23:59.59 UTC Time) on April 16th 2022 for a chance to be featured on the BoL v9 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.&#10;&#10;&#9;&#9;&#9;&lt;p class=&quot;center&quot;&gt;&lt;a class=&quot;btn btn-success btn-lg center&quot; href=&quot;https://docs.google.com/forms/d/e/1FAIpQLScWb8vuktPblEO1-7sTV5Es7nZRmsQOUS_PUYJh--VFbW-hAg/viewform&quot;&gt;Submit here&lt;/a&gt;&lt;/p&gt;&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#10;&#9;&#9;&#9;1. **The Deadline:**&#10;&#9;&#9;&#9; - Track must be submitted by April 16th 2022 at 23:59.59 UTC using this form.&#10;&#9;&#9;&#9;2. **The Track:**&#10;&#9;&#9;&#9; - Must be produced in LMMS.&#10;&#9;&#9;&#9; - You may use other programs for mastering and post processing.&#10;&#9;&#9;&#9; - Must be under 10 minutes long.&#10;&#9;&#9;&#9; - No winning tracks from previous Best of LMMS albums allowed.&#10;&#9;&#9; &#9; - No covers or remixes of other person(s) works are permitted.&#10;&#9;&#9;&#9; - Reworks of your own tracks are eligible with judge approval.&#10;&#9;&#9;&#9;3. **The Submissions:**&#10;&#9;&#9;&#9; - You must submit using this form only.&#10;&#9;&#9;&#9; - No more than ONE entry per artist is allowed.&#10;&#9;&#9;&#9; - Collaborations count as ONE entry for each artist involved.&#10;&#9;&#9;&#9; - No collaborating with judges on entries.&#10;&#9;&#9;&#9; - Only submissions hosted on Soundcloud or YouTube are allowed.&#10;&#9;&#9;&#9;  - The full track should be available at the submission link provided&#10;&#9;&#9;&#9; - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.&#10;&#9;&#9;&#9; - The entry must not contain any trademarked or copyrighted material which you do not own the rights to.&#10;&#9;&#9;&#9;4. **The Judges:**&#10;&#9;&#9;&#9; - The jury consists of: Etorna, Noeroti, Spekular, Squatro, Stakeout Punch and Umcaruje.&#10;&#9;&#9;&#9;5. **The Judging:**&#10;&#9;&#9;&#9; - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.&#10;&#9;&#9;&#9;6. **Release:**&#10;&#9;&#9;&#9; - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.&#10;&#10;&#9;&#9;&#9;**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**">
-        <source>We are proud to present to you The Best of LMMS contest volume 9!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-			(23:59.59 UTC Time) on April 16th 2022 for a chance to be featured on the BoL v9 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+			1. **Rok:**
+			   - Posnetek mora biti predložen do 5. aprila 2021 ob 23:59.59 UTC s pomočjo tega obrazca.
+			2. **Posnetek:**
+			   - Morajo biti ustvarjeni v LMMS.
+			   - Za obvladovanje in post obdelavo lahko uporabite druge programe.
+			   - Dolžina posnetka mora biti manjša od 10 minut.
+			   - Ni dovoljeno uporabljati zmagovalnih posnetkov iz prejšnjih albumov Best of LMMS.
+			   - Prepovedani so priredbe ali remiksi del drugih oseb.
+			   - Predelave lastnih posnetkov so dovoljene z odobritvijo sodnikov.
+			3. **Predložitve:**
+			   - Predložiti morate samo s pomočjo tega obrazca.
+			   - Dovoljen je samo en vnos na umetnika.
+			   - Sodelovanja štejejo kot en vnos za vsakega vključenega umetnika.
+			   - Sodelovanje s sodniki pri vnosih ni dovoljeno.
+			   - Dovoljeni so samo prispevki, ki so gostovani na Soundcloudu, YouTubeu ali Clypu.
+			   - Celoten posnetek mora biti na voljo na predloženi povezavi
+			   - Vaš vnos mora biti na voljo za poslušanje do konca ocenjevalnega procesa. V nasprotnem primeru bo vaš vnos diskvalificiran.
+			4. **Sodniki:**
+			   - Žirija sestoji iz: Woods Alive, Hotel Zero, Jousboxx, Blageez, Noeroti in JVSTDARE
+			5. **Ocenjevanje:**
+			   - Po roku bodo sodniki sprejeli svoje odločitve in rezultate objavili v 14-21 dneh, če jim urniki to omogočajo.
+			6. **Objava:**
+			   - 25 najbolje ocenjenih pesmi bo izdanih kot album na Bandcampu po ceni "Plačaj, kolikor želiš". Vsi prejeti sredstva bodo namenjena za nadaljnji razvoj LMMS, programa, ki ga imamo radi.
 
-			&lt;p class="center"&gt;&lt;a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScWb8vuktPblEO1-7sTV5Es7nZRmsQOUS_PUYJh--VFbW-hAg/viewform"&gt;Submit here&lt;/a&gt;&lt;/p&gt;
-			#### Competition rules:
-
-			1. **The Deadline:**
-			 - Track must be submitted by April 16th 2022 at 23:59.59 UTC using this form.
-			2. **The Track:**
-			 - Must be produced in LMMS.
-			 - You may use other programs for mastering and post processing.
-			 - Must be under 10 minutes long.
-			 - No winning tracks from previous Best of LMMS albums allowed.
-		 	 - No covers or remixes of other person(s) works are permitted.
-			 - Reworks of your own tracks are eligible with judge approval.
-			3. **The Submissions:**
-			 - You must submit using this form only.
-			 - No more than ONE entry per artist is allowed.
-			 - Collaborations count as ONE entry for each artist involved.
-			 - No collaborating with judges on entries.
-			 - Only submissions hosted on Soundcloud or YouTube are allowed.
-			  - The full track should be available at the submission link provided
-			 - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
-			 - The entry must not contain any trademarked or copyrighted material which you do not own the rights to.
-			4. **The Judges:**
-			 - The jury consists of: Etorna, Noeroti, Spekular, Squatro, Stakeout Punch and Umcaruje.
-			5. **The Judging:**
-			 - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.
-			6. **Release:**
-			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
-
-			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**</source>
-        <target><![CDATA[We are proud to present to you The Best of LMMS contest volume 9!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-			(23:59.59 UTC Time) on April 16th 2022 for a chance to be featured on the BoL v9 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
-
-			<p class="center"><a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScWb8vuktPblEO1-7sTV5Es7nZRmsQOUS_PUYJh--VFbW-hAg/viewform">Submit here</a></p>
-			#### Competition rules:
-
-			1. **The Deadline:**
-			 - Track must be submitted by April 16th 2022 at 23:59.59 UTC using this form.
-			2. **The Track:**
-			 - Must be produced in LMMS.
-			 - You may use other programs for mastering and post processing.
-			 - Must be under 10 minutes long.
-			 - No winning tracks from previous Best of LMMS albums allowed.
-		 	 - No covers or remixes of other person(s) works are permitted.
-			 - Reworks of your own tracks are eligible with judge approval.
-			3. **The Submissions:**
-			 - You must submit using this form only.
-			 - No more than ONE entry per artist is allowed.
-			 - Collaborations count as ONE entry for each artist involved.
-			 - No collaborating with judges on entries.
-			 - Only submissions hosted on Soundcloud or YouTube are allowed.
-			  - The full track should be available at the submission link provided
-			 - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
-			 - The entry must not contain any trademarked or copyrighted material which you do not own the rights to.
-			4. **The Judges:**
-			 - The jury consists of: Etorna, Noeroti, Spekular, Squatro, Stakeout Punch and Umcaruje.
-			5. **The Judging:**
-			 - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.
-			6. **Release:**
-			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
-
-			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**]]></target>
+			**Opomba: Vnosi so ročno odobreni za prikaz na seznamu oddajanja, zato, če ne vidite svojega, bodite potrpežljivi! Morda bo trajalo nekaj časa.**]]></target>
       </trans-unit>
       <trans-unit id="n1JIRKY" resname="#### The competition has ended on **April 16th, 2022**.&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vTbAi115g6ocLFF75ccNYzAk3Am0RsYZAyL6GX0LwxR-DGf6KBpbTLc7IZkO7LdSYNQQqWIW4QTRJML/pubhtml?gid=491403559&amp;single=true)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;div class=&quot;bandcamp-widget&quot; data-href=&quot;https://bandcamp.com/EmbeddedPlayer/album=1414817703/size=large/bgcol=ffffff/linkcol=2ebd35/artwork=small/transparent=false/&quot;&gt;&#10;&#9;&#9;&#9;&#9;&lt;iframe class=&quot;bandcamp-iframe&quot; referrerpolicy=&quot;no-referrer&quot; height=&quot;472&quot; style=&quot;border: 0; height: 472px; width: 100%%;&quot; src=&quot;&quot; seamless&gt;&lt;a href=&quot;https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9&quot;&gt;The Best of LMMS Vol. 9 by LMMS Artists&lt;/a&gt;&lt;/iframe&gt;&#10;&#9;&#9;&#9;&lt;/div&gt;&#10;&#10;&#9;&#9;&#9;#### Original description:&#10;&#9;&#9;&#9;We are proud to present to you The Best of LMMS contest volume 9!&#10;&#9;&#9;&#9;The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight&#10;&#9;&#9;&#9;(23:59.59 UTC Time) on April 16th 2022 for a chance to be featured on the BoL v9 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.&#10;&#10;&#9;&#9;&#9;&lt;p class=&quot;center&quot;&gt;&lt;a class=&quot;btn btn-success btn-lg center&quot; href=&quot;https://docs.google.com/forms/d/e/1FAIpQLScWb8vuktPblEO1-7sTV5Es7nZRmsQOUS_PUYJh--VFbW-hAg/viewform&quot;&gt;Submit here&lt;/a&gt;&lt;/p&gt;&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#10;&#9;&#9;&#9;1. **The Deadline:**&#10;&#9;&#9;&#9; - Track must be submitted by April 16th 2022 at 23:59.59 UTC using this form.&#10;&#9;&#9;&#9;2. **The Track:**&#10;&#9;&#9;&#9; - Must be produced in LMMS.&#10;&#9;&#9;&#9; - You may use other programs for mastering and post processing.&#10;&#9;&#9;&#9; - Must be under 10 minutes long.&#10;&#9;&#9;&#9; - No winning tracks from previous Best of LMMS albums allowed.&#10;&#9;&#9; &#9; - No covers or remixes of other person(s) works are permitted.&#10;&#9;&#9;&#9; - Reworks of your own tracks are eligible with judge approval.&#10;&#9;&#9;&#9;3. **The Submissions:**&#10;&#9;&#9;&#9; - You must submit using this form only.&#10;&#9;&#9;&#9; - No more than ONE entry per artist is allowed.&#10;&#9;&#9;&#9; - Collaborations count as ONE entry for each artist involved.&#10;&#9;&#9;&#9; - No collaborating with judges on entries.&#10;&#9;&#9;&#9; - Only submissions hosted on Soundcloud or YouTube are allowed.&#10;&#9;&#9;&#9;  - The full track should be available at the submission link provided&#10;&#9;&#9;&#9; - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.&#10;&#9;&#9;&#9; - The entry must not contain any trademarked or copyrighted material which you do not own the rights to.&#10;&#9;&#9;&#9;4. **The Judges:**&#10;&#9;&#9;&#9; - The jury consists of: Etorna, Noeroti, Spekular, Squatro, Stakeout Punch and Umcaruje.&#10;&#9;&#9;&#9;5. **The Judging:**&#10;&#9;&#9;&#9; - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.&#10;&#9;&#9;&#9;6. **Release:**&#10;&#9;&#9;&#9; - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.&#10;&#10;&#9;&#9;&#9;**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**">
         <source>#### The competition has ended on **April 16th, 2022**.
@@ -1502,54 +1508,84 @@ in prijavite <a href="//github.com/LMMS/lmms.io/issues/new">težavo z datoteko</
 			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
 
 			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**</source>
-        <target><![CDATA[#### The competition has ended on **April 16th, 2022**.
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9)
+        <target><![CDATA[#### Tekmovanje se je končalo **16. aprila 2022**.
+			Podprite LMMS in kupite kompilacijo na naši [bandcamp strani.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9)
 
-			Listen to all entries [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vTbAi115g6ocLFF75ccNYzAk3Am0RsYZAyL6GX0LwxR-DGf6KBpbTLc7IZkO7LdSYNQQqWIW4QTRJML/pubhtml?gid=491403559&single=true)
+			Poslušajte vse prispevke [tukaj.](https://docs.google.com/spreadsheets/d/e/2PACX-1vTbAi115g6ocLFF75ccNYzAk3Am0RsYZAyL6GX0LwxR-DGf6KBpbTLc7IZkO7LdSYNQQqWIW4QTRJML/pubhtml?gid=491403559&single=true)
 
-			Winners:
+			Zmagovalci:
 			<div class="bandcamp-widget" data-href="https://bandcamp.com/EmbeddedPlayer/album=1414817703/size=large/bgcol=ffffff/linkcol=2ebd35/artwork=small/transparent=false/">
 				<iframe class="bandcamp-iframe" referrerpolicy="no-referrer" height="472" style="border: 0; height: 472px; width: 100%%;" src="" seamless><a href="https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9">The Best of LMMS Vol. 9 by LMMS Artists</a></iframe>
 			</div>
 
-			#### Original description:
-			We are proud to present to you The Best of LMMS contest volume 9!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-			(23:59.59 UTC Time) on April 16th 2022 for a chance to be featured on the BoL v9 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+			#### Izvirni opis:
+			Ponosno vam predstavljamo tekmovanje The Best of LMMS volume 9!
+			Tekmovanje si prizadeva navdihniti skupnost, da ustvarja in deli svojo glasbo. Svojo skladbo oddajte na spodnji povezavi do polnoči
+			(23:59.59 UTC čas) 16. aprila 2022 za možnost, da se pojavi na albumu BoL v9. Kompilacija bo naložena na Bandcamp, vsi dobički pa bodo namenjeni nadaljnjemu razvoju LMMS.
 
-			<p class="center"><a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScWb8vuktPblEO1-7sTV5Es7nZRmsQOUS_PUYJh--VFbW-hAg/viewform">Submit here</a></p>
-			#### Competition rules:
+			<p class="center"><a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScWb8vuktPblEO1-7sTV5Es7nZRmsQOUS_PUYJh--VFbW-hAg/viewform">Oddajte tukaj</a></p>
+			#### Pravila tekmovanja:
 
-			1. **The Deadline:**
-			 - Track must be submitted by April 16th 2022 at 23:59.59 UTC using this form.
-			2. **The Track:**
-			 - Must be produced in LMMS.
-			 - You may use other programs for mastering and post processing.
-			 - Must be under 10 minutes long.
-			 - No winning tracks from previous Best of LMMS albums allowed.
-		 	 - No covers or remixes of other person(s) works are permitted.
-			 - Reworks of your own tracks are eligible with judge approval.
-			3. **The Submissions:**
-			 - You must submit using this form only.
-			 - No more than ONE entry per artist is allowed.
-			 - Collaborations count as ONE entry for each artist involved.
-			 - No collaborating with judges on entries.
-			 - Only submissions hosted on Soundcloud or YouTube are allowed.
-			  - The full track should be available at the submission link provided
-			 - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
-			 - The entry must not contain any trademarked or copyrighted material which you do not own the rights to.
-			4. **The Judges:**
-			 - The jury consists of: Etorna, Noeroti, Spekular, Squatro, Stakeout Punch and Umcaruje.
-			5. **The Judging:**
-			 - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.
-			6. **Release:**
-			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
+			1. **Rok:**
+			   - Skladbo je treba oddati do 16. aprila 2022 ob 23:59.59 UTC s pomočjo tega obrazca.
+			2. **Skladba:**
+			   - Morala je biti ustvarjena v LMMS.
+			   - Za mešanje in obdelavo lahko uporabite druge programe.
+			   - Mora biti krajša od 10 minut.
+			   - Ni dovoljeno uporabljati zmagovalnih skladb prejšnjih albumov Best of LMMS.
+			   - Prepovedani so priredbe ali remiksi del drugih oseb.
+			   - Predelave lastnih skladb so dovoljene s soglasjem sodnikov.
+			3. **Oddaje:**
+			   - Oddati morate samo s tem obrazcem.
+			   - Dovoljen je samo en vnos na umetnika.
+			   - Sodelovanja štejejo kot en vnos za vsakega vključenega umetnika.
+			   - Sodelovanje z sodniki pri vnosih ni dovoljeno.
+			   - Dovoljene so samo oddaje, gostovane na Soundcloudu ali YouTubeu.
+			   - Celotna skladba naj bo na voljo na povezavi za oddajo.
+			   - Vaš vnos mora biti na voljo za poslušanje do konca postopka ocenjevanja. V nasprotnem primeru bo vaš vnos diskvalificiran.
+			   - Vnos ne sme vsebovati blagovnih znamk ali avtorsko zaščitenega materiala, za katerega nimate pravic.
+			4. **Sodniki:**
+			   - Žirija sestoji iz: Etorna, Noeroti, Spekular, Squatro, Stakeout Punch in Umcaruje.
+			5. **Ocenjevanje:**
+			   - Po roku bodo sodniki sprejeli svoje odločitve in rezultate objavili v 14-21 dneh, če jim to dopuščajo osebni urniki.
+			6. **Objava:**
+			   - 25 najbolje ocenjenih pesmi bo izdanih kot album na Bandcampu po ceni "Plačaj, kolikor želiš". Vsi prejeti sredstva bodo namenjena za nadaljnji razvoj programa LMMS, ki ga imamo radi.
 
-			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**]]></target>
+			**Opomba: Vnosi so ročno odobreni za prikaz na seznamu oddaj, zato, če ne vidite svojega, bodite potrpežljivi! Morda bo trajalo nekaj časa.**]]></target>
       </trans-unit>
       <trans-unit id="lEXM897" resname="The Best of LMMS Vol. 9 by LMMS Artists">
         <source>The Best of LMMS Vol. 9 by LMMS Artists</source>
-        <target>The Best of LMMS Vol. 9 by LMMS Artists</target>
+        <target>Naj-LMMS 9. v izvedbi LMMS izvajalcev</target>
+      </trans-unit>
+      <trans-unit id="wVgk0cT" resname="Anyone can open a pull request against LMMS; we are not responsible for the builds on this page.&lt;br&gt;Unless you were directed here to test a pull request, please download an official build from the &lt;a href=&quot;%download%&quot;&gt;main download page&lt;/a&gt; instead.">
+        <source>Anyone can open a pull request against LMMS; we are not responsible for the builds on this page.&lt;br&gt;Unless you were directed here to test a pull request, please download an official build from the &lt;a href="%download%"&gt;main download page&lt;/a&gt; instead.</source>
+        <target><![CDATA[Kdorkoli lahko odpre zahtevek za poteg LMMS; nismo odgovorni za gradnje na tej strani.<br>Razen če ste bili sem usmerjeni za preizkus zahtevka potega, prosimo prenesite uradno gradnjo s <a href="%download%">glavne strani za prenose</a>.]]></target>
+      </trans-unit>
+      <trans-unit id="x19HYlO" resname="Pull Request #%id%">
+        <source>Pull Request #%id%</source>
+        <target>Zahtevek za poteg #%id%</target>
+      </trans-unit>
+      <trans-unit id="aZvcwqp" resname="Pull request builds are experimental software; expect stability issues.">
+        <source>Pull request builds are experimental software; expect stability issues.</source>
+        <target>Gradnje za poteg za zahtevo so eksperimentalne, zato lahko pričakujete težave s stabilnostjo.</target>
+      </trans-unit>
+      <trans-unit id="KLF9W5d" resname="There are currently no builds available for this pull request. Building may have failed, or may not have completed yet.&lt;br&gt;If this is an old pull request, the builds may have expired.">
+        <source>There are currently no builds available for this pull request. Building may have failed, or may not have completed yet.&lt;br&gt;If this is an old pull request, the builds may have expired.</source>
+        <target><![CDATA[Trenutno ni gradenj za ta zahtevek potega. Gradnja morda ni uspela ali pa se še ni zaključila. <br>Če gre za star zahtevek potega, so gradnje morda že zastarele.]]></target>
+      </trans-unit>
+      <trans-unit id="86sS5b_" resname="LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;&#10;&#9;&#9;Please &lt;a href=&quot;/get-involved/#contact&quot;&gt;contact us&lt;/a&gt; if your distribution is not listed here.">
+        <source>LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;
+		Please &lt;a href="/get-involved/#contact"&gt;contact us&lt;/a&gt; if your distribution is not listed here.</source>
+        <target><![CDATA[LMMS je vključen v večino paketnih skladišč glavnih Linux distribucij.<br>
+<a href="/get-involved/#contact">Kontaktirajte nas</a>, če vaše distribucije ni na tem seznamu.]]></target>
+      </trans-unit>
+      <trans-unit id="ed.Z2cG" resname="Alpha Versions">
+        <source>Alpha Versions</source>
+        <target>Alpha različice</target>
+      </trans-unit>
+      <trans-unit id="7wM4KTV" resname="Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.">
+        <source>Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.</source>
+        <target>Prenosi z oznako alfa, beta ali nočna so preizdaje, zato niso nujno stabilne.</target>
       </trans-unit>
     </body>
   </file>

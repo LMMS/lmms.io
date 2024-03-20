@@ -1193,6 +1193,34 @@
         <source>The Best of LMMS Vol. 6 by LMMS Artists</source>
         <target>The Best of LMMS Vol. 6 by LMMS Artists</target>
       </trans-unit>
+      <trans-unit id="iDhOz5m" resname="The Best of LMMS Vol. 8 by LMMS Artists">
+        <source>The Best of LMMS Vol. 8 by LMMS Artists</source>
+        <target>The Best of LMMS Vol. 8 by LMMS Artists</target>
+      </trans-unit>
+      <trans-unit id="XaEX_Ha" resname="LMMS Sharing Platform">
+        <source>LMMS Sharing Platform</source>
+        <target>LMMS शेयरिंग प्लेटफार्म</target>
+      </trans-unit>
+      <trans-unit id="CxpKTzu" resname="Share your work with the LMMS community.">
+        <source>Share your work with the LMMS community.</source>
+        <target>LMMS समुदाय के साथ अपने कार्य साँझा करें।</target>
+      </trans-unit>
+      <trans-unit id="ZevLxCN" resname="The wiki has been moved.">
+        <source>The wiki has been moved.</source>
+        <target>विकी को हटा दिया गया हैं।</target>
+      </trans-unit>
+      <trans-unit id="k68J1Di" resname="All of our documentation is now hosted on &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt;">
+        <source>All of our documentation is now hosted on &lt;a href="https://docs.lmms.io/user-manual/"&gt;docs.lmms.io&lt;/a&gt;</source>
+        <target><![CDATA[हमारे सभी प्रलेखन अब <a href="https://docs.lmms.io/user-manual/">docs.lmms.io</a> पर होस्ट किये गए हैं।]]></target>
+      </trans-unit>
+      <trans-unit id="oHPoIyX" resname="The Mediawiki instance has been shut down, but if you need a copy &lt;a href=&quot;https://archive.org/download/lmms-mediawiki-dump&quot;&gt;we have one on archive.org.&lt;/a&gt;">
+        <source>The Mediawiki instance has been shut down, but if you need a copy &lt;a href="https://archive.org/download/lmms-mediawiki-dump"&gt;we have one on archive.org.&lt;/a&gt;</source>
+        <target><![CDATA[Mediawiki इंस्टेंस को बंद कर दिया गया है, लेकिन यदि आपको एक कॉपी की आवश्यकता है तो <a href="https://archive.org/download/lmms-mediawiki-dump">हमारे पास एक archive.org पर उपलब्ध है</a>।]]></target>
+      </trans-unit>
+      <trans-unit id="u8PKUEQ" resname="You will be redirected to &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt; in &lt;b&gt;&lt;span id=&quot;counter&quot;&gt;30&lt;/span&gt;&lt;/b&gt; seconds.">
+        <source>You will be redirected to &lt;a href="https://docs.lmms.io/user-manual/"&gt;docs.lmms.io&lt;/a&gt; in &lt;b&gt;&lt;span id="counter"&gt;30&lt;/span&gt;&lt;/b&gt; seconds.</source>
+        <target><![CDATA[आपको <a href="https://docs.lmms.io/user-manual/">docs.lmms.io</a> पर<b><span id="counter"> 30</span></b> सेकंड में रीडायरेक्ट कर दिया जाएगा।]]></target>
+      </trans-unit>
       <trans-unit id="ziTqVa1" resname="See our &lt;a href=&quot;//github.com/LMMS/lmms/wiki&quot;&gt;GitHub Wiki&lt;/a&gt; and our&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;//github.com/LMMS/lmms/issues&quot;&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS&#10;&#9;&#9;&#9;&#9;&#9;   &lt;a href=&quot;/chat/&quot;&gt;Discord server&lt;/a&gt; is a great place&#10;&#9;&#9;&#9;&#9;&#9;   to introduce yourself.">
         <source>See our &lt;a href="//github.com/LMMS/lmms/wiki"&gt;GitHub Wiki&lt;/a&gt; and our
 					   &lt;a href="//github.com/LMMS/lmms/issues"&gt;bug tracker&lt;/a&gt; to get started. Furthermore, the LMMS
@@ -1378,34 +1406,6 @@
 
 			**नोट: प्रविष्टियां सूची में प्रदर्शित होने के लिए स्वीकृत हाथ से सबमिट की जाती हैं, इसलिए यदि आप अपनी प्रविष्टि नहीं देख पा रहे, तो जमकर बैठें, इसमें समय लग सकता है।**]]></target>
       </trans-unit>
-      <trans-unit id="XaEX_Ha" resname="LMMS Sharing Platform">
-        <source>LMMS Sharing Platform</source>
-        <target>LMMS शेयरिंग प्लेटफार्म</target>
-      </trans-unit>
-      <trans-unit id="CxpKTzu" resname="Share your work with the LMMS community.">
-        <source>Share your work with the LMMS community.</source>
-        <target>LMMS समुदाय के साथ अपने कार्य साँझा करें।</target>
-      </trans-unit>
-      <trans-unit id="ZevLxCN" resname="The wiki has been moved.">
-        <source>The wiki has been moved.</source>
-        <target>विकी को हटा दिया गया हैं।</target>
-      </trans-unit>
-      <trans-unit id="k68J1Di" resname="All of our documentation is now hosted on &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt;">
-        <source>All of our documentation is now hosted on &lt;a href="https://docs.lmms.io/user-manual/"&gt;docs.lmms.io&lt;/a&gt;</source>
-        <target><![CDATA[हमारे सभी प्रलेखन अब <a href="https://docs.lmms.io/user-manual/">docs.lmms.io</a> पर होस्ट किये गए हैं।]]></target>
-      </trans-unit>
-      <trans-unit id="oHPoIyX" resname="The Mediawiki instance has been shut down, but if you need a copy &lt;a href=&quot;https://archive.org/download/lmms-mediawiki-dump&quot;&gt;we have one on archive.org.&lt;/a&gt;">
-        <source>The Mediawiki instance has been shut down, but if you need a copy &lt;a href="https://archive.org/download/lmms-mediawiki-dump"&gt;we have one on archive.org.&lt;/a&gt;</source>
-        <target><![CDATA[Mediawiki इंस्टेंस को बंद कर दिया गया है, लेकिन यदि आपको एक कॉपी की आवश्यकता है तो <a href="https://archive.org/download/lmms-mediawiki-dump">हमारे पास एक archive.org पर उपलब्ध है</a>।]]></target>
-      </trans-unit>
-      <trans-unit id="u8PKUEQ" resname="You will be redirected to &lt;a href=&quot;https://docs.lmms.io/user-manual/&quot;&gt;docs.lmms.io&lt;/a&gt; in &lt;b&gt;&lt;span id=&quot;counter&quot;&gt;30&lt;/span&gt;&lt;/b&gt; seconds.">
-        <source>You will be redirected to &lt;a href="https://docs.lmms.io/user-manual/"&gt;docs.lmms.io&lt;/a&gt; in &lt;b&gt;&lt;span id="counter"&gt;30&lt;/span&gt;&lt;/b&gt; seconds.</source>
-        <target><![CDATA[आपको <a href="https://docs.lmms.io/user-manual/">docs.lmms.io</a> पर<b><span id="counter"> 30</span></b> सेकंड में रीडायरेक्ट कर दिया जाएगा।]]></target>
-      </trans-unit>
-      <trans-unit id="iDhOz5m" resname="The Best of LMMS Vol. 8 by LMMS Artists">
-        <source>The Best of LMMS Vol. 8 by LMMS Artists</source>
-        <target>The Best of LMMS Vol. 8 by LMMS Artists</target>
-      </trans-unit>
       <trans-unit id="n1JIRKY" resname="#### The competition has ended on **April 16th, 2022**.&#10;&#9;&#9;&#9;Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9)&#10;&#10;&#9;&#9;&#9;Listen to all entries [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vTbAi115g6ocLFF75ccNYzAk3Am0RsYZAyL6GX0LwxR-DGf6KBpbTLc7IZkO7LdSYNQQqWIW4QTRJML/pubhtml?gid=491403559&amp;single=true)&#10;&#10;&#9;&#9;&#9;Winners:&#10;&#9;&#9;&#9;&lt;div class=&quot;bandcamp-widget&quot; data-href=&quot;https://bandcamp.com/EmbeddedPlayer/album=1414817703/size=large/bgcol=ffffff/linkcol=2ebd35/artwork=small/transparent=false/&quot;&gt;&#10;&#9;&#9;&#9;&#9;&lt;iframe class=&quot;bandcamp-iframe&quot; referrerpolicy=&quot;no-referrer&quot; height=&quot;472&quot; style=&quot;border: 0; height: 472px; width: 100%%;&quot; src=&quot;&quot; seamless&gt;&lt;a href=&quot;https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9&quot;&gt;The Best of LMMS Vol. 9 by LMMS Artists&lt;/a&gt;&lt;/iframe&gt;&#10;&#9;&#9;&#9;&lt;/div&gt;&#10;&#10;&#9;&#9;&#9;#### Original description:&#10;&#9;&#9;&#9;We are proud to present to you The Best of LMMS contest volume 9!&#10;&#9;&#9;&#9;The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight&#10;&#9;&#9;&#9;(23:59.59 UTC Time) on April 16th 2022 for a chance to be featured on the BoL v9 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.&#10;&#10;&#9;&#9;&#9;&lt;p class=&quot;center&quot;&gt;&lt;a class=&quot;btn btn-success btn-lg center&quot; href=&quot;https://docs.google.com/forms/d/e/1FAIpQLScWb8vuktPblEO1-7sTV5Es7nZRmsQOUS_PUYJh--VFbW-hAg/viewform&quot;&gt;Submit here&lt;/a&gt;&lt;/p&gt;&#10;&#9;&#9;&#9;#### Competition rules:&#10;&#10;&#9;&#9;&#9;1. **The Deadline:**&#10;&#9;&#9;&#9; - Track must be submitted by April 16th 2022 at 23:59.59 UTC using this form.&#10;&#9;&#9;&#9;2. **The Track:**&#10;&#9;&#9;&#9; - Must be produced in LMMS.&#10;&#9;&#9;&#9; - You may use other programs for mastering and post processing.&#10;&#9;&#9;&#9; - Must be under 10 minutes long.&#10;&#9;&#9;&#9; - No winning tracks from previous Best of LMMS albums allowed.&#10;&#9;&#9; &#9; - No covers or remixes of other person(s) works are permitted.&#10;&#9;&#9;&#9; - Reworks of your own tracks are eligible with judge approval.&#10;&#9;&#9;&#9;3. **The Submissions:**&#10;&#9;&#9;&#9; - You must submit using this form only.&#10;&#9;&#9;&#9; - No more than ONE entry per artist is allowed.&#10;&#9;&#9;&#9; - Collaborations count as ONE entry for each artist involved.&#10;&#9;&#9;&#9; - No collaborating with judges on entries.&#10;&#9;&#9;&#9; - Only submissions hosted on Soundcloud or YouTube are allowed.&#10;&#9;&#9;&#9;  - The full track should be available at the submission link provided&#10;&#9;&#9;&#9; - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.&#10;&#9;&#9;&#9; - The entry must not contain any trademarked or copyrighted material which you do not own the rights to.&#10;&#9;&#9;&#9;4. **The Judges:**&#10;&#9;&#9;&#9; - The jury consists of: Etorna, Noeroti, Spekular, Squatro, Stakeout Punch and Umcaruje.&#10;&#9;&#9;&#9;5. **The Judging:**&#10;&#9;&#9;&#9; - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.&#10;&#9;&#9;&#9;6. **Release:**&#10;&#9;&#9;&#9; - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.&#10;&#10;&#9;&#9;&#9;**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**">
         <source>#### The competition has ended on **April 16th, 2022**.
 			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9)
@@ -1451,54 +1451,80 @@
 			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
 
 			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**</source>
-        <target><![CDATA[#### The competition has ended on **April 16th, 2022**.
-			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9)
+        <target><![CDATA[#### प्रतियोगिता **16 अप्रैल, 2022** को समाप्त हो गई है।
+			LMMS का समर्थन करें और हमारे [bandcamp पेज](https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9) पर संकलन खरीदें।
 
-			Listen to all entries [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vTbAi115g6ocLFF75ccNYzAk3Am0RsYZAyL6GX0LwxR-DGf6KBpbTLc7IZkO7LdSYNQQqWIW4QTRJML/pubhtml?gid=491403559&single=true)
+			सभी प्रविष्टियों को [यहाँ](https://docs.google.com/spreadsheets/d/e/2PACX-1vTbAi115g6ocLFF75ccNYzAk3Am0RsYZAyL6GX0LwxR-DGf6KBpbTLc7IZkO7LdSYNQQqWIW4QTRJML/pubhtml?gid=491403559&single=true) सुनें।
 
-			Winners:
-			<div class="bandcamp-widget" data-href="https://bandcamp.com/EmbeddedPlayer/album=1414817703/size=large/bgcol=ffffff/linkcol=2ebd35/artwork=small/transparent=false/">
+			विजेता:
+		 	<div class="bandcamp-widget" data-href="https://bandcamp.com/EmbeddedPlayer/album=1414817703/size=large/bgcol=ffffff/linkcol=2ebd35/artwork=small/transparent=false/">
 				<iframe class="bandcamp-iframe" referrerpolicy="no-referrer" height="472" style="border: 0; height: 472px; width: 100%%;" src="" seamless><a href="https://lmms.bandcamp.com/album/the-best-of-lmms-vol-9">The Best of LMMS Vol. 9 by LMMS Artists</a></iframe>
 			</div>
 
-			#### Original description:
-			We are proud to present to you The Best of LMMS contest volume 9!
-			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
-			(23:59.59 UTC Time) on April 16th 2022 for a chance to be featured on the BoL v9 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+			#### मूल विवरण:
+			हम गर्व से आप के लिए प्रस्तुत करते हैं The Best of LMMS प्रतियोगिता volume 9!
+			इस प्रतियोगिता का उद्देश्य समुदाय को अपने संगीत बनाने और साझा करने के लिए प्रेरित करना है। BoL v9 एल्बम में दिखाए जाने के अवसर के लिए 16 अप्रैल 2022 (UTC समय) को आधी रात (23:59.59) से पहले नीचे दिए गए लिंक पर अपना ट्रैक सबमिट करें। संकलन को Bandcamp पर अपलोड किया जाएगा, जिसमें सभी लाभ LMMS के आगे के विकास की ओर जाएंगे।
 
-			<p class="center"><a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScWb8vuktPblEO1-7sTV5Es7nZRmsQOUS_PUYJh--VFbW-hAg/viewform">Submit here</a></p>
-			#### Competition rules:
+			<p class="center"><a class="btn btn-success btn-lg center" href="https://docs.google.com/forms/d/e/1FAIpQLScWb8vuktPblEO1-7sTV5Es7nZRmsQOUS_PUYJh--VFbW-hAg/viewform">यहां सबमिट करें</a></p>
+			#### प्रतियोगिता के नियम:
+			1. **समयसीमा:**
+				- ट्रैक 16 अप्रैल 2022 23:59.59 UTC तक इस फॉर्म का उपयोग करके प्रस्तुत किया जाना चाहिए।
+			2. **ट्रैक:**
+				- LMMS में उत्पादित किया जाना चाहिए।
+				- आप मास्टरिंग और पोस्ट प्रोसेसिंग के लिए अन्य कार्यक्रमों का उपयोग कर सकते हैं।
+				- 10 मिनट से कम समय के लिए होना चाहिए।
+				- पिछले Best of LMMS एल्बम से कोई भी जीतने वाला ट्रैक अनुमति नहीं है।
+				- किसी अन्य व्यक्ति(व्यक्तियों) के कार्यों के कवर या रीमिक्स की अनुमति नहीं है।
+			-आपके स्वयं के ट्रैक के पुनर्निर्माण न्यायाधीश की मंजूरी के साथ पात्र हैं।
+			3. **प्रस्तुतियाँ:**
+				- आपको इस फॉर्म का उपयोग करके ही जमा करना होगा।
+				- प्रति कलाकार **एक** से अधिक प्रविष्टि की अनुमति नहीं है। *
+				- सभी सहभागीताएं प्रत्येक शामिल कलाकार की **एक** प्रविष्टि के रूप में गिनी जाएँगी।*
+				- प्रविष्टियों पर जजों के साथ सहभागिता की अनुमति नहीं है।
+				- केवल Soundcloud या YouTube पर होस्ट किए गए सबमिशन की अनुमति है।
+				- जजिंग प्रक्रिया के अंत तक आपकी प्रविष्टि सुनने के लिए उपलब्ध होनी चाहिए। यदि नहीं, तो आपकी प्रविष्टि अयोग्य हो जाएगी।
+4. **जजेस:**
+				- जजों में शामिल है:  Etorna, Noeroti, Spekular, Squatro, Stakeout Punch और Umcaruje।
+			5. **चुनाव प्रक्रिया:**
+				- समयसीमा के बाद, जजेस अपने फैसले करेंगे और 14-21 दिनों के भीतर परिणाम जारी करेंगे।
+			6. **रिलीज़:**
+				25 उच्चतम स्कोरिंग गाने "जो चाहो, वो चुकाओ" की कीमत के साथ बैंडकैम्प पर एक एल्बम के रूप में जारी किए जाएंगे। सारा प्राप्त धन LMMS के आगे के विकास के लिए दान किया जाएगा, वह प्रोग्राम जिससे हम प्यार करते हैं।
 
-			1. **The Deadline:**
-			 - Track must be submitted by April 16th 2022 at 23:59.59 UTC using this form.
-			2. **The Track:**
-			 - Must be produced in LMMS.
-			 - You may use other programs for mastering and post processing.
-			 - Must be under 10 minutes long.
-			 - No winning tracks from previous Best of LMMS albums allowed.
-		 	 - No covers or remixes of other person(s) works are permitted.
-			 - Reworks of your own tracks are eligible with judge approval.
-			3. **The Submissions:**
-			 - You must submit using this form only.
-			 - No more than ONE entry per artist is allowed.
-			 - Collaborations count as ONE entry for each artist involved.
-			 - No collaborating with judges on entries.
-			 - Only submissions hosted on Soundcloud or YouTube are allowed.
-			  - The full track should be available at the submission link provided
-			 - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
-			 - The entry must not contain any trademarked or copyrighted material which you do not own the rights to.
-			4. **The Judges:**
-			 - The jury consists of: Etorna, Noeroti, Spekular, Squatro, Stakeout Punch and Umcaruje.
-			5. **The Judging:**
-			 - After the deadline, the judges will make their decisions and release the results within 14-21 days, personal schedules permitting.
-			6. **Release:**
-			 - The 25 highest scoring songs will be released as an album on Bandcamp with the price of “Pay what you want”. All the received funds will be donated for further development of LMMS, the program that we love.
-
-			**Note: Entries are approved to appear on the submission list by hand, so if you don't see yours, sit tight! It might take a while.**]]></target>
+			**नोट: प्रविष्टियां सूची में प्रदर्शित होने के लिए स्वीकृत हाथ से सबमिट की जाती हैं, इसलिए यदि आप अपनी प्रविष्टि नहीं देख पा रहे, तो जमकर बैठें, इसमें समय लग सकता है।**]]></target>
       </trans-unit>
       <trans-unit id="lEXM897" resname="The Best of LMMS Vol. 9 by LMMS Artists">
         <source>The Best of LMMS Vol. 9 by LMMS Artists</source>
         <target>The Best of LMMS Vol. 9 by LMMS Artists</target>
+      </trans-unit>
+      <trans-unit id="wVgk0cT" resname="Anyone can open a pull request against LMMS; we are not responsible for the builds on this page.&lt;br&gt;Unless you were directed here to test a pull request, please download an official build from the &lt;a href=&quot;%download%&quot;&gt;main download page&lt;/a&gt; instead.">
+        <source>Anyone can open a pull request against LMMS; we are not responsible for the builds on this page.&lt;br&gt;Unless you were directed here to test a pull request, please download an official build from the &lt;a href="%download%"&gt;main download page&lt;/a&gt; instead.</source>
+        <target><![CDATA[Anyone can open a pull request against LMMS; we are not responsible for the builds on this page.<br>Unless you were directed here to test a pull request, please download an official build from the <a href="%download%">main download page</a> instead.]]></target>
+      </trans-unit>
+      <trans-unit id="x19HYlO" resname="Pull Request #%id%">
+        <source>Pull Request #%id%</source>
+        <target>Pull Request #%id%</target>
+      </trans-unit>
+      <trans-unit id="aZvcwqp" resname="Pull request builds are experimental software; expect stability issues.">
+        <source>Pull request builds are experimental software; expect stability issues.</source>
+        <target>Pull request builds are experimental software; expect stability issues.</target>
+      </trans-unit>
+      <trans-unit id="KLF9W5d" resname="There are currently no builds available for this pull request. Building may have failed, or may not have completed yet.&lt;br&gt;If this is an old pull request, the builds may have expired.">
+        <source>There are currently no builds available for this pull request. Building may have failed, or may not have completed yet.&lt;br&gt;If this is an old pull request, the builds may have expired.</source>
+        <target><![CDATA[There are currently no builds available for this pull request. Building may have failed, or may not have completed yet.<br>If this is an old pull request, the builds may have expired.]]></target>
+      </trans-unit>
+      <trans-unit id="86sS5b_" resname="LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;&#10;&#9;&#9;Please &lt;a href=&quot;/get-involved/#contact&quot;&gt;contact us&lt;/a&gt; if your distribution is not listed here.">
+        <source>LMMS is included in most major Linux distribution's package repositories.&lt;br&gt;
+		Please &lt;a href="/get-involved/#contact"&gt;contact us&lt;/a&gt; if your distribution is not listed here.</source>
+        <target><![CDATA[LMMS is included in most major Linux distribution's package repositories.<br>
+		Please <a href="/get-involved/#contact">contact us</a> if your distribution is not listed here.]]></target>
+      </trans-unit>
+      <trans-unit id="ed.Z2cG" resname="Alpha Versions">
+        <source>Alpha Versions</source>
+        <target>एल्फा संस्करणे</target>
+      </trans-unit>
+      <trans-unit id="7wM4KTV" resname="Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.">
+        <source>Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.</source>
+        <target>Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.</target>
       </trans-unit>
     </body>
   </file>
