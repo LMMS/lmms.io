@@ -20,15 +20,15 @@
         "mgargano/simplehtmldom": "^1.5",
         "php-http/guzzle7-adapter": "^1.0",
         "psr/cache": "^3.0",
-        "symfony/cache": "6.3.*",
-        "symfony/console": "6.3.*",
-        "symfony/dotenv": "6.3.*",
+        "symfony/cache": "6.4.*",
+        "symfony/console": "6.4.*",
+        "symfony/dotenv": "6.4.*",
         "symfony/flex": "^2.4",
-        "symfony/framework-bundle": "6.3.*",
-        "symfony/runtime": "6.3.*",
-        "symfony/translation": "6.3.*",
-        "symfony/twig-bundle": "6.3.*",
-        "symfony/yaml": "6.3.*",
+        "symfony/framework-bundle": "6.4.*",
+        "symfony/runtime": "6.4.*",
+        "symfony/translation": "6.4.*",
+        "symfony/twig-bundle": "6.4.*",
+        "symfony/yaml": "6.4.*",
         "twig/extra-bundle": "^3.8",
         "twig/markdown-extra": "^3.8"
     },
@@ -81,7 +81,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.3.*"
+            "require": "6.4.*"
         }
     },
     "require-dev": {
