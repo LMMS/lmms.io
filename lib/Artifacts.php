@@ -2,6 +2,7 @@
 namespace LMMS;
 
 use Github\Client;
+use LMMS\HttpClientPlugin\UriRecordPlugin;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class Artifacts
@@ -70,7 +71,8 @@ class Artifacts
 
 	public function getArtifactDownloadUrl(int $artifactId): string
 	{
-		return (string) $this->client->repo()->artifacts()->download($this->owner, $this->repo, $artifactId);
+		$this->client->repo()->artifacts()->download($this->owner, $this->repo, $artifactId);
+		return $this->client->getLastResponse()->getHeader(UriRecordPlugin::HEADER_NAME)[0];
 	}
 
 	private function mapBranchAssetsFromJson(array $json): array
