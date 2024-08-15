@@ -501,11 +501,11 @@
       </trans-unit>
       <trans-unit id="OwdwPKG" resname="Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin">
         <source>Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</source>
-        <target>ZnAddSubFx embebido: Polifónico, multitimbre, microtonal, con múltiples voces aditivas, sustractivas, y sintetizadores de pad con este poderoso plugin todo en unoy</target>
+        <target>ZnAddSubFx embedido: Polifónico, multitimbre, microtonal, con múltiples voces aditivas, sustractivas, y sintetizadores de pad con este poderoso plugin todo en unoy</target>
       </trans-unit>
       <trans-unit id="UqEEpjy" resname="Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks">
         <source>Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks</source>
-        <target>Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks</target>
+        <target>Soporte nativo de muestras múltiples para formatos SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) para parches de instrumentos y bancos de alta calidad</target>
       </trans-unit>
       <trans-unit id="CasBlNK" resname="Effects Mixing">
         <source>Effects Mixing</source>
