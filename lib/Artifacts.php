@@ -112,6 +112,7 @@ class Artifacts
 			case 'macos': return Platform::MacOS;
 			case 'macos-arm64': return Platform::MacOS;
 			case 'macos-x86_64': return Platform::MacOS;
+			case 'mingw32': return Platform::Windows;
 			case 'mingw64': return Platform::Windows;
 			default: return Platform::Unknown;
 		}
@@ -124,6 +125,7 @@ class Artifacts
 			case 'macos': return 'macOS 10.15+';
 			case 'macos-arm64': return 'macOS (Apple Silicon)';
 			case 'macos-x86_64': return 'macOS (Intel)';
+			case 'mingw32': return 'Windows 32-bit';
 			case 'mingw64': return 'Windows 64-bit';
 			default: return 'Unknown (' . $artifactName . ')';
 		}
