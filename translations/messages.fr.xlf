@@ -1578,6 +1578,10 @@ Veuillez <a href="/get-involved/#contact">nous contacter</a> si votre distributi
         <source>Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.</source>
         <target>Les téléchargements étiquetés Alpha, Beta ou Nightly sont des pré-versions du logiciel, elles peuvent être moins stables.</target>
       </trans-unit>
+      <trans-unit id="jSq_P3u" resname="Note: 32 bit nightly builds no longer available.">
+        <source>Note: 32 bit nightly builds no longer available.</source>
+        <target>Note: 32 bit nightly builds no longer available.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

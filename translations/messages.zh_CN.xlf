@@ -1544,6 +1544,10 @@
         <source>Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.</source>
         <target>标有 Alpha、Beta 或 Nightly 的下载为预发布软件，稳定性可能会受到影响。</target>
       </trans-unit>
+      <trans-unit id="jSq_P3u" resname="Note: 32 bit nightly builds no longer available.">
+        <source>Note: 32 bit nightly builds no longer available.</source>
+        <target>Note: 32 bit nightly builds no longer available.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

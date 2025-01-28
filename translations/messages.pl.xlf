@@ -1574,6 +1574,10 @@ w tej sprawie oraz  <a href="//github.com/LMMS/lmms.io/issues/new">zamieść rap
         <source>Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.</source>
         <target>Wersje Alpha, Beta, oraz Nightly są wersjami testowymi, i mogą wystąpić problemy ze stabilnością.</target>
       </trans-unit>
+      <trans-unit id="jSq_P3u" resname="Note: 32 bit nightly builds no longer available.">
+        <source>Note: 32 bit nightly builds no longer available.</source>
+        <target>Note: 32 bit nightly builds no longer available.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

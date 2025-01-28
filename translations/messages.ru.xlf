@@ -1564,6 +1564,10 @@
         <source>Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.</source>
         <target>Загрузки с пометкой Alpha, Beta или Nightly представляют собой предварительные версии программного обеспечения, которые могут быть не стабильны.</target>
       </trans-unit>
+      <trans-unit id="jSq_P3u" resname="Note: 32 bit nightly builds no longer available.">
+        <source>Note: 32 bit nightly builds no longer available.</source>
+        <target>Note: 32 bit nightly builds no longer available.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
