@@ -69,7 +69,7 @@ class PlatformParser {
 			($this->platform === Platform::MacOS ?
 				Architecture::Intel64 : self::getDefaultArchitecture($this->platform));
 
-		// Determine platform versions (macOS only)
+		// Determine platform version (currently macOS only)
 		$this->platformVersion = self::getPlatformVersion($this->platform, $filename);
 
 		$this->qualifier = self::parse(self::QUALIFIER_PATTERNS, $filename) ?: self::getDefaultQualifier($this->platform, $this->architecture);
@@ -118,9 +118,7 @@ class PlatformParser {
 		}
     }
 
-	/*
-	 * Old macOS buttons had multiple OS versions, e.g. "10.11"
-	 */
+	// Parse os version information from filename for displaying os compatibility
 	private static function getPlatformVersion(Platform $platform, string $filename): string {
 		if($platform === Platform::MacOS) {
 			if (strpos($filename, '.dmg') !== false) {
