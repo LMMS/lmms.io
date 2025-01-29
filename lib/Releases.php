@@ -52,12 +52,12 @@ class Releases
 			);
 		}, $json['assets']);
 
-        // Cheap sort to make 64-bit buttons appear first
+		// Cheap sort to make 64-bit buttons appear first
 		usort($assets, function ($a, $b) {
-		    // TODO: Remove suffix below and reverse when ARM64/Apple Silicon is published
-            return strcmp($b->getPlatformName(), $a->getPlatformName());
-        });
-        return $assets;
+			// TODO: Remove suffix below and reverse when ARM64/Apple Silicon is published
+			return strcmp($b->getPlatformName(), $a->getPlatformName());
+		});
+		return $assets;
 	}
 
 	/*
@@ -67,24 +67,24 @@ class Releases
 		$arch64 = array('amd64', 'win64', 'x86-64', 'x86_64', 'x64', '64-bit', '.dmg');
 		foreach ($arch64 as $x) {
 			if (strpos(strtolower($assetName), $x) !== false) {
-			    // TODO: Remove suffix when 32-bit is removed and ARM64/Apple Silicon is published
+				// TODO: Remove suffix when 32-bit is removed and ARM64/Apple Silicon is published
 				return '64-bit';
 			}
 		}
 		$arm64 = array('aarch64', 'arm64');
 		foreach ($arm64 as $x) {
-            if (strpos(strtolower($assetName), $x) !== false) {
-                return 'ARM64';
-            }
-        }
-        $riscv64 = array('riscv64');
-        foreach ($riscv64 as $x) {
-            if (strpos(strtolower($assetName), $x) !== false) {
-                return 'RISC-V';
-            }
-        }
+			if (strpos(strtolower($assetName), $x) !== false) {
+				return 'ARM64';
+			}
+		}
+		$riscv64 = array('riscv64');
+		foreach ($riscv64 as $x) {
+			if (strpos(strtolower($assetName), $x) !== false) {
+				return 'RISC-V';
+			}
+		}
 
-        // Fallback
+		// Fallback
 		return '32-bit';
 	}
 
@@ -130,8 +130,8 @@ class Releases
 		} else if (strpos($assetName, '.exe') !== false) {
 			return 'Windows ' . self::getSuffixFromAssetName($assetName);
 		} else if (strpos($assetName, '.run') !== false) {
-          	return 'Linux ' . self::getSuffixFromAssetName($assetName);
-        } else if (strpos($assetName, '.AppImage') !== false) {
+			return 'Linux ' . self::getSuffixFromAssetName($assetName);
+		} else if (strpos($assetName, '.AppImage') !== false) {
 			return 'Linux ' . self::getSuffixFromAssetName($assetName);
 		} else {
 			return $assetName;
