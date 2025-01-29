@@ -40,7 +40,7 @@ class Releases
 
 	private function mapAssetsFromJson(array $json): array
 	{
-		return array_map(function (array $asset) use ($json) {
+		$assets = array_map(function (array $asset) use ($json) {
 			return new Asset(
 				platform: self::platformFromAssetName($asset['name']),
 				platformName: self::platformNameFromAssetName($asset['name']),
@@ -51,18 +51,40 @@ class Releases
 				date: $asset['created_at']
 			);
 		}, $json['assets']);
+
+        // Cheap sort to make 64-bit buttons appear first
+		usort($assets, function ($a, $b) {
+		    // TODO: Remove suffix below and reverse when ARM64/Apple Silicon is published
+            return strcmp($b->getPlatformName(), $a->getPlatformName());
+        });
+        return $assets;
 	}
 
 	/*
 	 * Get "32-bit", "64-bit", etc based on Download URL
 	 */
-	private static function getArchitectureFromAssetName(string $assetName): string {
-		$arch64 = array('aarch64', 'arm64', 'riscv64', 'amd64', 'win64', 'x86-64', 'x86_64', 'x64', '64-bit', '.dmg');
+	private static function getSuffixFromAssetName(string $assetName): string {
+		$arch64 = array('amd64', 'win64', 'x86-64', 'x86_64', 'x64', '64-bit', '.dmg');
 		foreach ($arch64 as $x) {
 			if (strpos(strtolower($assetName), $x) !== false) {
+			    // TODO: Remove suffix when 32-bit is removed and ARM64/Apple Silicon is published
 				return '64-bit';
 			}
 		}
+		$arm64 = array('aarch64', 'arm64');
+		foreach ($arm64 as $x) {
+            if (strpos(strtolower($assetName), $x) !== false) {
+                return 'ARM64';
+            }
+        }
+        $riscv64 = array('riscv64');
+        foreach ($riscv64 as $x) {
+            if (strpos(strtolower($assetName), $x) !== false) {
+                return 'RISC-V';
+            }
+        }
+
+        // Fallback
 		return '32-bit';
 	}
 
@@ -100,15 +122,17 @@ class Releases
 		if (strpos($assetName, '.tar.') !== false) {
 			return 'Source Tarball';
 		} else if (strpos($assetName, '.deb') !== false) {
-			return 'Ubuntu ' . self::getArchitectureFromAssetName($assetName);
+			return 'Ubuntu ' . self::getSuffixFromAssetName($assetName);
 		} else if (strpos($assetName, '.rpm') !== false) {
-			return 'Fedora ' . self::getArchitectureFromAssetName($assetName);
+			return 'Fedora ' . self::getSuffixFromAssetName($assetName);
 		} else if (strpos($assetName, '.dmg') !== false) {
 			return 'macOS ' . self::getOsVersionFromAssetName($assetName) . '+';
 		} else if (strpos($assetName, '.exe') !== false) {
-			return 'Windows ' . self::getArchitectureFromAssetName($assetName);
-		} else if (strpos($assetName, '.AppImage') !== false) {
-			return 'Linux ' . self::getArchitectureFromAssetName($assetName);
+			return 'Windows ' . self::getSuffixFromAssetName($assetName);
+		} else if (strpos($assetName, '.run') !== false) {
+          	return 'Linux ' . self::getSuffixFromAssetName($assetName);
+        } else if (strpos($assetName, '.AppImage') !== false) {
+			return 'Linux ' . self::getSuffixFromAssetName($assetName);
 		} else {
 			return $assetName;
 		}
