@@ -52,12 +52,12 @@ class PlatformParser {
 		Qualifier::Gcc->value => ['gcc'],
 	];
 
-    private Architecture $architecture = Architecture::Unknown;
-    private Platform $platform = Platform::Unknown;
-    private Qualifier $qualifier = Qualifier::Unknown;
-    private string $platformVersion = '';
+	private Architecture $architecture = Architecture::Unknown;
+	private Platform $platform = Platform::Unknown;
+	private Qualifier $qualifier = Qualifier::Unknown;
+	private string $platformVersion = '';
 
-    public function __construct(string $filename) {
+	public function __construct(string $filename) {
 		$filename = strtolower($filename);
 
 		// Platform must be set first
@@ -73,9 +73,9 @@ class PlatformParser {
 		$this->platformVersion = self::getPlatformVersion($this->platform, $filename);
 
 		$this->qualifier = self::parse(self::QUALIFIER_PATTERNS, $filename) ?: self::getDefaultQualifier($this->platform, $this->architecture);
-    }
+	}
 
-    private static function parse(array $patternsArray, string $filename) {
+	private static function parse(array $patternsArray, string $filename) {
 		foreach ($patternsArray as $key => $value) {
 			foreach ($value as $pattern) {
 				if (strpos($filename, $pattern) !== false) {
@@ -91,9 +91,9 @@ class PlatformParser {
 			}
 		}
 		return false;
-    }
+	}
 
-    private static function getDefaultArchitecture(Platform $platform): Architecture {
+	private static function getDefaultArchitecture(Platform $platform): Architecture {
 		switch($platform) {
 			case Platform::Linux:
 			case Platform::Windows:
@@ -103,9 +103,9 @@ class PlatformParser {
 			case Platform::Unknown:
 				return Architecture::Unknown;
 		}
-    }
+	}
 
-    private static function getDefaultQualifier(Platform $platform, Architecture $architecture): Qualifier {
+	private static function getDefaultQualifier(Platform $platform, Architecture $architecture): Qualifier {
 		switch($platform) {
 			case Platform::MacOS:
 				return Qualifier::Clang;
@@ -116,7 +116,7 @@ class PlatformParser {
 			case Platform::Unknown:
 				return Qualifier::Unknown;
 		}
-    }
+	}
 
 	// Parse os version information from filename for displaying os compatibility
 	private static function getPlatformVersion(Platform $platform, string $filename): string {
@@ -133,19 +133,19 @@ class PlatformParser {
 		return $this->platform;
 	}
 
-    public function getArchitecture(): Architecture {
-    	return $this->architecture;
-    }
+	public function getArchitecture(): Architecture {
+		return $this->architecture;
+	}
 
-    public function getQualifier(): Qualifier {
-    	return $this->qualifier;
-    }
+	public function getQualifier(): Qualifier {
+		return $this->qualifier;
+	}
 
-    private function isDefaultArchitecture(): bool {
-    	return self::getDefaultArchitecture($this->platform) === $this->architecture;
-    }
+	private function isDefaultArchitecture(): bool {
+		return self::getDefaultArchitecture($this->platform) === $this->architecture;
+	}
 
-    private function isDefaultQualifier(): bool {
+	private function isDefaultQualifier(): bool {
 		return self::getDefaultQualifier($this->platform, $this->architecture) === $this->qualifier;
 	}
 
