@@ -15,11 +15,12 @@ git clone https://github.com/<your-username>/lmms.io.git
 
 This project uses [Composer](http://getcomposer.org) for dependency management. You'll have to fetch those dependencies using Composer. For this, you must have Composer installed on your system. For quickly installing Composer locally on *nix, run:
 	
-If not already, install PHP and the required components.\
+Install PHP 8.2 and the required components.\
 These commands are for Linux. It may be different from how it is installed on other OSes.
 
 ```bash
-sudo apt install curl php php-xml php-gd php-intl php-symfony
+sudo add-apt-repository ppa:ondrej/php
+sudo apt install curl php8.2 php8.2-xml php8.2-gd php8.2-intl php-symfony
 ```
 	
 ```bash

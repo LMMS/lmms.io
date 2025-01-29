@@ -49,8 +49,21 @@ class Artifacts
 
 		// Find a check run corresponding to the GitHub Actions build workflow
 		foreach ($checks['check_runs'] as $run) {
-			if ($run['app']['slug'] === 'github-actions' && $run['name'] === 'linux') {
-				$jobId = $run['id'];
+			if ($run['app']['slug'] === 'github-actions') {
+			    switch($run['name']) {
+			        case 'linux': // discontinued
+                    case 'linux-x86_64':
+                    case 'linux-arm64':
+                    case 'macos': // discontinued
+                    case 'macos-arm64':
+                    case 'macos-x86_64':
+                    case 'msvc-x86': // discontinued
+                    case 'msvc-x64':
+                    case 'mingw32': // discontinued
+                    case 'mingw64':
+				        $jobId = $run['id'];
+				        break 2;  /* Exit the switch and the foreach */
+			    }
 			}
 		}
 		if (!isset($jobId)) { return []; }
@@ -108,26 +121,49 @@ class Artifacts
 	private static function platformFromArtifactName(string $artifactName): Platform
 	{
 		switch ($artifactName) {
-			case 'linux': return Platform::Linux;
-			case 'macos': return Platform::MacOS;
-			case 'macos-arm64': return Platform::MacOS;
-			case 'macos-x86_64': return Platform::MacOS;
-			case 'mingw32': return Platform::Windows;
-			case 'mingw64': return Platform::Windows;
-			default: return Platform::Unknown;
+			case 'linux': // discontinued
+			case 'linux-x86_64':
+			case 'linux-arm64':
+			    return Platform::Linux;
+			case 'macos': // discontinued
+			case 'macos-arm64':
+			case 'macos-x86_64':
+			    return Platform::MacOS;
+			case 'msvc-x86': // discontinued
+			case 'msvc-x64':
+			case 'mingw32': // discontinued
+			case 'mingw64':
+			     return Platform::Windows;
+			default:
+			    return Platform::Unknown;
 		}
 	}
 
 	private static function platformNameFromArtifactName(string $artifactName): string
 	{
 		switch($artifactName) {
-			case 'linux': return 'Linux 64-bit';
-			case 'macos': return 'macOS 10.15+';
-			case 'macos-arm64': return 'macOS (Apple Silicon)';
-			case 'macos-x86_64': return 'macOS (Intel)';
-			case 'mingw32': return 'Windows 32-bit';
-			case 'mingw64': return 'Windows 64-bit';
-			default: return 'Unknown (' . $artifactName . ')';
+			case 'linux': // discontinued
+            case 'linux-x86_64':
+			    return 'Linux';
+			case 'linux-arm64':
+                return 'Linux ARM64';
+			case 'macos': // discontinued
+            case 'macos-x86_64':
+                return 'macOS Intel';
+            case 'macos-arm64':
+                return 'macOS';
+			case 'mingw32': // discontinued
+			    return 'Windows 32-bit (mingw)';
+			case 'mingw64':
+			    return 'Windows (mingw)';
+			case 'msvc-x86': // discontinued
+			    return 'Windows 32-bit (msvc)';
+			case 'msvc-x64':
+			    return 'Windows (msvc)';
+			case 'msys2-arm64':
+			    return 'Windows ARM64 (mingw)';
+			default:
+			    return 'Unknown (' . $artifactName . ')';
 		}
 	}
 }
