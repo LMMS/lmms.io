@@ -3,15 +3,15 @@ namespace LMMS;
 use LMMS\Platform;
 
 enum Architecture: string {
-    case Intel = "32-bit";
-    case Intel64 = "Intel";
-    case Arm = "ARM";
-    case Arm64 = "ARM64";
-    case Riscv = "RISC-V 32-bit";
-    case Riscv64 = "RISC-V";
-    case Ppc = "PowerPC 32-bit";
-    case Ppc64 = "PowerPC";
-    case Unknown = "Unknown";
+	case Intel = "32-bit";
+	case Intel64 = "Intel";
+	case Arm = "ARM";
+	case Arm64 = "ARM64";
+	case Riscv = "RISC-V 32-bit";
+	case Riscv64 = "RISC-V";
+	case Ppc = "PowerPC 32-bit";
+	case Ppc64 = "PowerPC";
+	case Unknown = "Unknown";
 }
 
 enum Qualifier: string {
