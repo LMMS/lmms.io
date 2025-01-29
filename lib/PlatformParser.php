@@ -78,7 +78,6 @@ class PlatformParser {
     private static function parse(array $patternsArray, string $filename) {
 		foreach ($patternsArray as $key => $value) {
 			foreach ($value as $pattern) {
-				//echo $pattern . "\n";
 				if (strpos($filename, $pattern) !== false) {
 					switch(true) {
 						case $patternsArray === self::PLATFORM_PATTERNS:
@@ -167,5 +166,5 @@ class PlatformParser {
 }
 
 // Example usage:
-// echo new PlatformParser("lmms-1.2.2-arm64.pkg");
+// echo new PlatformParser("lmms-1.2.2-arm64.pkg"); // __toString()
 
