@@ -3,6 +3,7 @@ namespace LMMS;
 
 use Github\Client;
 use LMMS\HttpClientPlugin\UriRecordPlugin;
+use LMMS\PlatformParser;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class Artifacts
@@ -49,8 +50,12 @@ class Artifacts
 
 		// Find a check run corresponding to the GitHub Actions build workflow
 		foreach ($checks['check_runs'] as $run) {
-			if ($run['app']['slug'] === 'github-actions' && $run['name'] === 'linux') {
-				$jobId = $run['id'];
+			if ($run['app']['slug'] === 'github-actions') {
+				$parser = new PlatformParser($run['name']);
+				if($parser->found()) {
+					$jobId = $run['id'];
+					break;
+				}
 			}
 		}
 		if (!isset($jobId)) { return []; }
@@ -78,9 +83,10 @@ class Artifacts
 	private function mapBranchAssetsFromJson(array $json): array
 	{
 		return array_map(function (array $artifact) {
+			$parsed = new PlatformParser($artifact['name']);
 			return new Asset(
-				platform: self::platformFromArtifactName($artifact['name']),
-				platformName: self::platformNameFromArtifactName($artifact['name']),
+				platform: $parsed->getPlatform(),
+				platformName: $parsed, // __toString()
 				releaseName: 'g' . substr($artifact['workflow_run']['head_sha'], 0, 9),
 				downloadUrl: $this->router->generate('download_artifact', ['id' => $artifact['id']]),
 				description: null,
@@ -93,9 +99,10 @@ class Artifacts
 	private function mapPullRequestAssetsFromJson(array $json, string $pr, string $description): array
 	{
 		return array_map(function (array $artifact) use ($pr, $description) {
+			$parsed = new PlatformParser($artifact['name']);
 			return new Asset(
-				platform: self::platformFromArtifactName($artifact['name']),
-				platformName: self::platformNameFromArtifactName($artifact['name']),
+				platform: $parsed->getPlatform(),
+				platformName: $parsed, // __toString()
 				releaseName: '#' . $pr . '@' . substr($artifact['workflow_run']['head_sha'], 0, 9),
 				downloadUrl: $this->router->generate('download_artifact', ['id' => $artifact['id']]),
 				description: $description,
@@ -103,31 +110,5 @@ class Artifacts
 				date: $artifact['created_at']
 			);
 		}, $json);
-	}
-
-	private static function platformFromArtifactName(string $artifactName): Platform
-	{
-		switch ($artifactName) {
-			case 'linux': return Platform::Linux;
-			case 'macos': return Platform::MacOS;
-			case 'macos-arm64': return Platform::MacOS;
-			case 'macos-x86_64': return Platform::MacOS;
-			case 'mingw32': return Platform::Windows;
-			case 'mingw64': return Platform::Windows;
-			default: return Platform::Unknown;
-		}
-	}
-
-	private static function platformNameFromArtifactName(string $artifactName): string
-	{
-		switch($artifactName) {
-			case 'linux': return 'Linux 64-bit';
-			case 'macos': return 'macOS 10.15+';
-			case 'macos-arm64': return 'macOS (Apple Silicon)';
-			case 'macos-x86_64': return 'macOS (Intel)';
-			case 'mingw32': return 'Windows 32-bit';
-			case 'mingw64': return 'Windows 64-bit';
-			default: return 'Unknown (' . $artifactName . ')';
-		}
 	}
 }

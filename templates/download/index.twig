@@ -40,7 +40,7 @@
 			{{ download.printrelbutton(asset) }}
 		{% endfor %}
 		{{ download.releasenotes(stable[0].description, "#{os}-stable") }}
-		{% if instruction %}<p>{{ instruction|raw }}</p>{% endif %}
+		{% if instruction %}<div class="alert alert-warning">{{ instruction|raw }}</div>{% endif %}
 	{% endif %}
 	{% if pre %}
 		<h3>
@@ -67,7 +67,6 @@
 				<span class="fas fa-exclamation-circle"></span>
 				{% trans %}Downloads labeled Alpha, Beta, or Nightly are pre-release software, stability may suffer.{% endtrans %}
 			</small>
-			<br>{% trans %}Note: 32 bit nightly builds no longer available.{% endtrans %}
 		</div>
 	{% endif %}
 	{{ trailer|raw }}
@@ -97,14 +96,15 @@
 	linstable,
 	linpre,
 	linnightly,
-	'Run <code>chmod +x ~/Downloads/*.AppImage</code> to set the <code>.AppImage</code> executable before running'|trans,
+	'<strong>Linux: </strong>' ~ 'Run the following command to set the <code>.AppImage</code> executable before running.'|trans ~
+	'<br><br><pre>chmod +x ~/Downloads/lmms-*.AppImage</pre>',
 	include('download/linux.twig')
 ) }}
 
 {{ _self.ospage(
 	'windows',
 	'Install LMMS on Windows'|trans,
-	'Click one of the buttons below (either 32bit or 64bit) to download LMMS for Windows'|trans,
+	'Click one of the buttons below to download LMMS for Windows'|trans,
 	winstable,
 	winpre,
 	winnightly
@@ -116,7 +116,9 @@
 	'Click one of the buttons below to download LMMS for macOS'|trans,
 	osxstable,
 	osxpre,
-	osxnightly
+	osxnightly,
+	'<strong>macOS: </strong>' ~ 'Run the following command to mark the application as safe before running.'|trans ~
+	'<br><br><pre>sudo xattr -d -r com.apple.quarantine /Applications/LMMS.app</pre>',
 ) }}
 
 <div class="text-center spacey container">
