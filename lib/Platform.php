@@ -1,10 +1,10 @@
 <?php
 namespace LMMS;
 
-enum Platform
+enum Platform: string
 {
-	case Unknown;
-	case Linux;
-	case MacOS;
-	case Windows;
+	case Unknown = "Unknown";
+	case Linux = "Linux" ;
+	case MacOS = "macOS";
+	case Windows = "Windows";
 }

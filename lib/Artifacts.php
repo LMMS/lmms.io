@@ -3,6 +3,7 @@ namespace LMMS;
 
 use Github\Client;
 use LMMS\HttpClientPlugin\UriRecordPlugin;
+use LMMS\PlatformParser;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class Artifacts
@@ -50,20 +51,10 @@ class Artifacts
 		// Find a check run corresponding to the GitHub Actions build workflow
 		foreach ($checks['check_runs'] as $run) {
 			if ($run['app']['slug'] === 'github-actions') {
-				switch($run['name']) {
-					case 'linux': // discontinued
-					case 'linux-x86_64':
-					case 'linux-arm64':
-					case 'macos': // discontinued
-					case 'macos-arm64':
-					case 'macos-x86_64':
-					case 'msvc-x86': // discontinued
-					case 'msvc-x64':
-					case 'mingw32': // discontinued
-					case 'mingw64':
-					case 'msys2-arm64':
-						$jobId = $run['id'];
-						break 2;  /* Exit the switch and the foreach */
+				$parser = new PlatformParser($run['name']);
+				if($parser->found()) {
+					$jobId = $run['id'];
+					break;
 				}
 			}
 		}
@@ -92,9 +83,10 @@ class Artifacts
 	private function mapBranchAssetsFromJson(array $json): array
 	{
 		return array_map(function (array $artifact) {
+			$parsed = new PlatformParser($artifact['name']);
 			return new Asset(
-				platform: self::platformFromArtifactName($artifact['name']),
-				platformName: self::platformNameFromArtifactName($artifact['name']),
+				platform: $parsed->getPlatform(),
+				platformName: $parsed, // __toString()
 				releaseName: 'g' . substr($artifact['workflow_run']['head_sha'], 0, 9),
 				downloadUrl: $this->router->generate('download_artifact', ['id' => $artifact['id']]),
 				description: null,
@@ -107,9 +99,10 @@ class Artifacts
 	private function mapPullRequestAssetsFromJson(array $json, string $pr, string $description): array
 	{
 		return array_map(function (array $artifact) use ($pr, $description) {
+			$parsed = new PlatformParser($artifact['name']);
 			return new Asset(
-				platform: self::platformFromArtifactName($artifact['name']),
-				platformName: self::platformNameFromArtifactName($artifact['name']),
+				platform: $parsed->getPlatform(),
+				platformName: $parsed, // __toString()
 				releaseName: '#' . $pr . '@' . substr($artifact['workflow_run']['head_sha'], 0, 9),
 				downloadUrl: $this->router->generate('download_artifact', ['id' => $artifact['id']]),
 				description: $description,
@@ -117,55 +110,5 @@ class Artifacts
 				date: $artifact['created_at']
 			);
 		}, $json);
-	}
-
-	private static function platformFromArtifactName(string $artifactName): Platform
-	{
-		switch ($artifactName) {
-			case 'linux': // discontinued
-			case 'linux-x86_64':
-			case 'linux-arm64':
-				return Platform::Linux;
-			case 'macos': // discontinued
-			case 'macos-arm64':
-			case 'macos-x86_64':
-				return Platform::MacOS;
-			case 'msvc-x86': // discontinued
-			case 'msvc-x64':
-			case 'mingw32': // discontinued
-			case 'mingw64':
-			case 'msys2-arm64':
-				 return Platform::Windows;
-			default:
-				return Platform::Unknown;
-		}
-	}
-
-	private static function platformNameFromArtifactName(string $artifactName): string
-	{
-		switch($artifactName) {
-			case 'linux': // discontinued
-			case 'linux-x86_64':
-				return 'Linux';
-			case 'linux-arm64':
-				return 'Linux ARM64';
-			case 'macos': // discontinued
-			case 'macos-x86_64':
-				return 'macOS Intel';
-			case 'macos-arm64':
-				return 'macOS';
-			case 'mingw32': // discontinued
-				return 'Windows 32-bit (mingw)';
-			case 'mingw64':
-				return 'Windows (mingw)';
-			case 'msvc-x86': // discontinued
-				return 'Windows 32-bit (msvc)';
-			case 'msvc-x64':
-				return 'Windows (msvc)';
-			case 'msys2-arm64':
-				return 'Windows ARM64 (mingw)';
-			default:
-				return 'Unknown (' . $artifactName . ')';
-		}
 	}
 }
