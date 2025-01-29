@@ -16,7 +16,7 @@
 			{{ download.printrelbutton(asset, 'btn-secondary') }}
 		{% endfor %}
 		{{ download.releasenotes(artifacts[0].description, "#{os}-artifacts") }}
-		{% if instruction %}<p>{{ instruction|raw }}</p>{% endif %}
+		{% if instruction %}<div class="alert alert-warning">{{ instruction|raw }}</div>{% endif %}
 		<div id="prerelease" class="text-center">
 			<small>
 				<span class="fas fa-exclamation-circle"></span>
@@ -50,7 +50,8 @@
 	'Click one of the buttons below to download LMMS for Linux.'|trans,
 	id,
 	linartifacts,
-	'Run <code>chmod +x ~/Downloads/*.AppImage</code> to set the <code>.AppImage</code> executable before running'|trans
+	'<strong>Linux: </strong>' ~ 'Run the following command to set the <code>.AppImage</code> executable before running.'|trans ~
+	'<br><br><pre>chmod +x ~/Downloads/lmms-*.AppImage</pre>',
 ) }}
 
 {{ _self.ospage(
@@ -66,7 +67,9 @@
 	'Install LMMS on macOS'|trans,
 	'Click one of the buttons below to download LMMS for macOS'|trans,
 	id,
-	osxartifacts
+	osxartifacts,
+	'<strong>macOS: </strong>' ~ 'Run the following command to mark the application as safe before running.'|trans ~
+	'<br><br><pre>sudo xattr -d -r com.apple.quarantine /Applications/LMMS.app</pre>',
 ) }}
 
 <script>
