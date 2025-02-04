@@ -1,0 +1,71 @@
+# Put me in /etc/apparmor.d/local/php-fpm
+# Allow r/w tmp files
+include <abstractions/user-tmp>
+include <abstractions/bash>
+include <abstractions/consoles>
+include <abstractions/postfix-common>
+
+# Allow using system resource APIs
+capability sys_resource,
+# Allow r/w database and logs
+@{run}/mysqld/mysqld.sock rw,
+/var/log/php*-fpm.log rw,
+@{PROC}/@{pid}/attr/{apparmor/,}current rw,
+@{run}/php{,-fpm}/php*-fpm.pid rw,
+@{run}/php{,-fpm}/php*-fpm.sock rwlk,
+# phpBB needs shell access for some reasons
+/usr/bin/dash mrix,
+# PHP itself needs systemd notification access
+owner @{run}/systemd/notify w,
+# Allow full-access to lmms.io deployment locations
+/home/deploy/lmms.io/ r,
+owner /home/deploy/lmms.io/** rwk,
+owner /home/deploy/lsp_data/** rwk,
+allow /home/deploy/secrets/* r,
+# Allow executing deploy scripts
+owner /home/deploy/deploy.lmms/public_html/** rwk,
+/home/deploy/lmms.io/{bin,hooks}/* mrix,
+# Allow deploy scripts to use system utilities
+/usr/bin/basename mrix,
+/usr/bin/bash mrix,
+/usr/bin/dirname mrix,
+/usr/bin/env mrix,
+/usr/bin/envsubst mrix,
+/usr/bin/file mrix,
+/usr/bin/gettext{,.sh} mrix,
+/usr/bin/git mrix,
+/usr/bin/grep mrix,
+/usr/bin/kmod mrix,
+/usr/bin/mkdir mrix,
+/usr/bin/php8.3 mrix,
+/usr/bin/rm mrix,
+/usr/bin/rsync mrix,
+/usr/bin/sed mrix,
+/usr/bin/sudo mrix,
+/usr/bin/stty mrix,
+/usr/bin/tar mrix,
+/usr/bin/uname mrix,
+/usr/bin/which.debianutils mrix,
+/usr/bin/whoami mrix,
+/usr/local/bin/composer mrix,
+/usr/sbin/php-fpm* rix,
+/usr/sbin/postdrop mrix,
+/usr/sbin/sendmail mrix,
+# (file/libmagic data)
+/etc/magic r,
+# (Git modules)
+/usr/lib/git-core/git* mrix,
+/usr/share/git-core/** r,
+# (sudo modules)
+/usr/libexec/sudo/* mr,
+# Files used by external utilities
+# sudo:
+/etc/sudo.conf r,
+/etc/sudoers r,
+owner /etc/sudoers.d/* r,
+# sendmail:
+/var/spool/postfix/maildrop/** rwk,
+/var/spool/postfix/public/** rwk,
+owner /var/www/** rwk,
+@{PROC}/** r,
+/sys/** r,
