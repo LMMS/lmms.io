@@ -11,7 +11,7 @@
 		<div class="alert alert-danger">
 			{% trans with {'%download%': path('download')} %}Anyone can open a pull request against LMMS; we are not responsible for the builds on this page.<br>Unless you were directed here to test a pull request, please download an official build from the <a href="%download%">main download page</a> instead.{% endtrans %}
 		</div>
-		<h3>{{ 'Pull Request #%id%'|trans({'%id%': id}) }}</h3>
+		<h3>{% trans %}Pull Request {% endtrans %} <a href="https://github.com/lmms/lmms/pull/{{ id }}">#{{ id }}</a></h3>
 		{% for asset in artifacts %}
 			{{ download.printrelbutton(asset, 'btn-secondary') }}
 		{% endfor %}

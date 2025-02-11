@@ -87,7 +87,7 @@ class Artifacts
 			return new Asset(
 				platform: $parsed->getPlatform(),
 				platformName: $parsed, // __toString()
-				releaseName: 'g' . substr($artifact['workflow_run']['head_sha'], 0, 9),
+				releaseName: '@' . substr($artifact['workflow_run']['head_sha'], 0, 7),
 				downloadUrl: $this->router->generate('download_artifact', ['id' => $artifact['id']]),
 				description: null,
 				gitRef: $artifact['workflow_run']['head_sha'],
@@ -103,7 +103,7 @@ class Artifacts
 			return new Asset(
 				platform: $parsed->getPlatform(),
 				platformName: $parsed, // __toString()
-				releaseName: '#' . $pr . '@' . substr($artifact['workflow_run']['head_sha'], 0, 9),
+				releaseName: '#' . $pr . ' @' . substr($artifact['workflow_run']['head_sha'], 0, 7),
 				downloadUrl: $this->router->generate('download_artifact', ['id' => $artifact['id']]),
 				description: $description,
 				gitRef: $artifact['workflow_run']['head_sha'],
