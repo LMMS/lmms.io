@@ -24,6 +24,7 @@ owner /home/deploy/lsp_data/** rwk,
 allow /home/deploy/secrets/* r,
 # Allow executing deploy scripts
 owner /home/deploy/deploy.lmms/public_html/** rwk,
+/home/deploy/deploy.lmms/public_html/*.php r,
 /home/deploy/lmms.io/{bin,hooks}/* mrix,
 # Allow deploy scripts to use system utilities
 /usr/bin/basename mrix,
