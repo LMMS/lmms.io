@@ -17,11 +17,13 @@ bolresults:
       permanent: false
 
 documentation:
-   path: /documentation
+   path: /documentation{wildcard}
    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
    defaults:
       path: 'https://docs.lmms.io/user-manual/'
       permanent: true
+   requirements:
+      wildcard: .*
 
 download:
    path: /download
