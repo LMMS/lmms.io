@@ -635,7 +635,10 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 	
 	if (strlen($user_name)) { $stmt->bindParam(':user_id', $user_id); }
 	if (strlen($category)) { $stmt->bindParam(':category', $category); }
-	if (strlen($subcategory)) { $stmt->bindParam(':subcategory', htmlspecialchars_decode($subcategory)); }
+	if (strlen($subcategory)) {
+		$subcategory = htmlspecialchars_decode($subcategory);
+		$stmt->bindParam(':subcategory', $subcategory);
+	}
 	if (strlen($search)) { $search = "%{$search}%"; $stmt->bindParam(':search', $search); }
 	
 	if ($stmt->execute()) {
