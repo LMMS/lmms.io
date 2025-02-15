@@ -562,7 +562,10 @@ function get_results_count($category, $subcategory = '', $search = '', $user_id 
 	
 	if (strlen($user_id)) { $stmt->bindParam(':user_id', $user_id); }
 	if (strlen($category)) { $stmt->bindParam(':category', $category); }
-	if (strlen($subcategory)) { $stmt->bindParam(':subcategory', htmlspecialchars_decode($subcategory)); }
+	if (strlen($subcategory)) {
+		$subcategory = htmlspecialchars_decode($subcategory);
+		$stmt->bindParam(':subcategory', $subcategory);
+	}
 	if (strlen($search)) { $search = "%{$search}%"; $stmt->bindParam(':search',$search); }
 		
 	if ($stmt->execute()) {
