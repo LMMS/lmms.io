@@ -905,6 +905,12 @@ ul.nav-center li {
   background-size: auto, cover;
 }
 
+#bol10 {
+  background: linear-gradient(rgba(16, 16, 16, 0.2), rgba(16, 16, 16, 0.2)), url("/img/tbolv10.jpg");
+  background-position: top, center top;
+  background-size: auto, cover;
+}
+
 .center {
   text-align: center;
 }
@@ -924,5 +930,3 @@ ul.nav-center li {
   margin-bottom: 1ex;
   margin-top: 2ex;
 }
-
-/*# sourceMappingURL=style.min.css.map */
