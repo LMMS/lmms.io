@@ -15,9 +15,18 @@ $panelBg: #fff;
 $panelBgDark: #000;
 $btnBg: #fafafa;
 $btnBgDark: hsl(0 0% 2%);
-$releaseNotesBg: #f5f5f5;
-$releaseNotesBgDark: hsl(0 0% 4%);
+$wellBg: #f5f5f5;
+$wellBgDark: hsl(0 0% 4%);
+$anchorColor: #337ab7;
+$anchorColorDark: color-mix(in oklch, $anchorColor, white 15%);
 $footerColor: #222522;
+
+$lspTableOddRowBg: #f9f9f9;
+$lspTableOddRowBgDark: hsl(0 0% 2%);
+$lspSearchCommentsToggleBg: #eee;
+$lspSearchCommentsToggleBgDark: hsl(0, 0%, 7%);
+$lspPostActionsNavbarBg: #f8f8f8;
+$lspPostActionsNavbarBgDark: hsl(0, 0%, 3%);
 
 $grayOverlay: rgba(16, 16, 16, 0.75);
 $greenOverlay: rgba(16, 177, 70, 0.7);
@@ -64,7 +73,7 @@ body {
 }
 
 a {
-	/*color: $linkBg;*/
+	color: light-dark($anchorColor, $anchorColorDark);
 	font-weight: bold;
 	transition: all $animationTime ease-in-out;
 	/*&:hover,
@@ -72,6 +81,10 @@ a {
 	color: $linkBgHover;
 	text-decoration: none;
 	}*/
+}
+
+.well {
+	background-color: light-dark($wellBg, $wellBgDark);
 }
 
 .navbar {
@@ -95,6 +108,10 @@ blockquote {
 
 #login-div form {
 	padding: 0.5em;
+}
+
+form .input-group .input-group-addon {
+	background-color: light-dark($lspSearchCommentsToggleBg, $lspSearchCommentsToggleBgDark);
 }
 
 .alert.lsp {
@@ -191,15 +208,15 @@ td.lsp-file-info {
 	text-align: right;
 }
 
+.table-striped > tbody > tr:nth-of-type(odd) {
+	background-color: light-dark($lspTableOddRowBg, $lspTableOddRowBgDark);
+}
+
 .release-notes {
 	position: relative;
 	display: inline-block;
 	text-align: left;
 	max-width: 800px;
-
-	&.well {
-		background-color: light-dark($releaseNotesBg, $releaseNotesBgDark);
-	}
 }
 
 .btn-dl {
@@ -446,6 +463,10 @@ a.btn {
 			background-color: $navbarText;
 		}
 	}
+}
+
+.navbar-default {
+	background-color: light-dark($lspPostActionsNavbarBg, $lspPostActionsNavbarBgDark);
 }
 /* inner bottom border on hover over navbar items*/
 @media (min-width: 768px) {
@@ -826,6 +847,10 @@ a.social {
 	background-position: 0px 0px;
 }
 
+.form-control {
+	background-color: light-dark(white, black);
+}
+
 #lspnav,
 .alert {
 	border: 0;
@@ -842,7 +867,6 @@ a.social {
 .btn-default.active,
 .btn-default:active,
 .open > .dropdown-toggle.btn-default {
-
 }
 
 /* Purple button (e.g. nightly) */

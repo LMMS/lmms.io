@@ -29,7 +29,7 @@ body {
 }
 
 a {
-  /*color: $linkBg;*/
+  color: light-dark(#337ab7, color-mix(in oklch, #337ab7, white 15%));
   font-weight: bold;
   transition: all 0.15s ease-in-out;
   /*&:hover,
@@ -37,6 +37,10 @@ a {
   color: $linkBgHover;
   text-decoration: none;
   }*/
+}
+
+.well {
+  background-color: light-dark(#f5f5f5, hsl(0, 0%, 4%));
 }
 
 .navbar {
@@ -59,6 +63,10 @@ blockquote {
 /* LSP Login Sidebar*/
 #login-div form {
   padding: 0.5em;
+}
+
+form .input-group .input-group-addon {
+  background-color: light-dark(#eee, hsl(0, 0%, 7%));
 }
 
 .alert.lsp {
@@ -155,14 +163,15 @@ td.lsp-file-info {
   text-align: right;
 }
 
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: light-dark(#f9f9f9, hsl(0, 0%, 2%));
+}
+
 .release-notes {
   position: relative;
   display: inline-block;
   text-align: left;
   max-width: 800px;
-}
-.release-notes.well {
-  background-color: light-dark(#f5f5f5, hsl(0, 0%, 4%));
 }
 
 .btn-dl {
@@ -382,6 +391,10 @@ a.btn {
 }
 .navbar-custom .navbar-toggle .icon-bar {
   background-color: #fff;
+}
+
+.navbar-default {
+  background-color: light-dark(#f8f8f8, hsl(0, 0%, 3%));
 }
 
 /* inner bottom border on hover over navbar items*/
@@ -718,6 +731,10 @@ a.social:hover, a.social:focus {
   color: #fff;
   background-repeat: repeat;
   background-position: 0px 0px;
+}
+
+.form-control {
+  background-color: light-dark(white, black);
 }
 
 #lspnav,
