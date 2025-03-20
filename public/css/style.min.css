@@ -1,9 +1,19 @@
 /****************
 *** Variables ***
 ****************/
+html {
+  height: 100%;
+  margin: 0;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
 body {
   padding-top: 50px;
-  color: #333;
+  color: light-dark(#333, hsl(0, 0%, 80%));
+  background-color: light-dark(#fff, #262b30);
   margin: 0;
   min-height: 100%;
   display: flex;
@@ -18,13 +28,8 @@ body {
   flex: 1;
 }
 
-html {
-  height: 100%;
-  margin: 0;
-}
-
 a {
-  /*color: $linkBg;*/
+  color: light-dark(#337ab7, color-mix(in oklch, #337ab7, white 15%));
   font-weight: bold;
   transition: all 0.15s ease-in-out;
   /*&:hover,
@@ -32,6 +37,10 @@ a {
   color: $linkBgHover;
   text-decoration: none;
   }*/
+}
+
+.well {
+  background-color: light-dark(#f5f5f5, hsl(0, 0%, 4%));
 }
 
 .navbar {
@@ -54,6 +63,10 @@ blockquote {
 /* LSP Login Sidebar*/
 #login-div form {
   padding: 0.5em;
+}
+
+form .input-group .input-group-addon {
+  background-color: light-dark(#eee, hsl(0, 0%, 7%));
 }
 
 .alert.lsp {
@@ -148,6 +161,10 @@ td.lsp-file-info {
   position: relative;
   bottom: -1.5em;
   text-align: right;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: light-dark(#f9f9f9, hsl(0, 0%, 2%));
 }
 
 .release-notes {
@@ -291,7 +308,7 @@ a.btn {
 
 /* navbar styling */
 .navbar-custom {
-  background-color: #10b146;
+  background-color: light-dark(#10b146, color-mix(in oklch, #10b146, black 25%));
   background-image: url("/img/hexagon.png");
   background-position: 0px 0px;
   margin-bottom: 0;
@@ -374,6 +391,10 @@ a.btn {
 }
 .navbar-custom .navbar-toggle .icon-bar {
   background-color: #fff;
+}
+
+.navbar-default {
+  background-color: light-dark(#f8f8f8, hsl(0, 0%, 3%));
 }
 
 /* inner bottom border on hover over navbar items*/
@@ -471,7 +492,12 @@ footer #redux img:hover {
 .jumbotron {
   margin: 0;
 }
-.jumbotron h1, .jumbotron h2, .jumbotron h3, .jumbotron h4, .jumbotron h5, .jumbotron p {
+.jumbotron h1,
+.jumbotron h2,
+.jumbotron h3,
+.jumbotron h4,
+.jumbotron h5,
+.jumbotron p {
   font-family: "Titillium Web", sans-serif;
   font-weight: 400;
 }
@@ -489,7 +515,7 @@ div.jumbo {
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: url("/img/screen.png"), url("/img/hexagon.png"), #10b146;
+  background: url("/img/screen.png"), url("/img/hexagon.png"), light-dark(#10b146, color-mix(in oklch, #10b146, black 25%));
   background-position: right bottom, 0px -50px;
   background-size: auto 80%, auto;
   background-repeat: no-repeat, repeat;
@@ -505,7 +531,7 @@ div.mini {
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: url("/img/hexagon.png"), #10b146;
+  background: url("/img/hexagon.png"), light-dark(#10b146, color-mix(in oklch, #10b146, black 25%));
   background-position: 0px -50px;
   color: #fff;
   min-height: 15vh;
@@ -517,7 +543,7 @@ div.error {
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: url("/img/hexagon.png"), #10b146;
+  background: url("/img/hexagon.png"), light-dark(#10b146, color-mix(in oklch, #10b146, black 25%));
   background-position: 0px -50px;
   color: #fff;
   flex: 1;
@@ -544,7 +570,7 @@ div.error a:hover, div.error a:focus {
 }
 @media (max-width: 768px) {
   div.jumbo {
-    background: linear-gradient(rgba(16, 177, 70, 0.7), rgba(16, 177, 70, 0.7)), url("/img/screen.png"), #10b146;
+    background: linear-gradient(rgba(16, 177, 70, 0.7), rgba(16, 177, 70, 0.7)), url("/img/screen.png"), light-dark(#10b146, color-mix(in oklch, #10b146, black 25%));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -587,12 +613,14 @@ a.social:hover, a.social:focus {
 
 .segment {
   padding: 60px 0 70px 0;
-  background-color: #fff;
+  background-color: light-dark(#fff, #262b30);
+  color: light-dark(#333, hsl(0, 0%, 80%));
 }
 .segment .page-header {
   border-bottom-color: #d4d4d4;
 }
-.segment#home1 .col-lg-4 h4, .segment#home1 .col-lg-4 p {
+.segment#home1 .col-lg-4 h4,
+.segment#home1 .col-lg-4 p {
   text-align: left;
 }
 .segment#home3, .segment#home7 {
@@ -694,6 +722,7 @@ a.social:hover, a.social:focus {
 /* Get Involved Panels */
 .panel-custom {
   border: 1px #dedede solid;
+  background-color: light-dark(#fff, #000);
 }
 
 .panel-custom > .panel-heading {
@@ -704,6 +733,10 @@ a.social:hover, a.social:focus {
   background-position: 0px 0px;
 }
 
+.form-control {
+  background-color: light-dark(white, black);
+}
+
 #lspnav,
 .alert {
   border: 0;
@@ -712,10 +745,11 @@ a.social:hover, a.social:focus {
 .btn-default {
   border: solid 1px;
   border-color: #c9c9c9;
-  background-color: #fafafa;
-  color: #333;
+  background-color: light-dark(#fafafa, hsl(0, 0%, 2%));
+  color: light-dark(#333, hsl(0, 0%, 80%));
 }
 
+/* Override less mixin */
 /* Purple button (e.g. nightly) */
 .btn-secondary {
   border: solid 1px;
@@ -808,7 +842,7 @@ ul.nav-center li {
 .nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
   border-radius: 0 0;
   border-style: none;
-  border-bottom: 2px solid #75A3CA;
+  border-bottom: 2px solid #75a3ca;
   background-color: white;
 }
 .nav-tabs > li.active > a,
