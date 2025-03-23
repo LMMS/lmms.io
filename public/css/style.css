@@ -455,14 +455,12 @@ code {
   border-bottom-color: var(--fg-navbar-hov);
 }
 
-.navbar-custom .navbar-nav .open:hover,
-.navbar-custom .navbar-nav .open:focus {
+.navbar-custom .navbar-nav .open:where(:hover, :focus) {
   color: var(--fg-navbar-hov);
   background-color: inherit;
 }
 
-.navbar-custom .navbar-nav .open:hover .caret,
-.navbar-custom .navbar-nav .open:focus .caret {
+.navbar-custom .navbar-nav .open:where(:hover, :focus) .caret {
   border-top-color: var(--fg-navbar-hov);
   border-bottom-color: var(--fg-navbar-hov);
 }
@@ -472,8 +470,7 @@ code {
   border-bottom-color: var(--fg-navbar);
 }
 
-.navbar-custom .dropdown>a:hover .caret,
-.navbar-custom .dropdown>a:focus .caret {
+.navbar-custom .dropdown>a:where(:hover, :focus) .caret {
   border-top-color: var(--fg-navbar-hov);
   border-bottom-color: var(--fg-navbar-hov);
 }
@@ -500,8 +497,7 @@ code {
   border: none;
 }
 
-.navbar-custom .navbar-toggle:hover,
-.navbar-custom .navbar-toggle:focus {
+.navbar-custom .navbar-toggle:where(:hover, :focus) {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -516,11 +512,7 @@ code {
 /* inner bottom border on hover over navbar items*/
 @media (min-width: 768px) {
 
-  .navbar-custom .navbar-nav>li>a:hover,
-  .navbar-custom .navbar-nav>.active>a,
-  .navbar-custom .navbar-nav>.active>a:hover,
-  .navbar-custom .navbar-nav>.open>a,
-  .navbar-custom .navbar-nav>.open>a:hover {
+  .navbar-custom .navbar-nav>:where(li, .active, .open)>:where(a, a:hover) {
     box-shadow: inset 0px -4px 0px 0px var(--border-navbar-hov);
   }
 
@@ -547,9 +539,7 @@ code {
     background-image: none;
   }
 
-  .navbar-custom .navbar-nav>li>a,
-  .navbar-custom .navbar-nav>li>a:visited,
-  .navbar-custom .navbar-nav>li>a:focus,
+  .navbar-custom .navbar-nav>li>:where(a, a:visited, a:focus),
   .navbar-custom .navbar-nav .open .dropdown-menu {
     box-shadow: inset 0px -1px 0px 0px rgba(255, 255, 255, 0.1);
     background: inherit;
@@ -682,8 +672,7 @@ div.error a {
   transition: box-shadow 0.15s ease-in-out;
 }
 
-div.error a:hover,
-div.error a:focus {
+div.error a:where(:hover, :focus) {
   color: #fff;
   text-decoration: none;
   box-shadow: inset 0px -1.4em 0px 0px var(--col-link-shadow);
@@ -995,17 +984,14 @@ ul.nav-center li {
   background-color: light-dark(white, black);
 }
 
-.nav-tabs>li>a:hover,
-.nav-tabs>li>a:focus {
+.nav-tabs>li>a:where(:hover, :focus) {
   border-radius: 0 0;
   border-style: none;
   border-bottom: 2px solid #75a3ca;
   background-color: white;
 }
 
-.nav-tabs>li.active>a,
-.nav-tabs>li.active>a:hover,
-.nav-tabs>li.active>a:focus {
+.nav-tabs>li.active>:where(a, a:hover, a:focus) {
   border-style: none;
   background-color: white;
   border-bottom: 2px solid #428bca;
