@@ -230,6 +230,7 @@ td.lsp-file-info {
   padding: 1em 1em 1em 5em;
 
   &:hover {
+    color: #fff;
     filter: brightness(1.1);
   }
 
@@ -238,7 +239,7 @@ td.lsp-file-info {
     border: 1px solid var(--bg-btn-dl-stable);
   }
 
-  &.btn-btn-dl-alpha {
+  &.btn-dl-alpha {
     background-color: light-dark(var(--bg-btn-dl-alpha), var(--bg-btn-dl-alpha-dark));
     border: 1px solid var(--bg-btn-dl-alpha);
   }
@@ -253,16 +254,16 @@ td.lsp-file-info {
     border: 1px solid var(--bg-btn-dl-pr);
   }
 
-  &.small {
+  & .small {
     position: relative;
     font-size: 0.9em;
   }
 
-  &.big {
+  & .big {
     font-size: 1.2em;
   }
 
-  &.download-icon {
+  & .download-icon {
     display: block;
     position: absolute;
     left: 0.2em;
