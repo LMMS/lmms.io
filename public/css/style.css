@@ -516,7 +516,7 @@ code {
 /* inner bottom border on hover over navbar items*/
 @media (min-width: 768px) {
 
-  .navbar-custom .navbar-nav>:where(li, .active, .open)>:where(a, a:hover) {
+  .navbar-custom .navbar-nav>:where(li, .active, .open)>:where(a:hover) {
     box-shadow: inset 0px -4px 0px 0px var(--border-navbar-hov);
   }
 
