@@ -13,7 +13,7 @@
 		</div>
 		<h3>{% trans %}Pull Request {% endtrans %} <a href="https://github.com/lmms/lmms/pull/{{ id }}">#{{ id }}</a></h3>
 		{% for asset in artifacts %}
-			{{ download.printrelbutton(asset, 'btn-secondary') }}
+			{{ download.printrelbutton(asset, 'btn-dl-pr') }}
 		{% endfor %}
 		{{ download.releasenotes(artifacts[0].description, "#{os}-artifacts") }}
 		{% if instruction %}<div class="alert alert-warning">{{ instruction|raw }}</div>{% endif %}
