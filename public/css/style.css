@@ -29,8 +29,10 @@
   --bg-btn-dl-stable-dark: color-mix(in oklch, var(--bg-btn-dl-stable), black);
   --bg-btn-dl-alpha: oklch(60% 0.15 250);
   --bg-btn-dl-alpha-dark: color-mix(in oklch, var(--bg-btn-dl-alpha), black);
-  --bg-btn-dl-nightly: oklch(55% 0.22 290);
+  --bg-btn-dl-nightly: oklch(56% 0.2 290);
   --bg-btn-dl-nightly-dark: color-mix(in oklch, var(--bg-btn-dl-nightly), black);
+  --bg-btn-dl-pr: oklch(72% 0.15 75);
+  --bg-btn-dl-pr-dark: color-mix(in oklch, var(--bg-btn-dl-pr), black);
   --bg-well: #f5f5f5;
   --bg-well-dark: hsl(0, 0%, 4%);
   --col-anchor: #337ab7;
@@ -228,7 +230,6 @@ td.lsp-file-info {
   padding: 1em 1em 1em 5em;
 
   &:hover {
-    color: #fff;
     filter: brightness(1.1);
   }
 
@@ -245,6 +246,11 @@ td.lsp-file-info {
   &.btn-dl-nightly {
     background-color: light-dark(var(--bg-btn-dl-nightly), var(--bg-btn-dl-nightly-dark));
     border: 1px solid var(--bg-btn-dl-nightly);
+  }
+
+  &.btn-dl-pr {
+    background-color: light-dark(var(--bg-btn-dl-pr), var(--bg-btn-dl-pr-dark));
+    border: 1px solid var(--bg-btn-dl-pr);
   }
 
   &.small {
