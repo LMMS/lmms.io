@@ -3,7 +3,7 @@
 {% import _self as download %}
 
 {# Macro for printing oversized download buttons #}
-{% macro printrelbutton(rel, btnclass = 'btn-primary') %}
+{% macro printrelbutton(rel, btnclass = 'btn-dl-stable') %}
 	{% if rel != null %}
 		<a class="btn btn-lg btn-dl {{ btnclass }}" href="{{ rel.downloadUrl }}">
 			<span class="fas fa-cloud-download-alt fa-3x download-icon"></span>
@@ -51,14 +51,14 @@
 		{% endif %}
 		</h3>
 		{% for asset in pre %}
-			{{ download.printrelbutton(asset, 'btn-warning') }}
+			{{ download.printrelbutton(asset, 'btn-dl-alpha') }}
 		{% endfor %}
 		{{ download.releasenotes(pre[0].description, "#{os}-pre") }}
 	{% endif %}
 	{% if nightly %}
 		<h3>{% trans %}Nightly Versions{% endtrans %}</h3>
 		{% for asset in nightly %}
-			{{ download.printrelbutton(asset, 'btn-secondary') }}
+			{{ download.printrelbutton(asset, 'btn-dl-nightly') }}
 		{% endfor %}
 	{% endif %}
 	{% if pre or nightly %}

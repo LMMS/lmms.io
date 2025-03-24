@@ -25,11 +25,11 @@
   --fg-code-dark: color-mix(in oklch, var(--fg-code), white 25%);
   --bg-btn: #fafafa;
   --bg-btn-dark: hsl(0, 0%, 2%);
-  --bg-btn-dl-stable: #337ab7;
+  --bg-btn-dl-stable: oklch(65% 0.15 152);
   --bg-btn-dl-stable-dark: color-mix(in oklch, var(--bg-btn-dl-stable), black);
-  --bg-btn-dl-alpha: #f0ad4e;
+  --bg-btn-dl-alpha: oklch(60% 0.15 250);
   --bg-btn-dl-alpha-dark: color-mix(in oklch, var(--bg-btn-dl-alpha), black);
-  --bg-btn-dl-nightly: #7871c5;
+  --bg-btn-dl-nightly: oklch(55% 0.22 290);
   --bg-btn-dl-nightly-dark: color-mix(in oklch, var(--bg-btn-dl-nightly), black);
   --bg-well: #f5f5f5;
   --bg-well-dark: hsl(0, 0%, 4%);
@@ -221,50 +221,48 @@ td.lsp-file-info {
 
 /* download button bg colors */
 .btn-dl {
-  &:hover {
-    color: #fff;
-    filter: brightness(1.1);
-  }
-
-  &.btn-primary {
-    background-color: light-dark(var(--bg-btn-dl-stable), var(--bg-btn-dl-stable-dark));
-    border: 1px solid var(--bg-btn-dl-stable);
-  }
-
-  &.btn-warning {
-    background-color: light-dark(var(--bg-btn-dl-alpha), var(--bg-btn-dl-alpha-dark));
-    border: 1px solid var(--bg-btn-dl-alpha);
-  }
-
-  &.btn-secondary {
-    background-color: light-dark(var(--bg-btn-dl-nightly), var(--bg-btn-dl-nightly-dark));
-    border: 1px solid var(--bg-btn-dl-nightly);
-  }
-}
-
-.btn-dl {
   min-width: 16em;
   position: relative;
   margin: 4px;
   text-align: left;
   padding: 1em 1em 1em 5em;
-}
 
-.btn-dl .small {
-  position: relative;
-  font-size: 0.9em;
-}
+  &:hover {
+    color: #fff;
+    filter: brightness(1.1);
+  }
 
-.btn-dl .big {
-  font-size: 1.2em;
-}
+  &.btn-dl-stable {
+    background-color: light-dark(var(--bg-btn-dl-stable), var(--bg-btn-dl-stable-dark));
+    border: 1px solid var(--bg-btn-dl-stable);
+  }
 
-.btn-dl .download-icon {
-  display: block;
-  position: absolute;
-  left: 0.2em;
-  top: 0.3em;
-  opacity: 0.9;
+  &.btn-btn-dl-alpha {
+    background-color: light-dark(var(--bg-btn-dl-alpha), var(--bg-btn-dl-alpha-dark));
+    border: 1px solid var(--bg-btn-dl-alpha);
+  }
+
+  &.btn-dl-nightly {
+    background-color: light-dark(var(--bg-btn-dl-nightly), var(--bg-btn-dl-nightly-dark));
+    border: 1px solid var(--bg-btn-dl-nightly);
+  }
+
+  &.small {
+    position: relative;
+    font-size: 0.9em;
+  }
+
+  &.big {
+    font-size: 1.2em;
+  }
+
+  &.download-icon {
+    display: block;
+    position: absolute;
+    left: 0.2em;
+    top: 0.3em;
+    opacity: 0.9;
+  }
 }
 
 /* Prevent cutting off of images on narrow devices*/
