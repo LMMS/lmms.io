@@ -8,8 +8,7 @@ if (-Not (Test-Path $phpDir)) {
 
 # check if php.exe is there
 if (-Not (Test-Path $fullPhpDir)) {
-  Write-Error "'php.exe' was not found in '$phpDir'. Was it installed correctly?"
-  exit 1
+  throw "'php.exe' was not found in '$phpDir'. Was it installed correctly?"
 }
 
 # shift to root dir
@@ -24,8 +23,7 @@ Invoke-WebRequest -Uri $composerInstallerUrl -OutFile $composerInstallerPath
 
 # check if composer's installer exists
 if (-Not (Test-Path $composerInstallerPath)) {
-  Write-Error "Failed to download Composer installer"
-  exit 1
+  throw "Failed to download Composer installer"
 }
 
 Start-Process -FilePath $fullPhpDir -ArgumentList $composerInstallerPath -Wait -NoNewWindow
