@@ -30,8 +30,9 @@ function Validate-Ini {
     Write-Host -ForegroundColor Yellow "Skipping .ini file validation. If the setup script fails further down the line, you can re-run the setup script and say 'y' on .ini validation, or refer to the README on how to enable the particular settings needed"
     return
   }
-
-  Write-Host "Validating .ini file"
+  else {
+    Write-Host "Validating .ini file"
+  }
 
   $iniSettings = @(
     ";extension_dir = `"ext`""
@@ -75,25 +76,37 @@ function Validate-Ini {
     if ($confirm -match "y") {
       Write-Host "Modifying and writing settings"
 
-      foreach ($line in $iniFile) {
+      $iniFileNew = ""
+      foreach ($iniLine in $iniFile) {
+        $isSettingLine = $false
         foreach ($setting in $iniSettings) {
-          if ($line -match $setting) {
-            $line = $line.Replace(";", "")
+          if ($iniLine -match $setting) {
+            $isSettingLine = $true
+            $iniFileNew += $iniLine.Replace(";", "") + "`n"
+            break
           }
+        }
+        if (-not $isSettingLine) {
+          $iniFileNew += $iniLine + "`n"
         }
       }
 
+      Write-Host -ForegroundColor Green "Settings file modified"
+
       Clear-Content -Path $iniFilePath
-      foreach ($line in $iniFile) {
+      foreach ($line in $iniFileNew) {
         Add-Content -Path $iniFilePath -Value $line
-        Write-Host -ForegroundColor Yellow "Skipping .ini file modification. You must enable the relevant settings by yourself. Refer to the README for instructions on how to enable the settings manually."
       }
-      else {
-        Write-Host -ForegroundColor Yellow "Skipping .ini file modification. You must enable the relevant settings by yourself"
-      }
+
+      Write-Host -ForegroundColor Green "Your .ini settings are valid, continuing script"
     }
-  } else {
-    Write-Host -ForegroundColor Green "Your .ini settings are valid, continuing script"
+    else {
+      Write-Host -ForegroundColor Yellow "Skipping .ini file modification. You must enable the relevant settings by yourself. Refer to the README for instructions on how to enable the settings manually."
+      Write-Host -ForegroundColor Red "There's a chance that the script will error after this"
+    }
+  }
+  else {
+    Write-Host -ForegroundColor Green "All settings are valid, continuing setup"
   }
 }
 
@@ -124,3 +137,5 @@ Start-Process -FilePath $fullPhpDir -ArgumentList "composer.phar install" -Wait 
 # cleanup composer's installer
 Write-Host "Cleaning up composer's installer"
 Remove-Item $composerInstallerPath
+
+Write-Host -ForegroundColor Green "Setup complete! Run 'php -S localhost:8000 -t ./public/' to start the local dev server"
