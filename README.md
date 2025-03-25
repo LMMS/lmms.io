@@ -46,19 +46,20 @@ You'll have to run this command every time the dependencies in `composer.json` c
 
 ### Windows
 
-A convenient setup script is provided in `dev/windows/setup.ps1`. You just need to provide the path of where you've installed PHP, and it will install Composer and the project's dependencies on its own.
+A convenient setup script is provided in `dev/windows/setup.ps1`. You just need to provide the path of where you've installed PHP, and it will setup PHP, install Composer, and install the project's dependencies on its own.
 
-If you've manually installed PHP without the use of other PHP-dependent software like WAMP (such as directly downloading and unzipping the binary from the PHP website), *and the automated install script is failing*, there are some changes you'll need to make to your `php.ini`:
+If you skipped automatic `.ini` validation or modification, there are some changes you'll need to make to your configuration file manually:
 
-1. Locate `php.ini-development` in the folder where you've installed/extracted the PHP release. This folder should also be where `php.exe` resides
-2. Remove the `-development` suffix from the file extension, the resulting file name should just be `php.ini`
-3. Edit the file, and uncomment these lines:
+1. Locate `php.ini-development` or `php.ini` in the folder where you've installed/extracted the PHP release. This folder should also be where `php.exe` resides
+   * If you have the `php.ini-development` file, remove the `-development` suffix from the file extension, the resulting file name should just be `php.ini`
+   * If you would like to just edit your existing `php.ini`, leave it be.
+2. Edit the file, and uncomment these lines:
    1. `;extension_dir = "ext"`
    2. `;extension=gd`
    3. `;extension=intl`
    4. `;extension=openssl`
    5. `;extension=pdo_mysql`
-4. Save your edits, then re-run the setup script.
+3. Save your edits, then re-run the setup script.
 
 Not only does this allow the automatic script to execute, but also enable the local development server to function at all.
 
