@@ -1,4 +1,13 @@
-$phpDir = Read-Host "Enter the path of your PHP installation (e.g. 'C:\Program Files\php', 'D:\php', 'C:\wamp\bin\php')"
+param (
+  [Alias("PSPath")]
+  [string] $phpDir
+)
+
+# check if the script param is empty
+if ([string]::IsNullOrEmpty($phpDir)) {
+  $phpDir = Read-Host "Enter the path of your PHP installation (e.g. 'C:\Program Files\php', 'D:\php', 'C:\wamp\bin\php')"
+}
+
 $fullPhpDir = Join-Path $phpDir "php.exe"
 
 # check if path exists
