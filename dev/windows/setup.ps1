@@ -1,27 +1,31 @@
 param (
-  [Alias("PSPath")]
+  [ValidateScript({ Test-Path $_ })]
   [string] $phpDir
 )
 
-# check if the script param is empty
-if ([string]::IsNullOrEmpty($phpDir)) {
+# check if php exists in Path, then set it as full PHP dir
+if (-not [string]::IsNullOrEmpty((Get-Command php).Source)) {
+  $phpDir = Split-Path (Get-Command php).Source
+  $fullPhpDir = (Get-Command php).Source
+}
+# if not, then check if the phpDir arg exists
+elseif ([string]::IsNullOrEmpty($phpDir)) {
   $phpDir = Read-Host "Enter the path of your PHP installation (e.g. 'C:\Program Files\php', 'D:\php', 'C:\wamp\bin\php')"
-}
 
-$fullPhpDir = Join-Path $phpDir "php.exe"
+  # check if given path exists
+  if (-not (Test-Path $phpDir)) {
+    throw "The directory '$phpDir' does not exist. Did you point to the exact file instead of the containing folder?"
+  }
 
-# check if path exists
-if (-Not (Test-Path $phpDir)) {
-  throw "The directory '$phpDir' does not exist. Did you point to the exact file instead of the containing folder?"
-}
+  $fullPhpDir = Join-Path $phpDir "php.exe"
 
-# check if php.exe is there
-if (-Not (Test-Path $fullPhpDir)) {
-  throw "'php.exe' was not found in '$phpDir'. Was it installed correctly?"
+  # check if php.exe is there
+  if (-not (Test-Path $fullPhpDir)) {
+    throw "'php.exe' was not found in '$phpDir'. Was it installed correctly?"
+  }
 }
 
 Write-Host "[setup] Using $fullPhpDir as PHP runner."
-
 
 function Validate-Ini {
   Write-Host "[setup] Validating .ini file"
