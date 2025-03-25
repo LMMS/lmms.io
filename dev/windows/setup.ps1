@@ -20,11 +20,11 @@ if (-Not (Test-Path $fullPhpDir)) {
   throw "'php.exe' was not found in '$phpDir'. Was it installed correctly?"
 }
 
-Write-Host "Using $fullPhpDir as PHP runner."
+Write-Host "[setup] Using $fullPhpDir as PHP runner."
 
 
 function Validate-Ini {
-  Write-Host "Validating .ini file"
+  Write-Host "[setup] Validating .ini file"
 
   $iniSettings = @(
     ";extension_dir = `"ext`""
@@ -41,7 +41,7 @@ function Validate-Ini {
     $confirm = Read-Host "You do not have a 'php.ini' file, but you have the 'php.ini-development' file. Would you like the script to enable the development .ini? Saying [n] will exit the script [y/n]"
 
     if ($confirm -match "y") {
-      Write-Host "Renaming 'php.ini-development' to 'php.ini'"
+      Write-Host "[setup] Renaming 'php.ini-development' to 'php.ini'"
       Rename-Item -Path $iniFileDevPath -NewName "php.ini"
     }
     else {
@@ -66,7 +66,7 @@ function Validate-Ini {
     $confirm = Read-Host "Your .ini file is not suitable for running the local test environment. Would you like the script to modify the file and enable the relevant settings? The script will only modify the settings needed for the project to run and leave others unchanged, you can view the list of settings that needs to be enabled in the root README [y/n]"
 
     if ($confirm -match "y") {
-      Write-Host "Modifying and writing settings"
+      Write-Host "[setup] Modifying and writing settings"
 
       $iniFileNew = ""
       foreach ($iniLine in $iniFile) {
@@ -83,22 +83,22 @@ function Validate-Ini {
         }
       }
 
-      Write-Host -ForegroundColor Green "Settings file modified"
+      Write-Host -ForegroundColor Green "[setup] Settings file modified"
 
       Clear-Content -Path $iniFilePath
       foreach ($line in $iniFileNew) {
         Add-Content -Path $iniFilePath -Value $line
       }
 
-      Write-Host -ForegroundColor Green "Your .ini settings are valid, continuing script"
+      Write-Host -ForegroundColor Green "[setup] Your .ini settings are valid, continuing script"
     }
     else {
-      Write-Host -ForegroundColor Yellow "Skipping .ini file modification. You must enable the relevant settings by yourself. Refer to the README for instructions on how to enable the settings manually."
-      Write-Host -ForegroundColor Red "There's a chance that the script will error after this"
+      Write-Host -ForegroundColor Yellow "[setup] Skipping .ini file modification. You must enable the relevant settings by yourself. Refer to the README for instructions on how to enable the settings manually."
+      Write-Host -ForegroundColor Red "[setup] There's a chance that the script will error after this"
     }
   }
   else {
-    Write-Host -ForegroundColor Green "All settings are valid, continuing setup"
+    Write-Host -ForegroundColor Green "[setup] All settings are valid, continuing setup"
   }
 }
 
@@ -110,7 +110,7 @@ if ($pwd -match "(\\dev\\windows)") {
 }
 
 # download composer
-Write-Host "Dowloading composer's installer"
+Write-Host "[setup] Dowloading composer's installer"
 $composerInstallerUrl = "https://getcomposer.org/installer"
 $composerInstallerPath = Join-Path $pwd "composer-setup.php"
 Invoke-WebRequest -Uri $composerInstallerUrl -OutFile $composerInstallerPath
@@ -120,14 +120,14 @@ if (-Not (Test-Path $composerInstallerPath)) {
   throw "Failed to download Composer installer"
 }
 
-Write-Host "Installing composer"
+Write-Host "[setup] Installing composer"
 Start-Process -FilePath $fullPhpDir -ArgumentList $composerInstallerPath -Wait -NoNewWindow
 
-Write-Host "Getting dependencies"
+Write-Host "[setup] Getting dependencies"
 Start-Process -FilePath $fullPhpDir -ArgumentList "composer.phar install" -Wait -NoNewWindow
 
 # cleanup composer's installer
-Write-Host "Cleaning up composer's installer"
+Write-Host "[setup] Cleaning up composer's installer"
 Remove-Item $composerInstallerPath
 
-Write-Host -ForegroundColor Green "Setup complete! Run 'php -S localhost:8000 -t ./public/' to start the local dev server"
+Write-Host -ForegroundColor Green "[setup] Setup complete! Run 'php -S localhost:8000 -t ./public/' to start the local dev server"
