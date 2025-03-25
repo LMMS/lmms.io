@@ -24,15 +24,7 @@ Write-Host "Using $fullPhpDir as PHP runner."
 
 
 function Validate-Ini {
-  $confirm = Read-Host "Would you like for the script to validate your PHP`'s .ini file? [y/n]"
-
-  if ($confirm -match "n") {
-    Write-Host -ForegroundColor Yellow "Skipping .ini file validation. If the setup script fails further down the line, you can re-run the setup script and say 'y' on .ini validation, or refer to the README on how to enable the particular settings needed"
-    return
-  }
-  else {
-    Write-Host "Validating .ini file"
-  }
+  Write-Host "Validating .ini file"
 
   $iniSettings = @(
     ";extension_dir = `"ext`""
