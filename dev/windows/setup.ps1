@@ -8,6 +8,7 @@ if (-not [string]::IsNullOrEmpty((Get-Command php).Source)) {
   $phpDir = Split-Path (Get-Command php).Source
   $fullPhpDir = (Get-Command php).Source
 }
+
 # if not, then check if the phpDir arg exists
 elseif ([string]::IsNullOrEmpty($phpDir)) {
   $phpDir = Read-Host "Enter the path of your PHP installation (e.g. 'C:\Program Files\php', 'D:\php', 'C:\wamp\bin\php')"
@@ -44,6 +45,9 @@ function Validate-Ini {
   # will change to false if the validation fails
   $iniValid = $true
 
+  # cover edge case if `include_path` is defined
+  $iniIncludePathExists = $false
+
   $iniFilePath = Join-Path $phpDir "php.ini"
   $iniFileDevPath = Join-Path $phpDir "php.ini-development"
 
@@ -68,6 +72,10 @@ function Validate-Ini {
 
   # actual file validation starts here
   foreach ($line in $iniFile) {
+    if ($line -match [regex]::new("^(include_path)", "Multiline")) {
+      Write-Host -ForegroundColor Yellow "[setup] You have 'include_path' defined in your settings file. This will disrupt the development server. You can temporarily comment out the 'include_path' setting so that PHP can use the relative working directory path to infer locations. The script will not modify this setting as this may break other applications depending on this setting"
+      $iniIncludePathExists = $true
+    }
     foreach ($settingRegex in $iniSettingsRegex) {
       if ($line -match $settingRegex) {
         $iniValid = $false
@@ -114,7 +122,6 @@ function Validate-Ini {
       Write-Host -ForegroundColor Red "[setup] There's a chance that the script will error after this"
     }
   }
-  #
   else {
     Write-Host -ForegroundColor Green "[setup] All settings are valid, continuing setup"
   }
