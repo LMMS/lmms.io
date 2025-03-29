@@ -25,22 +25,29 @@ elseif ([string]::IsNullOrEmpty($phpDir)) {
   }
 }
 
-Write-Host "[setup] Using $fullPhpDir as PHP runner."
+Write-Host -ForegroundColor Gray "[setup] Using $fullPhpDir as PHP runner"
 
 function Validate-Ini {
   Write-Host "[setup] Validating .ini file"
 
-  $iniSettings = @(
-    ";extension_dir = `"ext`""
-    ";extension=gd"
-    ";extension=intl"
-    ";extension=openssl"
-    ";extension=pdo_mysql"
+  # ungodly regexes of setting lines that are commented
+  # bulletproof except for the most egregious
+  $iniSettingsRegex = @(
+    ";\s*\s*extension_dir\s*=\s*(`"ext`")"
+    ";\s*\s*extension\s*=\s*(gd)\b"
+    ";\s*\s*extension\s*=\s*(intl)\b"
+    ";\s*\s*extension\s*=\s*(openssl)\b"
+    ";\s*\s*extension\s*=\s*(pdo_mysql)\b"
+    ";\s*\s*extension\s*=\s*(zip)\b"
   )
+
+  # will change to false if the validation fails
   $iniValid = $true
 
   $iniFilePath = Join-Path $phpDir "php.ini"
   $iniFileDevPath = Join-Path $phpDir "php.ini-development"
+
+  # if the .ini doesn't exist, but the dev template does
   if (-not (Test-Path $iniFilePath) -and (Test-Path $iniFileDevPath)) {
     $confirm = Read-Host "You do not have a 'php.ini' file, but you have the 'php.ini-development' file. Would you like the script to enable the development .ini? Saying [n] will exit the script [y/n]"
 
@@ -52,31 +59,35 @@ function Validate-Ini {
       throw "Exiting since the script must use 'php.ini'. You must rename/create the file yourself"
     }
   }
+  # if none was found, then we're inbetween a rock and a hard place
   elseif (-not (Test-Path $iniFilePath) -and -not (Test-Path $iniFileDevPath)) {
     throw "'php.ini' and 'php.ini-development' cannot be found. Was PHP installed correctly?"
   }
 
   $iniFile = Get-Content $iniFilePath
 
+  # actual file validation starts here
   foreach ($line in $iniFile) {
-    foreach ($setting in $iniSettings) {
-      if ($line -match $setting) {
+    foreach ($settingRegex in $iniSettingsRegex) {
+      if ($line -match $settingRegex) {
         $iniValid = $false
       }
     }
   }
 
+  # .ini is invalid, prompt to fix
   if ($iniValid -eq $false) {
-    $confirm = Read-Host "Your .ini file is not suitable for running the local test environment. Would you like the script to modify the file and enable the relevant settings? The script will only modify the settings needed for the project to run and leave others unchanged, you can view the list of settings that needs to be enabled in the root README [y/n]"
+    $confirm = Read-Host "[setup] Your .ini file is not suitable for running the local test environment. Would you like the script to modify the file and enable the relevant settings? The script will only modify the settings needed for the project to run and leave others unchanged, you can view the list of settings that needs to be enabled in the root README [y/n]"
 
     if ($confirm -match "y") {
       Write-Host "[setup] Modifying and writing settings"
 
+      # read-write each line, and uncomment lines that match the regex
       $iniFileNew = ""
       foreach ($iniLine in $iniFile) {
         $isSettingLine = $false
-        foreach ($setting in $iniSettings) {
-          if ($iniLine -match $setting) {
+        foreach ($settingRegex in $iniSettingsRegex) {
+          if ($iniLine -match $settingRegex) {
             $isSettingLine = $true
             $iniFileNew += $iniLine.Replace(";", "") + "`n"
             break
@@ -89,18 +100,21 @@ function Validate-Ini {
 
       Write-Host -ForegroundColor Green "[setup] Settings file modified"
 
+      # the modified file hasn't been written yet, write it now, per-line
       Clear-Content -Path $iniFilePath
       foreach ($line in $iniFileNew) {
         Add-Content -Path $iniFilePath -Value $line
       }
 
-      Write-Host -ForegroundColor Green "[setup] Your .ini settings are valid, continuing script"
+      Write-Host -ForegroundColor Green "[setup] Succesfully validated and written '.ini' settings, continuing setup"
     }
+    # take a chance that the install process will continue to run fine, probably not
     else {
       Write-Host -ForegroundColor Yellow "[setup] Skipping .ini file modification. You must enable the relevant settings by yourself. Refer to the README for instructions on how to enable the settings manually."
       Write-Host -ForegroundColor Red "[setup] There's a chance that the script will error after this"
     }
   }
+  #
   else {
     Write-Host -ForegroundColor Green "[setup] All settings are valid, continuing setup"
   }
@@ -135,3 +149,4 @@ Write-Host "[setup] Cleaning up composer's installer"
 Remove-Item $composerInstallerPath
 
 Write-Host -ForegroundColor Green "[setup] Setup complete! Run 'php -S localhost:8000 -t ./public/' to start the local dev server"
+
