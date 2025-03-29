@@ -122,31 +122,36 @@ function Validate-Ini {
 
 Validate-Ini
 
-# shift to root dir
-if ($pwd -match "(\\dev\\windows)") {
-  Set-Location "../../"
+
+function Setup-Composer {
+  # shift to root dir
+  if ($pwd -match "(\\dev\\windows)") {
+    Set-Location "../../"
+  }
+
+  # download composer
+  Write-Host "[setup] Dowloading composer's installer"
+  $composerInstallerUrl = "https://getcomposer.org/installer"
+  $composerInstallerPath = Join-Path $pwd "composer-setup.php"
+  Invoke-WebRequest -Uri $composerInstallerUrl -OutFile $composerInstallerPath
+
+  # check if composer's installer exists
+  if (-Not (Test-Path $composerInstallerPath)) {
+    throw "Failed to download Composer installer"
+  }
+
+  Write-Host "[setup] Installing composer"
+  Start-Process -FilePath $fullPhpDir -ArgumentList $composerInstallerPath -Wait -NoNewWindow
+
+  Write-Host "[setup] Getting dependencies"
+  Start-Process -FilePath $fullPhpDir -ArgumentList "composer.phar install" -Wait -NoNewWindow
+
+  # cleanup composer's installer
+  Write-Host "[setup] Cleaning up composer's installer"
+  Remove-Item $composerInstallerPath
 }
 
-# download composer
-Write-Host "[setup] Dowloading composer's installer"
-$composerInstallerUrl = "https://getcomposer.org/installer"
-$composerInstallerPath = Join-Path $pwd "composer-setup.php"
-Invoke-WebRequest -Uri $composerInstallerUrl -OutFile $composerInstallerPath
-
-# check if composer's installer exists
-if (-Not (Test-Path $composerInstallerPath)) {
-  throw "Failed to download Composer installer"
-}
-
-Write-Host "[setup] Installing composer"
-Start-Process -FilePath $fullPhpDir -ArgumentList $composerInstallerPath -Wait -NoNewWindow
-
-Write-Host "[setup] Getting dependencies"
-Start-Process -FilePath $fullPhpDir -ArgumentList "composer.phar install" -Wait -NoNewWindow
-
-# cleanup composer's installer
-Write-Host "[setup] Cleaning up composer's installer"
-Remove-Item $composerInstallerPath
+Setup-Composer
 
 Write-Host -ForegroundColor Green "[setup] Setup complete! Run 'php -S localhost:8000 -t ./public/' to start the local dev server"
 
