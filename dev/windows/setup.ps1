@@ -28,6 +28,8 @@ elseif ([string]::IsNullOrEmpty($phpDir)) {
 
 Write-Host -ForegroundColor Gray "[setup] Using $fullPhpDir as PHP runner"
 
+$rootDir = Split-Path -Path (Split-Path -Path $PSScriptRoot)
+
 function Validate-Ini {
   Write-Host "[setup] Validating .ini file"
 
@@ -132,14 +134,12 @@ Validate-Ini
 
 function Setup-Composer {
   # shift to root dir
-  if ($pwd -match "(\\dev\\windows)") {
-    Set-Location "../../"
-  }
+  Set-Location $rootDir
 
   # download composer
   Write-Host "[setup] Dowloading composer's installer"
   $composerInstallerUrl = "https://getcomposer.org/installer"
-  $composerInstallerPath = Join-Path $pwd "composer-setup.php"
+  $composerInstallerPath = Join-Path $rootDir "composer-setup.php"
   Invoke-WebRequest -Uri $composerInstallerUrl -OutFile $composerInstallerPath
 
   # check if composer's installer exists
@@ -161,4 +161,3 @@ function Setup-Composer {
 Setup-Composer
 
 Write-Host -ForegroundColor Green "[setup] Setup complete! Run 'php -S localhost:8000 -t ./public/' to start the local dev server"
-
