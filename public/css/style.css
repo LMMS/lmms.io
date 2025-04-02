@@ -5,7 +5,7 @@
   color-scheme: light dark;
   --fg: #333;
   --fg-dark: hsl(0, 0%, 80%);
-  --bg-navbar: #10b146;
+  --bg-navbar: color-mix(in oklch, #10b146, 15% black);
   --bg-navbar-dark: color-mix(in oklch, var(--bg-navbar), black 25%);
   --bg-navbar-hov: inherit;
   --fg-navbar: white;
@@ -40,8 +40,8 @@
   --bg-footer: #222522;
   --col-link-shadow: #362a84;
 
-  --fg-stack: #ed9f00;
-  --fg-stack-hov: #eb7500;
+  --fg-stack: color-mix(in oklch, darkorange, black 15%);
+  --fg-stack-hov: color-mix(in oklch, darkorange, black 25%);
   --fg-social: rgba(255, 255, 255, 0.8);
   --fg-social-hov: white;
 
