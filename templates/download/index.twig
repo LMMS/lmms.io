@@ -60,6 +60,7 @@
 		{% for asset in nightly %}
 			{{ download.printrelbutton(asset, 'btn-dl-nightly') }}
 		{% endfor %}
+		{{ download.releasenotes(nightly[0].description, "#{os}-nightly") }}
 	{% endif %}
 	{% if pre or nightly %}
 		<div id="prerelease" class="text-center">

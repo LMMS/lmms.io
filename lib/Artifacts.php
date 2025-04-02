@@ -5,6 +5,7 @@ use Github\Client;
 use LMMS\HttpClientPlugin\UriRecordPlugin;
 use LMMS\PlatformParser;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Throwable;
 
 class Artifacts
 {
@@ -34,6 +35,7 @@ class Artifacts
 			$validArtifacts = array_filter($artifacts['artifacts'], function ($artifact) {
 				return !$artifact['expired'];
 			});
+
 			return $this->mapBranchAssetsFromJson($validArtifacts);
 		}
 		return [];
@@ -74,6 +76,45 @@ class Artifacts
 		return $this->mapPullRequestAssetsFromJson($validArtifacts, $id, $description);
 	}
 
+    public function getLatestMonthlyReport(): string
+    {
+        $query = <<<GRAPHQL
+        {
+          repository(owner: "LMMS", name: "lmms") {
+            discussions(first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
+              edges {
+                node {
+                  title
+                  bodyText
+                  category {
+                    name
+                  }
+                  createdAt
+                }
+              }
+            }
+          }
+        }
+        GRAPHQL;
+
+        try {
+            $results = $this->client->api('graphql')->execute($query);
+
+            // Process and filter discussions by tag
+            foreach ($results['data']['repository']['discussions']['edges'] as $result) {
+                $node = $result['node'];
+
+                if ($node['category']['name'] === "progress report" || str_contains(strtolower($node["title"]), "lmms progress report:")) {
+                    return $node["createdAt"] . "\n" . '## ' . $node['title'] . "\n" . $node['bodyText'];
+                }
+            }
+        } catch (Throwable) {
+            return "Sorry, there was an error retrieving the monthly report. They are available on <a href='https://github.com/LMMS/lmms/discussions?discussions_q=is%3Aopen+label%3A%22progress+report%22'>GitHub discussions</a>";
+        }
+
+        return "Monthly report not found";
+    }
+
 	public function getArtifactDownloadUrl(int $artifactId): string
 	{
 		$this->client->repo()->artifacts()->download($this->owner, $this->repo, $artifactId);
@@ -89,7 +130,7 @@ class Artifacts
 				platformName: $parsed, // __toString()
 				releaseName: '@' . substr($artifact['workflow_run']['head_sha'], 0, 7),
 				downloadUrl: $this->router->generate('download_artifact', ['id' => $artifact['id']]),
-				description: null,
+				description: $this->getLatestMonthlyReport(),
 				gitRef: $artifact['workflow_run']['head_sha'],
 				date: $artifact['created_at']
 			);
