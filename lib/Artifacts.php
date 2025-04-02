@@ -87,7 +87,6 @@ class Artifacts
                   category {
                     name
                   }
-                  createdAt
                 }
               }
             }
@@ -104,11 +103,11 @@ class Artifacts
 
                 // Check for "LMMS Progress Report:" string if progress report tag isn't available.
                 if ($node['category']['name'] === "progress report" || str_contains(strtolower($node["title"]), "lmms progress report:")) {
-                    return $node["createdAt"] . "\n" . '## ' . $node['title'] . "\n" . $node['bodyText'];
+                    return '## ' . $node['title'] . "\n" . $node['bodyText'];
                 }
             }
         } catch (\Throwable) {
-            return "Sorry, there was an error retrieving the monthly report. They are available on <a href='https://github.com/LMMS/lmms/discussions?discussions_q=is%3Aopen+label%3A%22progress+report%22'>GitHub discussions</a>";
+            return "Sorry, there was an error retrieving the monthly report. They are available on <a href='https://github.com/LMMS/lmms/discussions?discussions_q=is%3Aopen+label%3A%22progress+report%22'>GitHub discussions</a>" . $th->getMessage();
         }
 
         return "Monthly report not found";
