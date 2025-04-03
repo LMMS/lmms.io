@@ -76,41 +76,64 @@ class Artifacts
 
     public function getLatestMonthlyReport(): string
     {
-        $query = <<<GRAPHQL
-        {
-          repository(owner: "LMMS", name: "lmms") {
-            discussions(first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
-              edges {
-                node {
-                  title
-                  bodyHTML
-                  category {
-                    name
-                  }
-                }
-              }
-            }
-          }
-        }
-        GRAPHQL;
+        // TODO: Clean this up
+        $announcements = <<<GRAPHQL
+		query {
+			repository(owner: "$this->owner", name: "$this->repo") {
+				discussionCategories(first: 100) {
+					nodes {
+						id
+						name
+					}
+					pageInfo {
+						hasNextPage
+						endCursor
+					}
+				}
+			}
+		}
+		GRAPHQL;
 
         try {
+            $results = $this->client->api('graphql')->execute($announcements);
+            $categories = $results['data']['repository']['discussionCategories']['nodes'];
+
+            $announcementsCategory = null;
+            foreach ($categories as $category) {
+                if ($category['name'] === "Announcements") {
+                    $announcementsCategory = $category['id'];
+                    break;
+                }
+            }
+
+            // TODO: Guard this call
+            $query = <<<GRAPHQL
+			{
+				repository(owner: "$this->owner", name: "$this->repo") {
+					discussions(categoryId: "$announcementsCategory", first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
+						edges {
+							node {
+								title
+								bodyHTML
+							}
+						}
+					}
+				}
+			}
+			GRAPHQL;
+
             $results = $this->client->api('graphql')->execute($query);
 
             // Process and filter discussions by tag
             foreach ($results['data']['repository']['discussions']['edges'] as $result) {
-                $node = $result['node'];
-
-                // Check for "LMMS Progress Report:" string if progress report tag isn't available.
-                if ($node['category']['name'] === "progress report" || str_contains(strtolower($node["title"]), "lmms progress report:")) {
-                    return $node['bodyHTML'];
-                }
+                // TODO: List all news updates
+                return $result['node']['bodyHTML'];
             }
         } catch (\Throwable $th) {
-            return "Sorry, there was an error retrieving the monthly report. They are available on <a href='https://github.com/LMMS/lmms/discussions?discussions_q=is%3Aopen+label%3A%22progress+report%22'>GitHub discussions</a>" . "\n <pre>" . $th->getMessage() . "</pre>";
+            return "Sorry, there was an error retrieving the monthly report. They are available on <a href='https://github.com/$this->owner/$this->repo/discussions/categories/announcements'>GitHub discussions</a>" . "\n <pre>" . $th->getMessage() . "</pre>";
         }
 
-        return "Monthly report not found. They are available on <a href='https://github.com/LMMS/lmms/discussions?discussions_q=is%3Aopen+label%3A%22progress+report%22'>GitHub discussions</a>";
+        return "Monthly report not found. They are available on <a href='https://github.com/$this->owner/$this->repo/discussions/categories/announcements>GitHub discussions</a>";
     }
 
 	public function getArtifactDownloadUrl(int $artifactId): string
