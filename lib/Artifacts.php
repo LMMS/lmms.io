@@ -83,7 +83,7 @@ class Artifacts
               edges {
                 node {
                   title
-                  bodyText
+                  bodyHTML
                   category {
                     name
                   }
@@ -103,7 +103,7 @@ class Artifacts
 
                 // Check for "LMMS Progress Report:" string if progress report tag isn't available.
                 if ($node['category']['name'] === "progress report" || str_contains(strtolower($node["title"]), "lmms progress report:")) {
-                    return '## ' . $node['title'] . "\n" . $node['bodyText'];
+                    return $node['bodyHTML'];
                 }
             }
         } catch (\Throwable $th) {
