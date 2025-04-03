@@ -105,7 +105,7 @@ class Artifacts
             return "Sorry, there was an error retrieving the monthly report. They are available on <a href='https://github.com/$this->owner/$this->repo/discussions/categories/announcements'>GitHub discussions</a>" . "\n <pre>" . $th->getMessage() . "</pre>";
         }
 
-        return "Monthly report not found. They are available on <a href='https://github.com/$this->owner/$this->repo/discussions/categories/announcements>GitHub discussions</a>";
+        return "Monthly report not found. They are available on <a href='https://github.com/$this->owner/$this->repo/discussions/categories/announcements>GitHub discussions'</a>";
     }
 
 	public function getArtifactDownloadUrl(int $artifactId): string
