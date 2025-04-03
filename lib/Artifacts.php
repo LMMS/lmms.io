@@ -107,7 +107,7 @@ class Artifacts
                 }
             }
         } catch (\Throwable $th) {
-            return "Sorry, there was an error retrieving the monthly report. They are available on <a href='https://github.com/LMMS/lmms/discussions?discussions_q=is%3Aopen+label%3A%22progress+report%22'>GitHub discussions</a>" . $th->getMessage();
+            return "Sorry, there was an error retrieving the monthly report. They are available on <a href='https://github.com/LMMS/lmms/discussions?discussions_q=is%3Aopen+label%3A%22progress+report%22'>GitHub discussions</a>\n" . $th->getMessage();
         }
 
         return "Monthly report not found";
