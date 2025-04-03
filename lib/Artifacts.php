@@ -76,44 +76,16 @@ class Artifacts
 
     public function getLatestMonthlyReport(): string
     {
-        // TODO: Clean this up
-        $announcements = <<<GRAPHQL
-		query {
-			repository(owner: "$this->owner", name: "$this->repo") {
-				discussionCategories(first: 100) {
-					nodes {
-						id
-						name
-					}
-					pageInfo {
-						hasNextPage
-						endCursor
-					}
-				}
-			}
-		}
-		GRAPHQL;
-
         try {
-            $results = $this->client->api('graphql')->execute($announcements);
-            $categories = $results['data']['repository']['discussionCategories']['nodes'];
-
-            $announcementsCategory = null;
-            foreach ($categories as $category) {
-                if ($category['name'] === "Announcements") {
-                    $announcementsCategory = $category['id'];
-                    break;
-                }
-            }
+            $announcementsCategory = "DIC_kwDOAPDEUM4CowUM";
 
             // TODO: Guard this call
             $query = <<<GRAPHQL
 			{
 				repository(owner: "$this->owner", name: "$this->repo") {
-					discussions(categoryId: "$announcementsCategory", first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
+					discussions(categoryId: "$announcementsCategory", first: 1, orderBy: {field: CREATED_AT, direction: DESC}) {
 						edges {
 							node {
-								title
 								bodyHTML
 							}
 						}
