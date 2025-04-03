@@ -7,6 +7,7 @@ class TopNav
 	public function __construct(TranslatorInterface $tr)
 	{
 		$this->navbar = [
+            [$tr->trans('News'), 'https://github.com/LMMS/lmms/discussions?discussions_q=is%3Aopen+label%3A%22progress+report%22'],
 			[$tr->trans('Download'), '/download'],
 			[$tr->trans('Get Involved'), '/get-involved'],
 			[[$tr->trans('Documentation'), $tr->trans('Docs')], '/documentation'],
