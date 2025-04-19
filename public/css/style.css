@@ -30,13 +30,14 @@
 
   --fg-segment: var(--fg);
   --fg-segment-dark: var(--fg-dark);
+  --fg-segment-dynamic: light-dark(var(--fg-segment), var(--fg-segment-dark))
 
   --bg-panel: white;
   --bg-panel-dark: black;
+  --bg-panel-dynamic: light-dark(var(--bg-panel), var(--bg-panel-dark))
 
   --bg-alert: #fcf8e3;
   --bg-alert-dark: hsl(50, 81%, 6%);
-
   --bg-alert-dynamic: light-dark(var(--bg-alert), var(--bg-alert-dark));
 
   --fg-alert: #8a6d3b;
@@ -65,14 +66,15 @@
   --bg-btn-dl-pr: oklch(72% 0.15 75);
   --bg-btn-dl-pr-dark: color-mix(in oklch, var(--bg-btn-dl-pr), black);
   --bg-btn-dl-pr-dynamic: light-dark(var(--bg-btn-dl-pr), var(--bg-btn-dl-pr-dark));
-  --bg-well: #f5f5f5;
 
+  --bg-well: #f5f5f5;
   --bg-well-dark: hsl(0, 0%, 4%);
   --bg-well-dynamic: light-dark(var(--bg-well), var(--bg-well-dark));
 
   --col-anchor: #337ab7;
   --col-anchor-dark: color-mix(in oklch, var(--col-anchor), white 15%);
   --col-anchor-dynamic: light-dark(var(--col-anchor), var(--col-anchor-dark));
+
   --bg-footer: #222522;
 
   --col-link-shadow: #362a84;
@@ -101,6 +103,48 @@
   --nav-height: 50px;
   --nav-height-neg: calc(-1 * var(--nav-height));
   --animation-time: 150ms;
+}
+
+/* If the browser _doesn't_ support the light-dark() function, set the default value */
+@supports not (background: light-dark(white, black)) {
+  :root {
+    --fg-dynamic: var(--fg);
+
+    --wb-dynamic: white;
+    --bw-dynamic: black;
+
+    --bg-navbar-dynamic: var(--bg-navbar);
+
+    --bg-jumbotron-dynamic: var(--bg-navbar);
+
+    --bg-segment-dynamic: var(--bg-segment);
+
+    --fg-segment-dynamic: var(--fg-segment);
+
+    --bg-panel-dynamic: var(--bg-panel);
+
+    --bg-alert-dynamic: var(--bg-alert);
+
+    --fg-alert-dynamic: var(--fg-alert);
+
+    --bg-btn-dynamic: var(--bg-btn);
+
+    --bg-btn-dl-stable-dynamic: var(--bg-btn-dl-stable);
+
+    --bg-btn-dl-alpha-dynamic: var(--bg-btn-dl-alpha);
+
+    --bg-btn-dl-nightly-dynamic: var(--bg-btn-dl-nightly);
+
+    --bg-btn-dl-pr-dynamic: var(--bg-btn-dl-pr);
+
+    --col-anchor-dynamic: var(--col-anchor);
+
+    --bg-table-lsp-odd-dynamic: var(--bg-table-lsp-odd);
+
+    --bg-lsp-search-dynamic: var(--bg-lsp-search);
+
+    --bg-lsp-actions-dynamic: var(---bg-lsp-actions);
+  }
 }
 
 body {
@@ -792,7 +836,7 @@ a.social:focus {
 .segment {
   padding: 60px 0 70px 0;
   background-color: var(--bg-segment-dynamic);
-  color: var(--bg-segment-dynamic);
+  color: var(--fg-segment-dynamic);
 }
 
 .segment .page-header {
@@ -920,7 +964,7 @@ a.social:focus {
 /* Get Involved Panels */
 .panel-custom {
   border: 1px #dedede solid;
-  background-color: var(--wb-dynamic);
+  background-color: var(--bg-panel-dynamic);
 }
 
 .panel-custom>.panel-heading {
