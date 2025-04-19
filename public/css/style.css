@@ -3,41 +3,78 @@
 ****************/
 :root {
   color-scheme: light dark;
+
   --fg: #333;
   --fg-dark: hsl(0, 0%, 80%);
+  --fg-dynamic: light-dark(var(--fg), var(--fg-dark));
+
+  --wb-dynamic: light-dark(white, black);
+  --bw-dynamic: light-dark(black, white);
+
   --bg-navbar: #10b146;
   --bg-navbar-dark: color-mix(in oklch, var(--bg-navbar), black 25%);
+  --bg-navbar-dynamic: light-dark(var(--bg-navbar), var(--bg-navbar-dark));
+
+  --bg-jumbotron-dynamic: light-dark(var(--bg-navbar), color-mix(in oklch, var(--bg-navbar), black 25%));
+
   --bg-navbar-hov: inherit;
+
   --fg-navbar: white;
   --fg-navbar-hov: #f2f2f2;
+
   --border-navbar-hov: #373b37;
+
   --bg-segment: white;
   --bg-segment-dark: #262b30;
+  --bg-segment-dynamic: light-dark(var(--bg-segment), var(--bg-segment-dark));
+
   --fg-segment: var(--fg);
   --fg-segment-dark: var(--fg-dark);
+
   --bg-panel: white;
   --bg-panel-dark: black;
+
   --bg-alert: #fcf8e3;
   --bg-alert-dark: hsl(50, 81%, 6%);
+
+  --bg-alert-dynamic: light-dark(var(--bg-alert), var(--bg-alert-dark));
+
   --fg-alert: #8a6d3b;
   --fg-alert-dark: color-mix(in oklch, var(--fg-alert), white);
+  --fg-alert-dynamic: light-dark(var(--fg-alert), var(--fg-alert-dark));
+
   --fg-code: #c7254e;
   --fg-code-dark: color-mix(in oklch, var(--fg-code), white 25%);
+
   --bg-btn: #fafafa;
   --bg-btn-dark: hsl(0, 0%, 2%);
+  --bg-btn-dynamic: light-dark(var(--bg-btn), var(--bg-btn-dark));
+
   --bg-btn-dl-stable: oklch(65% 0.15 152);
   --bg-btn-dl-stable-dark: color-mix(in oklch, var(--bg-btn-dl-stable), black);
+  --bg-btn-dl-stable-dynamic: light-dark(var(--bg-btn-dl-stable), var(--bg-btn-dl-stable-dark));
+
   --bg-btn-dl-alpha: oklch(60% 0.15 250);
   --bg-btn-dl-alpha-dark: color-mix(in oklch, var(--bg-btn-dl-alpha), black);
+  --bg-btn-dl-alpha-dynamic: light-dark(var(--bg-btn-dl-alpha), var(--bg-btn-dl-alpha-dark));
+
   --bg-btn-dl-nightly: oklch(56% 0.2 290);
   --bg-btn-dl-nightly-dark: color-mix(in oklch, var(--bg-btn-dl-nightly), black);
+  --bg-btn-dl-nightly-dynamic: light-dark(var(--bg-btn-dl-nightly), var(--bg-btn-dl-nightly-dark));
+
   --bg-btn-dl-pr: oklch(72% 0.15 75);
   --bg-btn-dl-pr-dark: color-mix(in oklch, var(--bg-btn-dl-pr), black);
+  --bg-btn-dl-pr-dynamic: light-dark(var(--bg-btn-dl-pr), var(--bg-btn-dl-pr-dark));
   --bg-well: #f5f5f5;
+
   --bg-well-dark: hsl(0, 0%, 4%);
+  --bg-well-dynamic: light-dark(var(--bg-well), var(--bg-well-dark));
+
   --col-anchor: #337ab7;
   --col-anchor-dark: color-mix(in oklch, var(--col-anchor), white 15%);
+  --col-anchor-dynamic: light-dark(var(--col-anchor), var(--col-anchor-dark));
   --bg-footer: #222522;
+
   --col-link-shadow: #362a84;
 
   --fg-stack: #ed9f00;
@@ -47,10 +84,15 @@
 
   --bg-table-lsp-odd: #f9f9f9;
   --bg-table-lsp-odd-dark: hsl(0, 0%, 2%);
+  --bg-table-lsp-odd-dynamic: light-dark(var(--bg-table-lsp-odd), var(--bg-table-lsp-odd-dark));
+
   --bg-lsp-search: #eee;
   --bg-lsp-search-dark: hsl(0, 0, 7%);
+  --bg-lsp-search-dynamic: light-dark(var(--bg-lsp-search), var(--bg-lsp-search-dark));
+
   --bg-lsp-actions: #f8f8f8;
   --bg-lsp-actions-dark: hsl(0, 0%, 3%);
+  --bg-lsp-actions-dynamic: light-dark(var(--bg-lsp-actions), var(--bg-lsp-actions-dark));
 
   --col-gray-overlay: rgba(16, 16, 16, 0.75);
   --col-green-overlay: rgba(16, 177, 70, 0.7);
@@ -63,8 +105,8 @@
 
 body {
   padding-top: var(--nav-height);
-  color: light-dark(var(--fg), var(--fg-dark));
-  background-color: light-dark(var(--bg-segment), var(--bg-segment-dark));
+  color: var(--fg-dynamic);
+  background-color: var(--bg-segment-dynamic);
   margin: 0;
   min-height: 100%;
   display: flex;
@@ -80,13 +122,13 @@ body {
 }
 
 a {
-  color: light-dark(var(--col-anchor), var(--col-anchor-dark));
+  color: var(--col-anchor-dynamic);
   font-weight: bold;
   transition: all 0.15s ease-in-out;
 }
 
 .well {
-  background-color: light-dark(var(--bg-well), var(--bg-well-dark));
+  background-color: var(--bg-well-dynamic);
 }
 
 .navbar {
@@ -112,7 +154,7 @@ blockquote {
 }
 
 form .input-group .input-group-addon {
-  background-color: light-dark(var(--bg-lsp-search), var(--bg-lsp-search-dark));
+  background-color: var(--bg-lsp-search-dynamic);
 }
 
 .alert.lsp {
@@ -211,7 +253,7 @@ td.lsp-file-info {
 }
 
 .table-striped>tbody>tr:nth-of-type(odd) {
-  background-color: light-dark(var(--bg-table-lsp-odd), var(--bg-table-lsp-odd-dark));
+  background-color: var(--bg-table-lsp-odd-dynamic);
 }
 
 .release-notes {
@@ -235,22 +277,22 @@ td.lsp-file-info {
   }
 
   &.btn-dl-stable {
-    background-color: light-dark(var(--bg-btn-dl-stable), var(--bg-btn-dl-stable-dark));
+    background-color: var(--bg-btn-dl-stable-dynamic);
     border: 1px solid var(--bg-btn-dl-stable);
   }
 
   &.btn-dl-alpha {
-    background-color: light-dark(var(--bg-btn-dl-alpha), var(--bg-btn-dl-alpha-dark));
+    background-color: var(--bg-btn-dl-alpha-dynamic);
     border: 1px solid var(--bg-btn-dl-alpha);
   }
 
   &.btn-dl-nightly {
-    background-color: light-dark(var(--bg-btn-dl-nightly), var(--bg-btn-dl-nightly-dark));
+    background-color: var(--bg-btn-dl-nightly-dynamic);
     border: 1px solid var(--bg-btn-dl-nightly);
   }
 
   &.btn-dl-pr {
-    background-color: light-dark(var(--bg-btn-dl-pr), var(--bg-btn-dl-pr-dark));
+    background-color: var(--bg-btn-dl-pr-dynamic);
     border: 1px solid var(--bg-btn-dl-pr);
   }
 
@@ -288,16 +330,16 @@ td.lsp-file-info {
   display: inline-block;
   text-align: left;
   margin: 0 auto;
-  background-color: light-dark(white, black);
-  color: light-dark(black, white);
+  background-color: var(--wb-dynamic);
+  color: var(--bw-dynamic);
 }
 
 div.code-block {
   background-color: transparent;
 
   pre {
-    background-color: light-dark(white, black);
-    color: light-dark(black, white);
+    background-color: var(--wb-dynamic);
+    color: var(--bw-dynamic);
   }
 }
 
@@ -399,18 +441,18 @@ a.btn {
 }
 
 .alert.alert-warning {
-  background-color: light-dark(var(--bg-alert), var(--bg-alert-dark));
-  color: light-dark(var(--fg-alert), var(--fg-alert-dark));
+  background-color: var(--bg-alert-dynamic);
+  color: var(--fg-alert-dynamic);
 }
 
 code {
-  background-color: light-dark(white, black);
+  background-color: var(--wb-dynamic);
   color: var(--fg-code-dark);
 }
 
 /* navbar styling */
 .navbar-custom {
-  background-color: light-dark(var(--bg-navbar), var(--bg-navbar-dark));
+  background-color: var(--bg-navbar-dynamic);
   background-image: url("/img/hexagon.png");
   background-position: 0px 0px;
   margin-bottom: 0;
@@ -511,7 +553,7 @@ code {
 }
 
 .navbar-default {
-  background-color: light-dark(var(--bg-lsp-actions), var(--bg-lsp-actions-dark));
+  background-color: var(--bg-lsp-actions-dynamic);
 }
 
 /* inner bottom border on hover over navbar items*/
@@ -637,7 +679,7 @@ div.jumbo {
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: url("/img/screen.png"), url("/img/hexagon.png"), light-dark(var(--bg-navbar), color-mix(in oklch, var(--bg-navbar), black 25%));
+  background: url("/img/screen.png"), url("/img/hexagon.png"), var(--bg-jumbotron-dynamic);
   background-position: right bottom, 0px var(--nav-height-neg);
   background-size: auto 80%, auto;
   background-repeat: no-repeat, repeat;
@@ -653,7 +695,7 @@ div.mini {
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: url("/img/hexagon.png"), light-dark(var(--bg-navbar), color-mix(in oklch, var(--bg-navbar), black 25%));
+  background: url("/img/hexagon.png"), var(--bg-jumbotron-dynamic);
   background-position: 0px var(--nav-height-neg);
   color: #fff;
   min-height: 15vh;
@@ -665,7 +707,7 @@ div.error {
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: url("/img/hexagon.png"), light-dark(var(--bg-navbar), color-mix(in oklch, var(--bg-navbar), black 25%));
+  background: url("/img/hexagon.png"), var(--bg-jumbotron-dynamic);
   background-position: 0px var(--nav-height-neg);
   color: #fff;
   flex: 1;
@@ -696,7 +738,7 @@ div.error a:where(:hover, :focus) {
 
 @media (max-width: 768px) {
   div.jumbo {
-    background: linear-gradient(var(--col-green-overlay), var(--col-green-overlay)), url("/img/screen.png"), light-dark(var(--bg-navbar), color-mix(in oklch, var(--bg-navbar), black 25%));
+    background: linear-gradient(var(--col-green-overlay), var(--col-green-overlay)), url("/img/screen.png"), var(--bg-jumbotron-dynamic);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -749,8 +791,8 @@ a.social:focus {
 
 .segment {
   padding: 60px 0 70px 0;
-  background-color: light-dark(var(--bg-segment), var(--bg-segment-dark));
-  color: light-dark(var(--fg-segment), var(--fg-segment-dark));
+  background-color: var(--bg-segment-dynamic);
+  color: var(--bg-segment-dynamic);
 }
 
 .segment .page-header {
@@ -878,7 +920,7 @@ a.social:focus {
 /* Get Involved Panels */
 .panel-custom {
   border: 1px #dedede solid;
-  background-color: light-dark(#fff, #000);
+  background-color: var(--wb-dynamic);
 }
 
 .panel-custom>.panel-heading {
@@ -890,7 +932,7 @@ a.social:focus {
 }
 
 .form-control {
-  background-color: light-dark(white, black);
+  background-color: var(--wb-dynamic);
 }
 
 #lspnav,
@@ -901,8 +943,8 @@ a.social:focus {
 .btn-default {
   border: solid 1px;
   border-color: #c9c9c9;
-  background-color: light-dark(var(--bg-btn), var(--bg-btn-dark));
-  color: light-dark(var(--fg), var(--fg-dark));
+  background-color: var(--bg-btn-dynamic);
+  color: var(--fg-dynamic);
 }
 
 .btn-file {
@@ -986,7 +1028,7 @@ ul.nav-center li {
   border-radius: 0 0;
   border-style: none;
   border-bottom: 2px solid rgba(0, 0, 0, 0);
-  background-color: light-dark(white, black);
+  background-color: var(--wb-dynamic);
 }
 
 .nav-tabs>li>a:where(:hover, :focus) {
