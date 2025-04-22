@@ -14,10 +14,9 @@
   --bg-navbar-light: #10b146;
   --bg-navbar-dark: color-mix(in oklch, var(--bg-navbar-light), black 25%);
   --bg-navbar: light-dark(var(--bg-navbar-light), var(--bg-navbar-dark));
+  --bg-navbar-hov: inherit;
 
   --bg-jumbotron: light-dark(var(--bg-navbar-light), color-mix(in oklch, var(--bg-navbar-light), black 25%));
-
-  --bg-navbar-hov: inherit;
 
   --fg-navbar: white;
   --fg-navbar-hov: #f2f2f2;
@@ -80,8 +79,8 @@
 
   --col-link-shadow: #362a84;
 
-  --fg-stack: #ed9f00;
-  --fg-stack-hov: #eb7500;
+  --fg-stack: color-mix(in oklch, darkorange, black 15%);
+  --fg-stack-hov: color-mix(in oklch, darkorange, black 25%);
   --fg-social: rgba(255, 255, 255, 0.8);
   --fg-social-hov: white;
 
