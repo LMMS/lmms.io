@@ -3,7 +3,7 @@ namespace LMMS;
 
 use Github\Client;
 use LMMS\HttpClientPlugin\UriRecordPlugin;
-use LMMS\PlatformParser;
+use LMMS\Platform;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class Artifacts
@@ -51,7 +51,7 @@ class Artifacts
 		// Find a check run corresponding to the GitHub Actions build workflow
 		foreach ($checks['check_runs'] as $run) {
 			if ($run['app']['slug'] === 'github-actions') {
-				$parser = new PlatformParser($run['name']);
+				$parser = new Platform($run['name']);
 				if($parser->found()) {
 					$jobId = $run['id'];
 					break;
@@ -83,9 +83,9 @@ class Artifacts
 	private function mapBranchAssetsFromJson(array $json): array
 	{
 		return array_map(function (array $artifact) {
-			$parsed = new PlatformParser($artifact['name']);
+			$parsed = new Platform($artifact['name']);
 			return new Asset(
-				platform: $parsed->getPlatform(),
+				platform: $parsed,
 				platformName: $parsed, // __toString()
 				releaseName: '@' . substr($artifact['workflow_run']['head_sha'], 0, 7),
 				downloadUrl: $this->router->generate('download_artifact', ['id' => $artifact['id']]),
@@ -99,9 +99,9 @@ class Artifacts
 	private function mapPullRequestAssetsFromJson(array $json, string $pr, string $description): array
 	{
 		return array_map(function (array $artifact) use ($pr, $description) {
-			$parsed = new PlatformParser($artifact['name']);
+			$parsed = new Platform($artifact['name']);
 			return new Asset(
-				platform: $parsed->getPlatform(),
+				platform: $parsed,
 				platformName: $parsed, // __toString()
 				releaseName: '#' . $pr . ' @' . substr($artifact['workflow_run']['head_sha'], 0, 7),
 				downloadUrl: $this->router->generate('download_artifact', ['id' => $artifact['id']]),
