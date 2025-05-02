@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use LMMS\Artifacts;
 use LMMS\Asset;
-use LMMS\Platform;
+use LMMS\Os;
 use LMMS\Releases;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,14 +14,14 @@ class DownloadController extends AbstractController
     {
         try {
             $assets = $releases->latestStableAssets();
-            $winstable = array_values(array_filter($assets, self::assetsForPlatform(Platform::Windows)));
-            $osxstable = array_values(array_filter($assets, self::assetsForPlatform(Platform::MacOS)));
-            $linstable = array_values(array_filter($assets, self::assetsForPlatform(Platform::Linux)));
+            $winstable = array_values(array_filter($assets, self::assetsForPlatform(Os::Windows)));
+            $osxstable = array_values(array_filter($assets, self::assetsForPlatform(Os::MacOS)));
+            $linstable = array_values(array_filter($assets, self::assetsForPlatform(Os::Linux)));
 
             $assets = $releases->latestUnstableAssets();
-            $winpre = array_values(array_filter($assets, self::assetsForPlatform(Platform::Windows)));
-            $osxpre = array_values(array_filter($assets, self::assetsForPlatform(Platform::MacOS)));
-            $linpre = array_values(array_filter($assets, self::assetsForPlatform(Platform::Linux)));
+            $winpre = array_values(array_filter($assets, self::assetsForPlatform(Os::Windows)));
+            $osxpre = array_values(array_filter($assets, self::assetsForPlatform(Os::MacOS)));
+            $linpre = array_values(array_filter($assets, self::assetsForPlatform(Os::Linux)));
 
             if ($winstable && $winpre && ($winpre[0]->getDate() < $winstable[0]->getDate()))
                 $winpre = null;
@@ -31,9 +31,9 @@ class DownloadController extends AbstractController
                 $linpre = null;
 
             $assets = $artifacts->getForBranch('master');
-            $winnightly = array_values(array_filter($assets, self::assetsForPlatform(Platform::Windows)));
-            $osxnightly = array_values(array_filter($assets, self::assetsForPlatform(Platform::MacOS)));
-            $linnightly = array_values(array_filter($assets, self::assetsForPlatform(Platform::Linux)));
+            $winnightly = array_values(array_filter($assets, self::assetsForPlatform(Os::Windows)));
+            $osxnightly = array_values(array_filter($assets, self::assetsForPlatform(Os::MacOS)));
+            $linnightly = array_values(array_filter($assets, self::assetsForPlatform(Os::Linux)));
 
             $vars = [
                 'winstable' => $winstable,
@@ -57,9 +57,9 @@ class DownloadController extends AbstractController
     {
         try {
             $assets = $artifacts->getForPullRequest($id);
-            $winartifacts = array_values(array_filter($assets, self::assetsForPlatform(Platform::Windows)));
-            $osxartifacts = array_values(array_filter($assets, self::assetsForPlatform(Platform::MacOS)));
-            $linartifacts = array_values(array_filter($assets, self::assetsForPlatform(Platform::Linux)));
+            $winartifacts = array_values(array_filter($assets, self::assetsForPlatform(Os::Windows)));
+            $osxartifacts = array_values(array_filter($assets, self::assetsForPlatform(Os::MacOS)));
+            $linartifacts = array_values(array_filter($assets, self::assetsForPlatform(Os::Linux)));
 
             $vars = [
                 'id' => $id,
@@ -90,10 +90,10 @@ class DownloadController extends AbstractController
         }
     }
 
-    private static function assetsForPlatform(Platform $platform)
+    private static function assetsForPlatform(Os $os)
     {
-        return function (Asset $asset) use ($platform) {
-            return $asset->getPlatform() === $platform;
+        return function (Asset $asset) use ($os) {
+            return $asset->getPlatform()->getOs() === $os;
         };
     }
 }
