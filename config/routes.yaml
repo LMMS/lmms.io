@@ -37,6 +37,10 @@ download_artifact:
    path: /download/artifact/{id}
    controller: App\Controller\DownloadController::artifact
 
+news:
+   path: /news
+   controller: App\Controller\NewsController::page
+
 portal_pages:
    path: /{page}
    controller: App\Controller\PortalController::page

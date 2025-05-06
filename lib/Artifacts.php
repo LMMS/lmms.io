@@ -74,40 +74,6 @@ class Artifacts
 		return $this->mapPullRequestAssetsFromJson($validArtifacts, $id, $description);
 	}
 
-    public function getLatestMonthlyReport(): string
-    {
-        try {
-            $announcementsCategory = "DIC_kwDOAPDEUM4CowUM";
-
-            // TODO: Guard this call
-            $query = <<<GRAPHQL
-			{
-				repository(owner: "$this->owner", name: "$this->repo") {
-					discussions(categoryId: "$announcementsCategory", first: 1, orderBy: {field: CREATED_AT, direction: DESC}) {
-						edges {
-							node {
-								bodyHTML
-							}
-						}
-					}
-				}
-			}
-			GRAPHQL;
-
-            $results = $this->client->api('graphql')->execute($query);
-
-            // Process and filter discussions by tag
-            foreach ($results['data']['repository']['discussions']['edges'] as $result) {
-                // TODO: List all news updates
-                return $result['node']['bodyHTML'];
-            }
-        } catch (\Throwable $th) {
-            return "Sorry, there was an error retrieving the monthly report. They are available on <a href='https://github.com/$this->owner/$this->repo/discussions/categories/announcements'>GitHub discussions</a>" . "\n <pre>" . $th->getMessage() . "</pre>";
-        }
-
-        return "Monthly report not found. They are available on <a href='https://github.com/$this->owner/$this->repo/discussions/categories/announcements>GitHub discussions'</a>";
-    }
-
 	public function getArtifactDownloadUrl(int $artifactId): string
 	{
 		$this->client->repo()->artifacts()->download($this->owner, $this->repo, $artifactId);
@@ -123,7 +89,7 @@ class Artifacts
 				platformName: $parsed, // __toString()
 				releaseName: '@' . substr($artifact['workflow_run']['head_sha'], 0, 7),
 				downloadUrl: $this->router->generate('download_artifact', ['id' => $artifact['id']]),
-				description: $this->getLatestMonthlyReport(),
+				description: null,
 				gitRef: $artifact['workflow_run']['head_sha'],
 				date: $artifact['created_at']
 			);
