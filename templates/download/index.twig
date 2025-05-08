@@ -5,8 +5,7 @@
 {# Macro for printing oversized download buttons #}
 {% macro printrelbutton(rel, btnclass = 'btn-dl-stable') %}
 	{% if rel != null %}
-		{# Keep these on a single line for easier shell parsing #}
-		<a class="btn btn-lg btn-dl {{ btnclass }}" href="{{ rel.downloadUrl }}" data-arch="{{ rel.platform.architecture.value }}" data-os="{{ rel.platform.os.value }}" data-qualifier="{{ rel.platform.qualifier.value }}" data-osver="{{ rel.platform.osVersion }}">
+		<a class="btn btn-lg btn-dl {{ btnclass }}" href="{{ rel.downloadUrl }}" {{ rel.metaData|raw }}>
 			<span class="fas fa-cloud-download-alt fa-3x download-icon"></span>
 			<span class="big">{{ rel.platformName }}</span><br>
 			<span class="small">LMMS&nbsp;{{ rel.releaseName }}</span>
