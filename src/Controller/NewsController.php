@@ -27,8 +27,8 @@ class NewsController extends AbstractController
     		$username = $result['node']['author']['login'];
     		$body = $result['node']['bodyHTML'];
 
-			# Create link to Discussions thread
-			$ts_formatted = $timestamp->format("F j, Y, g:i a");
+		# Create link to Discussions thread
+		$ts_formatted = $timestamp->format("F j, Y, g:i a");
     		$ts_linked = "<a href='$url'>$ts_formatted</a>";
 
     		# Create page anchor
