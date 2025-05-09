@@ -4,6 +4,16 @@ This repository contains the source for LMMS's website, live at <https://lmms.io
 
 ## How to test the website locally
 
+The website requires authentication with the GitHub API for fetching GitHub Discussions posts for the `/news` endpoint, with the authentication and data fetching itself being managed by the `knplabs/github-api` dependency. A [classic GitHub PAT (personal access token)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) is needed for local testing, which should be placed in the `.env.local` file on the root of the repository with the contents:
+
+```ini
+###> knplabs/github-api ###
+GITHUB_AUTH_METHOD=client_id_header
+GITHUB_USERNAME=...
+GITHUB_SECRET=ghp_...
+###< knplabs/github-api ###
+```
+
 ### Linux
 
 1. Fork the repository [here](https://github.com/LMMS/lmms.io/fork)
