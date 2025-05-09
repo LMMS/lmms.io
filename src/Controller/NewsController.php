@@ -21,14 +21,15 @@ class NewsController extends AbstractController
     {
     	$results = $graphql->executeQuery($this->getQuery());
     	$html = array();
+
     	foreach ($results['data']['repository']['discussions']['edges'] as $result) {
     		$url = $result['node']['url'];
     		$timestamp = new \DateTime($result['node']['createdAt']);
     		$username = $result['node']['author']['login'];
     		$body = $result['node']['bodyHTML'];
 
-		# Create link to Discussions thread
-		$ts_formatted = $timestamp->format("F j, Y, g:i a");
+				# Create link to Discussions thread
+				$ts_formatted = $timestamp->format("F j, Y, g:i a");
     		$ts_linked = "<a href='$url'>$ts_formatted</a>";
 
     		# Create page anchor
@@ -37,16 +38,20 @@ class NewsController extends AbstractController
     		$anchor = "<a href='#$hash' id='$hash'>";
     		$anchored = preg_replace($pattern, '<h1$1>' . $anchor . '$2</a></h1>', $body, 1);
 
+
     		# Append timestamped footer with Discussions link
     		$anchored .= "<small class='text-muted'>Published $ts_linked by <a href='//github.com/$username'>@$username</a></small>";
-			array_push($html, $anchored);
-		}
 
-		if(empty($html)) {
-			array_push($html, "Monthly report not found. They are available on <a href='https://github.com/$this->owner/$this->repo/discussions/categories/announcements>GitHub discussions'</a>");
-		}
+				# Separate each post into their own <article>s
+				$anchored = "<article lang='en' class='news-post' aria-labelledby='$hash'>$anchored</article>";
+				array_push($html, $anchored);
+			}
 
-		return $html;
+			if(empty($html)) {
+				array_push($html, "Monthly report not found. They are available on <a href='https://github.com/$this->owner/$this->repo/discussions/categories/announcements>GitHub discussions'</a>");
+			}
+
+			return $html;
     }
 
 	private function getQuery(int $limit = 100): string
