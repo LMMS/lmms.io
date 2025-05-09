@@ -16,10 +16,10 @@ class GraphQl
 	{ }
 
 	public function executeQuery(string $query): array
-    	{
-    		$query = str_replace("%owner%", $this->owner, $query);
-    		$query = str_replace("%repo%", $this->repo, $query);
+	{
+		$query = str_replace("%owner%", $this->owner, $query);
+		$query = str_replace("%repo%", $this->repo, $query);
 
-    		return $this->client->api('graphql')->execute($query);
-    	}
+		return $this->client->api('graphql')->execute($query);
+	}
 }
