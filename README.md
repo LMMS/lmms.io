@@ -14,6 +14,8 @@ GITHUB_SECRET=ghp_...
 ###< knplabs/github-api ###
 ```
 
+The only required scope of this token is `read:discussion`, other scopes are unnecessary.
+
 ### Linux
 
 1. Fork the repository [here](https://github.com/LMMS/lmms.io/fork)
