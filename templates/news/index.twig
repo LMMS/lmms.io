@@ -1,0 +1,17 @@
+{% extends 'base.twig' %}
+
+{% import 'macros.twig' as macros %}
+
+{% block content %}
+
+{{ macros.jumbo('News'|trans,'LMMS announcements mirrored from GitHub Discussions'|trans) }}
+<div class="container">
+	{% for month in news %}
+		{{ month|raw }}<hr>
+	{% endfor %}
+</div>
+
+{% endblock %}
+
+{% block foot %}
+{% endblock %}

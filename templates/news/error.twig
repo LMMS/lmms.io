@@ -1,0 +1,16 @@
+{% extends 'base.twig' %}
+
+{% import 'macros.twig' as macros %}
+
+{% block content %}
+
+{{ macros.jumbo('News'|trans,'LMMS announcements mirrored from GitHub Discussions'|trans) }}
+<div class="container text-center">
+	<p>
+		{% trans %}We're sorry, something went wrong fetching the news. You can find a copy of status updates on{% endtrans %} <a href="//github.com/LMMS/lmms/discussions/categories/announcements">GitHub</a>.
+	</p>
+</div>
+{% endblock %}
+
+{% block foot %}
+{% endblock %}
