@@ -314,48 +314,48 @@ td.lsp-file-info {
   margin: 4px;
   text-align: left;
   padding: 1em 1em 1em 5em;
+}
 
-  &:hover {
-    color: #fff;
-    filter: brightness(1.1);
-  }
+.btn-dl:hover {
+  color: #fff;
+  filter: brightness(1.1);
+}
 
-  &.btn-dl-stable {
-    background-color: var(--bg-btn-dl-stable);
-    border: 1px solid var(--bg-btn-dl-stable-light);
-  }
+.btn-dl.btn-dl-stable {
+  background-color: var(--bg-btn-dl-stable);
+  border: 1px solid var(--bg-btn-dl-stable-light);
+}
 
-  &.btn-dl-alpha {
-    background-color: var(--bg-btn-dl-alpha);
-    border: 1px solid var(--bg-btn-dl-alpha-light);
-  }
+.btn-dl.btn-dl-alpha {
+  background-color: var(--bg-btn-dl-alpha);
+  border: 1px solid var(--bg-btn-dl-alpha-light);
+}
 
-  &.btn-dl-nightly {
-    background-color: var(--bg-btn-dl-nightly);
-    border: 1px solid var(--bg-btn-dl-nightly-light);
-  }
+.btn-dl.btn-dl-nightly {
+  background-color: var(--bg-btn-dl-nightly);
+  border: 1px solid var(--bg-btn-dl-nightly-light);
+}
 
-  &.btn-dl-pr {
-    background-color: var(--bg-btn-dl-pr);
-    border: 1px solid var(--bg-btn-dl-pr-light);
-  }
+.btn-dl.btn-dl-pr {
+  background-color: var(--bg-btn-dl-pr);
+  border: 1px solid var(--bg-btn-dl-pr-light);
+}
 
-  & .small {
-    position: relative;
-    font-size: 0.9em;
-  }
+.btn-dl .small {
+  position: relative;
+  font-size: 0.9em;
+}
 
-  & .big {
-    font-size: 1.2em;
-  }
+.btn-dl .big {
+  font-size: 1.2em;
+}
 
-  & .download-icon {
-    display: block;
-    position: absolute;
-    left: 0.2em;
-    top: 0.3em;
-    opacity: 0.9;
-  }
+.btn-dl .download-icon {
+  display: block;
+  position: absolute;
+  left: 0.2em;
+  top: 0.3em;
+  opacity: 0.9;
 }
 
 /* Prevent cutting off of images on narrow devices*/
@@ -380,12 +380,12 @@ td.lsp-file-info {
 
 div.code-block {
   background-color: transparent;
+}
 
-  pre {
+div.code-block pre {
     background-color: var(--wb-dynamic);
     color: var(--bw-dynamic);
   }
-}
 
 .top {
   float: top;
