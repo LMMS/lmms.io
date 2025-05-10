@@ -12,11 +12,11 @@
   --bw-dynamic: light-dark(black, white);
 
   --bg-navbar-light: #10b146;
-  --bg-navbar-dark: color-mix(in oklch, var(--bg-navbar-light), black 25%);
+  --bg-navbar-dark: color-mix(in hsl, var(--bg-navbar-light), black 25%);
   --bg-navbar: light-dark(var(--bg-navbar-light), var(--bg-navbar-dark));
   --bg-navbar-hov: inherit;
 
-  --bg-jumbotron: light-dark(var(--bg-navbar-light), color-mix(in oklch, var(--bg-navbar-light), black 25%));
+  --bg-jumbotron: light-dark(var(--bg-navbar-light), color-mix(in hsl, var(--bg-navbar-light), black 25%));
 
   --fg-navbar: white;
   --fg-navbar-hov: #f2f2f2;
@@ -40,31 +40,31 @@
   --bg-alert: light-dark(var(--bg-alert-light), var(--bg-alert-dark));
 
   --fg-alert-light: #8a6d3b;
-  --fg-alert-dark: color-mix(in oklch, var(--fg-alert-light), white);
+  --fg-alert-dark: color-mix(in hsl, var(--fg-alert-light), white);
   --fg-alert: light-dark(var(--fg-alert-light), var(--fg-alert-dark));
 
   --fg-code-light: #c7254e;
-  --fg-code-dark: color-mix(in oklch, var(--fg-code-light), white 25%);
+  --fg-code-dark: color-mix(in hsl, var(--fg-code-light), white 25%);
   --fg-code: light-dark(var(--fg-code-light), var(--fg-code-dark));
 
   --bg-btn-light: #fafafa;
   --bg-btn-dark: hsl(0, 0%, 2%);
   --bg-btn: light-dark(var(--bg-btn-light), var(--bg-btn-dark));
 
-  --bg-btn-dl-stable-light: oklch(65% 0.15 152);
-  --bg-btn-dl-stable-dark: color-mix(in oklch, var(--bg-btn-dl-stable-light), black);
+  --bg-btn-dl-stable-light: #32a85f;
+  --bg-btn-dl-stable-dark: color-mix(in hsl, var(--bg-btn-dl-stable-light), black);
   --bg-btn-dl-stable: light-dark(var(--bg-btn-dl-stable-light), var(--bg-btn-dl-stable-dark));
 
-  --bg-btn-dl-alpha-light: oklch(60% 0.15 250);
-  --bg-btn-dl-alpha-dark: color-mix(in oklch, var(--bg-btn-dl-alpha-light), black);
+  --bg-btn-dl-alpha-light: #2784d5;
+  --bg-btn-dl-alpha-dark: color-mix(in hsl, var(--bg-btn-dl-alpha-light), black);
   --bg-btn-dl-alpha: light-dark(var(--bg-btn-dl-alpha-light), var(--bg-btn-dl-alpha-dark));
 
-  --bg-btn-dl-nightly-light: oklch(56% 0.2 290);
-  --bg-btn-dl-nightly-dark: color-mix(in oklch, var(--bg-btn-dl-nightly-light), black);
+  --bg-btn-dl-nightly-light: #7855df;
+  --bg-btn-dl-nightly-dark: color-mix(in hsl, var(--bg-btn-dl-nightly-light), black);
   --bg-btn-dl-nightly: light-dark(var(--bg-btn-dl-nightly-light), var(--bg-btn-dl-nightly-dark));
 
-  --bg-btn-dl-pr-light: oklch(72% 0.15 75);
-  --bg-btn-dl-pr-dark: color-mix(in oklch, var(--bg-btn-dl-pr-light), black);
+  --bg-btn-dl-pr-light: #da950b;
+  --bg-btn-dl-pr-dark: color-mix(in hsl, var(--bg-btn-dl-pr-light), black);
   --bg-btn-dl-pr: light-dark(var(--bg-btn-dl-pr-light), var(--bg-btn-dl-pr-dark));
 
   --bg-well-light: #f5f5f5;
@@ -72,15 +72,15 @@
   --bg-well: light-dark(var(--bg-well-light), var(--bg-well-dark));
 
   --col-anchor-light: #337ab7;
-  --col-anchor-dark: color-mix(in oklch, var(--col-anchor-light), white 15%);
+  --col-anchor-dark: color-mix(in hsl, var(--col-anchor-light), white 15%);
   --col-anchor: light-dark(var(--col-anchor-light), var(--col-anchor-dark));
 
   --bg-footer: #222522;
 
   --col-link-shadow: #362a84;
 
-  --fg-stack: color-mix(in oklch, darkorange, black 15%);
-  --fg-stack-hov: color-mix(in oklch, darkorange, black 25%);
+  --fg-stack: color-mix(in hsl, darkorange, black 15%);
+  --fg-stack-hov: color-mix(in hsl, darkorange, black 25%);
   --fg-social: rgba(255, 255, 255, 0.8);
   --fg-social-hov: white;
 
