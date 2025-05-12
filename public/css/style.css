@@ -3,54 +3,98 @@
 ****************/
 :root {
   color-scheme: light dark;
-  --fg: #333;
+
+  --fg-light: #333;
   --fg-dark: hsl(0, 0%, 80%);
-  --bg-navbar: color-mix(in oklch, #10b146, 15% black);
-  --bg-navbar-dark: color-mix(in oklch, var(--bg-navbar), black 25%);
+  --fg: light-dark(var(--fg-light), var(--fg-dark));
+
+  --wb-dynamic: light-dark(white, black);
+  --bw-dynamic: light-dark(black, white);
+
+  --bg-navbar-light: #10b146;
+  --bg-navbar-dark: color-mix(in hsl, var(--bg-navbar-light), black 25%);
+  --bg-navbar: light-dark(var(--bg-navbar-light), var(--bg-navbar-dark));
   --bg-navbar-hov: inherit;
+
+  --bg-jumbotron: light-dark(var(--bg-navbar-light), color-mix(in hsl, var(--bg-navbar-light), black 25%));
+
   --fg-navbar: white;
   --fg-navbar-hov: #f2f2f2;
+
   --border-navbar-hov: #373b37;
-  --bg-segment: white;
+
+  --bg-segment-light: white;
   --bg-segment-dark: #262b30;
-  --fg-segment: var(--fg);
+  --bg-segment: light-dark(var(--bg-segment-light), var(--bg-segment-dark));
+
+  --fg-segment-light: var(--fg-light);
   --fg-segment-dark: var(--fg-dark);
-  --bg-panel: white;
+  --fg-segment-dynamic: light-dark(var(--fg-segment), var(--fg-segment-dark));
+
+  --bg-panel-light: white;
   --bg-panel-dark: black;
-  --bg-alert: #fcf8e3;
+  --bg-panel: light-dark(var(--bg-panel), var(--bg-panel-dark));
+
+  --bg-alert-light: #fcf8e3;
   --bg-alert-dark: hsl(50, 81%, 6%);
-  --fg-alert: #8a6d3b;
-  --fg-alert-dark: color-mix(in oklch, var(--fg-alert), white);
-  --fg-code: #c7254e;
-  --fg-code-dark: color-mix(in oklch, var(--fg-code), white 25%);
-  --bg-btn: #fafafa;
+  --bg-alert: light-dark(var(--bg-alert-light), var(--bg-alert-dark));
+
+  --fg-alert-light: #8a6d3b;
+  --fg-alert-dark: color-mix(in hsl, var(--fg-alert-light), white);
+  --fg-alert: light-dark(var(--fg-alert-light), var(--fg-alert-dark));
+
+  --fg-code-light: #c7254e;
+  --fg-code-dark: color-mix(in hsl, var(--fg-code-light), white 25%);
+  --fg-code: light-dark(var(--fg-code-light), var(--fg-code-dark));
+
+  --bg-btn-light: #fafafa;
   --bg-btn-dark: hsl(0, 0%, 2%);
-  --bg-btn-dl-stable: oklch(65% 0.15 152);
-  --bg-btn-dl-stable-dark: color-mix(in oklch, var(--bg-btn-dl-stable), black);
-  --bg-btn-dl-alpha: oklch(60% 0.15 250);
-  --bg-btn-dl-alpha-dark: color-mix(in oklch, var(--bg-btn-dl-alpha), black);
-  --bg-btn-dl-nightly: oklch(56% 0.2 290);
-  --bg-btn-dl-nightly-dark: color-mix(in oklch, var(--bg-btn-dl-nightly), black);
-  --bg-btn-dl-pr: oklch(72% 0.15 75);
-  --bg-btn-dl-pr-dark: color-mix(in oklch, var(--bg-btn-dl-pr), black);
-  --bg-well: #f5f5f5;
+  --bg-btn: light-dark(var(--bg-btn-light), var(--bg-btn-dark));
+
+  --bg-btn-dl-stable-light: #32a85f;
+  --bg-btn-dl-stable-dark: color-mix(in hsl, var(--bg-btn-dl-stable-light), black);
+  --bg-btn-dl-stable: light-dark(var(--bg-btn-dl-stable-light), var(--bg-btn-dl-stable-dark));
+
+  --bg-btn-dl-alpha-light: #2784d5;
+  --bg-btn-dl-alpha-dark: color-mix(in hsl, var(--bg-btn-dl-alpha-light), black);
+  --bg-btn-dl-alpha: light-dark(var(--bg-btn-dl-alpha-light), var(--bg-btn-dl-alpha-dark));
+
+  --bg-btn-dl-nightly-light: #7855df;
+  --bg-btn-dl-nightly-dark: color-mix(in hsl, var(--bg-btn-dl-nightly-light), black);
+  --bg-btn-dl-nightly: light-dark(var(--bg-btn-dl-nightly-light), var(--bg-btn-dl-nightly-dark));
+
+  --bg-btn-dl-pr-light: #da950b;
+  --bg-btn-dl-pr-dark: color-mix(in hsl, var(--bg-btn-dl-pr-light), black);
+  --bg-btn-dl-pr: light-dark(var(--bg-btn-dl-pr-light), var(--bg-btn-dl-pr-dark));
+
+  --bg-well-light: #f5f5f5;
   --bg-well-dark: hsl(0, 0%, 4%);
-  --col-anchor: #337ab7;
-  --col-anchor-dark: color-mix(in oklch, var(--col-anchor), white 15%);
+  --bg-well: light-dark(var(--bg-well-light), var(--bg-well-dark));
+
+  --col-anchor-light: #337ab7;
+  --col-anchor-dark: color-mix(in hsl, var(--col-anchor-light), white 15%);
+  --col-anchor: light-dark(var(--col-anchor-light), var(--col-anchor-dark));
+
   --bg-footer: #222522;
+
   --col-link-shadow: #362a84;
 
-  --fg-stack: color-mix(in oklch, darkorange, black 15%);
-  --fg-stack-hov: color-mix(in oklch, darkorange, black 25%);
+  --fg-stack: color-mix(in hsl, darkorange, black 15%);
+  --fg-stack-hov: color-mix(in hsl, darkorange, black 25%);
   --fg-social: rgba(255, 255, 255, 0.8);
   --fg-social-hov: white;
 
-  --bg-table-lsp-odd: #f9f9f9;
+  --bg-table-lsp-odd-light: #f9f9f9;
   --bg-table-lsp-odd-dark: hsl(0, 0%, 2%);
-  --bg-lsp-search: #eee;
+  --bg-table-lsp-odd: light-dark(var(--bg-table-lsp-odd-light), var(--bg-table-lsp-odd-dark));
+
+  --bg-lsp-search-light: #eee;
   --bg-lsp-search-dark: hsl(0, 0, 7%);
-  --bg-lsp-actions: #f8f8f8;
+  --bg-lsp-search: light-dark(var(--bg-lsp-search-light), var(--bg-lsp-search-dark));
+
+  --bg-lsp-actions-light: #f8f8f8;
   --bg-lsp-actions-dark: hsl(0, 0%, 3%);
+  --bg-lsp-actions: light-dark(var(--bg-lsp-actions-light), var(--bg-lsp-actions-dark));
 
   --col-gray-overlay: rgba(16, 16, 16, 0.75);
   --col-green-overlay: rgba(16, 177, 70, 0.7);
@@ -61,10 +105,52 @@
   --animation-time: 150ms;
 }
 
+/* If the browser _doesn't_ support the light-dark() function, set the default value */
+@supports not (background: light-dark(white, black)) {
+  :root {
+    --fg: var(--fg-light);
+
+    --wb-dynamic: white;
+    --bw-dynamic: black;
+
+    --bg-navbar: var(--bg-navbar-light);
+
+    --bg-jumbotron: var(--bg-navbar-light);
+
+    --bg-segment: var(--bg-segment-light);
+
+    --fg-segment-dynamic: var(--fg-segment-light);
+
+    --bg-panel: var(--bg-panel-light);
+
+    --bg-alert: var(--bg-alert-light);
+
+    --fg-alert: var(--fg-alert-light);
+
+    --bg-btn: var(--bg-btn-light);
+
+    --bg-btn-dl-stable: var(--bg-btn-dl-stable-light);
+
+    --bg-btn-dl-alpha: var(--bg-btn-dl-alpha-light);
+
+    --bg-btn-dl-nightly: var(--bg-btn-dl-nightly-light);
+
+    --bg-btn-dl-pr: var(--bg-btn-dl-pr-light);
+
+    --col-anchor: var(--col-anchor-light);
+
+    --bg-table-lsp-odd: var(--bg-table-lsp-odd-light);
+
+    --bg-lsp-search: var(--bg-lsp-search-light);
+
+    --bg-lsp-actions: var(---bg-lsp-actions);
+  }
+}
+
 body {
   padding-top: var(--nav-height);
-  color: light-dark(var(--fg), var(--fg-dark));
-  background-color: light-dark(var(--bg-segment), var(--bg-segment-dark));
+  color: var(--fg);
+  background-color: var(--bg-segment);
   margin: 0;
   min-height: 100%;
   display: flex;
@@ -80,13 +166,13 @@ body {
 }
 
 a {
-  color: light-dark(var(--col-anchor), var(--col-anchor-dark));
+  color: var(--col-anchor);
   font-weight: bold;
   transition: all 0.15s ease-in-out;
 }
 
 .well {
-  background-color: light-dark(var(--bg-well), var(--bg-well-dark));
+  background-color: var(--bg-well);
 }
 
 .navbar {
@@ -112,7 +198,7 @@ blockquote {
 }
 
 form .input-group .input-group-addon {
-  background-color: light-dark(var(--bg-lsp-search), var(--bg-lsp-search-dark));
+  background-color: var(--bg-lsp-search);
 }
 
 .alert.lsp {
@@ -211,7 +297,7 @@ td.lsp-file-info {
 }
 
 .table-striped>tbody>tr:nth-of-type(odd) {
-  background-color: light-dark(var(--bg-table-lsp-odd), var(--bg-table-lsp-odd-dark));
+  background-color: var(--bg-table-lsp-odd);
 }
 
 .release-notes {
@@ -228,48 +314,48 @@ td.lsp-file-info {
   margin: 4px;
   text-align: left;
   padding: 1em 1em 1em 5em;
+}
 
-  &:hover {
-    color: #fff;
-    filter: brightness(1.1);
-  }
+.btn-dl:hover {
+  color: #fff;
+  filter: brightness(1.1);
+}
 
-  &.btn-dl-stable {
-    background-color: light-dark(var(--bg-btn-dl-stable), var(--bg-btn-dl-stable-dark));
-    border: 1px solid var(--bg-btn-dl-stable);
-  }
+.btn-dl.btn-dl-stable {
+  background-color: var(--bg-btn-dl-stable);
+  border: 1px solid var(--bg-btn-dl-stable-light);
+}
 
-  &.btn-dl-alpha {
-    background-color: light-dark(var(--bg-btn-dl-alpha), var(--bg-btn-dl-alpha-dark));
-    border: 1px solid var(--bg-btn-dl-alpha);
-  }
+.btn-dl.btn-dl-alpha {
+  background-color: var(--bg-btn-dl-alpha);
+  border: 1px solid var(--bg-btn-dl-alpha-light);
+}
 
-  &.btn-dl-nightly {
-    background-color: light-dark(var(--bg-btn-dl-nightly), var(--bg-btn-dl-nightly-dark));
-    border: 1px solid var(--bg-btn-dl-nightly);
-  }
+.btn-dl.btn-dl-nightly {
+  background-color: var(--bg-btn-dl-nightly);
+  border: 1px solid var(--bg-btn-dl-nightly-light);
+}
 
-  &.btn-dl-pr {
-    background-color: light-dark(var(--bg-btn-dl-pr), var(--bg-btn-dl-pr-dark));
-    border: 1px solid var(--bg-btn-dl-pr);
-  }
+.btn-dl.btn-dl-pr {
+  background-color: var(--bg-btn-dl-pr);
+  border: 1px solid var(--bg-btn-dl-pr-light);
+}
 
-  & .small {
-    position: relative;
-    font-size: 0.9em;
-  }
+.btn-dl .small {
+  position: relative;
+  font-size: 0.9em;
+}
 
-  & .big {
-    font-size: 1.2em;
-  }
+.btn-dl .big {
+  font-size: 1.2em;
+}
 
-  & .download-icon {
-    display: block;
-    position: absolute;
-    left: 0.2em;
-    top: 0.3em;
-    opacity: 0.9;
-  }
+.btn-dl .download-icon {
+  display: block;
+  position: absolute;
+  left: 0.2em;
+  top: 0.3em;
+  opacity: 0.9;
 }
 
 /* Prevent cutting off of images on narrow devices*/
@@ -288,18 +374,18 @@ td.lsp-file-info {
   display: inline-block;
   text-align: left;
   margin: 0 auto;
-  background-color: light-dark(white, black);
-  color: light-dark(black, white);
+  background-color: var(--wb-dynamic);
+  color: var(--bw-dynamic);
 }
 
 div.code-block {
   background-color: transparent;
-
-  pre {
-    background-color: light-dark(white, black);
-    color: light-dark(black, white);
-  }
 }
+
+div.code-block pre {
+    background-color: var(--wb-dynamic);
+    color: var(--bw-dynamic);
+  }
 
 .top {
   float: top;
@@ -399,18 +485,18 @@ a.btn {
 }
 
 .alert.alert-warning {
-  background-color: light-dark(var(--bg-alert), var(--bg-alert-dark));
-  color: light-dark(var(--fg-alert), var(--fg-alert-dark));
+  background-color: var(--bg-alert);
+  color: var(--fg-alert);
 }
 
 code {
-  background-color: light-dark(white, black);
-  color: var(--fg-code-dark);
+  background-color: var(--wb-dynamic);
+  color: var(--fg-code);
 }
 
 /* navbar styling */
 .navbar-custom {
-  background-color: light-dark(var(--bg-navbar), var(--bg-navbar-dark));
+  background-color: var(--bg-navbar);
   background-image: url("/img/hexagon.png");
   background-position: 0px 0px;
   margin-bottom: 0;
@@ -511,7 +597,7 @@ code {
 }
 
 .navbar-default {
-  background-color: light-dark(var(--bg-lsp-actions), var(--bg-lsp-actions-dark));
+  background-color: var(--bg-lsp-actions);
 }
 
 /* inner bottom border on hover over navbar items*/
@@ -637,7 +723,7 @@ div.jumbo {
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: url("/img/screen.png"), url("/img/hexagon.png"), light-dark(var(--bg-navbar), color-mix(in oklch, var(--bg-navbar), black 25%));
+  background: url("/img/screen.png"), url("/img/hexagon.png"), var(--bg-jumbotron);
   background-position: right bottom, 0px var(--nav-height-neg);
   background-size: auto 80%, auto;
   background-repeat: no-repeat, repeat;
@@ -653,7 +739,7 @@ div.mini {
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: url("/img/hexagon.png"), light-dark(var(--bg-navbar), color-mix(in oklch, var(--bg-navbar), black 25%));
+  background: url("/img/hexagon.png"), var(--bg-jumbotron);
   background-position: 0px var(--nav-height-neg);
   color: #fff;
   min-height: 15vh;
@@ -665,7 +751,7 @@ div.error {
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: url("/img/hexagon.png"), light-dark(var(--bg-navbar), color-mix(in oklch, var(--bg-navbar), black 25%));
+  background: url("/img/hexagon.png"), var(--bg-jumbotron);
   background-position: 0px var(--nav-height-neg);
   color: #fff;
   flex: 1;
@@ -696,7 +782,7 @@ div.error a:where(:hover, :focus) {
 
 @media (max-width: 768px) {
   div.jumbo {
-    background: linear-gradient(var(--col-green-overlay), var(--col-green-overlay)), url("/img/screen.png"), light-dark(var(--bg-navbar), color-mix(in oklch, var(--bg-navbar), black 25%));
+    background: linear-gradient(var(--col-green-overlay), var(--col-green-overlay)), url("/img/screen.png"), var(--bg-jumbotron);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -749,8 +835,8 @@ a.social:focus {
 
 .segment {
   padding: 60px 0 70px 0;
-  background-color: light-dark(var(--bg-segment), var(--bg-segment-dark));
-  color: light-dark(var(--fg-segment), var(--fg-segment-dark));
+  background-color: var(--bg-segment);
+  color: var(--fg-segment-dynamic);
 }
 
 .segment .page-header {
@@ -878,7 +964,7 @@ a.social:focus {
 /* Get Involved Panels */
 .panel-custom {
   border: 1px #dedede solid;
-  background-color: light-dark(#fff, #000);
+  background-color: var(--bg-panel);
 }
 
 .panel-custom>.panel-heading {
@@ -890,7 +976,7 @@ a.social:focus {
 }
 
 .form-control {
-  background-color: light-dark(white, black);
+  background-color: var(--wb-dynamic);
 }
 
 #lspnav,
@@ -901,8 +987,8 @@ a.social:focus {
 .btn-default {
   border: solid 1px;
   border-color: #c9c9c9;
-  background-color: light-dark(var(--bg-btn), var(--bg-btn-dark));
-  color: light-dark(var(--fg), var(--fg-dark));
+  background-color: var(--bg-btn);
+  color: var(--fg);
 }
 
 .btn-file {
@@ -986,7 +1072,7 @@ ul.nav-center li {
   border-radius: 0 0;
   border-style: none;
   border-bottom: 2px solid rgba(0, 0, 0, 0);
-  background-color: light-dark(white, black);
+  background-color: var(--wb-dynamic);
 }
 
 .nav-tabs>li>a:where(:hover, :focus) {
