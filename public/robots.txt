@@ -1,6 +1,8 @@
 # robots.txt for http://lmms.io
 
 User-agent: *
+# Delay in seconds to prevent overzealous crawling
+Crawl-delay: 120
 # Optionally disable community if there are performance issues
 Disallow: /feed/
 Disallow: /header.php
