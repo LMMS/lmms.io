@@ -2,7 +2,7 @@
 namespace LMMS;
 
 use Github\Client;
-use LMMS\PlatformParser;
+use LMMS\Platform;
 
 class Releases
 {
@@ -42,9 +42,9 @@ class Releases
 	private function mapAssetsFromJson(array $json): array
 	{
 		$assets = array_map(function (array $asset) use ($json) {
-			$parser = new PlatformParser($asset['name']);
+			$parser = new Platform($asset['name']);
 			return new Asset(
-				platform: $parser->getPlatform(),
+				platform: $parser,
 				platformName: $parser, // __toString()
 				releaseName: $json['name'],
 				downloadUrl: $asset['browser_download_url'],
