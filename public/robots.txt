@@ -8,3 +8,12 @@ Disallow: /feed/
 Disallow: /header.php
 Disallow: /footer.php
 Disallow: /utils.php
+# Forum
+Disallow: /forum/app.php
+Disallow: /forum/memberlist.php
+Disallow: /forum/posting.php
+Disallow: /forum/search.php
+# LSP
+Disallow: /lsp/download_file.php
+Disallow: /lsp/?content=delete
+
