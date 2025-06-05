@@ -1030,6 +1030,14 @@ a.btn-outline#involved {
   margin-top: 6px;
 }
 
+.btn.focus, .btn:focus, .btn:hover {
+  color: inherit;
+}
+
+.btn :is(a:focus, a:hover) {
+  color: inherit;
+}
+
 .btn-xl {
   font-size: 24px;
 }
