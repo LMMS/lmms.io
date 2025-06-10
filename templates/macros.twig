@@ -62,7 +62,7 @@
 			{% set extension = file_name|split('.')|last %}
 			<a target="_blank" class="btn btn-default" href="{{button}}" download>
 				<span class="fas fa-image"></span> {{file_name}} <br><small>({{macros.get_file_description(extension)|trim}})</small>
-			</a>&nbsp; 
+			</a>&nbsp;
 		{% endif %}
 	{% endfor %}
 	<br><br><hr><br><br>
@@ -81,7 +81,7 @@
 		'bmp' : 'Bitmap Format'|trans,
 		'ico' : 'Windows Icon Format'|trans,
 		'icns': 'Apple Icon Format'|trans,
-		} 
+		}
 	%}
 	{{descriptions[extension]|default("Unknown File")}}
 {% endmacro %}
@@ -95,7 +95,7 @@
 	</a></li>
 {% endmacro %}
 
-{% macro create_navbar_menu_item(text, url, children = null, rightAlign = false, active = '') %}
+{% macro create_navbar_menu_item(text, url = null, children = null, rightAlign = false, active = '') %}
 	{% import _self as macros %}
 	{% if children is null %}
 	{# Simple menu item. If $text is an array, $text[0] is the title displayed
@@ -103,6 +103,9 @@
 		{% if text is iterable %}
 			<li class="{{active}} visible-lg"> <a href="{{url}}">{{text[0]}}</a></li>
 			<li class="{{active}} hidden-lg"> <a href="{{url}}">{{text[1]}}</a></li>
+		{# If there is no URL, make a blank list item #}
+		{% elseif url is null %}
+			<li class="{{active}}">{{text}}</li>
 		{% else %}
 			<li class="{{active}}"> <a href="{{url}}">{{text}}</a></li>
 		{% endif %}
@@ -132,14 +135,14 @@
 	{% for item in items %}
 		{% if not item[3] is defined %}
 			{% set active = item[1] == current_uri ? 'active' : '' %}
-			{{macros.create_navbar_menu_item(item[0], item[1], item[2]|default(null), false, active)}}
+			{{macros.create_navbar_menu_item(item[0], item[1]|default(null), item[2]|default(null), false, active)}}
 		{% endif %}
 	{% endfor %}
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
 	{% for item in items %}
 		{% if item[3] is defined %}
-			{{macros.create_navbar_menu_item(item[0], item[1], item[2]|default(null), true)}}
+			{{macros.create_navbar_menu_item(item[0], item[1]|default(null), item[2]|default(null), true)}}
 		{% endif %}
 	{% endfor %}
 {% endmacro %}
