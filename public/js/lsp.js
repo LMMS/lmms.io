@@ -2,7 +2,7 @@ $(function () {
     $('[data-toggle=\'tooltip\']').tooltip();
 });
 
-$(window).bind('resize load', function () {
+$(window).bind('load', function () {
     if ($(this).width() < 962) {
         collapse_in('#caret');
     } else {
