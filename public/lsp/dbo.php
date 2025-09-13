@@ -198,15 +198,14 @@ function get_latest() {
 		categories.name AS category,subcategories.name AS subcategory,
 		insert_date,update_date,description,files.downloads AS downloads,
 		(SELECT COUNT(file_id) FROM comments WHERE file_id=files.id) AS comments,
-		COALESCE(AVG(ratings.stars), 0) AS rating,
-		COUNT(ratings.id) AS rating_count FROM files 
+		(SELECT COALESCE(AVG(stars), 0) FROM ratings WHERE file_id=files.id) AS rating,
+		(SELECT COUNT(id) FROM ratings WHERE file_id=files.id) AS rating_count
+		FROM files
 		INNER JOIN categories ON categories.id=files.category 
 		INNER JOIN subcategories ON subcategories.id=files.subcategory 
 		INNER JOIN users ON users.id=files.user_id 
 		INNER JOIN licenses ON licenses.id=files.license_id 
-		LEFT JOIN comments ON comments.file_id=files.id 
-		LEFT JOIN ratings ON files.id=ratings.file_id 
-		GROUP BY files.id ORDER BY files.insert_date DESC 
+		ORDER BY files.insert_date DESC
 	 	LIMIT ' . sanitize($PAGE_SIZE));
 		$ret = array();
 		if ($stmt->execute()) {
@@ -604,7 +603,7 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 	$order_by = 'files.insert_date';
 	switch ($sort) {
 		case 'downloads' : $order_by = 'downloads_per_day'; break;
-		case 'rating' : $order_by = "rating $order, COUNT(ratings.file_id)"; break;
+		case 'rating' : $order_by = "rating $order, rating_count"; break;
 		case 'comments' : break; //FIXME: TODO: Add support for sorting by comments
 	}
 	
@@ -618,14 +617,13 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 			files.downloads*files.downloads/(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day,
 			files.downloads AS downloads, insert_date, update_date, description,
 			(SELECT COUNT(file_id) FROM comments WHERE file_id=files.id) AS comments,
-			COUNT(ratings.id) AS rating_count,
-			AVG(ratings.stars) as rating FROM files
+			(SELECT COUNT(id) FROM ratings WHERE file_id=files.id) AS rating_count,
+			(SELECT COALESCE(AVG(stars), 0) FROM ratings WHERE file_id=files.id) AS rating
+			FROM files
 		INNER JOIN categories ON categories.id=files.category
 		INNER JOIN subcategories ON subcategories.id=files.subcategory
 		INNER JOIN users ON users.id=files.user_id
 		INNER JOIN licenses ON licenses.id=files.license_id
-		LEFT JOIN ratings ON ratings.file_id=files.id
-		LEFT JOIN comments ON comments.file_id=files.id
 		WHERE ' .
 		(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
 		(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
@@ -755,16 +753,14 @@ function show_file($file_id, $user, $success = null): array {
 		categories.name AS category, subcategories.name AS subcategory, 
 		insert_date, update_date, description, downloads, files.id, filename, 
 		(SELECT COUNT(file_id) FROM comments WHERE file_id=files.id) AS comments,
-		COALESCE(AVG(ratings.stars), 0) AS rating,
-		COUNT(ratings.id) AS rating_count FROM files 
+		(SELECT COALESCE(AVG(stars), 0) FROM ratings WHERE file_id=files.id) AS rating,
+		(SELECT COUNT(id) FROM ratings WHERE file_id=files.id) AS rating_count
+		FROM files
 		INNER JOIN categories ON categories.id=files.category 
 		INNER JOIN subcategories ON subcategories.id=files.subcategory 
 		INNER JOIN users ON users.id=files.user_id 
 		INNER JOIN licenses ON licenses.id=files.license_id 
-		LEFT JOIN comments ON comments.file_id=files.id 
-		LEFT JOIN ratings ON files.id=ratings.file_id 
-		WHERE files.id=:file_id 
-		GROUP BY files.id'
+		WHERE files.id=:file_id'
 	);
 	$stmt->bindParam(':file_id', $file_id);
 	
