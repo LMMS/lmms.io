@@ -626,8 +626,8 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 		INNER JOIN licenses ON licenses.id=files.license_id
 		WHERE ' .
 		(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
-		(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
-		(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
+		(strlen($category) ? 'files.category=(SELECT id FROM categories WHERE NAME=:category)' : 'true') . ' AND ' .
+		(strlen($subcategory) ? 'files.subcategory IN (SELECT id FROM subcategories WHERE NAME=:subcategory)' : 'true') . ' AND ' .
 		(strlen($search) ? "(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search $additional_items)" : 'true') . ' ' .
 		'ORDER BY ' . $order_by . " $order " .
 		"LIMIT $start, $PAGE_SIZE"
