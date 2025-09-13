@@ -629,8 +629,7 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 		(strlen($category) ? 'categories.name=:category' : 'true') . ' AND ' .
 		(strlen($subcategory) ? 'subcategories.name=:subcategory' : 'true') . ' AND ' .
 		(strlen($search) ? "(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search $additional_items)" : 'true') . ' ' .
-		'GROUP BY files.id
-		ORDER BY ' . $order_by . " $order " .
+		'ORDER BY ' . $order_by . " $order " .
 		"LIMIT $start, $PAGE_SIZE"
 	);
 	
