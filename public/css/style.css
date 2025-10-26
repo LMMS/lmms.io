@@ -1193,6 +1193,12 @@ ul.nav-center li {
   background-size: auto, cover;
 }
 
+#bol11 {
+  background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), url("/img/tbolv11.jpg");
+  background-position: top, center top;
+  background-size: auto, cover;
+}
+
 .center {
   text-align: center;
 }
