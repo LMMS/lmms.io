@@ -13,6 +13,58 @@
 	<h3 class="hidden">{% trans %}Current competitions:{% endtrans %}</h3>
 	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
 	<div class="competition">
+		<div class="comp-header" id="bol11" data-target="#bol11-desc">
+			<span>{% trans %}The Best of LMMS vol. XI{% endtrans %}</span>
+			<i class="fas fa-angle-down carret"></i>
+		</div>
+		<div class="comp-desc panel-collapse collapse" role="tabpanel" id="bol11-desc">
+			{% apply markdown_to_html %}
+			{% trans %}
+			#### The competition has ended on **August 1st, 2025**.
+			Support LMMS and buy the compilation over at our [bandcamp page.](https://lmms.bandcamp.com/album/best-of-lmms-2025)
+
+			Listen to all entries [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vRlrokaisLstxjxJ2BvU3L5fOmaT8RoNUqdEe8NVwbd7ym13gTF-cFAEYBwDbvYmy0byHRPJ_XdeblB/pubhtml?gid=491403559&single=true)
+
+			Winners:
+			<div class="bandcamp-widget" data-href="https://bandcamp.com/EmbeddedPlayer/album=2828343015/size=large/bgcol=ffffff/linkcol=2ebd35/artwork=small/transparent=false/">
+				<iframe class="bandcamp-iframe" referrerpolicy="no-referrer" height="472" style="border: 0; height: 472px; width: 100%%;" src="" seamless><a href="https://lmms.bandcamp.com/album/best-of-lmms-2025">The Best of LMMS Vol. 11 by LMMS Artists</a></iframe>
+			</div>
+
+			#### Original description:
+			We are proud to present to you The Best of LMMS contest volume 11!
+			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
+			(23:59.59 UTC Time) on July 31st 2025 for a chance to be featured on the BoL v11 album. The compilation will be uploaded to Bandcamp, with all profits going towards LMMS' further development.
+
+			<p class="center"><a class="btn btn-success btn-lg center" href="https://forms.gle/Q8fLo5eQ2jK2jMZT9">Submit here</a></p>
+
+			#### Competition rules:
+
+			1. **The Deadline:**
+			 - Submit your track before the end of July 31st 2025 using this form. Earlier is better.
+			2. **The Track:**
+             - Must be produced primarily in LMMS.
+             - Must be under 10 minutes long.
+             - Must be your own original work (no remixes or covers).
+             - No winning tracks from previous BoL albums allowed.
+             - Reworks of your own tracks (also known as VIPs, etc) are allowed at judge discretion.
+			3. **The Submissions:**
+			 - You need to submit your track with this form. It will close at the deadline. Don't be late.
+			 - You are only allowed to enter one track.
+			 - Collaborations count as one entry for every artist involved with it.
+			 - Your submission link must be YouTube, Soundcloud, or Newgrounds.
+			 -The full track must be available for listening until judging completes and results are announced.
+			4. **The Judging:**
+			 - After the deadline, the form will be closed and judging will begin.
+             - The target for completion is the end of September, but intermediary results may be published sooner.
+			5. **Release:**
+			 - When judging completes, the resulting track list will be released as an album on Bandcamp, and will be set to "Pay what you want," with proceeds going to support further development of LMMS.
+
+			**Entries are approved by hand, so there will be a delay between submitting and the track being viewable on the public entry list.**
+			{% endtrans %}
+			{% endapply %}
+		</div>
+	</div>
+	<div class="competition">
 		<div class="comp-header" id="bol10" data-target="#bol10-desc">
 			<span>{% trans %}The Best of LMMS vol. X{% endtrans %}</span>
 			<i class="fas fa-angle-down carret"></i>
@@ -54,7 +106,7 @@
 			 - Collaborations count as ONE entry for each artist involved.
 			 - No collaborating with judges on entries.
 			 - Only submissions hosted on Soundcloud or YouTube are allowed.
-			  - The full track should be available at the submission link provided
+			  - The full track should be available at the submission link provided.
 			 - Your entry must be available for listening until the end of the judging process. If not, your entry will be disqualified.
 			 - The entry must not contain any trademarked or copyrighted material which you do not own the rights to.
 			4. **The Judges:**
@@ -140,7 +192,7 @@
 
 			Winners:
 			<iframe width="100%%" height="350" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%%3A//api.soundcloud.com/playlists/1284918016&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-			
+
 			#### Original description:
 			We are proud to present to you The Best of LMMS contest volume 8!
 			The contest aims to inspire the community to create and share their music. Submit your track at the link below before midnight
