@@ -598,13 +598,13 @@
         <target>Instrumente preinstalate de tip VST 64-bit pentru Windows cu compatibilitate pentru 32-biti</target>
         
       </trans-unit>
-      <trans-unit id="ZitDA7j" resname="16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more">
-        <source>16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more</source>
+      <trans-unit id="ZitDA7j" resname="16 built in synthesizers, including emulations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more">
+        <source>16 built in synthesizers, including emulations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more</source>
         <target>16 sintetizatoare încorporate, inclusiv emulatoare de Roland ® TB-303, Commodore 64 ® SID microcip, Nintendo ® NES și GameBoy, Yamaha ® OPL2 chip și multe altele</target>
         
       </trans-unit>
-      <trans-unit id="mhSAT0Q" resname="Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin">
-        <source>Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</source>
+      <trans-unit id="mhSAT0Q" resname="Embedded ZynAddSubFx: Polyphonic, multitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin">
+        <source>Embedded ZynAddSubFx: Polyphonic, multitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</source>
         <target>Modulul ZynAddSubFx inclus: sinteză polifonică, multitimbrală, microtonală, multi-vocală, aditivă sau substractivă, toate într-un singur plugin puternic</target>
         
       </trans-unit>

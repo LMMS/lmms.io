@@ -603,14 +603,14 @@ bergabunglah dengan kami untuk membuat LMMS menjadi lebih baik!</target>
         <target>Termasuk dukungan instrumen VST 64-bit dengan bridge VST 32-bit (Windows 64-bit)</target>
         
       </trans-unit>
-      <trans-unit id="ZitDA7j" resname="16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more">
-        <source>16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more</source>
+      <trans-unit id="ZitDA7j" resname="16 built in synthesizers, including emulations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more">
+        <source>16 built in synthesizers, including emulations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more</source>
         <target>16 built-in synthesizer, termasuk emulasi dari Roland® TB-303, microchip Commodore 64® SID, Nintendo ® NES dan GameBoy, chip Yamaha ® OPL2 dan banyak lagi</target>
         
       </trans-unit>
-      <trans-unit id="mhSAT0Q" resname="Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin">
-        <source>Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</source>
-        <target>Tertanam ZynAddSubFx: Polifonik, mutlitimbral, mikrotonal, aditif multi suara, subtraktif dan pad synthesis semua dalam satu plugin yang kuat.</target>
+      <trans-unit id="mhSAT0Q" resname="Embedded ZynAddSubFx: Polyphonic, multitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin">
+        <source>Embedded ZynAddSubFx: Polyphonic, multitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</source>
+        <target>Tertanam ZynAddSubFx: Polifonik, multitimbral, mikrotonal, aditif multi suara, subtraktif dan pad synthesis semua dalam satu plugin yang kuat.</target>
         
       </trans-unit>
       <trans-unit id="y2TAKLF" resname="Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks">

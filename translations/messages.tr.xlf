@@ -609,14 +609,14 @@
         <target>64-bit ve 32-bit VST desteğiyle gelir, iki türlüsünü de çalıştırır. (64-bit Windows sürümü)</target>
         
       </trans-unit>
-      <trans-unit id="ZitDA7j" resname="16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more">
-        <source>16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more</source>
+      <trans-unit id="ZitDA7j" resname="16 built in synthesizers, including emulations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more">
+        <source>16 built in synthesizers, including emulations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more</source>
         <target>Roland ® TB-303, Commodore 64 ® SID mikroçip, Nintendo ® NES ve GameBoy, Yamaha ® OPL2 çipi ve daha fazlasını içeren 16 dahili synthesizer</target>
         
       </trans-unit>
-      <trans-unit id="mhSAT0Q" resname="Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin">
-        <source>Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</source>
-        <target>Gömülü ZynAddSubFx: Polifonik, mutlitimbral, mikrotonal, çok sesli katkı, çıkarma ve ped sentezi hepsi bir arada güçlü bir eklenti</target>
+      <trans-unit id="mhSAT0Q" resname="Embedded ZynAddSubFx: Polyphonic, multitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin">
+        <source>Embedded ZynAddSubFx: Polyphonic, multitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</source>
+        <target>Gömülü ZynAddSubFx: Polifonik, multitimbral, mikrotonal, çok sesli katkı, çıkarma ve ped sentezi hepsi bir arada güçlü bir eklenti</target>
         
       </trans-unit>
       <trans-unit id="y2TAKLF" resname="Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks">
