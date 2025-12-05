@@ -609,14 +609,14 @@ Veuillez &lt;a href=&quot;/get-involved/#contact&quot;&gt;nous contacter&lt;/a&g
         <target>Prise en charge intégrée des instruments VST 64 bits avec pont VST 32 bits (Windows 64 bits)</target>
         
       </trans-unit>
-      <trans-unit id="ZitDA7j" resname="16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more">
-        <source>16 built in synthesizers, including emultations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more</source>
+      <trans-unit id="ZitDA7j" resname="16 built in synthesizers, including emulations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more">
+        <source>16 built in synthesizers, including emulations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more</source>
         <target>16 synthétiseurs intégrés, comprenant des émulations de Roland ® TB-303, la puce SID Commodore 64 ®, la Nintendo ® NES et la GameBoy, la puce OPL2 de Yamaha ® et bien plus encore</target>
         
       </trans-unit>
-      <trans-unit id="mhSAT0Q" resname="Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin">
-        <source>Embedded ZynAddSubFx: Polyphonic, mutlitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</source>
-        <target>ZynAddSubFx intégré : synthèse polyphonique, mutlitimbrale, microtonale, additive multi-voix, soustractive et pad, le tout dans un plugin puissant</target>
+      <trans-unit id="mhSAT0Q" resname="Embedded ZynAddSubFx: Polyphonic, multitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin">
+        <source>Embedded ZynAddSubFx: Polyphonic, multitimbral, microtonal, multi-voice additive, subtractive and pad synthesis all in one powerful plugin</source>
+        <target>ZynAddSubFx intégré : synthèse polyphonique, multitimbrale, microtonale, additive multi-voix, soustractive et pad, le tout dans un plugin puissant</target>
         
       </trans-unit>
       <trans-unit id="y2TAKLF" resname="Native multisample support for SoundFont ® (SF2), Giga (GIG) and Gravis UltraSound ® (GUS) formats for high quality instrument patches and banks">
