@@ -154,8 +154,17 @@ class Platform {
 		$platform = $this->os->value . ' ';
 		$platformVersion = empty($this->platformVersion) ? '' : $this->platformVersion . ' ';
 		$architecture = $this->isDefaultArchitecture() ? '' : $this->architecture->value . ' ';
-		$qualifier = $this->isDefaultQualifier() ? '' : "(" . strtolower($this->qualifier->name) . ")";
-		return trim($platform . $platformVersion . $architecture . $qualifier);
+
+		$qualifiers = array();
+		if($this->osVersion) {
+		    array_push($qualifiers, strtolower($this->osVersion));
+        }
+        if(!$this->isDefaultQualifier()) {
+            array_push($qualifiers, strtolower($this->qualifier->name));
+    	}
+        $qualifierText = count($qualifiers) ? ' (' . implode(', ', $qualifiers) . ")" : '';
+
+		return trim($platform . $platformVersion . $architecture . $qualifierText);
 	}
 
 	public function found() : bool {
