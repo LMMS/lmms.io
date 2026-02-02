@@ -2,6 +2,14 @@
 
 This repository contains the source for LMMS's website, live at <https://lmms.io>.
 
+<div align="center">
+
+*lmms.io runs on DigitalOcean. Click the button below for more information, or access this link: https://m.do.co/c/c77894a32e56. Both will utilize our referral code.*
+
+[![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=c77894a32e56&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
+
+</div>
+
 ## How to test the website locally
 
 The website requires authentication with the GitHub API for fetching GitHub Discussions posts for the `/news` endpoint, with the authentication and data fetching itself being managed by the `knplabs/github-api` dependency. A [classic GitHub PAT (personal access token)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) is needed for local testing, which should be placed in the `.env.local` file on the root of the repository with the contents:
