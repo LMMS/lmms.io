@@ -13,44 +13,50 @@ class DownloadController extends AbstractController
     public function page(Releases $releases, Artifacts $artifacts): Response
     {
         try {
-            $assets = $releases->latestStableAssets();
-            $winstable = array_values(array_filter($assets, self::assetsForPlatform(Os::Windows)));
-            $osxstable = array_values(array_filter($assets, self::assetsForPlatform(Os::MacOS)));
-            $linstable = array_values(array_filter($assets, self::assetsForPlatform(Os::Linux)));
-
-            $assets = $releases->latestUnstableAssets();
-            $winpre = array_values(array_filter($assets, self::assetsForPlatform(Os::Windows)));
-            $osxpre = array_values(array_filter($assets, self::assetsForPlatform(Os::MacOS)));
-            $linpre = array_values(array_filter($assets, self::assetsForPlatform(Os::Linux)));
-
-            if ($winstable && $winpre && ($winpre[0]->getDate() < $winstable[0]->getDate()))
-                $winpre = null;
-            if ($osxstable && $osxpre && ($osxpre[0]->getDate() < $osxstable[0]->getDate()))
-                $osxpre = null;
-            if ($linstable && $linpre && ($linpre[0]->getDate() < $linstable[0]->getDate()))
-                $linpre = null;
-
-            $assets = $artifacts->getForBranch('master');
-            $winnightly = array_values(array_filter($assets, self::assetsForPlatform(Os::Windows)));
-            $osxnightly = array_values(array_filter($assets, self::assetsForPlatform(Os::MacOS)));
-            $linnightly = array_values(array_filter($assets, self::assetsForPlatform(Os::Linux)));
-
-            $vars = [
-                'winstable' => $winstable,
-                'winpre' => $winpre,
-                'winnightly' => $winnightly,
-                'osxstable' => $osxstable,
-                'osxpre' => $osxpre,
-                'osxnightly' => $osxnightly,
-                'linstable' => $linstable,
-                'linpre' => $linpre,
-                'linnightly' => $linnightly
-            ];
-            return $this->render('download/index.twig', $vars);
+            return $this->render('download/index.twig', $this->getVars($releases, $artifacts));
         } catch (\Exception $e) {
             error_log($e);
             return $this->render('download/error.twig');
         }
+    }
+
+    // TODO Move to lib?
+    public function getVars(Releases $releases, Artifacts $artifacts): array
+    {
+        $assets = $releases->latestStableAssets();
+        $winstable = array_values(array_filter($assets, self::assetsForPlatform(Os::Windows)));
+        $osxstable = array_values(array_filter($assets, self::assetsForPlatform(Os::MacOS)));
+        $linstable = array_values(array_filter($assets, self::assetsForPlatform(Os::Linux)));
+
+        $assets = $releases->latestUnstableAssets();
+        $winpre = array_values(array_filter($assets, self::assetsForPlatform(Os::Windows)));
+        $osxpre = array_values(array_filter($assets, self::assetsForPlatform(Os::MacOS)));
+        $linpre = array_values(array_filter($assets, self::assetsForPlatform(Os::Linux)));
+
+        if ($winstable && $winpre && ($winpre[0]->getDate() < $winstable[0]->getDate()))
+            $winpre = null;
+        if ($osxstable && $osxpre && ($osxpre[0]->getDate() < $osxstable[0]->getDate()))
+            $osxpre = null;
+        if ($linstable && $linpre && ($linpre[0]->getDate() < $linstable[0]->getDate()))
+            $linpre = null;
+
+        $assets = $artifacts->getForBranch('master');
+        $winnightly = array_values(array_filter($assets, self::assetsForPlatform(Os::Windows)));
+        $osxnightly = array_values(array_filter($assets, self::assetsForPlatform(Os::MacOS)));
+        $linnightly = array_values(array_filter($assets, self::assetsForPlatform(Os::Linux)));
+
+        $vars = [
+            'winstable' => $winstable,
+            'winpre' => $winpre,
+            'winnightly' => $winnightly,
+            'osxstable' => $osxstable,
+            'osxpre' => $osxpre,
+            'osxnightly' => $osxnightly,
+            'linstable' => $linstable,
+            'linpre' => $linpre,
+            'linnightly' => $linnightly
+        ];
+        return $vars;
     }
 
     public function pull_request(string $id, Artifacts $artifacts): Response

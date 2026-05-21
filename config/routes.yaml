@@ -30,11 +30,11 @@ download:
    controller: App\Controller\DownloadController::page
 
 download_pr:
-   path: /download/pull-request/{id}
+   path: /download-pull-request/{id}
    controller: App\Controller\DownloadController::pull_request
 
 download_artifact:
-   path: /download/artifact/{id}
+   path: /download-artifact/{id}
    controller: App\Controller\DownloadController::artifact
 
 news:

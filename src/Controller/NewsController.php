@@ -17,7 +17,7 @@ class NewsController extends AbstractController
 		}
 	}
 
-	private function getHtml(GraphQl $graphql): array
+	public function getHtml(GraphQl $graphql): array
 	{
 		$results = $graphql->executeQuery($this->getQuery());
 		$html = array();

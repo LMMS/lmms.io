@@ -7,6 +7,9 @@
 /vendor/
 composer.phar
 /**/*.mo
+/public/index.html
+/public/*/index.html
+!/public/documentation/index.html
 
 ###> symfony/framework-bundle ###
 /.env.local
