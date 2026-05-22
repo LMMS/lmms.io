@@ -10,6 +10,7 @@ composer.phar
 /public/index.html
 /public/*/index.html
 !/public/documentation/index.html
+/public/translations/
 
 ###> symfony/framework-bundle ###
 /.env.local
