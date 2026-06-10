@@ -28,7 +28,7 @@
         "symfony/runtime": "7.4.*",
         "symfony/translation": "7.3.*",
         "symfony/twig-bundle": "7.3.*",
-        "symfony/yaml": "7.3.*",
+        "symfony/yaml": "7.4.*",
         "twig/extra-bundle": "^3.10",
         "twig/markdown-extra": "^3.10"
     },
