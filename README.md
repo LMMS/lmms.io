@@ -10,7 +10,18 @@ This repository contains the source for LMMS's website, live at <https://lmms.io
 
 </div>
 
-## How to test the website locally
+## Contributing
+
+1. Fork the repository [here](https://github.com/LMMS/lmms.io/fork)
+2. Clone the forked repository.
+
+```bash
+git clone https://github.com/<your-username>/lmms.io.git
+```
+
+## Development
+
+### Tokens
 
 The website requires authentication with the GitHub API for fetching GitHub Discussions posts for the `/news` endpoint, with the authentication and data fetching itself being managed by the `knplabs/github-api` dependency. A [classic GitHub PAT (personal access token)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) is needed for local testing, which should be placed in the `.env.local` file on the root of the repository with the contents:
 
@@ -24,37 +35,32 @@ GITHUB_SECRET=ghp_...
 
 The only required scope of this token is `read:discussion`, other scopes are unnecessary.
 
-### Linux
+### Setup
 
-1. Fork the repository [here](https://github.com/LMMS/lmms.io/fork)
-2. Clone the forked repository.
+#### Linux
 
-```bash
-git clone https://github.com/<your-username>/lmms.io.git
-```
+This project uses [Composer](http://getcomposer.org) for dependency management. You'll have to fetch those dependencies using Composer. For this, you must have Composer installed on your system. Install it using your distro's preferred package manager.
 
-3. Get Composer
+Install PHP 8.2 and the required components:
 
-This project uses [Composer](http://getcomposer.org) for dependency management. You'll have to fetch those dependencies using Composer. For this, you must have Composer installed on your system. For quickly installing Composer locally on *nix, run:
-
-Install PHP 8.2 and the required components.\
-These commands are for Linux. It may be different from how it is installed on other OSes.
-
+**Debian/Ubuntu-based**
 ```bash
 sudo add-apt-repository ppa:ondrej/php
 sudo apt install curl php8.2 php8.2-xml php8.2-gd php8.2-intl php-symfony
 ```
 
+**Arch/Arch-based**
 ```bash
-cd lmms.io
-curl -sS https://getcomposer.org/installer | php
+sudo pacman -S curl php php-gd composer
+sudo [yay/paru] -S symfony-cli
 ```
 
-> **Note:**
-> You need to add `php.exe` to the Windows PATH, usually located in `c:\wamp\bin\php\phpx.y.z`
-> For instructions for other OSes or for installing globally, visit Composer's [Getting Started](https://getcomposer.org/doc/00-intro.md) document.
+Then install Composer:
 
-1. Fetch dependencies using Composer.
+**Universal**
+```bash
+curl -sS https://getcomposer.org/installer | php
+```
 
 After downloading Composer locally using the instructions above, fetch the dependencies by running the command below.
 
@@ -64,7 +70,11 @@ php composer.phar install
 
 You'll have to run this command every time the dependencies in `composer.json` change.
 
-### Windows
+#### Windows
+
+> [!NOTE]
+> You need to add `php.exe` to the Windows PATH, usually located in `c:\wamp\bin\php\phpx.y.z`
+> For instructions for other OSes or for installing globally, visit Composer's [Getting Started](https://getcomposer.org/doc/00-intro.md) document.
 
 A convenient setup script is provided in `dev/windows/setup.ps1`. You just need to provide the path of where you've installed PHP, and it will setup PHP, install Composer, and install the project's dependencies on its own.
 
@@ -83,9 +93,9 @@ If you skipped automatic `.ini` validation or modification, there are some chang
 
 Not only does this allow the automatic script to execute, but also enable the local development server to function at all.
 
-### macOS
+#### macOS
 
-> **Note**:
+> [!NOTE]
 > For macOS, some dependencies must be [installed manually](https://superuser.com/a/1359317/443147).
 
 1. Start the local server.
