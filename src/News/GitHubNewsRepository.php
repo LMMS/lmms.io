@@ -18,6 +18,11 @@ final class GitHubNewsRepository implements NewsRepository
 		);
 	}
 
+	public function findLatest(): ?NewsEntry
+	{
+		return $this->findAll()[0] ?? null;
+	}
+
 	public function findOneByDate(string $date): ?NewsEntry
 	{
 		foreach ($this->findAll() as $entry) {
@@ -26,6 +31,20 @@ final class GitHubNewsRepository implements NewsRepository
 			}
 		}
 		return null;
+	}
+
+	public function findNeighbors(string $date): array
+	{
+		$entries = $this->findAll();
+		foreach ($entries as $i => $entry) {
+			if ($entry->slug() === $date) {
+				return [
+					'prev' => $entries[$i - 1] ?? null,
+					'next' => $entries[$i + 1] ?? null,
+				];
+			}
+		}
+		return ['prev' => null, 'next' => null];
 	}
 
 	private function toEntry(array $node): NewsEntry
