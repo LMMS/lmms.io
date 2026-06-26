@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ExceptionController extends AbstractController
 {
-    public function showError(Request $request, FlattenException $exception, DebugLoggerInterface $logger = null)
+    public function showError(Request $request, FlattenException $exception, ?DebugLoggerInterface $logger = null)
     {
         $code = $exception->getStatusCode();
         return new Response($this->renderView('errorpage.twig', [
