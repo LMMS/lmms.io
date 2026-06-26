@@ -15,7 +15,7 @@ class NewsController extends AbstractController
             $latest = $news->findLatest();
         } catch (\Exception $e) {
             error_log($e);
-            return $this->render('news/error.twig');
+            $latest = null;
         }
 
         if ($latest === null) {
