@@ -1,0 +1,37 @@
+{% extends 'base.twig' %}
+
+{% import 'macros.twig' as macros %}
+
+{% block content %}
+{{ macros.jumbo('LMMS Sharing Platform'|trans, 'Share your work with the LMMS community.'|trans) }}
+<div class="container theme-showcase main-div" role="main">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-custom">
+                <div class="panel-heading"><h3 class="panel-title">Login</h3></div>
+                <div class="panel-body">
+                    {% if error %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ error.messageKey|trans(error.messageData, 'security') }}
+                        </div>
+                    {% endif %}
+                    <form action="{{ path('lsp_login') }}" method="post">
+                        <div class="form-group">
+                            <input type="text" id="_username" name="_username" class="form-control"
+                                   value="{{ last_username }}" placeholder="Username" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="_password" name="_password"
+                                   class="form-control" placeholder="Password">
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        <button type="submit" class="btn btn-primary">
+                            Login
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

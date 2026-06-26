@@ -3,12 +3,12 @@
 {% import 'lsp/macros.twig' as macros %}
 
 {% macro is_sort_active(column) %}
-    {{ app.request.query['sort'] == column ? 'active' : '' }}
+    {{ app.request.query.get('sort') == column ? 'active' : '' }}
 {% endmacro %}
 
 {% macro sort_order(column) %}
-    {% if app.request.query['sort'] == column %}
-        {% if app.request.query['order'] == 'asc' %}
+    {% if app.request.query.get('sort') == column %}
+        {% if app.request.query.get('order') == 'asc' %}
             (<span class="fas fa-long-arrow-alt-up"></span>)
         {% else %}
             (<span class="fas fa-long-arrow-alt-down"></span>)
@@ -18,8 +18,8 @@
 
 {% macro sort_url(column) %}
     {% set queries = app.request.query %}
-    {% if app.request.query['sort'] == column %}
-        {% if app.request.query['order'] == 'asc' %}
+    {% if app.request.query.get('sort') == column %}
+        {% if app.request.query.get('order') == 'asc' %}
             {% set queries = queries|merge({'order': ''}) %}
         {% else %}
             {% set queries = queries|merge({'order': 'asc'}) %}
@@ -59,7 +59,7 @@
     </table>
     {% if count > 25 %}
     {% set pages = count / 25.0 %}
-    {% set current_page = app.request.query['page'] + 1 %}
+    {% set current_page = app.request.query.get('page', 0) + 1 %}
     <div class="text-center">
         <div class="lsp-pagination center">
             <ul class="pagination">

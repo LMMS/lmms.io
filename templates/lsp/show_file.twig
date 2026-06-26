@@ -26,10 +26,10 @@
             {{macros.make_infobar(rs, true)}}
             <tr><td><strong>Name:</strong>&nbsp;{{rs['filename']}}
             {% if rs['thumb'] %}
-                <br><br><a href="/lsp/{{rs['download']}}"><img class="thumbnail" src="{{rs['thumb']}}" alt=""></a>
+                <br><br><a href="{{ path('lsp_download', {id: rs['id']}) }}"><img class="thumbnail" src="{{rs['thumb']}}" alt=""></a>
             {% endif %}
             </td><td class="lsp-file-info">
-            <a href="/lsp/{{rs['download']}}" id="downloadbtn" class="lsp-dl-btn btn btn-primary">
+            <a href="{{ path('lsp_download', {id: rs['id']}) }}" id="downloadbtn" class="lsp-dl-btn btn btn-primary">
             <span class="fas fa-download lsp-download"></span>&nbsp;Download</a>
             </td></tr><tr><td colspan="2"><div class="well"><strong>Description:</strong><p id="desc">
             {% if rs['description'] %}
@@ -43,7 +43,7 @@
             {# Toolbar #}
                 {% if username %}
                 <li>
-                    <a class="pull-left" href="/lsp/?comment=add&amp;file={{rs['id']}}">
+                    <a class="pull-left" href="/lsp/comment/{{rs['id']}}">
                 {% else %}
                 <li class="disabled">
                     <a class="pull-left" href="#" title="Login to comment">
@@ -56,8 +56,8 @@
                 {% else %}
                     {% set button_class = "disabled" %}
                 {% endif %}
-                <li class="{{button_class}}"><a class="pull-left" href="/lsp/?content=update&amp;file={{rs['id']}}"><span class="fas fa-pencil-alt"></span>&nbsp;Edit</a></li>
-                <li class="{{button_class}}"><a class="pull-left" href="/lsp/?content=delete&amp;file={{rs['id']}}"><span class="fas fa-trash"></span>&nbsp;Delete</a></li>
+                <li class="{{button_class}}"><a class="pull-left" href="/lsp/edit/{{rs['id']}}"><span class="fas fa-pencil-alt"></span>&nbsp;Edit</a></li>
+                <li class="{{button_class}}"><a class="pull-left" href="/lsp/delete/{{rs['id']}}"><span class="fas fa-trash"></span>&nbsp;Delete</a></li>
                 {% if username and username != rs['login'] %}
                     {% set rate_disabled = "0" %}
                 {% else %}
@@ -65,7 +65,7 @@
                 {% endif %}
                 <li>
                     <a class="clearfix">
-                        <input name="rate" type="hidden" id="rating" class="rating" value="{{rs['session_rating']}}" data-disabled="{{rate_disabled}}" data-action-url="/lsp/?action=show&amp;file={{rs['id']}}&amp;rate=" data-empty-star='<i class="far fa-star lsp-star"></i>' data-filled-star='<i class="fas fa-star lsp-star"></i>' data-show-clear="0" data-min="0" data-max="5" data-step="1" data-size="xs"></input>
+                        <input name="rate" type="hidden" id="rating" class="rating" value="{{rs['session_rating']}}" data-disabled="{{rate_disabled}}" data-action-url="/lsp/rate/{{rs['id']}}/" data-empty-star='<i class="far fa-star lsp-star"></i>' data-filled-star='<i class="fas fa-star lsp-star"></i>' data-show-clear="0" data-min="0" data-max="5" data-step="1" data-size="xs"></input>
                     </a>
                 </li>
             </div>

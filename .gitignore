@@ -8,11 +8,20 @@
 composer.phar
 /**/*.mo
 
+# IDEs
+/.idea
+
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
 /.env.*.local
 /public/bundles/
 /var/
+/config/reference.php
 /vendor/
 ###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+/.phpunit.cache/
+###< phpunit/phpunit ###
