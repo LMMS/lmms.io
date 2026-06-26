@@ -12,16 +12,16 @@ class NewsController extends AbstractController
 	{
 		try {
 			$items = $this->getItems($graphql);
-			if (empty($items)) {
-				return $this->render('news/show.twig', [
-					'item' => null, 'date' => null, 'prev' => null, 'next' => null,
-				]);
-			}
-			return new RedirectResponse($this->generateUrl('news_show', ['date' => $items[0]['date']]), 302);
 		} catch (\Exception $e) {
 			error_log($e);
 			return $this->render('news/error.twig');
 		}
+
+		if (empty($items)) {
+			return new RedirectResponse('https://github.com/LMMS/lmms/discussions/categories/announcements', 302);
+		}
+
+		return new RedirectResponse($this->generateUrl('news_show', ['date' => $items[0]['date']]), 302);
 	}
 
 	public function show(GraphQl $graphql, string $date): Response

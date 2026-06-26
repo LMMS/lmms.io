@@ -8,11 +8,7 @@
 
 {{ macros.jumbo('News'|trans,'LMMS announcements mirrored from GitHub Discussions'|trans) }}
 <div class="container">
-	{% if item %}
-		{{ item|raw }}
-	{% else %}
-		<p>Monthly report not found. They are available on <a href="https://github.com/LMMS/lmms/discussions/categories/announcements">GitHub discussions</a>.</p>
-	{% endif %}
+	{{ item|raw }}
 
 	{% if prev or next %}
 		<nav aria-label="{{ 'News navigation'|trans }}">
