@@ -5,21 +5,21 @@ require_once('../feed/json_common.php');
 /*
  * Prevent PHP warnings by first checking to see if a variable is set, or returns null
  */
-function GET($var, $default_val = null) {
+function GET($var, $default_val = '') {
 	if (!GET_EMPTY($var)) {
 		return htmlentities($_GET[$var]);
 	}
 	return htmlentities($default_val);
 }
 
-function SESSION($var = 'remote_user', $default_val = null) {
+function SESSION($var = 'remote_user', $default_val = '') {
 	if (!SESSION_EMPTY($var)) {
 		return htmlentities($_SESSION[$var]);
 	}
 	return htmlentities($default_val);
 }
 
-function POST($var, $default_val = null) {
+function POST($var, $default_val = '') {
 	if (!POST_EMPTY($var)) {
 		return htmlentities($_POST[$var]);
 	}
@@ -254,7 +254,7 @@ function login() {
 /*
  * Attempts to build a file hyperlink from the GET('file') value
  */
-function get_file_url(string $file_id = null): string {
+function get_file_url(?string $file_id = null): string {
 	global $LSP_URL;
 	$url = $LSP_URL . '?action=show&file=' . (isset($file_id) ? $file_id : GET('file'));
 	$name = get_file_name((isset($file_id) ? $file_id : GET('file')));
