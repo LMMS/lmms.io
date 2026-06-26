@@ -17,15 +17,4 @@ final class NewsEntry
     {
         return $this->date->format('Y-m-d');
     }
-
-    public function bodyHtmlWithAnchor(): string
-    {
-        $slug = $this->slug();
-        return preg_replace(
-            '/<h1([^>]*)>(.*?)<\/h1>/',
-            '<h1$1><a href="#' . $slug . '" id="' . $slug . '">$2</a></h1>',
-            $this->bodyHtml,
-            1,
-        );
-    }
 }
