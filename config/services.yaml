@@ -20,6 +20,8 @@ services:
     App\:
         resource: '../src/'
 
+    App\News\NewsRepository: '@App\News\GitHubNewsRepository'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
     LMMS\:
