@@ -3,24 +3,56 @@ namespace App\Controller;
 
 use LMMS\GraphQl;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 class NewsController extends AbstractController
 {
-	public function page(GraphQl $graphql): Response
+	public function latest(GraphQl $graphql): Response
 	{
 		try {
-			return $this->render('news/index.twig', [ 'news' => array_values($this->getHtml($graphql)) ]);
+			$items = $this->getItems($graphql);
+			if (empty($items)) {
+				return $this->render('news/show.twig', [
+					'item' => null, 'date' => null, 'prev' => null, 'next' => null,
+				]);
+			}
+			return new RedirectResponse($this->generateUrl('news_show', ['date' => $items[0]['date']]), 302);
 		} catch (\Exception $e) {
 			error_log($e);
 			return $this->render('news/error.twig');
 		}
 	}
 
-	private function getHtml(GraphQl $graphql): array
+	public function show(GraphQl $graphql, string $date): Response
+	{
+		try {
+			$items = $this->getItems($graphql);
+		} catch (\Exception $e) {
+			error_log($e);
+			return $this->render('news/error.twig');
+		}
+
+		$dates = array_column($items, 'date');
+		$index = array_search($date, $dates, true);
+
+		if ($index === false) {
+			throw $this->createNotFoundException();
+		}
+
+		return $this->render('news/show.twig', [
+			'item' => $items[$index]['html'],
+			'title' => $items[$index]['title'],
+			'date' => $date,
+			'prev' => $index > 0 ? $items[$index - 1]['date'] : null,
+			'next' => $index < count($items) - 1 ? $items[$index + 1]['date'] : null,
+		]);
+	}
+
+	private function getItems(GraphQl $graphql): array
 	{
 		$results = $graphql->executeQuery($this->getQuery());
-		$html = array();
+		$items = array();
 
 		foreach ($results['data']['repository']['discussions']['edges'] as $result) {
 			$url = $result['node']['url'];
@@ -28,29 +60,22 @@ class NewsController extends AbstractController
 			$username = $result['node']['author']['login'];
 			$body = $result['node']['bodyHTML'];
 
-			# Create link to Discussions thread
 			$ts_formatted = $timestamp->format("F j, Y, g:i a");
 			$ts_linked = "<a href='$url'>$ts_formatted</a>";
 
-			# Create page anchor
 			$hash = $timestamp->format('Y-m-d');
 			$pattern = '/<h1([^>]*)>(.*?)<\/h1>/';
+			$title = preg_match($pattern, $body, $m) ? trim(html_entity_decode(strip_tags($m[2]))) : $ts_formatted;
 			$anchor = "<a href='#$hash' id='$hash'>";
 			$anchored = preg_replace($pattern, '<h1$1>' . $anchor . '$2</a></h1>', $body, 1);
 
-			# Append timestamped footer with Discussions link
 			$anchored .= "<small class='text-muted'>Published $ts_linked by <a href='//github.com/$username'>@$username</a></small>";
-
-			# Separate each post into their own <article>s
 			$anchored = "<article lang='en' class='news-post' aria-labelledby='$hash'>$anchored</article>";
-			array_push($html, $anchored);
+
+			$items[] = ['date' => $hash, 'html' => $anchored, 'title' => $title];
 		}
 
-		if(empty($html)) {
-			array_push($html, "Monthly report not found. They are available on <a href='https://github.com/$this->owner/$this->repo/discussions/categories/announcements>GitHub discussions'</a>");
-		}
-
-		return $html;
+		return $items;
 	}
 
 	private function getQuery(int $limit = 100): string

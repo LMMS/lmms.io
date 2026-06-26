@@ -1,0 +1,34 @@
+{% extends 'base.twig' %}
+
+{% import 'macros.twig' as macros %}
+
+{% block title %}{{ title|default('LMMS | News'|trans) }}{% endblock %}
+
+{% block content %}
+
+{{ macros.jumbo('News'|trans,'LMMS announcements mirrored from GitHub Discussions'|trans) }}
+<div class="container">
+	{% if item %}
+		{{ item|raw }}
+	{% else %}
+		<p>Monthly report not found. They are available on <a href="https://github.com/LMMS/lmms/discussions/categories/announcements">GitHub discussions</a>.</p>
+	{% endif %}
+
+	{% if prev or next %}
+		<nav aria-label="{{ 'News navigation'|trans }}">
+			<ul class="pager">
+				<li class="previous {{ not prev ? 'disabled' : '' }}">
+					<a href="{{ prev ? path('news_show', {'date': prev}) : '#' }}" rel="prev">&larr; {{ 'Newer'|trans }}</a>
+				</li>
+				<li class="next {{ not next ? 'disabled' : '' }}">
+					<a href="{{ next ? path('news_show', {'date': next}) : '#' }}" rel="next">{{ 'Older'|trans }} &rarr;</a>
+				</li>
+			</ul>
+		</nav>
+	{% endif %}
+</div>
+
+{% endblock %}
+
+{% block foot %}
+{% endblock %}
