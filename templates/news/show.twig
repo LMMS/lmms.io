@@ -1,0 +1,33 @@
+{% extends 'base.twig' %}
+
+{% import 'macros.twig' as macros %}
+
+{% block title %}{{ entry.title }}{% endblock %}
+
+{% block content %}
+
+{{ macros.jumbo('News'|trans, 'LMMS announcements mirrored from GitHub Discussions'|trans) }}
+<div class="container">
+    <article lang="en" class="news-post">
+        {{ entry.bodyHtml|raw }}
+        <small class="text-muted">
+            Published <a href="{{ entry.url }}">{{ entry.date|date('F j, Y, g:i a') }}</a>
+            by <a href="https://github.com/{{ entry.author }}">@{{ entry.author }}</a>
+        </small>
+    </article>
+
+    {% if prev or next %}
+        <nav aria-label="{{ 'News navigation'|trans }}">
+            <ul class="pager">
+                <li class="previous {{ not prev ? 'disabled' : '' }}">
+                    <a href="{{ prev ? path('news_show', {'date': prev}) : '#' }}" rel="prev">&larr; {{ 'Newer'|trans }}</a>
+                </li>
+                <li class="next {{ not next ? 'disabled' : '' }}">
+                    <a href="{{ next ? path('news_show', {'date': next}) : '#' }}" rel="next">{{ 'Older'|trans }} &rarr;</a>
+                </li>
+            </ul>
+        </nav>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -39,7 +39,13 @@ download_artifact:
 
 news:
    path: /news
-   controller: App\Controller\NewsController::page
+   controller: App\Controller\NewsController::latest
+
+news_show:
+   path: /news/{date}
+   controller: App\Controller\NewsController::show
+   requirements:
+      date: '\d{4}-\d{2}-\d{2}'
 
 portal_pages:
    path: /{page}
