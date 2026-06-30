@@ -1,0 +1,52 @@
+security:
+    password_hashers:
+        App\Security\User:
+            algorithm: bcrypt
+            migrate_from:
+                - sha1_lsp
+
+        sha1_lsp:
+            algorithm: sha1
+            encode_as_base64: false
+            iterations: 1
+
+    providers:
+        lsp_users:
+            id: App\Security\UserProvider
+
+    firewalls:
+        dev:
+            pattern: ^/(_profiler|_wdt|assets|build)/
+            security: false
+        main:
+            lazy: true
+            provider: lsp_users
+            form_login:
+                login_path: lsp_login
+                check_path: lsp_login
+                default_target_path: /lsp/
+                enable_csrf: true
+            logout:
+                path: lsp_logout
+                target: /lsp/
+            entry_point: form_login
+            login_throttling:
+                max_attempts: 5
+                interval: '15 minutes'
+
+    access_control: []
+
+when@test:
+    security:
+        password_hashers:
+            App\Security\User:
+                algorithm: auto
+                cost: 4
+                time_cost: 3
+                memory_cost: 10
+                migrate_from:
+                    - sha1_lsp
+
+        firewalls:
+            main:
+                http_basic: ~

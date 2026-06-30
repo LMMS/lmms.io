@@ -1,0 +1,19 @@
+services:
+  db:
+    image: mariadb:11
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: somedatabase
+      MARIADB_USER: someuser
+      MARIADB_PASSWORD: P@SSW0RD
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./dev/sql:/docker-entrypoint-initdb.d:ro
+      - lsp-db:/var/lib/mysql
+
+volumes:
+  lsp-db:
