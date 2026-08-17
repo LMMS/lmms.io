@@ -124,7 +124,15 @@ class Platform {
 		if($os === Os::MacOS) {
 			if (strpos($filename, '.dmg') !== false) {
 				$parts = explode('-', explode('.dmg', $filename)[0]);
-				return filter_var(array_pop($parts), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+				$end = array_pop($parts);
+				// Legacy downloads targeted multiple macOS versions wheres newer downloads target a single macOS
+				// versions (multiple architectures).  Hide macOS version unless the filename ends in the old
+				// "macX.X.dmg" format
+				//  - old: lmms-1.2.2-mac10.13.dmg
+				//  - new: lmms-1.3.0-mac15.7-arm64.dmg
+				if(strpos($end, 'mac') !== false) {
+				    return filter_var($end, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+				}
 			}
 		}
 		return '';
