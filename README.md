@@ -2,14 +2,6 @@
 
 This repository contains the source for LMMS's website, live at <https://lmms.io>.
 
-<div align="center">
-
-*lmms.io runs on DigitalOcean. Click the button below for more information, or access this link: https://m.do.co/c/c77894a32e56. Both will utilize our referral code.*
-
-[![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=c77894a32e56&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
-
-</div>
-
 ## Contributing
 
 1. Fork the repository [here](https://github.com/LMMS/lmms.io/fork)
