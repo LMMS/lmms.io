@@ -608,11 +608,34 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 	}
 	
 	$start = intval(GET('page', 0) * $PAGE_SIZE);
-	
+
+	// Build dynamic where clauses
+	$where_clauses = array('1=1');
+	$params = array();
+
+	if (strlen($user_id)) {
+		$where_clauses[] = 'files.user_id = :user_id';
+		$params[':user_id'] = $user_id;
+	}
+	if (strlen($category)) {
+		$where_clauses[] = 'files.category = (SELECT id FROM categories WHERE NAME = :category)';
+		$params[':category'] = $category;
+	}
+	if (strlen($subcategory)) {
+		$where_clauses[] = 'files.subcategory IN (SELECT id FROM subcategories WHERE NAME = :subcategory)';
+		$params[':subcategory'] = htmlspecialchars_decode($subcategory);
+	}
+	if (strlen($search)) {
+		$where_clauses[] = "(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search $additional_items)";
+		$params[':search'] = "%{$search}%";
+	}
+
+	$where_sql = implode(' AND ', $where_clauses);
+
 	$dbh = &get_db();
 	$ret = array();
 	$stmt = $dbh->prepare(
-		'SELECT files.id, licenses.name AS license, size,realname, filename,
+		'SELECT files.id, licenses.name AS license, size, realname, filename,
 			users.login, categories.name AS category, subcategories.name AS subcategory,
 			files.downloads*files.downloads/(UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(files.insert_date)) AS downloads_per_day,
 			files.downloads AS downloads, insert_date, update_date, description,
@@ -624,24 +647,12 @@ function get_results($category, $subcategory, $sort = '', $search = '', $user_na
 		INNER JOIN subcategories ON subcategories.id=files.subcategory
 		INNER JOIN users ON users.id=files.user_id
 		INNER JOIN licenses ON licenses.id=files.license_id
-		WHERE ' .
-		(strlen($user_id) ? 'files.user_id=:user_id' : 'true') . ' AND ' .
-		(strlen($category) ? 'files.category=(SELECT id FROM categories WHERE NAME=:category)' : 'true') . ' AND ' .
-		(strlen($subcategory) ? 'files.subcategory IN (SELECT id FROM subcategories WHERE NAME=:subcategory)' : 'true') . ' AND ' .
-		(strlen($search) ? "(files.filename LIKE :search OR users.login LIKE :search OR users.realname LIKE :search $additional_items)" : 'true') . ' ' .
+		WHERE ' . $where_sql . ' ' .
 		'ORDER BY ' . $order_by . " $order " .
 		"LIMIT $start, $PAGE_SIZE"
 	);
-	
-	if (strlen($user_name)) { $stmt->bindParam(':user_id', $user_id); }
-	if (strlen($category)) { $stmt->bindParam(':category', $category); }
-	if (strlen($subcategory)) {
-		$subcategory = htmlspecialchars_decode($subcategory);
-		$stmt->bindParam(':subcategory', $subcategory);
-	}
-	if (strlen($search)) { $search = "%{$search}%"; $stmt->bindParam(':search', $search); }
-	
-	if ($stmt->execute()) {
+
+	if ($stmt->execute($params)) {
 		while ($object = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			$ret[] = $object;
 		}
