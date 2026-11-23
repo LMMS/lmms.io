@@ -206,14 +206,66 @@ form .input-group .input-group-addon {
 }
 
 /* Star ratings */
+/* Same padding as the .navbar-nav links it sits next to */
 .lsp-starrating {
-  padding: 15px 0px 15px 0px;
-  unicode-bidi: bidi-override;
-  direction: rtl;
+  padding: 10px 15px;
 }
 
-.lsp-starrating>a:hover {
+@media (min-width: 768px) {
+  .lsp-starrating {
+    padding: 15px;
+  }
+}
+
+.lsp-starrating .label {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 0.25em 0.4em;
+  font-size: 9px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.lsp-stars {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+.lsp-stars>* {
+  padding: 0 2px;
+  color: #aaa;
+}
+
+.lsp-stars>a:hover {
   text-decoration: none;
+}
+
+.lsp-stars.disabled {
+  cursor: not-allowed;
+}
+
+.lsp-stars .fas {
+  color: #fde16d;
+  -webkit-text-stroke: 1px #777;
+  text-shadow: 1px 1px #999;
+}
+
+/* While hovering, preview the rating under the cursor instead of the saved one */
+.lsp-stars:not(.disabled):hover>* .fa-star {
+  font-weight: 400;
+  color: #aaa;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+
+.lsp-stars:not(.disabled)>a:hover .fa-star,
+.lsp-stars:not(.disabled)>a:hover~a .fa-star {
+  font-weight: 900;
+  color: #fde16d;
+  -webkit-text-stroke: 1px #777;
+  text-shadow: 1px 1px #999;
 }
 
 /* Fix for forum back-to-top button */

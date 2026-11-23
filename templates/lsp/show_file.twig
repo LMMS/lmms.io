@@ -3,10 +3,8 @@
 {% import 'lsp/macros.twig' as macros %}
 
 {% block main_content %}
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/js/star-rating.min.js" type="text/javascript"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.9/linkify.min.js" integrity="sha256-b8aRDYEOoOLGpyaXMI3N2nWUbjSeQ2QxzKjmPnCa4yA=" crossorigin="anonymous"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.9/linkify-jquery.min.js" integrity="sha256-F70q7AGz3CYOo2UIkomPSg5xAnO52dJ646kytZ7lSEQ=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/css/star-rating.min.css" />
     {% for rs in rows %}
         {{macros.make_title([rs['category'], rs['subcategory'], rs['filename']|escape])}}
         <table class="table table-striped">
@@ -58,15 +56,22 @@
                 {% endif %}
                 <li class="{{button_class}}"><a class="pull-left" href="/lsp/edit/{{rs['id']}}"><span class="fas fa-pencil-alt"></span>&nbsp;Edit</a></li>
                 <li class="{{button_class}}"><a class="pull-left" href="/lsp/delete/{{rs['id']}}"><span class="fas fa-trash"></span>&nbsp;Delete</a></li>
-                {% if username and username != rs['login'] %}
-                    {% set rate_disabled = "0" %}
-                {% else %}
-                    {% set rate_disabled = "1" %}
-                {% endif %}
-                <li>
-                    <a class="clearfix">
-                        <input name="rate" type="hidden" id="rating" class="rating" value="{{rs['session_rating']}}" data-disabled="{{rate_disabled}}" data-action-url="/lsp/rate/{{rs['id']}}/" data-empty-star='<i class="far fa-star lsp-star"></i>' data-filled-star='<i class="fas fa-star lsp-star"></i>' data-show-clear="0" data-min="0" data-max="5" data-step="1" data-size="xs"></input>
-                    </a>
+                {% set can_rate = username and username != rs['login'] %}
+                {% set rating = rs['session_rating'] %}
+                {% set captions = ['Not Rated', 'One Star', 'Two Stars', 'Three Stars', 'Four Stars', 'Five Stars'] %}
+                {% set caption_classes = ['default', 'danger', 'warning', 'info', 'primary', 'success'] %}
+                <li class="lsp-starrating">
+                    <span class="lsp-stars{{ can_rate ? '' : ' disabled' }}">
+                    {# Reversed so that hovering a star can highlight its preceding siblings via ~ #}
+                    {% for i in 5..1 %}
+                        {% if can_rate %}
+                            <a href="{{ path('lsp_rate', {id: rs['id'], stars: i}) }}" title="{{ captions[i] }}" rel="nofollow"><span class="{{ i <= rating ? 'fas' : 'far' }} fa-star"></span></a>
+                        {% else %}
+                            <span><span class="{{ i <= rating ? 'fas' : 'far' }} fa-star"></span></span>
+                        {% endif %}
+                    {% endfor %}
+                    </span>
+                    <span class="label label-{{ caption_classes[rating] }}">{{ captions[rating] }}</span>
                 </li>
             </div>
             <strong>Comments:</strong>
@@ -147,10 +152,6 @@
         }
     }
     $(document).ready(function () {
-        $('#rating').on('rating:change', function(event, value, caption) {
-            var page = event.target.getAttribute('data-action-url') + value;
-            window.location.href = page;
-        });
         $('#desc').linkify({className: 'linkified'});
         var links = $('.linkified');
         for (var i = 0; i < links.length; i++) {
