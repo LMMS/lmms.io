@@ -5,11 +5,12 @@
   var didScroll;
   var lastScrollTop = 0;
   var delta = 5;
-  var navbarHeight = $('nav').outerHeight();
+  var nav = document.querySelector('nav');
+  var navbarHeight = nav.offsetHeight;
 
-  $(window).scroll(function(event) {
+  window.addEventListener('scroll', function() {
       didScroll = true;
-  });
+  }, { passive: true });
 
   setInterval(function() {
       if (didScroll) {
@@ -19,7 +20,7 @@
   }, 100);
 
   function hasScrolled() {
-      var st = $(this).scrollTop();
+      var st = window.scrollY;
 
       // Make sure they scroll more than delta
       if (Math.abs(lastScrollTop - st) <= delta)
@@ -29,16 +30,18 @@
       // This is necessary so you never see what is "behind" the navbar.
       if (st > lastScrollTop && st > navbarHeight) {
           // Scroll Down
-          $('nav').removeClass('nav-down').addClass('nav-up');
+          nav.classList.remove('nav-down');
+          nav.classList.add('nav-up');
       } else {
           // Scroll Up
-          if (st + $(window).height() < $(document).height()) {
-              $('nav').removeClass('nav-up').addClass('nav-down');
+          if (st + window.innerHeight < document.documentElement.scrollHeight) {
+              nav.classList.remove('nav-up');
+              nav.classList.add('nav-down');
           }
       }
       lastScrollTop = st;
   }
-}).call(this);
+})();
 // close out the open navbar in mobile mode when we click outside of it
 (function() {
   $('.navbar-collapse.collapse').on('shown.bs.collapse', function () {

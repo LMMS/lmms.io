@@ -124,14 +124,16 @@
         } else if (hostname.includes('soundcloud.com')) {
             frame = null; // don't create element this early
             // Fetch Soundcloud embed code
-            $.getJSON('https://soundcloud.com/oembed', {format: 'json', url: url}, function(data) {
-                if (data.html) {
-                    var frame = document.createElement('div');
-                    frame.innerHTML = data.html;
-                    frame.setAttribute('height', '160');
-                    element.parentNode.replaceChild(frame, element);
-                }
-            }, 'json');
+            fetch('https://soundcloud.com/oembed?' + new URLSearchParams({format: 'json', url: url}))
+                .then(function(response) { return response.json(); })
+                .then(function(data) {
+                    if (data.html) {
+                        var frame = document.createElement('div');
+                        frame.innerHTML = data.html;
+                        frame.setAttribute('height', '160');
+                        element.parentNode.replaceChild(frame, element);
+                    }
+                });
         } else if (hostname.includes('clyp.it')) {
             frame.setAttribute('src', 'https://clyp.it' + element.pathname + '/widget');
         } else {

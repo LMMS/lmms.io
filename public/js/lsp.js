@@ -40,17 +40,16 @@ $('.collapse')
         collapse_in('#caret');
     });
 
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
     /*
      * Redirect page if alert contains a data-redirect tag
      */
-    $('.alert').each(function () {
-        var o = $(this);
-        var counter = $('.redirect-counter:first');
-        var timeout = counter.length ? parseInt(counter.text()) * 1000 : 5000;
-        if (o.data('redirect').length) {
+    document.querySelectorAll('.alert').forEach(function (alert) {
+        var counter = document.querySelector('.redirect-counter');
+        var timeout = counter ? parseInt(counter.textContent) * 1000 : 5000;
+        if (alert.dataset.redirect) {
             window.setTimeout(function () {
-                window.location = o.data('redirect');
+                window.location = alert.dataset.redirect;
             }, timeout);
             countDown(false);
         }
@@ -63,12 +62,12 @@ $(document).ready(function () {
 });
 
 function countDown(decrement) {
-    var counter = $('.redirect-counter:first');
-    if (counter.length) {
+    var counter = document.querySelector('.redirect-counter');
+    if (counter) {
         if (decrement) {
-            counter.text(parseInt(counter.text()) - 1);
+            counter.textContent = parseInt(counter.textContent) - 1;
         }
-        if (counter.text() == '-1') {
+        if (counter.textContent == '-1') {
             counter.remove();
             return;
         } else {
@@ -81,41 +80,36 @@ function countDown(decrement) {
 }
 
 function commentFocus() {
-    var comment = $('#comment');
-    if (comment.length) {
+    var comment = document.getElementById('comment');
+    if (comment) {
         comment.focus();
     }
 }
 
 function loginFocus() {
-    javascript: $('#login-collapse').addClass('in');
-    $('#login').focus();
+    document.getElementById('login-collapse').classList.add('in');
+    document.getElementById('login').focus();
     blink('#login');
 }
 
-function blink(item_id) {
-    $(item_id)
-        .fadeIn(100)
-        .fadeOut(100)
-        .fadeIn(100)
-        .fadeOut(100)
-        .fadeIn(100)
-        .fadeOut(100)
-        .fadeIn(100);
+function blink(selector) {
+    document.querySelector(selector).animate([{ opacity: 1 }, { opacity: 0 }], {
+        duration: 100,
+        iterations: 6,
+        direction: 'alternate',
+    });
 }
 
 /*
  * Bootstrap file button listener
  */
-$(document).on('change', '.btn-file :file', function () {
-    var input = $(this),
-        label = input
-            .val()
-            .replace(/\\/g, '/')
-            .replace(/.*\//, '');
-    $('#file-selected').text(label ? label : 'No file selected').html();
-    $('#file-selected')
-        .removeClass()
-        .addClass(label ? 'text-primary' : 'text-danger');
+document.addEventListener('change', function (event) {
+    if (!event.target.matches('.btn-file input[type=file]')) {
+        return;
+    }
+    var label = event.target.value.replace(/\\/g, '/').replace(/.*\//, '');
+    var selected = document.getElementById('file-selected');
+    selected.textContent = label ? label : 'No file selected';
+    selected.className = label ? 'text-primary' : 'text-danger';
     blink('#file-selected');
 });

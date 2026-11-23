@@ -96,8 +96,12 @@
 
 {% block foot %}
 <script>
-$('.bandcamp-iframe').on("load", function() {
-	$('.wait-div').hide();
+document.querySelectorAll('.bandcamp-iframe').forEach(function(iframe) {
+	iframe.addEventListener('load', function() {
+		document.querySelectorAll('.wait-div').forEach(function(div) {
+			div.hidden = true;
+		});
+	});
 });
 </script>
 {% endblock %}
