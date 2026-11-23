@@ -31,7 +31,6 @@
 {% endmacro %}
 
 {% block content %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 {{ macros.jumbo('Download LMMS'|trans,
 'Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:'|trans) }}
 <div class="text-center container">
@@ -72,6 +71,9 @@
 	'<br><br><pre class="code-block">sudo xattr -d -r com.apple.quarantine /Applications/LMMS.app</pre>',
 ) }}
 
+{% endblock %}
+
+{% block foot %}
 <script>
 function showOS(os) {
 	location.hash = os;
@@ -146,8 +148,4 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 })
 
 </script>
-
-{% endblock %}
-
-{% block foot %}
 {% endblock %}
