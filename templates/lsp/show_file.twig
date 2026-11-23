@@ -3,8 +3,8 @@
 {% import 'lsp/macros.twig' as macros %}
 
 {% block main_content %}
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.9/linkify.min.js" integrity="sha256-b8aRDYEOoOLGpyaXMI3N2nWUbjSeQ2QxzKjmPnCa4yA=" crossorigin="anonymous"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.9/linkify-jquery.min.js" integrity="sha256-F70q7AGz3CYOo2UIkomPSg5xAnO52dJ646kytZ7lSEQ=" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/linkifyjs@4.4.0/dist/linkify.min.js" integrity="sha384-ratS1OgyDbYKZHPKvQ+McGITjqyef6xrsPVkh97mB8fEZzcqlT9VheSWLACU6x0z" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/linkify-element@4.4.0/dist/linkify-element.min.js" integrity="sha384-wEFOKx8J/xs3hA0qNiXy3R36x3aJb6DdRzHpH8N0/iAUERvHeyJowhtJVX2j0UcL" crossorigin="anonymous"></script>
     {% for rs in rows %}
         {{macros.make_title([rs['category'], rs['subcategory'], rs['filename']|escape])}}
         <table class="table table-striped">
@@ -151,9 +151,12 @@
             element.parentNode.replaceChild(frame, element);
         }
     }
-    $(document).ready(function () {
-        $('#desc').linkify({className: 'linkified'});
-        var links = $('.linkified');
+    document.addEventListener('DOMContentLoaded', function () {
+        var desc = document.getElementById('desc');
+        if (desc) {
+            linkifyElement(desc, {className: 'linkified', target: {url: '_blank'}});
+        }
+        var links = document.querySelectorAll('.linkified');
         for (var i = 0; i < links.length; i++) {
             var element = links[i];
             replace_frames(element);
