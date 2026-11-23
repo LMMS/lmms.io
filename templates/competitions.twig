@@ -552,7 +552,7 @@ $(document).ready(function(){
     $(".comp-header").click(function(){
 		var target = $(this).attr('data-target');
 		$(target).collapse('toggle');
-		$(this).children('svg').toggleClass('rotate');
+		$(this).children('.carret').toggleClass('rotate');
 		// only load the Bandcamp widget when it should be visible
 		var bc_widget = $(target).children('div');
 		var bc_iframe = $(bc_widget).children('iframe');

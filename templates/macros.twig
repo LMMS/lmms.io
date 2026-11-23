@@ -1,10 +1,10 @@
 {# Prints an FontAwesome icon #}
-{% macro icon(icon, brand = false, transform = '') %}
+{% macro icon(icon, brand = false, class = '') %}
 	{# Check if we have a brand icon, different syntax #}
 	{% if brand %}
-		<span class="fab {{ icon }}" data-fa-transform="{{ transform }}"></span>
+		<span class="fab {{ icon }} {{ class }}"></span>
 	{% else %}
-		<span class="fas {{ icon }}" data-fa-transform="{{ transform }}"></span>
+		<span class="fas {{ icon }} {{ class }}"></span>
 	{% endif %}
 {% endmacro %}
 
@@ -21,9 +21,9 @@
 {# Prints an FontAwesome icon stack with two icons and a tooltip #}
 {% macro icon_stack(icon1, brand1, icon2, brand2, parentclass, tooltip) %}
 	{% import _self as macros %}
-	<span class='fa-layers fa-fw {{ parentclass }}' data-toggle='tooltip' data-placement='top' title='{{ tooltip }}'>
-		{{ macros.icon(icon1, brand1) }}
-		{{ macros.icon(icon2, brand2, "shrink-6") }}
+	<span class='fa-stack icon-stack fa-fw {{ parentclass }}' data-toggle='tooltip' data-placement='top' title='{{ tooltip }}'>
+		{{ macros.icon(icon1, brand1, 'fa-stack-1x') }}
+		{{ macros.icon(icon2, brand2, 'fa-stack-1x icon-stack-inner') }}
 	</span>
 {% endmacro %}
 
