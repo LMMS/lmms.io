@@ -2,7 +2,7 @@
 
 namespace App\News;
 
-use LMMS\GraphQl;
+use App\GitHub\GraphQl;
 
 final class GitHubNewsRepository implements NewsRepository
 {

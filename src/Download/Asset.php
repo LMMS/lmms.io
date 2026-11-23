@@ -1,5 +1,5 @@
 <?php
-namespace LMMS;
+namespace App\Download;
 
 class Asset
 {

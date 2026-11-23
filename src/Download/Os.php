@@ -1,5 +1,5 @@
 <?php
-namespace LMMS;
+namespace App\Download;
 
 enum Os: string
 {

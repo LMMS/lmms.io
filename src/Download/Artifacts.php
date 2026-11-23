@@ -1,9 +1,8 @@
 <?php
-namespace LMMS;
+namespace App\Download;
 
 use Github\Client;
-use LMMS\HttpClientPlugin\UriRecordPlugin;
-use LMMS\Platform;
+use App\GitHub\HttpClientPlugin\UriRecordPlugin;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class Artifacts

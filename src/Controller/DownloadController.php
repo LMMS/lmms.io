@@ -1,10 +1,10 @@
 <?php
 namespace App\Controller;
 
-use LMMS\Artifacts;
-use LMMS\Asset;
-use LMMS\Os;
-use LMMS\Releases;
+use App\Download\Artifacts;
+use App\Download\Asset;
+use App\Download\Os;
+use App\Download\Releases;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 

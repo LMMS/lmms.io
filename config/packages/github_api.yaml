@@ -1,6 +1,6 @@
 services:
     Github\Client:
-        class: LMMS\GithubDownloadClient
+        class: App\GitHub\GithubDownloadClient
         arguments:
             - '@Github\HttpClient\Builder'
         calls:

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LMMS\HttpClientPlugin;
+namespace App\GitHub\HttpClientPlugin;
 
 use Http\Client\Common\Plugin;
 use Http\Promise\Promise;

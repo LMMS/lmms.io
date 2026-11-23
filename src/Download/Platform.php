@@ -1,6 +1,5 @@
 <?php
-namespace LMMS;
-use LMMS\Os;
+namespace App\Download;
 
 enum Architecture: string {
 	case Intel = "32-bit";

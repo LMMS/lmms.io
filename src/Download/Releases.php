@@ -1,8 +1,7 @@
 <?php
-namespace LMMS;
+namespace App\Download;
 
 use Github\Client;
-use LMMS\Platform;
 
 class Releases
 {

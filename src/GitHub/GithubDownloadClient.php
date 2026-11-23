@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LMMS;
+namespace App\GitHub;
 
 use Github\Client;
 use Github\HttpClient\Builder;
@@ -10,8 +10,8 @@ use Http\Client\Common\Plugin\HeaderRemovePlugin;
 use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Client\Common\Plugin\RequestMatcherPlugin;
 use Http\Message\RequestMatcher\RequestMatcher;
-use LMMS\HttpClientPlugin\MethodPlugin;
-use LMMS\HttpClientPlugin\UriRecordPlugin;
+use App\GitHub\HttpClientPlugin\MethodPlugin;
+use App\GitHub\HttpClientPlugin\UriRecordPlugin;
 
 /**
  * Extends the KNP Labs GitHub Client to provide URLs for artifact downloads,
