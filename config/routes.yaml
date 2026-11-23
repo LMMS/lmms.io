@@ -47,12 +47,90 @@ news_show:
    requirements:
       date: '\d{4}-\d{2}-\d{2}'
 
+lsp_index:
+    path: /lsp
+    controller: App\Controller\Lsp\BrowseController::index
+
+lsp_index_slash:
+    path: /lsp/
+    controller: App\Controller\Lsp\BrowseController::index
+
+# Distributed LMMS demo project LICENSES.TXT files (and years of forum
+# posts) link to /lsp/index.php?action=show&file=<id> — keep it routable.
+lsp_index_php:
+    path: /lsp/index.php
+    controller: App\Controller\Lsp\BrowseController::index
+
+lsp_settings:
+    path: /lsp/settings
+    controller: App\Controller\Lsp\AccountController::settings
+    methods: [GET, POST]
+
+lsp_register:
+    path: /lsp/register
+    controller: App\Controller\Lsp\AccountController::register
+    methods: [GET, POST]
+
+lsp_rate:
+    path: /lsp/rate/{id}/{stars}
+    controller: App\Controller\Lsp\SubmissionController::rate
+    requirements:
+        id: '\d+'
+        stars: '[1-5]'
+
+lsp_comment:
+    path: /lsp/comment/{id}
+    controller: App\Controller\Lsp\SubmissionController::addComment
+    methods: [GET, POST]
+    requirements:
+        id: '\d+'
+
+lsp_delete:
+    path: /lsp/delete/{id}
+    controller: App\Controller\Lsp\SubmissionController::deleteFile
+    methods: [GET, POST]
+    requirements:
+        id: '\d+'
+
+lsp_edit:
+    path: /lsp/edit/{id}
+    controller: App\Controller\Lsp\SubmissionController::editFile
+    methods: [GET, POST]
+    requirements:
+        id: '\d+'
+
+lsp_add:
+    path: /lsp/add
+    controller: App\Controller\Lsp\SubmissionController::addFile
+    methods: [GET, POST]
+
+lsp_download:
+    path: /lsp/download/{id}
+    controller: App\Controller\Lsp\DownloadController::download
+    requirements:
+        id: '\d+'
+
+lsp_web_resources:
+    path: /lsp/web_resources.php
+    controller: App\Controller\Lsp\WebResourcesController::webResources
+
+lsp_show:
+    path: /lsp/{id}
+    controller: App\Controller\Lsp\BrowseController::show
+    requirements:
+        id: '\d+'
+
+lsp_login:
+    path: /lsp/login
+    controller: App\Controller\SecurityController::login
+
+lsp_logout:
+    path: /lsp/logout
+
+lsp_captcha:
+    path: /lsp/captcha
+    controller: App\Controller\SecurityController::captcha
+
 portal_pages:
    path: /{page}
    controller: App\Controller\PortalController::page
-
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
