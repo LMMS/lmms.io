@@ -37,7 +37,7 @@
         "symfony/security-bundle": "7.4.*",
         "symfony/translation": "7.4.*",
         "symfony/twig-bundle": "7.4.*",
-        "symfony/ux-icons": "^3.8",
+        "symfony/ux-icons": "^2.36",
         "symfony/yaml": "7.4.*",
         "twig/extra-bundle": "^3.10",
         "twig/markdown-extra": "^3.10"
@@ -51,6 +51,9 @@
             "symfony/flex": true,
             "symfony/runtime": true,
             "php-http/discovery": true
+        },
+        "platform": {
+            "php": "8.3.0"
         }
     },
     "autoload": {

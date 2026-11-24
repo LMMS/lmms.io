@@ -17,13 +17,8 @@ ux_icons:
     ignore_not_found: false
 
 
-when@dev:
-    ux_icons:
-        iconify:
-            # Persist each on-demand icon to disk on first render, so you don't forget to commit it before deploying (like `ux:icons:lock`)
-            auto_lock: true
-
-# Icons are committed to assets/icons/, so never call the Iconify API outside of dev
+# Icons are committed to assets/icons/ (run `bin/console ux:icons:lock` after using a new one),
+# so the Iconify API is never called outside of dev
 when@test:
     ux_icons:
         iconify:
