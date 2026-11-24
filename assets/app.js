@@ -22,3 +22,18 @@ navbar.addEventListener('shown.bs.collapse', function () {
 navbar.addEventListener('hidden.bs.collapse', function () {
     document.removeEventListener('click', hideNavbar);
 });
+
+// remember the picked theme, or forget it when it matches the OS so the site follows the OS again
+document.querySelector('.theme-toggle').addEventListener('click', () => {
+    const root = document.documentElement;
+    const theme = root.dataset.bsTheme === 'dark' ? 'light' : 'dark';
+    const system = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    try {
+        if (theme === system) {
+            localStorage.removeItem('theme');
+        } else {
+            localStorage.setItem('theme', theme);
+        }
+    } catch {}
+    root.dataset.bsTheme = theme;
+});

@@ -1587,6 +1587,14 @@
         <source>Language</source>
         <target>Language</target>
       </trans-unit>
+      <trans-unit id="Nj.m1MK" resname="Dark theme">
+        <source>Dark theme</source>
+        <target>Dark theme</target>
+      </trans-unit>
+      <trans-unit id=".UoWR1T" resname="Light theme">
+        <source>Light theme</source>
+        <target>Light theme</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -77,6 +77,15 @@
   --animation-time: 150ms;
 }
 
+/* light-dark() follows the theme the head script picked, which may differ from the OS */
+:root[data-bs-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-bs-theme="dark"] {
+  color-scheme: dark;
+}
+
 /* Keep the denser 14px base size the site was designed around */
 html {
   font-size: 87.5%;
@@ -1019,6 +1028,23 @@ code {
     --bs-dropdown-bg: transparent;
     --bs-dropdown-link-hover-bg: transparent;
     --bs-dropdown-link-active-bg: transparent;
+  }
+}
+
+:root[data-bs-theme="dark"] .theme-toggle-dark,
+:root:not([data-bs-theme="dark"]) .theme-toggle-light {
+  display: none;
+}
+
+/* icon only on the full navbar */
+@media (min-width: 768px) {
+  .theme-toggle-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 }
 

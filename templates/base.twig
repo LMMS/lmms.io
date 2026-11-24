@@ -12,15 +12,25 @@
     <meta name="description" content="LMMS is a free, open source, multiplatform digital audio workstation.">
     <link rel="icon" type="image/png" href="/img/logo_sm.png">
     <script>
-        // Follow the OS color scheme for Bootstrap components
-        (function () {
-            var dark = window.matchMedia('(prefers-color-scheme: dark)');
-            var apply = function () {
-                document.documentElement.dataset.bsTheme = dark.matches ? 'dark' : 'light';
+        // Follow the OS color scheme unless the theme toggle saved a choice. Runs inline so
+        // the page never flashes the other theme.
+        {
+            const dark = matchMedia('(prefers-color-scheme: dark)');
+            const apply = () => {
+                let theme;
+                try {
+                    theme = localStorage.getItem('theme');
+                } catch {}
+                if (!['light', 'dark'].includes(theme)) {
+                    theme = dark.matches ? 'dark' : 'light';
+                }
+                document.documentElement.dataset.bsTheme = theme;
             };
             apply();
             dark.addEventListener('change', apply);
-        })();
+            // a toggle in another tab
+            addEventListener('storage', apply);
+        }
     </script>
     {% block stylesheets %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,8 +38,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;family=Orbitron:wght@500&amp;family=Titillium+Web:wght@400;600&amp;display=swap" rel="stylesheet">
     {% endblock %}
     {% block importmap %}{{ importmap('app') }}{% endblock %}
-    {# without JS the dropdown can't open, so show the list #}
-    <noscript><style>.locale-switcher .dropdown-menu { position: static; display: block; }</style></noscript>
+    {# without JS: show the language list, hide the theme toggle #}
+    <noscript><style>
+        .locale-switcher .dropdown-menu { position: static; display: block; }
+        .theme-toggle { display: none; }
+    </style></noscript>
 </head>
 
 <body role="document">
@@ -45,6 +58,7 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav">
                     {{ nav.build_navbar(uri) }}
+                    {% include 'theme_toggle.twig' %}
                 </ul>
             </div>
         </div>
