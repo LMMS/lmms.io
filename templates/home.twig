@@ -114,7 +114,7 @@
 
 <div class="text-center segment" id="home6">
 	<div class="video-bg d-none d-md-block">
-    <video loop muted playsinline preload="none" poster="vid/promo.jpg">
+    <video loop muted playsinline preload="none" data-poster="vid/promo.jpg">
         <source src="vid/promo.webm" type='video/webm; codecs="vp9"'>
         <source src="vid/promo.mp4" type="video/mp4">
     </video>
@@ -218,14 +218,18 @@ videoModal.addEventListener('hidden.bs.modal', () => {
 	iframe.removeAttribute('src');
 });
 
-// play the background video only while it is on screen (it is hidden on small screens)
+// load the background video and its poster only once it is on screen (it is hidden on small screens),
+// and play it only while it stays there
 const video = document.querySelector('#home6 video');
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
 new IntersectionObserver(([entry]) => {
-	if (entry.isIntersecting && !reduceMotion.matches) {
-		video.play().catch(() => {});
-	} else {
+	if (!entry.isIntersecting) {
 		video.pause();
+		return;
+	}
+	video.poster ||= video.dataset.poster;
+	if (!reduceMotion.matches) {
+		video.play().catch(() => {});
 	}
 }).observe(video);
 </script>
