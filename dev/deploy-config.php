@@ -1,4 +1,5 @@
 <?php
+ignore_user_abort(true); // keep deploying after GitHub drops the webhook (10s)
 /**
  * Deployment configuration
  *
