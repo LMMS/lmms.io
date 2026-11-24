@@ -14,9 +14,9 @@ class TopNav
 			[$tr->trans('Forum'), '/forum'],
 			[[$tr->trans('Sharing Platform'), $tr->trans('Share')], '/lsp'],
 			[$tr->trans('More'), null, [
-				['fa-eye', $tr->trans('Showcase'), '/showcase'],
-				['fa-trophy', $tr->trans('Competitions'), '/competitions'],
-				['fa-tags', $tr->trans('Branding'), '/branding']]],
+				['fa6-solid:eye', $tr->trans('Showcase'), '/showcase'],
+				['fa6-solid:trophy', $tr->trans('Competitions'), '/competitions'],
+				['fa6-solid:tags', $tr->trans('Branding'), '/branding']]],
 			];
 	}
 

@@ -6,7 +6,7 @@
         {% endif %}
         {% for title in titles %}
             {% if title %}
-            &nbsp;&nbsp;<span class="fas fa-caret-right lsp-caret-right"></span>&nbsp;&nbsp;
+            &nbsp;&nbsp;{{ ux_icon('fa6-solid:caret-right', {class: 'icon lsp-caret-right'}) }}&nbsp;&nbsp;
             {{title|raw}}
             {% endif %}
         {% endfor %}
@@ -21,22 +21,22 @@
     {% else %}
     <b>Date:</b>&nbsp;{{rs['insert_date']}}<br>
     {% endif %}
-    <b>Popularity: </b><span><span class="fas fa-download"></span>&nbsp;{{rs['downloads']}}</span>&nbsp; 
-    <span><span class="fas fa-comments"></span>&nbsp;{{rs['comments']}}</span><br>
+    <b>Popularity: </b><span>{{ ux_icon('fa6-solid:download') }}&nbsp;{{rs['downloads']}}</span>&nbsp; 
+    <span>{{ ux_icon('fa6-solid:comments') }}&nbsp;{{rs['comments']}}</span><br>
     <b>Rating:</b> 
     {% set rating = rs['rating']|round(0, 'floor') %}
     {% if rating > 0 %}
     {% for i in 1..rating %}
-        <span class="fas fa-star"></span>
+        {{ ux_icon('fa6-solid:star') }}
     {% endfor %}
     {% endif %}
     {% set blanks = 5-rating %}
     {% if blanks > 0 %}
     {% for i in 0..4-rating %}
-        <span class="far fa-star"></span>
+        {{ ux_icon('fa6-regular:star') }}
     {% endfor %}
     {% endif %}
-    &nbsp;&nbsp;<span class=""><span class="fas fa-check-circle"></span>&nbsp;{{rs['rating_count']}}</span>
+    &nbsp;&nbsp;<span class="">{{ ux_icon('fa6-solid:circle-check') }}&nbsp;{{rs['rating_count']}}</span>
 </small></td>
 {% endmacro %}
 
@@ -47,7 +47,7 @@
         {{rs['filename']}}</a></div>
         <a href="?action=browse&category={{rs['category']}}">
             {{rs['category']}}
-        </a>&nbsp;<span class="fas fa-caret-right lsp-caret-right-small"></span>&nbsp;
+        </a>&nbsp;{{ ux_icon('fa6-solid:caret-right', {class: 'icon lsp-caret-right-small'}) }}&nbsp;
         <a href="?action=browse&category={{rs['category']}}&subcategory={{rs['subcategory']}}&sort={{sort}}">
             {{rs['subcategory']}}
         </a><br>

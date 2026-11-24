@@ -2,10 +2,10 @@
 
 {% block main_content %}
     <div class="card"><div class="card-header">
-    <h3 class="card-title"><span class="fa fa-list-alt"></span>&nbsp;Register</h3></div>
+    <h3 class="card-title">{{ ux_icon('fa6-solid:rectangle-list') }}&nbsp;Register</h3></div>
     <div class="card-body">
     {% if error %}
-        <div class="alert alert-danger"><strong><span class="fas fa-exclamation-circle"></span>&nbsp;Error:</strong> {{error|raw}}</div>
+        <div class="alert alert-danger"><strong>{{ ux_icon('fa6-solid:circle-exclamation') }}&nbsp;Error:</strong> {{error|raw}}</div>
     {% endif %}
     <form enctype="multipart/form-data" action="/lsp/register" method="post">
         <div class="form-group">
@@ -26,10 +26,10 @@
         <img src="/lsp/captcha" alt="Security code" class="img-thumbnail" style="zoom:200%; display:block; margin-bottom:4px">
         <input type="text" name="captcha" class="form-control" maxlength="6" placeholder="type the code above" required />
         </div>
-        <button type="submit" class="btn btn-primary" name="adduser" value="Register"><span class="fas fa-check"></span>&nbsp;Register</button>&nbsp;
-        <a href="/lsp" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
+        <button type="submit" class="btn btn-primary" name="adduser" value="Register">{{ ux_icon('fa6-solid:check') }}&nbsp;Register</button>&nbsp;
+        <a href="/lsp" class="btn btn-warning">{{ ux_icon('fa6-solid:xmark') }}&nbsp;Cancel</a>
     </form>
     </div></div>
-    <a href="#login-collapse" id="login-focus"><span class="fas fa-chevron-circle-left"></span>&nbsp;Already registered?  Login here.</a>
+    <a href="#login-collapse" id="login-focus">{{ ux_icon('fa6-solid:circle-chevron-left') }}&nbsp;Already registered?  Login here.</a>
     </div>
 {% endblock %}

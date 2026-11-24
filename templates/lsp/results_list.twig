@@ -9,9 +9,9 @@
 {% macro sort_order(column) %}
     {% if app.request.query.get('sort') == column %}
         {% if app.request.query.get('order') == 'asc' %}
-            (<span class="fas fa-long-arrow-alt-up"></span>)
+            ({{ ux_icon('fa6-solid:arrow-up-long') }})
         {% else %}
-            (<span class="fas fa-long-arrow-alt-down"></span>)
+            ({{ ux_icon('fa6-solid:arrow-down-long') }})
         {% endif %}
     {% endif %}
 {% endmacro %}
@@ -40,20 +40,20 @@
     <table class="table table-striped">
     <ul class="nav nav-pills lsp-sort">
         <li id="sort-date" class="nav-item">
-            <a class="nav-link {{ r_macros.is_sort_active('date')|trim }}" href="{{ r_macros.sort_url('date') }}"><span class="fas fa-calendar"></span>&nbsp;DATE {{ r_macros.sort_order('date') }}</a>
+            <a class="nav-link {{ r_macros.is_sort_active('date')|trim }}" href="{{ r_macros.sort_url('date') }}">{{ ux_icon('fa6-solid:calendar') }}&nbsp;DATE {{ r_macros.sort_order('date') }}</a>
         </li>
         <li id="sort-downloads" class="nav-item">
-            <a class="nav-link {{ r_macros.is_sort_active('downloads')|trim }}" href="{{ r_macros.sort_url('downloads') }}"><span class="fas fa-download"></span>&nbsp;DOWNLOADS / AGE {{ r_macros.sort_order('downloads') }}</a>
+            <a class="nav-link {{ r_macros.is_sort_active('downloads')|trim }}" href="{{ r_macros.sort_url('downloads') }}">{{ ux_icon('fa6-solid:download') }}&nbsp;DOWNLOADS / AGE {{ r_macros.sort_order('downloads') }}</a>
         </li>
         <li id="sort-rating" class="nav-item">
-            <a class="nav-link {{ r_macros.is_sort_active('rating')|trim }}" href="{{ r_macros.sort_url('rating') }}"><span class="fas fa-star"></span>&nbsp;RATING {{ r_macros.sort_order('rating') }}</a>
+            <a class="nav-link {{ r_macros.is_sort_active('rating')|trim }}" href="{{ r_macros.sort_url('rating') }}">{{ ux_icon('fa6-solid:star') }}&nbsp;RATING {{ r_macros.sort_order('rating') }}</a>
         </li>
     </ul>
         {% for rs in rows %}
             {{macros.make_item(rs, sort)}}
         {% else %}
             <div class="alert alert-info text-center">
-            <strong><span class="fas fa-info-circle"></span>&nbsp;</strong> No results found
+            <strong>{{ ux_icon('fa6-solid:circle-info') }}&nbsp;</strong> No results found
             </div>
         {% endfor %}
     </table>

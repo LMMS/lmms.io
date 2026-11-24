@@ -5,7 +5,7 @@
 {% block main_content %}
     {{macros.make_title(titles)}}
     <div data-redirect="{{redirect}}" class="alert alert-{{severity}} text-center"><strong>
-    <span class="fas {{icon}}"></span>&nbsp;
+    {{ ux_icon(icon) }}&nbsp;
     {% if title %}
         {{title}}:
     {% endif %}

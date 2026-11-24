@@ -1,13 +1,3 @@
-{# Prints an FontAwesome icon #}
-{% macro icon(icon, brand = false, class = '') %}
-	{# Check if we have a brand icon, different syntax #}
-	{% if brand %}
-		<span class="fab {{ icon }} {{ class }}"></span>
-	{% else %}
-		<span class="fas {{ icon }} {{ class }}"></span>
-	{% endif %}
-{% endmacro %}
-
 {# Creates a small Jumbo header #}
 {% macro jumbo(title, subtitle) %}
 <div class="jumbotron mini">
@@ -18,27 +8,24 @@
 </div>
 {% endmacro %}
 
-{# Prints an FontAwesome icon stack with two icons and a tooltip #}
-{% macro icon_stack(icon1, brand1, icon2, brand2, parentclass, tooltip) %}
-	{% import _self as macros %}
-	<span class='fa-stack icon-stack fa-fw {{ parentclass }}' data-bs-toggle='tooltip' data-bs-placement='top' title='{{ tooltip }}'>
-		{{ macros.icon(icon1, brand1, 'fa-stack-1x') }}
-		{{ macros.icon(icon2, brand2, 'fa-stack-1x icon-stack-inner') }}
+{# Prints an icon stack: an inversed icon on top of a background shape, with a tooltip #}
+{% macro icon_stack(background, icon, class, tooltip) %}
+	<span class='icon-stack {{ class }}' data-bs-toggle='tooltip' data-bs-placement='top' title='{{ tooltip }}'>
+		{{ ux_icon(background) }}
+		{{ ux_icon(icon, {class: 'icon icon-stack-inner'}) }}
 	</span>
 {% endmacro %}
 
-{# Prints an icon stack with the lower one being a double sized circle
-   and the upper one being inversed #}
-{% macro circle_stack(icon, class = '', brand, tooltip = '') %}
+{# Prints an icon stack with the lower one being a circle #}
+{% macro circle_stack(icon, class = '', tooltip = '') %}
 	{% import _self as macros %}
-	{{ macros.icon_stack('fa-circle', false, "#{icon} fa-inverse", brand, class , tooltip ) }}
+	{{ macros.icon_stack('fa6-solid:circle', icon, class, tooltip) }}
 {% endmacro %}
 
-{# Prints an icon stack with the lower one being a double square
-   and the upper one being inversed #}
-{% macro square_stack(icon, class = '', brand, tooltip = '') %}
+{# Prints an icon stack with the lower one being a square #}
+{% macro square_stack(icon, class = '', tooltip = '') %}
 	{% import _self as macros %}
-	{{ macros.icon_stack('fa-square', false, "#{icon} fa-inverse", brand, class , tooltip ) }}
+	{{ macros.icon_stack('fa6-solid:square', icon, class, tooltip) }}
 {% endmacro %}
 
 {% macro create_artwork_item(artwork_name, img_path, raw_path, rendered_path, author_name = '', author_link = '', modified_by = '') %}
@@ -61,7 +48,7 @@
 			{% set file_name = button|split('/')|last %}
 			{% set extension = file_name|split('.')|last %}
 			<a target="_blank" class="btn btn-default" href="{{button}}" download>
-				<span class="fas fa-image"></span> {{file_name}} <br><small>({{macros.get_file_description(extension)|trim}})</small>
+				{{ ux_icon('fa6-solid:image') }} {{file_name}} <br><small>({{macros.get_file_description(extension)|trim}})</small>
 			</a>&nbsp; 
 		{% endif %}
 	{% endfor %}
@@ -89,7 +76,7 @@
 {% macro print_menu_item(class, text, url, icon = null) %}
 	<li class='{{class}}'><a class='dropdown-item' href='{{url}}'>
 	{% if icon %}
-		<i class='fas {{icon}} fa-fw'></i>
+		{{ ux_icon(icon, {class: 'icon icon-fw'}) }}
 	{% endif %}
 	{{text}}
 	</a></li>

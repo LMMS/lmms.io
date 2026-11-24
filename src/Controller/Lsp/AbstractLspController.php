@@ -29,7 +29,7 @@ abstract class AbstractLspController extends AbstractController
             ...$this->categoryNav(),
             'titles'   => ['Error'],
             'severity' => 'danger',
-            'icon'     => 'fa-exclamation-circle',
+            'icon'     => 'fa6-solid:circle-exclamation',
             'title'    => 'Error',
             'message'  => $message,
             'redirect' => '',

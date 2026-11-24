@@ -3,7 +3,7 @@
 {% endblock %}
 
 <hr>
-<a data-bs-toggle="collapse" href="#collapse_lin_other" role="button" aria-expanded="false">{% trans %}Other options{% endtrans %}<br><i class="fas fa-angle-down"></i></a>
+<a data-bs-toggle="collapse" href="#collapse_lin_other" role="button" aria-expanded="false">{% trans %}Other options{% endtrans %}<br>{{ ux_icon('fa6-solid:angle-down') }}</a>
 <div id="collapse_lin_other" class="collapse">
 	<div class="text-center">
 		<p>{% trans %}LMMS is included in most major Linux distribution's package repositories.<br>
@@ -49,10 +49,10 @@
 		<div id="linux-debian" class="tab-pane active">
 			<h3>Ubuntu, Linux Mint, Debian (deb)</h3>
 			<p>{% trans %}For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.{% endtrans %}<br></p>
-			<!-- <p><a class="btn btn-primary" target="new" href="apt://lmms"><span class="fas fa-download"></span> Install LMMS</a></p> -->
+			<!-- <p><a class="btn btn-primary" target="new" href="apt://lmms">{{ ux_icon('fa6-solid:download') }} Install LMMS</a></p> -->
 			<p>
 			<a class="btn btn-md btn-dl btn-dl-stable" href="apt://lmms" title="apt://lmms">
-				<span class="fas fa-cloud-download-alt fa-3x download-icon"></span>
+				{{ ux_icon('fa6-solid:cloud-arrow-down', {class: 'icon icon-3x download-icon'}) }}
 				<span class="big">{% trans %}Install LMMS now{% endtrans %}</span><br>
 				<span class="small">{% trans %}From your package manager{% endtrans %}</span>
 			</a>

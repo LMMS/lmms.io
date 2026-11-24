@@ -11,7 +11,7 @@
 				<h1>{% trans %}Let's make music{% endtrans %}</h1>
 				<h3>{% trans %}with a free, cross-platform tool for your computer.{% endtrans %}</h3>
 			</div>
-			<a class="btn btn-outline btn-xl" href="/download/" role="button"><i class="fas fa-arrow-down"></i> {% trans %}Download now{% endtrans %}</a>&nbsp;
+			<a class="btn btn-outline btn-xl" href="/download/" role="button">{{ ux_icon('fa6-solid:arrow-down') }} {% trans %}Download now{% endtrans %}</a>&nbsp;
 			<a class="btn btn-outline btn-lg" id="involved" href="/get-involved/" role="button">{% trans %}Get involved{% endtrans %} »</a>
 		</div>
 	</div>
@@ -28,17 +28,17 @@
 		</div>
 		<div class="row">
 			<div class="col-xl-4">
-				<span class="fa-5x far fa-chart-bar"></span>
+				{{ ux_icon('fa6-regular:chart-bar', {class: 'icon icon-5x'}) }}
 				<h4>{% trans %}Produce music with your computer{% endtrans %}</h4>
 				<p>{% trans %}by creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.{% endtrans %}</p>
 			</div>
 			<div class="col-xl-4">
-				<span class="fa-5x fas fa-keyboard"></span>
+				{{ ux_icon('fa6-solid:keyboard', {class: 'icon icon-5x'}) }}
 				<h4>{% trans %}Playback instruments, samples and plugins{% endtrans %}</h4>
 				<p>{% trans %}with a typing or MIDI keyboard in a user-friendly and modern interface.{% endtrans %}</p>
 			</div>
 			<div class="col-xl-4">
-				<span class="fas fa-puzzle-piece fa-5x"></span>
+				{{ ux_icon('fa6-solid:puzzle-piece', {class: 'icon icon-5x'}) }}
 				<h4>{% trans %}Bundled with ready-to-use content{% endtrans %}</h4>
 				<p>{% trans %}from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.{% endtrans %}</p>
 			</div>
@@ -53,9 +53,9 @@
 		</div>
 		<div>
 			<div>
-				<a class="stack" href="/download/#linux">{{ macros.circle_stack('fa-linux', 'fa-6x', true, 'Download for Linux'|trans) }}</a>
-				<a class="stack" href="/download/#windows">{{ macros.circle_stack('fa-windows', 'fa-6x', true, 'Download for Windows'|trans) }}</a>
-				<a class="stack" href="/download/#mac">{{ macros.circle_stack('fa-apple', 'fa-6x', true, 'Download for macOS'|trans) }}</a>
+				<a class="stack" href="/download/#linux">{{ macros.circle_stack('fa6-brands:linux', 'icon-6x', 'Download for Linux'|trans) }}</a>
+				<a class="stack" href="/download/#windows">{{ macros.circle_stack('fa6-brands:windows', 'icon-6x', 'Download for Windows'|trans) }}</a>
+				<a class="stack" href="/download/#mac">{{ macros.circle_stack('fa6-brands:apple', 'icon-6x', 'Download for macOS'|trans) }}</a>
 				<h4>{% trans %}Pick your flavor.{% endtrans %}</h4>
 				<p>{% trans %}Linux, Windows or macOS.{% endtrans %}</p>
 			</div>
@@ -70,10 +70,10 @@
 			<h4>{% trans %}Stand by, we got you covered.{% endtrans %}</h4>
 		</div>
 		<div>
-			<a class="stack" href="/forum/">{{ macros.circle_stack('fa-comments', 'fa-6x', false, 'Visit our forum'|trans) }}</a>&nbsp;
-			<a class="stack" href="http://facebook.com/makefreemusic">{{ macros.circle_stack('fa-facebook', 'fa-6x', true, 'Visit our Facebook page'|trans) }}</a>&nbsp;
-			<a class="stack" href="https://lmms.io/chat">{{ macros.circle_stack('fa-discord', 'fa-6x', true, 'Chat now on Discord'|trans) }}</a>&nbsp;
-			<a class="stack" href="http://github.com/lmms/lmms">{{ macros.circle_stack('fa-github', 'fa-6x', true, 'Visit our GitHub page'|trans) }}</a>
+			<a class="stack" href="/forum/">{{ macros.circle_stack('fa6-solid:comments', 'icon-6x', 'Visit our forum'|trans) }}</a>&nbsp;
+			<a class="stack" href="http://facebook.com/makefreemusic">{{ macros.circle_stack('fa6-brands:facebook', 'icon-6x', 'Visit our Facebook page'|trans) }}</a>&nbsp;
+			<a class="stack" href="https://lmms.io/chat">{{ macros.circle_stack('fa6-brands:discord', 'icon-6x', 'Chat now on Discord'|trans) }}</a>&nbsp;
+			<a class="stack" href="http://github.com/lmms/lmms">{{ macros.circle_stack('fa6-brands:github', 'icon-6x', 'Visit our GitHub page'|trans) }}</a>
 			<h4>{% trans %}Ask your questions here{% endtrans %}</h4>
 			<p>{% trans %}and answer a few questions while you're waiting.{% endtrans %}</p>
 		</div>
@@ -87,8 +87,8 @@
 		<div>
 			<div>
 				<a class="stack" href="https://soundcloud.com/tags/LMMS">
-					{{ macros.circle_stack('fa-soundcloud', 'fa-6x', true, 'Find musicians'|trans) }}</a>&nbsp;
-				<a class="stack" href="/lsp/">{{ macros.circle_stack('fa-share-alt', 'fa-6x', false, 'Visit the LMMS Sharing Platform (LSP)'|trans) }}</a>&nbsp;
+					{{ macros.circle_stack('fa6-brands:soundcloud', 'icon-6x', 'Find musicians'|trans) }}</a>&nbsp;
+				<a class="stack" href="/lsp/">{{ macros.circle_stack('fa6-solid:share-nodes', 'icon-6x', 'Visit the LMMS Sharing Platform (LSP)'|trans) }}</a>&nbsp;
 				<h4>{% trans %}Don't be modest.{% endtrans %}</h4>
 				<p>{% trans %}Show us your creations.{% endtrans %}</p>
 			</div>
@@ -103,8 +103,8 @@
 		<div>
 			<div>
 				<a class="stack" href="https://github.com/LMMS/lmms">
-					{{ macros.circle_stack('fa-code-branch', 'fa-6x', false, 'Fork us on GitHub'|trans) }}</a>&nbsp;
-				<a class="stack" href="/get-involved/">{{ macros.circle_stack('fa-users', 'fa-6x', false, 'Get involved'|trans) }}</a>&nbsp;
+					{{ macros.circle_stack('fa6-solid:code-branch', 'icon-6x', 'Fork us on GitHub'|trans) }}</a>&nbsp;
+				<a class="stack" href="/get-involved/">{{ macros.circle_stack('fa6-solid:users', 'icon-6x', 'Get involved'|trans) }}</a>&nbsp;
 				<h4>{{"LMMS is a 100% free, open source, community-driven project."|trans}}</h4>
 				<p>{% trans %}Proudly hosted on GitHub.{% endtrans %}</p>
 			</div>
@@ -124,7 +124,7 @@
 			<div class="page-header">
 				<h2>{% trans %}Take a peek.{% endtrans %}</h2>
 			</div>
-			<a class="stack" data-bs-toggle="modal" data-bs-target="#videoModal" href="#">{{ macros.circle_stack('fa-play-circle', 'fa-6x', false, '') }}</a>
+			<a class="stack" data-bs-toggle="modal" data-bs-target="#videoModal" href="#">{{ macros.circle_stack('fa6-solid:circle-play', 'icon-6x') }}</a>
 			<h4>{% trans %}Watch our promo video.{% endtrans %}</h4>
 		</div>
 	</div>
@@ -150,7 +150,7 @@
 		</div>
 		<div class="row">
 			<div class="col-xl-5">
-				<h3 class="text-center"><span class="far fa-2x fa-check-square"></span><br>{% trans %}Core Functionality{% endtrans %}</h3>
+				<h3 class="text-center">{{ ux_icon('fa6-regular:square-check', {class: 'icon icon-2x'}) }}<br>{% trans %}Core Functionality{% endtrans %}</h3>
 			</div>
 			<div class="col-xl-7">
 				<ul>
@@ -170,7 +170,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-5">
-				<h3 class="text-center"><span class="fas fa-2x fa-music"></span><br>{% trans %}Musical Instruments{% endtrans %}</h3>
+				<h3 class="text-center">{{ ux_icon('fa6-solid:music', {class: 'icon icon-2x'}) }}<br>{% trans %}Musical Instruments{% endtrans %}</h3>
 			</div>
 			<div class="col-xl-7">
 				<ul>
@@ -187,7 +187,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-5">
-				<h3 class="text-center"><span class="fas fa-2x fa-sliders-h"></span><br>{% trans %}Effects Mixing{% endtrans %}</h3>
+				<h3 class="text-center">{{ ux_icon('fa6-solid:sliders', {class: 'icon icon-2x'}) }}<br>{% trans %}Effects Mixing{% endtrans %}</h3>
 			</div>
 			<div class="col-xl-7">
 				<ul>

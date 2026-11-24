@@ -28,7 +28,7 @@
             {% endif %}
             </td><td class="lsp-file-info">
             <a href="{{ path('lsp_download', {id: rs['id']}) }}" id="downloadbtn" class="lsp-dl-btn btn btn-primary">
-            <span class="fas fa-download lsp-download"></span>&nbsp;Download</a>
+            {{ ux_icon('fa6-solid:download', {class: 'icon lsp-download'}) }}&nbsp;Download</a>
             </td></tr><tr><td colspan="2"><div class="well"><strong>Description:</strong><p id="desc">
             {% if rs['description'] %}
                 {{rs['description']|nl2br}}
@@ -45,7 +45,7 @@
                 {% else %}
                     <a class="nav-link disabled" href="#" title="Login to comment" aria-disabled="true">
                 {% endif %}
-                    <span class="fas fa-comment"></span>&nbsp;Comment</a>
+                    {{ ux_icon('fa6-solid:comment') }}&nbsp;Comment</a>
                 </li>
                 {% set can_edit = is_admin or (username == rs['login']) %}
                 {% if can_edit %}
@@ -53,8 +53,8 @@
                 {% else %}
                     {% set button_class = "disabled" %}
                 {% endif %}
-                <li class="nav-item"><a class="nav-link {{button_class}}" href="/lsp/edit/{{rs['id']}}"><span class="fas fa-pencil-alt"></span>&nbsp;Edit</a></li>
-                <li class="nav-item"><a class="nav-link {{button_class}}" href="/lsp/delete/{{rs['id']}}"><span class="fas fa-trash"></span>&nbsp;Delete</a></li>
+                <li class="nav-item"><a class="nav-link {{button_class}}" href="/lsp/edit/{{rs['id']}}">{{ ux_icon('fa6-solid:pencil') }}&nbsp;Edit</a></li>
+                <li class="nav-item"><a class="nav-link {{button_class}}" href="/lsp/delete/{{rs['id']}}">{{ ux_icon('fa6-solid:trash') }}&nbsp;Delete</a></li>
                 {% set can_rate = username and username != rs['login'] %}
                 {% set rating = rs['session_rating'] %}
                 {% set captions = ['Not Rated', 'One Star', 'Two Stars', 'Three Stars', 'Four Stars', 'Five Stars'] %}
@@ -64,9 +64,9 @@
                     {# Reversed so that hovering a star can highlight its preceding siblings via ~ #}
                     {% for i in 5..1 %}
                         {% if can_rate %}
-                            <a href="{{ path('lsp_rate', {id: rs['id'], stars: i}) }}" title="{{ captions[i] }}" rel="nofollow"><span class="{{ i <= rating ? 'fas' : 'far' }} fa-star"></span></a>
+                            <a href="{{ path('lsp_rate', {id: rs['id'], stars: i}) }}" title="{{ captions[i] }}" rel="nofollow"><span class="lsp-star{{ i <= rating ? ' filled' : '' }}">{{ ux_icon('fa6-solid:star', {class: 'icon star-full'}) }}{{ ux_icon('fa6-regular:star', {class: 'icon star-empty'}) }}</span></a>
                         {% else %}
-                            <span><span class="{{ i <= rating ? 'fas' : 'far' }} fa-star"></span></span>
+                            <span><span class="lsp-star{{ i <= rating ? ' filled' : '' }}">{{ ux_icon('fa6-solid:star', {class: 'icon star-full'}) }}{{ ux_icon('fa6-regular:star', {class: 'icon star-empty'}) }}</span></span>
                         {% endif %}
                     {% endfor %}
                     </span>
@@ -99,7 +99,7 @@
     {% else %}
         {{macros.make_title(['Error'])}}
         <div class="alert alert-danger text-center">
-        <strong><span class="fas fa-exclamation-circle"></span>&nbsp;Error:
+        <strong>{{ ux_icon('fa6-solid:circle-exclamation') }}&nbsp;Error:
         </strong> File not found!
         </div>
     {% endfor %}

@@ -19,7 +19,7 @@
 		{% if instruction %}<div class="alert alert-warning">{{ instruction|raw }}</div>{% endif %}
 		<div id="prerelease" class="text-center">
 			<small>
-				<span class="fas fa-exclamation-circle"></span>
+				{{ ux_icon('fa6-solid:circle-exclamation') }}
 				{% trans %}Pull request builds are experimental software; expect stability issues.{% endtrans %}
 			</small>
 		</div>
@@ -36,9 +36,9 @@
 <div class="text-center container">
 	<div>
 		<div class="btn-group" role="group">
-			{{ download.osbutton('linux', 'fa-linux', 'Linux') }}
-			{{ download.osbutton('windows', 'fa-windows', 'Windows') }}
-			{{ download.osbutton('mac', 'fa-apple', 'macOS') }}
+			{{ download.osbutton('linux', 'fa6-brands:linux', 'Linux') }}
+			{{ download.osbutton('windows', 'fa6-brands:windows', 'Windows') }}
+			{{ download.osbutton('mac', 'fa6-brands:apple', 'macOS') }}
 		</div>
 	</div>
 </div>
