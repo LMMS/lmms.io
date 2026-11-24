@@ -72,8 +72,11 @@ define('EXCLUDE', serialize(array(
 	'.gitignore',
 	'public/forum',
 	'public/wiki',
+	'public/wikiold',
+	'public/assets', // built by post_deploy
 	'pma',
 	'tmp',
+	'VERSION',
 	'.env.local'	
 //	'public/lsp'
 )));
@@ -107,7 +110,7 @@ define('CLEAN_UP', true);
  *
  * @var int Time in seconds
  */
-define('TIME_LIMIT', 45);
+define('TIME_LIMIT', 300);
 
 /**
  * OPTIONAL
