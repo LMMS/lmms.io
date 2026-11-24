@@ -1,37 +1,30 @@
-{% extends 'base.twig' %}
+{% extends 'lsp/base.twig' %}
 
-{% import 'macros.twig' as macros %}
+{% block title %}LMMS | Log in{% endblock %}
 
-{% block content %}
-{{ macros.jumbo('LMMS Sharing Platform'|trans, 'Share your work with the LMMS community.'|trans) }}
-<div class="container theme-showcase main-div" role="main">
-    <div class="row">
-        <div class="col-lg-4 offset-lg-4">
-            <div class="card card-custom">
-                <div class="card-header"><h3 class="card-title">Login</h3></div>
-                <div class="card-body">
-                    {% if error %}
-                        <div class="alert alert-danger" role="alert">
-                            {{ error.messageKey|trans(error.messageData, 'security') }}
-                        </div>
-                    {% endif %}
-                    <form action="{{ path('lsp_login') }}" method="post">
-                        <div class="form-group">
-                            <input type="text" id="_username" name="_username" class="form-control"
-                                   value="{{ last_username }}" placeholder="Username" autofocus>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" id="_password" name="_password"
-                                   class="form-control" placeholder="Password">
-                        </div>
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                        <button type="submit" class="btn btn-primary">
-                            Login
-                        </button>
-                    </form>
-                </div>
+{% block lsp_layout %}
+<div class="container lsp-auth">
+    <div class="lsp-panel lsp-form">
+        <h1 class="lsp-title">Welcome back</h1>
+        <p class="text-body-secondary">Log in to upload, rate and comment.</p>
+        {% if error %}
+            <div class="alert alert-danger lsp-alert" role="alert">
+                {{ ux_icon('lucide:circle-alert') }}<span>{{ error.messageKey|trans(error.messageData, 'security') }}</span>
             </div>
-        </div>
+        {% endif %}
+        <form action="{{ path('lsp_login') }}" method="post">
+            <div class="mb-3">
+                <label class="form-label" for="_username">Username</label>
+                <input type="text" id="_username" name="_username" class="form-control" value="{{ last_username }}" maxlength="16" required autofocus autocomplete="username">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="_password">Password</label>
+                <input type="password" id="_password" name="_password" class="form-control" maxlength="20" required autocomplete="current-password">
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <button type="submit" class="btn btn-lsp w-100">Log in</button>
+        </form>
+        <p class="lsp-auth-switch">New to the Sharing Platform? <a href="{{ path('lsp_register') }}">Create an account</a></p>
     </div>
 </div>
 {% endblock %}

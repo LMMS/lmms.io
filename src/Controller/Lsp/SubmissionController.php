@@ -120,7 +120,7 @@ final class SubmissionController extends AbstractLspController
                 ...$this->categoryNav(),
                 'titles'   => ['Delete'],
                 'severity' => 'success',
-                'icon'     => 'fa6-solid:circle-check',
+                'icon'     => 'lucide:circle-check',
                 'title'    => 'Success',
                 'message'  => 'File deleted successfully.',
                 'redirect' => '/lsp',

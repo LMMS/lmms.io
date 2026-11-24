@@ -207,10 +207,6 @@ label {
   --bs-nav-link-font-weight: bold;
 }
 
-ul.lsp-sort {
-  margin-bottom: 5px;
-}
-
 .nav-pills .nav-item+.nav-item {
   margin-left: 2px;
 }
@@ -234,21 +230,6 @@ ul.lsp-sort {
   --bs-pagination-disabled-border-color: light-dark(#ddd, var(--bs-border-color));
   --bs-pagination-active-bg: #337ab7;
   --bs-pagination-active-border-color: #337ab7;
-}
-
-#lspnav {
-  min-height: 50px;
-  border: 1px solid light-dark(#e7e7e7, var(--bs-border-color));
-  border-radius: 4px;
-}
-
-#lspnav .nav {
-  --bs-nav-link-padding-x: 15px;
-  --bs-nav-link-padding-y: 15px;
-  line-height: 20px;
-  --bs-nav-link-color: light-dark(#777, var(--bs-secondary-color));
-  --bs-nav-link-hover-color: var(--fg);
-  --bs-nav-link-disabled-color: light-dark(#ccc, var(--bs-tertiary-color));
 }
 
 p {
@@ -365,7 +346,9 @@ body {
   color: var(--fg);
   background-color: var(--bg-segment);
   margin: 0;
-  min-height: 100%;
+  /* fill the window so the footer sits at its bottom on short pages */
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   font-family: "Noto Sans", sans-serif;
@@ -472,94 +455,6 @@ blockquote {
   border-left: 5px solid var(--bs-border-color);
 }
 
-.lsp-image {
-  max-width: 100%;
-}
-
-/* LSP Login Sidebar*/
-#login-div form {
-  padding: 0.5em;
-}
-
-.alert.lsp {
-  margin-bottom: 0;
-}
-
-/* Star ratings */
-/* Same padding as the .nav links it sits next to */
-.lsp-starrating {
-  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
-}
-
-.lsp-starrating .badge {
-  display: inline-block;
-  margin-left: 5px;
-  padding: 0.25em 0.4em;
-  font-size: 9px;
-  line-height: 1;
-  vertical-align: middle;
-}
-
-.lsp-stars {
-  display: inline-flex;
-  flex-direction: row-reverse;
-  vertical-align: middle;
-  font-size: 16px;
-}
-
-.lsp-stars>* {
-  padding: 0 2px;
-  color: #aaa;
-}
-
-.lsp-stars>a:hover {
-  text-decoration: none;
-}
-
-.lsp-stars.disabled {
-  cursor: not-allowed;
-}
-
-.lsp-stars .star-full {
-  color: #fde16d;
-  filter: drop-shadow(1px 1px 0 #999);
-}
-
-.lsp-stars .star-full path {
-  stroke: #777;
-  stroke-width: 1px;
-  vector-effect: non-scaling-stroke;
-}
-
-/* Each star holds both glyphs; show the one matching its state */
-.lsp-star .star-full,
-.lsp-star.filled .star-empty {
-  display: none;
-}
-
-.lsp-star.filled .star-full {
-  display: inline;
-}
-
-/* While hovering, preview the rating under the cursor instead of the saved one */
-.lsp-stars:not(.disabled):hover .lsp-star .star-full {
-  display: none;
-}
-
-.lsp-stars:not(.disabled):hover .lsp-star .star-empty {
-  display: inline;
-}
-
-.lsp-stars:not(.disabled)>a:hover .lsp-star .star-full,
-.lsp-stars:not(.disabled)>a:hover~a .lsp-star .star-full {
-  display: inline;
-}
-
-.lsp-stars:not(.disabled)>a:hover .lsp-star .star-empty,
-.lsp-stars:not(.disabled)>a:hover~a .lsp-star .star-empty {
-  display: none;
-}
-
 /* Fix for forum back-to-top button */
 .back-to-top {
   z-index: 1;
@@ -585,50 +480,11 @@ div.p-pagination span.label a:link {
   margin-left: 55px;
 }
 
-.lsp-row {
-  margin-top: 10px;
-  text-align: left;
-}
-
-/* Stacked columns are flex items, so the title margin no longer collapses into the sidebar's */
-@media (max-width: 991.98px) {
-  .lsp-row .col-lg-9> :first-child {
-    margin-top: 0;
-  }
-}
-
-.btn-file {
-  margin-right: 0.75em;
-  margin-top: 0.15em;
-}
-
-span.lsp-badge {
-  opacity: 0.7;
-}
-
-pre.lsp-filename {
-  float: right;
-  text-align: right;
-  margin: auto;
-}
-
-div.lsp-sidebar {
-  margin-right: 0.5em;
-  margin-top: 1.6em;
-}
-
 .fl-tab {
   position: relative;
   left: 0.1em;
   top: 0.05em;
   margin-left: 0.3em;
-}
-
-.lsp-small {
-  display: block;
-  position: relative;
-  bottom: -1.5em;
-  text-align: right;
 }
 
 .release-notes {
@@ -1457,27 +1313,6 @@ a.social:focus {
   --bs-btn-active-color: var(--fg);
   --bs-btn-active-bg: color-mix(in srgb, var(--bg-btn), var(--fg) 10%);
   --bs-btn-active-border-color: #adadad;
-}
-
-.btn-file {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-file input[type=file] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-width: 100%;
-  min-height: 100%;
-  font-size: 100px;
-  text-align: right;
-  filter: alpha(opacity=0);
-  opacity: 0;
-  outline: none;
-  background: white;
-  cursor: inherit;
-  display: block;
 }
 
 .btn-outline {

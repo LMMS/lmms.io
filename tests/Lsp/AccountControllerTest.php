@@ -122,7 +122,7 @@ final class AccountControllerTest extends AbstractLspWebTestCase
     public function testLoginWithValidCredentials(): void
     {
         $this->client->request('GET', '/lsp/login');
-        $this->client->submitForm('Login', [
+        $this->client->submitForm('Log in', [
             '_username' => 'lsptest',
             '_password' => 'lsptestpass',
         ]);
@@ -134,7 +134,7 @@ final class AccountControllerTest extends AbstractLspWebTestCase
     {
         // setUp() seeds lsptest with a SHA1 hash. this login rehashes it.
         $this->client->request('GET', '/lsp/login');
-        $this->client->submitForm('Login', [
+        $this->client->submitForm('Log in', [
             '_username' => 'lsptest',
             '_password' => 'lsptestpass',
         ]);
@@ -151,7 +151,7 @@ final class AccountControllerTest extends AbstractLspWebTestCase
     public function testLoginWithInvalidCredentials(): void
     {
         $this->client->request('GET', '/lsp/login');
-        $this->client->submitForm('Login', [
+        $this->client->submitForm('Log in', [
             '_username' => 'lsptest',
             '_password' => 'wrongpassword',
         ]);
@@ -172,14 +172,14 @@ final class AccountControllerTest extends AbstractLspWebTestCase
         try {
             for ($i = 0; $i < 5; $i++) {
                 $this->client->request('GET', '/lsp/login');
-                $this->client->submitForm('Login', [
+                $this->client->submitForm('Log in', [
                     '_username' => $login,
                     '_password' => 'wrongpassword',
                 ]);
             }
 
             $this->client->request('GET', '/lsp/login');
-            $this->client->submitForm('Login', [
+            $this->client->submitForm('Log in', [
                 '_username' => $login,
                 '_password' => 'correcthorse',
             ]);

@@ -1,91 +1,93 @@
-// Keep the account panel collapsed on small screens
-window.addEventListener('load', function () {
-    var loginCollapse = document.getElementById('login-collapse');
-    if (document.documentElement.clientWidth >= 962) {
-        loginCollapse.classList.add('show');
-    } else if (!document.activeElement.matches('#login, #password')) {
-        loginCollapse.classList.remove('show');
+import './styles/lsp.css';
+
+/*
+ * Redirect page if alert contains a data-redirect tag
+ */
+document.querySelectorAll('[data-redirect]').forEach((alert) => {
+    if (!alert.dataset.redirect) {
+        return;
     }
+    const counter = document.querySelector('.redirect-counter');
+    let seconds = counter ? parseInt(counter.textContent) : 5;
+    const timer = window.setInterval(() => {
+        seconds--;
+        if (counter) {
+            counter.textContent = Math.max(seconds, 0);
+        }
+        if (seconds <= 0) {
+            window.clearInterval(timer);
+            window.location = alert.dataset.redirect;
+        }
+    }, 1000);
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    /*
-     * Redirect page if alert contains a data-redirect tag
-     */
-    document.querySelectorAll('.alert').forEach(function (alert) {
-        var counter = document.querySelector('.redirect-counter');
-        var timeout = counter ? parseInt(counter.textContent) * 1000 : 5000;
-        if (alert.dataset.redirect) {
-            window.setTimeout(function () {
-                window.location = alert.dataset.redirect;
-            }, timeout);
-            countDown(false);
+/*
+ * Close the user menu on a click outside of it or on Escape
+ */
+const menu = document.querySelector('.lsp-menu');
+if (menu) {
+    document.addEventListener('click', (event) => {
+        if (!menu.contains(event.target)) {
+            menu.open = false;
         }
     });
-
-    /*
-     * Focus to comment text-area if it is on the screen
-     */
-    commentFocus();
-
-    var loginLink = document.getElementById('login-focus');
-    if (loginLink) {
-        loginLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            loginFocus();
-        });
-    }
-});
-
-function countDown(decrement) {
-    var counter = document.querySelector('.redirect-counter');
-    if (counter) {
-        if (decrement) {
-            counter.textContent = parseInt(counter.textContent) - 1;
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menu.open) {
+            menu.open = false;
+            menu.querySelector('summary').focus();
         }
-        if (counter.textContent == '-1') {
-            counter.remove();
-            return;
-        } else {
-            window.setTimeout(function () {
-                countDown(true);
-            }, 1000);
-            return;
-        }
-    }
-}
-
-function commentFocus() {
-    var comment = document.getElementById('comment');
-    if (comment) {
-        comment.focus();
-    }
-}
-
-function loginFocus() {
-    document.getElementById('login-collapse').classList.add('show');
-    document.getElementById('login').focus();
-    blink('#login');
-}
-
-function blink(selector) {
-    document.querySelector(selector).animate([{ opacity: 1 }, { opacity: 0 }], {
-        duration: 100,
-        iterations: 6,
-        direction: 'alternate',
     });
 }
 
 /*
- * Bootstrap file button listener
+ * Show the picked file's name in the upload drop zone
  */
-document.addEventListener('change', function (event) {
-    if (!event.target.matches('.btn-file input[type=file]')) {
-        return;
+document.querySelectorAll('.lsp-drop').forEach((zone) => {
+    const input = zone.querySelector('input[type=file]');
+    const title = zone.querySelector('.lsp-drop-title');
+    const placeholder = title.textContent;
+    input.addEventListener('change', () => {
+        const [file] = input.files;
+        title.textContent = file ? file.name : placeholder;
+        zone.classList.toggle('selected', !!file);
+    });
+    input.addEventListener('dragenter', () => zone.classList.add('dragover'));
+    for (const type of ['dragleave', 'drop']) {
+        input.addEventListener(type, () => zone.classList.remove('dragover'));
     }
-    var label = event.target.value.replace(/\\/g, '/').replace(/.*\//, '');
-    var selected = document.getElementById('file-selected');
-    selected.textContent = label ? label : 'No file selected';
-    selected.className = label ? 'text-primary' : 'text-danger';
-    blink('#file-selected');
+});
+
+/*
+ * Apply a filter checkbox as soon as it's toggled
+ */
+document.addEventListener('change', (event) => {
+    if (event.target.matches('[data-autosubmit]')) {
+        event.target.form.requestSubmit();
+    }
+});
+
+/*
+ * "/" jumps to the search, unless the user is already typing somewhere
+ */
+const searchInput = document.querySelector('.lsp-search input[name=search]');
+if (searchInput) {
+    document.documentElement.classList.add('lsp-search-shortcut');
+    document.addEventListener('keydown', (event) => {
+        if (event.key !== '/' || event.ctrlKey || event.metaKey || event.altKey) {
+            return;
+        }
+        if (event.target.closest('input, textarea, select, [contenteditable]')) {
+            return;
+        }
+        event.preventDefault();
+        searchInput.focus();
+        searchInput.select();
+    });
+}
+
+/*
+ * Cancel on the comment box clears it (the form reset) and closes it again
+ */
+document.querySelectorAll('.lsp-reply').forEach((form) => {
+    form.addEventListener('reset', () => document.activeElement.blur());
 });

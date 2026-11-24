@@ -1,165 +1,212 @@
 {% extends 'lsp/base.twig' %}
 
-{% import 'lsp/macros.twig' as macros %}
+{% import 'lsp/macros.twig' as lsp %}
+
+{% set rs = rows|first %}
+
+{% block title %}LMMS | {{ rs ? rs.filename : 'File not found' }}{% endblock %}
 
 {% block main_content %}
-    <script defer src="https://cdn.jsdelivr.net/npm/linkifyjs@4.4.0/dist/linkify.min.js" integrity="sha384-ratS1OgyDbYKZHPKvQ+McGITjqyef6xrsPVkh97mB8fEZzcqlT9VheSWLACU6x0z" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/linkify-element@4.4.0/dist/linkify-element.min.js" integrity="sha384-wEFOKx8J/xs3hA0qNiXy3R36x3aJb6DdRzHpH8N0/iAUERvHeyJowhtJVX2j0UcL" crossorigin="anonymous"></script>
-    {% for rs in rows %}
-        {{macros.make_title([rs['category'], rs['subcategory'], rs['filename']|escape])}}
-        <table class="table table-striped">
-            <td><div class="overflow-hidden">
-            <small>by <a href="/lsp?action=browse&user={{rs['login']}}">
-            {% if rs['realname'] %}
-                {{rs['realname']}} ({{rs['login']}})
-            {% else %}
-                {{rs['login']}}
+    {% if not rs %}
+        {{ lsp.heading('File not found', []) }}
+        <div class="alert alert-danger lsp-alert">
+            {{ ux_icon('lucide:circle-alert') }}
+            <span><strong>Error:</strong> File not found! It may have been deleted by its author.</span>
+        </div>
+    {% else %}
+        {% set can_edit = is_admin or username == rs.login %}
+        {% set can_rate = username and username != rs.login %}
+
+        {{ lsp.crumbs([
+            [rs.category, '/lsp?action=browse&category=' ~ rs.category|escape('url')],
+            [rs.subcategory, '/lsp?action=browse&category=' ~ rs.category|escape('url') ~ '&subcategory=' ~ rs.subcategory|escape('url')],
+        ]) }}
+        <article class="lsp-entry">
+            <header class="lsp-entry-head">
+                <div>
+                    <h1 class="lsp-title" title="{{ rs.filename }}">{{ rs.filename|lsp_stem }}</h1>
+                    <div class="lsp-post-meta">
+                        {# the sidebar box names the uploader where it sits beside the post #}
+                        <span class="lsp-entry-author">
+                            {{ lsp.user_link(rs.login, rs.realname) }}
+                            <span class="text-body-secondary">@{{ rs.login }}</span>
+                            <span class="lsp-dot" aria-hidden="true">·</span>
+                        </span>
+                        {{ lsp.time(rs.insert_date) }}
+                        {% if rs.update_date and rs.update_date != rs.insert_date %}
+                            <span class="lsp-dot" aria-hidden="true">·</span>
+                            <span class="text-body-secondary">edited {{ lsp.time(rs.update_date) }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </header>
+
+            {% if rs.thumb %}
+                <a class="lsp-entry-image" href="{{ path('lsp_download', {id: rs.id}) }}"><img src="{{ rs.thumb }}" alt="Preview of {{ rs.filename }}"></a>
             {% endif %}
-            </a></small><br>
-            <b>Size:</b>&nbsp;{{(rs['size']/1024)|round(0)}} KB<br>
-            <b>License:</b>&nbsp;{{rs['license']}}<br>
-            {% if rs['lmms_version'] %}
-                <b>LMMS Version:</b>&nbsp;{{rs['lmms_version']}}</div></td>
-            {% endif %}
-            {{macros.make_infobar(rs, true)}}
-            <tr><td><strong>Name:</strong>&nbsp;{{rs['filename']}}
-            {% if rs['thumb'] %}
-                <br><br><a href="{{ path('lsp_download', {id: rs['id']}) }}"><img class="img-thumbnail" src="{{rs['thumb']}}" alt=""></a>
-            {% endif %}
-            </td><td class="lsp-file-info">
-            <a href="{{ path('lsp_download', {id: rs['id']}) }}" id="downloadbtn" class="lsp-dl-btn btn btn-primary">
-            {{ ux_icon('fa6-solid:download', {class: 'icon lsp-download'}) }}&nbsp;Download</a>
-            </td></tr><tr><td colspan="2"><div class="well"><strong>Description:</strong><p id="desc">
-            {% if rs['description'] %}
-                {{rs['description']|nl2br}}
-            {% else %}
-                No description available.
-            {% endif %}
-            </p></div></td></tr>
-            <tr><td colspan="2">
-            <div id="lspnav" class="bg-body-tertiary"><ul class="nav">
-            {# Toolbar #}
-                <li class="nav-item">
-                {% if username %}
-                    <a class="nav-link" href="/lsp/comment/{{rs['id']}}">
+
+            <div id="desc" class="lsp-entry-desc">
+                {% if rs.description %}
+                    {{ rs.description|nl2br }}
                 {% else %}
-                    <a class="nav-link disabled" href="#" title="Login to comment" aria-disabled="true">
+                    <p class="text-body-secondary fst-italic">No description provided.</p>
                 {% endif %}
-                    {{ ux_icon('fa6-solid:comment') }}&nbsp;Comment</a>
-                </li>
-                {% set can_edit = is_admin or (username == rs['login']) %}
-                {% if can_edit %}
-                    {% set button_class = "" %}
-                {% else %}
-                    {% set button_class = "disabled" %}
-                {% endif %}
-                <li class="nav-item"><a class="nav-link {{button_class}}" href="/lsp/edit/{{rs['id']}}">{{ ux_icon('fa6-solid:pencil') }}&nbsp;Edit</a></li>
-                <li class="nav-item"><a class="nav-link {{button_class}}" href="/lsp/delete/{{rs['id']}}">{{ ux_icon('fa6-solid:trash') }}&nbsp;Delete</a></li>
-                {% set can_rate = username and username != rs['login'] %}
-                {% set rating = rs['session_rating'] %}
-                {% set captions = ['Not Rated', 'One Star', 'Two Stars', 'Three Stars', 'Four Stars', 'Five Stars'] %}
-                {% set caption_classes = ['secondary', 'danger', 'warning', 'info', 'primary', 'success'] %}
-                <li class="nav-item lsp-starrating">
-                    <span class="lsp-stars{{ can_rate ? '' : ' disabled' }}">
+            </div>
+
+            <div class="lsp-entry-actions">
+                <a class="btn btn-lsp" href="{{ path('lsp_download', {id: rs.id}) }}">{{ ux_icon('lucide:download') }}&nbsp; Download <span class="lsp-btn-note">{{ rs.size|lsp_size }}</span></a>
+                {% set captions = ['Rate this', 'Poor', 'Fair', 'Good', 'Great', 'Excellent'] %}
+                <div class="lsp-action lsp-rate{{ can_rate ? '' : ' disabled' }}" {% if not can_rate %}title="{{ username ? 'You cannot rate your own upload' : 'Log in to rate' }}"{% endif %}>
+                    <span class="lsp-stars">
                     {# Reversed so that hovering a star can highlight its preceding siblings via ~ #}
                     {% for i in 5..1 %}
+                        {% set star %}<span class="lsp-star{{ i <= rs.session_rating ? ' filled' : '' }}">{{ ux_icon('lucide:star', {class: 'icon star-full'}) }}{{ ux_icon('lucide:star', {class: 'icon star-empty'}) }}</span>{% endset %}
                         {% if can_rate %}
-                            <a href="{{ path('lsp_rate', {id: rs['id'], stars: i}) }}" title="{{ captions[i] }}" rel="nofollow"><span class="lsp-star{{ i <= rating ? ' filled' : '' }}">{{ ux_icon('fa6-solid:star', {class: 'icon star-full'}) }}{{ ux_icon('fa6-regular:star', {class: 'icon star-empty'}) }}</span></a>
+                            <a href="{{ path('lsp_rate', {id: rs.id, stars: i}) }}" title="{{ captions[i] }}" rel="nofollow">{{ star }}</a>
                         {% else %}
-                            <span><span class="lsp-star{{ i <= rating ? ' filled' : '' }}">{{ ux_icon('fa6-solid:star', {class: 'icon star-full'}) }}{{ ux_icon('fa6-regular:star', {class: 'icon star-empty'}) }}</span></span>
+                            <span>{{ star }}</span>
                         {% endif %}
                     {% endfor %}
                     </span>
-                    <span class="badge text-bg-{{ caption_classes[rating] }}">{{ captions[rating] }}</span>
-                </li>
-            </ul></div>
-            <strong>Comments:</strong>
-            </td></tr>
-            {% for comment in rs['comment_section'] %}
-                <tr><td colspan="2">
-                <blockquote>
-                {# Bold comments made by the original author #}
-                {% if comment['commentuser'] == comment['fileuser'] %}
-                    <strong>
-                    {{comment['text']}}
-                    </strong>
-                {% else %}
-                    {{comment['text']}}
+                    <span class="lsp-rate-caption">{{ rs.session_rating ? 'You rated: ' ~ captions[rs.session_rating] : (can_rate ? 'Rate this' : '') }}</span>
+                </div>
+                <a class="lsp-action" href="#comments">{{ ux_icon('lucide:message-circle') }} {{ rs.comment_section|length }}</a>
+                {% if can_edit %}
+                    <span class="lsp-entry-owner">
+                        <a class="lsp-action" href="{{ path('lsp_edit', {id: rs.id}) }}">{{ ux_icon('lucide:pencil') }} Edit</a>
+                        <a class="lsp-action lsp-action-danger" href="{{ path('lsp_delete', {id: rs.id}) }}">{{ ux_icon('lucide:trash-2') }} Delete</a>
+                    </span>
                 {% endif %}
-                <small class="lsp-small">Posted by: 
-                <a href="/lsp?action=browse&amp;user={{comment['login']}}">{{comment['login']}}</a>
-                &nbsp;on {{comment['date']}}
-                </small>
-                </blockquote>
-                </tr></td>
+            </div>
+        </article>
+
+        <section class="lsp-discussion" id="comments" aria-labelledby="comments-title">
+            <h2 class="lsp-section-title" id="comments-title">{{ rs.comment_section|length }} {{ rs.comment_section|length == 1 ? 'comment' : 'comments' }}</h2>
+
+            {# One field at rest; focusing it opens the full box with its buttons #}
+            {% if username %}
+                <form class="lsp-reply" action="{{ path('lsp_comment', {id: rs.id}) }}" method="post">
+                    <textarea name="text" rows="1" required placeholder="Add a comment" aria-label="Your comment"></textarea>
+                    <div class="lsp-reply-actions">
+                        <button type="reset" class="lsp-action">Cancel</button>
+                        <button type="submit" class="btn btn-lsp btn-sm" name="addcomment" value="Comment">Comment</button>
+                    </div>
+                </form>
             {% else %}
-                <td colspan="2"><p class="text-body-secondary">No comments yet</p></td>
-            {% endfor %}
-        </table>
-    {% else %}
-        {{macros.make_title(['Error'])}}
-        <div class="alert alert-danger text-center">
-        <strong>{{ ux_icon('fa6-solid:circle-exclamation') }}&nbsp;Error:
-        </strong> File not found!
+                <div class="lsp-reply lsp-reply-guest">
+                    <a href="{{ path('lsp_login') }}">Log in to add a comment</a>
+                    <a class="lsp-reply-signup" href="{{ path('lsp_register') }}">Sign up</a>
+                </div>
+            {% endif %}
+
+            <ol class="lsp-comments">
+                {% for comment in rs.comment_section %}
+                    <li class="lsp-comment">
+                        <div class="lsp-comment-body">
+                            <div class="lsp-post-meta">
+                                {{ lsp.user_link(comment.login, comment.realname) }}
+                                {% if comment.commentuser == comment.fileuser %}
+                                    <span class="lsp-badge-author" title="Uploaded this file">Author</span>
+                                {% endif %}
+                                <span class="lsp-dot" aria-hidden="true">·</span>
+                                {{ lsp.time(comment.date) }}
+                            </div>
+                            <div class="lsp-comment-text">{{ comment.text|nl2br }}</div>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="lsp-comments-empty text-body-secondary">No comments yet. Be the first to share your thoughts!</li>
+                {% endfor %}
+            </ol>
+        </section>
+    {% endif %}
+{% endblock %}
+
+{% block lsp_aside %}
+    {% if rs %}
+        <div class="lsp-box">
+            <section class="lsp-uploader">
+                <h2 class="lsp-panel-title">Uploaded by</h2>
+                <div>
+                    <strong>{{ rs.realname ?: rs.login }}</strong>
+                    <a href="/lsp?action=browse&amp;user={{ rs.login|escape('url') }}">See all uploads by @{{ rs.login }}</a>
+                </div>
+            </section>
+            <section>
+                <h2 class="lsp-panel-title">About this file</h2>
+                <dl class="lsp-facts">
+                    <dt>{{ ux_icon('lucide:file', {class: 'icon icon-fw'}) }} File</dt>
+                    <dd class="text-break">{{ rs.filename }}</dd>
+                    <dt>{{ ux_icon('lucide:hard-drive', {class: 'icon icon-fw'}) }} Size</dt>
+                    <dd>{{ rs.size|lsp_size }}</dd>
+                    <dt>{{ ux_icon('lucide:scale', {class: 'icon icon-fw'}) }} License</dt>
+                    <dd>{{ rs.license }}</dd>
+                    {% if rs.lmms_version %}
+                        <dt>{{ ux_icon('lucide:git-branch', {class: 'icon icon-fw'}) }} LMMS</dt>
+                        <dd>{{ rs.lmms_version }}</dd>
+                    {% endif %}
+                    <dt>{{ ux_icon('lucide:download', {class: 'icon icon-fw'}) }} Downloads</dt>
+                    <dd>{{ rs.downloads }}</dd>
+                    <dt>{{ ux_icon('lucide:star', {class: 'icon icon-fw'}) }} Rating</dt>
+                    <dd>{{ rs.rating_count ? rs.rating|number_format(1) ~ ' / 5 (' ~ rs.rating_count ~ (rs.rating_count == 1 ? ' vote)' : ' votes)') : 'Not rated yet' }}</dd>
+                    <dt>{{ ux_icon('lucide:calendar', {class: 'icon icon-fw'}) }} Uploaded</dt>
+                    <dd>{{ rs.insert_date|date('M j, Y') }}</dd>
+                </dl>
+            </section>
         </div>
-    {% endfor %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
 {% endblock %}
 
 {% block foot %}
-<script type="text/javascript">
-    function get_search_params(search) {
-        var params = search.substr(1).split('&');
-        var kv = {};
-        for (var i = 0; i < params.length; i++) {
-            var pair = params[i].split('=');
-            kv[decodeURIComponent(pair[0])] = pair[1];
-        }
-        return kv;
-    }
-    function replace_frames(element) {
-        var url = element.getAttribute('href');
-        var hostname = element.hostname;
-        var frame = document.createElement('iframe');
-        var params = get_search_params(element.search);
-        if (hostname.includes('youtube.com') && element.pathname == '/watch' && params['v'] && params['v'].length > 4) {
-            frame.setAttribute('src', 'https://www.youtube.com/embed/' + params['v']);
-        } else if (hostname.includes('youtu.be') && element.pathname && element.pathname.length > 4) {
-            frame.setAttribute('src', 'https://www.youtube.com/embed/' + element.pathname.substr(1));
+<script defer src="https://cdn.jsdelivr.net/npm/linkifyjs@4.4.0/dist/linkify.min.js" integrity="sha384-ratS1OgyDbYKZHPKvQ+McGITjqyef6xrsPVkh97mB8fEZzcqlT9VheSWLACU6x0z" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/linkify-element@4.4.0/dist/linkify-element.min.js" integrity="sha384-wEFOKx8J/xs3hA0qNiXy3R36x3aJb6DdRzHpH8N0/iAUERvHeyJowhtJVX2j0UcL" crossorigin="anonymous"></script>
+<script>
+    // Swap a description link to YouTube, SoundCloud or Clyp for an embedded player
+    const replaceFrames = (element) => {
+        const { hostname, pathname } = element;
+        const params = new URLSearchParams(element.search);
+        let src = null;
+        if (hostname.includes('youtube.com') && pathname === '/watch' && params.get('v')?.length > 4) {
+            src = `https://www.youtube.com/embed/${params.get('v')}`;
+        } else if (hostname.includes('youtu.be') && pathname.length > 4) {
+            src = `https://www.youtube.com/embed/${pathname.substring(1)}`;
         } else if (hostname.includes('soundcloud.com')) {
-            frame = null; // don't create element this early
-            // Fetch Soundcloud embed code
-            fetch('https://soundcloud.com/oembed?' + new URLSearchParams({format: 'json', url: url}))
-                .then(function(response) { return response.json(); })
-                .then(function(data) {
+            // SoundCloud hands out its own embed code
+            const url = element.getAttribute('href');
+            fetch(`https://soundcloud.com/oembed?${new URLSearchParams({ format: 'json', url })}`)
+                .then((response) => response.json())
+                .then((data) => {
                     if (data.html) {
-                        var frame = document.createElement('div');
-                        frame.innerHTML = data.html;
-                        frame.setAttribute('height', '160');
-                        element.parentNode.replaceChild(frame, element);
+                        const embed = document.createElement('div');
+                        embed.innerHTML = data.html;
+                        embed.setAttribute('height', '160');
+                        element.replaceWith(embed);
                     }
                 });
         } else if (hostname.includes('clyp.it')) {
-            frame.setAttribute('src', 'https://clyp.it' + element.pathname + '/widget');
-        } else {
-            frame = null;
+            src = `https://clyp.it${pathname}/widget`;
         }
-        if (frame) {
+        if (src) {
+            const frame = document.createElement('iframe');
+            frame.setAttribute('src', src);
             frame.setAttribute('frameborder', 0);
             frame.setAttribute('width', '100%');
             frame.setAttribute('height', '160');
-            element.parentNode.replaceChild(frame, element);
+            element.replaceWith(frame);
         }
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-        var desc = document.getElementById('desc');
+    };
+    document.addEventListener('DOMContentLoaded', () => {
+        const desc = document.getElementById('desc');
         if (desc) {
-            linkifyElement(desc, {className: 'linkified', target: {url: '_blank'}});
+            linkifyElement(desc, { className: 'linkified', target: { url: '_blank' } });
         }
-        var links = document.querySelectorAll('.linkified');
-        for (var i = 0; i < links.length; i++) {
-            var element = links[i];
-            replace_frames(element);
-        }
+        // comments get clickable links, only the description gets players
+        document.querySelectorAll('.lsp-comment-text').forEach((comment) => {
+            linkifyElement(comment, { target: { url: '_blank' }, rel: 'nofollow ugc' });
+        });
+        document.querySelectorAll('.linkified').forEach(replaceFrames);
     });
 </script>
 {% endblock %}

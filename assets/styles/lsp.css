@@ -1,0 +1,1573 @@
+/*******************************
+*** LMMS Sharing Platform ***
+*******************************/
+:root {
+  --lsp-accent: #10b146;
+  --lsp-accent-hover: #0c9a3c;
+  --lsp-surface: light-dark(#fff, #1a1d21);
+  --lsp-surface-2: light-dark(#f2f4f3, #262b31);
+  --lsp-bg: var(--lsp-surface);
+  --lsp-raised: light-dark(#fff, #3a4047);
+  --lsp-border: light-dark(#e1e5e3, #31383f);
+  --lsp-hover: light-dark(rgb(0 0 0 / 0.045), rgb(255 255 255 / 0.05));
+  --lsp-border-strong: light-dark(#c5ccc8, #48515a);
+  --lsp-muted: light-dark(#5f6b65, #9aa4ad);
+  --lsp-radius: 8px;
+  --lsp-gap: 32px;
+  --lsp-control-radius: 6px;
+  --lsp-control-height: 38px;
+  --lsp-rail-width: 210px;
+  /* the main column's text edge; posts pad to it so their hover fill has room */
+  --lsp-inset: 16px;
+  --lsp-aside-width: 300px;
+  /* on desktops the rail hugs the window's left edge and the feed widens up to this */
+  --lsp-main-max: 760px;
+  --lsp-edge: 20px;
+  --lsp-bar-height: 61px;
+  /* where the header bar sticks: under the site navbar, or in its place once it slides away */
+  --lsp-top: var(--nav-height);
+}
+
+:root:has(.navbar-custom.nav-up) {
+  --lsp-top: 0px;
+}
+
+/* Each category gets an accent; --cat drives tiles, chips and rail icons */
+.lsp-cat-projects { --cat: #10b146; }
+.lsp-cat-samples { --cat: #2f80ed; }
+.lsp-cat-presets { --cat: #8b5cf6; }
+.lsp-cat-tutorials { --cat: #e8890c; }
+.lsp-cat-screenshots { --cat: #e64980; }
+.lsp-cat-ui-themes { --cat: #0fa5a0; }
+
+.main-div:has(.lsp-bar) {
+  background: var(--lsp-bg);
+}
+
+/* The site underlines links on hover; here hover shows as a color change
+   (and cards and rail rows have their own hover surfaces) */
+.lsp-layout a:hover,
+.lsp-auth a:hover,
+.lsp-bar a:hover {
+  text-decoration: none;
+}
+
+/* plain text links ("Create an account", links in comments) deepen instead */
+.lsp-layout a:not([class]):hover,
+.lsp-auth a:not([class]):hover {
+  color: color-mix(in srgb, var(--col-anchor), var(--bs-body-color) 35%);
+}
+
+.lsp-crumbs a:hover,
+.lsp-sub:hover,
+.lsp-post-meta .lsp-user:hover,
+.lsp-chip:hover {
+  color: var(--lsp-accent-hover);
+}
+
+/* The site makes every link bold; inside the platform links are regular
+   and only headings, post titles and names carry weight */
+.lsp-layout a:not(.btn),
+.lsp-auth a:not(.btn),
+.lsp-bar a:not(.btn) {
+  font-weight: 400;
+}
+
+.lsp-layout .lsp-user,
+.lsp-layout .lsp-chip,
+.lsp-layout .lsp-sort-link.active,
+.lsp-layout .lsp-page.active,
+.lsp-layout .lsp-rail-link.active,
+.lsp-menu-head strong {
+  font-weight: 500;
+}
+
+.lsp-layout .lsp-post-title a,
+.lsp-bar .lsp-brand {
+  font-weight: 600;
+}
+
+/*** Icons ***/
+/* Lucide outlines; a touch lighter than their default 2px stroke at this text size */
+:is(.lsp-bar, .lsp-layout, .lsp-auth) .icon [stroke-width] {
+  stroke-width: 1.75;
+}
+
+/* Lucide stars are outlines; a rated star fills in */
+.lsp-stat-rated .icon path,
+.lsp-stars .star-full path {
+  fill: currentColor;
+}
+
+/*** Buttons ***/
+.btn-lsp {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--lsp-accent);
+  --bs-btn-border-color: var(--lsp-accent);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--lsp-accent-hover);
+  --bs-btn-hover-border-color: var(--lsp-accent-hover);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--lsp-accent-hover);
+  --bs-btn-active-border-color: var(--lsp-accent-hover);
+  --bs-btn-focus-shadow-rgb: 16, 177, 70;
+  --bs-btn-font-weight: 500;
+  border-radius: var(--lsp-control-radius);
+  padding-inline: 1em;
+}
+
+.btn-lsp-ghost {
+  --bs-btn-color: var(--bs-body-color);
+  --bs-btn-border-color: var(--lsp-border-strong);
+  --bs-btn-hover-bg: var(--lsp-surface-2);
+  --bs-btn-hover-border-color: var(--lsp-border-strong);
+  --bs-btn-font-weight: 500;
+  border-radius: var(--lsp-control-radius);
+}
+
+.lsp-layout .btn-sm,
+.lsp-layout .btn-outline-secondary,
+.lsp-layout .btn-outline-danger,
+.lsp-layout .btn-danger {
+  border-radius: var(--lsp-control-radius);
+}
+
+.lsp-btn-note {
+  margin-left: 0.35em;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/*** Header bar ***/
+/* Laid out on the page's column grid: the brand spans the category rail,
+   the search the feed, and the actions the sidebar */
+.lsp-bar {
+  border-bottom: 1px solid var(--lsp-border);
+  background: var(--lsp-surface);
+}
+
+/* On wider screens the bar stays put and follows the site navbar as it hides and returns */
+@media (min-width: 768px) {
+  .lsp-bar {
+    position: sticky;
+    top: var(--lsp-top);
+    z-index: 1020;
+    transition: top 0.15s ease-in-out;
+  }
+}
+
+.lsp-bar-inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "brand actions" "search search";
+  align-items: center;
+  gap: 10px var(--lsp-gap);
+  padding-block: 10px;
+}
+
+@media (min-width: 768px) {
+  .lsp-bar-inner {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: "brand search actions";
+    min-height: 60px;
+    padding-block: 0;
+  }
+}
+
+/* From here on the bar spans the window like the layout below it: the brand over
+   the rail, the search over the feed, the actions against the right edge */
+@media (min-width: 992px) {
+  .lsp-bar-inner {
+    max-width: none;
+    padding-inline: var(--lsp-edge);
+    column-gap: 0;
+    grid-template-columns: var(--lsp-rail-width) minmax(var(--lsp-gap), 1fr) minmax(0, var(--lsp-main-max)) minmax(max-content, 1fr);
+    grid-template-areas: "brand . search actions";
+  }
+
+  .lsp-bar-actions {
+    justify-self: end;
+    padding-left: var(--lsp-gap);
+  }
+}
+
+@media (min-width: 1200px) {
+  .lsp-bar-inner {
+    grid-template-columns: var(--lsp-rail-width) minmax(var(--lsp-gap), 1fr) minmax(0, var(--lsp-main-max)) var(--lsp-gap) var(--lsp-aside-width) minmax(0, 1fr);
+    grid-template-areas: "brand . search . actions actions";
+  }
+}
+
+.lsp-brand {
+  grid-area: brand;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  color: var(--bs-body-color);
+  font-family: "Titillium Web", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.lsp-brand:hover {
+  color: var(--bs-body-color);
+  text-decoration: none;
+}
+
+.lsp-brand-icon {
+  color: var(--lsp-accent);
+  font-size: 1.15em;
+}
+
+.lsp-search {
+  grid-area: search;
+  position: relative;
+}
+
+.lsp-search input {
+  width: 100%;
+  height: var(--lsp-control-height);
+  padding: 0 40px 0 40px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: var(--lsp-surface-2);
+  color: var(--bs-body-color);
+  transition: border-color var(--animation-time), background-color var(--animation-time), box-shadow var(--animation-time);
+}
+
+.lsp-search input::placeholder {
+  color: var(--lsp-muted);
+}
+
+.lsp-search input:hover {
+  background: color-mix(in srgb, var(--lsp-surface-2), var(--bs-body-color) 5%);
+}
+
+.lsp-search input:focus {
+  outline: none;
+  border-color: var(--lsp-accent);
+  background: var(--lsp-surface);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--lsp-accent) 18%, transparent);
+}
+
+/* The "/" shortcut hint, hidden once the field is in use */
+.lsp-search-key {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  translate: 0 -50%;
+  display: grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border: 1px solid var(--lsp-border-strong);
+  border-radius: 5px;
+  background: var(--lsp-surface);
+  color: var(--lsp-muted);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+  box-shadow: none;
+  pointer-events: none;
+  transition: opacity var(--animation-time);
+}
+
+.lsp-search input[type=search]:focus ~ .lsp-search-key,
+.lsp-search input[type=search]:not(:placeholder-shown) ~ .lsp-search-key {
+  opacity: 0;
+}
+
+/* the shortcut needs a keyboard and JS */
+:root:not(.lsp-search-shortcut) .lsp-search-key {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .lsp-search-key {
+    display: none;
+  }
+}
+
+.lsp-search-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  translate: 0 -50%;
+  color: var(--lsp-muted);
+  pointer-events: none;
+}
+
+.lsp-bar-actions {
+  grid-area: actions;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.lsp-bar-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  height: var(--lsp-control-height);
+  padding-block: 0;
+}
+
+/* User menu; a <details> so it opens without JS */
+.lsp-menu {
+  position: relative;
+}
+
+.lsp-menu summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: var(--lsp-control-height);
+  padding: 0 10px 0 5px;
+  border: 1px solid var(--lsp-border-strong);
+  border-radius: var(--lsp-control-radius);
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+
+.lsp-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.lsp-menu summary:hover,
+.lsp-menu[open] summary {
+  background: var(--lsp-surface-2);
+}
+
+.lsp-menu-caret {
+  font-size: 0.7em;
+  color: var(--lsp-muted);
+  transition: rotate var(--animation-time);
+}
+
+.lsp-menu[open] .lsp-menu-caret {
+  rotate: 180deg;
+}
+
+.lsp-menu-list {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 1000;
+  min-width: 210px;
+  padding: 6px;
+  border: 1px solid var(--lsp-border);
+  border-radius: var(--lsp-radius);
+  background: var(--lsp-surface);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.15);
+}
+
+.lsp-menu-list a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--bs-body-color);
+}
+
+.lsp-menu-list a:hover {
+  background: var(--lsp-surface-2);
+  text-decoration: none;
+}
+
+.lsp-menu-name {
+  max-width: 12ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 575.98px) {
+  .lsp-menu-name {
+    display: none;
+  }
+}
+
+.lsp-menu-head {
+  padding: 6px 10px 8px;
+  color: var(--lsp-muted);
+  font-size: 0.86rem;
+}
+
+.lsp-menu-head strong {
+  color: var(--bs-body-color);
+}
+
+.lsp-menu-role {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.lsp-menu-list hr {
+  margin: 6px 0;
+  border-color: var(--lsp-border);
+  opacity: 1;
+}
+
+/*** Page layout ***/
+.lsp-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "rail" "main" "aside";
+  gap: 16px var(--lsp-gap);
+  padding-block: 16px 48px;
+  text-align: left;
+}
+
+.lsp-rail {
+  grid-area: rail;
+}
+
+.lsp-main {
+  grid-area: main;
+  min-width: 0;
+}
+
+.lsp-aside {
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* The rail sits against the window's left edge; the feed and sidebar take
+   the rest, centred in it once the feed reaches its widest */
+@media (min-width: 992px) {
+  .lsp-layout {
+    max-width: none;
+    padding-inline: var(--lsp-edge);
+    column-gap: 0;
+    grid-template-columns: var(--lsp-rail-width) minmax(var(--lsp-gap), 1fr) minmax(0, var(--lsp-main-max)) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "rail . main ." "rail . aside .";
+    padding-top: 24px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .lsp-layout {
+    grid-template-columns: var(--lsp-rail-width) minmax(var(--lsp-gap), 1fr) minmax(0, var(--lsp-main-max)) var(--lsp-gap) var(--lsp-aside-width) minmax(0, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "rail . main . aside .";
+  }
+}
+
+/*** Category rail: a scrolling chip row on phones, a sticky sidebar on desktops ***/
+.lsp-rail {
+  display: flex;
+  gap: 6px;
+  margin-inline: -16px;
+  padding-inline: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.lsp-rail-label,
+.lsp-rail-subs {
+  display: none;
+}
+
+.lsp-rail-link {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--lsp-border);
+  border-radius: var(--lsp-control-radius);
+  background: var(--lsp-surface);
+  color: var(--bs-body-color);
+  white-space: nowrap;
+}
+
+.lsp-rail-link:hover {
+  background: var(--lsp-hover);
+  text-decoration: none;
+  color: var(--bs-body-color);
+}
+
+/* The selected item gets a soft fill */
+.lsp-rail-link.active,
+.lsp-rail .lsp-rail-sub.active {
+  background: var(--lsp-surface-2);
+  color: var(--bs-body-color);
+}
+
+/* On phones the rail items are outlined chips, so the selected one inverts */
+@media (max-width: 991.98px) {
+  .lsp-rail-link.active {
+    border-color: var(--bs-body-color);
+    background: var(--bs-body-color);
+    color: var(--lsp-surface);
+  }
+
+  .lsp-rail .lsp-rail-link.active .icon,
+  .lsp-rail-link.active .lsp-count {
+    color: inherit;
+  }
+}
+
+.lsp-rail-link .icon {
+  color: var(--lsp-muted);
+}
+
+.lsp-rail-link.active .icon {
+  color: var(--cat, var(--lsp-accent));
+}
+
+.lsp-count {
+  margin-left: auto;
+  color: var(--lsp-muted);
+  font-size: 0.8em;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 992px) {
+  .lsp-rail {
+    position: sticky;
+    top: calc(var(--lsp-top) + var(--lsp-bar-height) + 16px);
+    align-self: start;
+    flex-direction: column;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .lsp-rail-label {
+    display: block;
+    margin: 18px 10px 6px;
+    color: var(--lsp-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .lsp-rail-link {
+    padding: 7px 10px;
+    border-radius: var(--lsp-control-radius);
+    background: none;
+    font-weight: 400;
+  }
+
+  .lsp-rail-link,
+  .lsp-rail .lsp-rail-sub {
+    border: 1px solid transparent;
+  }
+
+  /* A long subcategory list scrolls inside the rail instead of running off the screen */
+  .lsp-rail {
+    margin-right: calc(var(--lsp-gap) * -0.5);
+    padding-right: 12px;
+    border-right: 1px solid var(--lsp-border);
+    max-height: calc(100vh - var(--lsp-top) - var(--lsp-bar-height) - 32px);
+    transition: top 0.15s ease-in-out, max-height 0.15s ease-in-out;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .lsp-rail-subs {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin: 2px 0 8px 19px;
+    padding-left: 10px;
+    border-left: 1px solid var(--lsp-border);
+  }
+
+  .lsp-rail .lsp-rail-sub {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: var(--lsp-control-radius);
+    color: var(--lsp-muted);
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .lsp-rail-sub:hover {
+    background: var(--lsp-hover);
+    color: var(--bs-body-color);
+    text-decoration: none;
+  }
+
+  .lsp-rail .lsp-rail-sub.active {
+    font-weight: 500;
+  }
+
+  .lsp-rail-sub.active .lsp-count {
+    color: var(--cat);
+  }
+}
+
+/*** Headings ***/
+.lsp-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.lsp-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 4px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.86rem;
+  color: var(--lsp-muted);
+}
+
+.lsp-crumbs li + li::before {
+  content: "›";
+  margin-inline: 8px;
+}
+
+.lsp-crumbs a {
+  color: var(--lsp-muted);
+}
+
+.lsp-main > .lsp-title,
+.lsp-main > nav + .lsp-title {
+  margin-bottom: 14px;
+}
+
+/*** Feed controls ***/
+.lsp-chips {
+  margin-right: -16px;
+  padding-right: 32px;
+  mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+}
+
+.lsp-sort,
+.lsp-chips {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+/*** Feed header: title and tally on the left, sort on the right ***/
+.lsp-feed-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-bottom: 6px;
+}
+
+.lsp-feed-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  min-width: 0;
+}
+
+.lsp-feed-tally {
+  color: var(--lsp-muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.lsp-sort {
+  gap: 2px;
+  margin: 0;
+  padding: 3px;
+  border-radius: 10px;
+  background: var(--lsp-surface-2);
+}
+
+.lsp-sort-link,
+.lsp-chip-link {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+  color: var(--lsp-muted);
+  white-space: nowrap;
+}
+
+.lsp-sort-link {
+  padding: 4px 12px;
+  border-radius: 7px;
+  font-size: 0.9rem;
+}
+
+.lsp-sort-link:hover,
+.lsp-chip-link:hover {
+  color: var(--bs-body-color);
+  text-decoration: none;
+}
+
+.lsp-sort-link.active {
+  background: var(--lsp-raised);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+  color: var(--bs-body-color);
+}
+
+.lsp-chip-link {
+  padding: 3px 10px;
+  border: 1px solid var(--lsp-border);
+  border-radius: var(--lsp-control-radius);
+  font-size: 0.86rem;
+}
+
+.lsp-chip-link:hover {
+  background: var(--lsp-surface-2);
+}
+
+.lsp-chip-link.active {
+  border-color: var(--bs-body-color);
+  background: var(--bs-body-color);
+  color: var(--lsp-surface);
+}
+
+.lsp-chip-link.active .lsp-count {
+  color: inherit;
+  opacity: 0.7;
+}
+
+/* desktops list the subcategories in the rail instead */
+@media (min-width: 992px) {
+  .lsp-chips {
+    display: none;
+  }
+}
+
+.lsp-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin: -4px 0 14px;
+}
+
+.lsp-filter label {
+  font-weight: 400;
+}
+
+.lsp-filter .form-check-input {
+  margin-right: 4px;
+}
+
+/*** Feed posts ***/
+/* Posts sit on the page, divided by hairlines; the hover fill bleeds past the text edge */
+.lsp-feed {
+  display: flex;
+  flex-direction: column;
+}
+
+.lsp-post {
+  position: relative;
+  padding: 14px var(--lsp-inset);
+  border-radius: 12px;
+  transition: background-color var(--animation-time);
+}
+
+.lsp-post + .lsp-post {
+  margin-top: 9px;
+}
+
+.lsp-post + .lsp-post::before {
+  content: "";
+  position: absolute;
+  inset: -5px var(--lsp-inset) auto;
+  border-top: 1px solid var(--lsp-border);
+  transition: opacity var(--animation-time);
+}
+
+.lsp-post:hover {
+  background: var(--lsp-hover);
+}
+
+/* the hover fill replaces the dividers on either side of it */
+.lsp-post:hover::before,
+.lsp-post:hover + .lsp-post::before {
+  opacity: 0;
+}
+
+.lsp-feed .lsp-empty {
+  margin-inline: 0;
+}
+
+/* Every page's content shares one text edge: inset like the feed's posts,
+   whose own padding leaves room for their hover fill */
+.lsp-main > :not(.lsp-feed) {
+  margin-inline: var(--lsp-inset);
+}
+
+/* phones have no hover, so the text sits on the page gutter like the rest */
+@media (max-width: 575.98px) {
+  :root {
+    --lsp-inset: 0px;
+  }
+
+  .lsp-post:hover {
+    background: none;
+  }
+
+  .lsp-post:hover::before,
+  .lsp-post:hover + .lsp-post::before {
+    opacity: 1;
+  }
+}
+
+.lsp-post-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.lsp-post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  color: var(--lsp-muted);
+  font-size: 0.86rem;
+}
+
+/* Keep the meta links clickable above the card-wide stretched link */
+.lsp-post-meta a,
+.lsp-post-stats {
+  position: relative;
+  z-index: 2;
+}
+
+.lsp-sub {
+  color: var(--lsp-muted);
+}
+
+/* feed meta: whatever parts a post shows, separated by dots */
+.lsp-post .lsp-post-meta > * + *::before {
+  content: "·";
+  margin-right: 6px;
+  color: var(--lsp-muted);
+  opacity: 0.6;
+}
+
+.lsp-where {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lsp-chip + .lsp-sub::before {
+  content: "›";
+  margin-right: 6px;
+  color: var(--lsp-muted);
+}
+
+.lsp-user {
+  color: var(--bs-body-color);
+}
+
+.lsp-dot {
+  opacity: 0.6;
+}
+
+.lsp-post-title {
+  margin: 8px 0 4px;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.lsp-post-title a {
+  color: var(--bs-body-color);
+  font-weight: 600;
+}
+
+.lsp-post-excerpt {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: var(--lsp-muted);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow-wrap: anywhere;
+}
+
+.lsp-post-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  margin-top: 12px;
+  color: var(--lsp-muted);
+  font-size: 0.86rem;
+}
+
+/* Soft grey buttons for counts and post actions */
+.lsp-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding-inline: 10px;
+  border-radius: var(--lsp-control-radius);
+  background: var(--lsp-surface-2);
+  color: var(--bs-body-color);
+  font-size: 0.86rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* keep the buttons visible against a hovered post's fill */
+.lsp-post:hover .lsp-action {
+  background: color-mix(in srgb, var(--lsp-surface-2), var(--bs-body-color) 6%);
+}
+
+a.lsp-action:hover {
+  background: color-mix(in srgb, var(--lsp-surface-2), var(--bs-body-color) 8%);
+  color: var(--bs-body-color);
+}
+
+.lsp-action-danger,
+a.lsp-action-danger:hover {
+  color: var(--bs-danger-text-emphasis);
+}
+
+.lsp-stat-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 4px;
+}
+
+.lsp-ext {
+  padding: 0 5px;
+  border: 1px solid var(--lsp-border-strong);
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.lsp-stat-rated .icon {
+  color: #f5b301;
+}
+
+/*** Category chips and tiles ***/
+.lsp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--bs-body-color);
+}
+
+.lsp-chip::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--cat);
+}
+
+/*** Panels and the sidebar ***/
+.lsp-box {
+  padding: 4px 18px;
+  border-radius: var(--lsp-radius);
+  background: var(--lsp-surface-2);
+}
+
+.lsp-box > section {
+  padding-block: 16px;
+}
+
+.lsp-box > section + section {
+  border-top: 1px solid var(--lsp-border);
+}
+
+.lsp-box .lsp-panel-title {
+  margin-bottom: 10px;
+}
+
+.lsp-section-title {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.lsp-panel {
+  padding: 18px 20px;
+  border: 1px solid var(--lsp-border);
+  border-radius: var(--lsp-radius);
+  background: var(--lsp-surface);
+}
+
+.lsp-panel-title {
+  margin: 0 0 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lsp-muted);
+}
+
+.lsp-about p {
+  color: var(--lsp-muted);
+}
+
+.lsp-about p:last-child {
+  margin-bottom: 0;
+}
+
+.lsp-about-join {
+  margin: 12px 0 0;
+  font-size: 0.86rem;
+}
+
+.lsp-rules {
+  margin: 0;
+  padding-left: 1.2em;
+  color: var(--lsp-muted);
+  font-size: 0.9rem;
+}
+
+.lsp-rules li + li {
+  margin-top: 6px;
+}
+
+.lsp-facts {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 8px 12px;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.lsp-facts dt {
+  color: var(--lsp-muted);
+  font-weight: 400;
+}
+
+.lsp-facts dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 400;
+}
+
+.lsp-uploader strong {
+  font-weight: 500;
+}
+
+.lsp-uploader div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-size: 0.9rem;
+}
+
+/*** A single upload ***/
+.lsp-entry {
+  margin-top: 8px;
+}
+
+.lsp-entry-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.lsp-entry-author {
+  display: contents;
+}
+
+@media (min-width: 1200px) {
+  .lsp-entry-author {
+    display: none;
+  }
+}
+
+.lsp-entry-head .lsp-post-meta {
+  margin-top: 4px;
+}
+
+.lsp-entry-image img {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 18px;
+  border: 1px solid var(--lsp-border);
+  border-radius: 8px;
+}
+
+.lsp-entry-desc {
+  margin-bottom: 18px;
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.lsp-entry-desc iframe {
+  display: block;
+  margin-block: 10px;
+  border-radius: 8px;
+}
+
+.lsp-entry-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.lsp-entry-owner {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/*** Star rating input ***/
+.lsp-rate {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lsp-rate-caption {
+  color: var(--lsp-muted);
+  font-size: 0.86rem;
+}
+
+.lsp-rate-caption:empty {
+  display: none;
+}
+
+.lsp-stars {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  font-size: 1rem;
+}
+
+.lsp-stars > * {
+  padding: 0 2px;
+  color: var(--lsp-border-strong);
+}
+
+.lsp-stars > a:hover {
+  text-decoration: none;
+}
+
+.lsp-rate.disabled .lsp-stars {
+  cursor: not-allowed;
+}
+
+.lsp-stars .star-full {
+  color: #f5b301;
+}
+
+/* Each star holds both glyphs; show the one matching its state */
+.lsp-star .star-full,
+.lsp-star.filled .star-empty {
+  display: none;
+}
+
+.lsp-star.filled .star-full {
+  display: inline;
+}
+
+/* While hovering, preview the rating under the cursor instead of the saved one */
+.lsp-rate:not(.disabled) .lsp-stars:hover .lsp-star .star-full {
+  display: none;
+}
+
+.lsp-rate:not(.disabled) .lsp-stars:hover .lsp-star .star-empty {
+  display: inline;
+}
+
+.lsp-rate:not(.disabled) .lsp-stars > a:hover .lsp-star .star-full,
+.lsp-rate:not(.disabled) .lsp-stars > a:hover ~ a .lsp-star .star-full {
+  display: inline;
+}
+
+.lsp-rate:not(.disabled) .lsp-stars > a:hover .lsp-star .star-empty,
+.lsp-rate:not(.disabled) .lsp-stars > a:hover ~ a .lsp-star .star-empty {
+  display: none;
+}
+
+/*** Discussion ***/
+.lsp-discussion {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--lsp-border);
+}
+
+.lsp-reply {
+  margin-bottom: 12px;
+  border: 1px solid var(--lsp-border-strong);
+  border-radius: 12px;
+  background: var(--lsp-surface);
+  transition: border-color var(--animation-time), box-shadow var(--animation-time);
+}
+
+.lsp-reply:hover {
+  border-color: color-mix(in srgb, var(--lsp-border-strong), var(--bs-body-color) 20%);
+}
+
+.lsp-reply textarea {
+  display: block;
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--bs-body-color);
+  line-height: 1.5;
+  resize: none;
+  transition: min-height var(--animation-time);
+}
+
+.lsp-reply textarea::placeholder {
+  color: var(--lsp-muted);
+}
+
+.lsp-reply textarea:focus {
+  outline: none;
+}
+
+.lsp-reply-actions {
+  display: none;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 0 8px 8px;
+}
+
+/* Open while in use or holding a draft */
+.lsp-reply:focus-within,
+.lsp-reply:has(textarea:not(:placeholder-shown)) {
+  border-color: var(--lsp-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--lsp-accent) 18%, transparent);
+}
+
+.lsp-reply:focus-within textarea,
+.lsp-reply:has(textarea:not(:placeholder-shown)) textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+/* grow with the text where supported, instead of a resize handle */
+@supports (field-sizing: content) {
+  .lsp-reply textarea {
+    field-sizing: content;
+    max-height: 50vh;
+  }
+
+  .lsp-reply:focus-within textarea,
+  .lsp-reply:has(textarea:not(:placeholder-shown)) textarea {
+    resize: none;
+  }
+}
+
+.lsp-reply:focus-within .lsp-reply-actions,
+.lsp-reply:has(textarea:not(:placeholder-shown)) .lsp-reply-actions {
+  display: flex;
+}
+
+.lsp-reply-actions .btn {
+  border-radius: var(--lsp-control-radius);
+}
+
+.lsp-reply-actions .lsp-action {
+  border: 0;
+}
+
+/* logged out: the same field, leading to the login page */
+.lsp-reply-guest {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 0 8px 0 16px;
+}
+
+.lsp-reply-guest a:first-child {
+  flex: 1;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  color: var(--lsp-muted);
+}
+
+.lsp-layout .lsp-reply-guest a:first-child:hover {
+  color: var(--bs-body-color);
+}
+
+.lsp-reply-signup {
+  padding: 4px 10px;
+  border-radius: var(--lsp-control-radius);
+  font-size: 0.86rem;
+}
+
+.lsp-reply-signup:hover {
+  background: var(--lsp-hover);
+}
+
+.lsp-comments {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lsp-comment {
+  display: flex;
+  gap: 12px;
+  padding-block: 14px;
+  border-top: 1px solid var(--lsp-border);
+}
+
+.lsp-comment:first-child {
+  border-top: 0;
+}
+
+.lsp-comment-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.lsp-comment-text {
+  margin-top: 4px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.lsp-badge-author {
+  padding: 0 6px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--lsp-accent) 15%, transparent);
+  color: light-dark(#0a7a30, #5ad685);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.lsp-comments-empty {
+  padding-block: 18px 6px;
+  text-align: center;
+}
+
+/*** Forms ***/
+.lsp-form .form-label,
+.lsp-legend {
+  font-weight: 600;
+}
+
+.lsp-legend {
+  margin: 20px 0 8px;
+  font-size: 1rem;
+}
+
+.lsp-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.lsp-form-actions .btn {
+  border-radius: var(--lsp-control-radius);
+}
+
+.lsp-form-file {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--lsp-border);
+}
+
+.lsp-drop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 36px 20px;
+  border: 2px dashed var(--lsp-border-strong);
+  border-radius: var(--lsp-radius);
+  background: var(--lsp-surface-2);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--animation-time), background-color var(--animation-time);
+}
+
+.lsp-drop:hover,
+.lsp-drop.dragover,
+.lsp-drop:focus-within {
+  border-color: var(--lsp-accent);
+  background: color-mix(in srgb, var(--lsp-accent) 6%, var(--lsp-surface));
+}
+
+.lsp-drop.selected {
+  border-style: solid;
+  border-color: var(--lsp-accent);
+}
+
+/* The real input covers the zone so a dropped file lands in it without JS */
+.lsp-drop input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.lsp-drop-icon {
+  color: var(--lsp-accent);
+  font-size: 2.2rem;
+}
+
+.lsp-drop-title {
+  font-weight: 500;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.lsp-drop-hint {
+  color: var(--lsp-muted);
+  font-size: 0.86rem;
+}
+
+.container.lsp-auth {
+  max-width: 460px;
+  padding-block: 40px 64px;
+  text-align: left;
+}
+
+.lsp-auth .lsp-panel {
+  padding: 28px;
+}
+
+.lsp-auth .lsp-title {
+  margin-bottom: 4px;
+}
+
+.lsp-auth-switch {
+  margin: 20px 0 0;
+  text-align: center;
+  color: var(--lsp-muted);
+}
+
+.lsp-captcha {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.lsp-captcha img {
+  flex: none;
+  border: 1px solid var(--lsp-border);
+  border-radius: 8px;
+  image-rendering: pixelated;
+}
+
+.lsp-layout .form-control,
+.lsp-layout .form-select,
+.lsp-auth .form-control {
+  border-color: var(--lsp-border-strong);
+  border-radius: 8px;
+}
+
+.lsp-layout .form-control:focus,
+.lsp-layout .form-select:focus,
+.lsp-auth .form-control:focus {
+  border-color: var(--lsp-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--lsp-accent) 20%, transparent);
+}
+
+.lsp-alert {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  border-radius: var(--lsp-radius);
+}
+
+.lsp-alert .icon {
+  flex: none;
+  translate: 0 0.1em;
+}
+
+/*** Empty state and paging ***/
+.lsp-empty {
+  padding: 48px 20px;
+  border: 1px dashed var(--lsp-border-strong);
+  border-radius: var(--lsp-radius);
+  text-align: center;
+}
+
+.lsp-empty p {
+  margin-bottom: 4px;
+}
+
+.lsp-empty .btn {
+  margin-top: 12px;
+}
+
+.lsp-empty-icon {
+  margin-bottom: 12px;
+  color: var(--lsp-muted);
+  font-size: 2rem;
+}
+
+.lsp-pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 24px;
+}
+
+.lsp-page,
+.lsp-page-gap {
+  display: inline-grid;
+  place-items: center;
+  min-width: 38px;
+  height: 38px;
+  padding-inline: 12px;
+  border-radius: var(--lsp-control-radius);
+  color: var(--bs-body-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.lsp-page {
+  background: var(--lsp-surface-2);
+}
+
+.lsp-page:hover {
+  background: color-mix(in srgb, var(--lsp-surface-2), var(--bs-body-color) 8%);
+  color: var(--bs-body-color);
+}
+
+.lsp-page.active {
+  background: var(--bs-body-color);
+  color: var(--lsp-surface);
+}
+
+.lsp-drop-hint,
+.lsp-form .form-check-label {
+  font-weight: 400;
+}

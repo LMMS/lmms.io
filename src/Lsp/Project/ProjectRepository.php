@@ -9,32 +9,13 @@ use Doctrine\DBAL\Query\QueryBuilder;
 
 final class ProjectRepository
 {
-    private const PAGE_SIZE = 25;
+    public const PAGE_SIZE = 25;
 
     public function __construct(
         private readonly Connection $connection,
         private readonly ProjectMetadata $projectMetadata,
         private readonly ThumbnailGenerator $thumbnails,
     ) {}
-
-    public function getLatest(): array
-    {
-        return $this->connection->fetchAllAssociative(
-            'SELECT files.id, licenses.name AS license, size, realname, filename, users.login,
-                categories.name AS category, subcategories.name AS subcategory,
-                insert_date, update_date, description, files.downloads,
-                (SELECT COUNT(file_id) FROM comments WHERE file_id = files.id) AS comments,
-                (SELECT COALESCE(AVG(stars), 0) FROM ratings WHERE file_id = files.id) AS rating,
-                (SELECT COUNT(id) FROM ratings WHERE file_id = files.id) AS rating_count
-            FROM files
-            INNER JOIN categories ON categories.id = files.category
-            INNER JOIN subcategories ON subcategories.id = files.subcategory
-            INNER JOIN users ON users.id = files.user_id
-            INNER JOIN licenses ON licenses.id = files.license_id
-            ORDER BY files.insert_date DESC
-            LIMIT ' . self::PAGE_SIZE,
-        );
-    }
 
     public function search(
         string $category = '',

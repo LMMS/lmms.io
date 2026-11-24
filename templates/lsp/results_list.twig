@@ -1,73 +1,100 @@
 {% extends 'lsp/base.twig' %}
 
-{% import 'lsp/macros.twig' as macros %}
+{% import 'lsp/macros.twig' as lsp %}
 
-{% macro is_sort_active(column) %}
-    {{ app.request.query.get('sort') == column ? 'active' : '' }}
-{% endmacro %}
+{% set subcategory = subcategory ?? '' %}
+{% set active_category = category_list|filter(c => c.active)|first %}
+{% set home_active = search == '' and browse_user == '' and category == '' %}
 
-{% macro sort_order(column) %}
-    {% if app.request.query.get('sort') == column %}
-        {% if app.request.query.get('order') == 'asc' %}
-            ({{ ux_icon('fa6-solid:arrow-up-long') }})
-        {% else %}
-            ({{ ux_icon('fa6-solid:arrow-down-long') }})
-        {% endif %}
-    {% endif %}
-{% endmacro %}
+{# The current listing's URL with some query parameters changed; empty values are dropped #}
+{% macro list_url(changes) %}/lsp?{{ app.request.query.all|merge(changes)|filter(v => v is not same as(null) and v != '')|url_encode }}{% endmacro %}
 
-{% macro sort_url(column) %}
-    {% set queries = app.request.query %}
-    {% if app.request.query.get('sort') == column %}
-        {% if app.request.query.get('order') == 'asc' %}
-            {% set queries = queries|merge({'order': ''}) %}
-        {% else %}
-            {% set queries = queries|merge({'order': 'asc'}) %}
-        {% endif %}
-    {% endif %}
-    {% set queries = queries|merge({'sort': column}) %}
-    /lsp?{{ queries|map((v, k) => "#{k}=#{v|escape('url')}")|join("&") }}
-{% endmacro %}
-
-{% macro paginate_url(page) %}
-    {% set queries = app.request.query|merge({'page': page - 1}) %}
-    /lsp?{{ queries|map((v, k) => "#{k}=#{v|escape('url')}")|join("&") }}
-{% endmacro %}
+{% block title %}LMMS | {{ search ? 'Search: ' ~ search : (browse_user ?: (subcategory ?: (category ?: 'Sharing Platform'))) }}{% endblock %}
 
 {% block main_content %}
-    {% import _self as r_macros %}
-    {{macros.make_title(titles)}}
-    <table class="table table-striped">
-    <ul class="nav nav-pills lsp-sort">
-        <li id="sort-date" class="nav-item">
-            <a class="nav-link {{ r_macros.is_sort_active('date')|trim }}" href="{{ r_macros.sort_url('date') }}">{{ ux_icon('fa6-solid:calendar') }}&nbsp;DATE {{ r_macros.sort_order('date') }}</a>
-        </li>
-        <li id="sort-downloads" class="nav-item">
-            <a class="nav-link {{ r_macros.is_sort_active('downloads')|trim }}" href="{{ r_macros.sort_url('downloads') }}">{{ ux_icon('fa6-solid:download') }}&nbsp;DOWNLOADS / AGE {{ r_macros.sort_order('downloads') }}</a>
-        </li>
-        <li id="sort-rating" class="nav-item">
-            <a class="nav-link {{ r_macros.is_sort_active('rating')|trim }}" href="{{ r_macros.sort_url('rating') }}">{{ ux_icon('fa6-solid:star') }}&nbsp;RATING {{ r_macros.sort_order('rating') }}</a>
-        </li>
-    </ul>
+    {% import _self as r %}
+
+    {% set noun = search ? ['result', 'results'] : ['upload', 'uploads'] %}
+    {% set tally = count|number_format ~ ' ' ~ (count == 1 ? noun[0] : noun[1]) %}
+    {% if search %}
+        {% set title = 'Results for "' ~ search ~ '"' %}
+        {% set crumbs = category ? [[category, active_category.url ?? '']] : [] %}
+    {% elseif browse_user %}
+        {% set title = (rows|first).realname ?? browse_user %}
+        {% set tally = '@' ~ browse_user ~ ' · ' ~ tally %}
+        {% set crumbs = [] %}
+    {% else %}
+        {% set title = subcategory ?: (category ?: 'All uploads') %}
+        {% set crumbs = subcategory ? [[category, active_category.url ?? '']] : [] %}
+    {% endif %}
+
+    {# The sidebar already says where a top-level listing is; a trail only helps one level down #}
+    {% if crumbs %}{{ lsp.crumbs(crumbs) }}{% endif %}
+    <div class="lsp-feed-head">
+        <div class="lsp-feed-title">
+            <h1 class="lsp-title">{{ title }}</h1>
+            <span class="lsp-feed-tally">{{ tally }}</span>
+        </div>
+        <nav class="lsp-sort" aria-label="Sort by">
+            {% for key, label in {date: 'New', downloads: 'Popular', rating: 'Top rated'} %}
+                <a class="lsp-sort-link{{ sort == key ? ' active' : '' }}" href="{{ r.list_url({sort: key, order: null, page: null}) }}"{% if sort == key %} aria-current="true"{% endif %}>{{ label }}</a>
+            {% endfor %}
+        </nav>
+    </div>
+
+    {% if search %}
+        <form class="lsp-filter" action="/lsp" method="get">
+            <input type="hidden" name="search" value="{{ search }}">
+            {% if category %}<input type="hidden" name="category" value="{{ category }}">{% endif %}
+            {% if subcategory %}<input type="hidden" name="subcategory" value="{{ subcategory }}">{% endif %}
+            <input type="hidden" name="sort" value="{{ sort }}">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="commentsearch" value="1" {{ commentsearch ? 'checked' }} data-autosubmit>
+                Also search in comments
+            </label>
+            <noscript><button class="btn btn-sm btn-outline-secondary" type="submit">Apply</button></noscript>
+        </form>
+    {% endif %}
+
+    {% if active_category and active_category.subcategories %}
+        <nav class="lsp-chips" aria-label="Subcategories">
+            <a class="lsp-chip-link{{ subcategory == '' ? ' active' : '' }}" href="{{ active_category.url }}">All</a>
+            {% for sub in active_category.subcategories|filter(s => s.count > 0 or s.active) %}
+                <a class="lsp-chip-link{{ sub.active ? ' active' : '' }}" href="{{ sub.url }}">{{ sub.name }} <span class="lsp-count">{{ sub.count }}</span></a>
+            {% endfor %}
+        </nav>
+    {% endif %}
+
+    <div class="lsp-feed">
         {% for rs in rows %}
-            {{macros.make_item(rs, sort)}}
+            {{ lsp.post_card(rs, category == '', subcategory == '', browse_user == '') }}
         {% else %}
-            <div class="alert alert-info text-center">
-            <strong>{{ ux_icon('fa6-solid:circle-info') }}&nbsp;</strong> No results found
+            <div class="lsp-empty">
+                {{ ux_icon('lucide:search', {class: 'icon lsp-empty-icon'}) }}
+                <p><strong>Nothing here yet.</strong></p>
+                <p class="text-body-secondary">{{ search ? 'Try a different search term.' : 'Be the first to share something!' }}</p>
+                <a class="btn btn-lsp" href="{{ path('lsp_add') }}">{{ ux_icon('lucide:upload') }}&nbsp; Upload</a>
             </div>
         {% endfor %}
-    </table>
-    {% if count > 25 %}
-    {% set pages = count / 25.0 %}
-    {% set current_page = app.request.query.get('page', 0) + 1 %}
-    <div class="text-center">
-        <div class="lsp-pagination center">
-            <ul class="pagination justify-content-center flex-wrap">
-                {% for i in 1..pages|round(0, 'ceil') %}
-                <li class="page-item {{ i == current_page ? 'active' : '' }}"><a class="page-link" href="{{r_macros.paginate_url(i)}}">{{i}}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
     </div>
+
+    {% set pages = (count / page_size)|round(0, 'ceil') %}
+    {% if pages > 1 %}
+        {% set current = page + 1 %}
+        <nav class="lsp-pages" aria-label="Pages">
+            {% if current > 1 %}
+                <a class="lsp-page" href="{{ r.list_url({page: current - 2 ?: null}) }}" rel="prev">{{ ux_icon('lucide:arrow-left') }}<span class="visually-hidden">Previous</span></a>
+            {% endif %}
+            {% for i in 1..pages %}
+                {% if i == 1 or i == pages or (i - current)|abs <= 2 %}
+                    <a class="lsp-page{{ i == current ? ' active' : '' }}" href="{{ r.list_url({page: i - 1 ?: null}) }}"{% if i == current %} aria-current="page"{% endif %}>{{ i }}</a>
+                {% elseif (i - current)|abs == 3 %}
+                    <span class="lsp-page-gap">…</span>
+                {% endif %}
+            {% endfor %}
+            {% if current < pages %}
+                <a class="lsp-page" href="{{ r.list_url({page: current}) }}" rel="next">Next</a>
+            {% endif %}
+        </nav>
     {% endif %}
 {% endblock %}

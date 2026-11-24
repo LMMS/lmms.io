@@ -1,28 +1,20 @@
 {% extends 'lsp/base.twig' %}
 
-{% import 'lsp/macros.twig' as macros %}
+{% import 'lsp/macros.twig' as lsp %}
 
 {% block main_content %}
-    {{macros.make_title(titles)}}
+    {{ lsp.heading('Add a comment', [[file_name, path('lsp_show', {id: file_id})]]) }}
     {% if error %}
-    <div class="alert alert-danger text-center">
-    <strong>{{ ux_icon('fa6-solid:circle-exclamation') }}&nbsp;
-    Error:</strong> {{error}}
-    </div>
-    {% else %}
-    <div class="alert alert-warning text-center">
-    <strong>{{ ux_icon('fa6-solid:circle-exclamation') }}&nbsp;
-    Warning:</strong> Do not submit offending, pornographic, racist or violent content.
-    </div>
+        <div class="alert alert-danger lsp-alert">{{ ux_icon('lucide:circle-alert') }}<span><strong>Error:</strong> {{ error }}</span></div>
     {% endif %}
-    <div class="card"><div class="card-header"><h3 class="card-title">{{ ux_icon('fa6-solid:comment') }}&nbsp;Comment</h3></div><div class="card-body">
-        <form action="/lsp/comment/{{file_id}}" method="post">
-        <div class="form-group">
-		<label for="text">Add comment to "{{file_name}}"</label>
-		<textarea id="comment" name="text" class="form-control"></textarea>
-		</div>
-		<button type="submit" class="btn btn-primary" name="addcomment" value="Comment">{{ ux_icon('fa6-solid:check') }}&nbsp;Comment</button>&nbsp;
-		<a href="/lsp/{{file_id}}" class="btn btn-warning">{{ ux_icon('fa6-solid:xmark') }}&nbsp;Cancel</a>
-		</form></div>
-    </div>
+    <form class="lsp-panel lsp-form" action="{{ path('lsp_comment', {id: file_id}) }}" method="post">
+        <div class="mb-3">
+            <label class="form-label" for="comment">Your comment on “{{ file_name }}”</label>
+            <textarea id="comment" name="text" class="form-control" rows="5" required autofocus placeholder="Share your thoughts or feedback…"></textarea>
+        </div>
+        <div class="lsp-form-actions">
+            <a href="{{ path('lsp_show', {id: file_id}) }}" class="btn btn-outline-secondary">Cancel</a>
+            <button type="submit" class="btn btn-lsp" name="addcomment" value="Comment">Comment</button>
+        </div>
+    </form>
 {% endblock %}

@@ -17,7 +17,7 @@ abstract class AbstractLspController extends AbstractController
     protected function categoryNav(string $category = '', string $subcategory = ''): array
     {
         return [
-            'category_list' => $this->categories->getAll($category),
+            'category_list' => $this->categories->getAll($category, $subcategory),
             'category'      => $category,
             'subcategory'   => $subcategory,
         ];
@@ -29,7 +29,7 @@ abstract class AbstractLspController extends AbstractController
             ...$this->categoryNav(),
             'titles'   => ['Error'],
             'severity' => 'danger',
-            'icon'     => 'fa6-solid:circle-exclamation',
+            'icon'     => 'lucide:circle-alert',
             'title'    => 'Error',
             'message'  => $message,
             'redirect' => '',

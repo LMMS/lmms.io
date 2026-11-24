@@ -1,23 +1,16 @@
 {% extends 'lsp/base.twig' %}
 
-{% import 'lsp/macros.twig' as macros %}
+{% import 'lsp/macros.twig' as lsp %}
 
 {% block main_content %}
-    {{macros.make_title([file_name, 'Delete'])}}
-    <div class="alert alert-warning text-center"><strong>{{ ux_icon('fa6-solid:circle-exclamation') }}&nbsp;
-            Warning:
-        </strong> This will also delete all the comments and ratings.
-    </div>
-    <div class="card"><div class="card-header"><h3 class="card-title">{{ ux_icon('fa6-solid:trash') }}&nbsp;Confirm Delete</h3></div>
-    <div class="card-body">
-    <form action="/lsp/delete/{{file_id}}" method="post">
-		<input type="hidden" name="confirmation" value="true">
-		<p class="lead">Confirm deletion of <strong>{{file_name}}</strong>?</p>
-		<div class="form-group">
-    <button type="submit" class="btn btn-danger">
-		{{ ux_icon('fa6-solid:check') }}&nbsp;Delete</button>
-		<a class="btn btn-warning" href="/lsp/{{file_id}}">
-		{{ ux_icon('fa6-solid:xmark') }}&nbsp;Cancel</a>
-		</div></form></div>
-    </div>
+    {{ lsp.heading('Delete ' ~ file_name|lsp_stem ~ '?', [[file_name, path('lsp_show', {id: file_id})]]) }}
+    <form class="lsp-panel lsp-form" action="{{ path('lsp_delete', {id: file_id}) }}" method="post">
+        <input type="hidden" name="confirmation" value="true">
+        <p class="mb-1">You are about to permanently delete <strong class="text-break">{{ file_name }}</strong>.</p>
+        <p class="text-body-secondary">All of its comments and ratings will be deleted too. This cannot be undone.</p>
+        <div class="lsp-form-actions">
+            <a class="btn btn-outline-secondary" href="{{ path('lsp_show', {id: file_id}) }}">Cancel</a>
+            <button type="submit" class="btn btn-danger">{{ ux_icon('lucide:trash-2') }}&nbsp; Delete forever</button>
+        </div>
+    </form>
 {% endblock %}

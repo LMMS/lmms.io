@@ -1,34 +1,40 @@
 {% extends 'lsp/base.twig' %}
 
+{% import 'lsp/macros.twig' as lsp %}
+
 {% block main_content %}
-    <div class="card"><div class="card-header">
-    <h3 class="card-title">{{ ux_icon('fa6-solid:gear') }}&nbsp;User Settings</h3></div>
-    <div class="card-body">
+    {{ lsp.heading('Settings', []) }}
     {% if error %}
-        <div class="alert alert-danger"><strong>{{ ux_icon('fa6-solid:circle-exclamation') }}&nbsp;Error:</strong> {{error}}</div>
+        <div class="alert alert-danger lsp-alert">{{ ux_icon('lucide:circle-alert') }}<span><strong>Error:</strong> {{ error }}</span></div>
     {% endif %}
-    <form action="/lsp/settings" method="post">
-        <div class="form-group">
-        <label for="username" class="text-body-secondary">User Name:</label>
-        <input type="text" name="username" class="form-control" value="{{username}}" disabled="disabled" />
-        <p class="form-text">User name cannot be changed</p>
+    <form class="lsp-panel lsp-form" action="{{ path('lsp_settings') }}" method="post">
+        <div class="lsp-form-file">
+            <div>
+                <strong>@{{ username }}</strong>
+                <span class="text-body-secondary d-block">Usernames cannot be changed</span>
+            </div>
         </div>
-        <div class="form-group">
-        <label for="realname">Full Name:</label>
-        <input type="text" name="realname" class="form-control" value="{{realname}}" />
+        <div class="mb-3">
+            <label class="form-label" for="realname">Display name</label>
+            <input type="text" id="realname" name="realname" class="form-control" maxlength="50" value="{{ realname }}">
         </div>
-        <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" name="password" maxlength="20" class="form-control"/>
+        <fieldset>
+            <legend class="lsp-legend">Change password</legend>
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <label class="form-label" for="password">New password</label>
+                    <input type="password" id="password" name="password" maxlength="20" class="form-control" autocomplete="new-password">
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label" for="password2">Confirm new password</label>
+                    <input type="password" id="password2" name="password2" maxlength="20" class="form-control" autocomplete="new-password">
+                </div>
+            </div>
+            <p class="form-text">Leave empty to keep your current password.</p>
+        </fieldset>
+        <div class="lsp-form-actions">
+            <a href="/lsp" class="btn btn-outline-secondary">Cancel</a>
+            <button class="btn btn-lsp" type="submit" name="settings" value="apply">Save</button>
         </div>
-        <div class="form-group">
-        <label for="password2">Confirm Password:</label>
-        <input type="password" class="form-control" maxlength="20" name="password2" />
-        </div>
-        <button class="btn btn-primary" type="submit" name="settings" value="apply">
-        {{ ux_icon('fa6-solid:check') }}&nbsp;Apply</button>
-        <a href="/lsp" class="btn btn-warning">{{ ux_icon('fa6-solid:xmark') }}&nbsp;Cancel</a>
     </form>
-    </div></div>
-    </div>
 {% endblock %}

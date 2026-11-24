@@ -10,7 +10,10 @@ final class CategoryRepository
 {
     public function __construct(private readonly Connection $connection) {}
 
-    public function getAll(string $activeCategory = ''): array
+    /**
+     * @return list<array{name: string, count: int, url: string, active: bool, subcategories: list<array{name: string, count: int, url: string, active: bool}>}>
+     */
+    public function getAll(string $activeCategory = '', string $activeSubcategory = ''): array
     {
         $rows = $this->connection->fetchAllAssociative(
             'SELECT categories.name AS name, COUNT(files.id) AS file_count, categories.id AS id
@@ -22,14 +25,14 @@ final class CategoryRepository
 
         $result = [];
         foreach ($rows as $row) {
-            $name = $row['name'] . ' (' . $row['file_count'] . ')';
-            $url  = '/lsp/?action=browse&category=' . rawurlencode($row['name']);
-
-            if ($activeCategory !== '' && $activeCategory === $row['name']) {
-                $result[] = [$name, $url, $this->getSubcategories($row['name'], (int) $row['id'])];
-            } else {
-                $result[] = [$name, $url];
-            }
+            $active   = $activeCategory !== '' && $activeCategory === $row['name'];
+            $result[] = [
+                'name'          => $row['name'],
+                'count'         => (int) $row['file_count'],
+                'url'           => '/lsp?action=browse&category=' . rawurlencode($row['name']),
+                'active'        => $active,
+                'subcategories' => $active ? $this->getSubcategories($row['name'], (int) $row['id'], $activeSubcategory) : [],
+            ];
         }
 
         return $result;
@@ -58,7 +61,7 @@ final class CategoryRepository
         return [$categoryId, $subcategoryId];
     }
 
-    private function getSubcategories(string $category, int $categoryId): array
+    private function getSubcategories(string $category, int $categoryId, string $activeSubcategory): array
     {
         $rows = $this->connection->fetchAllAssociative(
             'SELECT subcategories.name AS name, COUNT(files.id) AS file_count
@@ -72,9 +75,13 @@ final class CategoryRepository
 
         $result = [];
         foreach ($rows as $row) {
-            $name          = $row['name'] . ' (' . $row['file_count'] . ')';
-            $result[$name] = '/lsp/?action=browse&category=' . rawurlencode($category)
-                           . '&subcategory=' . rawurlencode($row['name']);
+            $result[] = [
+                'name'   => $row['name'],
+                'count'  => (int) $row['file_count'],
+                'url'    => '/lsp?action=browse&category=' . rawurlencode($category)
+                          . '&subcategory=' . rawurlencode($row['name']),
+                'active' => $activeSubcategory === $row['name'],
+            ];
         }
 
         return $result;

@@ -35,56 +35,30 @@ final class BrowseController extends AbstractLspController
         $user          = $request->query->get('user', '');
         $sort          = $request->query->get('sort', 'date');
         $order         = $request->query->get('order', 'DESC');
-        $page          = (int) $request->query->get('page', 0);
+        $page          = max(0, (int) $request->query->get('page', 0));
         $commentSearch = (bool) $request->query->get('commentsearch', false);
 
-        if ($search !== '') {
-            [$count, $rows] = $this->projects->search(
-                category: $category,
-                subcategory: $subcategory,
-                search: $search,
-                sort: $sort,
-                order: $order,
-                page: $page,
-                commentSearch: $commentSearch,
-            );
+        [$count, $rows] = $this->projects->search(
+            category: $category,
+            subcategory: $subcategory,
+            search: $search,
+            userName: $action === 'browse' ? $user : '',
+            sort: $sort,
+            order: $order,
+            page: $page,
+            commentSearch: $commentSearch,
+        );
 
-            return $this->render('lsp/results_list.twig', [
-                ...$this->categoryNav($category, $subcategory),
-                'rows'   => $rows,
-                'count'  => $count,
-                'sort'   => $sort,
-                'titles' => [$category, $subcategory, '"' . $search . '"'],
-            ]);
-        }
-
-        if ($action === 'browse') {
-            $titles = $user !== ''
-                ? '(' . $user . ')'
-                : [$category, $subcategory];
-
-            [$count, $rows] = $this->projects->search(
-                category: $category,
-                subcategory: $subcategory,
-                userName: $user,
-                sort: $sort,
-                order: $order,
-                page: $page,
-            );
-
-            return $this->render('lsp/results_list.twig', [
-                ...$this->categoryNav($category, $subcategory),
-                'rows'   => $rows,
-                'count'  => $count,
-                'sort'   => $sort,
-                'titles' => $titles,
-            ]);
-        }
-
-        return $this->render('lsp/index.twig', [
-            ...$this->categoryNav(),
-            'rows' => $this->projects->getLatest(),
-            'sort' => $sort,
+        return $this->render('lsp/results_list.twig', [
+            ...$this->categoryNav($category, $subcategory),
+            'rows'          => $rows,
+            'count'         => $count,
+            'page'          => $page,
+            'page_size'     => ProjectRepository::PAGE_SIZE,
+            'sort'          => $sort,
+            'search'        => $search,
+            'commentsearch' => $commentSearch,
+            'browse_user'   => $search === '' && $action === 'browse' ? $user : '',
         ]);
     }
 

@@ -20,10 +20,8 @@ final class LspSidebarExtension extends AbstractExtension implements GlobalsInte
         $isAdmin = $user instanceof User && in_array('ROLE_ADMIN', $user->getRoles(), true);
 
         return [
-            'username'      => $username,
-            'is_admin'      => $isAdmin,
-            'auth_failure'  => false,
-            'commentsearch' => '',
+            'username' => $username,
+            'is_admin' => $isAdmin,
         ];
     }
 }

@@ -1,120 +1,120 @@
 {% extends 'base.twig' %}
 
-{% import 'macros.twig' as macros %}
+{% import 'lsp/macros.twig' as lsp %}
 
-{% macro make_subcategory_list(category_list) %}
-    {% for category, url in category_list %}
-        <li class="lsp-subcategory"><a href="{{url|raw}}">{{category}}</a></li>
-    {% endfor %}
-{% endmacro %}
-
-{% macro make_category_list(category_list) %}
-    {% import _self as lsp %}
-    {% for category in category_list %}
-        <li class="lsp-category"><a href="{{category[1]|raw}}">{{category[0]}}</a></li>
-        {% if category[2] is defined and category[2] is iterable %}
-            <ul class="lsp-subcategory">
-               {{lsp.make_subcategory_list(category[2])}}
-            </ul>
-        {% endif %}
-    {% endfor %}
-{% endmacro %}
+{% set category_list = category_list ?? [] %}
+{% set category = category ?? '' %}
+{% set search = search ?? '' %}
 
 {% block content %}
-{{ macros.jumbo('LMMS Sharing Platform'|trans, 'Share your work with the LMMS community.'|trans)}}
-<div class="container theme-showcase main-div" role="main">
-    <div class="row lsp-row">
-        {# Sidebar #}
-        <div class="col-lg-3">
-            <div class="card card-custom">
-                <div class="card-header">
-                {# Search bar #}
-                    <form action="/lsp" method="get" role="search">
-                        <input type="hidden" name="category" value="{{category}}" />
-                        <input type="hidden" name="subcategory" value="{{subcategory}}" />
-                        <div class="input-group">
-                            <span class="input-group-text">
-                                <input type="checkbox" class="form-check-input mt-0" id="commentsearch" name="commentsearch" aria-label="Search comments" 
-                                data-bs-toggle="tooltip" data-bs-placement="top" title="Search comments" {{commentsearch}} />
-                            </span>
-                            <input type="text" id="search" name="search" class="form-control" maxlength="64" placeholder="Search Content" />
-                            <button type="submit" id="ok" name="ok" class="btn btn-default">{{ ux_icon('fa6-solid:magnifying-glass') }}&#8198;</button>
+<header class="lsp-bar">
+    <div class="container lsp-bar-inner">
+        <a class="lsp-brand" href="/lsp">
+            {{ ux_icon('lucide:disc-3', {class: 'icon lsp-brand-icon'}) }}
+            Sharing Platform
+        </a>
+        <form class="lsp-search" action="/lsp" method="get" role="search">
+            {% if category %}<input type="hidden" name="category" value="{{ category }}">{% endif %}
+            {{ ux_icon('lucide:search', {class: 'icon lsp-search-icon'}) }}
+            <input type="search" name="search" value="{{ search }}" maxlength="64"
+                   placeholder="Search {{ category ?: 'Sharing Platform' }}"
+                   aria-label="Search the Sharing Platform" aria-keyshortcuts="/">
+            <kbd class="lsp-search-key" aria-hidden="true">/</kbd>
+        </form>
+        <div class="lsp-bar-actions">
+            {% if username %}
+                <a class="btn btn-lsp" href="{{ path('lsp_add') }}">{{ ux_icon('lucide:plus') }}<span class="d-none d-sm-inline">&nbsp;Upload</span></a>
+                <details class="lsp-menu">
+                    <summary aria-label="Account menu">
+                        {{ ux_icon('lucide:user', {class: 'icon text-body-secondary'}) }}
+                        <span class="lsp-menu-name">{{ username }}</span>
+                        {{ ux_icon('lucide:chevron-down', {class: 'icon lsp-menu-caret'}) }}
+                    </summary>
+                    <div class="lsp-menu-list">
+                        <div class="lsp-menu-head">
+                            Signed in as <strong>{{ username }}</strong>
+                            {% if is_admin %}<span class="lsp-menu-role">{{ ux_icon('lucide:shield') }} Admin</span>{% endif %}
                         </div>
-                    </form>
-                </div>
-                {# category list #}
-                <ul class="lsp-categories">
-                    {{_self.make_category_list(category_list)}}
-                </ul>
-            </div>
-            <div id="login-panel" class="card card-custom">
-                <div class="card-header">
-                    <h3 class="card-title">
-                        <a data-bs-toggle="collapse" href="#login-collapse">
-                        {{ ux_icon('fa6-solid:user') }}&nbsp;My Account
-                        {% if username %}
-                            <span class="badge text-bg-secondary float-end">
-                            {% if is_admin %}
-                                {{ ux_icon('fa6-solid:shield-halved') }}&nbsp;
-                            {% endif %}
-                            {{username}}
-                            </span>
-                        {% endif %}
-                            {# Show auth-fail alert in title for smaller screens #}
-                        {% if auth_failure %}
-                            &nbsp;{{ ux_icon('fa6-solid:circle-exclamation', {class: 'icon float-end'}) }}
-                        {% endif %}
-                        </a>
-                    </h3>
-                </div>
-            <div id="login-collapse" class="collapse show">
-                {% if auth_failure %}
-                    <div class="alert alert-danger lsp" role="alert">{{ ux_icon('fa6-solid:circle-exclamation', {class: 'icon icon-fw'}) }}&nbsp;<strong>Authentication failure.</strong></div>
-                {% endif %}
-                {# Hide or show the Login Dialog/My Account Panel #}
-                {% if not username %}
-                    <div id="login-div" class="card-body overflow-hidden">
-                        <form action="/lsp/login" method="post" role="form">
-                        <div class="form-group">
-                            <input type="text" id="login" name="_username" class="form-control" maxlength="16" placeholder="Username">
-                        </div>
-                        <div class="form-group">
-                        <input type="password" id="password" name="_password" class="form-control" maxlength="20" placeholder="Password">
-                        </div>
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                        <button type="submit" class="btn btn-primary">{{ ux_icon('fa6-solid:check') }}&nbsp;Login</button>
-                        </form>
-                        <a href="/lsp/register">{{ ux_icon('fa6-solid:circle-chevron-right') }}&nbsp;Not registered yet?</a>
+                        <a href="/lsp?action=browse&amp;user={{ username|escape('url') }}">{{ ux_icon('lucide:files', {class: 'icon icon-fw'}) }} My uploads</a>
+                        <a href="{{ path('lsp_add') }}">{{ ux_icon('lucide:upload', {class: 'icon icon-fw'}) }} Upload a file</a>
+                        <a href="{{ path('lsp_settings') }}">{{ ux_icon('lucide:settings', {class: 'icon icon-fw'}) }} Settings</a>
+                        <hr>
+                        <a href="{{ path('lsp_logout') }}">{{ ux_icon('lucide:log-out', {class: 'icon icon-fw'}) }} Log out</a>
                     </div>
-                {% else %}
-                    <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action" href="/lsp/add">
-                        {{ ux_icon('fa6-solid:upload', {class: 'icon icon-fw'}) }}&nbsp;&nbsp;Add file
-                    </a>
-                    <a class="list-group-item list-group-item-action" href="/lsp?action=browse&user={{username|escape('url')}}">
-                        {{ ux_icon('fa6-regular:copy', {class: 'icon icon-fw'}) }}&nbsp;&nbsp;My files
-                    </a>
-                    <a class="list-group-item list-group-item-action" href="/lsp/settings">
-                        {{ ux_icon('fa6-solid:gear', {class: 'icon icon-fw'}) }}&nbsp;&nbsp;Settings
-                    </a>
-                    <a class="list-group-item list-group-item-action" href="/lsp/logout">
-                        {{ ux_icon('fa6-solid:power-off', {class: 'icon icon-fw'}) }}&nbsp;&nbsp;Logout
-                    </a>
-                    {% if is_admin %}
-                        <p class="badge text-bg-secondary float-end m-2">{{ ux_icon('fa6-solid:shield-halved') }}&nbsp;<strong>admin</strong></p>
-                    {% endif %}
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-        </div>
-        {# Main course #}
-        <div class="col-lg-9">
-            {% block main_content %}
-            {% endblock %}
+                </details>
+            {% else %}
+                <a class="btn btn-lsp-ghost" href="{{ path('lsp_login') }}">Log in</a>
+                <a class="btn btn-lsp" href="{{ path('lsp_register') }}">Sign up</a>
+            {% endif %}
         </div>
     </div>
+</header>
+
+{% block lsp_layout %}
+<div class="container lsp-layout">
+    <nav class="lsp-rail" aria-label="Categories">
+        <a class="lsp-rail-link{{ home_active ?? false ? ' active' : '' }}" href="/lsp">
+            {{ ux_icon('lucide:house', {class: 'icon icon-fw'}) }}
+            <span>All uploads</span>
+            <span class="lsp-count">{{ category_list|reduce((sum, c) => sum + c.count, 0) }}</span>
+        </a>
+        <span class="lsp-rail-label">Categories</span>
+        {% for cat in category_list %}
+            {% set sub_active = cat.subcategories|filter(s => s.active)|length > 0 %}
+            <a class="lsp-rail-link {{ lsp.category_class(cat.name)|trim }}{{ cat.active ? ' active' : '' }}" href="{{ cat.url }}"{% if cat.active and not sub_active %} aria-current="page"{% endif %}>
+                {{ lsp.category_icon(cat.name, 'icon icon-fw lsp-rail-icon') }}
+                <span>{{ cat.name }}</span>
+                <span class="lsp-count">{{ cat.count }}</span>
+            </a>
+            {# On desktops the subcategories nest here; phones get a chip row above the feed #}
+            {% if cat.subcategories %}
+                <div class="lsp-rail-subs {{ lsp.category_class(cat.name)|trim }}">
+                    {% for sub in cat.subcategories|filter(s => s.count > 0 or s.active) %}
+                        <a class="lsp-rail-sub{{ sub.active ? ' active' : '' }}" href="{{ sub.url }}"{% if sub.active %} aria-current="page"{% endif %}>
+                            <span>{{ sub.name }}</span>
+                            <span class="lsp-count">{{ sub.count }}</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </nav>
+
+    <main class="lsp-main">
+        {% block main_content %}{% endblock %}
+    </main>
+
+    <aside class="lsp-aside">
+        {% block lsp_aside %}
+            <div class="lsp-box">
+                <section class="lsp-about">
+                    <h2 class="lsp-panel-title">LMMS Sharing Platform</h2>
+                    <p>Share your projects, samples, presets and themes with the LMMS community.</p>
+                    <a class="btn btn-lsp w-100" href="{{ path('lsp_add') }}">{{ ux_icon('lucide:upload') }}&nbsp; Upload your work</a>
+                    {% if not username %}
+                        <p class="lsp-about-join">New here? <a href="{{ path('lsp_register') }}">Create an account</a> to upload, rate and comment.</p>
+                    {% endif %}
+                </section>
+                <section>
+                    <h2 class="lsp-panel-title">Community guidelines</h2>
+                    <ol class="lsp-rules">
+                        <li>Be kind and give constructive feedback.</li>
+                        <li>Only upload work you have the rights to share.</li>
+                        <li>Credit the samples and presets you used.</li>
+                        <li>No offending, pornographic, racist or violent content.</li>
+                    </ol>
+                </section>
+            </div>
+        {% endblock %}
+    </aside>
 </div>
+{% endblock %}
+{% endblock %}
+
+{# the site loads Noto Sans in 400 and 700 only; the platform's quieter type needs the weights between #}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500;600&amp;display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block importmap %}{{ importmap(['app', 'lsp']) }}{% endblock %}

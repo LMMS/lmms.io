@@ -1,33 +1,24 @@
 {% extends 'lsp/base.twig' %}
 
-{% import 'lsp/macros.twig' as macros %}
+{% import 'lsp/macros.twig' as lsp %}
 
 {% block main_content %}
-    <h3 class="lsp-title">
-        <a href="/lsp">All Content</a>
-        &nbsp;&nbsp;{{ ux_icon('fa6-solid:caret-right', {class: 'icon lsp-caret-right'}) }}&nbsp;&nbsp;
-        <a href="#">Add File</a>
-    </h3>
-    <div data-redirect="" class="alert alert-warning text-center">
-    <strong>{{ ux_icon('fa6-solid:circle-exclamation') }}&nbsp;
-    Warning:</strong> Do not submit offending, pornographic, racist or violent content.
-    </div>
-    <div class="card">
-        <div class="card-header"><h3 class="card-title">{{ ux_icon('fa6-solid:upload') }}&nbsp;Add File</h3></div><div class="card-body">
-        <form enctype="multipart/form-data" action="/lsp/add" method="post">
-        <label for="filename">File to add</label>
-		<div class="form-group">
-		<span class="float-start btn btn-default btn-file">
-		{{ ux_icon('fa6-solid:folder-open') }}&nbsp;Select file<input type="file" name="filename">
-		</span><strong><span class="text-center"><pre class="text-warning" id="file-selected">No file selected</pre></span></strong>
-		<small>Maximum file size: 2 MB</small>
-		</div>
-		<div class="form-group">
-		<input type="checkbox" id="nocopyright" name="nocopyright">
-		<label for="nocopyright">Does not violate any existing copyright, law or trademark</label>
-		</div>
-		<button type="submit" name="ok" value="OK" class="btn btn-primary">{{ ux_icon('fa6-solid:upload') }}&nbsp;Upload</button>
-		<a href="/lsp/" class="btn btn-warning">{{ ux_icon('fa6-solid:xmark') }}&nbsp;Cancel</a>
-		</form></div>
-    </div>
+    {{ lsp.heading('Upload your work', []) }}
+    {{ lsp.content_warning() }}
+    <form class="lsp-panel lsp-form" enctype="multipart/form-data" action="{{ path('lsp_add') }}" method="post">
+        <label class="lsp-drop">
+            {{ ux_icon('lucide:cloud-upload', {class: 'icon lsp-drop-icon'}) }}
+            <span class="lsp-drop-title" id="file-selected">Click to choose a file, or drop it here</span>
+            <span class="lsp-drop-hint">Projects (.mmp, .mmpz), presets (.xpf), samples (.wav, .ogg, .flac…), themes and screenshots · max 2 MB</span>
+            <input type="file" name="filename" required>
+        </label>
+        <div class="form-check mt-3">
+            <input class="form-check-input" type="checkbox" id="nocopyright" name="nocopyright" required>
+            <label class="form-check-label" for="nocopyright">This upload does not violate any existing copyright, law or trademark</label>
+        </div>
+        <div class="lsp-form-actions">
+            <a href="/lsp" class="btn btn-outline-secondary">Cancel</a>
+            <button type="submit" name="ok" value="OK" class="btn btn-lsp">Continue</button>
+        </div>
+    </form>
 {% endblock %}

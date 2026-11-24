@@ -13,14 +13,14 @@ final class BrowseControllerTest extends AbstractLspWebTestCase
         $this->client->request('GET', '/lsp');
 
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('.lsp-title', 'Latest Uploads');
+        self::assertSelectorTextContains('.lsp-title', 'All uploads');
     }
 
-    public function testIndexShowsLoginFormWhenUnauthenticated(): void
+    public function testIndexShowsLoginLinkWhenUnauthenticated(): void
     {
         $this->client->request('GET', '/lsp');
 
-        self::assertSelectorExists('form input[name="_username"]');
+        self::assertSelectorExists('.lsp-bar a[href="/lsp/login"]');
     }
 
     public function testBrowseByCategory(): void
@@ -106,7 +106,7 @@ final class BrowseControllerTest extends AbstractLspWebTestCase
         $this->client->request('GET', '/lsp/' . $fileId);
 
         self::assertResponseIsSuccessful();
-        self::assertSelectorExists('table.table');
+        self::assertSelectorExists('.lsp-entry .lsp-title');
 
         $this->deleteTestFile($fileId);
     }

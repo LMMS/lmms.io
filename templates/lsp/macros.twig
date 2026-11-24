@@ -1,64 +1,87 @@
-{% macro make_title(titles) %}
-    <h3 class="lsp-title">
-        <a href="/lsp">All Content</a>
-        {% if titles is not iterable %}
-            {% set titles = [titles] %}
-        {% endif %}
-        {% for title in titles %}
-            {% if title %}
-            &nbsp;&nbsp;{{ ux_icon('fa6-solid:caret-right', {class: 'icon lsp-caret-right'}) }}&nbsp;&nbsp;
-            {{title|raw}}
+{% macro category_icon(name, class = 'icon') %}
+    {% set icons = {
+        'Projects': 'lucide:music',
+        'Samples': 'lucide:audio-waveform',
+        'Presets': 'lucide:sliders-horizontal',
+        'Tutorials': 'lucide:book-open',
+        'Screenshots': 'lucide:image',
+        'UI themes': 'lucide:palette',
+    } %}
+    {{ ux_icon(icons[name] ?? 'lucide:file', {class: class}) }}
+{% endmacro %}
+
+{# CSS hook for the per-category accent color #}
+{% macro category_class(name) %}lsp-cat-{{ name|lower|replace({' ': '-'}) }}{% endmacro %}
+
+{% macro time(date) %}
+    <time datetime="{{ date|date('c') }}" title="{{ date|date('Y-m-d H:i') }}">{{ date|lsp_ago }}</time>
+{% endmacro %}
+
+{% macro user_link(login, realname = '') %}
+    <a class="lsp-user" href="/lsp?action=browse&amp;user={{ login|escape('url') }}">{{ realname ?: login }}</a>
+{% endmacro %}
+
+{# Read-only average rating, e.g. "★ 4.2 (5)" #}
+{% macro rating(rating, count) %}
+    <span class="lsp-action{{ count > 0 ? ' lsp-stat-rated' : '' }}" title="{{ count > 0 ? 'Rated %s by %d %s'|format(rating|number_format(1), count, count == 1 ? 'person' : 'people') : 'Not rated yet' }}">
+        {{ ux_icon('lucide:star') }}
+        {% if count > 0 %}{{ rating|number_format(1) }} <span class="text-body-secondary">({{ count }})</span>{% else %}–{% endif %}
+    </span>
+{% endmacro %}
+
+{# The trail above every page's content; [label, url] pairs after the platform root #}
+{% macro crumbs(crumbs = []) %}
+    <nav aria-label="breadcrumb">
+        <ol class="lsp-crumbs">
+            <li><a href="/lsp">Sharing Platform</a></li>
+            {% for crumb in crumbs %}
+                <li>{% if crumb[1] %}<a href="{{ crumb[1] }}">{{ crumb[0] }}</a>{% else %}{{ crumb[0] }}{% endif %}</li>
+            {% endfor %}
+        </ol>
+    </nav>
+{% endmacro %}
+
+{% macro heading(title, crumbs = []) %}
+    {% import _self as m %}
+    {{ m.crumbs(crumbs) }}
+    <h1 class="lsp-title">{{ title }}</h1>
+{% endmacro %}
+
+{# A listing already filtered to a category, subcategory or person leaves that out of each post #}
+{% macro post_card(rs, show_category = true, show_subcategory = true, show_author = true) %}
+    {% import _self as m %}
+    <article class="lsp-post">
+        <div class="lsp-post-body">
+            <div class="lsp-post-meta">
+                {% if show_category or show_subcategory %}
+                    <span class="lsp-where">
+                        {% if show_category %}<a class="lsp-chip {{ m.category_class(rs.category)|trim }}" href="/lsp?action=browse&amp;category={{ rs.category|escape('url') }}">{{ rs.category }}</a>{% endif %}
+                        {% if show_subcategory %}<a class="lsp-sub" href="/lsp?action=browse&amp;category={{ rs.category|escape('url') }}&amp;subcategory={{ rs.subcategory|escape('url') }}">{{ rs.subcategory }}</a>{% endif %}
+                    </span>
+                {% endif %}
+                {% if show_author %}{{ m.user_link(rs.login, rs.realname) }}{% endif %}
+                {{ m.time(rs.insert_date) }}
+            </div>
+            <h2 class="lsp-post-title">
+                <a class="stretched-link" href="{{ path('lsp_show', {id: rs.id}) }}" title="{{ rs.filename }}">{{ rs.filename|lsp_stem }}</a>
+            </h2>
+            {% if rs.description %}
+                <p class="lsp-post-excerpt">{{ rs.description|length > 300 ? rs.description|slice(0, 300) ~ '…' : rs.description }}</p>
             {% endif %}
-        {% endfor %}
-    </h3>
+            <div class="lsp-post-stats">
+                {{ m.rating(rs.rating, rs.rating_count) }}
+                <a class="lsp-action" href="{{ path('lsp_show', {id: rs.id}) }}#comments" title="Comments">{{ ux_icon('lucide:message-circle') }} {{ rs.comments }}<span class="d-none d-sm-inline">&nbsp;{{ rs.comments == 1 ? 'comment' : 'comments' }}</span></a>
+                <a class="lsp-action" href="{{ path('lsp_download', {id: rs.id}) }}" title="Download">{{ ux_icon('lucide:download') }} {{ rs.downloads }}</a>
+                <span class="lsp-stat-file" title="File type and size"><span class="lsp-ext">{{ rs.filename|lsp_ext }}</span> {{ rs.size|lsp_size }}</span>
+            </div>
+        </div>
+    </article>
 {% endmacro %}
 
-{% macro make_infobar(rs, extended = false) %}
-<td class="lsp-file-info"><small>
-    {% if extended %}
-    <b>Submitted:</b>&nbsp;{{rs['insert_date']}}<br>
-    <b>Updated:</b>&nbsp;{{rs['update_date']}}<br>
-    {% else %}
-    <b>Date:</b>&nbsp;{{rs['insert_date']}}<br>
-    {% endif %}
-    <b>Popularity: </b><span>{{ ux_icon('fa6-solid:download') }}&nbsp;{{rs['downloads']}}</span>&nbsp; 
-    <span>{{ ux_icon('fa6-solid:comments') }}&nbsp;{{rs['comments']}}</span><br>
-    <b>Rating:</b> 
-    {% set rating = rs['rating']|round(0, 'floor') %}
-    {% if rating > 0 %}
-    {% for i in 1..rating %}
-        {{ ux_icon('fa6-solid:star') }}
-    {% endfor %}
-    {% endif %}
-    {% set blanks = 5-rating %}
-    {% if blanks > 0 %}
-    {% for i in 0..4-rating %}
-        {{ ux_icon('fa6-regular:star') }}
-    {% endfor %}
-    {% endif %}
-    &nbsp;&nbsp;<span class="">{{ ux_icon('fa6-solid:circle-check') }}&nbsp;{{rs['rating_count']}}</span>
-</small></td>
-{% endmacro %}
-
-{% macro make_item(rs, sort='date') %}
-    {% import _self as macros %}
-    <tr class="file"><td><div class="overflow-hidden">
-        <div><a href="/lsp?action=show&file={{rs['id']}}" style="font-weight:bold; font-size:1.15em" title="{{rs['filename']}}">
-        {{rs['filename']}}</a></div>
-        <a href="?action=browse&category={{rs['category']}}">
-            {{rs['category']}}
-        </a>&nbsp;{{ ux_icon('fa6-solid:caret-right', {class: 'icon lsp-caret-right-small'}) }}&nbsp;
-        <a href="?action=browse&category={{rs['category']}}&subcategory={{rs['subcategory']}}&sort={{sort}}">
-            {{rs['subcategory']}}
-        </a><br>
-        <small>by <a href="/lsp?action=browse&user={{rs['login']}}">
-        {% if rs['realname'] %}
-            {{rs['realname']}} ({{rs['login']}})
-        {% else %}
-            {{rs['login']}}
-        {% endif %}
-        </a></small><br>
-        </div></td>
-        {{macros.make_infobar(rs)}}
-    </tr>
+{# Shown above a form that publishes something #}
+{% macro content_warning() %}
+    <div class="alert alert-warning lsp-alert" role="note">
+        {{ ux_icon('lucide:circle-alert') }}
+        <span>Do not submit offending, pornographic, racist or violent content.</span>
+    </div>
 {% endmacro %}

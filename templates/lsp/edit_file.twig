@@ -1,47 +1,59 @@
 {% extends 'lsp/base.twig' %}
 
-{% import 'lsp/macros.twig' as macros %}
+{% import 'lsp/macros.twig' as lsp %}
 
 {% block main_content %}
-    {{macros.make_title(titles)}}
-    <div class="card">
-    <div class="card-header"><h3 class="card-title">{{ ux_icon('fa6-solid:pencil') }}&nbsp;Edit File</h3></div>
-    <div class="card-body">
-    <form enctype="multipart/form-data" action="{{form_action}}" method="post">
-    <div class="form-group">
-        <label for="category">Category</label>
-        <select name="category" class="form-select">
-        {% for cat in categories %}
-            <option{% if cat.value == selected_category %} selected{% endif %}>{{cat.value}}</option>
-        {% endfor %}
-        </select>
-		</div>
-    <div class="form-group">
-        <label for="license">License</label>
-        <select name="license" class="form-select">
-        {% for lic in licenses %}
-            <option{% if lic == selected_license or (selected_license is empty and loop.first) %} selected{% endif %}>{{lic}}</option>
-        {% endfor %}
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="description">Description</label>
-        <textarea rows="20" name="description" class="form-control">{{description}}</textarea>
-    </div>
     {% if tmpname %}
-    <button class="btn btn-primary" type="submit" name="addfinalok" value="Add File">{{ ux_icon('fa6-solid:check') }}&nbsp;Add File</button>
-    <a href="/lsp" class="btn btn-warning">{{ ux_icon('fa6-solid:xmark') }}&nbsp;Cancel</a>
+        {{ lsp.heading('Describe your upload', [['Upload', path('lsp_add')]]) }}
     {% else %}
-    <button class="btn btn-primary" type="submit" name="updateok" value="OK">{{ ux_icon('fa6-solid:check') }}&nbsp;Update File</button>
-    <a href="/lsp/{{file_id}}" class="btn btn-warning">{{ ux_icon('fa6-solid:xmark') }}&nbsp;Cancel</a>
+        {{ lsp.heading('Edit ' ~ fn|lsp_stem, [[fn, path('lsp_show', {id: file_id})]]) }}
     {% endif %}
-    <input type="hidden" name="fn" value="{{fn}}">
-    {% if tmpname %}
-    <input type="hidden" name="tmpname" value="{{tmpname}}" />
-    <input type="hidden" name="fsize" value="{{fsize}}" />
-    <input type="hidden" name="nocopyright" value="{{nocopyright}}" />
-    {% else %}
-    <input type="hidden" name="action" value="update">
-    {% endif %}
-    </form></div></div>
+    <form class="lsp-panel lsp-form" enctype="multipart/form-data" action="{{ form_action }}" method="post">
+        <div class="lsp-form-file">
+            <span class="lsp-ext">{{ fn|lsp_ext }}</span>
+            <div>
+                <strong class="text-break">{{ fn }}</strong>
+                {% if fsize %}<span class="text-body-secondary d-block">{{ fsize|lsp_size }}</span>{% endif %}
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="col-sm-6">
+                <label class="form-label" for="category">Category</label>
+                <select id="category" name="category" class="form-select">
+                {% for cat in categories %}
+                    <option{% if cat.value == selected_category %} selected{% endif %}>{{ cat.value }}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <div class="col-sm-6">
+                <label class="form-label" for="license">License</label>
+                <select id="license" name="license" class="form-select">
+                {% for lic in licenses %}
+                    <option{% if lic == selected_license or (selected_license is empty and loop.first) %} selected{% endif %}>{{ lic }}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <div class="col-12">
+                <label class="form-label" for="description">Description</label>
+                <textarea id="description" rows="10" name="description" class="form-control" placeholder="Tell people about it: how you made it, what's inside, which samples or presets you used… Links to YouTube, SoundCloud and clyp.it become players.">{{ description }}</textarea>
+            </div>
+        </div>
+        <div class="lsp-form-actions">
+            {% if tmpname %}
+                <a href="/lsp" class="btn btn-outline-secondary">Cancel</a>
+                <button class="btn btn-lsp" type="submit" name="addfinalok" value="Add File">{{ ux_icon('lucide:upload') }}&nbsp; Publish</button>
+            {% else %}
+                <a href="{{ path('lsp_show', {id: file_id}) }}" class="btn btn-outline-secondary">Cancel</a>
+                <button class="btn btn-lsp" type="submit" name="updateok" value="OK">Save changes</button>
+            {% endif %}
+        </div>
+        <input type="hidden" name="fn" value="{{ fn }}">
+        {% if tmpname %}
+            <input type="hidden" name="tmpname" value="{{ tmpname }}">
+            <input type="hidden" name="fsize" value="{{ fsize }}">
+            <input type="hidden" name="nocopyright" value="{{ nocopyright }}">
+        {% else %}
+            <input type="hidden" name="action" value="update">
+        {% endif %}
+    </form>
 {% endblock %}

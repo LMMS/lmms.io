@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Lsp;
 
 use Doctrine\DBAL\Connection;
+use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -43,6 +44,7 @@ abstract class AbstractLspWebTestCase extends WebTestCase
         $session = $this->client->getRequest()->getSession();
         $session->set('captcha', $code);
         $session->save();
+        $this->client->getCookieJar()->set(new Cookie($session->getName(), $session->getId()));
     }
 
     protected function createTestFile(string $ownerLogin = 'lsptest'): int
