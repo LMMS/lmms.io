@@ -1289,22 +1289,27 @@ a.social:focus {
   background-position: 0px 0px;
 }
 
+/* Browsers without image-set() type() support drop the second declaration and keep the JPEG */
 .segment#home2 {
   background: linear-gradient(var(--col-gray-overlay), var(--col-gray-overlay)), url("/img/promoshot1.jpg");
+  background: linear-gradient(var(--col-gray-overlay), var(--col-gray-overlay)), image-set(url("/img/promoshot1.webp") type("image/webp"), url("/img/promoshot1.jpg") type("image/jpeg"));
 }
 
 .segment#home4 {
   background: linear-gradient(var(--col-gray-overlay), var(--col-gray-overlay)), url("/img/promoshot2.jpg");
+  background: linear-gradient(var(--col-gray-overlay), var(--col-gray-overlay)), image-set(url("/img/promoshot2.webp") type("image/webp"), url("/img/promoshot2.jpg") type("image/jpeg"));
 }
 
 .segment#home6 {
   background: url("/img/videopattern.png"), url("/vid/promo.jpg");
+  background: url("/img/videopattern.png"), image-set(url("/vid/promo.webp") type("image/webp"), url("/vid/promo.jpg") type("image/jpeg"));
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
 }
 
 .segment#home8 {
   background: linear-gradient(var(--col-gray-overlay), var(--col-gray-overlay)), url("/img/promoshot3.jpg");
+  background: linear-gradient(var(--col-gray-overlay), var(--col-gray-overlay)), image-set(url("/img/promoshot3.webp") type("image/webp"), url("/img/promoshot3.jpg") type("image/jpeg"));
 }
 
 .segment:where(#home2, #home4, #home6, #home8) {
@@ -1527,24 +1532,28 @@ a.social:focus {
 
 #bol1 {
   background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), url("/img/tbolv1.jpg");
+  background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), image-set(url("/img/tbolv1.webp") type("image/webp"), url("/img/tbolv1.jpg") type("image/jpeg"));
   background-position: center, center center;
   background-size: auto, cover;
 }
 
 #bol2 {
   background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), url("/img/tbolv2.jpg");
+  background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), image-set(url("/img/tbolv2.webp") type("image/webp"), url("/img/tbolv2.jpg") type("image/jpeg"));
   background-position: center, center center;
   background-size: auto, cover;
 }
 
 #bol3 {
   background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), url("/img/tbolv3.jpg");
+  background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), image-set(url("/img/tbolv3.webp") type("image/webp"), url("/img/tbolv3.jpg") type("image/jpeg"));
   background-position: center, center center;
   background-size: auto, cover;
 }
 
 #bol4 {
   background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), url("/img/tbolv4.jpg");
+  background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), image-set(url("/img/tbolv4.webp") type("image/webp"), url("/img/tbolv4.jpg") type("image/jpeg"));
   background-position: center, center center;
   background-size: auto, cover;
 }
@@ -1557,36 +1566,42 @@ a.social:focus {
 
 #bol6 {
   background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), url("/img/tbolv6.jpg");
+  background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), image-set(url("/img/tbolv6.webp") type("image/webp"), url("/img/tbolv6.jpg") type("image/jpeg"));
   background-position: center, center center;
   background-size: auto, cover;
 }
 
 #bol7 {
   background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), url("/img/tbolv7.jpg");
+  background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), image-set(url("/img/tbolv7.webp") type("image/webp"), url("/img/tbolv7.jpg") type("image/jpeg"));
   background-position: center, center center;
   background-size: auto, cover;
 }
 
 #bol8 {
   background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), url("/img/tbolv8.jpg");
+  background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), image-set(url("/img/tbolv8.webp") type("image/webp"), url("/img/tbolv8.jpg") type("image/jpeg"));
   background-position: top, center top;
   background-size: auto, cover;
 }
 
 #bol9 {
   background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), url("/img/tbolv9.jpg");
+  background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), image-set(url("/img/tbolv9.webp") type("image/webp"), url("/img/tbolv9.jpg") type("image/jpeg"));
   background-position: top, center top;
   background-size: auto, cover;
 }
 
 #bol10 {
   background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), url("/img/tbolv10.jpg");
+  background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), image-set(url("/img/tbolv10.webp") type("image/webp"), url("/img/tbolv10.jpg") type("image/jpeg"));
   background-position: top, center top;
   background-size: auto, cover;
 }
 
 #bol11 {
   background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), url("/img/tbolv11.jpg");
+  background: linear-gradient(var(--col-bol-overlay), var(--col-bol-overlay)), image-set(url("/img/tbolv11.webp") type("image/webp"), url("/img/tbolv11.jpg") type("image/jpeg"));
   background-position: top, center top;
   background-size: auto, cover;
 }
