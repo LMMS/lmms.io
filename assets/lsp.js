@@ -1,44 +1,12 @@
-$(function () {
-    $('[data-toggle=\'tooltip\']').tooltip();
-});
-
-$(window).bind('load', function () {
-    if ($(this).width() < 962) {
-        collapse_in('#caret');
-    } else {
-        collapse_out('#caret');
+// Keep the account panel collapsed on small screens
+window.addEventListener('load', function () {
+    var loginCollapse = document.getElementById('login-collapse');
+    if (document.documentElement.clientWidth >= 962) {
+        loginCollapse.classList.add('show');
+    } else if (!document.activeElement.matches('#login, #password')) {
+        loginCollapse.classList.remove('show');
     }
 });
-
-function collapse_out(item_id) {
-    $('.collapse')
-        .not('.navbar-collapse')
-        .addClass('in');
-    $(item_id).removeClass('fa-caret-right');
-    $(item_id).addClass('fa-caret-down');
-}
-
-function collapse_in(item_id) {
-    if ($('#login').is(':focus') || $('#password').is(':focus')) {
-        return;
-    }
-    $('.collapse')
-        .not('.navbar-collapse')
-        .removeClass('in');
-    $(item_id).removeClass('fa-caret-down');
-    $(item_id).addClass('fa-caret-right');
-}
-
-$('.collapse')
-    .not('.navbar-collapse')
-    .on('shown.bs.collapse', function () {
-        collapse_out('#caret');
-    });
-$('.collapse')
-    .not('.navbar-collapse')
-    .on('hidden.bs.collapse', function () {
-        collapse_in('#caret');
-    });
 
 document.addEventListener('DOMContentLoaded', function () {
     /*
@@ -59,6 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
      * Focus to comment text-area if it is on the screen
      */
     commentFocus();
+
+    var loginLink = document.getElementById('login-focus');
+    if (loginLink) {
+        loginLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            loginFocus();
+        });
+    }
 });
 
 function countDown(decrement) {
@@ -87,7 +63,7 @@ function commentFocus() {
 }
 
 function loginFocus() {
-    document.getElementById('login-collapse').classList.add('in');
+    document.getElementById('login-collapse').classList.add('show');
     document.getElementById('login').focus();
     blink('#login');
 }

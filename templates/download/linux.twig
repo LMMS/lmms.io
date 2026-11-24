@@ -3,42 +3,42 @@
 {% endblock %}
 
 <hr>
-<a data-toggle="collapse" href="#collapse_lin_other">{% trans %}Other options{% endtrans %}<br><i class="fas fa-angle-down"></i></a>
-<div id="collapse_lin_other" class="panel-collapse collapse">
+<a data-bs-toggle="collapse" href="#collapse_lin_other" role="button" aria-expanded="false">{% trans %}Other options{% endtrans %}<br><i class="fas fa-angle-down"></i></a>
+<div id="collapse_lin_other" class="collapse">
 	<div class="text-center">
 		<p>{% trans %}LMMS is included in most major Linux distribution's package repositories.<br>
 		Please <a href="/get-involved/#contact">contact us</a> if your distribution is not listed here.{% endtrans %}</p>
 
-		<div class="nav-center-container">
-			<ul id="linux-tabs" class="nav nav-tabs nav-center" role="tablist">
-				<li><a href="#linux-debian" role="tab" data-toggle="tab" id="linux-debian-button" class="active">
-					<span class="visible-lg-inline"><span class="fl fl-16 fl-debian fl-tab"></span>&nbsp;Debian&nbsp;/</span>
+		<div>
+			<ul id="linux-tabs" class="nav nav-tabs flex-column flex-md-row justify-content-center" role="tablist">
+				<li class="nav-item" role="presentation"><a href="#linux-debian" role="tab" data-bs-toggle="tab" id="linux-debian-button" class="nav-link active">
+					<span class="d-none d-xl-inline"><span class="fl fl-16 fl-debian fl-tab"></span>&nbsp;Debian&nbsp;/</span>
 					<span class="fl fl-16 fl-ubuntu fl-tab"></span>&nbsp;Ubuntu
 				</a></li>
 
-				<li><a href="#linux-suse" role="tab" data-toggle="tab" id="linux-suse-button">
+				<li class="nav-item" role="presentation"><a href="#linux-suse" role="tab" data-bs-toggle="tab" id="linux-suse-button" class="nav-link">
 					<span class="fl fl-16 fl-opensuse fl-tab"></span>&nbsp;OpenSUSE
 				</a></li>
 
-				<li><a href="#linux-mageia" role="tab" data-toggle="tab" id="linux-mageia-button">
+				<li class="nav-item" role="presentation"><a href="#linux-mageia" role="tab" data-bs-toggle="tab" id="linux-mageia-button" class="nav-link">
 					<span class="fl fl-16 fl-mageia fl-tab"></span>&nbsp;Mageia
-					<span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-mandriva fl-tab"></span>&nbsp;Mandriva</span>
+					<span class="d-none d-xl-inline">&nbsp;/<span class="fl fl-16 fl-mandriva fl-tab"></span>&nbsp;Mandriva</span>
 				</a></li>
 
-				<li><a href="#linux-fedora" role="tab" data-toggle="tab" id="linux-fedora-button">
+				<li class="nav-item" role="presentation"><a href="#linux-fedora" role="tab" data-bs-toggle="tab" id="linux-fedora-button" class="nav-link">
 					<span class="fl fl-16 fl-fedora fl-tab"></span>&nbsp;Fedora
-					<span class="visible-lg-inline">&nbsp;/<span class="fl fl-16 fl-redhat fl-tab"></span>&nbsp;Red Hat</span>
+					<span class="d-none d-xl-inline">&nbsp;/<span class="fl fl-16 fl-redhat fl-tab"></span>&nbsp;Red Hat</span>
 				</a></li>
 
-				<li><a href="#linux-arch" role="tab" data-toggle="tab" id="linux-arch-button">
+				<li class="nav-item" role="presentation"><a href="#linux-arch" role="tab" data-bs-toggle="tab" id="linux-arch-button" class="nav-link">
 					<span class="fl fl-16 fl-archlinux fl-tab"></span>&nbsp;Arch Linux
 				</a></li>
 
-				<li><a href="#linux-slackware" role="tab" data-toggle="tab" id="linux-slackware-button">
+				<li class="nav-item" role="presentation"><a href="#linux-slackware" role="tab" data-bs-toggle="tab" id="linux-slackware-button" class="nav-link">
 					<span class="fl fl-16 fl-slackware fl-tab"></span>&nbsp;Slackware
 				</a></li>
 
-				<li><a href="#linux-aosc" role="tab" data-toggle="tab" id="linux-aosc-button">
+				<li class="nav-item" role="presentation"><a href="#linux-aosc" role="tab" data-bs-toggle="tab" id="linux-aosc-button" class="nav-link">
 					<span class="fl fl-16 fl-aosc fl-tab"></span>&nbsp;AOSC OS
 				</a></li>
 			</ul>

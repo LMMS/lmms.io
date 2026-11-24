@@ -4,7 +4,7 @@
 {% import 'download/index.twig' as download %}
 
 {% macro ospage(os, title, subtitle, id, artifacts, instruction, trailer) %}
-<div id="{{ os }}-div" class="text-center hidden container">
+<div id="{{ os }}-div" class="text-center container" hidden>
 	<h2>{{ title }}</h2>
 	{% if artifacts %}
 		<p>{{ subtitle }}</p>
@@ -35,7 +35,7 @@
 'Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:'|trans) }}
 <div class="text-center container">
 	<div>
-		<div class="btn-group" data-toggle="buttons">
+		<div class="btn-group" role="group">
 			{{ download.osbutton('linux', 'fa-linux', 'Linux') }}
 			{{ download.osbutton('windows', 'fa-windows', 'Windows') }}
 			{{ download.osbutton('mac', 'fa-apple', 'macOS') }}
@@ -73,79 +73,4 @@
 
 {% endblock %}
 
-{% block foot %}
-<script>
-function showOS(os) {
-	location.hash = os;
-	if (os.indexOf("linux") != -1) {
-		if (os == "#linux") {
-			// Default linux distro shown is Debian
-			os = "#linux-debian";
-		}
-		$(os+"-button").tab("show");
-		os = "#linux";
-	}
-
-	hide('#windows-div');
-	hide('#linux-div');
-	hide('#mac-div');
-	show(os+'-div');
-
-	$(os+"-button").parent().addClass("active") ;
-}
-
-// Add Linux-specific tab functionality
-function showLinux() {
-	// Make the current hash visible
-	if (location.hash != '#linux') {
-		$('#linux-tabs a[href="' + location.hash + '"]').tab('show');
-	} else {
-		$('#linux-tabs a[href="#linux-debian"]').tab('show');
-	}
-
-	$('#linux-tabs a').click(function (e) {
-		e.preventDefault();
-		$(this).tab('show');
-	})
-}
-
-function hide(obj) {
-	$(obj).hide();
-	$(obj).removeClass('show');
-}
-
-function show(obj) {
-	$(obj).show();
-	$(obj).removeClass('hidden');
-	$(obj).removeClass('hide');
-}
-
-function autoSelect() {
-	if (navigator.appVersion.indexOf("Mac")!=-1)
-		showOS("#mac");
-	else if (navigator.appVersion.indexOf("X11")!=-1)
-		showOS("#linux");
-	else if (navigator.appVersion.indexOf("Linux")!=-1)
-		showOS("#linux");
-	else showOS("#windows");
-}
-
-$(function() {
-	if (location.hash) {
-		try {
-			showOS(location.hash);
-		} catch (err) {
-			autoSelect();
-		}
-	} else {
-		autoSelect();
-	}
-});
-
-$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-	$(e.target).parent().children().removeClass("active");
-	e.target.classList.add("active");
-})
-
-</script>
-{% endblock %}
+{% block importmap %}{{ importmap(['app', 'download']) }}{% endblock %}

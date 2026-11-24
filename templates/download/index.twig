@@ -15,8 +15,8 @@
 
 {% macro releasenotes(notes, divid) %}
 <div id="release-notes">
-	<a data-toggle="collapse" href="#collapse_{{ divid }}">{% trans %}Show release notes{% endtrans %}<br><i class="fas fa-angle-down"></i></a>
-	<div id="collapse_{{ divid }}" class="panel-collapse collapse">
+	<a data-bs-toggle="collapse" href="#collapse_{{ divid }}" role="button" aria-expanded="false">{% trans %}Show release notes{% endtrans %}<br><i class="fas fa-angle-down"></i></a>
+	<div id="collapse_{{ divid }}" class="collapse">
 		<div class="release-notes well">
 			{{ notes|gfm_to_html }}
 		</div>
@@ -25,13 +25,12 @@
 {% endmacro %}
 
 {% macro osbutton(os, icon, title) %}
-<label class="btn btn-default" onclick="showOS('#{{ os }}')">
-	<input type="radio" name="options" id="{{ os }}-button"><span class="fab {{ icon }} fa-3x"></span><br>{{ title }}
-</label>
+<input type="radio" class="btn-check" name="os" id="{{ os }}-button" value="#{{ os }}" autocomplete="off">
+<label class="btn btn-default" for="{{ os }}-button"><span class="fab {{ icon }} fa-3x"></span><br>{{ title }}</label>
 {% endmacro %}
 
 {% macro ospage(os, title, subtitle, stable, pre, nightly, instruction, trailer) %}
-<div id="{{ os }}-div" class="text-center hidden container">
+<div id="{{ os }}-div" class="text-center container" hidden>
 	<h2>{{ title }}</h2>
 	<p>{{ subtitle }}</p>
 	{% if stable %}
@@ -80,7 +79,7 @@
 'Downloading and using LMMS is free! Just choose the operating system you want to run LMMS on:'|trans) }}
 <div class="text-center container">
 	<div>
-		<div class="btn-group" data-toggle="buttons">
+		<div class="btn-group" role="group">
 			{{ _self.osbutton('linux', 'fa-linux', 'Linux') }}
 			{{ _self.osbutton('windows', 'fa-windows', 'Windows') }}
 			{{ _self.osbutton('mac', 'fa-apple', 'macOS') }}
@@ -128,79 +127,4 @@
 
 {% endblock %}
 
-{% block foot %}
-<script>
-function showOS(os) {
-	location.hash = os;
-	if (os.indexOf("linux") !== -1) {
-		if (os === "#linux") {
-			// Default linux distro shown is Debian
-			os = "#linux-debian";
-		}
-		$(os+"-button").tab("show");
-		os = "#linux";
-	}
-
-	hide('#windows-div');
-	hide('#linux-div');
-	hide('#mac-div');
-	show(os+'-div');
-
-	$(os+"-button").parent().addClass("active") ;
-}
-
-// Add Linux-specific tab functionality
-function showLinux() {
-	// Make the current hash visible
-	if (location.hash !== '#linux') {
-		$('#linux-tabs a[href="' + location.hash + '"]').tab('show');
-	} else {
-		$('#linux-tabs a[href="#linux-debian"]').tab('show');
-	}
-
-	$('#linux-tabs a').click(function (e) {
-		e.preventDefault();
-		$(this).tab('show');
-	})
-}
-
-function hide(obj) {
-	$(obj).hide();
-	$(obj).removeClass('show');
-}
-
-function show(obj) {
-	$(obj).show();
-	$(obj).removeClass('hidden');
-	$(obj).removeClass('hide');
-}
-
-function autoSelect() {
-	if (navigator.userAgent.indexOf("Mac")!==-1)
-		showOS("#mac");
-	else if (navigator.userAgent.indexOf("X11")!==-1)
-		showOS("#linux");
-	else if (navigator.userAgent.indexOf("Linux")!==-1)
-		showOS("#linux");
-	else showOS("#windows");
-}
-
-$(function() {
-	if (location.hash) {
-		try {
-			showOS(location.hash);
-		} catch (err) {
-			autoSelect();
-		}
-	} else {
-		autoSelect();
-	}
-});
-
-$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-	$(e.target).parent().children().removeClass("active");
-	e.target.classList.add("active");
-})
-
-</script>
-{% endblock %}
+{% block importmap %}{{ importmap(['app', 'download']) }}{% endblock %}

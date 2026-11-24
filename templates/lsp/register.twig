@@ -1,9 +1,9 @@
 {% extends 'lsp/base.twig' %}
 
 {% block main_content %}
-    <div class="panel panel-default"><div class="panel-heading">
-    <h3 class="panel-title"><span class="fa fa-list-alt"></span>&nbsp;Register</h3></div>
-    <div class="panel-body">
+    <div class="card"><div class="card-header">
+    <h3 class="card-title"><span class="fa fa-list-alt"></span>&nbsp;Register</h3></div>
+    <div class="card-body">
     {% if error %}
         <div class="alert alert-danger"><strong><span class="fas fa-exclamation-circle"></span>&nbsp;Error:</strong> {{error|raw}}</div>
     {% endif %}
@@ -23,13 +23,13 @@
         </div>
         <div class="form-group">
         <label for="captcha">Security code</label>
-        <img src="/lsp/captcha" alt="Security code" class="thumbnail" style="zoom:200%; display:block; margin-bottom:4px">
+        <img src="/lsp/captcha" alt="Security code" class="img-thumbnail" style="zoom:200%; display:block; margin-bottom:4px">
         <input type="text" name="captcha" class="form-control" maxlength="6" placeholder="type the code above" required />
         </div>
         <button type="submit" class="btn btn-primary" name="adduser" value="Register"><span class="fas fa-check"></span>&nbsp;Register</button>&nbsp;
         <a href="/lsp" class="btn btn-warning"><span class="fas fa-times"></span>&nbsp;Cancel</a>
     </form>
     </div></div>
-    <a href="javascript:loginFocus();"><span class="fas fa-chevron-circle-left"></span>&nbsp;Already registered?  Login here.</a>
+    <a href="#login-collapse" id="login-focus"><span class="fas fa-chevron-circle-left"></span>&nbsp;Already registered?  Login here.</a>
     </div>
 {% endblock %}

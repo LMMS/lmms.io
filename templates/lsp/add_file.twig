@@ -12,12 +12,12 @@
     <strong><span class="fas fa-exclamation-circle"></span>&nbsp;
     Warning:</strong> Do not submit offending, pornographic, racist or violent content.
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading"><h3 class="panel-title"><span class="fa fa-upload"></span>&nbsp;Add File</h3></div><div class="panel-body">
+    <div class="card">
+        <div class="card-header"><h3 class="card-title"><span class="fa fa-upload"></span>&nbsp;Add File</h3></div><div class="card-body">
         <form enctype="multipart/form-data" action="/lsp/add" method="post">
         <label for="filename">File to add</label>
 		<div class="form-group">
-		<span class="pull-left btn btn-default btn-file">
+		<span class="float-start btn btn-default btn-file">
 		<span class="fas fa-folder-open"></span>&nbsp;Select file<input type="file" name="filename">
 		</span><strong><span class="text-center"><pre class="text-warning" id="file-selected">No file selected</pre></span></strong>
 		<small>Maximum file size: 2 MB</small>

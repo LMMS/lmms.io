@@ -42,11 +42,3 @@
       lastScrollTop = st;
   }
 })();
-// close out the open navbar in mobile mode when we click outside of it
-(function() {
-  $('.navbar-collapse.collapse').on('shown.bs.collapse', function () {
-    $(document).on('click', function () {
-      $('.navbar-collapse.collapse').collapse('hide');
-    });
-  });
-}).call(this);

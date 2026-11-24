@@ -10,7 +10,7 @@
 <div class="container">
     <article lang="en" class="news-post">
         {{ entry.bodyHtml|raw }}
-        <small class="text-muted">
+        <small class="text-body-secondary">
             Published <a href="{{ entry.url }}">{{ entry.date|date('F j, Y, g:i a') }}</a>
             by <a href="https://github.com/{{ entry.author }}">@{{ entry.author }}</a>
         </small>
@@ -18,12 +18,12 @@
 
     {% if prev or next %}
         <nav aria-label="{{ 'News navigation'|trans }}">
-            <ul class="pager">
-                <li class="previous {{ not prev ? 'disabled' : '' }}">
-                    <a href="{{ prev ? path('news_show', {'date': prev}) : '#' }}" rel="prev">&larr; {{ 'Newer'|trans }}</a>
+            <ul class="pagination pager justify-content-between">
+                <li class="page-item {{ not prev ? 'disabled' : '' }}">
+                    <a class="page-link" href="{{ prev ? path('news_show', {'date': prev}) : '#' }}" rel="prev">&larr; {{ 'Newer'|trans }}</a>
                 </li>
-                <li class="next {{ not next ? 'disabled' : '' }}">
-                    <a href="{{ next ? path('news_show', {'date': next}) : '#' }}" rel="next">{{ 'Older'|trans }} &rarr;</a>
+                <li class="page-item {{ not next ? 'disabled' : '' }}">
+                    <a class="page-link" href="{{ next ? path('news_show', {'date': next}) : '#' }}" rel="next">{{ 'Older'|trans }} &rarr;</a>
                 </li>
             </ul>
         </nav>

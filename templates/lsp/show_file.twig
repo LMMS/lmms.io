@@ -24,7 +24,7 @@
             {{macros.make_infobar(rs, true)}}
             <tr><td><strong>Name:</strong>&nbsp;{{rs['filename']}}
             {% if rs['thumb'] %}
-                <br><br><a href="{{ path('lsp_download', {id: rs['id']}) }}"><img class="thumbnail" src="{{rs['thumb']}}" alt=""></a>
+                <br><br><a href="{{ path('lsp_download', {id: rs['id']}) }}"><img class="img-thumbnail" src="{{rs['thumb']}}" alt=""></a>
             {% endif %}
             </td><td class="lsp-file-info">
             <a href="{{ path('lsp_download', {id: rs['id']}) }}" id="downloadbtn" class="lsp-dl-btn btn btn-primary">
@@ -37,14 +37,13 @@
             {% endif %}
             </p></div></td></tr>
             <tr><td colspan="2">
-            <div id="lspnav" class="navbar navbar-default"><ul class="nav navbar-nav">
+            <div id="lspnav" class="bg-body-tertiary"><ul class="nav">
             {# Toolbar #}
+                <li class="nav-item">
                 {% if username %}
-                <li>
-                    <a class="pull-left" href="/lsp/comment/{{rs['id']}}">
+                    <a class="nav-link" href="/lsp/comment/{{rs['id']}}">
                 {% else %}
-                <li class="disabled">
-                    <a class="pull-left" href="#" title="Login to comment">
+                    <a class="nav-link disabled" href="#" title="Login to comment" aria-disabled="true">
                 {% endif %}
                     <span class="fas fa-comment"></span>&nbsp;Comment</a>
                 </li>
@@ -54,13 +53,13 @@
                 {% else %}
                     {% set button_class = "disabled" %}
                 {% endif %}
-                <li class="{{button_class}}"><a class="pull-left" href="/lsp/edit/{{rs['id']}}"><span class="fas fa-pencil-alt"></span>&nbsp;Edit</a></li>
-                <li class="{{button_class}}"><a class="pull-left" href="/lsp/delete/{{rs['id']}}"><span class="fas fa-trash"></span>&nbsp;Delete</a></li>
+                <li class="nav-item"><a class="nav-link {{button_class}}" href="/lsp/edit/{{rs['id']}}"><span class="fas fa-pencil-alt"></span>&nbsp;Edit</a></li>
+                <li class="nav-item"><a class="nav-link {{button_class}}" href="/lsp/delete/{{rs['id']}}"><span class="fas fa-trash"></span>&nbsp;Delete</a></li>
                 {% set can_rate = username and username != rs['login'] %}
                 {% set rating = rs['session_rating'] %}
                 {% set captions = ['Not Rated', 'One Star', 'Two Stars', 'Three Stars', 'Four Stars', 'Five Stars'] %}
-                {% set caption_classes = ['default', 'danger', 'warning', 'info', 'primary', 'success'] %}
-                <li class="lsp-starrating">
+                {% set caption_classes = ['secondary', 'danger', 'warning', 'info', 'primary', 'success'] %}
+                <li class="nav-item lsp-starrating">
                     <span class="lsp-stars{{ can_rate ? '' : ' disabled' }}">
                     {# Reversed so that hovering a star can highlight its preceding siblings via ~ #}
                     {% for i in 5..1 %}
@@ -71,9 +70,9 @@
                         {% endif %}
                     {% endfor %}
                     </span>
-                    <span class="label label-{{ caption_classes[rating] }}">{{ captions[rating] }}</span>
+                    <span class="badge text-bg-{{ caption_classes[rating] }}">{{ captions[rating] }}</span>
                 </li>
-            </div>
+            </ul></div>
             <strong>Comments:</strong>
             </td></tr>
             {% for comment in rs['comment_section'] %}
@@ -94,7 +93,7 @@
                 </blockquote>
                 </tr></td>
             {% else %}
-                <td colspan="2"><p class="text-muted">No comments yet</p></td>
+                <td colspan="2"><p class="text-body-secondary">No comments yet</p></td>
             {% endfor %}
         </table>
     {% else %}

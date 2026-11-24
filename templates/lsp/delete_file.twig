@@ -8,8 +8,8 @@
             Warning:
         </strong> This will also delete all the comments and ratings.
     </div>
-    <div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title"><span class="fa fa-trash"></span>&nbsp;Confirm Delete</h3></div>
-    <div class="panel-body">
+    <div class="card"><div class="card-header"><h3 class="card-title"><span class="fa fa-trash"></span>&nbsp;Confirm Delete</h3></div>
+    <div class="card-body">
     <form action="/lsp/delete/{{file_id}}" method="post">
 		<input type="hidden" name="confirmation" value="true">
 		<p class="lead">Confirm deletion of <strong>{{file_name}}</strong>?</p>

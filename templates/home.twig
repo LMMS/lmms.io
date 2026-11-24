@@ -27,17 +27,17 @@
 			<h2>{% trans %}Making beats has never been easier.{% endtrans %}</h2>
 		</div>
 		<div class="row">
-			<div class="col-lg-4">
+			<div class="col-xl-4">
 				<span class="fa-5x far fa-chart-bar"></span>
 				<h4>{% trans %}Produce music with your computer{% endtrans %}</h4>
 				<p>{% trans %}by creating melodies and beats, synthesizing and mixing sounds, arranging samples and much more.{% endtrans %}</p>
 			</div>
-			<div class="col-lg-4">
+			<div class="col-xl-4">
 				<span class="fa-5x fas fa-keyboard"></span>
 				<h4>{% trans %}Playback instruments, samples and plugins{% endtrans %}</h4>
 				<p>{% trans %}with a typing or MIDI keyboard in a user-friendly and modern interface.{% endtrans %}</p>
 			</div>
-			<div class="col-lg-4">
+			<div class="col-xl-4">
 				<span class="fas fa-puzzle-piece fa-5x"></span>
 				<h4>{% trans %}Bundled with ready-to-use content{% endtrans %}</h4>
 				<p>{% trans %}from an assortment of instrument and effect plugins, presets and samples to VST and SoundFont support.{% endtrans %}</p>
@@ -113,30 +113,32 @@
 </div>
 
 <div class="text-center segment" id="home6">
-	<div class="video-bg hidden-xs">
+	<div class="video-bg d-none d-md-block">
     <video loop autoplay poster="vid/promo.jpg">
         <source src="vid/promo.mp4" type="video/mp4">
         <source src="vid/promo.webm" type="video/webm">
     </video>
 	</div>
-	<div class="container video-front">
-		<div class="page-header">
-			<h2>{% trans %}Take a peek.{% endtrans %}</h2>
+	<div class="video-front">
+		<div class="container">
+			<div class="page-header">
+				<h2>{% trans %}Take a peek.{% endtrans %}</h2>
+			</div>
+			<a class="stack" data-bs-toggle="modal" data-bs-target="#videoModal" href="#">{{ macros.circle_stack('fa-play-circle', 'fa-6x', false, '') }}</a>
+			<h4>{% trans %}Watch our promo video.{% endtrans %}</h4>
 		</div>
-		<a class="stack" data-toggle="modal" data-target="#videoModal" href="#">{{ macros.circle_stack('fa-play-circle', 'fa-6x', false, '') }}</a>
-		<h4>{% trans %}Watch our promo video.{% endtrans %}</h4>
 	</div>
-	<div id="videoModal" class="modal fade modal-custom" role="dialog">
+	<div id="videoModal" class="modal fade modal-custom" tabindex="-1" aria-label="{% trans %}Watch our promo video.{% endtrans %}">
 	  <div class="modal-dialog">
 	    <!-- Modal content-->
 	    <div class="modal-content">
-				<div class="embed-responsive embed-responsive-16by9">
-	      	<iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/W6tEolVz3_4" allowfullscreen></iframe>
+				<div class="ratio ratio-16x9">
+	      	<iframe src="https://www.youtube-nocookie.com/embed/W6tEolVz3_4" allowfullscreen></iframe>
 				</div>
 	    </div>
 	  </div>
 		<div class="text-center">
-			<button class="close-modal" data-dismiss="modal">{% trans %}Click anywhere to close this dialog{% endtrans %}</button>
+			<button class="close-modal" data-bs-dismiss="modal">{% trans %}Click anywhere to close this dialog{% endtrans %}</button>
 		</div>
 	</div>
 </div>
@@ -147,10 +149,10 @@
 			<h2>{% trans %}Featuring:{% endtrans %}</h2>
 		</div>
 		<div class="row">
-			<div class="col-lg-5">
+			<div class="col-xl-5">
 				<h3 class="text-center"><span class="far fa-2x fa-check-square"></span><br>{% trans %}Core Functionality{% endtrans %}</h3>
 			</div>
-			<div class="col-lg-7">
+			<div class="col-xl-7">
 				<ul>
 					<li>{% trans %}Compose music on Windows, Linux and macOS{% endtrans %}</li>
 					<li>{% trans %}Sequence, compose, mix and automate songs in one simple interface{% endtrans %}</li>
@@ -167,10 +169,10 @@
 <div class="segment" id="home8">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-5">
+			<div class="col-xl-5">
 				<h3 class="text-center"><span class="fas fa-2x fa-music"></span><br>{% trans %}Musical Instruments{% endtrans %}</h3>
 			</div>
-			<div class="col-lg-7">
+			<div class="col-xl-7">
 				<ul>
 					<li>{% trans %}Built-in 64-bit VST instrument support with 32-bit VST bridge (64-bit Windows){% endtrans %}</li>
 					<li>{% trans %}16 built in synthesizers, including emulations of Roland ® TB-303, Commodore 64 ® SID microchip, Nintendo ® NES and GameBoy, Yamaha ® OPL2 chip and more{% endtrans %}</li>
@@ -184,10 +186,10 @@
 <div class="segment" id="home9">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-5">
+			<div class="col-xl-5">
 				<h3 class="text-center"><span class="fas fa-2x fa-sliders-h"></span><br>{% trans %}Effects Mixing{% endtrans %}</h3>
 			</div>
-			<div class="col-lg-7">
+			<div class="col-xl-7">
 				<ul>
 					<li>{% trans %}Drop-in LADSPA plug-in support{% endtrans %}</li>
 					<li>{% trans %}Drop-in VST ® effect plug-in support (Linux and Windows){% endtrans %}</li>
@@ -205,21 +207,11 @@
 {% endblock %}
 
 {% block foot %}
-<script type="text/javascript">
-(function() {
-	// activate tooltips
-	$(document).ready(function(){
-	    $("[data-toggle=tooltip]").tooltip();
-	});
-}).call(this);
-
-(function() {
-	// close video in modal when modal closes
-	$(document).ready(function(){
-		$("#videoModal").on("hide.bs.modal", function () {
-	    $("#videoModal iframe").attr("src", $("#videoModal iframe").attr("src"));
-		});
-	});
-}).call(this);
+<script>
+// close video in modal when modal closes
+document.getElementById('videoModal').addEventListener('hide.bs.modal', function () {
+	var iframe = this.querySelector('iframe');
+	iframe.src = iframe.src;
+});
 </script>
 {% endblock %}

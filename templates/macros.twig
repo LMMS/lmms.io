@@ -21,7 +21,7 @@
 {# Prints an FontAwesome icon stack with two icons and a tooltip #}
 {% macro icon_stack(icon1, brand1, icon2, brand2, parentclass, tooltip) %}
 	{% import _self as macros %}
-	<span class='fa-stack icon-stack fa-fw {{ parentclass }}' data-toggle='tooltip' data-placement='top' title='{{ tooltip }}'>
+	<span class='fa-stack icon-stack fa-fw {{ parentclass }}' data-bs-toggle='tooltip' data-bs-placement='top' title='{{ tooltip }}'>
 		{{ macros.icon(icon1, brand1, 'fa-stack-1x') }}
 		{{ macros.icon(icon2, brand2, 'fa-stack-1x icon-stack-inner') }}
 	</span>
@@ -87,7 +87,7 @@
 {% endmacro %}
 
 {% macro print_menu_item(class, text, url, icon = null) %}
-	<li class='{{class}}'><a href='{{url}}'>
+	<li class='{{class}}'><a class='dropdown-item' href='{{url}}'>
 	{% if icon %}
 		<i class='fas {{icon}} fa-fw'></i>
 	{% endif %}
@@ -101,24 +101,24 @@
 	{# Simple menu item. If $text is an array, $text[0] is the title displayed
 		on big screens, $text[1] is the one displayed on smaller screens #}
 		{% if text is iterable %}
-			<li class="{{active}} visible-lg"> <a href="{{url}}">{{text[0]}}</a></li>
-			<li class="{{active}} hidden-lg"> <a href="{{url}}">{{text[1]}}</a></li>
+			<li class="nav-item d-none d-xl-block"> <a class="nav-link {{active}}" href="{{url}}">{{text[0]}}</a></li>
+			<li class="nav-item d-xl-none"> <a class="nav-link {{active}}" href="{{url}}">{{text[1]}}</a></li>
 		{% else %}
-			<li class="{{active}}"> <a href="{{url}}">{{text}}</a></li>
+			<li class="nav-item"> <a class="nav-link {{active}}" href="{{url}}">{{text}}</a></li>
 		{% endif %}
 	{% else %}
-	{# Drop-down items #}
-		<li tabindex='0' class='dropdown hidden-xs'>
-			<a href='#'>{{text}} <span class='caret'></span></a>
-			<ul tabindex='0' class='dropdown-menu pull-right'>
+	{# Drop-down items: opened on hover on big screens, on click on small ones #}
+		<li class='nav-item dropdown d-none d-md-block'>
+			<a href='#' class='nav-link dropdown-toggle'>{{text}}</a>
+			<ul class='dropdown-menu'>
 				{% for key, child in children %}
 					{{macros.print_menu_item('', child[1], child[2], child[0])}}
 				{% endfor %}
 			</ul>
 		</li>
-		<li class='{{active}} visible-xs'>
-			<a href='#' class='dropdown-toggle' data-toggle='dropdown'>{{text}}&nbsp;<i class='caret'></i></a>
-			<ul class="dropdown-menu" role="menu">
+		<li class='nav-item dropdown d-md-none'>
+			<a href='#' class='nav-link dropdown-toggle {{active}}' role='button' data-bs-toggle='dropdown' aria-expanded='false'>{{text}}</a>
+			<ul class="dropdown-menu">
 				{% for child in children %}
 					{{macros.print_menu_item('', child[1], child[2], child[0])}}
 				{% endfor %}
@@ -136,7 +136,7 @@
 		{% endif %}
 	{% endfor %}
 	</ul>
-	<ul class="nav navbar-nav navbar-right">
+	<ul class="navbar-nav ms-auto">
 	{% for item in items %}
 		{% if item[3] is defined %}
 			{{macros.create_navbar_menu_item(item[0], item[1], item[2]|default(null), true)}}

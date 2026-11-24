@@ -11,32 +11,38 @@
 
     <meta name="description" content="LMMS is a free, open source, multiplatform digital audio workstation.">
     <link rel="icon" type="image/png" href="/img/logo_sm.png">
+    <script>
+        // Follow the OS color scheme for Bootstrap components
+        (function () {
+            var dark = window.matchMedia('(prefers-color-scheme: dark)');
+            var apply = function () {
+                document.documentElement.dataset.bsTheme = dark.matches ? 'dark' : 'light';
+            };
+            apply();
+            dark.addEventListener('change', apply);
+        })();
+    </script>
     {% block stylesheets %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;family=Orbitron:wght@500&amp;family=Titillium+Web:wght@400;600&amp;display=swap" rel="stylesheet">
-    <link href="/css/style.css?v=2" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" />
     {% endblock %}
+    {% block importmap %}{{ importmap('app') }}{% endblock %}
 </head>
 
 <body role="document">
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-expand-md navbar-custom fixed-top">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/"><img alt="LMMS Logo" class="logo-sm pull-left" height="22px" width="22px" src="/img/brand-icon.png"></img>LMMS</a>
-            </div>
+            <a class="navbar-brand" href="/"><img alt="LMMS Logo" class="logo-sm float-start" height="22" width="22" src="/img/brand-icon.png">LMMS</a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav">
                     {{ nav.build_navbar(uri) }}
                 </ul>
             </div>
@@ -50,8 +56,8 @@
 
     <footer id="footer">
         <div class="container">
-            <div class="row">
-                <div class="column-md-6 pull-right">
+            <div class="row justify-content-center justify-content-md-end">
+                <div class="col-auto px-0 column-md-6">
                     <a class="social" href="https://github.com/LMMS">{{ macros.square_stack('fa-github', 'fa-4x', true, '') }}</a>
                     <a class="social" href="https://facebook.com/makefreemusic">{{ macros.square_stack('fa-facebook', 'fa-4x', true, '') }}</a>
                     <a class="social" href="https://twitter.com/lmmsio">{{ macros.square_stack('fa-x-twitter', 'fa-4x', true, '') }}</a>
@@ -63,11 +69,6 @@
         </div>
     </footer>
 
-    {% block javascripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
-    <script src="/js/smartNavbar.js?v=2"></script>
-    {% endblock %}
     {% block foot %}{% endblock %}
 </body>
 </html>

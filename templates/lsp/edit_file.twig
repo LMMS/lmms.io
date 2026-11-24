@@ -4,13 +4,13 @@
 
 {% block main_content %}
     {{macros.make_title(titles)}}
-    <div class="panel panel-default">
-    <div class="panel-heading"><h3 class="panel-title"><span class="fa fa-pencil-alt"></span>&nbsp;Edit File</h3></div>
-    <div class="panel-body">
+    <div class="card">
+    <div class="card-header"><h3 class="card-title"><span class="fa fa-pencil-alt"></span>&nbsp;Edit File</h3></div>
+    <div class="card-body">
     <form enctype="multipart/form-data" action="{{form_action}}" method="post">
     <div class="form-group">
         <label for="category">Category</label>
-        <select name="category" class="form-control">
+        <select name="category" class="form-select">
         {% for cat in categories %}
             <option{% if cat.value == selected_category %} selected{% endif %}>{{cat.value}}</option>
         {% endfor %}
@@ -18,7 +18,7 @@
 		</div>
     <div class="form-group">
         <label for="license">License</label>
-        <select name="license" class="form-control">
+        <select name="license" class="form-select">
         {% for lic in licenses %}
             <option{% if lic == selected_license or (selected_license is empty and loop.first) %} selected{% endif %}>{{lic}}</option>
         {% endfor %}
