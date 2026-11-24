@@ -8,7 +8,6 @@ php bin/console cache:clear
 php bin/console cache:warmup
 php bin/console importmap:install
 php bin/console asset-map:compile
-mkdir -p var/cache/lsp/
 pushd "$(dirname $0)/../public"
 
 pushd forum/cache

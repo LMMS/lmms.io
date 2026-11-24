@@ -7,9 +7,8 @@ For local dev
 > [!NOTE]
 > The below is not for production use
 
-1. Create LSP cache directory and LSP temp directory
+1. Create LSP temp directory
     ```bash
-    mkdir -p var/cache/lsp/
     mkdir -p tmp
     ```
 1. Start mysql service if not running
