@@ -1,5 +1,6 @@
 <?php
 ignore_user_abort(true); // keep deploying after GitHub drops the webhook (10s)
+putenv('APP_ENV=prod'); // composer install --no-dev runs cache:clear, which needs prod
 /**
  * Deployment configuration
  *
