@@ -1,14 +1,16 @@
 <?php
 namespace App\Download;
 
-use Github\Client;
-use App\GitHub\HttpClientPlugin\UriRecordPlugin;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class Artifacts
 {
 	public function __construct(
-		private Client $client,
+		private HttpClientInterface $githubClient,
+		private CacheInterface $githubCache,
 		private string $owner,
 		private string $repo,
 		private string $workflow,
@@ -18,65 +20,90 @@ class Artifacts
 
 	public function getForBranch(string $branch): array
 	{
-		// Get the latest successful runs of the target workflow
-		$runs = $this->client->repo()->workflowRuns()->listRuns($this->owner, $this->repo, $this->workflow, [
-			'event' => 'push',
-			'branch' => $branch,
-			'status' => 'success',
-			'per_page' => 1
-		]);
-		if ($runs['total_count'] > 0) {
+		$artifacts = $this->githubCache->get('artifacts.branch.' . rawurlencode($branch), function (ItemInterface $item) use ($branch) {
+			// Get the latest successful runs of the target workflow
+			$runs = $this->get("actions/workflows/$this->workflow/runs", [
+				'event' => 'push',
+				'branch' => $branch,
+				'status' => 'success',
+				'per_page' => 1
+			]);
+			if ($runs['total_count'] == 0) {
+				return $this->keepBriefly($item, []);
+			}
 			// Get all artifacts of that run
 			$runId = $runs['workflow_runs'][0]['id'];
-			$artifacts = $this->client->repo()->artifacts()->runArtifacts($this->owner, $this->repo, $runId);
-
-			$validArtifacts = array_filter($artifacts['artifacts'], function ($artifact) {
-				return !$artifact['expired'];
-			});
-			return $this->mapBranchAssetsFromJson($validArtifacts);
-		}
-		return [];
+			return $this->keepBriefly($item, $this->validArtifacts($runId));
+		});
+		return $this->mapBranchAssetsFromJson($artifacts);
 	}
 
 	public function getForPullRequest(int $id): array
 	{
-		// Get the most recent commit in the pull request
-		$pr = $this->client->pr()->show($this->owner, $this->repo, $id);
-		$ref = $pr['head']['sha'];
+		['artifacts' => $artifacts, 'description' => $description] = $this->githubCache->get('artifacts.pr.' . $id, function (ItemInterface $item) use ($id) {
+			// Get the most recent commit in the pull request
+			$pr = $this->get("pulls/$id");
+			$ref = $pr['head']['sha'];
+			$description = '## ' . $pr['title'] . "\n" . $pr['body'];
 
-		// Get all check runs for that commit
-		$checks = $this->client->repo()->checkRuns()->allForReference($this->owner, $this->repo, $ref);
+			// Get all check runs for that commit
+			$checks = $this->get("commits/$ref/check-runs");
 
-		// Find a check run corresponding to the GitHub Actions build workflow
-		foreach ($checks['check_runs'] as $run) {
-			if ($run['app']['slug'] === 'github-actions') {
-				$parser = new Platform($run['name']);
-				if($parser->found()) {
-					$jobId = $run['id'];
-					break;
+			// Find a check run corresponding to the GitHub Actions build workflow
+			foreach ($checks['check_runs'] as $run) {
+				if ($run['app']['slug'] === 'github-actions') {
+					$parser = new Platform($run['name']);
+					if($parser->found()) {
+						$jobId = $run['id'];
+						break;
+					}
 				}
 			}
-		}
-		if (!isset($jobId)) { return []; }
+			if (!isset($jobId)) {
+				return ['artifacts' => $this->keepBriefly($item, []), 'description' => $description];
+			}
 
-		// Get the GitHub Actions workflow run corresponding to that check run
-		$job = $this->client->repo()->workflowJobs()->show($this->owner, $this->repo, $jobId);
-		$runId = $job['run_id'];
+			// Get the GitHub Actions workflow run corresponding to that check run
+			$job = $this->get("actions/jobs/$jobId");
+			$runId = $job['run_id'];
 
-		// Get all artifacts of that workflow run
-		$artifacts = $this->client->repo()->artifacts()->runArtifacts($this->owner, $this->repo, $runId);
-
-		$validArtifacts = array_filter($artifacts['artifacts'], function ($artifact) {
-			return !$artifact['expired'];
+			return ['artifacts' => $this->keepBriefly($item, $this->validArtifacts($runId)), 'description' => $description];
 		});
-		$description = '## ' . $pr['title'] . "\n" . $pr['body'];
-		return $this->mapPullRequestAssetsFromJson($validArtifacts, $id, $description);
+		return $this->mapPullRequestAssetsFromJson($artifacts, $id, $description);
 	}
 
 	public function getArtifactDownloadUrl(int $artifactId): string
 	{
-		$this->client->repo()->artifacts()->download($this->owner, $this->repo, $artifactId);
-		return $this->client->getLastResponse()->getHeader(UriRecordPlugin::HEADER_NAME)[0];
+		$response = $this->githubClient->request('GET', "/repos/$this->owner/$this->repo/actions/artifacts/$artifactId/zip", [
+			'max_redirects' => 0,
+		]);
+		if ($response->getStatusCode() !== 302) {
+			$response->getHeaders(); // throws, with the status as the code
+		}
+		return $response->getHeaders(false)['location'][0];
+	}
+
+	private function get(string $path, array $query = []): array
+	{
+		return $this->githubClient->request('GET', "/repos/$this->owner/$this->repo/$path", ['query' => $query])->toArray();
+	}
+
+	private function validArtifacts(int $runId): array
+	{
+		$artifacts = $this->get("actions/runs/$runId/artifacts");
+
+		return array_values(array_filter($artifacts['artifacts'], function ($artifact) {
+			return !$artifact['expired'];
+		}));
+	}
+
+	// A build that's still running has no artifacts yet, so check again soon
+	private function keepBriefly(ItemInterface $item, array $artifacts): array
+	{
+		if (!$artifacts) {
+			$item->expiresAfter(60);
+		}
+		return $artifacts;
 	}
 
 	private function mapBranchAssetsFromJson(array $json): array

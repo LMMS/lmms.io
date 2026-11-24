@@ -6,6 +6,14 @@ framework:
 
     error_controller: App\Controller\ExceptionController::showError
 
+    http_client:
+        scoped_clients:
+            github.client:
+                base_uri: 'https://api.github.com'
+                auth_basic: '%env(GITHUB_USERNAME)%:%env(GITHUB_SECRET)%'
+                headers:
+                    Accept: 'application/vnd.github+json'
+
     #esi: true
     #fragments: true
 

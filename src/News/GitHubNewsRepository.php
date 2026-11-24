@@ -2,23 +2,51 @@
 
 namespace App\News;
 
-use App\GitHub\GraphQl;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final class GitHubNewsRepository implements NewsRepository
 {
     private const ANNOUNCEMENTS_CATEGORY = 'DIC_kwDOAPDEUM4CowUM';
 
-    public function __construct(private readonly GraphQl $graphql)
-    {
+    private const QUERY = <<<'GRAPHQL'
+        query ($owner: String!, $repo: String!, $category: ID!) {
+            repository(owner: $owner, name: $repo) {
+                discussions(categoryId: $category, first: 100, orderBy: {field: CREATED_AT, direction: DESC}) {
+                    edges {
+                        node {
+                            author { login }
+                            url
+                            createdAt
+                            bodyHTML
+                        }
+                    }
+                }
+            }
+        }
+        GRAPHQL;
+
+    public function __construct(
+        private readonly HttpClientInterface $githubClient,
+        private readonly CacheInterface      $githubCache,
+        private readonly string              $owner,
+        private readonly string              $repo,
+    ) {
     }
 
     public function findAll(): array
     {
-        $results = $this->graphql->executeQuery($this->query());
-        return array_map(
-            fn(array $edge) => $this->toEntry($edge['node']),
-            $results['data']['repository']['discussions']['edges'],
-        );
+        $edges = $this->githubCache->get('news', function () {
+            $result = $this->githubClient->request('POST', '/graphql', ['json' => [
+                'query'     => self::QUERY,
+                'variables' => ['owner' => $this->owner, 'repo' => $this->repo, 'category' => self::ANNOUNCEMENTS_CATEGORY],
+            ]])->toArray();
+            if (isset($result['errors'])) {
+                throw new \RuntimeException($result['errors'][0]['message']);
+            }
+            return $result['data']['repository']['discussions']['edges'];
+        });
+        return array_map(fn(array $edge) => $this->toEntry($edge['node']), $edges);
     }
 
     public function findLatest(): ?NewsEntry
@@ -63,26 +91,5 @@ final class GitHubNewsRepository implements NewsRepository
             author  : $node['author']['login'],
             bodyHtml: $node['bodyHTML'],
         );
-    }
-
-    private function query(int $limit = 100): string
-    {
-        $category = self::ANNOUNCEMENTS_CATEGORY;
-        return <<<GRAPHQL
-		{
-			repository(owner: "%owner%", name: "%repo%") {
-				discussions(categoryId: "$category", first: $limit, orderBy: {field: CREATED_AT, direction: DESC}) {
-					edges {
-						node {
-							author { login },
-							url,
-							createdAt,
-							bodyHTML
-						}
-					}
-				}
-			}
-		}
-		GRAPHQL;
     }
 }

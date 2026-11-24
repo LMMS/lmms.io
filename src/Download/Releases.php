@@ -1,17 +1,18 @@
 <?php
 namespace App\Download;
 
-use Github\Client;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class Releases
 {
-	public function __construct(Client $client, string $owner, string $repo)
-	{
-		$this->json = $client->repo()->releases()->all($owner, $repo);
-		usort($this->json, function ($a, $b) {
-			return version_compare($b['tag_name'], $a['tag_name']);
-		});
-	}
+	public function __construct(
+		private HttpClientInterface $githubClient,
+		private CacheInterface $githubCache,
+		private string $owner,
+		private string $repo
+	)
+	{ }
 
 	public function latestStableAssets(): array
 	{
@@ -23,9 +24,20 @@ class Releases
 		return $this->latestAssets(false);
 	}
 
+	private function all(): array
+	{
+		return $this->githubCache->get('releases', function () {
+			$json = $this->githubClient->request('GET', "/repos/$this->owner/$this->repo/releases")->toArray();
+			usort($json, function ($a, $b) {
+				return version_compare($b['tag_name'], $a['tag_name']);
+			});
+			return $json;
+		});
+	}
+
 	private function latestAssets(bool $stable = true): array
 	{
-		foreach ($this->json as $release) {
+		foreach ($this->all() as $release) {
 			if ($release['draft']) {
 				continue;
 			}
@@ -59,6 +71,4 @@ class Releases
 		});
 		return $assets;
 	}
-
-	private $json;
 }

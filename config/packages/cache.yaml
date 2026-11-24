@@ -16,5 +16,6 @@ framework:
 
         # Namespaced pools use the above "app" backend by default
         pools:
-            github_api.cache:
+            github.cache:
                 adapter: cache.adapter.filesystem
+                default_lifetime: 600

@@ -2,15 +2,15 @@
 
 namespace App\Twig\Runtime;
 
-use Github\Client;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
 use Twig\Extension\RuntimeExtensionInterface;
 
 class GitHubMarkdownEngineExtensionRuntime implements RuntimeExtensionInterface
 {
-    public function __construct(private readonly Client $client)
+    public function __construct(private readonly HttpClientInterface $githubClient)
     {
         $this->cache = new FilesystemAdapter();
         $this->fallback_render = new GithubFlavoredMarkdownConverter([
@@ -25,7 +25,11 @@ class GitHubMarkdownEngineExtensionRuntime implements RuntimeExtensionInterface
         return $this->cache->get(hash('sha256', $content), function (ItemInterface $item) {
             $content = $this->content;
             try {
-                return $this->client->markdown()->render($content, 'gfm', 'LMMS/lmms');
+                return $this->githubClient->request('POST', '/markdown', ['json' => [
+                    'text'    => $content,
+                    'mode'    => 'gfm',
+                    'context' => 'LMMS/lmms',
+                ]])->getContent();
             } catch (\Throwable $e) {
                 error_log($e);
                 return $this->fallback_render->convert($content);
