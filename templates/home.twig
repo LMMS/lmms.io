@@ -114,9 +114,9 @@
 
 <div class="text-center segment" id="home6">
 	<div class="video-bg d-none d-md-block">
-    <video loop autoplay poster="vid/promo.jpg">
+    <video loop muted playsinline preload="none" poster="vid/promo.jpg">
+        <source src="vid/promo.webm" type='video/webm; codecs="vp9"'>
         <source src="vid/promo.mp4" type="video/mp4">
-        <source src="vid/promo.webm" type="video/webm">
     </video>
 	</div>
 	<div class="video-front">
@@ -133,7 +133,7 @@
 	    <!-- Modal content-->
 	    <div class="modal-content">
 				<div class="ratio ratio-16x9">
-	      	<iframe src="https://www.youtube-nocookie.com/embed/W6tEolVz3_4" allowfullscreen></iframe>
+	      	<iframe data-src="https://www.youtube-nocookie.com/embed/W6tEolVz3_4" allowfullscreen></iframe>
 				</div>
 	    </div>
 	  </div>
@@ -207,11 +207,26 @@
 {% endblock %}
 
 {% block foot %}
-<script>
-// close video in modal when modal closes
-document.getElementById('videoModal').addEventListener('hide.bs.modal', function () {
-	var iframe = this.querySelector('iframe');
-	iframe.src = iframe.src;
+<script type="module">
+// only load the YouTube player once the modal opens, and unload it to stop playback when it closes
+const videoModal = document.getElementById('videoModal');
+const iframe = videoModal.querySelector('iframe');
+videoModal.addEventListener('show.bs.modal', () => {
+	iframe.src = iframe.dataset.src;
 });
+videoModal.addEventListener('hidden.bs.modal', () => {
+	iframe.removeAttribute('src');
+});
+
+// play the background video only while it is on screen (it is hidden on small screens)
+const video = document.querySelector('#home6 video');
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+new IntersectionObserver(([entry]) => {
+	if (entry.isIntersecting && !reduceMotion.matches) {
+		video.play().catch(() => {});
+	} else {
+		video.pause();
+	}
+}).observe(video);
 </script>
 {% endblock %}
