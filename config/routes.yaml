@@ -131,6 +131,11 @@ lsp_captcha:
     path: /lsp/captcha
     controller: App\Controller\SecurityController::captcha
 
+locale_switch:
+   path: /locale
+   controller: App\Controller\LocaleController::switch
+   methods: [POST]
+
 portal_pages:
    path: /{page}
    controller: App\Controller\PortalController::page

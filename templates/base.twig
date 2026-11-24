@@ -2,7 +2,7 @@
 {% import 'macros.twig' as macros %}
 {% set uri = app.request.pathinfo %}
 <!DOCTYPE HTML>
-<html>
+<html lang="{{ app.request.locale|replace({'_': '-'}) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,6 +28,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;family=Orbitron:wght@500&amp;family=Titillium+Web:wght@400;600&amp;display=swap" rel="stylesheet">
     {% endblock %}
     {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {# without JS the dropdown can't open, so show the list #}
+    <noscript><style>.locale-switcher .dropdown-menu { position: static; display: block; }</style></noscript>
 </head>
 
 <body role="document">
@@ -55,7 +57,10 @@
 
     <footer id="footer">
         <div class="container">
-            <div class="row justify-content-center justify-content-md-end">
+            <div class="row align-items-center justify-content-center justify-content-md-between">
+                <div class="col-auto order-last order-md-first">
+                    {% include 'locale_switcher.twig' %}
+                </div>
                 <div class="col-auto px-0 column-md-6">
                     <a class="social" href="https://github.com/LMMS">{{ macros.square_stack('fa6-brands:github', 'icon-4x') }}</a>
                     <a class="social" href="https://facebook.com/makefreemusic">{{ macros.square_stack('fa6-brands:facebook', 'icon-4x') }}</a>

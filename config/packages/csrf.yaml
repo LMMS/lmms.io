@@ -1,0 +1,4 @@
+framework:
+    csrf_protection:
+        # checked against Origin/Sec-Fetch-Site, so the language form in every footer doesn't start a session
+        stateless_token_ids: [locale]

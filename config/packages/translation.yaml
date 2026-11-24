@@ -1,5 +1,7 @@
 framework:
     default_locale: en
+    # one per translations/messages.*.xlf, except hi_IN, which duplicates hi with fewer strings translated
+    enabled_locales: [en, ar, ca, cs, de, el, es, eu, fa, fi, fr, he, hi, id, it, ja, ka, ko, nl, oc, pl, pt, ro, ru, sl, sv, tr, zh_CN, zh_TW]
     translator:
         default_path: '%kernel.project_dir%/translations'
         fallbacks:

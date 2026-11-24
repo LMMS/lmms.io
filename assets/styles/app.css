@@ -1046,6 +1046,20 @@ footer .column-md-6 {
   margin: 20px 4px;
 }
 
+footer .locale-switcher .btn {
+  color: var(--fg-social);
+}
+
+footer .locale-switcher .btn:hover,
+footer .locale-switcher .btn:focus-visible {
+  color: var(--fg-social-hov);
+}
+
+footer .locale-switcher .dropdown-menu {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
 footer #redux {
   text-align: left;
   margin: 28px 4px;

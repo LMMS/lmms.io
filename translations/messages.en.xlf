@@ -1583,6 +1583,10 @@
         <source>Note: 32 bit nightly builds no longer available.</source>
         <target>Note: 32 bit nightly builds no longer available.</target>
       </trans-unit>
+      <trans-unit id="5q6OTdQ" resname="Language">
+        <source>Language</source>
+        <target>Language</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -1,0 +1,17 @@
+{% set locales = available_locales.names %}
+{% set current_locale = app.request.locale %}
+<form class="dropup locale-switcher" method="post" action="{{ path('locale_switch') }}">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('locale') }}">
+    <input type="hidden" name="return" value="{{ app.request.requestUri }}">
+    <button type="button" class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="{{ 'Language'|trans }}">
+        {{ ux_icon('fa6-solid:globe', {class: 'icon icon-fw'}) }} {{ locales[current_locale]|default(current_locale) }}
+    </button>
+    <ul class="dropdown-menu">
+        {% for code, name in locales %}
+            <li>
+                <button type="submit" name="locale" value="{{ code }}" lang="{{ code|replace({'_': '-'}) }}"
+                    class="dropdown-item{{ code == current_locale ? ' active' }}"{% if code == current_locale %} aria-current="true"{% endif %}>{{ name }}</button>
+            </li>
+        {% endfor %}
+    </ul>
+</form>

@@ -1,6 +1,7 @@
 twig:
     globals:
         navbar: '@App\TopNav'
+        available_locales: '@App\Locale\AvailableLocales'
     default_path: '%kernel.project_dir%/templates'
     file_name_pattern: '*.twig'
 
