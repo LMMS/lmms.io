@@ -12,7 +12,7 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct(
         private readonly int $id,
         private readonly string $login,
-        private readonly string $password,
+        private string $password,
         private readonly bool $isAdmin,
     ) {}
 
@@ -29,6 +29,11 @@ final class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getPassword(): string
     {
         return $this->password;
+    }
+
+    public function setPassword(string $passwordHash): void
+    {
+        $this->password = $passwordHash;
     }
 
     public function getRoles(): array

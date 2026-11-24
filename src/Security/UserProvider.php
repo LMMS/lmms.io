@@ -51,12 +51,13 @@ final class UserProvider implements UserProviderInterface, PasswordUpgraderInter
         return $class === User::class;
     }
 
-    /**
-     * Persists a rehashed password when the stored hash is outdated (e.g. a
-     * legacy SHA1 hash upgraded to bcrypt after a successful login).
-     */
     public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
     {
         $this->users->updatePassword($user->getUserIdentifier(), $newHashedPassword);
+
+        // The session needs the new hash to not log them out on the next request
+        if ($user instanceof User) {
+            $user->setPassword($newHashedPassword);
+        }
     }
 }

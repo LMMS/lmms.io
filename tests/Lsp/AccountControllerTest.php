@@ -130,6 +130,24 @@ final class AccountControllerTest extends AbstractLspWebTestCase
         self::assertResponseRedirects('/lsp/');
     }
 
+    public function testLegacyPasswordStaysLoggedInAfterRehash(): void
+    {
+        // setUp() seeds lsptest with a SHA1 hash. this login rehashes it.
+        $this->client->request('GET', '/lsp/login');
+        $this->client->submitForm('Login', [
+            '_username' => 'lsptest',
+            '_password' => 'lsptestpass',
+        ]);
+
+        $this->client->request('GET', '/lsp/settings');
+
+        self::assertResponseIsSuccessful();
+        self::assertStringStartsWith('$', (string) $this->connection->fetchOne(
+            'SELECT password FROM users WHERE login = :login',
+            ['login' => 'lsptest'],
+        ));
+    }
+
     public function testLoginWithInvalidCredentials(): void
     {
         $this->client->request('GET', '/lsp/login');
