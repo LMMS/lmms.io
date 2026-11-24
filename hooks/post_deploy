@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -e
 pushd "$(dirname $0)/../"
-export APP_ENV=prod 
+trap "rm -f '$PWD/.maintenance'" EXIT
+export APP_ENV=prod
 export APP_DEBUG=0
 composer dump-env prod
 php bin/console cache:clear

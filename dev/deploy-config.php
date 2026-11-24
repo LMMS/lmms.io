@@ -76,6 +76,7 @@ define('EXCLUDE', serialize(array(
 	'public/wiki',
 	'public/wikiold',
 	'public/assets', // built by post_deploy
+	'/.maintenance', // removed by post_deploy, see dev/nginx-maintenance.conf
 	'pma',
 	'tmp',
 	'VERSION',
