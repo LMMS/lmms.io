@@ -35,7 +35,7 @@
     {% block stylesheets %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;family=Orbitron:wght@500&amp;family=Titillium+Web:wght@400;600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;family=Titillium+Web:wght@400;600&amp;display=swap" rel="stylesheet">
     {% endblock %}
     {% block importmap %}{{ importmap('app') }}{% endblock %}
     {# without JS: show the language list, hide the theme toggle #}
@@ -48,7 +48,7 @@
 <body role="document">
     <nav class="navbar-custom fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/"><img alt="LMMS Logo" class="logo-sm float-start" height="22" width="22" src="/img/brand-icon.png">LMMS</a>
+            <a class="navbar-brand" href="/">{{ ux_icon('lmms-logo', {class: 'navbar-logo', height: '22', role: 'img', 'aria-label': 'LMMS'}) }}</a>
             <button type="button" class="navbar-toggler" data-disclosure aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>

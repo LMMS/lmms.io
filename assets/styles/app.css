@@ -291,9 +291,7 @@ div.code-block pre {
   height: var(--nav-height);
   margin-right: 15px;
   padding-block: 15px;
-  font-family: "Orbitron", sans-serif;
   font-size: 16px;
-  letter-spacing: 1px;
   line-height: 22px;
   color: var(--fg-navbar);
   white-space: nowrap;
@@ -499,12 +497,11 @@ div.code-block pre {
   top: var(--nav-height-neg);
 }
 
-.logo-sm {
-  position: relative;
-  top: -2px;
-  margin-right: 5px;
-  width: 22px;
-  height: 22px;
+/* the mark plus "LMMS" in Orbitron, outlined so the font isn't loaded for four letters;
+   the wordmark's stroke stands in for the faux bold browsers drew at the navbar's weight */
+.navbar-logo {
+  display: block;
+  margin-top: -2px;
 }
 
 /* Footer */

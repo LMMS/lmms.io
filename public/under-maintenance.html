@@ -6,7 +6,7 @@
 	<title>LMMS | Under Maintenance</title>
 	<meta name="description" content="LMMS is a free, open source, multiplatform digital audio workstation.">
 	<link rel="icon" type="image/png" href="/img/logo_sm.png">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;family=Orbitron:wght@500&amp;family=Titillium+Web:wght@400;600&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;family=Titillium+Web:wght@400;600&amp;display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" />
 	<style>
 		/* Standalone subset of assets/styles/base.css and app.css, this page is served while the app is down */
@@ -25,11 +25,11 @@
 		@media (min-width: 1200px) { .container { max-width: 1140px; } h1 { font-size: 2.5rem; } h2 { font-size: 2rem; } }
 		@media (min-width: 1400px) { .container { max-width: 1320px; } }
 		.navbar { position: fixed; top: 0; right: 0; left: 0; z-index: 1030; background: url("/img/hexagon.png") #10b146; }
-		.navbar-brand { display: inline-block; margin-right: 1rem; padding-block: 14px; color: #fff; font-family: "Orbitron", sans-serif; font-size: 16px; letter-spacing: 1px; line-height: 22px; text-decoration: none; white-space: nowrap; }
+		.navbar-brand { display: inline-block; margin-right: 1rem; padding-block: 14px; color: #fff; font-size: 16px; line-height: 22px; text-decoration: none; white-space: nowrap; }
 		.navbar-brand:hover { color: #fff; }
 		.text-center { text-align: center; }
 		.text-end { text-align: right; }
-		.logo-sm { position: relative; top: -2px; margin-right: 5px; }
+		.navbar-logo { display: block; margin-top: -2px; }
 		.error { flex: 1; display: flex; align-items: center; background: url("/img/hexagon.png") 0 -50px, #10b146; color: #fff; font-family: "Titillium Web", sans-serif; }
 		.error a { color: #fff; font-weight: bold; text-decoration: none; box-shadow: inset 0 -2px 0 0 #362a84; }
 		footer { padding-block: 20px; background: url("/img/hexagon.png") #222522; }
@@ -42,7 +42,7 @@
 <body>
 	<nav class="navbar">
 		<div class="container">
-			<a class="navbar-brand" href="#"><img alt="LMMS Logo" class="logo-sm" height="22" width="22" src="/img/brand-icon.png">LMMS</a>
+			<a class="navbar-brand" href="#"><svg class="navbar-logo" height="22" fill="currentColor" role="img" aria-label="LMMS" viewBox="0 0 86.34 22"><path transform="matrix(0.47619 0 0 0.47619 -4.23810 -4.23810)" d="M32 11 11 23v24l7 4 7-4v-8l-7-4v-8l14-8 14 8v8l-7 4v8l7 4 7-4V23Z"/><g transform="translate(27 7.46)"><path stroke="currentColor" stroke-width=".62" d="M0.91 11.54V0H2.64V9.81H12.43V11.54ZM14.36 11.54V0.02H16.42L20.89 5.33L25.34 0.02H27.42V11.54H25.67V2.34L20.89 8.03L16.09 2.34V11.54ZM30.21 11.54V0.02H32.27L36.74 5.33L41.18 0.02H43.26V11.54H41.52V2.34L36.74 8.03L31.94 2.34V11.54ZM48.07 11.54Q47.51 11.54 47.03 11.26Q46.55 10.98 46.27 10.5Q45.99 10.03 45.99 9.46V8.78H47.72V9.41Q47.72 9.57 47.84 9.69Q47.96 9.81 48.12 9.81H55.38Q55.54 9.81 55.66 9.69Q55.77 9.57 55.77 9.41V7.04Q55.77 6.86 55.66 6.76Q55.54 6.66 55.38 6.66H48.07Q47.51 6.66 47.03 6.37Q46.55 6.08 46.27 5.61Q45.99 5.14 45.99 4.56V2.1Q45.99 1.52 46.27 1.05Q46.55 0.58 47.03 0.3Q47.51 0.02 48.07 0.02H55.43Q55.99 0.02 56.47 0.3Q56.95 0.58 57.23 1.05Q57.51 1.52 57.51 2.1V2.77H55.77V2.14Q55.77 1.98 55.66 1.86Q55.54 1.74 55.38 1.74H48.12Q47.96 1.74 47.84 1.86Q47.72 1.98 47.72 2.14V4.51Q47.72 4.69 47.84 4.79Q47.96 4.9 48.12 4.9H55.43Q55.99 4.9 56.47 5.18Q56.95 5.47 57.23 5.94Q57.51 6.42 57.51 6.99V9.46Q57.51 10.03 57.23 10.5Q56.95 10.98 56.47 11.26Q55.99 11.54 55.43 11.54Z"/></g></svg></a>
 		</div>
 	</nav>
 	<div class="error">
