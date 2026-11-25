@@ -455,31 +455,6 @@ blockquote {
   border-left: 5px solid var(--bs-border-color);
 }
 
-/* Fix for forum back-to-top button */
-.back-to-top {
-  z-index: 1;
-  bottom: 30px;
-}
-
-/* Do not display the edit button in docs */
-.mw-editsection {
-  display: none;
-}
-
-div.p-pagination span.label a:link {
-  color: #fff;
-}
-
-.inputbox {
-  line-height: normal;
-}
-
-.dl-vert-label {
-  position: relative;
-  top: -2px;
-  margin-left: 55px;
-}
-
 .fl-tab {
   position: relative;
   left: 0.1em;
@@ -659,10 +634,6 @@ div.p-pagination span.label a:link {
   }
 }
 
-.dl-horiz-label {
-  margin-left: 57px;
-}
-
 .code-block {
   display: inline-block;
   text-align: left;
@@ -679,38 +650,6 @@ div.code-block pre {
     background-color: var(--wb-dynamic);
     color: var(--bw-dynamic);
   }
-
-.top {
-  float: top;
-}
-
-.overflow-auto {
-  overflow: auto;
-}
-
-.overflow-hidden {
-  overflow: hidden;
-}
-
-.theme-dropdown .dropdown-menu {
-  position: static;
-  display: block;
-  margin-bottom: 20px;
-}
-
-li.dropdown-split-left>a {
-  padding-right: 0;
-}
-
-li.dropdown-split-right>a {
-  padding-left: 7px;
-}
-
-.ellipsis {
-  font-size: 1em;
-  font-weight: 900;
-  display: inline;
-}
 
 .bandcamp-iframe {
   border: 0;
@@ -731,14 +670,6 @@ li.dropdown-split-right>a {
 
 .spacey {
   padding: 5px;
-}
-
-p.forum-stats {
-  font-size: 0.75em;
-}
-
-.theme-showcase>p>.btn {
-  margin: 5px 0;
 }
 
 code {
@@ -942,28 +873,6 @@ footer .locale-switcher .dropdown-menu {
   overflow-y: auto;
 }
 
-footer #redux {
-  text-align: left;
-  margin: 28px 4px;
-  line-height: 80%;
-  font-size: 0.95em;
-  color: var(--fg-social);
-}
-
-footer #redux a {
-  box-shadow: none;
-}
-
-footer #redux img {
-  width: 180px;
-  opacity: 0.8;
-  transition: opacity 0.15s linear;
-}
-
-footer #redux img:hover {
-  opacity: 1;
-}
-
 /* header */
 .jumbotron {
   margin: 0;
@@ -993,15 +902,6 @@ footer #redux img:hover {
 .jumbotron :where(h1, h2, h3, h4, h5, p) {
   font-family: "Titillium Web", sans-serif;
   font-weight: 400;
-}
-
-h1.jumbo {
-  margin-top: 14px;
-}
-
-p.jumbo {
-  margin-top: -14px;
-  margin-left: 4px;
 }
 
 div.jumbo {
@@ -1130,10 +1030,6 @@ a.stack {
   color: var(--fg-stack);
   box-shadow: none;
   transition: color 0.15s linear;
-}
-
-j a.stack:visited {
-  color: var(--fg-stack);
 }
 
 a.stack:hover,
