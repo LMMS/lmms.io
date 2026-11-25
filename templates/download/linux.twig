@@ -3,42 +3,42 @@
 {% endblock %}
 
 <hr>
-<a data-bs-toggle="collapse" href="#collapse_lin_other" role="button" aria-expanded="false">{% trans %}Other options{% endtrans %}<br>{{ ux_icon('fa6-solid:angle-down') }}</a>
-<div id="collapse_lin_other" class="collapse">
+<details id="collapse_lin_other" class="disclosure">
+	<summary class="disclosure-link">{% trans %}Other options{% endtrans %}<br>{{ ux_icon('fa6-solid:angle-down') }}</summary>
 	<div class="text-center">
 		<p>{% trans %}LMMS is included in most major Linux distribution's package repositories.<br>
 		Please <a href="/get-involved/#contact">contact us</a> if your distribution is not listed here.{% endtrans %}</p>
 
 		<div>
 			<ul id="linux-tabs" class="nav nav-tabs flex-column flex-md-row justify-content-center" role="tablist">
-				<li class="nav-item" role="presentation"><a href="#linux-debian" role="tab" data-bs-toggle="tab" id="linux-debian-button" class="nav-link active">
+				<li class="nav-item" role="presentation"><a href="#linux-debian" role="tab" id="linux-debian-button" class="nav-link active" aria-controls="linux-debian" aria-selected="true">
 					<span class="d-none d-xl-inline"><span class="fl fl-16 fl-debian fl-tab"></span>&nbsp;Debian&nbsp;/</span>
 					<span class="fl fl-16 fl-ubuntu fl-tab"></span>&nbsp;Ubuntu
 				</a></li>
 
-				<li class="nav-item" role="presentation"><a href="#linux-suse" role="tab" data-bs-toggle="tab" id="linux-suse-button" class="nav-link">
+				<li class="nav-item" role="presentation"><a href="#linux-suse" role="tab" id="linux-suse-button" class="nav-link" aria-controls="linux-suse" aria-selected="false" tabindex="-1">
 					<span class="fl fl-16 fl-opensuse fl-tab"></span>&nbsp;OpenSUSE
 				</a></li>
 
-				<li class="nav-item" role="presentation"><a href="#linux-mageia" role="tab" data-bs-toggle="tab" id="linux-mageia-button" class="nav-link">
+				<li class="nav-item" role="presentation"><a href="#linux-mageia" role="tab" id="linux-mageia-button" class="nav-link" aria-controls="linux-mageia" aria-selected="false" tabindex="-1">
 					<span class="fl fl-16 fl-mageia fl-tab"></span>&nbsp;Mageia
 					<span class="d-none d-xl-inline">&nbsp;/<span class="fl fl-16 fl-mandriva fl-tab"></span>&nbsp;Mandriva</span>
 				</a></li>
 
-				<li class="nav-item" role="presentation"><a href="#linux-fedora" role="tab" data-bs-toggle="tab" id="linux-fedora-button" class="nav-link">
+				<li class="nav-item" role="presentation"><a href="#linux-fedora" role="tab" id="linux-fedora-button" class="nav-link" aria-controls="linux-fedora" aria-selected="false" tabindex="-1">
 					<span class="fl fl-16 fl-fedora fl-tab"></span>&nbsp;Fedora
 					<span class="d-none d-xl-inline">&nbsp;/<span class="fl fl-16 fl-redhat fl-tab"></span>&nbsp;Red Hat</span>
 				</a></li>
 
-				<li class="nav-item" role="presentation"><a href="#linux-arch" role="tab" data-bs-toggle="tab" id="linux-arch-button" class="nav-link">
+				<li class="nav-item" role="presentation"><a href="#linux-arch" role="tab" id="linux-arch-button" class="nav-link" aria-controls="linux-arch" aria-selected="false" tabindex="-1">
 					<span class="fl fl-16 fl-archlinux fl-tab"></span>&nbsp;Arch Linux
 				</a></li>
 
-				<li class="nav-item" role="presentation"><a href="#linux-slackware" role="tab" data-bs-toggle="tab" id="linux-slackware-button" class="nav-link">
+				<li class="nav-item" role="presentation"><a href="#linux-slackware" role="tab" id="linux-slackware-button" class="nav-link" aria-controls="linux-slackware" aria-selected="false" tabindex="-1">
 					<span class="fl fl-16 fl-slackware fl-tab"></span>&nbsp;Slackware
 				</a></li>
 
-				<li class="nav-item" role="presentation"><a href="#linux-aosc" role="tab" data-bs-toggle="tab" id="linux-aosc-button" class="nav-link">
+				<li class="nav-item" role="presentation"><a href="#linux-aosc" role="tab" id="linux-aosc-button" class="nav-link" aria-controls="linux-aosc" aria-selected="false" tabindex="-1">
 					<span class="fl fl-16 fl-aosc fl-tab"></span>&nbsp;AOSC OS
 				</a></li>
 			</ul>
@@ -46,7 +46,7 @@
 	</div>
 
 	<div class="tab-content">
-		<div id="linux-debian" class="tab-pane active">
+		<div id="linux-debian" class="tab-pane active" role="tabpanel" aria-labelledby="linux-debian-button">
 			<h3>Ubuntu, Linux Mint, Debian (deb)</h3>
 			<p>{% trans %}For installing LMMS on Debian based distributions such as Debian itself, Ubuntu or Linux Mint, just click the button below.{% endtrans %}<br></p>
 			<!-- <p><a class="btn btn-primary" target="new" href="apt://lmms">{{ ux_icon('fa6-solid:download') }} Install LMMS</a></p> -->
@@ -61,19 +61,19 @@
 			<div class="code-block"><pre>$ sudo apt-get install lmms</pre></div>
 		</div>
 
-		<div id="linux-mageia" class="tab-pane">
+		<div id="linux-mageia" class="tab-pane" role="tabpanel" aria-labelledby="linux-mageia-button">
 			<h3>Mandriva, Mageia (rpm)</h3>
 			<p>{% trans %}Run the following command as root in a terminal:{% endtrans %}</p>
 			<div class="code-block"><pre>$ urpmi lmms</pre></div>
 		</div>
 
-		<div id="linux-fedora" class="tab-pane">
+		<div id="linux-fedora" class="tab-pane" role="tabpanel" aria-labelledby="linux-fedora-button">
 			<h3>Fedora, RedHat, CentOS (rpm)</h3>
 			<p>{% trans %}Run the following command as root in a terminal:{% endtrans %}</p>
 			<div class="code-block"><pre>$ yum install lmms</pre></div>
 		</div>
 
-		<div id="linux-arch" class="tab-pane">
+		<div id="linux-arch" class="tab-pane" role="tabpanel" aria-labelledby="linux-arch-button">
 			<h3>Arch Linux</h3>
 			<p>{% trans %}Run the following command in a terminal:{% endtrans %}</p>
 			<div class="code-block"><pre>$ sudo pacman -S lmms</pre></div>
@@ -81,19 +81,19 @@
 			<p>{% trans %}For VST support, please install wine or wine-staging from the repository{% endtrans %}</p>
 		</div>
 
-		<div id="linux-slackware" class="tab-pane">
+		<div id="linux-slackware" class="tab-pane" role="tabpanel" aria-labelledby="linux-slackware-button">
 			<h3>Slackware Linux</h3>
 			<p></p>
 			<div class="code-block"><pre># sbopkg -i fltk -i lmms</pre></div>
 		</div>
 
-		<div id="linux-suse" class="tab-pane">
+		<div id="linux-suse" class="tab-pane" role="tabpanel" aria-labelledby="linux-suse-button">
 			<h3>openSUSE</h3>
 			<p>{% trans %}Run the following command in a terminal:{% endtrans %}</p>
 			<div class="code-block"><pre>$ sudo zypper install lmms</pre></div>
 		</div>
 
-		<div id="linux-aosc" class="tab-pane">
+		<div id="linux-aosc" class="tab-pane" role="tabpanel" aria-labelledby="linux-aosc-button">
 			<h3>AOSC OS</h3>
 			<p>{% trans %}AOSC OS ships LMMS on various architectural ports (AMD64/x86_64, ARMv7, and more to come in the future), with VST support enabled by default on AMD64.{% endtrans %}</p>
 			<p>{% trans %}To install LMMS on AOSC OS with PackageKit (recommended):{% endtrans %}</p>
@@ -107,4 +107,4 @@
 		<h3>{% trans %}Build LMMS from source{% endtrans %}</h3>
 		<p>{% trans %}If your Linux distribution does not provide a lmms package (or only an outdated one), you can still build LMMS from source. Visit the <a href="https://github.com/LMMS/lmms/wiki/Compiling">LMMS development wiki on GitHub</a> for instructions on how to compile LMMS for Linux.{% endtrans %}</p>
 	</div>
-</div>
+</details>

@@ -124,23 +124,22 @@
 			<div class="page-header">
 				<h2>{% trans %}Take a peek.{% endtrans %}</h2>
 			</div>
-			<a class="stack" data-bs-toggle="modal" data-bs-target="#videoModal" href="#">{{ macros.circle_stack('fa6-solid:circle-play', 'icon-6x') }}</a>
+			<a class="stack" href="#videoModal" aria-haspopup="dialog">{{ macros.circle_stack('fa6-solid:circle-play', 'icon-6x') }}</a>
 			<h4>{% trans %}Watch our promo video.{% endtrans %}</h4>
 		</div>
 	</div>
-	<div id="videoModal" class="modal fade modal-custom" tabindex="-1" aria-label="{% trans %}Watch our promo video.{% endtrans %}">
-	  <div class="modal-dialog">
-	    <!-- Modal content-->
-	    <div class="modal-content">
+	<dialog id="videoModal" class="modal-custom" aria-label="{% trans %}Watch our promo video.{% endtrans %}">
+		<div class="modal-dialog">
+			<div class="modal-content">
 				<div class="ratio ratio-16x9">
-	      	<iframe data-src="https://www.youtube-nocookie.com/embed/W6tEolVz3_4" allowfullscreen></iframe>
+					<iframe data-src="https://www.youtube-nocookie.com/embed/W6tEolVz3_4" allowfullscreen></iframe>
 				</div>
-	    </div>
-	  </div>
-		<div class="text-center">
-			<button class="close-modal" data-bs-dismiss="modal">{% trans %}Click anywhere to close this dialog{% endtrans %}</button>
+			</div>
 		</div>
-	</div>
+		<form class="text-center" method="dialog">
+			<button class="close-modal" autofocus>{% trans %}Click anywhere to close this dialog{% endtrans %}</button>
+		</form>
+	</dialog>
 </div>
 
 <div class="segment" id="home7">
@@ -211,11 +210,19 @@
 // only load the YouTube player once the modal opens, and unload it to stop playback when it closes
 const videoModal = document.getElementById('videoModal');
 const iframe = videoModal.querySelector('iframe');
-videoModal.addEventListener('show.bs.modal', () => {
+document.querySelector('a[href="#videoModal"]').addEventListener('click', (event) => {
+	event.preventDefault();
 	iframe.src = iframe.dataset.src;
+	videoModal.showModal();
 });
-videoModal.addEventListener('hidden.bs.modal', () => {
+videoModal.addEventListener('close', () => {
 	iframe.removeAttribute('src');
+});
+// the dialog fills the window, so a click on it rather than on the video is a click on the backdrop
+videoModal.addEventListener('click', (event) => {
+	if (event.target === videoModal) {
+		videoModal.close();
+	}
 });
 
 // load the background video and its poster only once it is on screen (it is hidden on small screens),

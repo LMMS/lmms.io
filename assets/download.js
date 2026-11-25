@@ -1,4 +1,33 @@
-import { Tab } from 'bootstrap';
+var tabs = Array.from(document.querySelectorAll('#linux-tabs [role="tab"]'));
+
+function showTab(tab) {
+    tabs.forEach(function (other) {
+        var selected = other === tab;
+        other.classList.toggle('active', selected);
+        other.setAttribute('aria-selected', selected);
+        other.tabIndex = selected ? 0 : -1;
+        document.getElementById(other.getAttribute('aria-controls')).classList.toggle('active', selected);
+    });
+}
+
+// arrow keys move between the tabs, as in any tab list
+var tabKeys = { ArrowLeft: -1, ArrowUp: -1, ArrowRight: 1, ArrowDown: 1 };
+
+tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function (event) {
+        event.preventDefault();
+        showTab(tab);
+    });
+    tab.addEventListener('keydown', function (event) {
+        if (!(event.key in tabKeys)) {
+            return;
+        }
+        event.preventDefault();
+        var next = tabs[(i + tabKeys[event.key] + tabs.length) % tabs.length];
+        showTab(next);
+        next.focus();
+    });
+});
 
 function showOS(os) {
     location.hash = os;
@@ -9,7 +38,7 @@ function showOS(os) {
         }
         var tab = document.querySelector(os + '-button');
         if (tab) {
-            Tab.getOrCreateInstance(tab).show();
+            showTab(tab);
         }
         os = '#linux';
     }

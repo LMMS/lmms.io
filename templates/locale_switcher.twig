@@ -3,10 +3,10 @@
 <form class="dropup locale-switcher" method="post" action="{{ path('locale_switch') }}">
     <input type="hidden" name="_csrf_token" value="{{ csrf_token('locale') }}">
     <input type="hidden" name="return" value="{{ app.request.requestUri }}">
-    <button type="button" class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="{{ 'Language'|trans }}">
+    <button type="button" class="btn btn-sm dropdown-toggle" data-disclosure aria-controls="locale-menu" aria-expanded="false" title="{{ 'Language'|trans }}">
         {{ ux_icon('fa6-solid:globe', {class: 'icon icon-fw'}) }} {{ locales[current_locale]|default(current_locale) }}
     </button>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu" id="locale-menu">
         {% for code, name in locales %}
             <li>
                 <button type="submit" name="locale" value="{{ code }}" lang="{{ code|replace({'_': '-'}) }}"

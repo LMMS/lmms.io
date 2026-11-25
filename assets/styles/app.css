@@ -469,6 +469,40 @@ blockquote {
   max-width: 800px;
 }
 
+/* <details> that slide open where the browser can animate them */
+.disclosure {
+  interpolate-size: allow-keywords;
+}
+
+.disclosure::details-content {
+  block-size: 0;
+  overflow-y: clip;
+  transition: block-size 0.35s ease, content-visibility 0.35s allow-discrete;
+}
+
+.disclosure[open]::details-content {
+  block-size: auto;
+}
+
+.disclosure > summary {
+  list-style: none;
+}
+
+.disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* a summary that reads as a link */
+.disclosure-link {
+  display: inline-block;
+  color: var(--col-anchor);
+  font-weight: bold;
+}
+
+.disclosure-link:hover {
+  text-decoration: underline;
+}
+
 /* Button base, before the variants below so they can override it */
 .btn {
   --bs-btn-padding-y: 6px;
@@ -774,6 +808,12 @@ code {
 /* inner bottom border on hover over navbar items*/
 @media (min-width: 768px) {
 
+  .navbar-collapse-inner {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+  }
+
   .navbar-custom .navbar-nav .nav-link:hover {
     box-shadow: inset 0px -4px 0px 0px var(--border-navbar-hov);
   }
@@ -796,6 +836,25 @@ code {
 @media (max-width: 767.98px) {
   .navbar-custom {
     background-image: none;
+  }
+
+  /* the menu slides open: its one grid row grows from nothing to the menu's height */
+  .navbar-collapse {
+    display: grid;
+    grid-template-rows: 0fr;
+    align-items: stretch;
+    overflow: hidden;
+    visibility: hidden;
+    transition: grid-template-rows 0.35s ease, visibility 0.35s;
+  }
+
+  .navbar-collapse.show {
+    grid-template-rows: 1fr;
+    visibility: visible;
+  }
+
+  .navbar-collapse-inner {
+    min-height: 0;
   }
 
   .navbar-custom .navbar-nav {
@@ -869,6 +928,9 @@ footer .locale-switcher .btn:focus-visible {
 }
 
 footer .locale-switcher .dropdown-menu {
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 2px;
   max-height: 60vh;
   overflow-y: auto;
 }
@@ -1037,6 +1099,52 @@ a.stack:focus {
   color: var(--fg-stack-hov);
 }
 
+/* Tooltips: the label shows above its element on hover */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::before,
+[data-tooltip]::after {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  z-index: 1080;
+  translate: -50% 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s linear;
+}
+
+/* the arrow */
+[data-tooltip]::before {
+  content: "";
+  border: 0.4rem solid transparent;
+  border-top-color: var(--bw-dynamic);
+  border-bottom: 0;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  width: max-content;
+  max-width: 200px;
+  margin-bottom: 0.4rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  background: var(--bw-dynamic);
+  color: var(--wb-dynamic);
+  font: 400 0.875rem/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  text-align: center;
+  white-space: normal;
+}
+
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after,
+:focus-visible > [data-tooltip]::before,
+:focus-visible > [data-tooltip]::after {
+  opacity: 0.9;
+}
+
 a.social {
   color: var(--fg-social);
   box-shadow: none;
@@ -1151,22 +1259,88 @@ a.social:focus {
   }
 }
 
-.modal-backdrop {
-  --bs-backdrop-opacity: 0.7;
-}
-
+/* The video <dialog> fills the window; the video and the close text sit in it on the backdrop */
 .modal-custom {
-  /* Custom close modal dialog text */
-  /* The text is a button so the user can click it but behaves like normal text */
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  border: 0;
+  background: none;
+  color: inherit;
+  /* what Bootstrap's .modal sets for the .modal-dialog and .modal-content in it */
+  --bs-modal-margin: 0.5rem;
+  --bs-modal-color: var(--bs-body-color);
+  --bs-modal-bg: var(--bs-body-bg);
+  --bs-modal-border-color: var(--bs-border-color-translucent);
+  --bs-modal-border-width: var(--bs-border-width);
+  --bs-modal-border-radius: var(--bs-border-radius-lg);
 }
 
-.modal-custom.fade .close-modal {
+@media (min-width: 576px) {
+  .modal-custom {
+    --bs-modal-margin: 1.75rem;
+  }
+}
+
+.modal-custom::backdrop {
+  background-color: rgb(0 0 0 / 0.7);
+}
+
+/* fade in and out, the video sliding down into place */
+.modal-custom,
+.modal-custom::backdrop {
+  opacity: 0;
+  transition: opacity 0.15s linear, display 0.3s allow-discrete, overlay 0.3s allow-discrete;
+}
+
+.modal-custom[open],
+.modal-custom[open]::backdrop {
+  opacity: 1;
+}
+
+.modal-custom .modal-dialog {
+  translate: 0 -50px;
+  transition: translate 0.3s ease-out;
+}
+
+.modal-custom[open] .modal-dialog {
+  translate: none;
+}
+
+@starting-style {
+  .modal-custom[open],
+  .modal-custom[open]::backdrop {
+    opacity: 0;
+  }
+
+  .modal-custom[open] .modal-dialog {
+    translate: 0 -50px;
+  }
+}
+
+:root:has(.modal-custom[open]) {
+  overflow: hidden;
+}
+
+/* Custom close modal dialog text */
+/* The text is a button so the user can click it but behaves like normal text */
+.modal-custom .close-modal {
   opacity: 0;
   transition: opacity 0.5s ease-out 0.3s;
 }
 
-.modal-custom.show .close-modal {
+.modal-custom[open] .close-modal {
   opacity: 0.7;
+}
+
+@starting-style {
+  .modal-custom[open] .close-modal {
+    opacity: 0;
+  }
 }
 
 .modal-custom .close-modal {
@@ -1291,7 +1465,7 @@ a.social:focus {
   margin: 0.25em 0;
 }
 
-.comp-header[aria-expanded="true"] .carret {
+.competition[open] .carret {
   transform: rotate(180deg);
 }
 
@@ -1397,4 +1571,16 @@ a.social:focus {
 .comp-desc h4 {
   margin-bottom: 1ex;
   margin-top: 2ex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .disclosure::details-content,
+  .navbar-collapse,
+  .modal-custom,
+  .modal-custom::backdrop,
+  .modal-custom .modal-dialog,
+  [data-tooltip]::before,
+  [data-tooltip]::after {
+    transition: none;
+  }
 }

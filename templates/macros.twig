@@ -8,11 +8,12 @@
 </div>
 {% endmacro %}
 
-{# Prints an icon stack: an inversed icon on top of a background shape, with a tooltip #}
+{# Prints an icon stack: an inversed icon on top of a background shape, with a tooltip that also labels it #}
 {% macro icon_stack(background, icon, class, tooltip) %}
-	<span class='icon-stack {{ class }}' data-bs-toggle='tooltip' data-bs-placement='top' title='{{ tooltip }}'>
+	<span class='icon-stack {{ class }}'{% if tooltip %} data-tooltip='{{ tooltip }}'{% endif %}>
 		{{ ux_icon(background) }}
 		{{ ux_icon(icon, {class: 'icon icon-stack-inner'}) }}
+		{% if tooltip %}<span class='visually-hidden'>{{ tooltip }}</span>{% endif %}
 	</span>
 {% endmacro %}
 
@@ -104,8 +105,8 @@
 			</ul>
 		</li>
 		<li class='nav-item dropdown d-md-none'>
-			<a href='#' class='nav-link dropdown-toggle {{active}}' role='button' data-bs-toggle='dropdown' aria-expanded='false'>{{text}}</a>
-			<ul class="dropdown-menu">
+			<a href='#' class='nav-link dropdown-toggle {{active}}' role='button' data-disclosure aria-controls='navbar-more' aria-expanded='false'>{{text}}</a>
+			<ul class="dropdown-menu" id="navbar-more">
 				{% for child in children %}
 					{{macros.print_menu_item('', child[1], child[2], child[0])}}
 				{% endfor %}

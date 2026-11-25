@@ -14,14 +14,14 @@
 {% endmacro %}
 
 {% macro releasenotes(notes, divid) %}
-<div id="release-notes">
-	<a data-bs-toggle="collapse" href="#collapse_{{ divid }}" role="button" aria-expanded="false">{% trans %}Show release notes{% endtrans %}<br>{{ ux_icon('fa6-solid:angle-down') }}</a>
-	<div id="collapse_{{ divid }}" class="collapse">
+<details id="release-notes" class="disclosure">
+	<summary class="disclosure-link">{% trans %}Show release notes{% endtrans %}<br>{{ ux_icon('fa6-solid:angle-down') }}</summary>
+	<div id="collapse_{{ divid }}">
 		<div class="release-notes well">
 			{{ notes|gfm_to_html }}
 		</div>
 	</div>
-</div>
+</details>
 {% endmacro %}
 
 {% macro osbutton(os, icon, title) %}

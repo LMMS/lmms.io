@@ -24,14 +24,8 @@ return [
         'path' => './assets/download.js',
         'entrypoint' => true,
     ],
-    'bootstrap' => [
-        'version' => '5.3.9',
-    ],
     'bootstrap/dist/css/bootstrap.min.css' => [
         'version' => '5.3.9',
         'type' => 'css',
-    ],
-    '@popperjs/core' => [
-        'version' => '2.11.8',
     ],
 ];

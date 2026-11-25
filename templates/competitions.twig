@@ -12,12 +12,12 @@
 	<!-- Preserve l10n content, please don't remove or comment out the h3 tag below -->
 	<h3 class="d-none">{% trans %}Current competitions:{% endtrans %}</h3>
 	<h3>{% trans %}Past competitions:{% endtrans %}</h3>
-	<div class="competition">
-		<div class="comp-header" id="bol11" data-bs-toggle="collapse" data-bs-target="#bol11-desc" role="button" aria-expanded="false">
+	<details class="competition disclosure">
+		<summary class="comp-header" id="bol11">
 			<span>{% trans %}The Best of LMMS vol. XI{% endtrans %}</span>
 			{{ ux_icon('fa6-solid:angle-down', {class: 'icon carret'}) }}
-		</div>
-		<div class="comp-desc collapse" role="tabpanel" id="bol11-desc">
+		</summary>
+		<div class="comp-desc" id="bol11-desc">
 			{% apply markdown_to_html %}
 			{% trans %}
 			#### The competition has ended on **August 1st, 2025**.
@@ -63,13 +63,13 @@
 			{% endtrans %}
 			{% endapply %}
 		</div>
-	</div>
-	<div class="competition">
-		<div class="comp-header" id="bol10" data-bs-toggle="collapse" data-bs-target="#bol10-desc" role="button" aria-expanded="false">
+	</details>
+	<details class="competition disclosure">
+		<summary class="comp-header" id="bol10">
 			<span>{% trans %}The Best of LMMS vol. X{% endtrans %}</span>
 			{{ ux_icon('fa6-solid:angle-down', {class: 'icon carret'}) }}
-		</div>
-		<div class="comp-desc collapse" role="tabpanel" id="bol10-desc">
+		</summary>
+		<div class="comp-desc" id="bol10-desc">
 			{% apply markdown_to_html %}
 			{% trans %}
 			#### The competition has ended on **July 1st, 2023**.
@@ -120,13 +120,13 @@
 			{% endtrans %}
 			{% endapply %}
 		</div>
-	</div>
-	<div class="competition">
-		<div class="comp-header" id="bol9" data-bs-toggle="collapse" data-bs-target="#bol9-desc" role="button" aria-expanded="false">
+	</details>
+	<details class="competition disclosure">
+		<summary class="comp-header" id="bol9">
 			<span>{% trans %}The Best of LMMS vol. IX{% endtrans %}</span>
 			{{ ux_icon('fa6-solid:angle-down', {class: 'icon carret'}) }}
-		</div>
-		<div class="comp-desc collapse" role="tabpanel" id="bol9-desc">
+		</summary>
+		<div class="comp-desc" id="bol9-desc">
 			{% apply markdown_to_html %}
 			{% trans %}
 			#### The competition has ended on **April 16th, 2022**.
@@ -176,13 +176,13 @@
 			{% endtrans %}
 			{% endapply %}
 		</div>
-	</div>
-	<div class="competition">
-		<div class="comp-header" id="bol8" data-bs-toggle="collapse" data-bs-target="#bol8-desc" role="button" aria-expanded="false">
+	</details>
+	<details class="competition disclosure">
+		<summary class="comp-header" id="bol8">
 			<span>{% trans %}The Best of LMMS vol. VIII{% endtrans %}</span>
 			{{ ux_icon('fa6-solid:angle-down', {class: 'icon carret'}) }}
-		</div>
-		<div class="comp-desc collapse" role="tabpanel" id="bol8-desc">
+		</summary>
+		<div class="comp-desc" id="bol8-desc">
 			{% apply markdown_to_html %}
 			{% trans %}
 			#### The competition has ended on **April 5th, 2021**.
@@ -229,13 +229,13 @@
 			{% endtrans %}
 			{% endapply %}
 		</div>
-	</div>
-	<div class="competition">
-		<div class="comp-header" id="bol7" data-bs-toggle="collapse" data-bs-target="#bol7-desc" role="button" aria-expanded="false">
+	</details>
+	<details class="competition disclosure">
+		<summary class="comp-header" id="bol7">
 			<span>{% trans %}The Best of LMMS vol. VII{% endtrans %}</span>
 			{{ ux_icon('fa6-solid:angle-down', {class: 'icon carret'}) }}
-		</div>
-		<div class="comp-desc collapse" role="tabpanel" id="bol7-desc">
+		</summary>
+		<div class="comp-desc" id="bol7-desc">
 			{% apply markdown_to_html %}
 			{% trans %}
 			#### The competition has ended on **April 16th, 2020**.
@@ -279,13 +279,13 @@
 			{% endtrans %}
 			{% endapply %}
 		</div>
-	</div>
-	<div class="competition">
-		<div class="comp-header" id="bol6" data-bs-toggle="collapse" data-bs-target="#bol6-desc" role="button" aria-expanded="false">
+	</details>
+	<details class="competition disclosure">
+		<summary class="comp-header" id="bol6">
 			<span>{% trans %}The Best of LMMS vol. VI{% endtrans %}</span>
 			{{ ux_icon('fa6-solid:angle-down', {class: 'icon carret'}) }}
-		</div>
-		<div class="comp-desc collapse" role="tabpanel" id="bol6-desc">
+		</summary>
+		<div class="comp-desc" id="bol6-desc">
 			{% apply markdown_to_html %}
 			{% trans %}
 			#### The competition has ended on **April 2nd, 2019**.
@@ -329,13 +329,13 @@
 			{% endtrans %}
 			{% endapply %}
 		</div>
-	</div>
-	<div class="competition">
-		<div class="comp-header" id="bol5" data-bs-toggle="collapse" data-bs-target="#bol5-desc" role="button" aria-expanded="false">
+	</details>
+	<details class="competition disclosure">
+		<summary class="comp-header" id="bol5">
 			<span>{% trans %}The Best of LMMS vol. V{% endtrans %}</span>
 			{{ ux_icon('fa6-solid:angle-down', {class: 'icon carret'}) }}
-		</div>
-		<div class="comp-desc collapse" role="tabpanel" id="bol5-desc">
+		</summary>
+		<div class="comp-desc" id="bol5-desc">
 			{% apply markdown_to_html %}
 			{% trans %}
 			#### The competition has ended on **April 16th, 2018**.
@@ -382,13 +382,13 @@
 			{% endtrans %}
 			{% endapply %}
 		</div>
-	</div>
-	<div class="competition">
-		<div class="comp-header" id="bol4" data-bs-toggle="collapse" data-bs-target="#bol4-desc" role="button" aria-expanded="false">
+	</details>
+	<details class="competition disclosure">
+		<summary class="comp-header" id="bol4">
 			<span>{% trans %}The Best of LMMS vol. IV{% endtrans %}</span>
 			{{ ux_icon('fa6-solid:angle-down', {class: 'icon carret'}) }}
-		</div>
-		<div class="comp-desc collapse" role="tabpanel" id="bol4-desc">
+		</summary>
+		<div class="comp-desc" id="bol4-desc">
 			{% apply markdown_to_html %}
 			{% trans %}
 			#### The competition has ended on **April 16th, 2017**.
@@ -430,13 +430,13 @@
 			{% endtrans %}
 			{% endapply %}
 		</div>
-	</div>
-	<div class="competition">
-		<div class="comp-header" id="bol3" data-bs-toggle="collapse" data-bs-target="#bol3-desc" role="button" aria-expanded="false">
+	</details>
+	<details class="competition disclosure">
+		<summary class="comp-header" id="bol3">
 			<span>{% trans %}The Best of LMMS vol. III{% endtrans %}</span>
 			{{ ux_icon('fa6-solid:angle-down', {class: 'icon carret'}) }}
-		</div>
-		<div class="comp-desc collapse" id="bol3-desc">
+		</summary>
+		<div class="comp-desc" id="bol3-desc">
 			{% apply markdown_to_html %}
 			{% trans %}
 			#### The competition has ended on **March 16th, 2016.**
@@ -466,13 +466,13 @@
 			{% endtrans %}
 			{% endapply %}
 		</div>
-	</div>
-	<div class="competition">
-		<div class="comp-header" id="bol2" data-bs-toggle="collapse" data-bs-target="#bol2-desc" role="button" aria-expanded="false">
+	</details>
+	<details class="competition disclosure">
+		<summary class="comp-header" id="bol2">
 			<span>{% trans %}The Best of LMMS vol. II{% endtrans %}</span>
 			{{ ux_icon('fa6-solid:angle-down', {class: 'icon carret'}) }}
-		</div>
-		<div class="comp-desc collapse" id="bol2-desc">
+		</summary>
+		<div class="comp-desc" id="bol2-desc">
 			{% apply markdown_to_html %}
 			{% trans %}
 			#### The competition has ended on **April 1st, 2015.**
@@ -501,13 +501,13 @@
 			{% endtrans %}
 			{% endapply %}
 		</div>
-	</div>
-	<div class="competition">
-		<div class="comp-header" id="bol1" data-bs-toggle="collapse" data-bs-target="#bol1-desc" role="button" aria-expanded="false">
+	</details>
+	<details class="competition disclosure">
+		<summary class="comp-header" id="bol1">
 			<span>{% trans %}The Best of LMMS vol. I{% endtrans %}</span>
 			{{ ux_icon('fa6-solid:angle-down', {class: 'icon carret'}) }}
-		</div>
-		<div class="comp-desc collapse" id="bol1-desc">
+		</summary>
+		<div class="comp-desc" id="bol1-desc">
 			{% apply markdown_to_html %}
 			{% trans %}
 			#### The competition has ended on **February 15th, 2014.**
@@ -537,7 +537,7 @@
 			{% endtrans %}
 			{% endapply %}
 		</div>
-	</div>
+	</details>
 </div>
 
 
@@ -548,10 +548,10 @@
 
 {% block foot %}
 <script type="text/javascript">
-document.querySelectorAll('.comp-desc').forEach(function (desc) {
-	desc.addEventListener('show.bs.collapse', function () {
+document.querySelectorAll('.competition').forEach(function (competition) {
+	competition.addEventListener('toggle', function () {
 		// only load the Bandcamp widget when it should be visible
-		var bc_widget = desc.querySelector(':scope > div');
+		var bc_widget = competition.open && competition.querySelector('.comp-desc > div');
 		var bc_iframe = bc_widget && bc_widget.querySelector(':scope > iframe');
 		if (bc_iframe && !bc_iframe.getAttribute('src')) {
 			bc_iframe.setAttribute('src', bc_widget.dataset.href);
