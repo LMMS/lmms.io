@@ -24,7 +24,7 @@
                 if (!['light', 'dark'].includes(theme)) {
                     theme = dark.matches ? 'dark' : 'light';
                 }
-                document.documentElement.dataset.bsTheme = theme;
+                document.documentElement.dataset.theme = theme;
             };
             apply();
             dark.addEventListener('change', apply);
@@ -46,7 +46,7 @@
 </head>
 
 <body role="document">
-    <nav class="navbar navbar-expand-md navbar-custom fixed-top">
+    <nav class="navbar-custom fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/"><img alt="LMMS Logo" class="logo-sm float-start" height="22" width="22" src="/img/brand-icon.png">LMMS</a>
             <button type="button" class="navbar-toggler" data-disclosure aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">

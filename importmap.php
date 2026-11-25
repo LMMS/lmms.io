@@ -24,8 +24,4 @@ return [
         'path' => './assets/download.js',
         'entrypoint' => true,
     ],
-    'bootstrap/dist/css/bootstrap.min.css' => [
-        'version' => '5.3.9',
-        'type' => 'css',
-    ],
 ];

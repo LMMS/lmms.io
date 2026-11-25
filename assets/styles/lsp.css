@@ -55,7 +55,7 @@
 /* plain text links ("Create an account", links in comments) deepen instead */
 .lsp-layout a:not([class]):hover,
 .lsp-auth a:not([class]):hover {
-  color: color-mix(in srgb, var(--col-anchor), var(--bs-body-color) 35%);
+  color: color-mix(in srgb, var(--col-anchor), var(--fg) 35%);
 }
 
 .lsp-crumbs a:hover,
@@ -101,27 +101,27 @@
 
 /*** Buttons ***/
 .btn-lsp {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: var(--lsp-accent);
-  --bs-btn-border-color: var(--lsp-accent);
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: var(--lsp-accent-hover);
-  --bs-btn-hover-border-color: var(--lsp-accent-hover);
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: var(--lsp-accent-hover);
-  --bs-btn-active-border-color: var(--lsp-accent-hover);
-  --bs-btn-focus-shadow-rgb: 16, 177, 70;
-  --bs-btn-font-weight: 500;
+  --btn-color: #fff;
+  --btn-bg: var(--lsp-accent);
+  --btn-border-color: var(--lsp-accent);
+  --btn-hover-color: #fff;
+  --btn-hover-bg: var(--lsp-accent-hover);
+  --btn-hover-border-color: var(--lsp-accent-hover);
+  --btn-active-color: #fff;
+  --btn-active-bg: var(--lsp-accent-hover);
+  --btn-active-border-color: var(--lsp-accent-hover);
+  --btn-focus-shadow-rgb: 16 177 70;
+  --btn-font-weight: 500;
   border-radius: var(--lsp-control-radius);
   padding-inline: 1em;
 }
 
 .btn-lsp-ghost {
-  --bs-btn-color: var(--bs-body-color);
-  --bs-btn-border-color: var(--lsp-border-strong);
-  --bs-btn-hover-bg: var(--lsp-surface-2);
-  --bs-btn-hover-border-color: var(--lsp-border-strong);
-  --bs-btn-font-weight: 500;
+  --btn-color: var(--fg);
+  --btn-border-color: var(--lsp-border-strong);
+  --btn-hover-bg: var(--lsp-surface-2);
+  --btn-hover-border-color: var(--lsp-border-strong);
+  --btn-font-weight: 500;
   border-radius: var(--lsp-control-radius);
 }
 
@@ -204,7 +204,7 @@
   align-items: center;
   gap: 10px;
   min-width: 0;
-  color: var(--bs-body-color);
+  color: var(--fg);
   font-family: "Titillium Web", sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
@@ -213,7 +213,7 @@
 }
 
 .lsp-brand:hover {
-  color: var(--bs-body-color);
+  color: var(--fg);
   text-decoration: none;
 }
 
@@ -234,7 +234,7 @@
   border: 1px solid transparent;
   border-radius: 12px;
   background: var(--lsp-surface-2);
-  color: var(--bs-body-color);
+  color: var(--fg);
   transition: border-color var(--animation-time), background-color var(--animation-time), box-shadow var(--animation-time);
 }
 
@@ -243,7 +243,7 @@
 }
 
 .lsp-search input:hover {
-  background: color-mix(in srgb, var(--lsp-surface-2), var(--bs-body-color) 5%);
+  background: color-mix(in srgb, var(--lsp-surface-2), var(--fg) 5%);
 }
 
 .lsp-search input:focus {
@@ -373,7 +373,7 @@
   gap: 10px;
   padding: 8px 10px;
   border-radius: 8px;
-  color: var(--bs-body-color);
+  color: var(--fg);
 }
 
 .lsp-menu-list a:hover {
@@ -401,7 +401,7 @@
 }
 
 .lsp-menu-head strong {
-  color: var(--bs-body-color);
+  color: var(--fg);
 }
 
 .lsp-menu-role {
@@ -489,28 +489,28 @@
   border: 1px solid var(--lsp-border);
   border-radius: var(--lsp-control-radius);
   background: var(--lsp-surface);
-  color: var(--bs-body-color);
+  color: var(--fg);
   white-space: nowrap;
 }
 
 .lsp-rail-link:hover {
   background: var(--lsp-hover);
   text-decoration: none;
-  color: var(--bs-body-color);
+  color: var(--fg);
 }
 
 /* The selected item gets a soft fill */
 .lsp-rail-link.active,
 .lsp-rail .lsp-rail-sub.active {
   background: var(--lsp-surface-2);
-  color: var(--bs-body-color);
+  color: var(--fg);
 }
 
 /* On phones the rail items are outlined chips, so the selected one inverts */
 @media (max-width: 991.98px) {
   .lsp-rail-link.active {
-    border-color: var(--bs-body-color);
-    background: var(--bs-body-color);
+    border-color: var(--fg);
+    background: var(--fg);
     color: var(--lsp-surface);
   }
 
@@ -603,7 +603,7 @@
 
   .lsp-rail-sub:hover {
     background: var(--lsp-hover);
-    color: var(--bs-body-color);
+    color: var(--fg);
     text-decoration: none;
   }
 
@@ -714,14 +714,14 @@
 
 .lsp-sort-link:hover,
 .lsp-chip-link:hover {
-  color: var(--bs-body-color);
+  color: var(--fg);
   text-decoration: none;
 }
 
 .lsp-sort-link.active {
   background: var(--lsp-raised);
   box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
-  color: var(--bs-body-color);
+  color: var(--fg);
 }
 
 .lsp-chip-link {
@@ -736,8 +736,8 @@
 }
 
 .lsp-chip-link.active {
-  border-color: var(--bs-body-color);
-  background: var(--bs-body-color);
+  border-color: var(--fg);
+  background: var(--fg);
   color: var(--lsp-surface);
 }
 
@@ -877,7 +877,7 @@
 }
 
 .lsp-user {
-  color: var(--bs-body-color);
+  color: var(--fg);
 }
 
 .lsp-dot {
@@ -892,7 +892,7 @@
 }
 
 .lsp-post-title a {
-  color: var(--bs-body-color);
+  color: var(--fg);
   font-weight: 600;
 }
 
@@ -927,7 +927,7 @@
   padding-inline: 10px;
   border-radius: var(--lsp-control-radius);
   background: var(--lsp-surface-2);
-  color: var(--bs-body-color);
+  color: var(--fg);
   font-size: 0.86rem;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
@@ -935,17 +935,17 @@
 
 /* keep the buttons visible against a hovered post's fill */
 .lsp-post:hover .lsp-action {
-  background: color-mix(in srgb, var(--lsp-surface-2), var(--bs-body-color) 6%);
+  background: color-mix(in srgb, var(--lsp-surface-2), var(--fg) 6%);
 }
 
 a.lsp-action:hover {
-  background: color-mix(in srgb, var(--lsp-surface-2), var(--bs-body-color) 8%);
-  color: var(--bs-body-color);
+  background: color-mix(in srgb, var(--lsp-surface-2), var(--fg) 8%);
+  color: var(--fg);
 }
 
 .lsp-action-danger,
 a.lsp-action-danger:hover {
-  color: var(--bs-danger-text-emphasis);
+  color: var(--danger-text);
 }
 
 .lsp-stat-file {
@@ -975,7 +975,7 @@ a.lsp-action-danger:hover {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--bs-body-color);
+  color: var(--fg);
 }
 
 .lsp-chip::before {
@@ -1225,7 +1225,7 @@ a.lsp-action-danger:hover {
 }
 
 .lsp-reply:hover {
-  border-color: color-mix(in srgb, var(--lsp-border-strong), var(--bs-body-color) 20%);
+  border-color: color-mix(in srgb, var(--lsp-border-strong), var(--fg) 20%);
 }
 
 .lsp-reply textarea {
@@ -1236,7 +1236,7 @@ a.lsp-action-danger:hover {
   border: 0;
   border-radius: 12px;
   background: transparent;
-  color: var(--bs-body-color);
+  color: var(--fg);
   line-height: 1.5;
   resize: none;
   transition: min-height var(--animation-time);
@@ -1314,7 +1314,7 @@ a.lsp-action-danger:hover {
 }
 
 .lsp-layout .lsp-reply-guest a:first-child:hover {
-  color: var(--bs-body-color);
+  color: var(--fg);
 }
 
 .lsp-reply-signup {
@@ -1549,7 +1549,7 @@ a.lsp-action-danger:hover {
   height: 38px;
   padding-inline: 12px;
   border-radius: var(--lsp-control-radius);
-  color: var(--bs-body-color);
+  color: var(--fg);
   font-variant-numeric: tabular-nums;
 }
 
@@ -1558,12 +1558,12 @@ a.lsp-action-danger:hover {
 }
 
 .lsp-page:hover {
-  background: color-mix(in srgb, var(--lsp-surface-2), var(--bs-body-color) 8%);
-  color: var(--bs-body-color);
+  background: color-mix(in srgb, var(--lsp-surface-2), var(--fg) 8%);
+  color: var(--fg);
 }
 
 .lsp-page.active {
-  background: var(--bs-body-color);
+  background: var(--fg);
   color: var(--lsp-surface);
 }
 

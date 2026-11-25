@@ -18,7 +18,7 @@
 
     {% if prev or next %}
         <nav aria-label="{{ 'News navigation'|trans }}">
-            <ul class="pagination pager justify-content-between">
+            <ul class="pager justify-content-between">
                 <li class="page-item {{ not prev ? 'disabled' : '' }}">
                     <a class="page-link" href="{{ prev ? path('news_show', {'date': prev}) : '#' }}" rel="prev">&larr; {{ 'Newer'|trans }}</a>
                 </li>

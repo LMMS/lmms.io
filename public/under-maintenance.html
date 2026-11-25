@@ -6,16 +6,29 @@
 	<title>LMMS | Under Maintenance</title>
 	<meta name="description" content="LMMS is a free, open source, multiplatform digital audio workstation.">
 	<link rel="icon" type="image/png" href="/img/logo_sm.png">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;family=Orbitron:wght@500&amp;family=Titillium+Web:wght@400;600&amp;display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" />
 	<style>
-		/* Standalone subset of assets/styles/app.css, this page is served while the app is down */
+		/* Standalone subset of assets/styles/base.css and app.css, this page is served while the app is down */
+		*, ::before, ::after { box-sizing: border-box; }
 		html, body { height: 100%; }
-		body { display: flex; flex-direction: column; padding-top: 50px; font-family: "Noto Sans", sans-serif; }
-		.navbar-custom { --bs-navbar-padding-y: 0; background: url("/img/hexagon.png") #10b146; }
-		.navbar-brand { padding-block: 14px; color: #fff; font-family: "Orbitron", sans-serif; font-size: 16px; letter-spacing: 1px; line-height: 22px; }
+		body { display: flex; flex-direction: column; margin: 0; padding-top: 50px; color: #212529; font-family: "Noto Sans", sans-serif; line-height: 1.5; -webkit-text-size-adjust: 100%; }
+		h1, h2 { margin: 0 0 0.5rem; font-weight: 500; line-height: 1.2; }
+		h1 { font-size: calc(1.375rem + 1.5vw); }
+		h2 { font-size: calc(1.325rem + 0.9vw); }
+		p { margin: 0 0 1rem; }
+		img { vertical-align: middle; }
+		.container { width: 100%; margin-inline: auto; padding-inline: 0.75rem; }
+		@media (min-width: 576px) { .container { max-width: 540px; } }
+		@media (min-width: 768px) { .container { max-width: 720px; } }
+		@media (min-width: 992px) { .container { max-width: 960px; } }
+		@media (min-width: 1200px) { .container { max-width: 1140px; } h1 { font-size: 2.5rem; } h2 { font-size: 2rem; } }
+		@media (min-width: 1400px) { .container { max-width: 1320px; } }
+		.navbar { position: fixed; top: 0; right: 0; left: 0; z-index: 1030; background: url("/img/hexagon.png") #10b146; }
+		.navbar-brand { display: inline-block; margin-right: 1rem; padding-block: 14px; color: #fff; font-family: "Orbitron", sans-serif; font-size: 16px; letter-spacing: 1px; line-height: 22px; text-decoration: none; white-space: nowrap; }
 		.navbar-brand:hover { color: #fff; }
+		.text-center { text-align: center; }
+		.text-end { text-align: right; }
 		.logo-sm { position: relative; top: -2px; margin-right: 5px; }
 		.error { flex: 1; display: flex; align-items: center; background: url("/img/hexagon.png") 0 -50px, #10b146; color: #fff; font-family: "Titillium Web", sans-serif; }
 		.error a { color: #fff; font-weight: bold; text-decoration: none; box-shadow: inset 0 -2px 0 0 #362a84; }
@@ -27,7 +40,7 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-custom fixed-top">
+	<nav class="navbar">
 		<div class="container">
 			<a class="navbar-brand" href="#"><img alt="LMMS Logo" class="logo-sm" height="22" width="22" src="/img/brand-icon.png">LMMS</a>
 		</div>

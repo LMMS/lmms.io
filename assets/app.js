@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/base.css';
 import './styles/app.css';
 import './smart-navbar.js';
 
@@ -35,7 +35,7 @@ document.querySelectorAll('[data-disclosure]').forEach((toggle) => {
 // remember the picked theme, or forget it when it matches the OS so the site follows the OS again
 document.querySelector('.theme-toggle').addEventListener('click', () => {
     const root = document.documentElement;
-    const theme = root.dataset.bsTheme === 'dark' ? 'light' : 'dark';
+    const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
     const system = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     try {
         if (theme === system) {
@@ -44,5 +44,5 @@ document.querySelector('.theme-toggle').addEventListener('click', () => {
             localStorage.setItem('theme', theme);
         }
     } catch {}
-    root.dataset.bsTheme = theme;
+    root.dataset.theme = theme;
 });

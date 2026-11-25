@@ -2,8 +2,6 @@
 *** Variables ***
 ****************/
 :root {
-  color-scheme: light dark;
-
   --fg-light: #333;
   --fg-dark: hsl(0, 0%, 80%);
   --fg: light-dark(var(--fg-light), var(--fg-dark));
@@ -77,240 +75,6 @@
   --animation-time: 150ms;
 }
 
-/* light-dark() follows the theme the head script picked, which may differ from the OS */
-:root[data-bs-theme="light"] {
-  color-scheme: light;
-}
-
-:root[data-bs-theme="dark"] {
-  color-scheme: dark;
-}
-
-/* Keep the denser 14px base size the site was designed around */
-html {
-  font-size: 87.5%;
-}
-
-:root {
-  --bs-body-color: var(--fg);
-  --bs-body-line-height: 1.428571429;
-}
-
-:root {
-  --bs-primary: #337ab7;
-  --bs-primary-rgb: 51, 122, 183;
-  --bs-secondary: #777;
-  --bs-secondary-rgb: 119, 119, 119;
-  --bs-success: #5cb85c;
-  --bs-success-rgb: 92, 184, 92;
-  --bs-info: #5bc0de;
-  --bs-info-rgb: 91, 192, 222;
-  --bs-warning: #f0ad4e;
-  --bs-warning-rgb: 240, 173, 78;
-  --bs-danger: #d9534f;
-  --bs-danger-rgb: 217, 83, 79;
-  --bs-link-color: var(--col-anchor);
-  --bs-link-hover-color: var(--col-anchor);
-}
-
-/* Alert tints; dark mode keeps Bootstrap's own dark variants */
-:root:not([data-bs-theme="dark"]) {
-  --bs-success-text-emphasis: #3c763d;
-  --bs-success-bg-subtle: #dff0d8;
-  --bs-success-border-subtle: #d6e9c6;
-  --bs-info-text-emphasis: #31708f;
-  --bs-info-bg-subtle: #d9edf7;
-  --bs-info-border-subtle: #bce8f1;
-  --bs-warning-text-emphasis: #8a6d3b;
-  --bs-warning-bg-subtle: #fcf8e3;
-  --bs-warning-border-subtle: #faebcc;
-  --bs-danger-text-emphasis: #a94442;
-  --bs-danger-bg-subtle: #f2dede;
-  --bs-danger-border-subtle: #ebccd1;
-}
-
-.text-bg-info,
-.text-bg-warning {
-  color: #fff !important;
-}
-
-.text-warning {
-  color: light-dark(#8a6d3b, rgb(var(--bs-warning-rgb))) !important;
-}
-
-.text-danger {
-  color: light-dark(#a94442, rgb(var(--bs-danger-rgb))) !important;
-}
-
-.form-control,
-.form-select {
-  color: light-dark(#555, var(--bs-body-color));
-  border-color: light-dark(#ccc, var(--bs-border-color));
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-.form-control,
-.form-select {
-  padding: 6px 12px;
-  line-height: 1.428571429;
-}
-
-.form-select {
-  padding-right: 36px;
-}
-
-/* Bootstrap 3 form layout, which Bootstrap 5 dropped */
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: inline-block;
-  max-width: 100%;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.form-control:focus,
-.form-select:focus {
-  border-color: #66afe9;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-
-.form-check-input:checked {
-  background-color: #337ab7;
-  border-color: #337ab7;
-}
-
-.table {
-  --bs-table-bg: transparent;
-  --bs-table-color: var(--fg);
-  --bs-table-striped-color: var(--fg);
-  --bs-table-striped-bg: rgba(0, 0, 0, 0.025);
-  --bs-table-border-color: light-dark(#ddd, var(--bs-border-color));
-}
-
-.table {
-  margin-bottom: 20px;
-}
-
-/* Row dividers above each row, like Bootstrap 3 */
-.table> :not(caption)>*>* {
-  padding: 8px;
-  border-top-width: var(--bs-border-width);
-  border-bottom-width: 0;
-}
-
-/* Links in navs stay bold like every other link */
-.nav,
-.navbar-nav {
-  --bs-nav-link-font-weight: bold;
-}
-
-.nav-pills .nav-item+.nav-item {
-  margin-left: 2px;
-}
-
-.nav-pills {
-  --bs-nav-link-padding-x: 15px;
-  --bs-nav-link-padding-y: 10px;
-  --bs-nav-pills-border-radius: 4px;
-  --bs-nav-pills-link-active-bg: #337ab7;
-}
-
-.pagination {
-  --bs-pagination-color: var(--col-anchor);
-  --bs-pagination-hover-color: var(--col-anchor);
-  --bs-pagination-focus-color: var(--col-anchor);
-  --bs-pagination-border-color: light-dark(#ddd, var(--bs-border-color));
-  --bs-pagination-hover-border-color: light-dark(#ddd, var(--bs-border-color));
-  --bs-pagination-hover-bg: light-dark(#eee, var(--bs-tertiary-bg));
-  --bs-pagination-focus-bg: light-dark(#eee, var(--bs-tertiary-bg));
-  --bs-pagination-disabled-color: #777;
-  --bs-pagination-disabled-border-color: light-dark(#ddd, var(--bs-border-color));
-  --bs-pagination-active-bg: #337ab7;
-  --bs-pagination-active-border-color: #337ab7;
-}
-
-p {
-  margin-bottom: 10px;
-}
-
-hr {
-  margin: 20px 0;
-}
-
-ul,
-ol {
-  margin-bottom: 10px;
-  padding-left: 40px;
-}
-
-pre {
-  padding: 9.5px;
-  margin-bottom: 10px;
-  font-size: 13px;
-  line-height: 1.428571429;
-  word-break: break-all;
-  overflow-wrap: break-word;
-  background-color: light-dark(#f5f5f5, hsl(0, 0%, 4%));
-  border: 1px solid light-dark(#ccc, #444);
-  border-radius: 4px;
-}
-
-pre code {
-  padding: 0;
-  font-size: inherit;
-  white-space: pre-wrap;
-  background-color: transparent;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  line-height: 1.1;
-}
-
-h4, h5, h6 {
-  margin-top: 10px;
-}
-
-h1 { font-size: 36px; }
-h2 { font-size: 30px; }
-h3 { font-size: 24px; }
-h4 { font-size: 18px; }
-h5 { font-size: 14px; }
-h6 { font-size: 12px; }
-
-.container,
-.row {
-  --bs-gutter-x: 30px;
-}
-
-@media (min-width: 576px) {
-  .container {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 750px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 970px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1170px;
-  }
-}
-
 /* If the browser _doesn't_ support the light-dark() function, set the default value */
 @supports not (background: light-dark(white, black)) {
   :root {
@@ -361,35 +125,12 @@ body {
   flex: 1;
 }
 
-a {
-  color: var(--col-anchor);
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.15s ease-in-out;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.btn:hover,
-.nav-link:hover,
-.page-link:hover {
-  text-decoration: none;
-}
-
-.img-thumbnail {
-  padding: 4px;
-  border-radius: 4px;
-}
-
-/* Bootstrap 3's .well, which Bootstrap 5 dropped */
 .well {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background-color: light-dark(#f5f5f5, var(--bs-tertiary-bg));
-  border: 1px solid light-dark(#e3e3e3, var(--bs-border-color));
+  background-color: light-dark(#f5f5f5, var(--bg-subtle));
+  border: 1px solid light-dark(#e3e3e3, var(--border-color));
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -397,62 +138,7 @@ a:hover {
 .page-header {
   padding-bottom: 9px;
   margin: 40px 0 20px;
-  border-bottom: 1px solid var(--bs-border-color);
-}
-
-.card {
-  --bs-card-border-radius: 1px;
-  --bs-card-inner-border-radius: 3px;
-  --bs-card-spacer-y: 15px;
-  --bs-card-spacer-x: 15px;
-  --bs-card-cap-padding-y: 10px;
-  --bs-card-cap-padding-x: 15px;
-  --bs-card-bg: transparent;
-  --bs-card-border-color: light-dark(#ddd, var(--bs-border-color));
-  --bs-card-cap-bg: light-dark(#f5f5f5, var(--bs-tertiary-bg));
-  margin-bottom: 20px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-}
-
-.card-header .card-title {
-  font-size: 16px;
-  margin: 0;
-}
-
-.card-title>a {
-  color: inherit;
-}
-
-.alert {
-  --bs-alert-padding-x: 15px;
-  --bs-alert-padding-y: 15px;
-  --bs-alert-margin-bottom: 20px;
-  --bs-alert-border-radius: 1px;
-  border: 0;
-}
-
-small,
-.small {
-  font-size: 85%;
-}
-
-/* Previous/next links, styled like Bootstrap 3's .pager */
-.pager {
-  --bs-pagination-padding-x: 14px;
-  --bs-pagination-padding-y: 5px;
-  --bs-pagination-font-size: 14px;
-  --bs-pagination-disabled-bg: var(--bs-pagination-bg);
-  margin: 20px 0;
-  line-height: 1.428571429;
-}
-
-.pager .page-link {
-  border-radius: 15px !important;
-}
-
-blockquote {
-  padding: 10px 20px;
-  border-left: 5px solid var(--bs-border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .fl-tab {
@@ -469,149 +155,18 @@ blockquote {
   max-width: 800px;
 }
 
-/* <details> that slide open where the browser can animate them */
-.disclosure {
-  interpolate-size: allow-keywords;
-}
-
-.disclosure::details-content {
-  block-size: 0;
-  overflow-y: clip;
-  transition: block-size 0.35s ease, content-visibility 0.35s allow-discrete;
-}
-
-.disclosure[open]::details-content {
-  block-size: auto;
-}
-
-.disclosure > summary {
-  list-style: none;
-}
-
-.disclosure > summary::-webkit-details-marker {
-  display: none;
-}
-
-/* a summary that reads as a link */
-.disclosure-link {
-  display: inline-block;
-  color: var(--col-anchor);
-  font-weight: bold;
-}
-
-.disclosure-link:hover {
-  text-decoration: underline;
-}
-
-/* Button base, before the variants below so they can override it */
-.btn {
-  --bs-btn-padding-y: 6px;
-  --bs-btn-padding-x: 12px;
-  --bs-btn-line-height: 1.428571429;
-  --bs-btn-border-width: 0;
-  --bs-btn-border-radius: 1px;
-  margin-bottom: 0;
-}
-
-.btn-lg {
-  --bs-btn-padding-y: 10px;
-  --bs-btn-padding-x: 16px;
-  --bs-btn-font-size: 18px;
-  --bs-btn-line-height: 1.3333333;
-}
-
-.btn-primary {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #337ab7;
-  --bs-btn-border-color: #2e6da4;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #286090;
-  --bs-btn-hover-border-color: #204d74;
-  --bs-btn-focus-shadow-rgb: 51, 122, 183;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #286090;
-  --bs-btn-active-border-color: #204d74;
-  --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #337ab7;
-  --bs-btn-disabled-border-color: #2e6da4;
-}
-
-.btn-success {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #5cb85c;
-  --bs-btn-border-color: #4cae4c;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #449d44;
-  --bs-btn-hover-border-color: #398439;
-  --bs-btn-focus-shadow-rgb: 92, 184, 92;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #449d44;
-  --bs-btn-active-border-color: #398439;
-  --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #5cb85c;
-  --bs-btn-disabled-border-color: #4cae4c;
-}
-
-.btn-info {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #5bc0de;
-  --bs-btn-border-color: #46b8da;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #31b0d5;
-  --bs-btn-hover-border-color: #269abc;
-  --bs-btn-focus-shadow-rgb: 91, 192, 222;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #31b0d5;
-  --bs-btn-active-border-color: #269abc;
-  --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #5bc0de;
-  --bs-btn-disabled-border-color: #46b8da;
-}
-
-.btn-warning {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #f0ad4e;
-  --bs-btn-border-color: #eea236;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #ec971f;
-  --bs-btn-hover-border-color: #d58512;
-  --bs-btn-focus-shadow-rgb: 240, 173, 78;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #ec971f;
-  --bs-btn-active-border-color: #d58512;
-  --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #f0ad4e;
-  --bs-btn-disabled-border-color: #eea236;
-}
-
-.btn-danger {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #d9534f;
-  --bs-btn-border-color: #d43f3a;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #c9302c;
-  --bs-btn-hover-border-color: #ac2925;
-  --bs-btn-focus-shadow-rgb: 217, 83, 79;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #c9302c;
-  --bs-btn-active-border-color: #ac2925;
-  --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #d9534f;
-  --bs-btn-disabled-border-color: #d43f3a;
-}
-
 /* download button bg colors */
 .btn-dl {
-  --bs-btn-color: #fff;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-active-color: #fff;
-  --bs-btn-bg: var(--btn-dl-bg);
-  --bs-btn-hover-bg: var(--btn-dl-bg);
-  --bs-btn-active-bg: var(--btn-dl-bg);
-  --bs-btn-border-width: 1px;
-  --bs-btn-border-color: var(--btn-dl-border);
-  --bs-btn-hover-border-color: var(--btn-dl-border);
-  --bs-btn-active-border-color: var(--btn-dl-border);
+  --btn-color: #fff;
+  --btn-hover-color: #fff;
+  --btn-active-color: #fff;
+  --btn-bg: var(--btn-dl-bg);
+  --btn-hover-bg: var(--btn-dl-bg);
+  --btn-active-bg: var(--btn-dl-bg);
+  --btn-border-width: 1px;
+  --btn-border-color: var(--btn-dl-border);
+  --btn-hover-border-color: var(--btn-dl-border);
+  --btn-active-border-color: var(--btn-dl-border);
   min-width: 16em;
   position: relative;
   margin: 4px;
@@ -706,28 +261,12 @@ div.code-block pre {
   padding: 5px;
 }
 
-code {
-  padding: 2px 4px;
-  font-size: 90%;
-  background-color: var(--wb-dynamic);
-  color: var(--fg-code);
-  border-radius: 4px;
-}
-
 /* navbar styling */
 .navbar-custom {
-  --bs-navbar-padding-y: 0;
-  --bs-navbar-color: var(--fg-navbar);
-  --bs-navbar-hover-color: var(--fg-navbar-hov);
-  --bs-navbar-active-color: var(--fg-navbar-hov);
-  --bs-navbar-brand-color: var(--fg-navbar);
-  --bs-navbar-brand-hover-color: var(--fg-navbar);
-  --bs-navbar-brand-padding-y: 15px;
-  --bs-navbar-brand-margin-end: 15px;
-  --bs-navbar-brand-font-size: 16px;
-  --bs-navbar-nav-link-padding-x: 15px;
-  --bs-navbar-toggler-border-color: transparent;
-  --bs-navbar-toggler-focus-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
   background-color: var(--bg-navbar);
   background-image: url("/img/hexagon.png");
   background-position: 0px 0px;
@@ -736,26 +275,59 @@ code {
   transition: top 0.15s ease-in-out;
 }
 
+.navbar-custom > .container {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .navbar-custom a {
   box-shadow: none;
   text-decoration: none;
 }
 
-.navbar-custom .navbar-brand {
+.navbar-brand {
   height: var(--nav-height);
+  margin-right: 15px;
+  padding-block: 15px;
   font-family: "Orbitron", sans-serif;
+  font-size: 16px;
   letter-spacing: 1px;
   line-height: 22px;
+  color: var(--fg-navbar);
+  white-space: nowrap;
 }
 
-.navbar-custom .navbar-nav {
-  --bs-nav-link-padding-y: 15px;
-  --bs-nav-link-padding-x: 15px;
+.navbar-brand:where(:hover, :focus) {
+  color: var(--fg-navbar);
 }
 
-.navbar-custom .nav-link {
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.navbar-nav .nav-link {
+  padding: 15px;
   line-height: 20px;
+  color: var(--fg-navbar);
   transition: all 0.15s linear;
+}
+
+.navbar-nav .nav-link:where(:hover, :focus),
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: var(--fg-navbar-hov);
+}
+
+.navbar-collapse {
+  flex-grow: 1;
+  flex-basis: 100%;
+  align-items: center;
 }
 
 /* Caret placed like Bootstrap 3's: centered, after a space */
@@ -765,15 +337,16 @@ code {
 }
 
 .navbar-custom .dropdown-menu {
-  --bs-dropdown-border-width: 0;
-  --bs-dropdown-border-radius: 0;
-  --bs-dropdown-bg: var(--border-navbar-hov);
-  --bs-dropdown-link-color: var(--fg-navbar);
-  --bs-dropdown-link-hover-color: var(--border-navbar-hov);
-  --bs-dropdown-link-hover-bg: rgba(255, 255, 255, 0.9);
-  --bs-dropdown-link-active-color: var(--border-navbar-hov);
-  --bs-dropdown-link-active-bg: rgba(255, 255, 255, 0.9);
+  --dropdown-bg: var(--border-navbar-hov);
+  --dropdown-link-color: var(--fg-navbar);
+  --dropdown-link-hover-color: var(--border-navbar-hov);
+  --dropdown-link-hover-bg: rgba(255, 255, 255, 0.9);
+  --dropdown-link-active-color: var(--border-navbar-hov);
+  --dropdown-link-active-bg: rgba(255, 255, 255, 0.9);
+  position: static;
   margin-top: 0;
+  border: 0;
+  border-radius: 0;
   transition: all 0.15s linear;
 }
 
@@ -781,15 +354,24 @@ code {
   transition: all 0.15s linear;
 }
 
-.navbar-custom .navbar-toggler {
+.navbar-toggler {
   align-self: flex-start;
   margin-block: 8px;
   padding: 9px 10px;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--fg-navbar);
+  background-color: transparent;
   border: 0;
   border-radius: 4px;
+  transition: box-shadow 0.15s ease-in-out;
 }
 
-.navbar-custom .icon-bar {
+.navbar-toggler:focus {
+  outline: 0;
+}
+
+.navbar-toggler .icon-bar {
   display: block;
   width: 22px;
   height: 2px;
@@ -797,29 +379,48 @@ code {
   background-color: var(--fg-navbar);
 }
 
-.navbar-custom .icon-bar+.icon-bar {
+.navbar-toggler .icon-bar+.icon-bar {
   margin-top: 4px;
 }
 
-.navbar-custom .navbar-toggler:where(:hover, :focus) {
+.navbar-toggler:where(:hover, :focus) {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* inner bottom border on hover over navbar items*/
+/* the full navbar: one row with the menu always shown */
 @media (min-width: 768px) {
+  .navbar-custom {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
 
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  .navbar-collapse,
   .navbar-collapse-inner {
     display: flex;
+    flex-basis: auto;
+  }
+
+  .navbar-collapse-inner {
     flex-grow: 1;
     align-items: center;
   }
 
+  .navbar-toggler {
+    display: none;
+  }
+
+  /* inner bottom border on hover over navbar items*/
   .navbar-custom .navbar-nav .nav-link:hover {
     box-shadow: inset 0px -4px 0px 0px var(--border-navbar-hov);
   }
 
   /* Dropdown menu appears on :hover and :focus */
   .navbar-custom .dropdown-menu {
+    position: absolute;
     display: block;
     visibility: hidden;
     opacity: 0;
@@ -857,8 +458,8 @@ code {
     min-height: 0;
   }
 
-  .navbar-custom .navbar-nav {
-    --bs-nav-link-padding-y: 10px;
+  .navbar-nav .nav-link {
+    padding-block: 10px;
   }
 
   .navbar-custom .nav-link,
@@ -871,14 +472,14 @@ code {
   }
 
   .navbar-custom .dropdown-menu {
-    --bs-dropdown-bg: transparent;
-    --bs-dropdown-link-hover-bg: transparent;
-    --bs-dropdown-link-active-bg: transparent;
+    --dropdown-bg: transparent;
+    --dropdown-link-hover-bg: transparent;
+    --dropdown-link-active-bg: transparent;
   }
 }
 
-:root[data-bs-theme="dark"] .theme-toggle-dark,
-:root:not([data-bs-theme="dark"]) .theme-toggle-light {
+:root[data-theme="dark"] .theme-toggle-dark,
+:root:not([data-theme="dark"]) .theme-toggle-light {
   display: none;
 }
 
@@ -1099,52 +700,6 @@ a.stack:focus {
   color: var(--fg-stack-hov);
 }
 
-/* Tooltips: the label shows above its element on hover */
-[data-tooltip] {
-  position: relative;
-}
-
-[data-tooltip]::before,
-[data-tooltip]::after {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  z-index: 1080;
-  translate: -50% 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s linear;
-}
-
-/* the arrow */
-[data-tooltip]::before {
-  content: "";
-  border: 0.4rem solid transparent;
-  border-top-color: var(--bw-dynamic);
-  border-bottom: 0;
-}
-
-[data-tooltip]::after {
-  content: attr(data-tooltip);
-  width: max-content;
-  max-width: 200px;
-  margin-bottom: 0.4rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.375rem;
-  background: var(--bw-dynamic);
-  color: var(--wb-dynamic);
-  font: 400 0.875rem/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  text-align: center;
-  white-space: normal;
-}
-
-[data-tooltip]:hover::before,
-[data-tooltip]:hover::after,
-:focus-visible > [data-tooltip]::before,
-:focus-visible > [data-tooltip]::after {
-  opacity: 0.9;
-}
-
 a.social {
   color: var(--fg-social);
   box-shadow: none;
@@ -1252,11 +807,6 @@ a.social:focus {
     width: auto;
     height: auto;
   }
-
-  .modal-custom .modal-dialog {
-    margin-top: 60px;
-    width: 800px;
-  }
 }
 
 /* The video <dialog> fills the window; the video and the close text sit in it on the backdrop */
@@ -1271,19 +821,43 @@ a.social:focus {
   border: 0;
   background: none;
   color: inherit;
-  /* what Bootstrap's .modal sets for the .modal-dialog and .modal-content in it */
-  --bs-modal-margin: 0.5rem;
-  --bs-modal-color: var(--bs-body-color);
-  --bs-modal-bg: var(--bs-body-bg);
-  --bs-modal-border-color: var(--bs-border-color-translucent);
-  --bs-modal-border-width: var(--bs-border-width);
-  --bs-modal-border-radius: var(--bs-border-radius-lg);
+}
+
+/* clicks around the video go through to the dialog, closing it */
+.modal-custom .modal-dialog {
+  position: relative;
+  max-width: 100%;
+  margin: 0.5rem 0.5rem 5px;
+  pointer-events: none;
 }
 
 @media (min-width: 576px) {
-  .modal-custom {
-    --bs-modal-margin: 1.75rem;
+  .modal-custom .modal-dialog {
+    margin-top: 1.75rem;
+    margin-inline: auto;
   }
+}
+
+@media (min-width: 768px) {
+  .modal-custom .modal-dialog {
+    margin-top: 60px;
+    width: 800px;
+  }
+}
+
+.modal-custom .modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+  color: var(--fg);
+  pointer-events: auto;
+  background-color: var(--border-navbar-hov);
+  background-clip: padding-box;
+  border: 1px solid var(--border-translucent);
+  border-radius: 0.5rem;
+  outline: 0;
 }
 
 .modal-custom::backdrop {
@@ -1349,19 +923,9 @@ a.social:focus {
   cursor: default;
 }
 
-.modal-custom .modal-dialog {
-  max-width: 100%;
-  margin-bottom: 5px;
-}
-
-.modal-custom .modal-dialog .modal-content {
-  padding: 5px;
-  background-color: var(--border-navbar-hov);
-}
-
 /* Get Involved Panels */
 .card-custom {
-  --bs-card-border-color: #dedede;
+  --card-border-color: #dedede;
 }
 
 .card-custom>.card-header {
@@ -1373,68 +937,39 @@ a.social:focus {
 }
 
 .btn-default {
-  --bs-btn-color: var(--fg);
-  --bs-btn-bg: var(--bg-btn);
-  --bs-btn-border-width: 1px;
-  --bs-btn-border-color: #c9c9c9;
-  --bs-btn-hover-color: var(--fg);
-  --bs-btn-hover-bg: color-mix(in srgb, var(--bg-btn), var(--fg) 10%);
-  --bs-btn-hover-border-color: #adadad;
-  --bs-btn-active-color: var(--fg);
-  --bs-btn-active-bg: color-mix(in srgb, var(--bg-btn), var(--fg) 10%);
-  --bs-btn-active-border-color: #adadad;
+  --btn-color: var(--fg);
+  --btn-bg: var(--bg-btn);
+  --btn-border-width: 1px;
+  --btn-border-color: #c9c9c9;
+  --btn-hover-color: var(--fg);
+  --btn-hover-bg: color-mix(in srgb, var(--bg-btn), var(--fg) 10%);
+  --btn-hover-border-color: #adadad;
+  --btn-active-color: var(--fg);
+  --btn-active-bg: color-mix(in srgb, var(--bg-btn), var(--fg) 10%);
+  --btn-active-border-color: #adadad;
 }
 
 .btn-outline {
-  --bs-btn-color: #fff;
-  --bs-btn-border-width: 2px;
-  --bs-btn-border-color: #fff;
-  --bs-btn-border-radius: 8px;
-  --bs-btn-hover-color: #706d6d;
-  --bs-btn-hover-bg: #fff;
-  --bs-btn-hover-border-color: #fff;
-  --bs-btn-active-color: #706d6d;
-  --bs-btn-active-bg: #fff;
-  --bs-btn-active-border-color: #fff;
+  --btn-color: #fff;
+  --btn-border-width: 2px;
+  --btn-border-color: #fff;
+  --btn-border-radius: 8px;
+  --btn-hover-color: #706d6d;
+  --btn-hover-bg: #fff;
+  --btn-hover-border-color: #fff;
+  --btn-active-color: #706d6d;
+  --btn-active-bg: #fff;
+  --btn-active-border-color: #fff;
   transition: all 0.15s linear;
 }
 
 .btn-outline#involved {
-  --bs-btn-border-width: 0;
+  --btn-border-width: 0;
   margin-top: 6px;
 }
 
 .btn-xl {
-  --bs-btn-font-size: 24px;
-}
-
-/*
- * nav-tabs style
- */
-.nav-tabs {
-  --bs-nav-link-padding-x: 15px;
-  --bs-nav-link-padding-y: 10px;
-  --bs-nav-tabs-link-active-color: light-dark(#555, var(--bs-emphasis-color));
-  border-bottom: none;
-  line-height: 1.428571429;
-}
-
-.nav-tabs .nav-link {
-  margin-right: 2px;
-  border-radius: 0;
-  border-style: none;
-  border-bottom: 2px solid rgba(0, 0, 0, 0);
-  background-color: var(--wb-dynamic);
-}
-
-.nav-tabs .nav-link:where(:hover, :focus) {
-  border-bottom-color: #75a3ca;
-}
-
-.nav-tabs .nav-link.active {
-  border-style: none;
-  border-bottom: 2px solid #428bca;
-  background-color: var(--wb-dynamic);
+  --btn-font-size: 24px;
 }
 
 .comp-header {
@@ -1574,13 +1109,11 @@ a.social:focus {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .disclosure::details-content,
   .navbar-collapse,
+  .navbar-toggler,
   .modal-custom,
   .modal-custom::backdrop,
-  .modal-custom .modal-dialog,
-  [data-tooltip]::before,
-  [data-tooltip]::after {
+  .modal-custom .modal-dialog {
     transition: none;
   }
 }
