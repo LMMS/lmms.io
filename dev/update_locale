@@ -1,15 +1,11 @@
 #!/bin/bash
-echo "This device currently defined the following locales:"
-locale -a
-
-echo "Updating translation template..."
+# Sync every translations/messages.*.xlf with the keys used in templates and code
 srctop=$(realpath "$(dirname "$0")"/../)
 
 for f in "${srctop}/translations/"messages.*.xlf
 do
-    # Test if PHP/Symfony can load the translation
     locale="$(basename "$f")"
     locale="${locale/.xlf/}"
     locale="${locale/messages./}"
-    ./bin/console translation:extract --force --prefix='' -- "$locale"
+    "${srctop}/bin/console" translation:extract --force --clean --prefix='' -- "$locale"
 done

@@ -13,5 +13,9 @@ trim_trailing_whitespace = true
 [{compose.yaml,compose.*.yaml}]
 indent_size = 2
 
+# Mixed indentation turns Markdown blocks into code blocks
+[templates/competitions.twig]
+indent_style = tab
+
 [*.md]
 trim_trailing_whitespace = false
