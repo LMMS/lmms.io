@@ -6,10 +6,10 @@
 
 {% block content %}
 
-{{ macros.jumbo('News'|trans, 'LMMS announcements mirrored from GitHub Discussions'|trans) }}
+{{ macros.jumbo('News'|trans, 'LMMS announcements mirrored from GitHub Discussions'|trans, false) }}
 <div class="container">
     <article lang="en" class="news-post">
-        {{ entry.bodyHtml|raw }}
+        {{ entry.bodyHtml|nest_headings(1) }}
         <small class="text-body-secondary">
             Published <a href="{{ entry.url }}">{{ entry.date|date('F j, Y, g:i a') }}</a>
             by <a href="https://github.com/{{ entry.author }}">@{{ entry.author }}</a>

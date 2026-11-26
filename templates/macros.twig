@@ -1,9 +1,9 @@
-{# Creates a small Jumbo header #}
-{% macro jumbo(title, subtitle) %}
+{# Creates a small Jumbo header; pass heading = false when the page content has its own h1 #}
+{% macro jumbo(title, subtitle, heading = true) %}
 <div class="jumbotron mini">
 	<div class="container">
-		<h2>{{title}}</h2>
-		<h5>{{subtitle}}</h5>
+		{% if heading %}<h1>{{title}}</h1>{% else %}<p class="h2">{{title}}</p>{% endif %}
+		<p class="h5">{{subtitle}}</p>
 	</div>
 </div>
 {% endmacro %}
@@ -32,7 +32,7 @@
 {% macro create_artwork_item(artwork_name, img_path, raw_path, rendered_path, author_name = '', author_link = '', modified_by = '') %}
 	{% import _self as macros %}
 	<img class="art-thumb" src="{{img_path}}">
-	<h3>{{artwork_name}}</h3>
+	<h2 class="h3">{{artwork_name}}</h2>
 	{% set buttons = [raw_path, rendered_path] %}
 	{% if author_name %}
 		<p><strong>{% trans %}Author:{% endtrans %} </strong><a href="{{author_link}}">{{author_name}}</a><br>

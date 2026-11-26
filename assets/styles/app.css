@@ -543,7 +543,7 @@ footer .locale-switcher .dropdown-menu {
   font-size: 36px;
 }
 
-.jumbotron p {
+.jumbotron p:where(:not(.h1, .h2, .h3, .h4, .h5, .h6)) {
   margin-bottom: 15px;
   font-size: 21px;
   font-weight: 200;
@@ -590,6 +590,10 @@ div.mini {
   min-height: 15vh;
   padding: 5px;
   margin-bottom: 20px;
+}
+
+div.mini h1 {
+  font-size: 30px;
 }
 
 div.error {
@@ -731,7 +735,7 @@ a.social:focus {
   border-bottom-color: #d4d4d4;
 }
 
-.segment#home1 .col-xl-4 :where(h4, p) {
+.segment#home1 .col-xl-4 :where(h3, p) {
   text-align: left;
 }
 
@@ -984,7 +988,10 @@ a.social:focus {
   cursor: hand;
 }
 
-.comp-header span {
+.comp-header h3 {
+  display: inline;
+  margin: 0;
+  font-size: inherit;
   font-family: "Lato", sans-serif;
   line-height: 1.5em;
   font-weight: 300;

@@ -18,7 +18,7 @@
 	<summary class="disclosure-link">{% trans %}Show release notes{% endtrans %}<br>{{ ux_icon('fa6-solid:angle-down') }}</summary>
 	<div id="collapse_{{ divid }}">
 		<div class="release-notes well">
-			{{ notes|gfm_to_html }}
+			{{ notes|gfm_to_html|nest_headings(4) }}
 		</div>
 	</div>
 </details>
