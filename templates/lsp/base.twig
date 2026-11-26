@@ -111,10 +111,4 @@
 {% endblock %}
 {% endblock %}
 
-{# the site loads Noto Sans in 400 and 700 only; the platform's quieter type needs the weights between #}
-{% block stylesheets %}
-    {{ parent() }}
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500;600&amp;display=swap" rel="stylesheet">
-{% endblock %}
-
 {% block importmap %}{{ importmap(['app', 'lsp']) }}{% endblock %}

@@ -33,9 +33,11 @@
         }
     </script>
     {% block stylesheets %}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;family=Titillium+Web:wght@400;600&amp;display=swap" rel="stylesheet">
+    {% include 'fonts.html.twig' %}
+    {# start the fonts with the stylesheets instead of after them #}
+    <link rel="preload" href="{{ asset('fonts/noto-sans-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('fonts/titillium-web-400-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('fonts/titillium-web-600-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
     {% endblock %}
     {% block importmap %}{{ importmap('app') }}{% endblock %}
     {# without JS: show the language list, hide the theme toggle #}
